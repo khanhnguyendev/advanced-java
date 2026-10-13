@@ -20,7 +20,8 @@ const rejectJs = () => {
   throw new Error('js frontmatter is not allowed');
 };
 
-function parse(raw: string) {
+// Hardened frontmatter parser: no JS evaluation, and passing options bypasses gray-matter's global cache.
+export function parse(raw: string) {
   return matter(raw, { engines: { js: rejectJs, javascript: rejectJs } });
 }
 
