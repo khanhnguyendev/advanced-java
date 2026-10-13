@@ -24,25 +24,47 @@ export function rewriteLinkTargets(
     const start: number = node.position.start.offset;
     const end: number = node.position.end.offset;
     const slice = md.slice(start, end);
-    let at: number;
+    const isUnwrap = typeof r === 'object';
+    // Raw destination must be followed by `)`, whitespace or `>`; otherwise the
+    // decoded url may only be a prefix of what is written in the source.
+    const terminated = (i: number) => i < slice.length && /[)\s>]/.test(slice[i]);
+
     if (node.type === 'definition') {
       const colon = slice.indexOf(']:');
-      at = colon === -1 ? -1 : slice.indexOf(node.url, colon);
-      if (at === -1) return void unlocatable.push(node.url);
-      if (typeof r === 'string') edits.push({ start: start + at, end: start + at + node.url.length, text: r });
+      const at = colon === -1 ? -1 : slice.indexOf(node.url, colon);
+      if (at === -1 || !terminated(at + node.url.length) || isUnwrap) return void unlocatable.push(node.url);
+      edits.push({ start: start + at, end: start + at + node.url.length, text: r });
       return;
     }
+
+    if (node.type === 'image') {
+      if (isUnwrap) return void unlocatable.push(node.url);
+      const marker = '](' + node.url;
+      const at = slice.lastIndexOf(marker);
+      if (at === -1 || !terminated(at + marker.length)) return void unlocatable.push(node.url);
+      edits.push({ start: start + at + 2, end: start + at + 2 + node.url.length, text: r });
+      return;
+    }
+
+    // link: destination must start right after the label
+    const labelEnd: number = node.children?.at(-1)?.position?.end?.offset ?? start + 1;
     const marker = '](' + node.url;
-    at = slice.lastIndexOf(marker);
-    if (at === -1) return void unlocatable.push(node.url);
-    if (typeof r === 'object') {
-      if (node.type === 'link') edits.push({ start, end, text: slice.slice(1, at) });
+    if (!md.startsWith(marker, labelEnd) || !terminated(labelEnd - start + marker.length)) {
+      return void unlocatable.push(node.url);
+    }
+    const at = labelEnd - start;
+    if (isUnwrap) {
+      // two small deletions so nested edits (e.g. a rewritten image) never overlap
+      edits.push({ start, end: start + 1, text: '' }, { start: start + at, end, text: '' });
       return;
     }
     edits.push({ start: start + at + 2, end: start + at + 2 + node.url.length, text: r });
   });
 
   edits.sort((a, b) => b.start - a.start);
+  for (let i = 1; i < edits.length; i++) {
+    if (edits[i].end > edits[i - 1].start) throw new Error('overlapping link edits');
+  }
   let text = md;
   for (const e of edits) text = text.slice(0, e.start) + e.text + text.slice(e.end);
   return { text, unlocatable };
@@ -81,8 +103,10 @@ export function classifyLink(url: string, env: LinkEnv): Classified {
   const doc = env.slugByUpstream.get(key);
   if (doc) return `doc:${env.collection}/${doc.section}/${doc.slug}${frag}`;
   const sec = env.sectionReadmes.get(key);
-  if (sec) return `section:${env.collection}/${sec}`;
-  if (key === 'docs/index.md') return 'home:';
+  if (sec || key === 'docs/index.md') {
+    if (frag !== '') return { fail: `fragment not supported on section/home link ${url} (from ${env.sourceFile})` };
+    return sec ? `section:${env.collection}/${sec}` : 'home:';
+  }
   if (env.promos.has(key)) return { unwrap: true };
   return { fail: `unresolved internal link ${url} -> ${key} (from ${env.sourceFile})` };
 }

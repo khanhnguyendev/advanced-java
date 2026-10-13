@@ -50,6 +50,13 @@ describe('classifyLink', () => {
   });
 });
 
+describe('classifyLink fragments on section/home', () => {
+  it('fails on a fragment after a section README or index link', () => {
+    expect(classifyLink('./README.md#top', env)).toEqual({ fail: expect.stringContaining('README.md#top') });
+    expect(classifyLink('../index.md#top', env)).toEqual({ fail: expect.stringContaining('index.md#top') });
+  });
+});
+
 describe('rewriteLinkTargets', () => {
   it('rewrites link and image destinations in place without reformatting the rest', () => {
     const md = 'Intro  text  with   spacing.\n\nSee [a](./x.md) and ![i](./images/d.png "t").\n';
@@ -72,5 +79,55 @@ describe('rewriteLinkTargets', () => {
     const md = '[a](<./sp ace.md>)\n';
     const { unlocatable } = rewriteLinkTargets(md, () => 'doc:c/a/x');
     expect(unlocatable).toEqual(['./sp ace.md']);
+  });
+  it('unwraps a link that wraps a rewritten image without corrupting output', () => {
+    const { text } = rewriteLinkTargets('A [![i](./images/d.png)](./offer.md) B\n', (url, kind) =>
+      kind === 'image' ? 'asset:x/y/d.png' : { unwrap: true },
+    );
+    expect(text).toBe('A ![i](asset:x/y/d.png) B\n');
+  });
+  it('rewrites several links on one line, including the same url twice', () => {
+    const { text } = rewriteLinkTargets('[a](./x.md) and [b](./x.md) and [c](./y.md)\n', (url) =>
+      url === './x.md' ? 'doc:c/a/x' : 'doc:c/a/y',
+    );
+    expect(text).toBe('[a](doc:c/a/x) and [b](doc:c/a/x) and [c](doc:c/a/y)\n');
+  });
+  it('rewrites links inside a table cell and a list item', () => {
+    const md = '| h | i |\n| - | - |\n| [a](./x.md) | b |\n\n- item [c](./x.md)\n';
+    const { text, unlocatable } = rewriteLinkTargets(md, () => 'doc:c/a/x');
+    expect(text).toBe('| h | i |\n| - | - |\n| [a](doc:c/a/x) | b |\n\n- item [c](doc:c/a/x)\n');
+    expect(unlocatable).toEqual([]);
+  });
+  it('reports a destination containing an entity as unlocatable', () => {
+    const { text, unlocatable } = rewriteLinkTargets('[a](./a&amp;b.md)\n', () => 'doc:c/a/x');
+    expect(unlocatable).toEqual(['./a&b.md']);
+    expect(text).toBe('[a](./a&amp;b.md)\n');
+  });
+  it('leaves a percent-encoded external url untouched', () => {
+    const md = '[a](https://example.com/a%20b.md)\n';
+    const { text, unlocatable } = rewriteLinkTargets(md, (url) => (url.startsWith('http') ? null : 'doc:c/a/x'));
+    expect(text).toBe(md);
+    expect(unlocatable).toEqual([]);
+  });
+  it('reports an unwrapped image or reference definition as unlocatable', () => {
+    const img = rewriteLinkTargets('![i](./offer.md)\n', () => ({ unwrap: true }));
+    expect(img.unlocatable).toEqual(['./offer.md']);
+    expect(img.text).toBe('![i](./offer.md)\n');
+    const def = rewriteLinkTargets('[r]: ./offer.md\n\n[x][r]\n', (url) => (url === './offer.md' ? { unwrap: true } : null));
+    expect(def.unlocatable).toContain('./offer.md');
+  });
+  it('rewrites a reference-style definition destination', () => {
+    const { text } = rewriteLinkTargets('[x][r]\n\n[r]: ./x.md "t"\n', () => 'doc:c/a/x');
+    expect(text).toBe('[x][r]\n\n[r]: doc:c/a/x "t"\n');
+  });
+  it('does not mistake a url repeated inside the title for the destination', () => {
+    const md = '[a](./x.md "](./x.md")\n';
+    const { text, unlocatable } = rewriteLinkTargets(md, () => 'doc:c/a/x');
+    expect(unlocatable).toEqual([]);
+    expect(text).toBe('[a](doc:c/a/x "](./x.md")\n');
+  });
+  it('reports a destination whose decoded form differs from the raw source as unlocatable', () => {
+    const r = rewriteLinkTargets('[a](./a\\_b.md)\n', () => 'doc:c/a/x');
+    expect(r.unlocatable).toEqual(['./a_b.md']);
   });
 });

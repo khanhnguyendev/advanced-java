@@ -14,4 +14,8 @@ describe('sanitizeSlug', () => {
   it('normalizes case and separators', () => {
     expect(sanitizeSlug('Hello_World  Doc.md')).toBe('hello-world-doc');
   });
+  it('throws when nothing usable remains', () => {
+    expect(() => sanitizeSlug('---.md')).toThrow();
+    expect(() => sanitizeSlug('中文.md')).toThrow();
+  });
 });
