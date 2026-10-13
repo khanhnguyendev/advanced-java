@@ -1,9 +1,11 @@
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { loadCollection } from '@/lib/content/collection';
 import { availableLocales, chainFor, resolveDoc, zhHashOf } from '@/lib/content/fallback';
 import { canonicalHash } from '@/lib/content/hash';
-import { headingsFor } from '@/lib/content/headings-index';
+import { __resetHeadingsMemo, headingsFor } from '@/lib/content/headings-index';
 
 const root = path.resolve(__dirname, '../fixtures/content');
 const c = loadCollection(root, 'demo');
@@ -43,10 +45,49 @@ describe('fallback chain', () => {
     expect(resolveDoc(root, c, 'vi', 'alpha', 'nope')).toBeNull();
   });
 
-  it('returns null for unsafe section or slug without touching files', () => {
+  it('guard: section that normalises to an existing file is rejected', () => {
+    // path.join normalises 'x/../alpha' to 'alpha', so only the guard can yield null
+    expect(resolveDoc(root, c, 'zh', 'x/../alpha', 'intro')).toBeNull();
+    expect(availableLocales(root, c, 'x/../alpha', 'intro')).toEqual([]);
+    expect(() => zhHashOf(root, c, 'x/../alpha', 'intro')).toThrow(/invalid section\/slug/);
+  });
+
+  it('guard: traversal and uppercase slugs are rejected', () => {
     expect(resolveDoc(root, c, 'zh', 'alpha', '../x')).toBeNull();
-    expect(resolveDoc(root, c, 'zh', '../alpha', 'intro')).toBeNull();
     expect(resolveDoc(root, c, 'zh', 'alpha', 'Intro')).toBeNull();
+  });
+
+  it('frontmatter is undefined when a translated file has no source; Date coerced to string', () => {
+    const tmp = mkdtempSync(path.join(os.tmpdir(), 'fm-'));
+    const d = path.join(tmp, 'demo');
+    mkdirSync(path.join(d, 'en', 'alpha'), { recursive: true });
+    mkdirSync(path.join(d, 'zh', 'alpha'), { recursive: true });
+    writeFileSync(path.join(d, 'collection.json'), JSON.stringify(c));
+    writeFileSync(path.join(d, 'zh', 'alpha', 'intro.md'), '# 介绍\n');
+    writeFileSync(path.join(d, 'en', 'alpha', 'intro.md'), '---\ntitle: x\n---\n\n# Hi\n');
+    expect(resolveDoc(tmp, c, 'en', 'alpha', 'intro')!.frontmatter).toBeUndefined();
+    const withDate = resolveDoc(root, c, 'en', 'alpha', 'intro')!;
+    expect(withDate.frontmatter!.translatedAt).toBe('2026-10-13');
+  });
+
+  it('rejects js frontmatter', () => {
+    const tmp = mkdtempSync(path.join(os.tmpdir(), 'js-'));
+    const d = path.join(tmp, 'demo');
+    mkdirSync(path.join(d, 'en', 'alpha'), { recursive: true });
+    writeFileSync(path.join(d, 'en', 'alpha', 'intro.md'), '---js\n({a: 1})\n---\n\n# Hi\n');
+    expect(() => resolveDoc(tmp, c, 'en', 'alpha', 'intro')).toThrow(/js frontmatter is not allowed/);
+  });
+
+  it('strips leading CRLF from the body', () => {
+    const tmp = mkdtempSync(path.join(os.tmpdir(), 'crlf-'));
+    const d = path.join(tmp, 'demo');
+    mkdirSync(path.join(d, 'en', 'alpha'), { recursive: true });
+    writeFileSync(
+      path.join(d, 'en', 'alpha', 'intro.md'),
+      '---\r\nsource:\r\n  locale: zh\r\n  slug: intro\r\n  hash: h\r\nstatus: machine\r\ntranslatedAt: 2026-10-13\r\n---\r\n\r\n# Hi\r\n',
+    );
+    const r = resolveDoc(tmp, c, 'en', 'alpha', 'intro')!;
+    expect(r.body.startsWith('# Hi')).toBe(true);
   });
 
   it('lists available locales', () => {
@@ -68,5 +109,16 @@ describe('headingsFor', () => {
   });
   it('returns null for a missing doc', () => {
     expect(headingsFor(root, c, 'vi', 'alpha', 'nope')).toBeNull();
+  });
+  it('does not memoize outside production', () => {
+    __resetHeadingsMemo();
+    const tmp = mkdtempSync(path.join(os.tmpdir(), 'hm-'));
+    const d = path.join(tmp, 'demo');
+    mkdirSync(path.join(d, 'zh', 'alpha'), { recursive: true });
+    const f = path.join(d, 'zh', 'alpha', 'intro.md');
+    writeFileSync(f, '# T\n\n## One\n');
+    expect(headingsFor(tmp, c, 'zh', 'alpha', 'intro')!.map((h) => h.text)).toEqual(['One']);
+    writeFileSync(f, '# T\n\n## Two\n');
+    expect(headingsFor(tmp, c, 'zh', 'alpha', 'intro')!.map((h) => h.text)).toEqual(['Two']);
   });
 });
