@@ -8,7 +8,7 @@ export function DocHeader({
   requestedName,
   servedName,
   originalHref,
-  contentLang,
+  titleLang,
   servedIsOriginal,
 }: {
   catalogId: string;
@@ -17,8 +17,8 @@ export function DocHeader({
   requestedName: string;
   servedName: string;
   originalHref: string;
-  /** BCP-47 tag of the served content; the title is content, not UI chrome. */
-  contentLang: string;
+  /** BCP-47 tag of the language the title is written in; omitted when unknown (slug fallback). */
+  titleLang?: string;
   /** false when the served doc is itself a translation (fallback between translated locales). */
   servedIsOriginal: boolean;
 }) {
@@ -26,7 +26,7 @@ export function DocHeader({
   return (
     <header className="doc-header">
       <p className="doc-id mono">{catalogId}</p>
-      <h1 lang={contentLang}>{title}</h1>
+      <h1 lang={titleLang}>{title}</h1>
       {notices.map((n) => (
         <p key={n} role="note" className="notice">
           {n === 'fallback' &&

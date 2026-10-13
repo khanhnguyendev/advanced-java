@@ -38,7 +38,8 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
   const [q, setQ] = useState('');
   const [hits, setHits] = useState<SearchHit[]>([]);
   const [open, setOpen] = useState(true);
-  const [settled, setSettled] = useState(''); // the trimmed query the current hits belong to
+  // which engine and `${locale}|${trimmed query}` the current hits belong to
+  const [settled, setSettled] = useState<{ engine: SearchEngine; key: string } | null>(null);
   const [hint, setHint] = useState('⌘K');
   const input = useRef<HTMLInputElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
@@ -59,9 +60,10 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
   useEffect(() => {
     let live = true;
     const query = q.trim();
+    const key = `${locale}|${query}`;
     if (!query) {
       setHits([]);
-      setSettled('');
+      setSettled(null);
       return;
     }
     const timer = setTimeout(() => {
@@ -70,12 +72,12 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
         .then((r) => {
           if (!live) return;
           setHits(rankHits(r).slice(0, 10));
-          setSettled(query);
+          setSettled({ engine, key });
         })
         .catch(() => {
           if (!live) return;
           setHits([]);
-          setSettled(query);
+          setSettled({ engine, key });
         });
     }, DEBOUNCE_MS);
     return () => {
@@ -84,7 +86,8 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
     };
   }, [q, locale, engine]);
 
-  const shown = open && settled === q.trim() ? hits : [];
+  const shown =
+    open && settled && settled.engine === engine && settled.key === `${locale}|${q.trim()}` ? hits : [];
 
   return (
     <div

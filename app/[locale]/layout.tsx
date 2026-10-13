@@ -2,6 +2,7 @@ import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { fontVariables } from '@/app/fonts';
+import { themeScript } from '@/app/theme-script';
 import { routing } from '@/i18n/routing';
 import { siteUrl } from '@/lib/seo';
 import '../globals.css';
@@ -30,8 +31,7 @@ export default async function LocaleLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html:
-              "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}",
+            __html: themeScript,
           }}
         />
       </head>

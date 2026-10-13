@@ -71,6 +71,18 @@ describe('LanguageSwitcher', () => {
     expect(document.cookie).not.toContain('NEXT_LOCALE=en');
   });
 
+  it('leaves modified and non-primary clicks on the current locale to the browser', () => {
+    const navigate = vi.fn();
+    render(wrap(<LanguageSwitcher items={items} current="en" navigate={navigate} />));
+    const link = screen.getByRole('link', { name: /English/ });
+    for (const init of [{ ctrlKey: true }, { metaKey: true }, { shiftKey: true }, { altKey: true }, { button: 1 }]) {
+      expect(fireEvent.click(link, init)).toBe(true); // not default-prevented
+    }
+    expect(fireEvent.click(link)).toBe(false); // plain click stays a no-op
+    expect(navigate).not.toHaveBeenCalled();
+    expect(document.cookie).not.toContain('NEXT_LOCALE=en');
+  });
+
   it('puts lang on the label and hrefLang on the link', () => {
     render(wrap(<LanguageSwitcher items={items} current="en" />));
     const link = screen.getByRole('link', { name: /中文/ });

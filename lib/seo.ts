@@ -33,6 +33,8 @@ export function sitemapEntries(root: string): SitemapEntry[] {
       const have = availableLocales(root, c, d.section, d.slug);
       const alternates: Record<string, string> = {};
       for (const l of have) alternates[HREFLANG[l]] = `/${l}/${id}/${d.section}/${d.slug}`;
+      const def = have.includes('en') ? 'en' : c.sourceLocale;
+      alternates['x-default'] = `/${def}/${id}/${d.section}/${d.slug}`;
       for (const l of have) out.push({ path: `/${l}/${id}/${d.section}/${d.slug}`, alternates });
     }
   }
@@ -40,7 +42,10 @@ export function sitemapEntries(root: string): SitemapEntry[] {
 }
 
 export function siteUrl(): string {
-  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  return 'http://localhost:3000';
+  const raw =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'http://localhost:3000');
+  return raw.replace(/\/+$/, '');
 }

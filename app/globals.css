@@ -80,6 +80,7 @@ body {
 
 .topbar { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; border-bottom: 1px solid var(--rule); background: var(--paper); flex-wrap: wrap; }
 .lang-switcher ul { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; margin: 0; padding: 0; list-style: none; }
+.lang-switcher a { position: relative; }
 .lang-marker { display: none; }
 .topbar-slot { grid-column: 1 / -1; position: sticky; top: 0; z-index: 5; }
 .rail, .toc-rail { padding: 1rem; font-size: 0.9rem; }

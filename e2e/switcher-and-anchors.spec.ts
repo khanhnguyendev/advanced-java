@@ -10,11 +10,12 @@ async function expectClearOfBar(page: Page, selector: string) {
         page.evaluate((sel) => {
           const top = document.querySelector(sel)!.getBoundingClientRect().top;
           const barBottom = document.querySelector('.topbar-slot')!.getBoundingClientRect().bottom;
-          return top >= barBottom - 1 && top < innerHeight;
+          const vh = innerHeight;
+          return { top, barBottom, vh, ok: top >= barBottom - 1 && top < vh };
         }, selector),
       { message: `${selector} below the sticky bar and inside the viewport` },
     )
-    .toBe(true);
+    .toMatchObject({ ok: true });
 }
 
 for (const width of [1280, 375]) {
@@ -25,6 +26,10 @@ for (const width of [1280, 375]) {
     info.annotations.push({ type: 'topbar-height', description: `${width}px: ${h}px` });
     await expect.poll(async () => page.evaluate(() => scrollY)).toBeGreaterThan(0);
     await expectClearOfBar(page, '[data-hi="3"]');
+    // status glyph marker is a narrow-screen affordance only (css: max-width 640px)
+    const marker = page.locator('.lang-switcher .lang-marker').first();
+    if (width === 375) await expect(marker).toBeVisible();
+    else await expect(marker).toBeHidden();
   });
 }
 

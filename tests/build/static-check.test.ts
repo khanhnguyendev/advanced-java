@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { checkStaticBuild, type StaticCheckInput } from '../../scripts/assert-static-build';
+import { checkStaticBuild, strictManifestProblems, type StaticCheckInput } from '../../scripts/assert-static-build';
 
 const good: StaticCheckInput = {
   prerenderedRoutes: {
@@ -39,5 +39,27 @@ describe('checkStaticBuild', () => {
       prerenderedPatterns: { '/[locale]/[collection]/[section]/[slug]': { fallback: null } },
     });
     expect(r.join('\n')).toMatch(/dynamicParams|fallback/i);
+  });
+});
+
+describe('strictManifestProblems', () => {
+  const ok = { '/en/c/a/x': { initialRevalidateSeconds: false as const, initialStatus: 200 } };
+  it('passes a clean manifest', () => {
+    expect(strictManifestProblems(['/en/c/a/x'], ok)).toEqual([]);
+  });
+  it('fails when no doc routes are expected', () => {
+    expect(strictManifestProblems([], ok).join('\n')).toMatch(/content root empty/);
+  });
+  it('fails when initialRevalidateSeconds is missing', () => {
+    expect(strictManifestProblems(['/en/c/a/x'], { '/en/c/a/x': {} }).join('\n')).toMatch(/initialRevalidateSeconds/);
+  });
+  it('fails when an expected route has a non-200 initialStatus', () => {
+    const r = strictManifestProblems(['/en/c/a/x'], {
+      '/en/c/a/x': { initialRevalidateSeconds: false, initialStatus: 404 },
+    });
+    expect(r.join('\n')).toMatch(/404/);
+  });
+  it('accepts an absent initialStatus', () => {
+    expect(strictManifestProblems(['/en/c/a/x'], { '/en/c/a/x': { initialRevalidateSeconds: false } })).toEqual([]);
   });
 });

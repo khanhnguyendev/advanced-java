@@ -10,7 +10,8 @@ function apply(theme: Theme) {
   if (theme === 'system') el.removeAttribute('data-theme');
   else el.setAttribute('data-theme', theme);
   try {
-    window.localStorage.setItem('theme', theme);
+    if (theme === 'system') window.localStorage.removeItem('theme');
+    else window.localStorage.setItem('theme', theme);
   } catch {
     /* storage unavailable: theme still applies for this page */
   }
@@ -19,14 +20,11 @@ function apply(theme: Theme) {
 export function ThemeToggle() {
   const t = useTranslations('nav');
   const [theme, setTheme] = useState<Theme>('system');
-  // Start as 'system' so server and first client render match, then adopt the saved choice.
+  // Start as 'system' so server and first client render match, then adopt what the
+  // pre-hydration script already applied to <html>.
   useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem('theme');
-      if (saved === 'light' || saved === 'dark') setTheme(saved);
-    } catch {
-      /* storage unavailable: keep 'system' */
-    }
+    const applied = document.documentElement.getAttribute('data-theme');
+    if (applied === 'light' || applied === 'dark') setTheme(applied);
   }, []);
   const next: Theme = theme === 'system' ? 'dark' : theme === 'dark' ? 'light' : 'system';
   return (
