@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+ref/
+public/_content
+.env
+.env.*
+!.env.example
+.translation/
+.search-gate/
+.superpowers/
+test-results
+playwright-report
+*.tsbuildinfo
+.DS_Store
