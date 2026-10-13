@@ -6,7 +6,7 @@ export interface CollectionStats { collection: string; total: number; perLocale:
 
 export function collectionStats(root: string, c: CollectionConfig): CollectionStats {
   const docs = listDocs(c);
-  const perLocale = { en: 0, vi: 0, zh: 0 } as Record<Locale, number>;
+  const perLocale = Object.fromEntries(LOCALES.map((l) => [l, 0])) as Record<Locale, number>;
   for (const l of LOCALES) {
     perLocale[l] = docs.filter((d) => existsSync(docFile(root, c.id, l, d.section, d.slug))).length;
   }

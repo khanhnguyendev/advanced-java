@@ -1,6 +1,7 @@
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { DocList } from '@/components/DocList';
 import { Sidebar } from '@/components/Sidebar';
 import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
@@ -50,21 +51,11 @@ export default async function SectionPage({
       <Sidebar nav={nav} currentSlug="" />
       <main id="main-content" className="reader">
         <div className="prose">
+          <p className="ui breadcrumb">
+            <a href={`/${loc}/${collection}`}>{c.id}</a>
+          </p>
           <h1>{sec.title}</h1>
-          {sec.groups.map((g) => (
-            <section key={g.id}>
-              <h2>{g.title}</h2>
-              <ul>
-                {g.docs.map((d) => (
-                  <li key={d.slug}>
-                    <a href={d.href} data-status={d.status}>
-                      <span className="doc-id mono">{d.catalogId}</span> {d.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
+          <DocList groups={sec.groups} />
         </div>
       </main>
       <div className="toc-rail" />

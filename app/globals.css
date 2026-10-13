@@ -98,3 +98,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* shelf, index pages, about */
+.shelf { background: var(--paper); padding: 2rem clamp(1rem, 4vw, 3rem); max-width: 60rem; margin-inline: auto; }
+.spines { list-style: none; margin: 1.5rem 0; padding: 0; }
+.spines li { padding: 0.75rem 1rem; border-bottom: 1px dotted var(--rule); }
+.spine-title { font-size: 1.4rem; font-weight: 600; }
+.spines a { color: var(--ink); text-decoration: none; }
+.spines a:hover .spine-title { color: var(--accent); }
+.spines dl { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin: 0.4rem 0 0; color: var(--ink-muted); }
+.spines dt, .spines dd { display: inline; margin: 0; }
+.spines dt::after { content: ' '; }
+.doc-status { font-size: 0.8rem; color: var(--ink-muted); }
+.breadcrumb { margin: 0 0 0.5rem; font-size: 0.9rem; }
+.image-credits { font-size: 0.85rem; columns: 2 18rem; }

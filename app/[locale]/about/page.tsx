@@ -1,8 +1,13 @@
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { AboutContent } from '@/components/AboutContent';
+import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
+import { listImageCredits } from '@/lib/assets';
 import { contentRoot, listCollections, loadCollection } from '@/lib/content/collection';
+import type { Locale } from '@/lib/content/types';
+import { indexSwitcher } from '@/lib/switcher';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -15,36 +20,24 @@ export default async function About({ params }: { params: Promise<{ locale: stri
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const t = await getTranslations('about');
-  const a = await getTranslations('attribution');
+  const loc = locale as Locale;
+  const names = await getTranslations('languages');
+  const site = await getTranslations('site');
   const root = contentRoot();
-  const upstream = listCollections(root).map((id) => loadCollection(root, id).upstream);
+  const collections = listCollections(root).map((id) => {
+    const c = loadCollection(root, id);
+    return { id, repo: c.upstream.repo, commit: c.upstream.commit, images: listImageCredits(root, c) };
+  });
   return (
-    <main id="main-content" className="reader">
-      <article className="prose">
-        <h1>{t('title')}</h1>
-        <p>
-          {t('codeLicense')} <a href="https://opensource.org/license/mit">MIT</a>
-        </p>
-        <p>
-          {t('contentLicense')} <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA-4.0</a>
-        </p>
-        <p>
-          {a('credit')}. <a href="https://github.com/doocs/advanced-java">doocs/advanced-java</a>
-        </p>
-        <p>
-          {a('changesZh')}. {a('changesTranslated')}.
-        </p>
-        <h2>{t('imageCredits')}</h2>
-        <p>{t('images')}</p>
-        <ul>
-          {upstream.map((u) => (
-            <li key={u.commit}>
-              <a href={`${u.repo}/tree/${u.commit}`}>{u.repo}</a> @ <span className="mono">{u.commit}</span>
-            </li>
-          ))}
-        </ul>
-      </article>
-    </main>
+    <>
+      <TopBar
+        locale={loc}
+        collectionId=""
+        collectionTitle={site('title')}
+        homeHref={`/${loc}`}
+        switcher={indexSwitcher('/about', (l) => names(l))}
+      />
+      <AboutContent collections={collections} />
+    </>
   );
 }

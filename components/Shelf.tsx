@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import type { Locale } from '@/lib/content/types';
+import { LOCALES, type Locale } from '@/lib/content/types';
 
 export interface ShelfItem {
   collection: string;
@@ -22,9 +22,9 @@ export function Shelf({ locale, items }: { locale: Locale; items: ShelfItem[] })
               <span className="spine-title">{it.title}</span>
             </a>
             <dl className="ui">
-              {(['en', 'vi', 'zh'] as Locale[]).map((l) => (
+              {LOCALES.map((l) => (
                 <div key={l}>
-                  <dt className="ui-cjk">{t(`languages.${l}`)}</dt>
+                  <dt className="ui-cjk" lang={l === 'zh' ? 'zh-Hans' : l}>{t(`languages.${l}`)}</dt>
                   <dd className="mono">{`${it.perLocale[l]} / ${it.total}`}</dd>
                 </div>
               ))}
