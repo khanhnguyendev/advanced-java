@@ -23,6 +23,7 @@ import { LOCALES, type CollectionConfig, type Locale } from '@/lib/content/types
 import { buildNav, flatDocs, switcherStatus } from '@/lib/nav';
 import { computeNotices } from '@/lib/notices';
 import { extractHeadings } from '@/lib/render/headings';
+import { fsLinkTargets } from '@/lib/render/links';
 import { renderMarkdown } from '@/lib/render/pipeline';
 import { docAlternates } from '@/lib/seo';
 import { docShape, stepsFor } from '@/lib/steps';
@@ -78,6 +79,7 @@ export default async function DocPage({
       collection,
       routeLocale: loc,
       currentHeadings: extractHeadings(doc.body),
+      ...fsLinkTargets(root),
       headingsOf: (cc, ss, sl) =>
         listCollections(root).includes(cc) ? headingsFor(root, loadCollection(root, cc), loc, ss, sl) : null,
     },

@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { parse } from '@/lib/content/fallback';
 import { renderMarkdown } from '@/lib/render/pipeline';
 
-const ctx = { collection: 'demo', routeLocale: 'zh' as const, headingsOf: () => null };
+const ctx = { collection: 'demo', routeLocale: 'zh' as const, headingsOf: () => null, assetExists: () => true, sectionExists: () => true };
 const h1s = (html: string) => (html.match(/<h1[\s>]/g) ?? []).length;
 
 describe('doc body H1', () => {

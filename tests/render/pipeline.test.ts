@@ -41,6 +41,8 @@ const ctx: LinkContext = {
     c === 'demo' && s === 'alpha' && slug === 'second'
       ? [{ index: 3, depth: 2, text: 'Third part', id: 'h3-third-part' }]
       : null,
+  assetExists: () => true,
+  sectionExists: () => true,
 };
 
 const decode = (s: string) =>
