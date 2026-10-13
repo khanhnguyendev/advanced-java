@@ -19,6 +19,12 @@ export function ReadingModeToggle() {
         setOn(next);
         if (next) document.documentElement.setAttribute('data-reading', 'on');
         else document.documentElement.removeAttribute('data-reading');
+        try {
+          if (next) window.localStorage.setItem('reading', 'on');
+          else window.localStorage.removeItem('reading');
+        } catch {
+          /* storage unavailable: reading mode still applies for this page */
+        }
       }}
     >
       {t('readingMode')}

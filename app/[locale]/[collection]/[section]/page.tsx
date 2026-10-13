@@ -3,6 +3,7 @@ import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { DocList } from '@/components/DocList';
+import { Attribution } from '@/components/Attribution';
 import { Sidebar } from '@/components/Sidebar';
 import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
@@ -63,13 +64,14 @@ export default async function SectionPage({
         />
       </div>
       <Sidebar nav={nav} currentSlug="" />
-      <main id="main-content" className="reader">
+      <main id="main-content" tabIndex={-1} className="reader">
         <div className="prose">
           <nav className="ui breadcrumb" aria-label={tn('collections')}>
             <a href={`/${loc}/${collection}`}>{c.id}</a>
           </nav>
           <h1>{sec.title}</h1>
           <DocList groups={sec.groups} />
+          <Attribution aboutHref={`/${loc}/about`} />
         </div>
       </main>
       <div className="toc-rail" />

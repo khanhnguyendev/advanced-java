@@ -16,7 +16,7 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
   const stop = a('stop');
   const name = (l: Locale) => <span lang={l === 'zh' ? 'zh-Hans' : l}>{names(l)}</span>;
   return (
-    <main id="main-content" className="reader">
+    <main id="main-content" tabIndex={-1} className="reader">
       <article className="prose">
         <h1>{t('title')}</h1>
         <p>

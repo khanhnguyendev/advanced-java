@@ -14,7 +14,8 @@
     "next": "Tiếp",
     "home": "Trang chủ",
     "collections": "Sổ tay",
-    "sidebar": "Tài liệu"
+    "sidebar": "Tài liệu",
+    "skip": "Chuyển đến nội dung"
   },
   "doc": {
     "fallbackNotice": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản gốc {served}.",

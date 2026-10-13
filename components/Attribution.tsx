@@ -5,8 +5,10 @@ export function Attribution({
   fileUrl,
   aboutHref,
 }: {
-  kind: 'zh' | 'translated';
-  fileUrl: string;
+  /** omitted on index pages, where no single document is being attributed */
+  kind?: 'zh' | 'translated';
+  /** omitted on index pages: the upstream file link is shown only on a document page */
+  fileUrl?: string;
   aboutHref: string;
 }) {
   const t = useTranslations('attribution');
@@ -18,10 +20,18 @@ export function Attribution({
         {stop}
         {t('credit')}
         {stop}
-        {kind === 'zh' ? t('changesZh') : t('changesTranslated')}
-        {stop}
-        <a href={fileUrl}>{t('sourceFile')}</a>
-        {stop}
+        {kind ? (
+          <>
+            {kind === 'zh' ? t('changesZh') : t('changesTranslated')}
+            {stop}
+          </>
+        ) : null}
+        {fileUrl ? (
+          <>
+            <a href={fileUrl}>{t('sourceFile')}</a>
+            {stop}
+          </>
+        ) : null}
         <a href={aboutHref}>{t('aboutLink')}</a>
       </p>
     </footer>

@@ -221,3 +221,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   .spines li { grid-template-columns: minmax(0, 1fr); }
   .spine-ids { grid-row: auto; padding-top: 0; }
 }
+
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  transform: translateY(-120%);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: none;
+  outline: 2px solid var(--ink);
+  outline-offset: 0;
+}
+main:focus { outline: none; }
+main { scroll-margin-top: var(--topbar-h); }
+.skip-link, .skip-link:hover { color: var(--accent-ink); text-decoration-color: currentColor; }

@@ -67,7 +67,7 @@ export function createPagefindEngine(collection: string, load: PagefindLoader = 
       try {
         const pf = await getModule();
         if (!pf) return [];
-        const res = await pf.search(query, { filters: { collection } });
+        const res = await pf.search(query, collection ? { filters: { collection } } : undefined);
         const hits: SearchHit[] = await Promise.all(
           res.results.slice(0, 20).map(async (r) => {
             const d = await r.data();

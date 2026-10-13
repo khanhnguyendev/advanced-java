@@ -23,6 +23,7 @@ import { LOCALES, type CollectionConfig, type Locale } from '@/lib/content/types
 import { buildNav, flatDocs, switcherStatus } from '@/lib/nav';
 import { computeNotices } from '@/lib/notices';
 import { extractHeadings } from '@/lib/render/headings';
+import { fsLinkTargets } from '@/lib/render/links';
 import { renderMarkdown } from '@/lib/render/pipeline';
 import { docAlternates } from '@/lib/seo';
 import { docShape, stepsFor } from '@/lib/steps';
@@ -78,6 +79,7 @@ export default async function DocPage({
       collection,
       routeLocale: loc,
       currentHeadings: extractHeadings(doc.body),
+      ...fsLinkTargets(root),
       headingsOf: (cc, ss, sl) =>
         listCollections(root).includes(cc) ? headingsFor(root, loadCollection(root, cc), loc, ss, sl) : null,
     },
@@ -128,7 +130,7 @@ export default async function DocPage({
         </MobileNav>
       </div>
       <Sidebar nav={nav} currentSlug={slug} />
-      <main id="main-content" className="reader">
+      <main id="main-content" tabIndex={-1} className="reader">
         <div className="doc-col">
         <DocHeader
           catalogId={c.ids[slug]}
@@ -136,7 +138,7 @@ export default async function DocPage({
           notices={notices}
           requestedName={names(loc)}
           servedName={names(doc.served)}
-          originalHref={upstreamUrl}
+          originalHref={`/${c.sourceLocale}/${collection}/${section}/${slug}`}
           titleLang={titleLang}
           servedIsOriginal={doc.served === c.sourceLocale}
         />
