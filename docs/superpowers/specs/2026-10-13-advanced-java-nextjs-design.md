@@ -41,7 +41,7 @@ Product context: `PRODUCT.md` (project root). Upstream reference checkout: `ref/
 ## 3. Upstream facts this design rests on (checked 2026-10-13)
 
 - 92 `.md` files under `ref/docs`: 81 docs, 6 section `README.md`, 4 promo pages (`extra-page/advanced`, `offer`, `rights-defending-action`, `subscriptions-for-doocs`), 1 home (`index.md`). 5 content sections (`high-concurrency`, `distributed-system`, `high-availability`, `micro-services`, `big-data`) plus `extra-page`.
-- Order, grouping and nav titles: `docs/.vitepress/config.mts` (79 sidebar link entries; 78 resolve to files, 1 is an external GitHub link). 3 content docs exist outside the sidebar (`topk-problems-and-solutions`, `redis-rehash`, `advantages-and-disadvantages-of-microservice`). The **root `README.md`** is the only file that lists all three, each next to a known neighbor (`redis-rehash` after `redis-production-environment`, `advantages-and-disadvantages-of-microservice` after `choose-microservice-deployment-strategy`, `topk-problems-and-solutions` after `find-rank-top-500-numbers`). `redis-rehash` and `advantages-and-disadvantages-of-microservice` also appear in one section README each; `topk-problems-and-solutions` appears in none.
+- Order, grouping and nav titles: `docs/.vitepress/config.mts` (78 sidebar doc entries, all resolve to files; the GitHub URL I first counted lives in `socialLinks`, so there are 0 external sidebar entries). 3 content docs exist outside the sidebar (`topk-problems-and-solutions`, `redis-rehash`, `advantages-and-disadvantages-of-microservice`). The **root `README.md`** is the only file that lists all three, each next to a known neighbor (`redis-rehash` after `redis-production-environment`, `advantages-and-disadvantages-of-microservice` after `choose-microservice-deployment-strategy`, `topk-problems-and-solutions` after `find-rank-top-500-numbers`). `redis-rehash` and `advantages-and-disadvantages-of-microservice` also appear in one section README each; `topk-problems-and-solutions` appears in none.
 - Links: 96 internal doc links (77 relative `.md`, 19 absolute `/docs/…md`), 0 unresolved. **By source:** 80 live in the 6 section READMEs (not imported, so they disappear with their files) and 16 in imported docs. **By target:** 92 → docs, 1 → a section README (`high-availability/sentinel-vs-hystrix.md` → `./README.md`), 3 → promo pages (all from `extra-page/README.md`, itself not imported), 0 → `index.md`. Of the 16 links in imported docs, 15 target docs and 1 targets a section README. Also 130 external; 0 `github.com/.../blob/` links; 1 in-page anchor (`#circuitBreaker.sleepWindowInMilliseconds`).
 - Images: 129 references, all `./images/…` relative to the section; no remote images in docs.
 - No VitePress-only syntax. Raw HTML in 11 files (6 section READMEs with promo table + CDN image, 5 others).
@@ -96,7 +96,7 @@ Input `ref/docs` + `config.mts` + root `README.md`. Output `content/advanced-jav
    Links whose **source** file is skipped (step 8) are not processed; they are dropped together with their file. That removes 80 section-README links and the 3 promo links in `extra-page/README.md`.
 6. **In-page anchor** `#circuitBreaker.sleepWindowInMilliseconds`: remapped to `#h<n>` by matching the VitePress-style heading slug in the source doc to the heading index; fails if unmatched.
 7. **Raw HTML**: promo tables, CDN images, `iframe`, styled `div`/`p` stripped; `br` and tables kept (allowlist in section 5).
-8. **Skipped, listed in the report**: `index.md` (replaced by our home), the 6 section `README.md` (section pages are generated from `collection.json`), the 4 promos, the external GitHub sidebar entry.
+8. **Skipped, listed in the report**: `index.md` (replaced by our home), the 6 section `README.md` (section pages are generated from `collection.json`), the 4 promos.
 9. Records upstream commit `1a35221`.
 
 ### 4.5 Locale-neutral links
@@ -187,7 +187,7 @@ remark-parse → remark-gfm → remark-rehype{allowDangerousHtml}
 - Links are resolved **before** sanitize, so the sanitizer only ever sees real `http`/`https`/`mailto` URLs and same-site relative paths; the custom schemes (`doc:`, `section:`, `home:`, `asset:`) never need to be allowed through it. Raw HTML `<a href="doc:…">` is resolved too. An unresolvable custom-scheme link makes the resolver throw (build error), so nothing can reach the sanitizer unresolved.
 - Sanitize runs **before** ids and highlighting, so it can never prefix ids with `user-content-` or strip highlight classes; those are produced by our own plugins after it.
 
-**Schema.** Allows the markdown/GFM element set, `br`, `img` and the table family. `a[href]` protocols: `http`, `https`, `mailto`, plus relative paths and fragments. `img[src]` restricted to the `/_content/` path prefix (remote images are rejected; upstream has none). Drops `script`, `iframe`, `style`, `on*` attributes and inline `style`; `javascript:` and other protocols are stripped. Authored `id`/`class` are not allowed through. `clobberPrefix: ''` is set as a belt-and-braces guard.
+**Schema.** Allows the markdown/GFM element set, `br`, `sub`, `sup`, `img` and the table family (imported docs contain raw `<sub>`/`<sup>`/`<br>`). `a[href]` protocols: `http`, `https`, `mailto`, plus relative paths and fragments. `img[src]` restricted to the `/_content/` path prefix (remote images are rejected; upstream has none). Drops `script`, `iframe`, `style`, `on*` attributes and inline `style`; `javascript:` and other protocols are stripped. Authored `id`/`class` are not allowed through. `clobberPrefix: ''` is set as a belt-and-braces guard.
 
 **Heading ids.** `h<index>-<readable-slug>`. `index` = 1-based order of `h2`–`h6` headings in the document (the h1 is the title and has no index; upstream uses h2–h5, 6 h5 headings in total). The TOC and margin column display `h2`–`h4` only, but every `h2`–`h6` heading is indexed so deep links to h5 still resolve. Each heading also carries `data-hi="<index>"`. The slug part is derived from the heading text of the rendered locale and is purely decorative.
 
@@ -429,22 +429,22 @@ ref/                            # upstream checkout, untracked, excluded
 
 | ID | Unverified claim | Verified by (plan phase) |
 |---|---|---|
-| U1 | `next-intl` `createMiddleware` works as the default export of `proxy.ts` on Next 16.x (type-level only so far), including the Node-only proxy runtime and the section 6.2 matcher | P3 i18n/routing: smoke test of the negotiation cases and the unprefixed redirect |
-| U2 | `setRequestLocale` is the correct static-rendering API in `next-intl@4.14.9` with the App Router layout | P3: build with the assertion in section 7 |
-| U3 | `revalidate = false` / `dynamicParams = false` segment config is accepted under the pinned Next 16 minor with `cacheComponents` off | P3: build succeeds, assertion passes; if not accepted, record the equivalent setting and revisit D15 |
-| U4 | `next/font/google` handles `Noto Serif SC` with `preload: false` and serves `unicode-range` slices, giving zero CJK bytes on vi/en pages | P4 UI shell: the E2E network check in section 10 |
-| U5 | Pagefind and Orama CJK behavior | P5 search gate (section 10.1) |
-| U6 | Shiki output classes and styles survive in the final HTML after `rehype-sanitize` ordering | P2 render pipeline: fixture test (section 5) |
-| U7 | VitePress heading-slug algorithm can be replicated to remap `#circuitBreaker.sleepWindowInMilliseconds` | P1 import |
-| U8 | Vercel Git integration works for the owner's account type (Hobby vs Pro, private vs public repo); docs verified, account not | P8 deploy |
-| U9 | Token cost of translation (estimate only) | P6 pilot report |
-| U10 | Glyph coverage: Vietnamese diacritics in `Source Serif 4` / `Be Vietnam Pro` / `JetBrains Mono`, Han in `Noto Serif SC` | P4: glyph coverage check across all three locales |
-| U11 | The `.next` manifest format in the pinned Next 16 minor supports the build assertion (section 7) | P3: implement and run the assertion script |
-| U12 | The `[...rest]` catch-all is the only non-prerendered route and the assertion's allow-list works; `notFound()` there renders the localized 404 | P3: build assertion + E2E `/vi/foo/bar` |
-| U13 | next-intl's negotiation honors a `NEXT_LOCALE` cookie written by our switcher (name, path, format) | P3: E2E cookie-via-switcher case |
-| U14 | The AST-canonical hash (4.7) is stable across formatting-only fixture pairs, and across minor `remark` bumps within the pinned range | P1 import: unit tests with formatting-only fixture pairs; versions pinned |
-| U15 | Build-time heading index lookup for `doc:…#h<n>` produces the same ids the heading plugin emits at render | P2 render pipeline: fixture test |
-| U16 | Provenance of the upstream images (third-party or not) | P1 import: report; owner review |
+| U1 | `next-intl` `createMiddleware` works as the default export of `proxy.ts` on Next 16.x (type-level only so far), including the Node-only proxy runtime and the section 6.2 matcher | P3 i18n/routing: smoke test of the negotiation cases and the unprefixed redirect  **Status:** verified in Task 13: 307 redirects, 200, 404 smoke on next start; proxy export accepted by Next 16.4.0 |
+| U2 | `setRequestLocale` is the correct static-rendering API in `next-intl@4.14.9` with the App Router layout | P3: build with the assertion in section 7  **Status:** verified in Task 13: `setRequestLocale` static build with assertion OK |
+| U3 | `revalidate = false` / `dynamicParams = false` segment config is accepted under the pinned Next 16 minor with `cacheComponents` off | P3: build succeeds, assertion passes; if not accepted, record the equivalent setting and revisit D15  **Status:** verified in Task 13: build OK with `cacheComponents: false`, `revalidate=false`, `dynamicParams=false` |
+| U4 | `next/font/google` handles `Noto Serif SC` with `preload: false` and serves `unicode-range` slices, giving zero CJK bytes on vi/en pages | P4 UI shell: the E2E network check in section 10  **Status:** verified in Task 25: vi page with a real translation requests 0 CJK font files; fallback zh page requests some, not all (per weight) |
+| U5 | Pagefind and Orama CJK behavior | P5 search gate (section 10.1)  **Status:** verified in Task 23: Pagefind chosen (zh 20/20, vi 10/10, en 14/14, first search 187,704 B gzip); re-run after the full translation run |
+| U6 | Shiki output classes and styles survive in the final HTML after `rehype-sanitize` ordering | P2 render pipeline: fixture test (section 5)  **Status:** verified in Task 10: fixture test |
+| U7 | VitePress heading-slug algorithm can be replicated to remap `#circuitBreaker.sleepWindowInMilliseconds` | P1 import  **Status:** verified in Task 7: lenient anchor matching (heading is a linked heading); remap works |
+| U8 | Vercel Git integration works for the owner's account type (Hobby vs Pro, private vs public repo); docs verified, account not | P8 deploy  **Status:** OPEN: needs the owner's GitHub repo + Vercel account type; docs verified only |
+| U9 | Token cost of translation (estimate only) | P6 pilot report  **Status:** pilot measured (Task 22 report); full-run cost still an estimate |
+| U10 | Glyph coverage: Vietnamese diacritics in `Source Serif 4` / `Be Vietnam Pro` / `JetBrains Mono`, Han in `Noto Serif SC` | P4: glyph coverage check across all three locales  **Status:** partly verified in Task 15/25 (build fonts, no CJK bytes); visual glyph check in the Impeccable finish review |
+| U11 | The `.next` manifest format in the pinned Next 16 minor supports the build assertion (section 7) | P3: implement and run the assertion script  **Status:** verified in Task 13: manifest shapes recorded in docs/superpowers/decisions/next-build-manifests.md |
+| U12 | The `[...rest]` catch-all is the only non-prerendered route and the assertion's allow-list works; `notFound()` there renders the localized 404 | P3: build assertion + E2E `/vi/foo/bar`  **Status:** verified in Task 13/25: catch-all is the only dynamic route; localized 404 e2e |
+| U13 | next-intl's negotiation honors a `NEXT_LOCALE` cookie written by our switcher (name, path, format) | P3: E2E cookie-via-switcher case  **Status:** verified in Task 25: cookie written by the switcher wins over Accept-Language |
+| U14 | The AST-canonical hash (4.7) is stable across formatting-only fixture pairs, and across minor `remark` bumps within the pinned range | P1 import: unit tests with formatting-only fixture pairs; versions pinned  **Status:** verified in Task 3: unit tests with formatting-only fixtures (hash v1) |
+| U15 | Build-time heading index lookup for `doc:…#h<n>` produces the same ids the heading plugin emits at render | P2 render pipeline: fixture test  **Status:** verified in Task 9/10: resolver + parity tests |
+| U16 | Provenance of the upstream images (third-party or not) | P1 import: report; owner review  **Status:** OPEN: provenance of images unknown; listed under About > Image credits (Task 18); owner decision pending |
 
 ## 15. Open items for the owner
 
@@ -453,3 +453,15 @@ ref/                            # upstream checkout, untracked, excluded
 3. Pilot doc selection (5 proposed in 9.3).
 4. `PRODUCT.md` "Users" is still inferred, not confirmed.
 5. Image provenance (section 12): decide how to treat images of unknown origin (keep under original terms with credits, as specified, or replace).
+
+## 16. Implementation notes and deviations (recorded 2026-10-14, after execution)
+
+Decisions taken during implementation that refine or deviate from the sections above:
+
+1. **Raw HTML in prose.** Valid-looking tags that are not on the allow-list (for example `List<String>`, `Class<T>`) are escaped to literal text by a remark step before rendering (they would otherwise vanish). Imported docs may carry only `br`, `sub`, `sup` and table elements as raw HTML; anything else fails the import and is rejected by `check:translations`.
+2. **Title and H1.** The page header renders the title; the body's first top-level H1 is stripped so every doc page has exactly one `<h1>` (with the served content `lang`).
+3. **Review state.** `reviewedHash` (canonical hash of the translation body at review time) is stored with `status: reviewed`; `pnpm check:translations --mark-reviewed <collection>/<locale>/<slug>` is the owner-only way to set both. Exceptions use `{ "<locale>/<section>/<slug>": [{ "code", "reason" }] }` and are reported when applied.
+4. **Search.** Pagefind 1.5.2 (decision recorded in docs/superpowers/decisions/search-engine.md). Index generated at build from the content corpus; each page's `<html lang>` is the route locale; fallback docs are flagged by meta; vi indexes carry an accent-folded duplicate.
+5. **Top bar.** `.topbar-slot` is the single sticky element; `--topbar-h` is measured at runtime (ResizeObserver) and drives `scroll-margin-top` and the anchor offset. At ≤640px the switcher shows a short status marker (● ◐ ○) plus screen-reader text.
+6. **Deviations not built.** The spec's §8.2 mobile *bottom bar* (prev/next + language) was not built; the sticky top bar and drawer serve that role. Comments remain out of v1.
+7. **Cost of translation.** See docs/superpowers/reports/pilot-report.md; the full run (Task 26) is gated on owner approval.
