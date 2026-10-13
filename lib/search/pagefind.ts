@@ -8,7 +8,6 @@ interface PagefindData {
   meta: Record<string, string | undefined>;
 }
 export interface PagefindModule {
-  options(o: { language: string }): Promise<void> | void;
   search(
     q: string,
     o?: { filters?: Record<string, string> },
@@ -46,15 +45,19 @@ export function createPagefindEngine(collection: string, load: PagefindLoader = 
   // Pagefind 1.5.2 takes its language from <html lang>, which the route layout sets to the route locale,
   // so no options({ language }) call is needed (it would be a no-op).
   const getModule = () => {
-    loaded ??= (async () => {
+    if (loaded) return loaded;
+    let p: Promise<PagefindModule | null> | null = null;
+    p = (async () => {
+      await null; // yield so a synchronously throwing loader fails after `loaded` is assigned
       try {
         return await load();
       } catch {
-        loaded = null; // index missing (e.g. `next dev` before a build): retry on the next focus/query
+        if (loaded === p) loaded = null; // index missing (e.g. `next dev` before a build): retry next time
         return null;
       }
     })();
-    return loaded;
+    loaded = p;
+    return p;
   };
   return {
     warm() {

@@ -2,7 +2,7 @@
   "site": { "title": "advanced-java", "tagline": "Java architecture, explained" },
   "nav": {
     "search": "Search",
-    "resultsCount": "{count} results",
+    "resultsCount": "{count, plural, one {# result} other {# results}}",
     "language": "Language",
     "theme": "Theme",
     "themeValue": { "light": "Light", "dark": "Dark", "system": "System" },

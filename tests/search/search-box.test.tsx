@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { SearchBox } from '@/components/SearchBox';
 import type { SearchEngine, SearchHit } from '@/lib/search/types';
 import en from '../../messages/en.json';
@@ -72,15 +72,56 @@ describe('SearchBox', () => {
     await new Promise((r) => setTimeout(r, 20));
     expect(screen.getAllByRole('link').map((a) => a.getAttribute('href'))).toEqual(['/vi/c/s/fast']);
   });
-  it('swallows engine failures', async () => {
-    const bad: SearchEngine = { search: () => Promise.reject(new Error('boom')) };
+  it('swallows engine failures and clears earlier hits', async () => {
+    const spy = vi.fn(async (q: string) => {
+      if (q === 'queue') return (await engine.search(q, 'vi')) as SearchHit[];
+      throw new Error('boom');
+    });
     render(
       <NextIntlClientProvider locale="en" messages={en}>
-        <SearchBox locale="vi" engine={bad} />
+        <SearchBox locale="vi" engine={{ search: spy }} />
       </NextIntlClientProvider>,
     );
-    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'queue' } });
-    await new Promise((r) => setTimeout(r, 20));
+    const box = screen.getByRole('searchbox');
+    fireEvent.change(box, { target: { value: 'queue' } });
+    await waitFor(() => expect(screen.getAllByRole('link')).toHaveLength(2));
+    fireEvent.change(box, { target: { value: 'boom' } });
+    await waitFor(() => expect(spy).toHaveBeenCalledWith('boom', 'vi'));
+    await act(async () => {
+      await Promise.resolve();
+    });
     expect(screen.queryAllByRole('link')).toHaveLength(0);
+  });
+  it('keeps the popup when blur has no related target but mousedown is on the results', async () => {
+    wrap();
+    const box = screen.getByRole('searchbox');
+    fireEvent.change(box, { target: { value: 'queue' } });
+    await waitFor(() => expect(screen.getAllByRole('link')).toHaveLength(2));
+    const link = screen.getAllByRole('link')[0];
+    // mousedown on the list is default-prevented so focus (and the popup) stays put
+    const notPrevented = fireEvent.mouseDown(link);
+    expect(notPrevented).toBe(false);
+    fireEvent.click(link);
+    expect(screen.getAllByRole('link')[0].getAttribute('href')).toBe('/vi/c/hc/why-mq');
+    expect(document.body.contains(link)).toBe(true);
+  });
+  it('hides previous hits as soon as the query changes, before the new search resolves', async () => {
+    let release!: (h: SearchHit[]) => void;
+    const slow: SearchEngine = {
+      search: (q) => (q === 'queue' ? engine.search(q, 'vi') : new Promise((r) => (release = r))),
+    };
+    render(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <SearchBox locale="vi" engine={slow} />
+      </NextIntlClientProvider>,
+    );
+    const box = screen.getByRole('searchbox');
+    fireEvent.change(box, { target: { value: 'queue' } });
+    await waitFor(() => expect(screen.getAllByRole('link')).toHaveLength(2));
+    fireEvent.change(box, { target: { value: 'queues' } });
+    expect(screen.queryAllByRole('link')).toHaveLength(0);
+    expect(screen.queryByText('2 results')).toBeNull();
+    await waitFor(() => expect(release).toBeTypeOf('function'));
+    release([]);
   });
 });

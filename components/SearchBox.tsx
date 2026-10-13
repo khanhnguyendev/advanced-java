@@ -38,6 +38,7 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
   const [q, setQ] = useState('');
   const [hits, setHits] = useState<SearchHit[]>([]);
   const [open, setOpen] = useState(true);
+  const [settled, setSettled] = useState(''); // the trimmed query the current hits belong to
   const [hint, setHint] = useState('⌘K');
   const input = useRef<HTMLInputElement>(null);
   const wrap = useRef<HTMLDivElement>(null);
@@ -57,15 +58,25 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
 
   useEffect(() => {
     let live = true;
-    if (!q.trim()) {
+    const query = q.trim();
+    if (!query) {
       setHits([]);
+      setSettled('');
       return;
     }
     const timer = setTimeout(() => {
       engine
         .search(q, locale)
-        .then((r) => live && setHits(rankHits(r).slice(0, 10)))
-        .catch(() => live && setHits([]));
+        .then((r) => {
+          if (!live) return;
+          setHits(rankHits(r).slice(0, 10));
+          setSettled(query);
+        })
+        .catch(() => {
+          if (!live) return;
+          setHits([]);
+          setSettled(query);
+        });
     }, DEBOUNCE_MS);
     return () => {
       live = false;
@@ -73,7 +84,7 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
     };
   }, [q, locale, engine]);
 
-  const shown = open ? hits : [];
+  const shown = open && settled === q.trim() ? hits : [];
 
   return (
     <div
@@ -113,7 +124,8 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
         {q.trim() && shown.length > 0 ? t('resultsCount', { count: shown.length }) : ''}
       </div>
       {shown.length > 0 && (
-        <ul className="search-results" style={listStyle}>
+        // keep input focus on mousedown so the blur handler does not close the popup before the click lands
+        <ul className="search-results" style={listStyle} onMouseDown={(e) => e.preventDefault()}>
           {shown.map((h) => (
             <li key={h.href}>
               <a href={h.href}>

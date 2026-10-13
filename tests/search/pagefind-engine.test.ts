@@ -6,11 +6,9 @@ const result = (score: number, meta: Record<string, string>, excerpt: string, ur
   data: async () => ({ url, excerpt, meta }),
 });
 
-function fake(results: ReturnType<typeof result>[]): PagefindModule & { searched: unknown[]; opts: unknown[] } {
+function fake(results: ReturnType<typeof result>[]): PagefindModule & { searched: unknown[] } {
   const f = {
     searched: [] as unknown[],
-    opts: [] as unknown[],
-    options: async (o: unknown) => void f.opts.push(o),
     search: async (q: string, o?: unknown) => {
       f.searched.push([q, o]);
       return { results };
@@ -57,6 +55,17 @@ describe('pagefind engine mapping', () => {
     expect(await engine.search('q', 'vi')).toEqual([]);
     expect((await engine.search('q', 'vi')).map((h) => h.slug)).toEqual(['a']);
     expect(calls).toBe(2);
+  });
+  it('retries after a synchronously throwing loader', async () => {
+    const pf = fake([result(1, { slug: 'a', title: 'A', href: '/vi/c/s/a' }, '')]);
+    let calls = 0;
+    const engine = createPagefindEngine('c', (() => {
+      calls += 1;
+      if (calls === 1) throw new Error('sync');
+      return Promise.resolve(pf);
+    }) as () => Promise<PagefindModule>);
+    expect(await engine.search('q', 'vi')).toEqual([]);
+    expect((await engine.search('q', 'vi')).map((h) => h.slug)).toEqual(['a']);
   });
   it('returns [] when the index cannot load or search fails', async () => {
     const missing = createPagefindEngine('c', async () => {
