@@ -1,11 +1,14 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function ReadingModeToggle() {
   const t = useTranslations('nav');
   const [on, setOn] = useState(false);
+  useEffect(() => {
+    setOn(document.documentElement.getAttribute('data-reading') === 'on');
+  }, []);
   return (
     <button
       type="button"

@@ -4,6 +4,7 @@
     "search": "Tìm kiếm",
     "language": "Ngôn ngữ",
     "theme": "Giao diện",
+    "themeValue": { "light": "Sáng", "dark": "Tối", "system": "Theo hệ thống" },
     "readingMode": "Chế độ đọc",
     "menu": "Menu",
     "contents": "Mục lục",

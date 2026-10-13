@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark' | 'system';
 
@@ -19,18 +19,26 @@ function apply(theme: Theme) {
 export function ThemeToggle() {
   const t = useTranslations('nav');
   const [theme, setTheme] = useState<Theme>('system');
+  // Start as 'system' so server and first client render match, then adopt the saved choice.
+  useEffect(() => {
+    try {
+      const saved = window.localStorage.getItem('theme');
+      if (saved === 'light' || saved === 'dark') setTheme(saved);
+    } catch {
+      /* storage unavailable: keep 'system' */
+    }
+  }, []);
   const next: Theme = theme === 'system' ? 'dark' : theme === 'dark' ? 'light' : 'system';
   return (
     <button
       type="button"
       className="ui"
-      aria-label={t('theme')}
       onClick={() => {
         apply(next);
         setTheme(next);
       }}
     >
-      {t('theme')}: {theme}
+      {t('theme')}: {t(`themeValue.${theme}`)}
     </button>
   );
 }

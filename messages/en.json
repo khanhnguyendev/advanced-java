@@ -4,6 +4,7 @@
     "search": "Search",
     "language": "Language",
     "theme": "Theme",
+    "themeValue": { "light": "Light", "dark": "Dark", "system": "System" },
     "readingMode": "Reading mode",
     "menu": "Menu",
     "contents": "Contents",
