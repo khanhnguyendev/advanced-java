@@ -31,6 +31,12 @@ describe('pagefind engine mapping', () => {
     ]);
     expect(pf.searched).toEqual([['queue', { filters: { collection: 'c' } }]]);
   });
+  it('searches without a filter when the collection is empty (home and about pages)', async () => {
+    const pf = fake([result(1, { slug: 'a', title: 'A', href: '/vi/c/s/a' }, '')]);
+    const hits = await createPagefindEngine('', async () => pf).search('q', 'vi');
+    expect(hits).toHaveLength(1);
+    expect(pf.searched).toEqual([['q', undefined]]);
+  });
   it('ranks native before fallback at equal score', async () => {
     const pf = fake([
       result(1, { title: 'F', slug: 'f', section: 's', lang: 'zh', fallback: 'true', href: '/vi/c/s/f' }, ''),
