@@ -1,8 +1,13 @@
 import { hasLocale } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { contentRoot, listCollections, loadCollection } from '@/lib/content/collection';
+import { Sidebar } from '@/components/Sidebar';
+import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
+import { contentRoot, listCollections, loadCollection } from '@/lib/content/collection';
+import type { Locale } from '@/lib/content/types';
+import { buildNav } from '@/lib/nav';
+import { indexSwitcher } from '@/lib/switcher';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -16,17 +21,37 @@ export default async function CollectionPage({ params }: { params: Promise<{ loc
   const { locale, collection } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const c = loadCollection(contentRoot(), collection);
+  const loc = locale as Locale;
+  const root = contentRoot();
+  const c = loadCollection(root, collection);
+  const names = await getTranslations('languages');
+  const nav = buildNav(root, c, loc);
   return (
-    <main>
-      <h1>{c.id}</h1>
-      <ul>
-        {c.sections.map((s) => (
-          <li key={s.id}>
-            <a href={`/${locale}/${collection}/${s.id}`}>{s.id}</a>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <div className="shell">
+      <div style={{ gridColumn: '1 / -1' }}>
+        <TopBar
+          locale={loc}
+          collectionId={c.id}
+          collectionTitle={c.id}
+          homeHref={`/${loc}`}
+          switcher={indexSwitcher(`/${collection}`, (l) => names(l))}
+        />
+      </div>
+      <Sidebar nav={nav} currentSlug="" />
+      <main id="main-content" className="reader">
+        <div className="prose">
+          <h1>{c.id}</h1>
+          <ul>
+            {nav.map((s) => (
+              <li key={s.id}>
+                <a href={`/${loc}/${collection}/${s.id}`}>{s.title}</a>{' '}
+                <span className="mono">{s.groups.reduce((n, g) => n + g.docs.length, 0)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </main>
+      <div className="toc-rail" />
+    </div>
   );
 }
