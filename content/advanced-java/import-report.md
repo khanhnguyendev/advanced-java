@@ -3,12 +3,12 @@
 - upstream: https://github.com/doocs/advanced-java @ 1a35221e471fa3adf8997895268fd18b36f27c01
 - docs imported: 81
 - sections: high-concurrency, distributed-system, high-availability, micro-services, big-data
-- images copied: 127
+- images copied: 126 (127 image references)
 
 ## Skipped files
 - docs/big-data/README.md: section index, generated from collection.json
 - docs/distributed-system/README.md: section index, generated from collection.json
-- docs/extra-page/README.md: section index, generated from collection.json
+- docs/extra-page/README.md: promo section index, not imported
 - docs/extra-page/advanced.md: promo page, not imported
 - docs/extra-page/offer.md: promo page, not imported
 - docs/extra-page/rights-defending-action.md: promo page, not imported
@@ -17,9 +17,11 @@
 - docs/high-concurrency/README.md: section index, generated from collection.json
 - docs/index.md: home page replaced by our own
 - docs/micro-services/README.md: section index, generated from collection.json
-- docs/big-data/topk-problems-and-solutions.md: unlisted in sidebar; placed after its root-README predecessor
-- docs/high-concurrency/redis-rehash.md: unlisted in sidebar; placed after its root-README predecessor
-- docs/micro-services/advantages-and-disadvantages-of-microservice.md: unlisted in sidebar; placed after its root-README predecessor
+
+## Unlisted docs placed via root README (3)
+- docs/big-data/topk-problems-and-solutions.md (placed after docs/big-data/find-rank-top-500-numbers.md)
+- docs/high-concurrency/redis-rehash.md (placed after docs/high-concurrency/redis-production-environment.md)
+- docs/micro-services/advantages-and-disadvantages-of-microservice.md (placed after docs/micro-services/choose-microservice-deployment-strategy.md)
 
 ## External sidebar entries skipped
 - none
@@ -199,7 +201,6 @@
 - micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease.png (245561 bytes)
 - micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-cancellease-sequence-chart.png (141416 bytes)
 - micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart.png (126165 bytes)
-- micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart.png (147840 bytes)
 - micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-renew-sequence-chart.png (89531 bytes)
 - micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-cancel-sequence-chart.png (107406 bytes)
 - micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry.png (277725 bytes)
