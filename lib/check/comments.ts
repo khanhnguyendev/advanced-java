@@ -5,7 +5,7 @@ const FAMILY: Record<string, CommentFamily> = {
   scala: 'c', kotlin: 'c', groovy: 'c', rust: 'c', proto: 'c',
   python: 'hash', py: 'hash', shell: 'hash', bash: 'hash', sh: 'hash', yaml: 'hash', yml: 'hash',
   properties: 'hash', conf: 'hash', ruby: 'hash', dockerfile: 'hash',
-  xml: 'xml', html: 'xml', sql: 'sql', json: 'json',
+  xml: 'xml', html: 'xml', sql: 'sql', lua: 'sql', json: 'json',
 };
 
 export function commentFamily(lang: string | null | undefined): CommentFamily {

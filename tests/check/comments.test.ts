@@ -8,6 +8,7 @@ describe('commentFamily', () => {
     expect(commentFamily('xml')).toBe('xml');
     expect(commentFamily('sql')).toBe('sql');
     expect(commentFamily('json')).toBe('json');
+    expect(commentFamily('lua')).toBe('sql');
     expect(commentFamily('diff')).toBe('none');
     expect(commentFamily(undefined)).toBe('none');
   });
@@ -22,6 +23,9 @@ describe('stripComments', () => {
     expect(stripComments('a: 1 # 注释', 'hash').trim()).toBe('a: 1');
     expect(stripComments('<a><!-- 注释 --></a>', 'xml')).toBe('<a></a>');
     expect(stripComments('select 1 -- 注释', 'sql').trim()).toBe('select 1');
+  });
+  it('strips lua line comments via the sql family', () => {
+    expect(stripComments('local a = 1 -- 注释', commentFamily('lua')).trim()).toBe('local a = 1');
   });
   it('leaves json and none untouched', () => {
     expect(stripComments('{"a": "//x"}', 'json')).toBe('{"a": "//x"}');

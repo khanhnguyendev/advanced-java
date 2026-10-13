@@ -15,7 +15,7 @@ export interface CollectionConfig {
   upstreamFiles: Record<string, string>;
 }
 export interface DocRef { collection: string; section: string; group: string; slug: string; catalogId: string }
-export interface DocFrontmatter { source: { locale: Locale; slug: string; hash: string }; status: DocStatus; translatedAt: string }
+export interface DocFrontmatter { source: { locale: Locale; slug: string; hash: string }; status: DocStatus; translatedAt: string; reviewedHash?: string }
 export interface LocaleMeta {
   sections: Record<string, string>;
   groups: Record<string, string>;

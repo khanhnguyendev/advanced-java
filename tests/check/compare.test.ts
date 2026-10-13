@@ -80,4 +80,23 @@ describe('compareTranslation', () => {
     const r = compareTranslation(zh, bad, { exceptions: ['inline-code'] });
     expect(codes(r)).not.toContain('inline-code');
   });
+  it('allows an English paragraph that mentions a Han name twice', () => {
+    const en = 'This is a long english paragraph explaining things in detail. '.repeat(20);
+    const z = '# 标题\n\n内容。\n';
+    const t = `# Title\n\n${en}\n\nThis article was originally written by 中华石杉 in the advanced-java project, and the author 中华石杉 also maintains the upstream repository with many related interview questions.\n`;
+    expect(codes(compareTranslation(z, t))).not.toContain('cjk-residue');
+  });
+  it('flags one untranslated zh paragraph inside a long English doc', () => {
+    const en = 'This is a long english paragraph explaining things in detail. '.repeat(90);
+    const han = '这是一段没有被翻译的中文段落需要被检查工具发现并且报告为错误因为它很长很长很长很长很长很长很长很长。';
+    const z = '# 标题\n\n内容。\n';
+    const t = `# Title\n\n${en}\n\n${han}\n`;
+    expect(codes(compareTranslation(z, t))).toContain('cjk-residue');
+  });
+  it('uses per-locale length bands', () => {
+    const z = '# 标题\n\n' + '内容很多的一段话。'.repeat(20) + '\n';
+    const t = '# Title\n\n' + 'x'.repeat(z.length - 20) + '\n';
+    expect(codes(compareTranslation(z, t, { locale: 'en' }))).toContain('length-ratio');
+    expect(codes(compareTranslation(z, t))).not.toContain('length-ratio');
+  });
 });

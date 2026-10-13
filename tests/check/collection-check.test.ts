@@ -1,13 +1,13 @@
-import { mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { checkCollection, restampTranslation } from '@/lib/check/compare';
+import { checkCollection, loadExceptions, markReviewed, restampTranslation } from '@/lib/check/compare';
 import { canonicalHash } from '@/lib/content/hash';
 
 const ZH = '# 标题\n\n## 章节\n\n内容。\n';
 
-function build(frontmatter: string, viBody = '# Tiêu đề\n\n## Phần\n\nNội dung.\n') {
+function build(frontmatter: string, viBody = '# Tiêu đề\n\n## Phần\n\nNội dung.\n', extra: Record<string, string> = {}) {
   const root = mkdtempSync(path.join(os.tmpdir(), 'chk-'));
   const w = (rel: string, data: string) => {
     const f = path.join(root, rel);
@@ -23,6 +23,7 @@ function build(frontmatter: string, viBody = '# Tiêu đề\n\n## Phần\n\nNộ
   const zh = ZH;
   w('c/zh/s/a.md', zh);
   w('c/vi/s/a.md', frontmatter + viBody);
+  for (const [rel, data] of Object.entries(extra)) w(rel, data);
   return { root, zh };
 }
 
@@ -57,5 +58,74 @@ describe('checkCollection', () => {
     restampTranslation(root, 'c', 'vi', 'a');
     expect(readFileSync(path.join(root, 'c/vi/s/a.md'), 'utf8')).toContain(canonicalHash(zh));
     expect(checkCollection(root, 'c').stale).toEqual([]);
+  });
+
+  const goodFm = (extra = '') =>
+    `---\nsource:\n  locale: zh\n  slug: a\n  hash: ${canonicalHash(ZH)}\nstatus: machine\ntranslatedAt: 2026-10-13\n${extra}---\n\n`;
+
+  it('rejects js frontmatter without executing it', () => {
+    const { root } = build('---js\n({ source: { hash: "x" } })\n---\n\n');
+    const r = checkCollection(root, 'c');
+    expect(r.errors.join('\n')).toMatch(/vi\/s\/a: \[parse\]/);
+  });
+  it('errors on source.slug mismatch', () => {
+    const { root } = build(goodFm().replace('slug: a', 'slug: zzz'));
+    expect(checkCollection(root, 'c').errors.join('\n')).toMatch(/source\.slug/);
+  });
+  it('errors when the zh source is missing', () => {
+    const { root } = build(goodFm());
+    rmSync(path.join(root, 'c/zh/s/a.md'));
+    expect(checkCollection(root, 'c').errors.join('\n')).toMatch(/source file missing/);
+  });
+  it('checks en alongside vi', () => {
+    const { root } = build(goodFm(), undefined, { 'c/en/s/a.md': goodFm() + '# Title\n\n## Part\n\nBody.\n' });
+    const r = checkCollection(root, 'c');
+    expect(r.checked).toBe(2);
+    expect(r.errors).toEqual([]);
+  });
+  it('reports malformed YAML as a parse error and keeps going', () => {
+    const { root } = build('---\nsource: [unclosed\n---\n\n', undefined, { 'c/en/s/a.md': goodFm() + '# Title\n\n## Part\n\nBody.\n' });
+    const r = checkCollection(root, 'c');
+    expect(r.errors.join('\n')).toMatch(/vi\/s\/a: \[parse\]/);
+    expect(r.checked).toBe(2);
+  });
+  it('applies reviewed exceptions with a reason, and warns on unused ones', () => {
+    const { root } = build(goodFm(), '# Tiêu đề\n\n## Phần\n\n### Extra\n\nNội dung.\n', {
+      'c/translation-exceptions.json': JSON.stringify({
+        'vi/s/a': [{ code: 'heading-structure', reason: 'added subsection' }, { code: 'inline-code', reason: 'n/a' }],
+      }),
+    });
+    const r = checkCollection(root, 'c');
+    expect(r.errors).toEqual([]);
+    expect(r.warnings.join('\n')).toMatch(/exception applied \[heading-structure\] \(added subsection\)/);
+    expect(r.warnings.join('\n')).toMatch(/exception \[inline-code\] matched nothing/);
+  });
+  it('rejects a malformed exceptions file naming the file', () => {
+    const { root } = build(goodFm(), undefined, {
+      'c/translation-exceptions.json': JSON.stringify({ 'vi/s/a': [{ code: 'x', reason: '' }] }),
+    });
+    expect(() => loadExceptions(root, 'c')).toThrow(/translation-exceptions\.json/);
+    const { root: r2 } = build(goodFm(), undefined, { 'c/translation-exceptions.json': JSON.stringify({ 'vi/s/a': ['inline-code'] }) });
+    expect(() => loadExceptions(r2, 'c')).toThrow(/translation-exceptions\.json/);
+  });
+  it('flags a reviewed translation that changed since review, and markReviewed clears it', () => {
+    const { root } = build(goodFm().replace('status: machine', 'status: reviewed'));
+    const r = checkCollection(root, 'c');
+    expect(r.reviewedChanged).toEqual(['vi/s/a']);
+    expect(r.errors).toEqual([]);
+    markReviewed(root, 'c', 'vi', 'a');
+    const after = checkCollection(root, 'c');
+    expect(after.reviewedChanged).toEqual([]);
+    const text = readFileSync(path.join(root, 'c/vi/s/a.md'), 'utf8');
+    expect(text).toMatch(/status: reviewed/);
+    expect(text).toMatch(/translatedAt: '?2026-10-13'?\n/);
+  });
+  it('lists text diagram blocks as sampled', () => {
+    const body = '# T\n\n## S\n\n```\n+--+\n```\n';
+    const zh = '# 标\n\n## 节\n\n```\n+--+\n```\n';
+    const { root } = build(goodFm(), body, { 'c/zh/s/a.md': zh });
+    const fm = goodFm().replace(canonicalHash(ZH), canonicalHash(zh));
+    writeFileSync(path.join(root, 'c/vi/s/a.md'), fm + body);
+    expect(checkCollection(root, 'c').sampled).toEqual(['vi/s/a: text-block:0']);
   });
 });
