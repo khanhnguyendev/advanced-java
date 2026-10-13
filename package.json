@@ -21,6 +21,7 @@
     "test": "vitest run",
     "import:upstream": "tsx scripts/import-upstream.ts",
     "check:translations": "tsx scripts/check-translations.ts",
+    "translate": "tsx scripts/translate/cli.ts",
     "e2e": "playwright test",
     "search:gate": "tsx scripts/search-gate/run.ts"
   },
