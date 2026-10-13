@@ -2,22 +2,27 @@
 
 Date: 2026-10-13. Pass bar: zh hit@10 >= 0.9, accent-insensitive vi titles all hit (not evaluated when there are no vi queries), first-search transfer <= 300 KB gzip.
 
-| engine | locale | queries | hit@10 | hit@10 ratio | top1 | failures |
-|---|---|---|---|---|---|---|
-| orama | zh | 17 | 16 | 0.94 | 11 | hand: Hystrix |
-| orama | vi | 0 | n/a | n/a | n/a | - |
-| orama | en | 0 | n/a | n/a | n/a | - |
-| pagefind | zh | 17 | 17 | 1.00 | 13 | - |
-| pagefind | vi | 0 | n/a | n/a | n/a | - |
-| pagefind | en | 0 | n/a | n/a | n/a | - |
+| engine | locale | queries | hit@10 | hit@10 ratio | top1 | foreign-language results | failures |
+|---|---|---|---|---|---|---|---|
+| orama | zh | 20 | 19 | 0.95 | 12 | n/a | hand: Hystrix |
+| orama | vi | 0 | n/a | n/a | n/a | n/a | - |
+| orama | en | 0 | n/a | n/a | n/a | n/a | - |
+| pagefind | zh | 20 | 20 | 1.00 | 15 | 0 | - |
+| pagefind | vi | 0 | n/a | n/a | n/a | 0 | - |
+| pagefind | en | 0 | n/a | n/a | n/a | 0 | - |
 
-- orama gzip index size per locale (bytes): {"zh":690637,"vi":477716,"en":449320}
-- pagefind first-search transfer (gzip bytes): 179265
-- orama query latency p50 (ms): 0.14
-- pagefind query latency p50 (ms, includes page.evaluate): 8
+- orama gzip index size per locale (bytes): {"zh":690637,"vi":1115329,"en":1115330}
+- pagefind first-search transfer (gzip bytes): 179268
+- pagefind total index size (gzip bytes): 1922887; per language: {"en":577762,"vi":579076,"zh":505142}
+- orama build time per locale (ms, create+insertMultiple+save): {"zh":233,"vi":166,"en":165}
+- pagefind build time (ms, pagefind --site run): 698
+- orama query latency p50 (ms): 0.10
+- pagefind query latency p50 (ms, includes page.evaluate): 6
 
 - orama: zh hit@10 pass, vi accent-insensitive not evaluated, size fail => fail
 - pagefind: zh hit@10 pass, vi accent-insensitive not evaluated, size pass => provisional (vi accent check not evaluated)
+
+Notes: Orama uses the Mandarin tokenizer for zh and a Unicode letter/digit splitter (no stemming) for vi/en, because its default english splitter breaks accented Vietnamese tokens. Pagefind language is taken from <html lang>, so the runner reloads a page of each locale before querying; results outside the locale folder are counted as foreign and never count as hits.
 
 ## Decision
 (owner/main session fills after reading the table: if both pass choose the smaller first-search transfer; if only one passes choose it; if neither passes add a custom bigram tokenizer for zh and re-run)
