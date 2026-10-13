@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { fireEvent, render, screen } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { ReadingModeToggle } from '@/components/ReadingModeToggle';
@@ -18,7 +18,10 @@ describe('ThemeToggle', () => {
     document.documentElement.removeAttribute('data-theme');
     document.documentElement.removeAttribute('data-reading');
   });
-  afterEach(() => vi.restoreAllMocks());
+  afterEach(() => {
+    cleanup();
+    vi.restoreAllMocks();
+  });
 
   it('adopts the saved theme so the first click advances from it', () => {
     window.localStorage.setItem('theme', 'dark');
