@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -18,6 +19,11 @@ export function generateStaticParams() {
   return routing.locales.flatMap((locale) => listCollections(root).map((collection) => ({ locale, collection })));
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ collection: string }> }): Promise<Metadata> {
+  const { collection } = await params;
+  return { title: collection };
+}
+
 export default async function CollectionPage({ params }: { params: Promise<{ locale: string; collection: string }> }) {
   const { locale, collection } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
@@ -29,7 +35,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ loc
   const nav = buildNav(root, c, loc);
   return (
     <div className="shell">
-      <div style={{ gridColumn: '1 / -1' }}>
+      <div className="topbar-slot">
         <TopBar
           locale={loc}
           collectionId={c.id}

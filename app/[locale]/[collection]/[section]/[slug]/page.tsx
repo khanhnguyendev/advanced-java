@@ -123,7 +123,7 @@ export default async function DocPage({
 
   return (
     <div className="shell">
-      <div style={{ gridColumn: '1 / -1' }}>
+      <div className="topbar-slot">
         <TopBar locale={loc} collectionId={c.id} collectionTitle={c.id} homeHref={`/${loc}`} switcher={switcher} />
       </div>
       <div style={{ gridColumn: '1 / -1' }}>

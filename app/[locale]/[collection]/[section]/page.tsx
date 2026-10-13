@@ -40,7 +40,7 @@ export default async function SectionPage({
   if (!sec) notFound();
   return (
     <div className="shell">
-      <div style={{ gridColumn: '1 / -1' }}>
+      <div className="topbar-slot">
         <TopBar
           locale={loc}
           collectionId={c.id}
