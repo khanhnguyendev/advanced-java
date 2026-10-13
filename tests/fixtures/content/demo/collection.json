@@ -1,0 +1,19 @@
+{
+  "id": "demo",
+  "sourceLocale": "zh",
+  "tabColor": "#2f5bea",
+  "fallback": { "vi": ["en", "zh"], "en": ["zh"], "zh": ["zh"] },
+  "sections": [
+    {
+      "id": "alpha",
+      "prefix": "AL",
+      "groups": [
+        { "id": "g1", "lead": "intro", "docs": ["intro", "second"] },
+        { "id": "g2", "docs": ["third"] }
+      ]
+    }
+  ],
+  "ids": { "intro": "AL-01", "second": "AL-02", "third": "AL-03" },
+  "upstream": { "repo": "https://github.com/doocs/advanced-java", "commit": "1a35221" },
+  "upstreamFiles": { "intro": "docs/alpha/intro.md", "second": "docs/alpha/second.md", "third": "docs/alpha/third.md" }
+}

@@ -1,0 +1,5 @@
+{
+  "sections": { "alpha": "Alpha" },
+  "groups": { "g1": "Group one", "g2": "Group two" },
+  "docs": { "intro": { "title": "Introduction", "navTitle": "Intro" } }
+}
