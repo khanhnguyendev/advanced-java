@@ -1,0 +1,51 @@
+{
+  "site": { "title": "advanced-java", "tagline": "把 Java 架构讲清楚" },
+  "nav": {
+    "search": "搜索",
+    "language": "语言",
+    "theme": "主题",
+    "readingMode": "阅读模式",
+    "menu": "菜单",
+    "contents": "目录",
+    "previous": "上一篇",
+    "next": "下一篇",
+    "home": "首页",
+    "collections": "笔记本"
+  },
+  "doc": {
+    "fallbackNotice": "本页尚未翻译为{requested}，当前显示{served}原文。",
+    "machine": "机器翻译，可能存在错误。",
+    "stale": "本译文之后中文原文已更新，本页可能已过时。",
+    "viewOriginal": "查看原文",
+    "idLabel": "编号",
+    "translated": "已翻译",
+    "fallback": "未翻译",
+    "machineStatus": "机器翻译"
+  },
+  "resume": {
+    "mark": "标记此处",
+    "resume": "从上次停下的地方继续",
+    "updated": "本页在你离开后已更新，已定位到最近的位置。",
+    "setAside": "收藏",
+    "setAsideList": "收藏列表",
+    "empty": "还没有收藏。"
+  },
+  "steps": { "question": "面试题", "psychology": "面试官心理分析", "answer": "面试题剖析", "section": "章节" },
+  "attribution": {
+    "license": "内容采用 CC-BY-SA-4.0 许可",
+    "credit": "原作者 Doocs 与 中华石杉",
+    "changesZh": "由原文重新排版。",
+    "changesTranslated": "译自并改编自中文原文。",
+    "sourceFile": "上游文件",
+    "aboutLink": "关于与许可"
+  },
+  "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },
+  "notFound": { "title": "页面不存在", "body": "该页面不存在。", "home": "返回首页" },
+  "about": {
+    "title": "关于与许可",
+    "codeLicense": "站点代码采用 MIT 许可。",
+    "contentLicense": "内容（文本与译文）采用 CC-BY-SA-4.0 许可。",
+    "images": "图片仅在我们有权授权时收录；其余图片归属上游仓库，不由本项目重新授权。",
+    "imageCredits": "图片来源"
+  }
+}
