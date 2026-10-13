@@ -95,6 +95,15 @@ describe('ReadingModeToggle', () => {
     expect(document.documentElement.getAttribute('data-reading')).toBe('on');
   });
 
+  it('the pre-hydration script leaves reading mode unset when missing or not on', async () => {
+    const { themeScript } = await import('@/app/theme-script');
+    new Function(themeScript)();
+    expect(document.documentElement.hasAttribute('data-reading')).toBe(false);
+    window.localStorage.setItem('reading', 'off');
+    new Function(themeScript)();
+    expect(document.documentElement.hasAttribute('data-reading')).toBe(false);
+  });
+
   it('the pre-hydration script applies the saved reading mode', async () => {
     const { themeScript } = await import('@/app/theme-script');
     window.localStorage.setItem('reading', 'on');

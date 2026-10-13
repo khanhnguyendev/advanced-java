@@ -22,7 +22,7 @@ export function fsLinkTargets(root: string): Pick<LinkContext, 'assetExists' | '
   return {
     assetExists(collection, rel) {
       if (!listCollections(root).includes(collection)) return false;
-      const base = path.join(root, collection, '_assets');
+      const base = path.resolve(root, collection, '_assets');
       const file = path.resolve(base, rel);
       if (!file.startsWith(base + path.sep)) return false;
       return existsSync(file) && statSync(file).isFile();

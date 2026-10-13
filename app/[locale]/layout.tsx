@@ -37,7 +37,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
-        <a className="skip-link" href="#main-content">
+        <a className="skip-link ui" href="#main-content">
           {skip}
         </a>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>

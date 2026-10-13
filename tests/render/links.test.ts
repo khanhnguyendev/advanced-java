@@ -93,6 +93,12 @@ describe('fsLinkTargets', () => {
     expect(t.assetExists('c1', 's/d')).toBe(false);
     expect(t.assetExists('nope', 's/d/a.png')).toBe(false);
   });
+  it('works with a relative content root', () => {
+    const rel = path.relative(process.cwd(), root);
+    const r = fsLinkTargets(rel);
+    expect(r.assetExists('c1', 's/d/a.png')).toBe(true);
+    expect(r.assetExists('c1', '../sibling.png')).toBe(false);
+  });
   it('checks sections against the collection config', () => {
     expect(t.sectionExists('c1', 'sec')).toBe(true);
     expect(t.sectionExists('c1', 'other')).toBe(false);

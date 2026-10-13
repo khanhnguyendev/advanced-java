@@ -14,7 +14,7 @@ export default function GlobalNotFound() {
         />
       </head>
       <body>
-        <a className="skip-link" href="#main-content">Skip to content</a>
+        <a className="skip-link ui" href="#main-content">Skip to content</a>
         <main id="main-content" tabIndex={-1}>
           <h1>Page not found</h1>
           <p><a href="/">Back to the shelf</a></p>
