@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { LOCALES, type Locale } from '@/lib/content/types';
 import type { ImageCredit } from '@/lib/assets';
 
 export interface AboutCollection {
@@ -13,6 +14,7 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
   const a = useTranslations('attribution');
   const names = useTranslations('languages');
   const stop = a('stop');
+  const name = (l: Locale) => <span lang={l === 'zh' ? 'zh-Hans' : l}>{names(l)}</span>;
   return (
     <main id="main-content" className="reader">
       <article className="prose">
@@ -25,11 +27,11 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
         </p>
         <ul>
           <li>
-            <span lang="zh-Hans">{names('zh')}</span>: {a('changesZh')}
+            {name('zh')}: {a('changesZh')}
             {stop}
           </li>
           <li>
-            {names('en')} / {names('vi')}: {a('changesTranslated')}
+            {name('en')} / {name('vi')}: {a('changesTranslated')}
             {stop}
           </li>
         </ul>

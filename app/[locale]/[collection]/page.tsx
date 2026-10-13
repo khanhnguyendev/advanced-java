@@ -1,6 +1,7 @@
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { SectionCount } from '@/components/SectionCount';
 import { Sidebar } from '@/components/Sidebar';
 import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
@@ -25,7 +26,6 @@ export default async function CollectionPage({ params }: { params: Promise<{ loc
   const root = contentRoot();
   const c = loadCollection(root, collection);
   const names = await getTranslations('languages');
-  const td = await getTranslations('doc');
   const nav = buildNav(root, c, loc);
   return (
     <div className="shell">
@@ -46,12 +46,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ loc
             {nav.map((s) => (
               <li key={s.id}>
                 <a href={`/${loc}/${collection}/${s.id}`}>{s.title}</a>{' '}
-                <span
-                  className="mono"
-                  aria-label={`${td('translated')}: ${s.groups.flatMap((g) => g.docs).filter((d) => d.status !== 'fallback').length} / ${s.groups.reduce((n, g) => n + g.docs.length, 0)}`}
-                >
-                  {`${s.groups.flatMap((g) => g.docs).filter((d) => d.status !== 'fallback').length} / ${s.groups.reduce((n, g) => n + g.docs.length, 0)}`}
-                </span>
+                <SectionCount groups={s.groups} />
               </li>
             ))}
           </ul>

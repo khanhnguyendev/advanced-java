@@ -34,6 +34,7 @@ export default async function SectionPage({
   const root = contentRoot();
   const c = loadCollection(root, collection);
   const names = await getTranslations('languages');
+  const tn = await getTranslations('nav');
   const nav = buildNav(root, c, loc);
   const sec = nav.find((s) => s.id === section);
   if (!sec) notFound();
@@ -51,9 +52,9 @@ export default async function SectionPage({
       <Sidebar nav={nav} currentSlug="" />
       <main id="main-content" className="reader">
         <div className="prose">
-          <p className="ui breadcrumb">
+          <nav className="ui breadcrumb" aria-label={tn('collections')}>
             <a href={`/${loc}/${collection}`}>{c.id}</a>
-          </p>
+          </nav>
           <h1>{sec.title}</h1>
           <DocList groups={sec.groups} />
         </div>

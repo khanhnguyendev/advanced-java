@@ -1,15 +1,18 @@
 // @vitest-environment jsdom
 import { render, screen } from '@testing-library/react';
-import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { NextIntlClientProvider } from 'next-intl';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import { AboutContent } from '@/components/AboutContent';
 import { DocList } from '@/components/DocList';
+import { SectionCount } from '@/components/SectionCount';
 import { Shelf } from '@/components/Shelf';
 import { listImageCredits } from '@/lib/assets';
+import { loadCollection } from '@/lib/content/collection';
 import type { CollectionConfig } from '@/lib/content/types';
+import { buildNav } from '@/lib/nav';
 import type { NavGroup } from '@/lib/nav';
 import en from '../../messages/en.json';
 
@@ -85,8 +88,12 @@ describe('About', () => {
 });
 
 describe('listImageCredits', () => {
+  let root = '';
+  afterEach(() => {
+    if (root) rmSync(root, { recursive: true, force: true });
+  });
   it('maps _assets/<section>/<slug>/<file> to the upstream docs/<section>/images path', () => {
-    const root = mkdtempSync(path.join(tmpdir(), 'assets-'));
+    root = mkdtempSync(path.join(tmpdir(), 'assets-'));
     for (const [sec, slug, file] of [['hc', 's1', 'a.png'], ['hc', 's2', 'a.png'], ['hc', 's2', 'b.png']]) {
       mkdirSync(path.join(root, 'c', '_assets', sec, slug), { recursive: true });
       writeFileSync(path.join(root, 'c', '_assets', sec, slug, file), 'x');
@@ -95,5 +102,19 @@ describe('listImageCredits', () => {
     const out = listImageCredits(root, c);
     expect(out.map((o) => o.path)).toEqual(['docs/hc/images/a.png', 'docs/hc/images/b.png']);
     expect(out[0].href).toBe('https://r/blob/abc/docs/hc/images/a.png');
+  });
+});
+
+describe('SectionCount', () => {
+  it('shows a visible label and counts only translated docs', () => {
+    const fx = path.resolve(__dirname, '../fixtures/content');
+    const nav = buildNav(fx, loadCollection(fx, 'demo'), 'en');
+    const groups = nav.flatMap((s) => s.groups);
+    const all = groups.flatMap((g) => g.docs);
+    const translated = all.filter((d) => d.status === 'translated').length;
+    const { container } = render(wrap(<SectionCount groups={groups} />));
+    expect(screen.getByText(`${en.doc.translated}:`)).toBeTruthy();
+    expect(container.textContent).toContain(`${translated} / ${all.length}`);
+    expect(translated).toBeLessThan(all.length);
   });
 });
