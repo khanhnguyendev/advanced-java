@@ -108,6 +108,56 @@ describe('renderMarkdown', () => {
   });
 });
 
+describe('renderMarkdown hardening', () => {
+  const r = (src: string) => renderMarkdown(src, ctx).then((x) => x.html);
+
+  it('drops picture/source and srcset', async () => {
+    const html = await r('<picture><source srcset="https://tracker/x.png"><img src="/_content/a.png"></picture>\n');
+    expect(html).not.toContain('srcset');
+    expect(html).not.toContain('tracker');
+    expect(html).not.toContain('<picture');
+    expect(html).not.toContain('<source');
+  });
+
+  it('strips name attributes (DOM clobbering)', async () => {
+    const html = await r('<img src="/_content/x.png" name="getElementById">\n');
+    expect(html).toContain('src="/_content/x.png"');
+    expect(html).not.toContain('name=');
+  });
+
+  it('renders unknown-tag-looking prose literally', async () => {
+    const html = await r('Use List<String> and Class<T> here.\n');
+    expect(decode(html)).toContain('Use List<String> and Class<T> here.');
+  });
+
+  it('renders block <div> as literal text, not an element', async () => {
+    const html = await r('<div>x</div>\n');
+    expect(html).not.toContain('<div');
+    expect(decode(html)).toContain('<div>x</div>');
+  });
+
+  it('keeps br, sub, sup and tables as elements and drops comments', async () => {
+    const html = await r('a<br>b H<sub>2</sub>O x<sup>2</sup> <!-- secret -->\n\n<!-- block secret -->\n\n| a | b |\n| - | - |\n| 1 | 2 |\n');
+    expect(html).toContain('<br>');
+    expect(html).toContain('<sub>2</sub>');
+    expect(html).toContain('<sup>2</sup>');
+    expect(html).toContain('<table>');
+    expect(html).not.toContain('secret');
+  });
+
+  it('raw heading becomes literal text and parity holds', async () => {
+    const { html, headings } = await renderMarkdown('## A\n\n<h3>raw</h3>\n', ctx);
+    expect(headings).toHaveLength(1);
+    expect(html).not.toContain('<h3');
+    expect(decode(html)).toContain('<h3>raw</h3>');
+  });
+
+  it('ignores stale caller currentHeadings', async () => {
+    const { html } = await renderMarkdown('## A\n\n[up](#h1)\n', { ...ctx, currentHeadings: [] });
+    expect(html).toContain('href="#h1-a"');
+  });
+});
+
 describe('assertHeadingParity', () => {
   it('passes when counts match', () => {
     expect(() => assertHeadingParity('<h2 data-hi="1">a</h2><h3 data-hi="2">b</h3>', 2)).not.toThrow();
