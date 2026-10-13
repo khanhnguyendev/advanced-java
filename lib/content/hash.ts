@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 export const CANON_VERSION = 'v1';
 
 const collapse = (s: string) => s.replace(/\s+/g, ' ');
+const dropHanSpace = (s: string) => s.replace(/(\p{Script=Han}) (?=\p{Script=Han})/gu, '$1');
 const rtrimLines = (s: string) =>
   s
     .split('\n')
@@ -14,21 +15,21 @@ const rtrimLines = (s: string) =>
     .replace(/\n+$/, '');
 
 function stripFrontmatter(src: string): string {
-  const s = src.replace(/^﻿/, '').normalize('NFC').replace(/\r\n?/g, '\n');
-  return s.replace(/^---\n[\s\S]*?\n---\n?/, '');
+  const s = src.replace(/^\uFEFF/, '').normalize('NFC').replace(/\r\n?/g, '\n');
+  return s.replace(/^---[ \t]*\n(?:[\s\S]*?\n)?---[ \t]*(?:\n|$)/, '');
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function emit(node: any, out: string[]): void {
   switch (node.type) {
     case 'text':
-      out.push('t:' + collapse(node.value));
+      out.push('t:' + dropHanSpace(collapse(node.value)));
       return;
     case 'inlineCode':
       out.push('ic:' + node.value);
       return;
     case 'code':
-      out.push(`code:${node.lang ?? ''}:` + rtrimLines(node.value));
+      out.push(`code:${node.lang ?? ''}:${node.meta ?? ''}:` + rtrimLines(node.value));
       return;
     case 'html':
       out.push('html:' + collapse(String(node.value).trim()));
@@ -50,6 +51,21 @@ function emit(node: any, out: string[]): void {
       break;
     case 'table':
       out.push('table:' + (node.align ?? []).map((a: string | null) => a ?? 'n').join(','));
+      break;
+    case 'definition':
+      out.push(`def:${node.identifier}:${node.url}:${node.title ?? ''}`);
+      return;
+    case 'linkReference':
+      out.push('aref:' + node.identifier);
+      break;
+    case 'imageReference':
+      out.push(`imgref:${node.identifier}:${node.alt ?? ''}`);
+      return;
+    case 'footnoteReference':
+      out.push('fnref:' + node.identifier);
+      return;
+    case 'footnoteDefinition':
+      out.push('fndef:' + node.identifier);
       break;
     default:
       out.push(node.type);
