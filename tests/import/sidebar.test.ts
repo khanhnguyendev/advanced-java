@@ -71,7 +71,7 @@ describe('sidebar', () => {
 });
 
 describe.skipIf(!existsSync('ref/docs/.vitepress/config.mts'))('real upstream sidebar', () => {
-  it('plans 5 sections and 78 docs with 1 external link', () => {
+  it('plans 5 sections and 78 docs with no external sidebar links', () => {
     const plan = planFromSidebar(loadSidebar('ref/docs/.vitepress/config.mts'));
     expect(plan.sections.map((s) => s.id)).toEqual([
       'high-concurrency',
@@ -81,7 +81,7 @@ describe.skipIf(!existsSync('ref/docs/.vitepress/config.mts'))('real upstream si
       'big-data',
     ]);
     expect(Object.keys(plan.docs)).toHaveLength(78);
-    expect(plan.external).toHaveLength(1);
+    expect(plan.external).toHaveLength(0);
     expect(plan.docs['whats-microservice-how-to-communicate'].upstreamFile).toBe(
       "docs/micro-services/what's-microservice-how-to-communicate.md",
     );
