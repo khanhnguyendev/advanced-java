@@ -8,7 +8,7 @@ import { chromium } from '@playwright/test';
 import { contentRoot } from '../../lib/content/collection';
 import { foldDiacritics } from '../../lib/search/fold';
 import type { Locale } from '../../lib/content/types';
-import { buildCorpus, type CorpusDoc } from './corpus';
+import { buildCorpus, writeSearchSite, type CorpusDoc } from './corpus';
 import queries from './queries.json';
 
 const COLLECTION = 'advanced-java';
@@ -116,22 +116,9 @@ async function oramaGate(corpus: Record<Locale, CorpusDoc[]>, qs: Q[]) {
   return { metrics, sizes, latency, buildMs };
 }
 
-const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
 function writePagefindSite(corpus: Record<Locale, CorpusDoc[]>): number {
   rmSync('.search-gate', { recursive: true, force: true });
-  for (const locale of LOCALES) {
-    for (const d of corpus[locale]) {
-      const dir = path.join(SITE, locale);
-      mkdirSync(dir, { recursive: true });
-      const folded = d.lang === 'vi' && locale === 'vi' ? `<p data-pagefind-weight="0.5">${esc(foldDiacritics(d.title))} ${esc(foldDiacritics(d.body))}</p>` : '';
-      writeFileSync(
-        path.join(dir, `${d.slug}.html`),
-        `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><title>${esc(d.title)}</title></head>` +
-          `<body data-pagefind-body><h1>${esc(d.title)}</h1><p>${esc(d.body)}</p>${folded}</body></html>`,
-      );
-    }
-  }
+  writeSearchSite(corpus, SITE, COLLECTION);
   const t0 = Date.now();
   execSync(`pnpm exec pagefind --site ${SITE}`, { stdio: 'inherit' });
   return Date.now() - t0;

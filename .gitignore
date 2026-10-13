@@ -18,3 +18,5 @@ playwright-report
 .superpowers/
 next-env.d.ts
 .claude/worktrees/
+public/pagefind
+.search-index/
