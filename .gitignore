@@ -16,3 +16,4 @@ playwright-report
 .impeccable/review
 .impeccable/build
 .superpowers/
+next-env.d.ts

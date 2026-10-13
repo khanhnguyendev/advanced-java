@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=20.9.0"
   },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  },
   "scripts": {
     "dev": "next dev",
     "prebuild": "tsx scripts/copy-assets.ts",
