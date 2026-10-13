@@ -1,4 +1,5 @@
 :root {
+  --topbar-h: 3.5rem;
   --paper: #f4f8fc;
   --ink: #10151f;
   --ink-muted: #46526a;
@@ -66,7 +67,7 @@ body {
 .prose { max-width: var(--measure); margin-inline: auto; }
 .doc-header h1:lang(zh), .prose:lang(zh) { font-family: var(--font-cjk), 'Noto Serif SC', 'Songti SC', serif; }
 .prose:lang(zh) { line-height: 1.9; max-width: 38em; }
-.prose h2, .prose h3, .prose h4 { scroll-margin-top: 5rem; }
+.prose h2, .prose h3, .prose h4 { scroll-margin-top: calc(var(--topbar-h) + 1rem); }
 .prose a { color: var(--accent); }
 .prose pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--rule); }
 .prose code { font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.92em; }
@@ -77,7 +78,8 @@ body {
 .notice { border-left: 2px dotted var(--ink-muted); padding: 0.25rem 0.75rem; margin: 0.5rem 0; color: var(--ink-muted); font-size: 0.9rem; }
 .doc-id { font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ink-muted); }
 
-.topbar { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; border-bottom: 1px solid var(--rule); background: var(--paper); position: sticky; top: 0; z-index: 5; }
+.topbar { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; border-bottom: 1px solid var(--rule); background: var(--paper); flex-wrap: wrap; }
+.lang-switcher ul { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; margin: 0; padding: 0; list-style: none; }
 .topbar-slot { grid-column: 1 / -1; position: sticky; top: 0; z-index: 5; }
 .rail, .toc-rail { padding: 1rem; font-size: 0.9rem; }
 .rail ul, .toc ul, .margin-steps ol { list-style: none; margin: 0; padding: 0; }
@@ -94,6 +96,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .shell > .rail, .shell > .toc-rail { display: none; }
   .mobile-nav { display: block; padding: 0.5rem 1rem; border-bottom: 1px solid var(--rule); background: var(--paper); }
   .mobile-nav summary { cursor: pointer; }
+}
+
+@media (max-width: 640px) {
+  .topbar { gap: 0.5rem; padding: 0.25rem 0.75rem; }
+  /* status stays in the accessibility tree, only the visual text is dropped */
+  .lang-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 
 @media (prefers-reduced-motion: reduce) {

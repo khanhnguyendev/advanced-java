@@ -14,7 +14,16 @@ test('vi query without diacritics finds the translated pilot doc by title', asyn
     .replace(/[̀-ͯ]/g, '')
     .replace(/đ/g, 'd')
     .replace(/Đ/g, 'D');
+  expect(folded).not.toBe(title);
   await page.goto('/vi/advanced-java');
   await page.getByRole('searchbox').fill(folded);
+  await expect(page.locator(`.search-results a[href$="/${PILOT}"]`).first()).toBeVisible();
+});
+
+test('en query finds the translated pilot doc by a word from its title', async ({ page, request }) => {
+  const title = (await (await request.get(`/en/advanced-java/${sectionOf(PILOT)}/${PILOT}`)).text()).match(/<h1[^>]*>([^<]+)<\/h1>/)![1];
+  const word = title.split(/\s+/).sort((a, b) => b.length - a.length)[0].replace(/[^\p{L}\p{N}]/gu, '');
+  await page.goto('/en/advanced-java');
+  await page.getByRole('searchbox').fill(word);
   await expect(page.locator(`.search-results a[href$="/${PILOT}"]`).first()).toBeVisible();
 });

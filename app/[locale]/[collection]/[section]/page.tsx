@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -20,6 +21,18 @@ export function generateStaticParams() {
       loadCollection(root, collection).sections.map((s) => ({ locale, collection, section: s.id })),
     ),
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; collection: string; section: string }>;
+}): Promise<Metadata> {
+  const { locale, collection, section } = await params;
+  const root = contentRoot();
+  const c = loadCollection(root, collection);
+  const sec = buildNav(root, c, locale as Locale).find((s) => s.id === section);
+  return { title: sec?.title ?? section };
 }
 
 export default async function SectionPage({

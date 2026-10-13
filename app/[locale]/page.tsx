@@ -37,13 +37,15 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   });
   return (
     <>
-      <TopBar
-        locale={locale as Locale}
-        collectionId=""
-        collectionTitle={site('title')}
-        homeHref={`/${locale}`}
-        switcher={indexSwitcher('', (l) => names(l))}
-      />
+      <div className="topbar-slot">
+        <TopBar
+          locale={locale as Locale}
+          collectionId=""
+          collectionTitle={site('title')}
+          homeHref={`/${locale}`}
+          switcher={indexSwitcher('', (l) => names(l))}
+        />
+      </div>
       <Shelf locale={locale as Locale} items={items} />
     </>
   );

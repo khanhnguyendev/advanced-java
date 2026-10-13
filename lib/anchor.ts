@@ -27,7 +27,13 @@ export function resolveHashInDocument(doc: Document, hash: string): Element | nu
   return n === null ? null : findHeadingElement(doc, n);
 }
 
-export function currentHeadingIndex(root: ParentNode, offset = 96): number | null {
+/** Bottom edge of the sticky top bar plus a gap larger than the heading scroll-margin (1rem); 96px when there is no bar. */
+export function defaultHeadingOffset(root: ParentNode): number {
+  const bar = root.querySelector('.topbar-slot');
+  return bar ? bar.getBoundingClientRect().bottom + 24 : 96;
+}
+
+export function currentHeadingIndex(root: ParentNode, offset: number = defaultHeadingOffset(root)): number | null {
   let current: number | null = null;
   for (const el of headingElements(root)) {
     if (el.getBoundingClientRect().top <= offset) current = Number(el.getAttribute('data-hi'));

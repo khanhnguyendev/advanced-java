@@ -5,6 +5,7 @@ export default function GlobalNotFound() {
   return (
     <html lang="en" className={fontVariables} suppressHydrationWarning>
       <head>
+        <title>Page not found</title>
         <script
           dangerouslySetInnerHTML={{
             __html:

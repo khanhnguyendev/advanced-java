@@ -19,9 +19,14 @@ export function generateStaticParams() {
   return routing.locales.flatMap((locale) => listCollections(root).map((collection) => ({ locale, collection })));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ collection: string }> }): Promise<Metadata> {
-  const { collection } = await params;
-  return { title: collection };
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; collection: string }>;
+}): Promise<Metadata> {
+  const { locale, collection } = await params;
+  const t = await getTranslations({ locale, namespace: 'nav' });
+  return { title: `${collection} · ${t('collections')}` };
 }
 
 export default async function CollectionPage({ params }: { params: Promise<{ locale: string; collection: string }> }) {

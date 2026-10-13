@@ -3,6 +3,7 @@ import { LanguageSwitcher, type SwitcherItem } from './LanguageSwitcher';
 import { SearchBoxClient } from './SearchBoxClient';
 import { ReadingModeToggle } from './ReadingModeToggle';
 import { ThemeToggle } from './ThemeToggle';
+import { TopBarMetrics } from './TopBarMetrics';
 import type { Locale } from '@/lib/content/types';
 
 export function TopBar({
@@ -30,6 +31,7 @@ export function TopBar({
       <LanguageSwitcher items={switcher} current={locale} />
       <ThemeToggle />
       <ReadingModeToggle />
+      <TopBarMetrics />
     </header>
   );
 }

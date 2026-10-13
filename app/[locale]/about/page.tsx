@@ -37,13 +37,15 @@ export default async function About({ params }: { params: Promise<{ locale: stri
   });
   return (
     <>
-      <TopBar
-        locale={loc}
-        collectionId=""
-        collectionTitle={site('title')}
-        homeHref={`/${loc}`}
-        switcher={indexSwitcher('/about', (l) => names(l))}
-      />
+      <div className="topbar-slot">
+        <TopBar
+          locale={loc}
+          collectionId=""
+          collectionTitle={site('title')}
+          homeHref={`/${loc}`}
+          switcher={indexSwitcher('/about', (l) => names(l))}
+        />
+      </div>
       <AboutContent collections={collections} />
     </>
   );
