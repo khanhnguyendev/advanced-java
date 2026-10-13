@@ -1,0 +1,392 @@
+{
+  "id": "advanced-java",
+  "sourceLocale": "zh",
+  "tabColor": "#2f5bea",
+  "fallback": {
+    "vi": [
+      "en",
+      "zh"
+    ],
+    "en": [
+      "zh"
+    ],
+    "zh": [
+      "zh"
+    ]
+  },
+  "sections": [
+    {
+      "id": "high-concurrency",
+      "prefix": "HC",
+      "groups": [
+        {
+          "id": "mq-interview",
+          "docs": [
+            "mq-interview",
+            "why-mq",
+            "how-to-ensure-high-availability-of-message-queues",
+            "how-to-ensure-that-messages-are-not-repeatedly-consumed",
+            "how-to-ensure-the-reliable-transmission-of-messages",
+            "how-to-ensure-the-order-of-messages",
+            "mq-time-delay-and-expired-failure",
+            "mq-design"
+          ],
+          "lead": "mq-interview"
+        },
+        {
+          "id": "es-introduction",
+          "docs": [
+            "es-introduction",
+            "es-architecture",
+            "es-write-query-search",
+            "es-optimizing-query-performance",
+            "es-production-cluster"
+          ],
+          "lead": "es-introduction"
+        },
+        {
+          "id": "high-concurrency-g3",
+          "docs": [
+            "why-cache",
+            "redis-single-thread-model",
+            "redis-data-types",
+            "redis-expiration-policies-and-lru",
+            "how-to-ensure-high-concurrency-and-high-availability-of-redis",
+            "redis-master-slave",
+            "redis-persistence",
+            "redis-sentinel",
+            "redis-cluster",
+            "redis-caching-avalanche-and-caching-penetration",
+            "redis-consistence",
+            "redis-cas",
+            "redis-production-environment",
+            "redis-rehash"
+          ]
+        },
+        {
+          "id": "high-concurrency-g4",
+          "docs": [
+            "database-shard",
+            "database-shard-method",
+            "database-shard-dynamic-expand",
+            "database-shard-global-id-generate"
+          ]
+        },
+        {
+          "id": "high-concurrency-g5",
+          "docs": [
+            "mysql-read-write-separation"
+          ]
+        },
+        {
+          "id": "high-concurrency-g6",
+          "docs": [
+            "high-concurrency-design"
+          ]
+        },
+        {
+          "id": "high-concurrency-g7",
+          "docs": [
+            "how-to-limit-current"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "distributed-system",
+      "prefix": "DS",
+      "groups": [
+        {
+          "id": "distributed-system-g1",
+          "docs": [
+            "distributed-system-interview"
+          ]
+        },
+        {
+          "id": "distributed-system-g2",
+          "docs": [
+            "why-dubbo"
+          ]
+        },
+        {
+          "id": "distributed-system-g3",
+          "docs": [
+            "dubbo-operating-principle",
+            "dubbo-serialization-protocol",
+            "dubbo-load-balancing",
+            "dubbo-spi",
+            "dubbo-service-management",
+            "distributed-system-idempotency",
+            "distributed-system-request-sequence",
+            "dubbo-rpc-design",
+            "distributed-system-cap"
+          ]
+        },
+        {
+          "id": "distributed-system-g4",
+          "docs": [
+            "zookeeper-application-scenarios",
+            "distributed-lock-redis-vs-zookeeper"
+          ]
+        },
+        {
+          "id": "distributed-system-g5",
+          "docs": [
+            "distributed-transaction"
+          ]
+        },
+        {
+          "id": "distributed-system-g6",
+          "docs": [
+            "distributed-session"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "high-availability",
+      "prefix": "HA",
+      "groups": [
+        {
+          "id": "high-availability-g1",
+          "docs": [
+            "hystrix-introduction",
+            "e-commerce-website-detail-page-architecture",
+            "hystrix-thread-pool-isolation",
+            "hystrix-semphore-isolation",
+            "hystrix-execution-isolation",
+            "hystrix-process",
+            "hystrix-request-cache",
+            "hystrix-fallback",
+            "hystrix-circuit-breaker",
+            "hystrix-thread-pool-current-limiting",
+            "hystrix-timeout"
+          ]
+        },
+        {
+          "id": "high-availability-g2",
+          "docs": [
+            "sentinel-vs-hystrix"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "micro-services",
+      "prefix": "MS",
+      "groups": [
+        {
+          "id": "micro-services-g1",
+          "docs": [
+            "microservices-introduction",
+            "migrating-from-a-monolithic-architecture-to-a-microservices-architecture",
+            "event-driven-data-management-for-microservices",
+            "choose-microservice-deployment-strategy",
+            "advantages-and-disadvantages-of-microservice"
+          ]
+        },
+        {
+          "id": "micro-services-g2",
+          "docs": [
+            "whats-microservice-how-to-communicate",
+            "micro-services-technology-stack",
+            "micro-service-governance",
+            "how-eureka-enable-service-discovery-and-service-registration"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "big-data",
+      "prefix": "BD",
+      "groups": [
+        {
+          "id": "big-data-g1",
+          "docs": [
+            "find-common-urls",
+            "find-top-100-words",
+            "find-top-1-ip",
+            "find-no-repeat-number",
+            "find-a-number-if-exists",
+            "find-hotest-query-string",
+            "count-different-phone-numbers",
+            "find-mid-value-in-500-millions",
+            "sort-the-query-strings-by-counts",
+            "find-rank-top-500-numbers",
+            "topk-problems-and-solutions"
+          ]
+        }
+      ]
+    }
+  ],
+  "ids": {
+    "mq-interview": "HC-01",
+    "why-mq": "HC-02",
+    "how-to-ensure-high-availability-of-message-queues": "HC-03",
+    "how-to-ensure-that-messages-are-not-repeatedly-consumed": "HC-04",
+    "how-to-ensure-the-reliable-transmission-of-messages": "HC-05",
+    "how-to-ensure-the-order-of-messages": "HC-06",
+    "mq-time-delay-and-expired-failure": "HC-07",
+    "mq-design": "HC-08",
+    "es-introduction": "HC-09",
+    "es-architecture": "HC-10",
+    "es-write-query-search": "HC-11",
+    "es-optimizing-query-performance": "HC-12",
+    "es-production-cluster": "HC-13",
+    "why-cache": "HC-14",
+    "redis-single-thread-model": "HC-15",
+    "redis-data-types": "HC-16",
+    "redis-expiration-policies-and-lru": "HC-17",
+    "how-to-ensure-high-concurrency-and-high-availability-of-redis": "HC-18",
+    "redis-master-slave": "HC-19",
+    "redis-persistence": "HC-20",
+    "redis-sentinel": "HC-21",
+    "redis-cluster": "HC-22",
+    "redis-caching-avalanche-and-caching-penetration": "HC-23",
+    "redis-consistence": "HC-24",
+    "redis-cas": "HC-25",
+    "redis-production-environment": "HC-26",
+    "redis-rehash": "HC-27",
+    "database-shard": "HC-28",
+    "database-shard-method": "HC-29",
+    "database-shard-dynamic-expand": "HC-30",
+    "database-shard-global-id-generate": "HC-31",
+    "mysql-read-write-separation": "HC-32",
+    "high-concurrency-design": "HC-33",
+    "how-to-limit-current": "HC-34",
+    "distributed-system-interview": "DS-01",
+    "why-dubbo": "DS-02",
+    "dubbo-operating-principle": "DS-03",
+    "dubbo-serialization-protocol": "DS-04",
+    "dubbo-load-balancing": "DS-05",
+    "dubbo-spi": "DS-06",
+    "dubbo-service-management": "DS-07",
+    "distributed-system-idempotency": "DS-08",
+    "distributed-system-request-sequence": "DS-09",
+    "dubbo-rpc-design": "DS-10",
+    "distributed-system-cap": "DS-11",
+    "zookeeper-application-scenarios": "DS-12",
+    "distributed-lock-redis-vs-zookeeper": "DS-13",
+    "distributed-transaction": "DS-14",
+    "distributed-session": "DS-15",
+    "hystrix-introduction": "HA-01",
+    "e-commerce-website-detail-page-architecture": "HA-02",
+    "hystrix-thread-pool-isolation": "HA-03",
+    "hystrix-semphore-isolation": "HA-04",
+    "hystrix-execution-isolation": "HA-05",
+    "hystrix-process": "HA-06",
+    "hystrix-request-cache": "HA-07",
+    "hystrix-fallback": "HA-08",
+    "hystrix-circuit-breaker": "HA-09",
+    "hystrix-thread-pool-current-limiting": "HA-10",
+    "hystrix-timeout": "HA-11",
+    "sentinel-vs-hystrix": "HA-12",
+    "microservices-introduction": "MS-01",
+    "migrating-from-a-monolithic-architecture-to-a-microservices-architecture": "MS-02",
+    "event-driven-data-management-for-microservices": "MS-03",
+    "choose-microservice-deployment-strategy": "MS-04",
+    "advantages-and-disadvantages-of-microservice": "MS-05",
+    "whats-microservice-how-to-communicate": "MS-06",
+    "micro-services-technology-stack": "MS-07",
+    "micro-service-governance": "MS-08",
+    "how-eureka-enable-service-discovery-and-service-registration": "MS-09",
+    "find-common-urls": "BD-01",
+    "find-top-100-words": "BD-02",
+    "find-top-1-ip": "BD-03",
+    "find-no-repeat-number": "BD-04",
+    "find-a-number-if-exists": "BD-05",
+    "find-hotest-query-string": "BD-06",
+    "count-different-phone-numbers": "BD-07",
+    "find-mid-value-in-500-millions": "BD-08",
+    "sort-the-query-strings-by-counts": "BD-09",
+    "find-rank-top-500-numbers": "BD-10",
+    "topk-problems-and-solutions": "BD-11"
+  },
+  "upstream": {
+    "repo": "https://github.com/doocs/advanced-java",
+    "commit": "1a35221e471fa3adf8997895268fd18b36f27c01"
+  },
+  "upstreamFiles": {
+    "mq-interview": "docs/high-concurrency/mq-interview.md",
+    "why-mq": "docs/high-concurrency/why-mq.md",
+    "how-to-ensure-high-availability-of-message-queues": "docs/high-concurrency/how-to-ensure-high-availability-of-message-queues.md",
+    "how-to-ensure-that-messages-are-not-repeatedly-consumed": "docs/high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed.md",
+    "how-to-ensure-the-reliable-transmission-of-messages": "docs/high-concurrency/how-to-ensure-the-reliable-transmission-of-messages.md",
+    "how-to-ensure-the-order-of-messages": "docs/high-concurrency/how-to-ensure-the-order-of-messages.md",
+    "mq-time-delay-and-expired-failure": "docs/high-concurrency/mq-time-delay-and-expired-failure.md",
+    "mq-design": "docs/high-concurrency/mq-design.md",
+    "es-introduction": "docs/high-concurrency/es-introduction.md",
+    "es-architecture": "docs/high-concurrency/es-architecture.md",
+    "es-write-query-search": "docs/high-concurrency/es-write-query-search.md",
+    "es-optimizing-query-performance": "docs/high-concurrency/es-optimizing-query-performance.md",
+    "es-production-cluster": "docs/high-concurrency/es-production-cluster.md",
+    "why-cache": "docs/high-concurrency/why-cache.md",
+    "redis-single-thread-model": "docs/high-concurrency/redis-single-thread-model.md",
+    "redis-data-types": "docs/high-concurrency/redis-data-types.md",
+    "redis-expiration-policies-and-lru": "docs/high-concurrency/redis-expiration-policies-and-lru.md",
+    "how-to-ensure-high-concurrency-and-high-availability-of-redis": "docs/high-concurrency/how-to-ensure-high-concurrency-and-high-availability-of-redis.md",
+    "redis-master-slave": "docs/high-concurrency/redis-master-slave.md",
+    "redis-persistence": "docs/high-concurrency/redis-persistence.md",
+    "redis-sentinel": "docs/high-concurrency/redis-sentinel.md",
+    "redis-cluster": "docs/high-concurrency/redis-cluster.md",
+    "redis-caching-avalanche-and-caching-penetration": "docs/high-concurrency/redis-caching-avalanche-and-caching-penetration.md",
+    "redis-consistence": "docs/high-concurrency/redis-consistence.md",
+    "redis-cas": "docs/high-concurrency/redis-cas.md",
+    "redis-production-environment": "docs/high-concurrency/redis-production-environment.md",
+    "database-shard": "docs/high-concurrency/database-shard.md",
+    "database-shard-method": "docs/high-concurrency/database-shard-method.md",
+    "database-shard-dynamic-expand": "docs/high-concurrency/database-shard-dynamic-expand.md",
+    "database-shard-global-id-generate": "docs/high-concurrency/database-shard-global-id-generate.md",
+    "mysql-read-write-separation": "docs/high-concurrency/mysql-read-write-separation.md",
+    "high-concurrency-design": "docs/high-concurrency/high-concurrency-design.md",
+    "how-to-limit-current": "docs/high-concurrency/how-to-limit-current.md",
+    "distributed-system-interview": "docs/distributed-system/distributed-system-interview.md",
+    "why-dubbo": "docs/distributed-system/why-dubbo.md",
+    "dubbo-operating-principle": "docs/distributed-system/dubbo-operating-principle.md",
+    "dubbo-serialization-protocol": "docs/distributed-system/dubbo-serialization-protocol.md",
+    "dubbo-load-balancing": "docs/distributed-system/dubbo-load-balancing.md",
+    "dubbo-spi": "docs/distributed-system/dubbo-spi.md",
+    "dubbo-service-management": "docs/distributed-system/dubbo-service-management.md",
+    "distributed-system-idempotency": "docs/distributed-system/distributed-system-idempotency.md",
+    "distributed-system-request-sequence": "docs/distributed-system/distributed-system-request-sequence.md",
+    "dubbo-rpc-design": "docs/distributed-system/dubbo-rpc-design.md",
+    "distributed-system-cap": "docs/distributed-system/distributed-system-cap.md",
+    "zookeeper-application-scenarios": "docs/distributed-system/zookeeper-application-scenarios.md",
+    "distributed-lock-redis-vs-zookeeper": "docs/distributed-system/distributed-lock-redis-vs-zookeeper.md",
+    "distributed-transaction": "docs/distributed-system/distributed-transaction.md",
+    "distributed-session": "docs/distributed-system/distributed-session.md",
+    "hystrix-introduction": "docs/high-availability/hystrix-introduction.md",
+    "e-commerce-website-detail-page-architecture": "docs/high-availability/e-commerce-website-detail-page-architecture.md",
+    "hystrix-thread-pool-isolation": "docs/high-availability/hystrix-thread-pool-isolation.md",
+    "hystrix-semphore-isolation": "docs/high-availability/hystrix-semphore-isolation.md",
+    "hystrix-execution-isolation": "docs/high-availability/hystrix-execution-isolation.md",
+    "hystrix-process": "docs/high-availability/hystrix-process.md",
+    "hystrix-request-cache": "docs/high-availability/hystrix-request-cache.md",
+    "hystrix-fallback": "docs/high-availability/hystrix-fallback.md",
+    "hystrix-circuit-breaker": "docs/high-availability/hystrix-circuit-breaker.md",
+    "hystrix-thread-pool-current-limiting": "docs/high-availability/hystrix-thread-pool-current-limiting.md",
+    "hystrix-timeout": "docs/high-availability/hystrix-timeout.md",
+    "sentinel-vs-hystrix": "docs/high-availability/sentinel-vs-hystrix.md",
+    "microservices-introduction": "docs/micro-services/microservices-introduction.md",
+    "migrating-from-a-monolithic-architecture-to-a-microservices-architecture": "docs/micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture.md",
+    "event-driven-data-management-for-microservices": "docs/micro-services/event-driven-data-management-for-microservices.md",
+    "choose-microservice-deployment-strategy": "docs/micro-services/choose-microservice-deployment-strategy.md",
+    "whats-microservice-how-to-communicate": "docs/micro-services/what's-microservice-how-to-communicate.md",
+    "micro-services-technology-stack": "docs/micro-services/micro-services-technology-stack.md",
+    "micro-service-governance": "docs/micro-services/micro-service-governance.md",
+    "how-eureka-enable-service-discovery-and-service-registration": "docs/micro-services/how-eureka-enable-service-discovery-and-service-registration.md",
+    "find-common-urls": "docs/big-data/find-common-urls.md",
+    "find-top-100-words": "docs/big-data/find-top-100-words.md",
+    "find-top-1-ip": "docs/big-data/find-top-1-ip.md",
+    "find-no-repeat-number": "docs/big-data/find-no-repeat-number.md",
+    "find-a-number-if-exists": "docs/big-data/find-a-number-if-exists.md",
+    "find-hotest-query-string": "docs/big-data/find-hotest-query-string.md",
+    "count-different-phone-numbers": "docs/big-data/count-different-phone-numbers.md",
+    "find-mid-value-in-500-millions": "docs/big-data/find-mid-value-in-500-millions.md",
+    "sort-the-query-strings-by-counts": "docs/big-data/sort-the-query-strings-by-counts.md",
+    "find-rank-top-500-numbers": "docs/big-data/find-rank-top-500-numbers.md",
+    "topk-problems-and-solutions": "docs/big-data/topk-problems-and-solutions.md",
+    "redis-rehash": "docs/high-concurrency/redis-rehash.md",
+    "advantages-and-disadvantages-of-microservice": "docs/micro-services/advantages-and-disadvantages-of-microservice.md"
+  }
+}

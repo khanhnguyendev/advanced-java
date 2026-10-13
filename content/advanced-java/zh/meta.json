@@ -1,0 +1,355 @@
+{
+  "sections": {
+    "high-concurrency": "高并发架构",
+    "distributed-system": "分布式系统",
+    "high-availability": "高可用架构",
+    "micro-services": "微服务架构",
+    "big-data": "海量数据处理"
+  },
+  "groups": {
+    "mq-interview": "消息队列",
+    "es-introduction": "搜索引擎",
+    "high-concurrency-g3": "缓存",
+    "high-concurrency-g4": "分库分表",
+    "high-concurrency-g5": "读写分离",
+    "high-concurrency-g6": "高并发系统",
+    "high-concurrency-g7": "限流",
+    "distributed-system-g1": "分布式系统",
+    "distributed-system-g2": "系统拆分",
+    "distributed-system-g3": "分布式服务框架",
+    "distributed-system-g4": "分布式锁",
+    "distributed-system-g5": "分布式事务",
+    "distributed-system-g6": "分布式会话",
+    "high-availability-g1": "Hystrix 高可用",
+    "high-availability-g2": "熔断与降级",
+    "micro-services-g1": "微服务概念",
+    "micro-services-g2": "Spring Cloud 架构",
+    "big-data-g1": "海量数据处理"
+  },
+  "docs": {
+    "mq-interview": {
+      "title": "消息队列面试场景",
+      "navTitle": "消息队列"
+    },
+    "why-mq": {
+      "title": "为什么使用消息队列？",
+      "navTitle": "为什么使用消息队列？"
+    },
+    "how-to-ensure-high-availability-of-message-queues": {
+      "title": "如何保证消息队列的高可用？",
+      "navTitle": "如何保证消息队列的高可用？"
+    },
+    "how-to-ensure-that-messages-are-not-repeatedly-consumed": {
+      "title": "如何保证消息不被重复消费？",
+      "navTitle": "如何保证消息不被重复消费？"
+    },
+    "how-to-ensure-the-reliable-transmission-of-messages": {
+      "title": "如何保证消息的可靠性传输？",
+      "navTitle": "如何保证消息的可靠性传输？"
+    },
+    "how-to-ensure-the-order-of-messages": {
+      "title": "如何保证消息的顺序性？",
+      "navTitle": "如何保证消息的顺序性？"
+    },
+    "mq-time-delay-and-expired-failure": {
+      "title": "如何解决消息队列的延时以及过期失效问题？",
+      "navTitle": "如何解决消息队列的延时及过期问题？"
+    },
+    "mq-design": {
+      "title": "如何设计一个消息队列？",
+      "navTitle": "如何设计一个消息队列？"
+    },
+    "es-introduction": {
+      "title": "搜索引擎介绍",
+      "navTitle": "搜索引擎"
+    },
+    "es-architecture": {
+      "title": "ES 的分布式架构原理",
+      "navTitle": "ES 的分布式架构原理"
+    },
+    "es-write-query-search": {
+      "title": "ES 写入数据原理",
+      "navTitle": "ES 写入数据原理"
+    },
+    "es-optimizing-query-performance": {
+      "title": "ES 查询性能优化",
+      "navTitle": "ES 查询性能优化"
+    },
+    "es-production-cluster": {
+      "title": "ES 生产集群架构",
+      "navTitle": "ES 生产集群架构"
+    },
+    "why-cache": {
+      "title": "缓存的使用方式",
+      "navTitle": "缓存的使用方式"
+    },
+    "redis-single-thread-model": {
+      "title": "Redis 和 Memcached 的区别",
+      "navTitle": "Redis 和 Memcached 区别"
+    },
+    "redis-data-types": {
+      "title": "Redis 数据类型和使用场景",
+      "navTitle": "Redis 数据类型和场景"
+    },
+    "redis-expiration-policies-and-lru": {
+      "title": "Redis 的过期策略和 LRU 算法",
+      "navTitle": "Redis 过期策略"
+    },
+    "how-to-ensure-high-concurrency-and-high-availability-of-redis": {
+      "title": "如何保证 redis 的高并发和高可用？",
+      "navTitle": "Redis 高并发与高可用"
+    },
+    "redis-master-slave": {
+      "title": "Redis 主从架构",
+      "navTitle": "Redis 主从架构"
+    },
+    "redis-persistence": {
+      "title": "Redis 持久化机制",
+      "navTitle": "Redis 持久化机制"
+    },
+    "redis-sentinel": {
+      "title": "Redis 哨兵集群实现高可用",
+      "navTitle": "哨兵集群实现高可用"
+    },
+    "redis-cluster": {
+      "title": "Redis 集群模式原理",
+      "navTitle": "Redis 集群模式原理"
+    },
+    "redis-caching-avalanche-and-caching-penetration": {
+      "title": "缓存雪崩、穿透和击穿",
+      "navTitle": "缓存雪崩穿透击穿"
+    },
+    "redis-consistence": {
+      "title": "缓存与数据库一致性问题",
+      "navTitle": "缓存与数据库一致性"
+    },
+    "redis-cas": {
+      "title": "Redis 的并发竞争问题",
+      "navTitle": "Redis 并发竞争问题"
+    },
+    "redis-production-environment": {
+      "title": "Redis 生产部署方案",
+      "navTitle": "Redis 生产部署方案"
+    },
+    "database-shard": {
+      "title": "为什么要分库分表？",
+      "navTitle": "为什么要分库分表？"
+    },
+    "database-shard-method": {
+      "title": "分库分表如何平滑过渡？",
+      "navTitle": "分库分表如何平滑过渡？"
+    },
+    "database-shard-dynamic-expand": {
+      "title": "动态扩缩容方案",
+      "navTitle": "动态扩缩容方案"
+    },
+    "database-shard-global-id-generate": {
+      "title": "主键 ID 如何处理？",
+      "navTitle": "主键 ID 如何处理？"
+    },
+    "mysql-read-write-separation": {
+      "title": "如何实现读写分离？",
+      "navTitle": "如何实现读写分离？"
+    },
+    "high-concurrency-design": {
+      "title": "如何设计一个高并发系统",
+      "navTitle": "如何设计一个高并发系统？"
+    },
+    "how-to-limit-current": {
+      "title": "如何限流？在工作中是怎么做的？说一下具体的实现？",
+      "navTitle": "限流实现方式"
+    },
+    "distributed-system-interview": {
+      "title": "分布式系统面试连环炮",
+      "navTitle": "面试连环炮"
+    },
+    "why-dubbo": {
+      "title": "为什么要拆分系统？",
+      "navTitle": "为什么要拆分系统？"
+    },
+    "dubbo-operating-principle": {
+      "title": "Dubbo 的工作原理",
+      "navTitle": "Dubbo 工作原理"
+    },
+    "dubbo-serialization-protocol": {
+      "title": "Dubbo 的序列化协议",
+      "navTitle": "Dubbo 序列化协议"
+    },
+    "dubbo-load-balancing": {
+      "title": "Dubbo 负载均衡策略和集群容错策略",
+      "navTitle": "Dubbo 负载与容错策略"
+    },
+    "dubbo-spi": {
+      "title": "Dubbo 的 SPI 机制",
+      "navTitle": "Dubbo 的 SPI 思想"
+    },
+    "dubbo-service-management": {
+      "title": "如何基于 Dubbo 进行服务治理",
+      "navTitle": "服务治理方案"
+    },
+    "distributed-system-idempotency": {
+      "title": "分布式服务接口的幂等性如何设计？",
+      "navTitle": "接口幂等性设计"
+    },
+    "distributed-system-request-sequence": {
+      "title": "分布式服务接口请求的顺序性如何保证？",
+      "navTitle": "接口顺序性设计"
+    },
+    "dubbo-rpc-design": {
+      "title": "设计一个类似 Dubbo 的 RPC 框架",
+      "navTitle": "设计 Dubbo 类似的 RPC 框架"
+    },
+    "distributed-system-cap": {
+      "title": "分布式系统中的 CAP 定理",
+      "navTitle": "CAP 定理中的 P 是什么？"
+    },
+    "zookeeper-application-scenarios": {
+      "title": "Zookeeper 的使用场景",
+      "navTitle": "Zookeeper 应用场景"
+    },
+    "distributed-lock-redis-vs-zookeeper": {
+      "title": "Redis vs Zookeeper 实现分布式锁",
+      "navTitle": "Redis vs Zookeeper 实现分布式锁"
+    },
+    "distributed-transaction": {
+      "title": "分布式事务原理",
+      "navTitle": "分布式事务原理"
+    },
+    "distributed-session": {
+      "title": "如何实现分布式 Session？",
+      "navTitle": "如何实现分布式 Session？"
+    },
+    "hystrix-introduction": {
+      "title": "用 Hystrix 构建高可用服务架构",
+      "navTitle": "Hystrix 介绍"
+    },
+    "e-commerce-website-detail-page-architecture": {
+      "title": "电商网站的商品详情页系统架构",
+      "navTitle": "详情页架构设计"
+    },
+    "hystrix-thread-pool-isolation": {
+      "title": "基于 Hystrix 线程池技术实现资源隔离",
+      "navTitle": "线程池隔离"
+    },
+    "hystrix-semphore-isolation": {
+      "title": "基于 Hystrix 信号量机制实现资源隔离",
+      "navTitle": "信号量隔离"
+    },
+    "hystrix-execution-isolation": {
+      "title": "Hystrix 隔离策略细粒度控制",
+      "navTitle": "细粒度隔离策略"
+    },
+    "hystrix-process": {
+      "title": "深入 Hystrix 执行时内部原理",
+      "navTitle": "执行原理"
+    },
+    "hystrix-request-cache": {
+      "title": "基于 request cache 请求缓存技术优化批量商品数据查询接口",
+      "navTitle": "Request Cache 缓存"
+    },
+    "hystrix-fallback": {
+      "title": "基于本地缓存的 fallback 降级机制",
+      "navTitle": "本地降级缓存"
+    },
+    "hystrix-circuit-breaker": {
+      "title": "深入 Hystrix 断路器执行原理",
+      "navTitle": "断路器原理"
+    },
+    "hystrix-thread-pool-current-limiting": {
+      "title": "深入 Hystrix 线程池隔离与接口限流",
+      "navTitle": "限流与线程池隔离"
+    },
+    "hystrix-timeout": {
+      "title": "基于 timeout 机制为服务接口调用超时提供安全保护",
+      "navTitle": "Timeout 保护机制"
+    },
+    "sentinel-vs-hystrix": {
+      "title": "如何做技术选型？Sentinel 还是 Hystrix？",
+      "navTitle": "Sentinel vs Hystrix"
+    },
+    "microservices-introduction": {
+      "title": "关于微服务架构的描述",
+      "navTitle": "微服务架构描述"
+    },
+    "migrating-from-a-monolithic-architecture-to-a-microservices-architecture": {
+      "title": "迁移到微服务综述",
+      "navTitle": "从单体到微服务"
+    },
+    "event-driven-data-management-for-microservices": {
+      "title": "微服务的事件驱动数据管理",
+      "navTitle": "事件驱动数据管理"
+    },
+    "choose-microservice-deployment-strategy": {
+      "title": "选择微服务部署策略",
+      "navTitle": "选择部署策略"
+    },
+    "whats-microservice-how-to-communicate": {
+      "title": "什么是微服务？微服务之间是如何独立通讯的？",
+      "navTitle": "微服务间通信机制"
+    },
+    "micro-services-technology-stack": {
+      "title": "微服务技术栈",
+      "navTitle": "微服务技术栈"
+    },
+    "micro-service-governance": {
+      "title": "微服务治理策略",
+      "navTitle": "微服务治理策略"
+    },
+    "how-eureka-enable-service-discovery-and-service-registration": {
+      "title": "服务发现组件 Eureka 的几个主要调用过程",
+      "navTitle": "Eureka 服务注册发现"
+    },
+    "find-common-urls": {
+      "title": "如何从大量的 URL 中找出相同的 URL？",
+      "navTitle": "查找相同 URL"
+    },
+    "find-top-100-words": {
+      "title": "如何从大量数据中找出高频词？",
+      "navTitle": "查找高频词"
+    },
+    "find-top-1-ip": {
+      "title": "如何找出某一天访问百度网站最多的 IP？",
+      "navTitle": "找出最多访问 IP"
+    },
+    "find-no-repeat-number": {
+      "title": "如何在大量的数据中找出不重复的整数？",
+      "navTitle": "找出不重复整数"
+    },
+    "find-a-number-if-exists": {
+      "title": "如何在大量的数据中判断一个数是否存在？",
+      "navTitle": "判断数是否存在"
+    },
+    "find-hotest-query-string": {
+      "title": "如何查询最热门的查询串？",
+      "navTitle": "查询最热门查询串"
+    },
+    "count-different-phone-numbers": {
+      "title": "如何统计不同电话号码的个数？",
+      "navTitle": "统计不同手机号"
+    },
+    "find-mid-value-in-500-millions": {
+      "title": "如何从 5 亿个数中找出中位数？",
+      "navTitle": "找出中位数"
+    },
+    "sort-the-query-strings-by-counts": {
+      "title": "如何按照 query 的频度排序？",
+      "navTitle": "根据频率排序查询串"
+    },
+    "find-rank-top-500-numbers": {
+      "title": "如何找出排名前 500 的数？",
+      "navTitle": "找出前 500 个数"
+    },
+    "topk-problems-and-solutions": {
+      "title": "大数据中 TopK 问题的常用套路",
+      "navTitle": "讲讲大数据中 TopK 问题的常用套路？"
+    },
+    "redis-rehash": {
+      "title": "Redis rehash 过程",
+      "navTitle": "有了解过 Redis rehash 的过程吗？"
+    },
+    "advantages-and-disadvantages-of-microservice": {
+      "title": "微服务架构的优势与不足",
+      "navTitle": "微服务架构的优势与不足"
+    }
+  }
+}
