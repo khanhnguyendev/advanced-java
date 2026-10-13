@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { currentHeadingIndex, findHeadingElement } from '@/lib/anchor';
 import { flagKey, restoreFlag, safeStorage, saveFlag } from '@/lib/resume';
 
@@ -36,22 +36,44 @@ export function ResumeFlag({
     });
   };
 
-  useEffect(() => {
-    if (!window.location.hash) {
-      const r = restoreFlag(safeStorage(), key, { headings, zhHash });
-      if (r) {
-        findHeadingElement(document, r.index)?.scrollIntoView();
-        setNote(r.changed);
-      }
+  const saveRef = useRef(save);
+  saveRef.current = save;
+  const saveIfDwelled = () => {
+    if (Date.now() - opened.current >= MIN_DWELL_MS) saveRef.current();
+  };
+  const saveIfDwelledRef = useRef(saveIfDwelled);
+  saveIfDwelledRef.current = saveIfDwelled;
+
+  const restoreRef = useRef(() => {});
+  restoreRef.current = () => {
+    if (window.location.hash) return;
+    const r = restoreFlag(safeStorage(), key, { headings, zhHash });
+    if (r) {
+      findHeadingElement(document, r.index)?.scrollIntoView();
+      setNote(r.changed);
     }
-    const onHide = () => Date.now() - opened.current >= MIN_DWELL_MS && save();
+  };
+
+  useEffect(() => {
+    restoreRef.current();
+  }, []);
+
+  useEffect(() => {
+    const onHide = () => saveIfDwelledRef.current();
+    const onVisibility = () => {
+      if (document.visibilityState === 'hidden') onHide();
+    };
     window.addEventListener('pagehide', onHide);
+    document.addEventListener('visibilitychange', onVisibility);
     return () => {
       window.removeEventListener('pagehide', onHide);
-      onHide();
+      document.removeEventListener('visibilitychange', onVisibility);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Layout-effect cleanup runs before React detaches this page's DOM, so the
+  // heading measurement still reflects the page being left.
+  useLayoutEffect(() => () => saveIfDwelledRef.current(), []);
 
   return (
     <div className="resume ui">

@@ -39,28 +39,42 @@ export function restoreFlag(
   key: string,
   current: { headings: { index: number; text: string }[]; zhHash: string },
 ): { index: number; changed: boolean } | null {
+  const count = current.headings.length;
+  if (!count) return null;
   let rec: FlagRecord;
   try {
     const raw = store?.getItem(key);
     if (!raw) return null;
-    rec = JSON.parse(raw) as FlagRecord;
+    const v = JSON.parse(raw) as unknown;
+    if (!v || typeof v !== 'object') return null;
+    const o = v as Record<string, unknown>;
+    if (typeof o.headingIndex !== 'number' || !Number.isFinite(o.headingIndex)) return null;
+    rec = {
+      headingIndex: o.headingIndex,
+      headingText: typeof o.headingText === 'string' ? o.headingText : '',
+      headingCount:
+        typeof o.headingCount === 'number' && Number.isFinite(o.headingCount) && o.headingCount > 0
+          ? o.headingCount
+          : count,
+      zhHash: typeof o.zhHash === 'string' ? o.zhHash : '',
+      savedAt: typeof o.savedAt === 'number' ? o.savedAt : 0,
+    };
   } catch {
     return null;
   }
-  const count = current.headings.length;
-  if (!count || typeof rec.headingIndex !== 'number') return null;
 
   if (rec.zhHash === current.zhHash) {
-    return { index: clamp(rec.headingIndex, 1, count), changed: false };
+    return { index: clamp(Math.round(rec.headingIndex), 1, count), changed: false };
   }
-  const same = current.headings.filter((h) => norm(h.text) === norm(rec.headingText));
+  const text = norm(rec.headingText);
+  const same = text ? current.headings.filter((h) => norm(h.text) === text) : [];
   if (same.length) {
     const nearest = same.reduce((a, b) =>
       Math.abs(a.index - rec.headingIndex) <= Math.abs(b.index - rec.headingIndex) ? a : b,
     );
-    return { index: nearest.index, changed: true };
+    return { index: clamp(Math.round(nearest.index), 1, count), changed: true };
   }
-  const scaled = Math.round((rec.headingIndex * count) / Math.max(rec.headingCount || 1, 1));
+  const scaled = Math.round((rec.headingIndex * count) / rec.headingCount);
   return { index: clamp(scaled, 1, count), changed: true };
 }
 

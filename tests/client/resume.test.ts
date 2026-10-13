@@ -97,3 +97,32 @@ describe('set aside', () => {
     expect(readAside(s, k)).toEqual(['HC-02']);
   });
 });
+
+describe('restoreFlag tolerates malformed stored JSON', () => {
+  const key = flagKey('c', 'HC-03');
+  const cur = { headings: heads('A', 'B', 'C', 'D'), zhHash: 'h2' };
+  const run = (raw: string) => {
+    const s = new MemoryStorage();
+    s.setItem(key, raw);
+    return restoreFlag(s, key, cur);
+  };
+  it('returns null for non-object or non-numeric index', () => {
+    expect(run('null')).toBeNull();
+    expect(run('42')).toBeNull();
+    expect(run('"x"')).toBeNull();
+    expect(run('{"headingIndex":"x"}')).toBeNull();
+    expect(run('{"headingIndex":null}')).toBeNull();
+    expect(run('{}')).toBeNull();
+  });
+  it('defaults missing/invalid text and count, always an integer in range', () => {
+    expect(run('{"headingIndex":2}')).toEqual({ index: 2, changed: true });
+    expect(run('{"headingIndex":2,"headingCount":{}}')).toEqual({ index: 2, changed: true });
+    expect(run('{"headingIndex":2,"headingCount":0,"headingText":5}')).toEqual({ index: 2, changed: true });
+    const r = run('{"headingIndex":1e999,"headingCount":-3,"headingText":""}');
+    expect(r).toBeNull();
+    const r2 = run('{"headingIndex":2.6,"headingCount":"NaN","zhHash":7}')!;
+    expect(Number.isInteger(r2.index)).toBe(true);
+    expect(r2.index).toBeGreaterThanOrEqual(1);
+    expect(r2.index).toBeLessThanOrEqual(4);
+  });
+});
