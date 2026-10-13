@@ -110,11 +110,10 @@ describe('SectionCount', () => {
     const fx = path.resolve(__dirname, '../fixtures/content');
     const nav = buildNav(fx, loadCollection(fx, 'demo'), 'en');
     const groups = nav.flatMap((s) => s.groups);
-    const all = groups.flatMap((g) => g.docs);
-    const translated = all.filter((d) => d.status === 'translated').length;
+    // fixture demo/en: three docs, none reviewed-translated, one machine-translated (intro)
     const { container } = render(wrap(<SectionCount groups={groups} />));
     expect(screen.getByText(`${en.doc.translated}:`)).toBeTruthy();
-    expect(container.textContent).toContain(`${translated} / ${all.length}`);
-    expect(translated).toBeLessThan(all.length);
+    expect(container.textContent).toContain('0 / 3');
+    expect(container.textContent).toContain(`${en.doc.machineStatus}: 1`);
   });
 });

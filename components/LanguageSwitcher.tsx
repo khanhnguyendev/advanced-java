@@ -34,12 +34,14 @@ export function LanguageSwitcher({
               aria-current={it.locale === current ? 'page' : undefined}
               data-status={it.status}
               onClick={(e) => {
+                const modified = e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
                 if (it.locale === current) {
-                  e.preventDefault();
+                  // plain click on the current page is a no-op; modified clicks keep the browser default
+                  if (!modified) e.preventDefault();
                   return;
                 }
                 writeLocaleCookie(it.locale);
-                if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                if (e.defaultPrevented || modified) return;
                 e.preventDefault();
                 const idx = currentHeadingIndex(document);
                 navigate(idx ? `${it.href.split('#')[0]}#h${idx}` : it.href);

@@ -33,10 +33,23 @@ describe('ThemeToggle', () => {
     expect(window.localStorage.getItem('theme')).toBe('light');
   });
 
+  it('reads the applied data-theme, not storage, for the initial value', () => {
+    window.localStorage.setItem('theme', 'dark');
+    document.documentElement.setAttribute('data-theme', 'light');
+    render(wrap(<ThemeToggle />));
+    expect(screen.getByRole('button', { name: /Theme: Light/ })).toBeTruthy();
+  });
+
+  it('removes the stored key when switching to system', () => {
+    window.localStorage.setItem('theme', 'light');
+    document.documentElement.setAttribute('data-theme', 'light');
+    render(wrap(<ThemeToggle />));
+    fireEvent.click(screen.getByRole('button', { name: /Theme: Light/ }));
+    expect(document.documentElement.hasAttribute('data-theme')).toBe(false);
+    expect(window.localStorage.getItem('theme')).toBeNull();
+  });
+
   it('does not crash when storage throws', () => {
-    vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
-      throw new Error('denied');
-    });
     vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
       throw new Error('denied');
     });

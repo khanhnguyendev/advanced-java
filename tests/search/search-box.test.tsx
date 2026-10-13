@@ -42,6 +42,35 @@ describe('SearchBox', () => {
     fireEvent.change(box, { target: { value: 'zzz' } });
     await waitFor(() => expect(screen.queryAllByRole('link')).toHaveLength(0));
   });
+  it('announces a single result with the ICU one branch', async () => {
+    const one: SearchEngine = { search: async () => [(await engine.search('queue', 'vi'))[0]] };
+    render(
+      <NextIntlClientProvider locale="en" messages={en}>
+        <SearchBox locale="vi" engine={one} />
+      </NextIntlClientProvider>,
+    );
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'queue' } });
+    await waitFor(() => expect(screen.getAllByRole('link')).toHaveLength(1));
+    expect(screen.getByText('1 result')).toBeTruthy();
+  });
+  it('hides hits when the locale changes until a new search settles', async () => {
+    let release!: (h: SearchHit[]) => void;
+    const e: SearchEngine = {
+      search: (q, l) => (l === 'vi' ? engine.search(q, l) : new Promise((r) => (release = r))),
+    };
+    const ui = (locale: 'vi' | 'en') => (
+      <NextIntlClientProvider locale="en" messages={en}>
+        <SearchBox locale={locale} engine={e} />
+      </NextIntlClientProvider>
+    );
+    const { rerender } = render(ui('vi'));
+    fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'queue' } });
+    await waitFor(() => expect(screen.getAllByRole('link')).toHaveLength(2));
+    rerender(ui('en'));
+    expect(screen.queryAllByRole('link')).toHaveLength(0);
+    await waitFor(() => expect(release).toBeTypeOf('function'));
+    release([]);
+  });
   it('clears results on Escape and announces the count', async () => {
     wrap();
     const box = screen.getByRole('searchbox');
@@ -92,7 +121,7 @@ describe('SearchBox', () => {
     });
     expect(screen.queryAllByRole('link')).toHaveLength(0);
   });
-  it('keeps the popup when blur has no related target but mousedown is on the results', async () => {
+  it('keeps the popup open when mousedown lands on the results (default-prevented so blur never fires)', async () => {
     wrap();
     const box = screen.getByRole('searchbox');
     fireEvent.change(box, { target: { value: 'queue' } });

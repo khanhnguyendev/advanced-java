@@ -1,5 +1,6 @@
 import { fontVariables } from './fonts';
 import './globals.css';
+import { themeScript } from './theme-script';
 
 export default function GlobalNotFound() {
   return (
@@ -8,8 +9,7 @@ export default function GlobalNotFound() {
         <title>Page not found</title>
         <script
           dangerouslySetInnerHTML={{
-            __html:
-              "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}",
+            __html: themeScript,
           }}
         />
       </head>

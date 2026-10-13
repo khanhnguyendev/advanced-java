@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { LOCALES, type Locale } from '@/lib/content/types';
+import type { Locale } from '@/lib/content/types';
 import type { ImageCredit } from '@/lib/assets';
 
 export interface AboutCollection {
