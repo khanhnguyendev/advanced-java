@@ -1,0 +1,355 @@
+{
+  "sections": {
+    "high-concurrency": "High-Concurrency Architecture",
+    "distributed-system": "Distributed Systems",
+    "high-availability": "High-Availability Architecture",
+    "micro-services": "Microservices Architecture",
+    "big-data": "Massive Data Processing"
+  },
+  "groups": {
+    "mq-interview": "Message Queue",
+    "es-introduction": "Search Engine",
+    "high-concurrency-g3": "Cache",
+    "high-concurrency-g4": "Database and Table Sharding",
+    "high-concurrency-g5": "Read/Write Splitting",
+    "high-concurrency-g6": "High-Concurrency Systems",
+    "high-concurrency-g7": "Rate Limiting",
+    "distributed-system-g1": "Distributed Systems",
+    "distributed-system-g2": "System Decomposition",
+    "distributed-system-g3": "Distributed Service Frameworks",
+    "distributed-system-g4": "Distributed Lock",
+    "distributed-system-g5": "Distributed Transaction",
+    "distributed-system-g6": "Distributed Session",
+    "high-availability-g1": "High Availability with Hystrix",
+    "high-availability-g2": "Circuit Breaking and Degradation",
+    "micro-services-g1": "Microservices Concepts",
+    "micro-services-g2": "Spring Cloud Architecture",
+    "big-data-g1": "Massive Data Processing"
+  },
+  "docs": {
+    "mq-interview": {
+      "title": "Message Queue Interview Scenarios",
+      "navTitle": "Message Queue"
+    },
+    "why-mq": {
+      "title": "Why Use a Message Queue?",
+      "navTitle": "Why Use a Message Queue?"
+    },
+    "how-to-ensure-high-availability-of-message-queues": {
+      "title": "How Do You Ensure the High Availability of a Message Queue?",
+      "navTitle": "How Do You Ensure the High Availability of a Message Queue?"
+    },
+    "how-to-ensure-that-messages-are-not-repeatedly-consumed": {
+      "title": "How Do You Ensure Messages Are Not Consumed Repeatedly?",
+      "navTitle": "How Do You Ensure Messages Are Not Consumed Repeatedly?"
+    },
+    "how-to-ensure-the-reliable-transmission-of-messages": {
+      "title": "How Do You Ensure Reliable Message Delivery?",
+      "navTitle": "How Do You Ensure Reliable Message Delivery?"
+    },
+    "how-to-ensure-the-order-of-messages": {
+      "title": "How Do You Ensure Message Ordering?",
+      "navTitle": "How Do You Ensure Message Ordering?"
+    },
+    "mq-time-delay-and-expired-failure": {
+      "title": "How Do You Handle Message Queue Delays and Message Expiration?",
+      "navTitle": "How Do You Handle Queue Delays and Expiration?"
+    },
+    "mq-design": {
+      "title": "How Would You Design a Message Queue?",
+      "navTitle": "How Would You Design a Message Queue?"
+    },
+    "es-introduction": {
+      "title": "Introduction to Search Engines",
+      "navTitle": "Search Engine"
+    },
+    "es-architecture": {
+      "title": "Distributed Architecture Principles of ES",
+      "navTitle": "Distributed Architecture Principles of ES"
+    },
+    "es-write-query-search": {
+      "title": "How ES Writes Data",
+      "navTitle": "How ES Writes Data"
+    },
+    "es-optimizing-query-performance": {
+      "title": "ES Query Performance Optimization",
+      "navTitle": "ES Query Performance Optimization"
+    },
+    "es-production-cluster": {
+      "title": "ES Production Cluster Architecture",
+      "navTitle": "ES Production Cluster Architecture"
+    },
+    "why-cache": {
+      "title": "How to Use a Cache",
+      "navTitle": "How to Use a Cache"
+    },
+    "redis-single-thread-model": {
+      "title": "Differences Between Redis and Memcached",
+      "navTitle": "Redis vs Memcached"
+    },
+    "redis-data-types": {
+      "title": "Redis Data Types and Use Cases",
+      "navTitle": "Redis Data Types and Use Cases"
+    },
+    "redis-expiration-policies-and-lru": {
+      "title": "Redis Expiration Policies and the LRU Algorithm",
+      "navTitle": "Redis Expiration Policies"
+    },
+    "how-to-ensure-high-concurrency-and-high-availability-of-redis": {
+      "title": "How Do You Ensure High Concurrency and High Availability of Redis?",
+      "navTitle": "Redis High Concurrency and High Availability"
+    },
+    "redis-master-slave": {
+      "title": "Redis Primary/Replica Architecture",
+      "navTitle": "Redis Primary/Replica Architecture"
+    },
+    "redis-persistence": {
+      "title": "Redis Persistence Mechanisms",
+      "navTitle": "Redis Persistence Mechanisms"
+    },
+    "redis-sentinel": {
+      "title": "High Availability with Redis Sentinel Cluster",
+      "navTitle": "High Availability with Sentinel Cluster"
+    },
+    "redis-cluster": {
+      "title": "How Redis Cluster Mode Works",
+      "navTitle": "How Redis Cluster Mode Works"
+    },
+    "redis-caching-avalanche-and-caching-penetration": {
+      "title": "Cache Avalanche, Penetration, and Breakdown",
+      "navTitle": "Cache Avalanche, Penetration, Breakdown"
+    },
+    "redis-consistence": {
+      "title": "Consistency Between Cache and Database",
+      "navTitle": "Cache and Database Consistency"
+    },
+    "redis-cas": {
+      "title": "Concurrency Contention in Redis",
+      "navTitle": "Redis Concurrency Contention"
+    },
+    "redis-production-environment": {
+      "title": "Redis Production Deployment",
+      "navTitle": "Redis Production Deployment"
+    },
+    "database-shard": {
+      "title": "Why Shard Databases and Tables?",
+      "navTitle": "Why Shard Databases and Tables?"
+    },
+    "database-shard-method": {
+      "title": "How Do You Migrate to Database and Table Sharding Smoothly?",
+      "navTitle": "How Do You Migrate to Sharding Smoothly?"
+    },
+    "database-shard-dynamic-expand": {
+      "title": "Dynamic Scale-Out and Scale-In Strategies",
+      "navTitle": "Dynamic Scale-Out and Scale-In"
+    },
+    "database-shard-global-id-generate": {
+      "title": "How Do You Handle Primary Key IDs?",
+      "navTitle": "How Do You Handle Primary Key IDs?"
+    },
+    "mysql-read-write-separation": {
+      "title": "How Do You Implement Read/Write Splitting?",
+      "navTitle": "How Do You Implement Read/Write Splitting?"
+    },
+    "high-concurrency-design": {
+      "title": "How Would You Design a High-Concurrency System?",
+      "navTitle": "How Would You Design a High-Concurrency System?"
+    },
+    "how-to-limit-current": {
+      "title": "How Do You Implement Rate Limiting? How Have You Done It at Work, and What Are the Details?",
+      "navTitle": "Rate Limiting Approaches"
+    },
+    "distributed-system-interview": {
+      "title": "A Chain of Distributed System Interview Questions",
+      "navTitle": "Chain of Interview Questions"
+    },
+    "why-dubbo": {
+      "title": "Why Decompose a System?",
+      "navTitle": "Why Decompose a System?"
+    },
+    "dubbo-operating-principle": {
+      "title": "How Dubbo Works",
+      "navTitle": "How Dubbo Works"
+    },
+    "dubbo-serialization-protocol": {
+      "title": "Dubbo Serialization Protocols",
+      "navTitle": "Dubbo Serialization Protocols"
+    },
+    "dubbo-load-balancing": {
+      "title": "Dubbo Load Balancing and Cluster Fault-Tolerance Strategies",
+      "navTitle": "Dubbo Load Balancing and Fault Tolerance"
+    },
+    "dubbo-spi": {
+      "title": "Dubbo's SPI Mechanism",
+      "navTitle": "Dubbo's SPI Design"
+    },
+    "dubbo-service-management": {
+      "title": "How Do You Do Service Governance with Dubbo?",
+      "navTitle": "Service Governance Approach"
+    },
+    "distributed-system-idempotency": {
+      "title": "How Do You Design Idempotency for Distributed Service Interfaces?",
+      "navTitle": "Interface Idempotency Design"
+    },
+    "distributed-system-request-sequence": {
+      "title": "How Do You Ensure Request Ordering for Distributed Service Interfaces?",
+      "navTitle": "Interface Ordering Design"
+    },
+    "dubbo-rpc-design": {
+      "title": "Design an RPC Framework Similar to Dubbo",
+      "navTitle": "Design a Dubbo-Like RPC Framework"
+    },
+    "distributed-system-cap": {
+      "title": "The CAP Theorem in Distributed Systems",
+      "navTitle": "What Is P in the CAP Theorem?"
+    },
+    "zookeeper-application-scenarios": {
+      "title": "Zookeeper Use Cases",
+      "navTitle": "Zookeeper Use Cases"
+    },
+    "distributed-lock-redis-vs-zookeeper": {
+      "title": "Redis vs Zookeeper for Distributed Locks",
+      "navTitle": "Redis vs Zookeeper for Distributed Locks"
+    },
+    "distributed-transaction": {
+      "title": "Principles of Distributed Transactions",
+      "navTitle": "Principles of Distributed Transactions"
+    },
+    "distributed-session": {
+      "title": "How Do You Implement a Distributed Session?",
+      "navTitle": "How Do You Implement a Distributed Session?"
+    },
+    "hystrix-introduction": {
+      "title": "Building a Highly Available Service Architecture with Hystrix",
+      "navTitle": "Introduction to Hystrix"
+    },
+    "e-commerce-website-detail-page-architecture": {
+      "title": "System Architecture of an E-Commerce Product Detail Page",
+      "navTitle": "Detail Page Architecture"
+    },
+    "hystrix-thread-pool-isolation": {
+      "title": "Resource Isolation with Hystrix Thread Pools",
+      "navTitle": "Thread Pool Isolation"
+    },
+    "hystrix-semphore-isolation": {
+      "title": "Resource Isolation with Hystrix Semaphores",
+      "navTitle": "Semaphore Isolation"
+    },
+    "hystrix-execution-isolation": {
+      "title": "Fine-Grained Control of Hystrix Isolation Strategies",
+      "navTitle": "Fine-Grained Isolation Strategies"
+    },
+    "hystrix-process": {
+      "title": "Inside Hystrix Execution: Internal Principles",
+      "navTitle": "Execution Principles"
+    },
+    "hystrix-request-cache": {
+      "title": "Optimizing a Batch Product Data Query Interface with Request Cache",
+      "navTitle": "Request Cache"
+    },
+    "hystrix-fallback": {
+      "title": "Fallback Degradation Based on a Local Cache",
+      "navTitle": "Local Fallback Cache"
+    },
+    "hystrix-circuit-breaker": {
+      "title": "Inside the Hystrix Circuit Breaker: How It Works",
+      "navTitle": "Circuit Breaker Principles"
+    },
+    "hystrix-thread-pool-current-limiting": {
+      "title": "Hystrix Thread Pool Isolation and Interface Rate Limiting in Depth",
+      "navTitle": "Rate Limiting and Thread Pool Isolation"
+    },
+    "hystrix-timeout": {
+      "title": "Protecting Service Interface Calls from Timeouts with the Timeout Mechanism",
+      "navTitle": "Timeout Protection"
+    },
+    "sentinel-vs-hystrix": {
+      "title": "How Do You Choose a Technology? Sentinel or Hystrix?",
+      "navTitle": "Sentinel vs Hystrix"
+    },
+    "microservices-introduction": {
+      "title": "Describing the Microservices Architecture",
+      "navTitle": "Microservices Architecture Overview"
+    },
+    "migrating-from-a-monolithic-architecture-to-a-microservices-architecture": {
+      "title": "Overview of Migrating to Microservices",
+      "navTitle": "From Monolith to Microservices"
+    },
+    "event-driven-data-management-for-microservices": {
+      "title": "Event-Driven Data Management for Microservices",
+      "navTitle": "Event-Driven Data Management"
+    },
+    "choose-microservice-deployment-strategy": {
+      "title": "Choosing a Microservice Deployment Strategy",
+      "navTitle": "Choosing a Deployment Strategy"
+    },
+    "whats-microservice-how-to-communicate": {
+      "title": "What Is a Microservice? How Do Microservices Communicate Independently?",
+      "navTitle": "Communication Between Microservices"
+    },
+    "micro-services-technology-stack": {
+      "title": "Microservices Technology Stack",
+      "navTitle": "Microservices Technology Stack"
+    },
+    "micro-service-governance": {
+      "title": "Microservice Governance Strategies",
+      "navTitle": "Microservice Governance Strategies"
+    },
+    "how-eureka-enable-service-discovery-and-service-registration": {
+      "title": "The Main Call Flows of the Eureka Service Discovery Component",
+      "navTitle": "Eureka Registration and Discovery"
+    },
+    "find-common-urls": {
+      "title": "How Do You Find Identical URLs Among a Huge Number of URLs?",
+      "navTitle": "Find Identical URLs"
+    },
+    "find-top-100-words": {
+      "title": "How Do You Find the Most Frequent Words in Massive Data?",
+      "navTitle": "Find Frequent Words"
+    },
+    "find-top-1-ip": {
+      "title": "How Do You Find the IP That Visited Baidu Most on a Given Day?",
+      "navTitle": "Find the Most Frequent IP"
+    },
+    "find-no-repeat-number": {
+      "title": "How Do You Find Non-Repeating Integers in Massive Data?",
+      "navTitle": "Find Non-Repeating Integers"
+    },
+    "find-a-number-if-exists": {
+      "title": "How Do You Check Whether a Number Exists in Massive Data?",
+      "navTitle": "Check Whether a Number Exists"
+    },
+    "find-hotest-query-string": {
+      "title": "How Do You Find the Hottest Query Strings?",
+      "navTitle": "Find the Hottest Query Strings"
+    },
+    "count-different-phone-numbers": {
+      "title": "How Do You Count Distinct Phone Numbers?",
+      "navTitle": "Count Distinct Phone Numbers"
+    },
+    "find-mid-value-in-500-millions": {
+      "title": "How Do You Find the Median of 500 Million Numbers?",
+      "navTitle": "Find the Median"
+    },
+    "sort-the-query-strings-by-counts": {
+      "title": "How Do You Sort Queries by Frequency?",
+      "navTitle": "Sort Query Strings by Frequency"
+    },
+    "find-rank-top-500-numbers": {
+      "title": "How Do You Find the Top 500 Numbers?",
+      "navTitle": "Find the Top 500 Numbers"
+    },
+    "topk-problems-and-solutions": {
+      "title": "Common Approaches to Top-K Problems in Big Data",
+      "navTitle": "Common Approaches to Top-K Problems in Big Data"
+    },
+    "redis-rehash": {
+      "title": "The Redis Rehash Process",
+      "navTitle": "Do You Know How Redis Rehash Works?"
+    },
+    "advantages-and-disadvantages-of-microservice": {
+      "title": "Advantages and Disadvantages of Microservices Architecture",
+      "navTitle": "Advantages and Disadvantages of Microservices"
+    }
+  }
+}
