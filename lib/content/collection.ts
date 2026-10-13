@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 import type { CollectionConfig, DocRef, Locale, LocaleMeta } from './types';
 
@@ -43,4 +43,11 @@ export function loadMeta(root: string, collection: string, locale: Locale): Loca
 
 export function docFile(root: string, collection: string, locale: Locale, section: string, slug: string): string {
   return path.join(root, collection, locale, section, `${slug}.md`);
+}
+
+export function listCollections(root: string): string[] {
+  if (!existsSync(root)) return [];
+  return readdirSync(root)
+    .filter((n) => statSync(path.join(root, n)).isDirectory() && existsSync(path.join(root, n, 'collection.json')))
+    .sort();
 }
