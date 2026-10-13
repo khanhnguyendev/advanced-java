@@ -1,8 +1,13 @@
 import { hasLocale } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { contentRoot, listCollections } from '@/lib/content/collection';
+import { Shelf, type ShelfItem } from '@/components/Shelf';
+import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
+import { contentRoot, listCollections, loadCollection } from '@/lib/content/collection';
+import type { Locale } from '@/lib/content/types';
+import { collectionStats } from '@/lib/stats';
+import { indexSwitcher } from '@/lib/switcher';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -11,21 +16,28 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export default async function Shelf({ params }: { params: Promise<{ locale: string }> }) {
+export default async function ShelfPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const collections = listCollections(contentRoot());
+  const names = await getTranslations('languages');
+  const site = await getTranslations('site');
+  const root = contentRoot();
+  const items: ShelfItem[] = listCollections(root).map((id) => {
+    const c = loadCollection(root, id);
+    const s = collectionStats(root, c);
+    return { collection: id, title: id, tabColor: c.tabColor, total: s.total, perLocale: s.perLocale };
+  });
   return (
-    <main>
-      <h1>advanced-java</h1>
-      <ul>
-        {collections.map((c) => (
-          <li key={c}>
-            <a href={`/${locale}/${c}`}>{c}</a>
-          </li>
-        ))}
-      </ul>
-    </main>
+    <>
+      <TopBar
+        locale={locale as Locale}
+        collectionId=""
+        collectionTitle={site('title')}
+        homeHref={`/${locale}`}
+        switcher={indexSwitcher('', (l) => names(l))}
+      />
+      <Shelf locale={locale as Locale} items={items} />
+    </>
   );
 }
