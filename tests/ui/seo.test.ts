@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { loadCollection } from '@/lib/content/collection';
-import { docAlternates, sitemapEntries, siteUrl } from '@/lib/seo';
+import { docAlternates, resetSiteUrlWarning, sitemapEntries, siteUrl } from '@/lib/seo';
 
 const root = path.resolve(__dirname, '../fixtures/content');
 const c = loadCollection(root, 'demo');
@@ -34,13 +34,29 @@ describe('docAlternates', () => {
 
 describe('sitemapEntries', () => {
   it('lists real translations only, never fallback pages', () => {
-    const paths = sitemapEntries(root).map((e) => e.path).sort();
+    const paths = sitemapEntries(root).map((e) => e.path).filter((p) => p.split('/').length === 5).sort();
     expect(paths).toEqual([
       '/en/demo/alpha/intro',
       '/zh/demo/alpha/intro',
       '/zh/demo/alpha/second',
       '/zh/demo/alpha/third',
     ]);
+  });
+  it('lists the index pages with all three locales and x-default en', () => {
+    const entries = sitemapEntries(root);
+    const paths = entries.map((e) => e.path);
+    for (const p of ['/en', '/vi', '/zh', '/en/about', '/zh/about', '/vi/demo', '/en/demo/alpha', '/zh/demo/alpha']) {
+      expect(paths).toContain(p);
+    }
+    const home = entries.find((e) => e.path === '/vi')!;
+    expect(home.alternates).toEqual({ en: '/en', vi: '/vi', 'zh-Hans': '/zh', 'x-default': '/en' });
+    const sec = entries.find((e) => e.path === '/zh/demo/alpha')!;
+    expect(sec.alternates).toEqual({
+      en: '/en/demo/alpha',
+      vi: '/vi/demo/alpha',
+      'zh-Hans': '/zh/demo/alpha',
+      'x-default': '/en/demo/alpha',
+    });
   });
   it('carries alternates among real translations only', () => {
     const e = sitemapEntries(root).find((x) => x.path === '/en/demo/alpha/intro')!;
@@ -50,7 +66,34 @@ describe('sitemapEntries', () => {
 });
 
 describe('siteUrl', () => {
-  afterEach(() => vi.unstubAllEnvs());
+  afterEach(() => {
+    vi.unstubAllEnvs();
+    vi.restoreAllMocks();
+  });
+  it('warns once, without throwing, when production has no site URL', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    resetSiteUrlWarning();
+    vi.stubEnv('NEXT_PUBLIC_SITE_URL', '');
+    vi.stubEnv('VERCEL_PROJECT_PRODUCTION_URL', '');
+    vi.stubEnv('VERCEL', '');
+    vi.stubEnv('NODE_ENV', 'production');
+    expect(siteUrl()).toBe('http://localhost:3000');
+    expect(siteUrl()).toBe('http://localhost:3000');
+    expect(warn).toHaveBeenCalledTimes(1);
+  });
+  it('does not warn on Vercel or outside production', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    resetSiteUrlWarning();
+    vi.stubEnv('NEXT_PUBLIC_SITE_URL', '');
+    vi.stubEnv('VERCEL_PROJECT_PRODUCTION_URL', '');
+    vi.stubEnv('VERCEL', '1');
+    vi.stubEnv('NODE_ENV', 'production');
+    siteUrl();
+    vi.stubEnv('VERCEL', '');
+    vi.stubEnv('NODE_ENV', 'development');
+    siteUrl();
+    expect(warn).not.toHaveBeenCalled();
+  });
   it('prefers NEXT_PUBLIC_SITE_URL', () => {
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://a.example');
     vi.stubEnv('VERCEL_PROJECT_PRODUCTION_URL', 'b.example');
