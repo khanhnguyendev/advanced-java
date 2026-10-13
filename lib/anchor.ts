@@ -11,7 +11,15 @@ export function findHeadingElement(root: ParentNode, index: number): Element | n
   const els = headingElements(root);
   if (!els.length) return null;
   if (index < 1) return els[0];
-  return els.find((e) => e.getAttribute('data-hi') === String(index)) ?? els[els.length - 1];
+  const exact = els.find((e) => e.getAttribute('data-hi') === String(index));
+  if (exact) return exact;
+  const last = Number(els[els.length - 1].getAttribute('data-hi'));
+  if (index > last) return els[els.length - 1];
+  let best: Element = els[0];
+  for (const e of els) {
+    if (Number(e.getAttribute('data-hi')) <= index) best = e;
+  }
+  return best;
 }
 
 export function resolveHashInDocument(doc: Document, hash: string): Element | null {

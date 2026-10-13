@@ -20,7 +20,8 @@
     "idLabel": "Mã",
     "translated": "Đã dịch",
     "fallback": "Chưa dịch",
-    "machineStatus": "Dịch máy"
+    "machineStatus": "Dịch máy",
+    "language": "Ngôn ngữ"
   },
   "resume": {
     "mark": "Đánh dấu ở đây",

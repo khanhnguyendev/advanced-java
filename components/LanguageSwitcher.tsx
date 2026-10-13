@@ -22,23 +22,30 @@ export function LanguageSwitcher({
     s === 'translated' ? t('translated') : s === 'machine' ? t('machineStatus') : t('fallback');
 
   return (
-    <nav aria-label="Language" className="lang-switcher">
+    <nav aria-label={t('language')} className="lang-switcher">
       <ul>
         {items.map((it) => (
           <li key={it.locale}>
             <a
               href={it.href}
-              lang={it.locale === 'zh' ? 'zh-Hans' : it.locale}
-              aria-current={it.locale === current ? 'true' : undefined}
+              hrefLang={it.locale === 'zh' ? 'zh-Hans' : it.locale}
+              aria-current={it.locale === current ? 'page' : undefined}
               data-status={it.status}
               onClick={(e) => {
-                e.preventDefault();
+                if (it.locale === current) {
+                  e.preventDefault();
+                  return;
+                }
                 writeLocaleCookie(it.locale);
+                if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                e.preventDefault();
                 const idx = currentHeadingIndex(document);
-                navigate(idx ? `${it.href}#h${idx}` : it.href);
+                navigate(idx ? `${it.href.split('#')[0]}#h${idx}` : it.href);
               }}
             >
-              <span className="lang-label ui-cjk">{it.label}</span>
+              <span className="lang-label ui-cjk" lang={it.locale === 'zh' ? 'zh-Hans' : it.locale}>
+                {it.label}
+              </span>
               <span className="lang-status">{statusLabel(it.status)}</span>
             </a>
           </li>

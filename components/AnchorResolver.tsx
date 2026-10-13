@@ -10,8 +10,14 @@ export function AnchorResolver() {
       const el = resolveHashInDocument(document, window.location.hash);
       if (!el) return;
       el.scrollIntoView();
-      if (el.id && window.location.hash !== `#${el.id}`) {
-        window.history.replaceState(null, '', `#${el.id}`);
+      let current = window.location.hash.slice(1);
+      try {
+        current = decodeURIComponent(current);
+      } catch {
+        // keep raw value
+      }
+      if (el.id && current !== el.id) {
+        window.history.replaceState(window.history.state, '', `#${encodeURIComponent(el.id)}`);
       }
     };
     go();

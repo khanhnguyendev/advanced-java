@@ -49,4 +49,33 @@ describe('LanguageSwitcher', () => {
     fireEvent.click(screen.getByRole('link', { name: /中文/ }));
     expect(navigate).toHaveBeenCalledWith('/zh/c/a/x');
   });
+
+  it('does not hijack modified clicks but still writes the cookie', () => {
+    const navigate = vi.fn();
+    render(wrap(<LanguageSwitcher items={items} current="en" navigate={navigate} />));
+    const link = screen.getByRole('link', { name: /Tiếng Việt/ });
+    const ctrl = fireEvent.click(link, { ctrlKey: true });
+    expect(ctrl).toBe(true);
+    expect(fireEvent.click(link, { metaKey: true })).toBe(true);
+    expect(navigate).not.toHaveBeenCalled();
+    expect(document.cookie).toContain('NEXT_LOCALE=vi');
+  });
+
+  it('does nothing when clicking the current locale', () => {
+    const navigate = vi.fn();
+    render(wrap(<LanguageSwitcher items={items} current="en" navigate={navigate} />));
+    const link = screen.getByRole('link', { name: /English/ });
+    expect(link.getAttribute('aria-current')).toBe('page');
+    fireEvent.click(link);
+    expect(navigate).not.toHaveBeenCalled();
+    expect(document.cookie).not.toContain('NEXT_LOCALE=en');
+  });
+
+  it('puts lang on the label and hrefLang on the link', () => {
+    render(wrap(<LanguageSwitcher items={items} current="en" />));
+    const link = screen.getByRole('link', { name: /中文/ });
+    expect(link.getAttribute('hreflang')).toBe('zh-Hans');
+    expect(link.hasAttribute('lang')).toBe(false);
+    expect(link.querySelector('.lang-label')?.getAttribute('lang')).toBe('zh-Hans');
+  });
 });

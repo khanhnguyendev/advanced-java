@@ -33,6 +33,12 @@ describe('heading resolution', () => {
   it('resolves index 0 to the first heading', () => {
     expect(findHeadingElement(document, 0)?.id).toBe('h1-slug-1');
   });
+  it('resolves a missing in-range index to the last heading at or before it', () => {
+    document.body.innerHTML = [1, 2, 4]
+      .map((n) => `<h2 id="h${n}-s" data-hi="${n}">T</h2>`)
+      .join('');
+    expect(resolveHashInDocument(document, '#h3')?.id).toBe('h2-s');
+  });
   it('returns null when the page has no indexed headings', () => {
     document.body.innerHTML = '<p>none</p>';
     expect(resolveHashInDocument(document, '#h1')).toBeNull();
