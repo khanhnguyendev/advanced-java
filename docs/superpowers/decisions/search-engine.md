@@ -25,4 +25,10 @@ Date: 2026-10-13. Pass bar: zh hit@10 >= 0.9, accent-insensitive vi titles all h
 Notes: Orama uses the Mandarin tokenizer for zh and a Unicode letter/digit splitter (no stemming) for vi/en, because its default english splitter breaks accented Vietnamese tokens. Pagefind language is taken from <html lang>, so the runner reloads a page of each locale before querying; results outside the locale folder are counted as foreign and never count as hits.
 
 ## Decision
-(owner/main session fills after reading the table: if both pass choose the smaller first-search transfer; if only one passes choose it; if neither passes add a custom bigram tokenizer for zh and re-run)
+
+**Pagefind 1.5.2** (decided 2026-10-14 by the controller, per the spec's outcome rule "one passes, choose it").
+
+- zh: Pagefind hit@10 20/20 with 179 KB gzip first-search transfer (passes the 300 KB bar); Orama hit@10 19/20 (misses "Hystrix") and its zh index is ~691 KB gzip, which fails the size bar.
+- vi/en were not evaluated (no translations existed at decision time). This is provisional for the accent-insensitive vi check: it must be re-run after the pilot (Task 22) and again after the full run (Task 26); folded (accent-stripped) text is indexed alongside accented text for vi to keep it engine-independent. If the vi check fails on Pagefind, re-open the decision.
+- Fallback pages are indexed under the ROUTE locale (`<html lang>` = route locale), so they appear in the vi/en indexes; they are found by their (always translated) title and by Latin terms in the zh text, as the spec states.
+- Known limitation: Pagefind does not segment Chinese outside a zh page, so Chinese queries against fallback pages inside the vi/en indexes will match poorly; zh readers use the zh index.
