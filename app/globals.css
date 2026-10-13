@@ -64,7 +64,8 @@ body {
 
 .reader { background: var(--paper); padding: 2rem clamp(1rem, 4vw, 3rem); }
 .prose { max-width: var(--measure); margin-inline: auto; }
-.prose:lang(zh) { font-family: var(--font-cjk), 'Noto Serif SC', 'Songti SC', serif; line-height: 1.9; max-width: 38em; }
+.doc-header h1:lang(zh), .prose:lang(zh) { font-family: var(--font-cjk), 'Noto Serif SC', 'Songti SC', serif; }
+.prose:lang(zh) { line-height: 1.9; max-width: 38em; }
 .prose h2, .prose h3, .prose h4 { scroll-margin-top: 5rem; }
 .prose a { color: var(--accent); }
 .prose pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--rule); }

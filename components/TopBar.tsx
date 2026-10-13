@@ -23,7 +23,7 @@ export function TopBar({
       <a className="ui" href={homeHref}>
         {collectionTitle}
       </a>
-      <div id="search-slot" aria-label={t('search')} />
+      <div id="search-slot" role="search" aria-label={t('search')} />
       <LanguageSwitcher items={switcher} current={locale} />
       <ThemeToggle />
       <ReadingModeToggle />

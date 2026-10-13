@@ -20,7 +20,40 @@ export interface NavSection {
   groups: NavGroup[];
 }
 
+export type SwitcherStatus = NavDoc['status'];
+
+/** How a doc is available in `locale`: translated (source or reviewed), machine, or not translated. */
+export function switcherStatus(
+  root: string,
+  c: CollectionConfig,
+  locale: Locale,
+  section: string,
+  slug: string,
+): SwitcherStatus {
+  const r = resolveDoc(root, c, locale, section, slug);
+  if (!r || r.fallback) return 'fallback';
+  return r.served === c.sourceLocale || r.frontmatter?.status === 'reviewed' ? 'translated' : 'machine';
+}
+
+const navMemo = new Map<string, NavSection[]>();
+
+export function __resetNavMemo(): void {
+  navMemo.clear();
+}
+
 export function buildNav(root: string, c: CollectionConfig, locale: Locale): NavSection[] {
+  const useMemo = process.env.NODE_ENV === 'production';
+  const key = `${root}|${c.id}|${locale}`;
+  if (useMemo) {
+    const hit = navMemo.get(key);
+    if (hit) return hit;
+  }
+  const out = computeNav(root, c, locale);
+  if (useMemo) navMemo.set(key, out);
+  return out;
+}
+
+function computeNav(root: string, c: CollectionConfig, locale: Locale): NavSection[] {
   const own = loadMeta(root, c.id, locale);
   const src = loadMeta(root, c.id, c.sourceLocale);
   const pick = <T,>(a: T | undefined, b: T | undefined, d: T) => a ?? b ?? d;
@@ -31,22 +64,13 @@ export function buildNav(root: string, c: CollectionConfig, locale: Locale): Nav
     groups: s.groups.map((g) => ({
       id: g.id,
       title: pick(own.groups[g.id], src.groups[g.id], g.id),
-      docs: g.docs.map((slug) => {
-        const r = resolveDoc(root, c, locale, s.id, slug);
-        const status: NavDoc['status'] =
-          !r || r.fallback
-            ? 'fallback'
-            : r.served === c.sourceLocale || r.frontmatter?.status === 'reviewed'
-              ? 'translated'
-              : 'machine';
-        return {
-          slug,
-          catalogId: c.ids[slug],
-          title: pick(own.docs[slug]?.navTitle, src.docs[slug]?.navTitle, slug),
-          status,
-          href: `/${locale}/${c.id}/${s.id}/${slug}`,
-        };
-      }),
+      docs: g.docs.map((slug) => ({
+        slug,
+        catalogId: c.ids[slug],
+        title: pick(own.docs[slug]?.navTitle, src.docs[slug]?.navTitle, slug),
+        status: switcherStatus(root, c, locale, s.id, slug),
+        href: `/${locale}/${c.id}/${s.id}/${slug}`,
+      })),
     })),
   }));
 }

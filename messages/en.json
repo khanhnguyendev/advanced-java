@@ -11,10 +11,12 @@
     "previous": "Previous",
     "next": "Next",
     "home": "Home",
-    "collections": "Notebooks"
+    "collections": "Notebooks",
+    "sidebar": "Documents"
   },
   "doc": {
     "fallbackNotice": "This page is not translated into {requested} yet. Showing the {served} original.",
+    "fallbackNoticeTranslated": "This page is not translated into {requested} yet. Showing the {served} translation.",
     "machine": "Machine translated, may contain errors.",
     "stale": "The Chinese original was updated after this translation; this page may be out of date.",
     "viewOriginal": "View original",
@@ -34,10 +36,11 @@
   },
   "steps": { "question": "Question", "psychology": "Interviewer psychology", "answer": "Answer", "section": "Section" },
   "attribution": {
+    "stop": ". ",
     "license": "Content licensed under CC-BY-SA-4.0",
     "credit": "Original by Doocs and 中华石杉",
-    "changesZh": "Reformatted from the original.",
-    "changesTranslated": "Translated and adapted from the Chinese original.",
+    "changesZh": "Reformatted from the original",
+    "changesTranslated": "Translated and adapted from the Chinese original",
     "sourceFile": "Upstream file",
     "aboutLink": "About and licenses"
   },

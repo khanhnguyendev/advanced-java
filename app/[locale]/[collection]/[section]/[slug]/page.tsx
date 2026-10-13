@@ -15,10 +15,10 @@ import { Toc } from '@/components/Toc';
 import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
 import { contentRoot, listCollections, listDocs, loadCollection, loadMeta } from '@/lib/content/collection';
-import { availableLocales, resolveDoc, zhHashOf } from '@/lib/content/fallback';
+import { resolveDoc, zhHashOf } from '@/lib/content/fallback';
 import { headingsFor } from '@/lib/content/headings-index';
 import { LOCALES, type Locale } from '@/lib/content/types';
-import { buildNav, flatDocs } from '@/lib/nav';
+import { buildNav, flatDocs, switcherStatus } from '@/lib/nav';
 import { computeNotices } from '@/lib/notices';
 import { extractHeadings } from '@/lib/render/headings';
 import { renderMarkdown } from '@/lib/render/pipeline';
@@ -68,10 +68,12 @@ export default async function DocPage({
   const tn = await getTranslations('nav');
   const nav = buildNav(root, c, loc);
   const flat = flatDocs(nav);
-  const at = flat.findIndex((d) => d.slug === slug);
+  const at = flat.findIndex((d) => d.href === `/${loc}/${collection}/${section}/${slug}`);
+  const prev = at > 0 ? flat[at - 1] : undefined;
+  const next = at >= 0 ? flat[at + 1] : undefined;
 
   const zhHash = zhHashOf(root, c, section, slug);
-  const zhDoc = resolveDoc(root, c, c.sourceLocale, section, slug)!;
+  const zhDoc = doc.served === c.sourceLocale ? doc : resolveDoc(root, c, c.sourceLocale, section, slug)!;
   const zhHeadings = extractHeadings(zhDoc.body);
   const notices = computeNotices({
     requested: loc,
@@ -86,16 +88,14 @@ export default async function DocPage({
     loadMeta(root, c.id, c.sourceLocale).docs[slug]?.title ??
     slug;
 
-  const have = new Set(availableLocales(root, c, section, slug));
+  const contentLang = doc.served === 'zh' ? 'zh-Hans' : doc.served;
+  const upstreamUrl = upstreamFileUrl(c, slug);
+  const steps = stepsFor(headings, docShape(zhHeadings));
   const switcher: SwitcherItem[] = LOCALES.map((l) => ({
     locale: l,
     label: names(l),
     href: `/${l}/${collection}/${section}/${slug}`,
-    status: !have.has(l)
-      ? 'fallback'
-      : l === c.sourceLocale || resolveDoc(root, c, l, section, slug)!.frontmatter?.status === 'reviewed'
-        ? 'translated'
-        : 'machine',
+    status: switcherStatus(root, c, l, section, slug),
   }));
 
   return (
@@ -107,17 +107,20 @@ export default async function DocPage({
         <MobileNav label={tn('menu')}>
           <Sidebar nav={nav} currentSlug={slug} />
           <Toc headings={headings} />
+          <MarginSteps steps={steps} />
         </MobileNav>
       </div>
       <Sidebar nav={nav} currentSlug={slug} />
-      <div className="reader">
+      <main id="main-content" className="reader">
         <DocHeader
           catalogId={c.ids[slug]}
           title={title}
           notices={notices}
           requestedName={names(loc)}
           servedName={names(doc.served)}
-          originalHref={upstreamFileUrl(c, slug)}
+          originalHref={upstreamUrl}
+          contentLang={contentLang}
+          servedIsOriginal={doc.served === c.sourceLocale}
         />
         <ResumeFlag
           collection={collection}
@@ -128,19 +131,19 @@ export default async function DocPage({
         <SetAside collection={collection} catalogId={c.ids[slug]} />
         <article
           className="prose"
-          lang={doc.served === 'zh' ? 'zh-Hans' : doc.served}
+          lang={contentLang}
           dangerouslySetInnerHTML={{ __html: html }}
         />
-        <DocFooter prev={flat[at - 1]} next={flat[at + 1]} />
+        <DocFooter prev={prev} next={next} />
         <Attribution
           kind={doc.served === 'zh' ? 'zh' : 'translated'}
-          fileUrl={upstreamFileUrl(c, slug)}
+          fileUrl={upstreamUrl}
           aboutHref={`/${loc}/about`}
         />
-      </div>
+      </main>
       <div className="toc-rail">
         <Toc headings={headings} />
-        <MarginSteps steps={stepsFor(headings, docShape(zhHeadings))} />
+        <MarginSteps steps={steps} />
       </div>
       <AnchorResolver />
     </div>

@@ -4,7 +4,7 @@ import type { NavSection } from '@/lib/nav';
 export function Sidebar({ nav, currentSlug }: { nav: NavSection[]; currentSlug: string }) {
   const t = useTranslations('nav');
   return (
-    <nav className="rail" aria-label={t('collections')}>
+    <nav className="rail" aria-label={t('sidebar')}>
       {nav.map((s) => (
         <section key={s.id}>
           <h2 className="ui">{s.title}</h2>
