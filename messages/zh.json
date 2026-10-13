@@ -20,7 +20,8 @@
     "idLabel": "编号",
     "translated": "已翻译",
     "fallback": "未翻译",
-    "machineStatus": "机器翻译"
+    "machineStatus": "机器翻译",
+    "language": "语言"
   },
   "resume": {
     "mark": "标记此处",

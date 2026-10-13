@@ -20,7 +20,8 @@
     "idLabel": "ID",
     "translated": "Translated",
     "fallback": "Not translated",
-    "machineStatus": "Machine translated"
+    "machineStatus": "Machine translated",
+    "language": "Language"
   },
   "resume": {
     "mark": "Mark here",
