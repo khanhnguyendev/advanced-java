@@ -1,3 +1,4 @@
+import type { Root } from 'mdast';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
@@ -11,6 +12,14 @@ import { rehypeHeadingIds } from './heading-ids';
 import { extractHeadings, type HeadingInfo } from './headings';
 import { rehypeRestrictImages } from './images';
 import { rehypeResolveLinks, type LinkContext } from './links';
+
+/** The page header renders the title, so the body's first top-level H1 is dropped (code fences are code nodes, untouched). */
+function remarkStripFirstH1() {
+  return (tree: Root) => {
+    const i = tree.children.findIndex((n) => n.type === 'heading' && n.depth === 1);
+    if (i >= 0) tree.children.splice(i, 1);
+  };
+}
 
 const base = defaultSchema.attributes ?? {};
 
@@ -63,6 +72,7 @@ export async function renderMarkdown(
       .use(remarkParse)
       .use(remarkGfm)
       .use(remarkEscapeUnknownHtml)
+      .use(remarkStripFirstH1)
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypeResolveLinks, { ...ctx, currentHeadings: headings })

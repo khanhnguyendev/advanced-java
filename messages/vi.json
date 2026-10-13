@@ -11,10 +11,12 @@
     "previous": "Trước",
     "next": "Tiếp",
     "home": "Trang chủ",
-    "collections": "Sổ tay"
+    "collections": "Sổ tay",
+    "sidebar": "Tài liệu"
   },
   "doc": {
     "fallbackNotice": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản gốc {served}.",
+    "fallbackNoticeTranslated": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản dịch {served}.",
     "machine": "Bản dịch máy, có thể có lỗi.",
     "stale": "Bản gốc tiếng Trung đã được cập nhật sau bản dịch này; trang có thể đã cũ.",
     "viewOriginal": "Xem bản gốc",
@@ -34,10 +36,11 @@
   },
   "steps": { "question": "Câu hỏi", "psychology": "Tâm lý người phỏng vấn", "answer": "Trả lời", "section": "Phần" },
   "attribution": {
+    "stop": ". ",
     "license": "Nội dung theo giấy phép CC-BY-SA-4.0",
     "credit": "Bản gốc của Doocs và 中华石杉",
-    "changesZh": "Đã định dạng lại từ bản gốc.",
-    "changesTranslated": "Được dịch và chuyển thể từ bản gốc tiếng Trung.",
+    "changesZh": "Đã định dạng lại từ bản gốc",
+    "changesTranslated": "Được dịch và chuyển thể từ bản gốc tiếng Trung",
     "sourceFile": "Tệp gốc",
     "aboutLink": "Giới thiệu và giấy phép"
   },
