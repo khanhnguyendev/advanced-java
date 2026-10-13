@@ -1,0 +1,51 @@
+{
+  "site": { "title": "advanced-java", "tagline": "Java architecture, explained" },
+  "nav": {
+    "search": "Search",
+    "language": "Language",
+    "theme": "Theme",
+    "readingMode": "Reading mode",
+    "menu": "Menu",
+    "contents": "Contents",
+    "previous": "Previous",
+    "next": "Next",
+    "home": "Home",
+    "collections": "Notebooks"
+  },
+  "doc": {
+    "fallbackNotice": "This page is not translated into {requested} yet. Showing the {served} original.",
+    "machine": "Machine translated, may contain errors.",
+    "stale": "The Chinese original was updated after this translation; this page may be out of date.",
+    "viewOriginal": "View original",
+    "idLabel": "ID",
+    "translated": "Translated",
+    "fallback": "Not translated",
+    "machineStatus": "Machine translated"
+  },
+  "resume": {
+    "mark": "Mark here",
+    "resume": "Resume where you stopped",
+    "updated": "This page was updated since you left; showing the nearest place.",
+    "setAside": "Set aside",
+    "setAsideList": "Set-aside list",
+    "empty": "Nothing set aside yet."
+  },
+  "steps": { "question": "Question", "psychology": "Interviewer psychology", "answer": "Answer", "section": "Section" },
+  "attribution": {
+    "license": "Content licensed under CC-BY-SA-4.0",
+    "credit": "Original by Doocs and 中华石杉",
+    "changesZh": "Reformatted from the original.",
+    "changesTranslated": "Translated and adapted from the Chinese original.",
+    "sourceFile": "Upstream file",
+    "aboutLink": "About and licenses"
+  },
+  "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },
+  "notFound": { "title": "Page not found", "body": "This page does not exist.", "home": "Back to the shelf" },
+  "about": {
+    "title": "About and licenses",
+    "codeLicense": "The site code is MIT licensed.",
+    "contentLicense": "The content (text and translations) is licensed CC-BY-SA-4.0.",
+    "images": "Images are included only where we have the right to license them; others are credited to the upstream repository and are not relicensed.",
+    "imageCredits": "Image credits"
+  }
+}

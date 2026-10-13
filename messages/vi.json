@@ -1,0 +1,51 @@
+{
+  "site": { "title": "advanced-java", "tagline": "Kiến trúc Java, giải thích rõ ràng" },
+  "nav": {
+    "search": "Tìm kiếm",
+    "language": "Ngôn ngữ",
+    "theme": "Giao diện",
+    "readingMode": "Chế độ đọc",
+    "menu": "Menu",
+    "contents": "Mục lục",
+    "previous": "Trước",
+    "next": "Tiếp",
+    "home": "Trang chủ",
+    "collections": "Sổ tay"
+  },
+  "doc": {
+    "fallbackNotice": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản gốc {served}.",
+    "machine": "Bản dịch máy, có thể có lỗi.",
+    "stale": "Bản gốc tiếng Trung đã được cập nhật sau bản dịch này; trang có thể đã cũ.",
+    "viewOriginal": "Xem bản gốc",
+    "idLabel": "Mã",
+    "translated": "Đã dịch",
+    "fallback": "Chưa dịch",
+    "machineStatus": "Dịch máy"
+  },
+  "resume": {
+    "mark": "Đánh dấu ở đây",
+    "resume": "Đọc tiếp chỗ đã dừng",
+    "updated": "Trang đã được cập nhật kể từ lần bạn đọc; đang hiển thị vị trí gần nhất.",
+    "setAside": "Để dành",
+    "setAsideList": "Danh sách để dành",
+    "empty": "Chưa có gì được để dành."
+  },
+  "steps": { "question": "Câu hỏi", "psychology": "Tâm lý người phỏng vấn", "answer": "Trả lời", "section": "Phần" },
+  "attribution": {
+    "license": "Nội dung theo giấy phép CC-BY-SA-4.0",
+    "credit": "Bản gốc của Doocs và 中华石杉",
+    "changesZh": "Đã định dạng lại từ bản gốc.",
+    "changesTranslated": "Được dịch và chuyển thể từ bản gốc tiếng Trung.",
+    "sourceFile": "Tệp gốc",
+    "aboutLink": "Giới thiệu và giấy phép"
+  },
+  "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },
+  "notFound": { "title": "Không tìm thấy trang", "body": "Trang này không tồn tại.", "home": "Về trang chủ" },
+  "about": {
+    "title": "Giới thiệu và giấy phép",
+    "codeLicense": "Mã nguồn của trang theo giấy phép MIT.",
+    "contentLicense": "Nội dung (văn bản và bản dịch) theo giấy phép CC-BY-SA-4.0.",
+    "images": "Hình ảnh chỉ được đưa vào khi chúng tôi có quyền cấp phép; các hình khác được ghi công cho kho gốc và không được cấp phép lại.",
+    "imageCredits": "Ghi công hình ảnh"
+  }
+}
