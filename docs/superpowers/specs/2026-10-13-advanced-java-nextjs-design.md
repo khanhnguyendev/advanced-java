@@ -465,3 +465,9 @@ Decisions taken during implementation that refine or deviate from the sections a
 5. **Top bar.** `.topbar-slot` is the single sticky element; `--topbar-h` is measured at runtime (ResizeObserver) and drives `scroll-margin-top` and the anchor offset. At ≤640px the switcher shows a short status marker (● ◐ ○) plus screen-reader text.
 6. **Deviations not built.** The spec's §8.2 mobile *bottom bar* (prev/next + language) was not built; the sticky top bar and drawer serve that role. Comments remain out of v1.
 7. **Cost of translation.** See docs/superpowers/reports/pilot-report.md; the full run (Task 26) is gated on owner approval.
+8. **Set-aside list view not built.** "Set aside" stores document IDs locally (validated and clamped), but v1 renders no list of them; the keys `resume.setAsideList` / `resume.empty` are reserved for it.
+9. **Resume flag on the rail entry not built.** The resume flag shows in the document header area only, not on the left-rail entry (§8.2).
+10. **Mobile TOC.** On narrow screens the rails collapse into a `Menu` disclosure (nav, TOC, steps) instead of the bottom sheet described in §8.2; the bottom bar is also not built (see 6).
+11. **Check scope.** `check:translations` compares structure, code, links and hashes on the AST; it does not render markdown through the full pipeline. The build does, and fails on unresolved `doc:`, `section:` or `asset:` targets. `check:translations` runs in `prebuild`, so a failing translation blocks the build.
+12. **Counts.** The counts quoted in §3/§4.4 (51 H1 differences, 129 image references) are estimates from the first scan; `content/advanced-java/import-report.md` (54 and 127) is authoritative.
+13. **Release hygiene.** `scripts/commit.sh` is an agent-session commit helper that appends a session trailer; the owner may delete it before publishing.
