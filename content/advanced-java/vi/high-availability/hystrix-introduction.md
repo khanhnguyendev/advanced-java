@@ -26,7 +26,7 @@ Hystrix là một framework đảm bảo tính sẵn sàng cao. Nhóm API của 
 
 Đến năm 2012, Hystrix đã khá hoàn thiện và ổn định; tại Netflix, ngoài nhóm API, nhiều nhóm khác cũng bắt đầu sử dụng Hystrix.
 
-Cho đến ngày nay, mỗi ngày Netflix có hàng chục tỷ lượt gọi giữa các dịch vụ được thực hiện thông qua framework Hystrix, và Hystrix cũng giúp website Netflix nâng cao tính khả dụng và độ ổn định tổng thể.
+Cho đến ngày nay, mỗi ngày Netflix có hàng tỷ lượt gọi giữa các dịch vụ được thực hiện thông qua framework Hystrix, và Hystrix cũng giúp website Netflix nâng cao tính khả dụng và độ ổn định tổng thể.
 
 [Vào tháng 11 năm 2018, Hystrix thông báo trên trang chủ GitHub rằng sẽ không phát triển thêm tính năng mới và khuyến nghị lập trình viên sử dụng các dự án mã nguồn mở khác vẫn còn hoạt động](https://github.com/Netflix/Hystrix/blob/master/README.md#hystrix-status). Việc chuyển sang chế độ bảo trì không có nghĩa là Hystrix không còn giá trị. Ngược lại, Hystrix đã truyền cảm hứng cho rất nhiều ý tưởng và dự án tuyệt vời, và phần kiến thức về tính sẵn sàng cao của chúng ta vẫn sẽ được giảng giải xoay quanh Hystrix.
 
