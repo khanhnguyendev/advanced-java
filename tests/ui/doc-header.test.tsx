@@ -29,11 +29,11 @@ describe('DocHeader', () => {
   });
 
   it('shows the machine note and a stale note with a link to the original', () => {
-    render(wrap(<DocHeader catalogId="HC-03" title="t" notices={['machine', 'stale']} requestedName="English" servedName="English" originalHref="https://example.com/u" titleLang="en" servedIsOriginal />));
+    render(wrap(<DocHeader catalogId="HC-03" title="t" notices={['machine', 'stale']} requestedName="English" servedName="English" originalHref="/zh/c/s/why-mq" titleLang="en" servedIsOriginal />));
     const notes = screen.getAllByRole('note').map((n) => n.textContent ?? '');
     expect(notes[0]).toBe('Machine translated, may contain errors.');
     expect(notes[1]).toContain('The Chinese original was updated after this translation');
-    expect(screen.getByRole('link', { name: 'View original' }).getAttribute('href')).toBe('https://example.com/u');
+    expect(screen.getByRole('link', { name: 'View original' }).getAttribute('href')).toBe('/zh/c/s/why-mq');
   });
 
   it('sets the content language on the title', () => {

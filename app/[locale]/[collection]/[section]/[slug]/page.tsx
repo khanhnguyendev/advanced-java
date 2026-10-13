@@ -136,7 +136,7 @@ export default async function DocPage({
           notices={notices}
           requestedName={names(loc)}
           servedName={names(doc.served)}
-          originalHref={upstreamUrl}
+          originalHref={`/${c.sourceLocale}/${collection}/${section}/${slug}`}
           titleLang={titleLang}
           servedIsOriginal={doc.served === c.sourceLocale}
         />
