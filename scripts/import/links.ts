@@ -27,7 +27,7 @@ export function rewriteLinkTargets(
     const isUnwrap = typeof r === 'object';
     // Raw destination must be followed by `)`, whitespace or `>`; otherwise the
     // decoded url may only be a prefix of what is written in the source.
-    const terminated = (i: number) => i < slice.length && /[)\s>]/.test(slice[i]);
+    const terminated = (i: number) => i === slice.length || /[)\s>]/.test(slice[i]);
 
     if (node.type === 'definition') {
       const colon = slice.indexOf(']:');

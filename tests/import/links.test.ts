@@ -130,4 +130,24 @@ describe('rewriteLinkTargets', () => {
     const r = rewriteLinkTargets('[a](./a\\_b.md)\n', () => 'doc:c/a/x');
     expect(r.unlocatable).toEqual(['./a_b.md']);
   });
+  it('rewrites an untitled reference definition at end of input', () => {
+    const { text, unlocatable } = rewriteLinkTargets('[x][r]\n\n[r]: ./x.md\n', () => 'doc:c/a/x');
+    expect(text).toBe('[x][r]\n\n[r]: doc:c/a/x\n');
+    expect(unlocatable).toEqual([]);
+  });
+  it('reports a definition whose raw destination is longer than the decoded url as unlocatable', () => {
+    const md = '[r]: ./x.md&amp;\n';
+    const { text, unlocatable } = rewriteLinkTargets(md, () => 'doc:c/a/x');
+    expect(unlocatable).toEqual(['./x.md&']);
+    expect(text).toBe(md);
+  });
+  it('unwraps adjacent links whose edits touch', () => {
+    const { text } = rewriteLinkTargets('[a](./o.md)[b](./o.md)\n', () => ({ unwrap: true }));
+    expect(text).toBe('ab\n');
+  });
+  it('rewrites an internal percent-encoded destination', () => {
+    const { text, unlocatable } = rewriteLinkTargets('[a](./a%20b.md)\n', () => 'doc:c/a/x');
+    expect(text).toBe('[a](doc:c/a/x)\n');
+    expect(unlocatable).toEqual([]);
+  });
 });
