@@ -60,10 +60,45 @@ describe('ThemeToggle', () => {
 });
 
 describe('ReadingModeToggle', () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+    document.documentElement.removeAttribute('data-reading');
+  });
+  afterEach(() => {
+    cleanup();
+    vi.restoreAllMocks();
+    document.documentElement.removeAttribute('data-reading');
+  });
+
   it('reflects an already-active reading mode', () => {
     document.documentElement.setAttribute('data-reading', 'on');
     render(wrap(<ReadingModeToggle />));
     expect(screen.getByRole('button').getAttribute('aria-pressed')).toBe('true');
-    document.documentElement.removeAttribute('data-reading');
+  });
+
+  it('stores on in localStorage and removes the key when turned off', () => {
+    render(wrap(<ReadingModeToggle />));
+    fireEvent.click(screen.getByRole('button'));
+    expect(document.documentElement.getAttribute('data-reading')).toBe('on');
+    expect(window.localStorage.getItem('reading')).toBe('on');
+    fireEvent.click(screen.getByRole('button'));
+    expect(document.documentElement.hasAttribute('data-reading')).toBe(false);
+    expect(window.localStorage.getItem('reading')).toBeNull();
+  });
+
+  it('does not crash when storage throws', () => {
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new Error('denied');
+    });
+    render(wrap(<ReadingModeToggle />));
+    fireEvent.click(screen.getByRole('button'));
+    expect(document.documentElement.getAttribute('data-reading')).toBe('on');
+  });
+
+  it('the pre-hydration script applies the saved reading mode', async () => {
+    const { themeScript } = await import('@/app/theme-script');
+    window.localStorage.setItem('reading', 'on');
+    new Function(themeScript)();
+    expect(document.documentElement.getAttribute('data-reading')).toBe('on');
   });
 });
