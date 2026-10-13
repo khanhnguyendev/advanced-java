@@ -47,4 +47,5 @@ test('unknown path under a locale shows the localized 404 via the catch-all', as
   expect(res?.status()).toBe(404);
   await expect(page.getByRole('heading', { name: 'Không tìm thấy trang' })).toBeVisible();
   await expect(page.getByText('Trang này không tồn tại.')).toBeVisible();
+  await expect(page).toHaveTitle('Không tìm thấy trang');
 });

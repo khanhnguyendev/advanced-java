@@ -1,17 +1,20 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 import { PILOT, sectionOf } from './helpers';
 
 const url = (l: string) => `/${l}/advanced-java/${sectionOf(PILOT)}/${PILOT}`;
 
-async function expectClearOfBar(page: import('@playwright/test').Page, selector: string) {
-  const r = await page.evaluate((sel) => {
-    const el = document.querySelector(sel)!;
-    const bar = document.querySelector('.topbar-slot')!.getBoundingClientRect();
-    const t = el.getBoundingClientRect();
-    return { top: t.top, bottom: t.bottom, barBottom: bar.bottom, vh: innerHeight };
-  }, selector);
-  expect(r.top).toBeGreaterThanOrEqual(r.barBottom - 1);
-  expect(r.top).toBeLessThan(r.vh);
+async function expectClearOfBar(page: Page, selector: string) {
+  await expect
+    .poll(
+      () =>
+        page.evaluate((sel) => {
+          const top = document.querySelector(sel)!.getBoundingClientRect().top;
+          const barBottom = document.querySelector('.topbar-slot')!.getBoundingClientRect().bottom;
+          return top >= barBottom - 1 && top < innerHeight;
+        }, selector),
+      { message: `${selector} below the sticky bar and inside the viewport` },
+    )
+    .toBe(true);
 }
 
 for (const width of [1280, 375]) {
@@ -20,9 +23,7 @@ for (const width of [1280, 375]) {
     await page.goto(url('en') + '#h3-this-slug-is-long-gone');
     const h = await page.locator('.topbar-slot').evaluate((e) => (e as HTMLElement).offsetHeight);
     info.annotations.push({ type: 'topbar-height', description: `${width}px: ${h}px` });
-    console.log(`topbar-slot offsetHeight @${width}px = ${h}`);
     await expect.poll(async () => page.evaluate(() => scrollY)).toBeGreaterThan(0);
-    await expect.poll(() => page.evaluate(() => (document.querySelector('[data-hi="3"]')!.getBoundingClientRect().top))).toBeGreaterThan(0);
     await expectClearOfBar(page, '[data-hi="3"]');
   });
 }
@@ -48,7 +49,7 @@ test('switching language keeps the heading position', async ({ page }) => {
   await page.evaluate(() => window.scrollBy(0, 5));
   await page.getByRole('link', { name: /Tiếng Việt/ }).first().click();
   await expect(page).toHaveURL(/\/vi\/.*#h3(-|$)/);
-  await expect.poll(async () => page.evaluate(() => location.hash)).toMatch(/^#h3(-|$)/);
+  await expect.poll(() => page.evaluate(() => location.hash)).toMatch(/^#h3-/);
   await expect(page.locator('article.prose')).toHaveAttribute('lang', 'vi');
   await expectClearOfBar(page, '[data-hi="3"]');
 });

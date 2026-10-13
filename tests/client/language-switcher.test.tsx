@@ -78,4 +78,15 @@ describe('LanguageSwitcher', () => {
     expect(link.hasAttribute('lang')).toBe(false);
     expect(link.querySelector('.lang-label')?.getAttribute('lang')).toBe('zh-Hans');
   });
+
+  it('adds an aria-hidden glyph marker without changing the accessible name', () => {
+    render(wrap(<LanguageSwitcher items={items} current="en" />));
+    const link = screen.getByRole('link', { name: /Tiếng Việt/ });
+    const marker = link.querySelector('.lang-marker');
+    expect(marker?.getAttribute('aria-hidden')).toBe('true');
+    expect(marker?.textContent).toBe('◐');
+    expect(link.querySelector('.lang-status')?.textContent).toBe('Machine translated');
+    expect(screen.getByRole('link', { name: 'English Translated' })).toBeTruthy();
+    expect(screen.getByRole('link', { name: /中文/ }).querySelector('.lang-marker')?.textContent).toBe('○');
+  });
 });

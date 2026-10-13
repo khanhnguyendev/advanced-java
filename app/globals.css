@@ -80,6 +80,7 @@ body {
 
 .topbar { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: 0.5rem 1rem; border-bottom: 1px solid var(--rule); background: var(--paper); flex-wrap: wrap; }
 .lang-switcher ul { display: flex; flex-wrap: wrap; gap: 0.25rem 0.75rem; margin: 0; padding: 0; list-style: none; }
+.lang-marker { display: none; }
 .topbar-slot { grid-column: 1 / -1; position: sticky; top: 0; z-index: 5; }
 .rail, .toc-rail { padding: 1rem; font-size: 0.9rem; }
 .rail ul, .toc ul, .margin-steps ol { list-style: none; margin: 0; padding: 0; }
@@ -100,7 +101,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 @media (max-width: 640px) {
   .topbar { gap: 0.5rem; padding: 0.25rem 0.75rem; }
-  /* status stays in the accessibility tree, only the visual text is dropped */
+  /* full status text stays for assistive tech; sighted users get a glyph marker (shape, not color) */
+  .lang-marker { display: inline; margin-inline: 0.25rem 0; }
   .lang-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
 

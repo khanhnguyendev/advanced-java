@@ -8,6 +8,8 @@ import { writeLocaleCookie } from '@/lib/locale-cookie';
 export type SwitcherStatus = 'translated' | 'machine' | 'fallback';
 export interface SwitcherItem { locale: Locale; label: string; status: SwitcherStatus; href: string }
 
+const MARKER: Record<SwitcherStatus, string> = { translated: '●', machine: '◐', fallback: '○' };
+
 export function LanguageSwitcher({
   items,
   current,
@@ -46,6 +48,9 @@ export function LanguageSwitcher({
               <span className="lang-label ui-cjk" lang={it.locale === 'zh' ? 'zh-Hans' : it.locale}>
                 {it.label}
               </span>
+              <span className="lang-marker" aria-hidden="true">
+                {MARKER[it.status]}
+              </span>{' '}
               <span className="lang-status">{statusLabel(it.status)}</span>
             </a>
           </li>

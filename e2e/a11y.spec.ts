@@ -1,6 +1,8 @@
 import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
-import { PILOT, sectionOf } from './helpers';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { PILOT, ROOT, sectionOf } from './helpers';
 
 for (const [name, url] of [
   ['shelf', '/en'],
@@ -25,4 +27,10 @@ test('axe: search overlay with results has no serious or critical violations', a
   const r = await new AxeBuilder({ page }).analyze();
   const bad = r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical');
   expect(bad.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
+});
+
+test('section page title is the localized section title', async ({ page }) => {
+  const meta = JSON.parse(readFileSync(path.join(ROOT, 'content/advanced-java/en/meta.json'), 'utf8'));
+  await page.goto(`/en/advanced-java/${sectionOf(PILOT)}`);
+  await expect(page).toHaveTitle(meta.sections[sectionOf(PILOT)]);
 });

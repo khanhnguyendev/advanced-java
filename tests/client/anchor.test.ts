@@ -61,4 +61,22 @@ describe('currentHeadingIndex', () => {
     });
     expect(currentHeadingIndex(document, 96)).toBeNull();
   });
+  it('default offset is the sticky bar bottom plus a gap, not a fixed 96', () => {
+    document.body.innerHTML =
+      '<div class="topbar-slot"></div><h2 id="h1-a" data-hi="1">A</h2><h2 id="h2-b" data-hi="2">B</h2><h2 id="h3-c" data-hi="3">C</h2>';
+    (document.querySelector('.topbar-slot') as HTMLElement).getBoundingClientRect = () => ({ bottom: 150 }) as DOMRect;
+    const tops = [-300, 160, 500];
+    document.querySelectorAll('[data-hi]').forEach((el, i) => {
+      (el as HTMLElement).getBoundingClientRect = () => ({ top: tops[i] }) as DOMRect;
+    });
+    expect(currentHeadingIndex(document)).toBe(2);
+  });
+  it('default offset falls back to 96 without a top bar', () => {
+    mount(3);
+    const tops = [-300, 90, 500];
+    document.querySelectorAll('[data-hi]').forEach((el, i) => {
+      (el as HTMLElement).getBoundingClientRect = () => ({ top: tops[i] }) as DOMRect;
+    });
+    expect(currentHeadingIndex(document)).toBe(2);
+  });
 });

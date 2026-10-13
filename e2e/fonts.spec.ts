@@ -22,10 +22,11 @@ test('zh-only page requests some, but not all, CJK slices per weight', async ({ 
   test.skip(!slug, 'every doc has a vi or en translation');
   const byWeight = cjkFontUrlsByWeight();
   expect(byWeight.size).toBeGreaterThan(0);
+  const cjk = new Set(cjkFontUrls());
   const requested = new Set<string>();
   page.on('request', (r) => {
     const name = r.url().split('/').pop() ?? '';
-    if (cjkFontUrls().includes(name)) requested.add(name);
+    if (cjk.has(name)) requested.add(name);
   });
   await page.goto(`/vi/advanced-java/${sectionOf(slug!)}/${slug}`, { waitUntil: 'networkidle' });
   expect(requested.size).toBeGreaterThan(0);
