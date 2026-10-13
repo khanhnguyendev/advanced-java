@@ -4,7 +4,7 @@
   "license": "MIT",
   "packageManager": "pnpm@10.34.5",
   "engines": {
-    "node": ">=20.9.0"
+    "node": "22.x"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "tsx scripts/copy-assets.ts && tsx scripts/build-search-index.ts",
+    "prebuild": "tsx scripts/check-translations.ts && tsx scripts/copy-assets.ts && tsx scripts/build-search-index.ts",
     "build": "next build",
     "postbuild": "tsx scripts/assert-static-build.ts",
     "start": "next start",
@@ -26,7 +26,6 @@
     "search:gate": "tsx scripts/search-gate/run.ts"
   },
   "dependencies": {
-    "@orama/orama": "^3.1.18",
     "gray-matter": "^4.0.3",
     "hast-util-to-string": "^3.0.1",
     "mdast-util-to-string": "^4.0.0",
@@ -48,6 +47,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
+    "@orama/orama": "^3.1.18",
     "@orama/tokenizers": "^3.1.18",
     "@playwright/test": "^1.64.0",
     "@testing-library/dom": "^10.4.2",

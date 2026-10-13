@@ -9,18 +9,19 @@ Multilingual (vi / en / zh) reading site for the doocs/advanced-java corpus.
   Original content by Doocs and 中华石杉, upstream: https://github.com/doocs/advanced-java .
   vi and en pages are translated and adapted from the Chinese original; zh pages are reformatted from it.
   Images are included only where we have the right to license them; see `content/ASSETS.md`.
+  `content/*/_assets/` is excluded from content/LICENSE; images remain under their original terms.
 
 ## Development
 
 - `pnpm test`: run the unit and component tests (vitest).
-- `pnpm build`: production static build (`next build`); `prebuild` copies content assets to `public/_content` and `postbuild` runs the static-build assertion.
+- `pnpm build`: production static build (`next build`); `prebuild` first runs `check:translations` (a broken translation fails the build), then copies content assets to `public/_content` and builds the search index; `postbuild` runs the static-build assertion.
 - `pnpm e2e`: run the Playwright end-to-end tests.
 - `pnpm check:translations`: verify translation files, hashes and coverage.
 
 ## Deploying (Vercel Git integration, no token on disk)
 
 1. Create the GitHub repository and push this project (owner action).
-2. Install the Vercel GitHub app and import the repository in the Vercel dashboard (Framework: Next.js; Node 20.9+).
+2. Install the Vercel GitHub app and import the repository in the Vercel dashboard (Framework: Next.js; Node 22).
 3. Project Settings → Environments → Production → Branch Tracking: turn **off** "Auto-assign Custom Production Domains".
 4. Every push to a non-production branch gets a preview deployment. A push to `main` creates a *staged* production deployment.
 5. Promote a staged deployment to production from the Deployments page ("Promote"). Nothing is served from production until you do.
