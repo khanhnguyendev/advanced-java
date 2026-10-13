@@ -1,7 +1,9 @@
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { fontVariables } from '@/app/fonts';
 import { routing } from '@/i18n/routing';
+import '../globals.css';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -21,7 +23,15 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   return (
-    <html lang={locale}>
+    <html lang={locale} className={fontVariables} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}",
+          }}
+        />
+      </head>
       <body>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
