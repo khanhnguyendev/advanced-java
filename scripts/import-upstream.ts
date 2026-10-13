@@ -15,6 +15,7 @@ export interface ImportOptions {
   commit: string;
   prefixes?: Record<string, string>;
   repo?: string;
+  force?: boolean; // overwrite an existing import of this collection
 }
 export interface ImportResult { docCount: number; reportPath: string }
 
@@ -34,6 +35,11 @@ export function runImport(opts: ImportOptions): ImportResult {
   const repo = opts.repo ?? 'https://github.com/doocs/advanced-java';
   const docsDir = path.join(opts.upstreamRoot, 'docs');
   const errors: string[] = [];
+  if (!opts.force && existsSync(path.join(opts.outRoot, opts.collection, 'collection.json'))) {
+    throw new Error(
+      `${path.join(opts.outRoot, opts.collection, 'collection.json')} already exists; the import runs once (pass force to overwrite)`,
+    );
+  }
 
   // 1. plan from sidebar, then place unlisted docs by the root README
   let plan = planFromSidebar(loadSidebar(path.join(docsDir, '.vitepress/config.mts')));
@@ -48,11 +54,14 @@ export function runImport(opts: ImportOptions): ImportResult {
   for (const f of allMd) {
     if (listed.has(f)) continue;
     if (f === 'docs/index.md') skipped.push({ file: f, reason: 'home page replaced by our own' });
-    else if (/^docs\/[^/]+\/README\.md$/.test(f)) skipped.push({ file: f, reason: 'section index, generated from collection.json' });
     else if (f.startsWith('docs/extra-page/')) {
       promos.add(f);
-      skipped.push({ file: f, reason: 'promo page, not imported' });
-    } else unlisted.push(f);
+      skipped.push({
+        file: f,
+        reason: f === 'docs/extra-page/README.md' ? 'promo section index, not imported' : 'promo page, not imported',
+      });
+    } else if (/^docs\/[^/]+\/README\.md$/.test(f)) skipped.push({ file: f, reason: 'section index, generated from collection.json' });
+    else unlisted.push(f);
   }
   const readme = readmeOrder(readFileSync(path.join(opts.upstreamRoot, 'README.md'), 'utf8'));
   try {
@@ -60,9 +69,13 @@ export function runImport(opts: ImportOptions): ImportResult {
   } catch (e) {
     errors.push((e as Error).message);
   }
+  const placed: { file: string; after: string }[] = [];
   for (const f of unlisted) {
     const d = Object.values(plan.docs).find((x) => x.upstreamFile === f);
-    if (d) skipped.push({ file: f, reason: `unlisted in sidebar; placed after its root-README predecessor` });
+    if (!d) continue;
+    const group = plan.sections.flatMap((s) => s.groups).find((g) => g.docs.includes(d.slug));
+    const prev = group ? group.docs[group.docs.indexOf(d.slug) - 1] : undefined;
+    placed.push({ file: f, after: prev ? plan.docs[prev]?.upstreamFile ?? prev : '(group start)' });
   }
   for (const s of plan.sections) if (!prefixes[s.id]) errors.push(`no catalog prefix for section ${s.id}`);
 
@@ -76,7 +89,8 @@ export function runImport(opts: ImportOptions): ImportResult {
   // 3. per-doc processing (in memory)
   const slugByUpstream = new Map(Object.values(plan.docs).map((d) => [d.upstreamFile, { section: d.section, slug: d.slug }]));
   const outputs: { section: string; slug: string; text: string }[] = [];
-  const assets: { from: string; section: string; slug: string; file: string; bytes: number }[] = [];
+  const assets = new Map<string, { from: string; section: string; slug: string; file: string; bytes: number }>();
+  let assetRefs = 0;
   const titleDiffs: { slug: string; h1: string; nav: string }[] = [];
   const meta: LocaleMeta = { sections: {}, groups: {}, docs: {} };
 
@@ -107,7 +121,14 @@ export function runImport(opts: ImportOptions): ImportResult {
         const abs = path.join(opts.upstreamRoot, path.posix.dirname(sourceFile), rel);
         if (!existsSync(abs)) return undefined;
         const file = path.basename(abs);
-        assets.push({ from: abs, section: doc.section, slug: doc.slug, file, bytes: statSync(abs).size });
+        const key = `${doc.section}/${doc.slug}/${file}`;
+        const prior = assets.get(key);
+        if (prior && prior.from !== abs) {
+          errors.push(`${sourceFile}: image destination ${key} collides: ${prior.from} vs ${abs}`);
+        } else if (!prior) {
+          assets.set(key, { from: abs, section: doc.section, slug: doc.slug, file, bytes: statSync(abs).size });
+        }
+        assetRefs++;
         return `asset:${doc.section}/${doc.slug}/${file}`;
       },
     };
@@ -141,7 +162,7 @@ export function runImport(opts: ImportOptions): ImportResult {
     mkdirSync(path.dirname(f), { recursive: true });
     writeFileSync(f, o.text);
   }
-  for (const a of assets) {
+  for (const a of assets.values()) {
     const dest = path.join(root, '_assets', a.section, a.slug, a.file);
     mkdirSync(path.dirname(dest), { recursive: true });
     cpSync(a.from, dest);
@@ -172,10 +193,13 @@ export function runImport(opts: ImportOptions): ImportResult {
     `- upstream: ${repo} @ ${opts.commit}`,
     `- docs imported: ${outputs.length}`,
     `- sections: ${plan.sections.map((s) => s.id).join(', ')}`,
-    `- images copied: ${assets.length}`,
+    `- images copied: ${assets.size} (${assetRefs} image references)`,
     '',
     '## Skipped files',
     ...skipped.map((s) => `- ${s.file}: ${s.reason}`),
+    '',
+    `## Unlisted docs placed via root README (${placed.length})`,
+    ...(placed.length ? placed.map((p) => `- ${p.file} (placed after ${p.after})`) : ['- none']),
     '',
     '## External sidebar entries skipped',
     ...(plan.external.length ? plan.external.map((e) => `- ${e}`) : ['- none']),
@@ -187,7 +211,7 @@ export function runImport(opts: ImportOptions): ImportResult {
     ...titleDiffs.map((t) => `- ${t.slug}: "${t.h1}" vs "${t.nav}"`),
     '',
     '## Images (provenance unknown; see content/ASSETS.md)',
-    ...assets.map((a) => `- ${a.section}/${a.slug}/${a.file} (${a.bytes} bytes)`),
+    ...[...assets.values()].map((a) => `- ${a.section}/${a.slug}/${a.file} (${a.bytes} bytes)`),
     '',
   ];
   const reportPath = path.join(root, 'import-report.md');

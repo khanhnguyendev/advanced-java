@@ -20,6 +20,24 @@ describe.skipIf(!existsSync('ref/docs/.vitepress/config.mts'))('real upstream im
       "docs/micro-services/what's-microservice-how-to-communicate.md",
     );
     const report = readFileSync(path.join(out, 'advanced-java/import-report.md'), 'utf8');
+    const placedAt = report.indexOf('## Unlisted docs placed via root README');
+    expect(placedAt).toBeGreaterThan(-1);
+    const placedSection = report.slice(placedAt, report.indexOf('\n## ', placedAt + 5));
+    for (const f of ['topk-problems-and-solutions', 'redis-rehash', 'advantages-and-disadvantages-of-microservice']) {
+      expect(placedSection).toContain(`${f}.md`);
+    }
+    for (const f of [
+      'docs/index.md',
+      'docs/big-data/README.md',
+      'docs/distributed-system/README.md',
+      'docs/high-availability/README.md',
+      'docs/high-concurrency/README.md',
+      'docs/micro-services/README.md',
+      'docs/extra-page/README.md',
+    ]) {
+      expect(report).toContain(f);
+    }
+    expect(report).toContain('images copied: 126 (127 image references)');
     for (const promo of ['advanced.md', 'offer.md', 'rights-defending-action.md', 'subscriptions-for-doocs.md']) {
       expect(report).toContain(promo);
     }
