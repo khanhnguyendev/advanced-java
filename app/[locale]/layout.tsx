@@ -3,10 +3,13 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { fontVariables } from '@/app/fonts';
 import { routing } from '@/i18n/routing';
+import { siteUrl } from '@/lib/seo';
 import '../globals.css';
 
 export const dynamicParams = false;
 export const revalidate = false;
+
+export const metadata = { metadataBase: new URL(siteUrl()) };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -17,11 +18,12 @@ import { routing } from '@/i18n/routing';
 import { contentRoot, listCollections, listDocs, loadCollection, loadMeta } from '@/lib/content/collection';
 import { resolveDoc, zhHashOf } from '@/lib/content/fallback';
 import { headingsFor } from '@/lib/content/headings-index';
-import { LOCALES, type Locale } from '@/lib/content/types';
+import { LOCALES, type CollectionConfig, type Locale } from '@/lib/content/types';
 import { buildNav, flatDocs, switcherStatus } from '@/lib/nav';
 import { computeNotices } from '@/lib/notices';
 import { extractHeadings } from '@/lib/render/headings';
 import { renderMarkdown } from '@/lib/render/pipeline';
+import { docAlternates } from '@/lib/seo';
 import { docShape, stepsFor } from '@/lib/steps';
 import { upstreamFileUrl } from '@/lib/upstream';
 
@@ -37,6 +39,30 @@ export function generateStaticParams() {
     }
   }
   return out;
+}
+
+function docTitle(root: string, c: CollectionConfig, served: Locale | undefined, slug: string): string {
+  return (
+    loadMeta(root, c.id, served ?? c.sourceLocale).docs[slug]?.title ??
+    loadMeta(root, c.id, c.sourceLocale).docs[slug]?.title ??
+    slug
+  );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; collection: string; section: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, collection, section, slug } = await params;
+  const root = contentRoot();
+  const c = loadCollection(root, collection);
+  const alt = docAlternates(root, c, locale as Locale, section, slug);
+  const doc = resolveDoc(root, c, locale as Locale, section, slug);
+  return {
+    title: docTitle(root, c, doc?.served, slug),
+    alternates: { canonical: alt.canonical, languages: alt.languages },
+  };
 }
 
 export default async function DocPage({
@@ -83,10 +109,7 @@ export default async function DocPage({
     sourceHash: doc.frontmatter?.source.hash,
     zhHash,
   });
-  const title =
-    loadMeta(root, c.id, doc.served).docs[slug]?.title ??
-    loadMeta(root, c.id, c.sourceLocale).docs[slug]?.title ??
-    slug;
+  const title = docTitle(root, c, doc.served, slug);
 
   const contentLang = doc.served === 'zh' ? 'zh-Hans' : doc.served;
   const upstreamUrl = upstreamFileUrl(c, slug);
