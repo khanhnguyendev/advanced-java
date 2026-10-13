@@ -1,0 +1,151 @@
+{
+  "zh": [
+    {
+      "q": "消息队列",
+      "anyOf": [
+        "why-mq",
+        "mq-design",
+        "mq-interview"
+      ]
+    },
+    {
+      "q": "为什么使用消息队列",
+      "anyOf": [
+        "why-mq"
+      ]
+    },
+    {
+      "q": "分布式锁",
+      "anyOf": [
+        "distributed-lock-redis-vs-zookeeper"
+      ]
+    },
+    {
+      "q": "幂等性",
+      "anyOf": [
+        "distributed-system-idempotency"
+      ]
+    },
+    {
+      "q": "CAP 定理",
+      "anyOf": [
+        "distributed-system-cap"
+      ]
+    },
+    {
+      "q": "断路器",
+      "anyOf": [
+        "hystrix-circuit-breaker"
+      ]
+    },
+    {
+      "q": "分库分表",
+      "anyOf": [
+        "database-shard"
+      ]
+    },
+    {
+      "q": "缓存雪崩",
+      "anyOf": [
+        "redis-caching-avalanche-and-caching-penetration"
+      ]
+    },
+    {
+      "q": "倒排索引",
+      "anyOf": [
+        "es-write-query-search"
+      ]
+    },
+    {
+      "q": "限流",
+      "anyOf": [
+        "how-to-limit-current"
+      ]
+    },
+    {
+      "q": "负载均衡",
+      "anyOf": [
+        "dubbo-load-balancing"
+      ]
+    },
+    {
+      "q": "Kafka",
+      "anyOf": [
+        "why-mq"
+      ]
+    },
+    {
+      "q": "RabbitMQ",
+      "anyOf": [
+        "why-mq"
+      ]
+    },
+    {
+      "q": "TopK",
+      "anyOf": [
+        "topk-problems-and-solutions"
+      ]
+    },
+    {
+      "q": "Hystrix",
+      "anyOf": [
+        "hystrix-introduction"
+      ]
+    },
+    {
+      "q": "微服务",
+      "anyOf": [
+        "microservices-introduction"
+      ]
+    },
+    {
+      "q": "访问百度网站最多的 IP",
+      "anyOf": [
+        "find-top-1-ip"
+      ]
+    },
+    {
+      "q": "锁",
+      "anyOf": [
+        "distributed-lock-redis-vs-zookeeper",
+        "redis-caching-avalanche-and-caching-penetration"
+      ]
+    },
+    {
+      "q": "队",
+      "anyOf": [
+        "why-mq",
+        "distributed-lock-redis-vs-zookeeper"
+      ]
+    },
+    {
+      "q": "缓",
+      "anyOf": [
+        "redis-caching-avalanche-and-caching-penetration"
+      ]
+    }
+  ],
+  "derived": {
+    "locales": [
+      "vi",
+      "en"
+    ],
+    "pilotSlugs": [
+      "why-mq",
+      "distributed-system-cap",
+      "hystrix-introduction",
+      "microservices-introduction",
+      "find-top-1-ip"
+    ],
+    "kinds": [
+      "title",
+      "title-no-accents"
+    ],
+    "wordForms": {
+      "locales": [
+        "en"
+      ],
+      "kind": "title-word-forms"
+    }
+  }
+}
