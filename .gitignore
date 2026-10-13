@@ -1,7 +1,7 @@
 node_modules
 .next
 out
-ref/
+ref
 public/_content
 .env
 .env.*
@@ -17,3 +17,4 @@ playwright-report
 .impeccable/build
 .superpowers/
 next-env.d.ts
+.claude/worktrees/
