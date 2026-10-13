@@ -35,4 +35,25 @@ describe('meta tier', () => {
       applyMeta({ root, collection: 'c', locale: 'vi', translated: { ...ok, docs: { a: { title: '', navTitle: 'x' } } } }),
     ).toThrow(/empty/i);
   });
+  it('rejects extra nested keys and accepts reordered keys', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'meta-'));
+    mkdirSync(path.join(root, 'c/zh'), { recursive: true });
+    writeFileSync(path.join(root, 'c/zh/meta.json'), JSON.stringify(zhMeta));
+    const ok = {
+      sections: { s: 'High concurrency' },
+      groups: { g: 'Message queues' },
+      docs: { a: { title: 'Why use a message queue?', navTitle: 'Why MQ' } },
+    };
+    expect(() => applyMeta({ root, collection: 'c', locale: 'en', translated: { ...ok, extra: {} } })).toThrow(/keys/i);
+    expect(() =>
+      applyMeta({ root, collection: 'c', locale: 'en', translated: { ...ok, docs: { a: { ...ok.docs.a, x: 'y' } } } }),
+    ).toThrow(/keys/i);
+    const reordered = {
+      docs: { a: { navTitle: 'Why MQ', title: 'Why use a message queue?' } },
+      groups: ok.groups,
+      sections: ok.sections,
+    };
+    const { file } = applyMeta({ root, collection: 'c', locale: 'en', translated: reordered });
+    expect(JSON.parse(readFileSync(file, 'utf8'))).toEqual(ok);
+  });
 });

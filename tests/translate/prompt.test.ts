@@ -26,4 +26,9 @@ describe('buildPrompt', () => {
   it('forbids translating from another translation', () => {
     expect(p).toMatch(/directly from the Chinese/i);
   });
+  it('keeps inline code spans stable and does not tell the model to wrap generics in backticks', () => {
+    expect(p).toMatch(/same inline code spans/i);
+    expect(p).not.toMatch(/inside code spans/i);
+    expect(p).toMatch(/without angle brackets/i);
+  });
 });

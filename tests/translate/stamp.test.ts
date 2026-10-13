@@ -77,4 +77,32 @@ describe('stampTranslation', () => {
       }),
     ).toThrow();
   });
+  it('validates section, slug and date', () => {
+    const r = root();
+    const base = { root: r, collection: 'c', locale: 'vi' as const, translatedBody: '# T\n', today: '2026-10-13' };
+    expect(() => stampTranslation({ ...base, section: '../x', slug: 'a' })).toThrow(/invalid/);
+    expect(() => stampTranslation({ ...base, section: 's', slug: 'A b' })).toThrow(/invalid/);
+    expect(() => stampTranslation({ ...base, section: 's', slug: 'a', today: 'yesterday' })).toThrow(/YYYY-MM-DD/);
+  });
+  it('refuses to overwrite a reviewed translation unless forced', () => {
+    const r = root();
+    const body = '# Tiêu đề\n\n## Chương\n\nDùng `Kafka`.\n';
+    const file = path.join(r, 'c/vi/s/a.md');
+    mkdirSync(path.dirname(file), { recursive: true });
+    writeFileSync(file, '---\nstatus: reviewed\nreviewedHash: h\nsource:\n  locale: zh\n  slug: a\n  hash: x\n---\n\nold\n');
+    const input = { root: r, collection: 'c', locale: 'vi' as const, section: 's', slug: 'a', today: '2026-10-13', translatedBody: body };
+    const res = stampTranslation(input);
+    expect(res.written).toBe(false);
+    expect(res.issues.map((x) => x.code)).toContain('would-overwrite-reviewed');
+    expect(readFileSync(file, 'utf8')).toContain('old');
+    expect(stampTranslation({ ...input, force: true }).written).toBe(true);
+  });
+  it('reports waived exceptions with their reason', () => {
+    const r = root({ 'en/s/a': [{ code: 'inline-code', reason: 'test waiver' }] });
+    const res = stampTranslation({
+      root: r, collection: 'c', locale: 'en', section: 's', slug: 'a', today: '2026-10-13',
+      translatedBody: '# Title\n\n## Chapter\n\nUse `kafka`.\n',
+    });
+    expect(res.waived).toEqual([expect.objectContaining({ code: 'inline-code', reason: 'test waiver' })]);
+  });
 });

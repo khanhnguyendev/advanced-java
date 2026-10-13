@@ -7,6 +7,7 @@ export function pendingBatches(
   locale: 'en' | 'vi',
   size: number,
 ): { section: string; slugs: string[] }[] {
+  if (!Number.isInteger(size) || size < 1) throw new Error(`batch size must be an integer >= 1 (got ${size})`);
   const c = loadCollection(root, collection);
   const bySection = new Map<string, string[]>();
   for (const d of listDocs(c)) {

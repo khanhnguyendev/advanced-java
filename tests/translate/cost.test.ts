@@ -16,4 +16,7 @@ describe('projectCost', () => {
   it('rejects an empty pilot', () => {
     expect(() => projectCost({ pilot: [], remainingZhChars: 1 })).toThrow(/pilot/);
   });
+  it('rejects a pilot with no characters', () => {
+    expect(() => projectCost({ pilot: [{ slug: 'a', zhChars: 0, outputTokens: 5 }], remainingZhChars: 1 })).toThrow(/zhChars/);
+  });
 });

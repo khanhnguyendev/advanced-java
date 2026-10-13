@@ -17,12 +17,25 @@ ${JSON.stringify(i.zhMeta, null, 2)}
 `;
 }
 
-function shape(m: LocaleMeta): string[] {
-  const k: string[] = [];
-  for (const [a, v] of Object.entries(m.sections)) k.push(`sections.${a}`, typeof v);
-  for (const [a, v] of Object.entries(m.groups)) k.push(`groups.${a}`, typeof v);
-  for (const [a, v] of Object.entries(m.docs)) k.push(`docs.${a}.title`, typeof v.title, `docs.${a}.navTitle`, typeof v.navTitle);
-  return k;
+const isObj = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
+
+/** Sorted key paths of every node; "o" marks an object node, "l" a leaf. Order-independent. */
+function paths(v: unknown, prefix = ''): string[] {
+  if (!isObj(v)) return [`${prefix}:l`];
+  const out = [`${prefix}:o`];
+  for (const [k, child] of Object.entries(v)) out.push(...paths(child, `${prefix}${prefix ? '.' : ''}${JSON.stringify(k)}`));
+  return out;
+}
+
+/** Rebuild an object from the zh key set, taking only leaf values from the translation. */
+function rebuild(zh: unknown, tr: unknown): unknown {
+  if (!isObj(zh)) {
+    if (typeof tr !== 'string' || tr.trim() === '') throw new Error('translated meta has an empty or non-string value');
+    return tr;
+  }
+  const out: Record<string, unknown> = {};
+  for (const k of Object.keys(zh)) out[k] = rebuild(zh[k], (tr as Record<string, unknown>)[k]);
+  return out;
 }
 
 export function applyMeta(i: {
@@ -31,18 +44,11 @@ export function applyMeta(i: {
   locale: 'en' | 'vi';
   translated: unknown;
 }): { file: string } {
-  const zh = JSON.parse(readFileSync(path.join(i.root, i.collection, 'zh', 'meta.json'), 'utf8')) as LocaleMeta;
-  const t = i.translated as LocaleMeta;
-  if (typeof t !== 'object' || t === null || !t.sections || !t.groups || !t.docs) {
-    throw new Error('translated meta must have identical keys to the zh meta');
-  }
-  if (shape(zh).join('|') !== shape(t).join('|')) throw new Error('translated meta must have identical keys to the zh meta');
-  const values = [
-    ...Object.values(t.sections),
-    ...Object.values(t.groups),
-    ...Object.values(t.docs).flatMap((d) => [d.title, d.navTitle]),
-  ];
-  if (values.some((v) => typeof v !== 'string' || v.trim() === '')) throw new Error('translated meta has an empty value');
+  const zh = JSON.parse(readFileSync(path.join(i.root, i.collection, 'zh', 'meta.json'), 'utf8')) as unknown;
+  const a = paths(zh).sort().join('\n');
+  const b = paths(i.translated).sort().join('\n');
+  if (a !== b) throw new Error('translated meta must have identical keys to the zh meta');
+  const t = rebuild(zh, i.translated);
   const file = path.join(i.root, i.collection, i.locale, 'meta.json');
   mkdirSync(path.dirname(file), { recursive: true });
   writeFileSync(file, JSON.stringify(t, null, 2) + '\n');

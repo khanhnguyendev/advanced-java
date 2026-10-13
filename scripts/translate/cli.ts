@@ -12,6 +12,12 @@ const KEEP = [
   'Hystrix', 'Sentinel', 'Spring Cloud', 'Spring Boot', 'MySQL', 'Nginx', 'JVM', 'Netty', 'Docker', 'Kubernetes',
 ];
 
+const localToday = (): string => {
+  const d = new Date();
+  const p = (n: number) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+};
+
 const [cmd, ...rest] = process.argv.slice(2);
 const opt = (name: string): string => {
   const at = rest.indexOf(`--${name}`);
@@ -54,9 +60,10 @@ if (cmd === 'prompt') {
   const translatedBody = readFileSync(need('file'), 'utf8');
   const r = stampTranslation({
     root, collection, locale: needLocale(), section: d.section, slug, translatedBody,
-    today: new Date().toISOString().slice(0, 10),
+    today: localToday(),
   });
   for (const i of r.issues) console.log(`${i.level} [${i.code}] ${i.message}`);
+  for (const w of r.waived) console.log(`waived [${w.code}] (${w.reason})`);
   console.log(r.written ? `written ${r.file}` : 'REJECTED, not written');
   process.exit(r.written ? 0 : 1);
 } else if (cmd === 'meta-prompt') {
