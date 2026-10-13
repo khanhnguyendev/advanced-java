@@ -8,7 +8,7 @@ import { chromium } from '@playwright/test';
 import { contentRoot } from '../../lib/content/collection';
 import { foldDiacritics } from '../../lib/search/fold';
 import type { Locale } from '../../lib/content/types';
-import { buildCorpus, type CorpusDoc } from './corpus';
+import { buildCorpus, writeSearchSite, type CorpusDoc } from './corpus';
 import queries from './queries.json';
 
 const COLLECTION = 'advanced-java';
@@ -116,22 +116,9 @@ async function oramaGate(corpus: Record<Locale, CorpusDoc[]>, qs: Q[]) {
   return { metrics, sizes, latency, buildMs };
 }
 
-const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
 function writePagefindSite(corpus: Record<Locale, CorpusDoc[]>): number {
   rmSync('.search-gate', { recursive: true, force: true });
-  for (const locale of LOCALES) {
-    for (const d of corpus[locale]) {
-      const dir = path.join(SITE, locale);
-      mkdirSync(dir, { recursive: true });
-      const folded = d.lang === 'vi' && locale === 'vi' ? `<p data-pagefind-weight="0.5">${esc(foldDiacritics(d.title))} ${esc(foldDiacritics(d.body))}</p>` : '';
-      writeFileSync(
-        path.join(dir, `${d.slug}.html`),
-        `<!doctype html><html lang="${locale}"><head><meta charset="utf-8"><title>${esc(d.title)}</title></head>` +
-          `<body data-pagefind-body><h1>${esc(d.title)}</h1><p>${esc(d.body)}</p>${folded}</body></html>`,
-      );
-    }
-  }
+  writeSearchSite(corpus, SITE, COLLECTION);
   const t0 = Date.now();
   execSync(`pnpm exec pagefind --site ${SITE}`, { stdio: 'inherit' });
   return Date.now() - t0;
@@ -187,7 +174,10 @@ async function pagefindGate(corpus: Record<Locale, CorpusDoc[]>, qs: Q[]) {
         continue;
       }
       // Pagefind 1.5.2 derives its language from <html lang> at init, so reload a page of this locale.
-      await page.goto(`http://127.0.0.1:4020/${locale}/${first.slug}.html`);
+      const resp = await page.goto(`http://127.0.0.1:4020/${locale}/${first.section}/${first.slug}.html`);
+      if (!resp || !resp.ok()) throw new Error(`gate page for ${locale} not served (status ${resp?.status()})`);
+      const lang = await page.evaluate(() => document.documentElement.lang);
+      if (lang !== locale) throw new Error(`gate page <html lang> is "${lang}", expected "${locale}"`);
       const results: Record<string, string[]> = {};
       let foreign = 0;
       for (const q of mine) {
@@ -289,15 +279,9 @@ async function main() {
     '',
   ];
   const out = lines.join('\n');
-  const primary = 'docs/superpowers/decisions/search-engine.md';
-  try {
-    mkdirSync(path.dirname(primary), { recursive: true });
-    writeFileSync(primary, out);
-  } catch (e) {
-    mkdirSync('.search-gate', { recursive: true });
-    writeFileSync('.search-gate/search-engine-decision.md', out);
-    console.error(`could not write ${primary}; wrote .search-gate/search-engine-decision.md`, e);
-  }
+  // The committed decision doc (docs/superpowers/decisions/) is owned by the controller; never write there.
+  mkdirSync('.search-gate', { recursive: true });
+  writeFileSync('.search-gate/search-engine-results.md', out);
   console.log(out);
 }
 

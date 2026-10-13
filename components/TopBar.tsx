@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { LanguageSwitcher, type SwitcherItem } from './LanguageSwitcher';
+import { SearchBoxClient } from './SearchBoxClient';
 import { ReadingModeToggle } from './ReadingModeToggle';
 import { ThemeToggle } from './ThemeToggle';
 import type { Locale } from '@/lib/content/types';
@@ -12,18 +13,20 @@ export function TopBar({
   switcher,
 }: {
   locale: Locale;
-  collectionId: string; // used by the search box (Task 24)
+  collectionId: string;
   collectionTitle: string;
   homeHref: string;
   switcher: SwitcherItem[];
 }) {
   const t = useTranslations('nav');
   return (
-    <header className="topbar" data-collection={collectionId}>
+    <header className="topbar">
       <a className="ui" href={homeHref}>
         {collectionTitle}
       </a>
-      <div id="search-slot" role="search" aria-label={t('search')} />
+      <div role="search" aria-label={t('search')}>
+        <SearchBoxClient locale={locale} collection={collectionId} />
+      </div>
       <LanguageSwitcher items={switcher} current={locale} />
       <ThemeToggle />
       <ReadingModeToggle />

@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "tsx scripts/copy-assets.ts",
+    "prebuild": "tsx scripts/copy-assets.ts && tsx scripts/build-search-index.ts",
     "build": "next build",
     "postbuild": "tsx scripts/assert-static-build.ts",
     "start": "next start",
