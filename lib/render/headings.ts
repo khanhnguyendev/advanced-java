@@ -3,6 +3,7 @@ import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import { toString } from 'mdast-util-to-string';
 import { visit } from 'unist-util-visit';
+import { escapeUnknownHtml } from './escape-html';
 
 export interface HeadingInfo { index: number; depth: number; text: string; id: string }
 
@@ -22,7 +23,10 @@ export function headingId(index: number, text: string): string {
 }
 
 function parse(md: string) {
-  return unified().use(remarkParse).use(remarkGfm).parse(md);
+  const tree = unified().use(remarkParse).use(remarkGfm).parse(md);
+  // same transform as the render pipeline, so escaped generics count as heading text
+  escapeUnknownHtml(tree);
+  return tree;
 }
 
 export function extractHeadings(md: string): HeadingInfo[] {

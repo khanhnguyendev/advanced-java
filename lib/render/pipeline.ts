@@ -54,7 +54,7 @@ export function assertHeadingParity(html: string, expected: number): void {
 
 export async function renderMarkdown(
   md: string,
-  ctx: LinkContext,
+  ctx: Omit<LinkContext, 'currentHeadings'> & { currentHeadings?: HeadingInfo[] },
   opts?: { docRef?: string },
 ): Promise<{ html: string; headings: HeadingInfo[] }> {
   try {

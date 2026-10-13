@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { extractHeadings } from '@/lib/render/headings';
+import { extractHeadings, firstH1 } from '@/lib/render/headings';
 import type { LinkContext } from '@/lib/render/links';
 import { assertHeadingParity, renderMarkdown } from '@/lib/render/pipeline';
 
@@ -117,6 +117,7 @@ describe('renderMarkdown hardening', () => {
     expect(html).not.toContain('tracker');
     expect(html).not.toContain('<picture');
     expect(html).not.toContain('<source');
+    expect(html).toContain('<img src="/_content/a.png"');
   });
 
   it('strips name attributes (DOM clobbering)', async () => {
@@ -155,6 +156,55 @@ describe('renderMarkdown hardening', () => {
   it('ignores stale caller currentHeadings', async () => {
     const { html } = await renderMarkdown('## A\n\n[up](#h1)\n', { ...ctx, currentHeadings: [] });
     expect(html).toContain('href="#h1-a"');
+  });
+});
+
+describe('escaped html round 2', () => {
+  const r = (src: string) => renderMarkdown(src, ctx);
+
+  it('heading generics: id matches extractHeadings', async () => {
+    const src = '## Using List<String>\n';
+    expect(extractHeadings(src)[0].text).toBe('Using List<String>');
+    const { html, headings } = await r(src);
+    expect(html).toContain(`id="${headings[0].id}"`);
+    expect(headings[0].id).toBe('h1-using-list-string');
+  });
+
+  it('heading with generic and allowed sub keeps parity', async () => {
+    const src = '## Optional<T> and <sub>x</sub>\n';
+    const { html, headings } = await r(src);
+    expect(html).toContain(`id="${headings[0].id}"`);
+    expect(html).toContain('<sub>x</sub>');
+  });
+
+  it('firstH1 keeps <T>', () => {
+    expect(firstH1('# Box<T>\n')).toBe('Box<T>');
+  });
+
+  it('inline html inside strong/link/em yields a single paragraph', async () => {
+    const { html } = await r('Use **List<String>** and [Class<T>](https://x.y) end.\n');
+    expect(html.match(/<p>/g)).toHaveLength(1);
+    expect(decode(html)).toContain('<strong>List<String></strong>');
+    expect(decode(html)).toContain('>Class<T></a>');
+    const em = await r('*Optional<T>*\n');
+    expect(em.html.match(/<p>/g)).toHaveLength(1);
+    expect(decode(em.html)).toContain('<em>Optional<T></em>');
+  });
+
+  it('block div at root becomes a paragraph of literal text', async () => {
+    const { html } = await r('<div>x</div>\n');
+    expect(html).toMatch(/^<p>&#x3C;div>x&#x3C;\/div><\/p>$/);
+  });
+
+  it('comments: keeps surrounding text, drops comment', async () => {
+    expect(decode((await r('<!-- a --> visible\n')).html)).toContain('visible');
+    const h = (await r('<!-- a --> visible\n')).html;
+    expect(h).not.toContain('<!--');
+    expect(h).not.toContain(' a ');
+    const b = (await r('<!-- a --> v <!-- b -->\n')).html;
+    expect(b).toContain('v');
+    expect(b).not.toContain('a -->');
+    expect(b).not.toContain('b');
   });
 });
 
