@@ -37,6 +37,26 @@ export function checkStaticBuild(i: StaticCheckInput): string[] {
   return problems;
 }
 
+export interface ManifestRoute { initialRevalidateSeconds?: number | false; initialStatus?: number }
+
+/** Strict extra checks used by the CLI: non-empty expectation, explicit revalidate=false, status 200. */
+export function strictManifestProblems(expected: string[], routes: Record<string, ManifestRoute>): string[] {
+  const problems: string[] = [];
+  if (expected.length === 0) problems.push('no doc routes expected: content root empty?');
+  for (const [route, info] of Object.entries(routes)) {
+    if (info.initialRevalidateSeconds === undefined) {
+      problems.push(`route ${route} has no initialRevalidateSeconds in the prerender manifest`);
+    }
+  }
+  for (const r of expected) {
+    const info = routes[r];
+    if (info && info.initialStatus !== undefined && info.initialStatus !== 200) {
+      problems.push(`doc route ${r} prerendered with status ${String(info.initialStatus)}; expected 200`);
+    }
+  }
+  return problems;
+}
+
 function readJson<T>(file: string): T {
   if (!existsSync(file)) throw new Error(`missing build output: ${file}`);
   return JSON.parse(readFileSync(file, 'utf8')) as T;
@@ -45,7 +65,7 @@ function readJson<T>(file: string): T {
 if (path.basename(process.argv[1] ?? '') === 'assert-static-build.ts') {
   // U11: the manifest shapes below are verified against Next 16.4.0 in Task 13 Step 7 (app-path-routes-manifest.json lives in .next/, not .next/server/).
   const prerender = readJson<{
-    routes: Record<string, { initialRevalidateSeconds?: number | false }>;
+    routes: Record<string, ManifestRoute>;
     dynamicRoutes: Record<string, { fallback?: boolean | string | null }>;
   }>('.next/prerender-manifest.json');
   const appPathRoutes = readJson<Record<string, string>>('.next/app-path-routes-manifest.json');
@@ -57,13 +77,14 @@ if (path.basename(process.argv[1] ?? '') === 'assert-static-build.ts') {
       for (const l of LOCALES) expected.push(`/${l}/${id}/${d.section}/${d.slug}`);
     }
   }
-  const problems = checkStaticBuild({
+  const problems = strictManifestProblems(expected, prerender.routes);
+  problems.push(...checkStaticBuild({
     prerenderedRoutes: prerender.routes,
     prerenderedPatterns: prerender.dynamicRoutes,
     appPatterns: Array.from(new Set(Object.values(appPathRoutes))),
     expectedDocRoutes: expected,
     allowDynamic: ['/[locale]/[...rest]'],
-  });
+  }));
   if (problems.length) {
     console.error('static build assertion FAILED:\n- ' + problems.join('\n- '));
     process.exit(1);

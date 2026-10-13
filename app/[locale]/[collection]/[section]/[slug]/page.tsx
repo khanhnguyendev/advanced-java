@@ -15,8 +15,9 @@ import { Sidebar } from '@/components/Sidebar';
 import { Toc } from '@/components/Toc';
 import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
-import { contentRoot, listCollections, listDocs, loadCollection, loadMeta } from '@/lib/content/collection';
+import { contentRoot, listCollections, listDocs, loadCollection } from '@/lib/content/collection';
 import { resolveDoc, zhHashOf } from '@/lib/content/fallback';
+import { docTitleOf } from '@/lib/content/title';
 import { headingsFor } from '@/lib/content/headings-index';
 import { LOCALES, type CollectionConfig, type Locale } from '@/lib/content/types';
 import { buildNav, flatDocs, switcherStatus } from '@/lib/nav';
@@ -35,18 +36,10 @@ export function generateStaticParams() {
   const out: { locale: string; collection: string; section: string; slug: string }[] = [];
   for (const collection of listCollections(root)) {
     for (const d of listDocs(loadCollection(root, collection))) {
-      for (const locale of LOCALES) out.push({ locale, collection, section: d.section, slug: d.slug });
+      for (const locale of routing.locales) out.push({ locale, collection, section: d.section, slug: d.slug });
     }
   }
   return out;
-}
-
-function docTitle(root: string, c: CollectionConfig, served: Locale | undefined, slug: string): string {
-  return (
-    loadMeta(root, c.id, served ?? c.sourceLocale).docs[slug]?.title ??
-    loadMeta(root, c.id, c.sourceLocale).docs[slug]?.title ??
-    slug
-  );
 }
 
 export async function generateMetadata({
@@ -60,7 +53,7 @@ export async function generateMetadata({
   const alt = docAlternates(root, c, locale as Locale, section, slug);
   const doc = resolveDoc(root, c, locale as Locale, section, slug);
   return {
-    title: docTitle(root, c, doc?.served, slug),
+    title: docTitleOf(root, c, doc?.served, slug).title,
     alternates: { canonical: alt.canonical, languages: alt.languages },
   };
 }
@@ -85,7 +78,8 @@ export default async function DocPage({
       collection,
       routeLocale: loc,
       currentHeadings: extractHeadings(doc.body),
-      headingsOf: (cc, ss, sl) => headingsFor(root, loadCollection(root, cc), loc, ss, sl),
+      headingsOf: (cc, ss, sl) =>
+        listCollections(root).includes(cc) ? headingsFor(root, loadCollection(root, cc), loc, ss, sl) : null,
     },
     { docRef: `${locale}/${collection}/${section}/${slug}` },
   );
@@ -109,7 +103,7 @@ export default async function DocPage({
     sourceHash: doc.frontmatter?.source.hash,
     zhHash,
   });
-  const title = docTitle(root, c, doc.served, slug);
+  const { title, lang: titleLang } = docTitleOf(root, c, doc.served, slug);
 
   const contentLang = doc.served === 'zh' ? 'zh-Hans' : doc.served;
   const upstreamUrl = upstreamFileUrl(c, slug);
@@ -142,7 +136,7 @@ export default async function DocPage({
           requestedName={names(loc)}
           servedName={names(doc.served)}
           originalHref={upstreamUrl}
-          contentLang={contentLang}
+          titleLang={titleLang}
           servedIsOriginal={doc.served === c.sourceLocale}
         />
         <ResumeFlag

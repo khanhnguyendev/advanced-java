@@ -21,4 +21,14 @@ describe('doc body H1', () => {
     expect(h1s(html)).toBe(0);
     expect(html).toContain('not a heading');
   });
+  it('drops the title H1 even when prose precedes it', async () => {
+    const { html } = await renderMarkdown('intro\n\n# T\n\n## A\n', ctx);
+    expect(h1s(html)).toBe(0);
+    expect(html).toContain('intro');
+  });
+  it('keeps a later H1 when another heading comes first', async () => {
+    const { html } = await renderMarkdown('## A\n\n# Part\n\n## B\n', ctx);
+    expect(h1s(html)).toBe(1);
+    expect(html).toContain('Part');
+  });
 });

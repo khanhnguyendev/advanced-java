@@ -13,11 +13,16 @@ import { extractHeadings, type HeadingInfo } from './headings';
 import { rehypeRestrictImages } from './images';
 import { rehypeResolveLinks, type LinkContext } from './links';
 
-/** The page header renders the title, so the body's first top-level H1 is dropped (code fences are code nodes, untouched). */
+/**
+ * The page header renders the title, so the body's title H1 is dropped (code fences are code nodes, untouched).
+ * Only the first top-level heading qualifies, and only when it is depth 1: a later `# Part` in a doc
+ * without a leading title stays.
+ */
 function remarkStripFirstH1() {
   return (tree: Root) => {
-    const i = tree.children.findIndex((n) => n.type === 'heading' && n.depth === 1);
-    if (i >= 0) tree.children.splice(i, 1);
+    const i = tree.children.findIndex((n) => n.type === 'heading');
+    const first = tree.children[i];
+    if (first && first.type === 'heading' && first.depth === 1) tree.children.splice(i, 1);
   };
 }
 
