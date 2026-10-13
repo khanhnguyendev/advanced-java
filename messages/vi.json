@@ -2,6 +2,7 @@
   "site": { "title": "advanced-java", "tagline": "Kiến trúc Java, giải thích rõ ràng" },
   "nav": {
     "search": "Tìm kiếm",
+    "resultsCount": "{count} kết quả",
     "language": "Ngôn ngữ",
     "theme": "Giao diện",
     "themeValue": { "light": "Sáng", "dark": "Tối", "system": "Theo hệ thống" },

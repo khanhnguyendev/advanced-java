@@ -174,7 +174,10 @@ async function pagefindGate(corpus: Record<Locale, CorpusDoc[]>, qs: Q[]) {
         continue;
       }
       // Pagefind 1.5.2 derives its language from <html lang> at init, so reload a page of this locale.
-      await page.goto(`http://127.0.0.1:4020/${locale}/${first.slug}.html`);
+      const resp = await page.goto(`http://127.0.0.1:4020/${locale}/${first.section}/${first.slug}.html`);
+      if (!resp || !resp.ok()) throw new Error(`gate page for ${locale} not served (status ${resp?.status()})`);
+      const lang = await page.evaluate(() => document.documentElement.lang);
+      if (lang !== locale) throw new Error(`gate page <html lang> is "${lang}", expected "${locale}"`);
       const results: Record<string, string[]> = {};
       let foreign = 0;
       for (const q of mine) {
@@ -276,15 +279,9 @@ async function main() {
     '',
   ];
   const out = lines.join('\n');
-  const primary = 'docs/superpowers/decisions/search-engine.md';
-  try {
-    mkdirSync(path.dirname(primary), { recursive: true });
-    writeFileSync(primary, out);
-  } catch (e) {
-    mkdirSync('.search-gate', { recursive: true });
-    writeFileSync('.search-gate/search-engine-decision.md', out);
-    console.error(`could not write ${primary}; wrote .search-gate/search-engine-decision.md`, e);
-  }
+  // The committed decision doc (docs/superpowers/decisions/) is owned by the controller; never write there.
+  mkdirSync('.search-gate', { recursive: true });
+  writeFileSync('.search-gate/search-engine-results.md', out);
   console.log(out);
 }
 

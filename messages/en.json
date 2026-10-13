@@ -2,6 +2,7 @@
   "site": { "title": "advanced-java", "tagline": "Java architecture, explained" },
   "nav": {
     "search": "Search",
+    "resultsCount": "{count} results",
     "language": "Language",
     "theme": "Theme",
     "themeValue": { "light": "Light", "dark": "Dark", "system": "System" },

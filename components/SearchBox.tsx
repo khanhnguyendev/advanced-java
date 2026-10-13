@@ -8,6 +8,7 @@ import { rankHits } from '@/lib/search/rank';
 import type { SearchEngine, SearchHit } from '@/lib/search/types';
 
 const LANG_NAME: Record<Locale, string> = { en: 'English', vi: 'Tiếng Việt', zh: '中文' };
+const DEBOUNCE_MS = 150;
 
 const wrapStyle: CSSProperties = { position: 'relative', flex: '1 1 auto', maxWidth: '24rem' };
 const listStyle: CSSProperties = {
@@ -23,14 +24,27 @@ const listStyle: CSSProperties = {
   overflowY: 'auto',
   zIndex: 10,
 };
+const srOnly: CSSProperties = {
+  position: 'absolute',
+  width: 1,
+  height: 1,
+  overflow: 'hidden',
+  clip: 'rect(0 0 0 0)',
+  whiteSpace: 'nowrap',
+};
 
 export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEngine }) {
   const t = useTranslations('nav');
   const [q, setQ] = useState('');
   const [hits, setHits] = useState<SearchHit[]>([]);
+  const [open, setOpen] = useState(true);
+  const [hint, setHint] = useState('⌘K');
   const input = useRef<HTMLInputElement>(null);
+  const wrap = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Platform is only known on the client; choose the shortcut hint after mount.
+    if (!/mac|iphone|ipad/i.test(navigator.platform ?? '')) setHint('Ctrl K');
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
@@ -47,31 +61,60 @@ export function SearchBox({ locale, engine }: { locale: Locale; engine: SearchEn
       setHits([]);
       return;
     }
-    engine
-      .search(q, locale)
-      .then((r) => live && setHits(rankHits(r).slice(0, 10)))
-      .catch(() => live && setHits([]));
+    const timer = setTimeout(() => {
+      engine
+        .search(q, locale)
+        .then((r) => live && setHits(rankHits(r).slice(0, 10)))
+        .catch(() => live && setHits([]));
+    }, DEBOUNCE_MS);
     return () => {
       live = false;
+      clearTimeout(timer);
     };
   }, [q, locale, engine]);
 
+  const shown = open ? hits : [];
+
   return (
-    <div className="search ui" style={wrapStyle}>
+    <div
+      ref={wrap}
+      className="search ui"
+      style={wrapStyle}
+      onBlur={(e) => {
+        if (!wrap.current?.contains(e.relatedTarget as Node | null)) setOpen(false);
+      }}
+      onKeyDown={(e) => {
+        if (e.key === 'Escape') {
+          setOpen(false);
+          setQ('');
+          setHits([]);
+          input.current?.focus();
+        }
+      }}
+    >
       <input
         ref={input}
         type="search"
         role="searchbox"
         value={q}
-        placeholder={`${t('search')} (⌘K)`}
+        placeholder={`${t('search')} (${hint})`}
         aria-label={t('search')}
         style={{ width: '100%' }}
-        onFocus={() => engine.warm?.(locale)}
-        onChange={(e) => setQ(e.target.value)}
+        onFocus={() => {
+          setOpen(true);
+          engine.warm?.(locale);
+        }}
+        onChange={(e) => {
+          setOpen(true);
+          setQ(e.target.value);
+        }}
       />
-      {hits.length > 0 && (
+      <div aria-live="polite" style={srOnly}>
+        {q.trim() && shown.length > 0 ? t('resultsCount', { count: shown.length }) : ''}
+      </div>
+      {shown.length > 0 && (
         <ul className="search-results" style={listStyle}>
-          {hits.map((h) => (
+          {shown.map((h) => (
             <li key={h.href}>
               <a href={h.href}>
                 {h.title}

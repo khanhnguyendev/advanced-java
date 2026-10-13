@@ -16,39 +16,53 @@ export interface PagefindModule {
 }
 export type PagefindLoader = () => Promise<PagefindModule>;
 
-const ENTITIES: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'", nbsp: ' ' };
+const ENTITIES: Record<string, string> = { amp: '&', lt: '<', gt: '>', quot: '"', nbsp: ' ' };
+
+function codePoint(n: number): string {
+  try {
+    return String.fromCodePoint(n);
+  } catch {
+    return '';
+  }
+}
 
 function plainExcerpt(html: string): string {
-  return html.replace(/<[^>]*>/g, '').replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (_, e: string) => ENTITIES[e] ?? '');
+  return html
+    .replace(/<[^>]*>/g, '')
+    .replace(/&(?:#x([0-9a-f]+)|#(\d+)|(amp|lt|gt|quot|nbsp));/gi, (_, hex?: string, dec?: string, name?: string) =>
+      hex ? codePoint(parseInt(hex, 16)) : dec ? codePoint(parseInt(dec, 10)) : (ENTITIES[name!.toLowerCase()] ?? ''),
+    );
 }
 
 function loadBrowserPagefind(): Promise<PagefindModule> {
   // Generated at build time into public/pagefind; not resolvable by the bundler or by tsc.
+  // Root-absolute URL: basePath is not supported (next.config.ts sets none); add it here if one is ever configured.
   const url = ['', 'pagefind', 'pagefind.js'].join('/');
   return import(/* webpackIgnore: true */ /* turbopackIgnore: true */ /* @vite-ignore */ url) as Promise<PagefindModule>;
 }
 
 export function createPagefindEngine(collection: string, load: PagefindLoader = loadBrowserPagefind): SearchEngine {
   let loaded: Promise<PagefindModule | null> | null = null;
-  const getModule = (locale: Locale) => {
+  // Pagefind 1.5.2 takes its language from <html lang>, which the route layout sets to the route locale,
+  // so no options({ language }) call is needed (it would be a no-op).
+  const getModule = () => {
     loaded ??= (async () => {
       try {
-        const pf = await load();
-        await pf.options({ language: locale });
-        return pf;
+        return await load();
       } catch {
-        return null; // index missing (e.g. `next dev` before a build)
+        loaded = null; // index missing (e.g. `next dev` before a build): retry on the next focus/query
+        return null;
       }
     })();
     return loaded;
   };
   return {
-    warm(locale) {
-      void getModule(locale);
+    warm() {
+      void getModule();
     },
     async search(query, locale) {
       try {
-        const pf = await getModule(locale);
+        const pf = await getModule();
         if (!pf) return [];
         const res = await pf.search(query, { filters: { collection } });
         const hits: SearchHit[] = await Promise.all(

@@ -2,6 +2,7 @@
   "site": { "title": "advanced-java", "tagline": "把 Java 架构讲清楚" },
   "nav": {
     "search": "搜索",
+    "resultsCount": "{count} 条结果",
     "language": "语言",
     "theme": "主题",
     "themeValue": { "light": "浅色", "dark": "深色", "system": "跟随系统" },
