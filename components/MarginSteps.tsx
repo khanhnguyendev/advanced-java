@@ -6,6 +6,7 @@ export function MarginSteps({ steps }: { steps: Step[] }) {
   if (!steps.length) return null;
   return (
     <aside className="margin-steps" aria-label={t('section')}>
+      <h2 className="rail-label">{t('section')}</h2>
       <ol>
         {steps.map((s) => (
           <li key={s.id}>

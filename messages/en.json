@@ -8,6 +8,7 @@
     "themeValue": { "light": "Light", "dark": "Dark", "system": "System" },
     "readingMode": "Reading mode",
     "menu": "Menu",
+    "onThisPage": "On this page",
     "contents": "Contents",
     "previous": "Previous",
     "next": "Next",

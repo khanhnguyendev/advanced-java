@@ -129,6 +129,7 @@ export default async function DocPage({
       </div>
       <Sidebar nav={nav} currentSlug={slug} />
       <main id="main-content" className="reader">
+        <div className="doc-col">
         <DocHeader
           catalogId={c.ids[slug]}
           title={title}
@@ -139,13 +140,15 @@ export default async function DocPage({
           titleLang={titleLang}
           servedIsOriginal={doc.served === c.sourceLocale}
         />
-        <ResumeFlag
-          collection={collection}
-          catalogId={c.ids[slug]}
-          zhHash={zhHash}
-          headings={headings.map((h) => ({ index: h.index, text: h.text }))}
-        />
-        <SetAside collection={collection} catalogId={c.ids[slug]} />
+        <div className="doc-actions">
+          <ResumeFlag
+            collection={collection}
+            catalogId={c.ids[slug]}
+            zhHash={zhHash}
+            headings={headings.map((h) => ({ index: h.index, text: h.text }))}
+          />
+          <SetAside collection={collection} catalogId={c.ids[slug]} />
+        </div>
         <article
           className="prose"
           lang={contentLang}
@@ -157,6 +160,7 @@ export default async function DocPage({
           fileUrl={upstreamUrl}
           aboutHref={`/${loc}/about`}
         />
+        </div>
       </main>
       <div className="toc-rail">
         <Toc headings={headings} />

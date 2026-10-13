@@ -22,15 +22,17 @@ export function TopBar({
   const t = useTranslations('nav');
   return (
     <header className="topbar">
-      <a className="ui" href={homeHref}>
+      <a className="topbar-brand ui" href={homeHref}>
         {collectionTitle}
       </a>
-      <div role="search" aria-label={t('search')}>
+      <div className="topbar-search" role="search" aria-label={t('search')}>
         <SearchBoxClient locale={locale} collection={collectionId} />
       </div>
       <LanguageSwitcher items={switcher} current={locale} />
-      <ThemeToggle />
-      <ReadingModeToggle />
+      <div className="topbar-tools">
+        <ThemeToggle />
+        <ReadingModeToggle />
+      </div>
       <TopBarMetrics />
     </header>
   );

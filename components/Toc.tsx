@@ -7,6 +7,7 @@ export function Toc({ headings }: { headings: HeadingInfo[] }) {
   if (!shown.length) return null;
   return (
     <nav className="toc" aria-label={t('contents')}>
+      <h2 className="rail-label">{t('onThisPage')}</h2>
       <ul>
         {shown.map((h) => (
           <li key={h.id} style={{ paddingInlineStart: `${(h.depth - 2) * 0.75}rem` }}>

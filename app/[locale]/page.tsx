@@ -33,10 +33,12 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   const items: ShelfItem[] = listCollections(root).map((id) => {
     const c = loadCollection(root, id);
     const s = collectionStats(root, c);
-    return { collection: id, title: id, tabColor: c.tabColor, total: s.total, perLocale: s.perLocale };
+    const ids = Object.values(c.ids);
+    const idRange = ids.length > 1 ? `${ids[0]} – ${ids[ids.length - 1]}` : ids[0];
+    return { collection: id, title: id, tabColor: c.tabColor, idRange, total: s.total, perLocale: s.perLocale };
   });
   return (
-    <>
+    <div className="grid-field">
       <div className="topbar-slot">
         <TopBar
           locale={locale as Locale}
@@ -47,6 +49,6 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
         />
       </div>
       <Shelf locale={locale as Locale} items={items} />
-    </>
+    </div>
   );
 }

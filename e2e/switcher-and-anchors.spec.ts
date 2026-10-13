@@ -26,10 +26,8 @@ for (const width of [1280, 375]) {
     info.annotations.push({ type: 'topbar-height', description: `${width}px: ${h}px` });
     await expect.poll(async () => page.evaluate(() => scrollY)).toBeGreaterThan(0);
     await expectClearOfBar(page, '[data-hi="3"]');
-    // status glyph marker is a narrow-screen affordance only (css: max-width 640px)
-    const marker = page.locator('.lang-switcher .lang-marker').first();
-    if (width === 375) await expect(marker).toBeVisible();
-    else await expect(marker).toBeHidden();
+    // the compact status glyph marker is shown at every width; full status text is sr-only
+    await expect(page.locator('.lang-switcher .lang-marker').first()).toBeVisible();
   });
 }
 
