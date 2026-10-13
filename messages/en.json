@@ -14,7 +14,8 @@
     "next": "Next",
     "home": "Home",
     "collections": "Notebooks",
-    "sidebar": "Documents"
+    "sidebar": "Documents",
+    "skip": "Skip to content"
   },
   "doc": {
     "fallbackNotice": "This page is not translated into {requested} yet. Showing the {served} original.",

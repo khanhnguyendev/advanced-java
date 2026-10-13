@@ -1,11 +1,12 @@
 // @vitest-environment jsdom
-import { render, screen } from '@testing-library/react';
+import { cleanup, render, screen } from '@testing-library/react';
 import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { NextIntlClientProvider } from 'next-intl';
 import { afterEach, describe, expect, it } from 'vitest';
 import { AboutContent } from '@/components/AboutContent';
+import { Attribution } from '@/components/Attribution';
 import { DocList } from '@/components/DocList';
 import { SectionCount } from '@/components/SectionCount';
 import { Shelf } from '@/components/Shelf';
@@ -39,6 +40,27 @@ describe('DocList status labels', () => {
     expect(screen.getByText(en.doc.translated)).toBeTruthy();
     expect(screen.getByText(en.doc.machineStatus)).toBeTruthy();
     expect(screen.getByText(en.doc.fallback)).toBeTruthy();
+  });
+});
+
+describe('Attribution on index pages', () => {
+  afterEach(cleanup);
+  it('shows license, credit and About link without an upstream file link', () => {
+    render(wrap(<Attribution aboutHref="/en/about" />));
+    expect(screen.getByRole('link', { name: en.attribution.license })).toBeTruthy();
+    expect(screen.getByText(new RegExp(en.attribution.credit))).toBeTruthy();
+    expect(screen.getByRole('link', { name: en.attribution.aboutLink }).getAttribute('href')).toBe('/en/about');
+    expect(screen.queryByRole('link', { name: en.attribution.sourceFile })).toBeNull();
+    expect(screen.queryByText(en.attribution.changesZh)).toBeNull();
+  });
+  it('keeps the upstream file link and change note on document pages', () => {
+    render(wrap(<Attribution kind="translated" fileUrl="https://example.com/f.md" aboutHref="/en/about" />));
+    expect(screen.getByRole('link', { name: en.attribution.sourceFile }).getAttribute('href')).toBe('https://example.com/f.md');
+    expect(screen.getByText(new RegExp(en.attribution.changesTranslated))).toBeTruthy();
+  });
+  it('is rendered by the shelf', () => {
+    render(wrap(<Shelf locale="en" items={[]} />));
+    expect(screen.getByRole('link', { name: en.attribution.license })).toBeTruthy();
   });
 });
 

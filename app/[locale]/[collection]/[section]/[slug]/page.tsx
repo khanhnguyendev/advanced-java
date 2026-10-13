@@ -128,7 +128,7 @@ export default async function DocPage({
         </MobileNav>
       </div>
       <Sidebar nav={nav} currentSlug={slug} />
-      <main id="main-content" className="reader">
+      <main id="main-content" tabIndex={-1} className="reader">
         <div className="doc-col">
         <DocHeader
           catalogId={c.ids[slug]}

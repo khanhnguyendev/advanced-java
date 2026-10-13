@@ -1,5 +1,5 @@
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { fontVariables } from '@/app/fonts';
 import { themeScript } from '@/app/theme-script';
@@ -26,6 +26,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const skip = (await getTranslations('nav'))('skip');
   return (
     <html lang={locale} className={fontVariables} suppressHydrationWarning>
       <head>
@@ -36,6 +37,9 @@ export default async function LocaleLayout({
         />
       </head>
       <body>
+        <a className="skip-link" href="#main-content">
+          {skip}
+        </a>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { Attribution } from './Attribution';
 import { LOCALES, type Locale } from '@/lib/content/types';
 
 export interface ShelfItem {
@@ -14,7 +15,7 @@ export interface ShelfItem {
 export function Shelf({ locale, items }: { locale: Locale; items: ShelfItem[] }) {
   const t = useTranslations();
   return (
-    <main id="main-content" className="shelf">
+    <main id="main-content" tabIndex={-1} className="shelf">
       <h1>{t('site.title')}</h1>
       <p className="ui">{t('site.tagline')}</p>
       <ul className="spines" aria-label={t('nav.collections')}>
@@ -35,9 +36,7 @@ export function Shelf({ locale, items }: { locale: Locale; items: ShelfItem[] })
           </li>
         ))}
       </ul>
-      <p className="ui">
-        <a href={`/${locale}/about`}>{t('attribution.aboutLink')}</a>
-      </p>
+      <Attribution aboutHref={`/${locale}/about`} />
     </main>
   );
 }
