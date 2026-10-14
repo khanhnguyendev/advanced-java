@@ -1,0 +1,103 @@
+{
+  "id": "demo/toy/toy",
+  "source": {
+    "upstream": "demo/toy.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 560,
+    "h": 200
+  },
+  "nodes": [
+    {
+      "id": "n1",
+      "shape": "box",
+      "x": 20,
+      "y": 60,
+      "w": 120,
+      "h": 56,
+      "label": {
+        "key": "n1",
+        "literals": [
+          "productId=1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "n2",
+      "shape": "round",
+      "x": 220,
+      "y": 60,
+      "w": 120,
+      "h": 56,
+      "label": {
+        "key": "n2"
+      },
+      "role": "accent"
+    },
+    {
+      "id": "n3",
+      "shape": "pill",
+      "x": 420,
+      "y": 60,
+      "w": 120,
+      "h": 56,
+      "label": {
+        "key": "n3"
+      },
+      "role": "muted"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          140,
+          88
+        ],
+        [
+          220,
+          88
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e1",
+        "at": [
+          180,
+          76
+        ],
+        "anchor": "middle",
+        "literals": []
+      }
+    },
+    {
+      "points": [
+        [
+          340,
+          88
+        ],
+        [
+          420,
+          88
+        ]
+      ],
+      "arrow": "both",
+      "style": "dashed"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t1",
+      "x": 20,
+      "y": 170,
+      "anchor": "start",
+      "literals": []
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

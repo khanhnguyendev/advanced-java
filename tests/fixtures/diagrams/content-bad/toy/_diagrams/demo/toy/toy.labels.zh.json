@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "n1": "查询 productId=1",
+    "n2": "事务管理器",
+    "n3": "数据库",
+    "e1": "请求",
+    "t1": "第一阶段，询问",
+    "_title": "示例图",
+    "_desc": "三个节点的示例图"
+  }
+}

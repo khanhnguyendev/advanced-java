@@ -23,7 +23,9 @@
     "check:translations": "tsx scripts/check-translations.ts",
     "translate": "tsx scripts/translate/cli.ts",
     "e2e": "playwright test",
-    "search:gate": "tsx scripts/search-gate/run.ts"
+    "search:gate": "tsx scripts/search-gate/run.ts",
+    "check:diagrams": "tsx scripts/check-diagrams.ts",
+    "diagrams:png": "tsx scripts/diagrams-png.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

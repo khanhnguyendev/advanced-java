@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "614f1c133219df4e2117654195f0256342dbb4a2bdee25ec2445aa0e55639e0a",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "n1": "Query productId=1",
+    "n2": "Transaction manager",
+    "n3": "Database",
+    "e1": "Request",
+    "t1": "Phase one: ask",
+    "_title": "Toy diagram",
+    "_desc": "A toy diagram with three nodes"
+  }
+}

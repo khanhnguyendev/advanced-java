@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "614f1c133219df4e2117654195f0256342dbb4a2bdee25ec2445aa0e55639e0a",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "n1": "查询 productId=1",
+    "n2": "Bộ quản lý giao dịch",
+    "n3": "Cơ sở dữ liệu",
+    "e1": "Yêu cầu",
+    "t1": "Giai đoạn một: hỏi",
+    "_title": "Sơ đồ mẫu",
+    "_desc": "Sơ đồ mẫu có ba nút"
+  }
+}
