@@ -82,10 +82,12 @@ export function loadDiagram(file: string, collection: string, root: string): Loa
     try {
       const parsed = JSON.parse(readFileSync(sf, 'utf8')) as { labels?: unknown };
       if (typeof parsed !== 'object' || parsed === null || !Array.isArray(parsed.labels)) throw new Error('"labels" is not an array');
+      const sourceLang = labels.en?.meta?.source_lang ?? labels.zh?.meta?.source_lang ?? labels.vi?.meta?.source_lang;
+      const ref: 'zh' | 'en' = sourceLang === 'en' ? 'en' : 'zh';
       for (const [i, e] of parsed.labels.entries()) {
         const r = e as Record<string, unknown> | null;
         if (r && typeof r.zh === 'string' && typeof r.en === 'string' && typeof r.vi === 'string') {
-          sidecar.push({ zh: r.zh, en: r.en, vi: r.vi, source: id });
+          sidecar.push({ zh: r.zh, en: r.en, vi: r.vi, ref: r.ref === 'zh' || r.ref === 'en' ? r.ref : ref, source: id });
         } else {
           loadErrors.push({ code: 'META_INVALID', message: `${path.basename(sf)} (glossary sidecar): entry ${i} lacks string zh/en/vi` });
         }

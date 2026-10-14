@@ -84,10 +84,13 @@ function renderNode(n0: DiagramNode, text: string): string {
   const lits = n.label.literals ?? [];
   if (n.shape === 'group') {
     const tl = nodeTextLayout(n, text, lits);
+    const outline =
+      n.border === 'solid'
+        ? `stroke="${C.muted}" stroke-width="${SW}"`
+        : `stroke="${C.rule}" stroke-width="${SW}" stroke-dasharray="1.5 4" stroke-linecap="round"`;
     return (
       `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>` +
-      `<rect data-group="1" x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="2" fill="none" stroke="${C.rule}" ` +
-      `stroke-width="${SW}" stroke-dasharray="1.5 4" stroke-linecap="round"/>` +
+      `<rect data-group="1" x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="2" fill="none" ${outline}/>` +
       textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, C.muted, owner(`node:${n.id}`)) +
       `</g>`
     );
@@ -163,10 +166,10 @@ export function renderDiagram(
   const ordered = [...scene.nodes.filter((n) => n.shape === 'group'), ...scene.nodes.filter((n) => n.shape !== 'group')];
   for (const n of ordered) parts.push(renderNode(n, labelText(labels, n.label.key)));
   scene.edges.forEach((e, i) => parts.push(renderEdge(e, i, h, labels)));
-  for (const tx of scene.texts) {
+  scene.texts.forEach((tx, i) => {
     const tl = freeTextLayout(labelText(labels, tx.key), tx.literals ?? [], num(tx.x), num(tx.y), tx.anchor);
-    parts.push(textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, C.ink, owner(`text:${tx.key}`)));
-  }
+    parts.push(textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, C.ink, owner(`text:${i}`)));
+  });
   parts.push('</svg>');
   return parts.join('');
 }

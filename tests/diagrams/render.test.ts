@@ -73,4 +73,28 @@ describe('renderDiagram', () => {
     expect(svg).toContain(`<g data-node="${s.nodes[0]!.id}">`);
     expect(svg).toContain('data-label="n2"');
   });
+
+  it('renders group borders dotted by default and solid on request, deterministically', () => {
+    const s = JSON.parse(JSON.stringify(d.scene)) as typeof d.scene;
+    s.nodes[0]!.shape = 'group';
+    const dotted = renderDiagram(s, d.labels.en!.labels, 'en');
+    expect(dotted).toContain('stroke-dasharray="1.5 4"');
+    s.nodes[0]!.border = 'solid';
+    const solid = renderDiagram(s, d.labels.en!.labels, 'en');
+    expect(solid).not.toContain('stroke-dasharray="1.5 4"');
+    expect(solid).toContain('data-group="1"');
+    expect(renderDiagram(JSON.parse(JSON.stringify(s)), d.labels.en!.labels, 'en')).toBe(solid);
+  });
+
+  it('gives free texts an index-based owner so equal keys stay distinct', () => {
+    const s = JSON.parse(JSON.stringify(d.scene)) as typeof d.scene;
+    s.texts = [
+      { key: 't1', x: 10, y: 20, anchor: 'start' },
+      { key: 't1', x: 10, y: 60, anchor: 'start' },
+    ];
+    const svg = renderDiagram(s, d.labels.en!.labels, 'en');
+    expect(svg).toContain('data-text-owner="text:0"');
+    expect(svg).toContain('data-text-owner="text:1"');
+    expect(svg).not.toContain('data-text-owner="text:t1"');
+  });
 });

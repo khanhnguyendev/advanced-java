@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -29,6 +29,11 @@ const codes = (labels: LabelsByLocale, glossary: GlossaryEntry[]) =>
 describe('normLabel', () => {
   it('collapses whitespace and newlines, trims, lowercases', () => {
     expect(normLabel('  Foo\n  Bar \t')).toBe('foo bar');
+  });
+
+  it('normalises to NFC but keeps case-insensitive comparison', () => {
+    expect(normLabel('e\u0301')).toBe(normLabel('\u00e9'));
+    expect(normLabel('ABC')).toBe('abc');
   });
 });
 
@@ -66,9 +71,17 @@ describe('glossary gate', () => {
     l.zh!.meta = { locale: 'zh', status: 'machine', source_lang: 'en' };
     l.vi!.meta = { locale: 'vi', status: 'machine', source_lang: 'en' };
     // entries are keyed by en here; zh text is only a translation
-    const g = entriesOf(l);
+    const g = entriesOf(l).map((e) => ({ ...e, ref: 'en' as const }));
     expect(codes(l, g)).toEqual([]);
     expect(codes(l, g.slice(1)).map((e) => e.code)).toEqual(['GLOSSARY_MISSING']);
+  });
+
+  it('only entries with the diagram reference locale are candidates', () => {
+    const g = entriesOf(good.labels);
+    // the same texts, but declared with an en reference: a zh-sourced diagram must not match them
+    const enRef = g.map((e) => ({ ...e, ref: 'en' as const }));
+    expect(codes(good.labels, enRef).map((e) => e.code)).toEqual(Array(g.length).fill('GLOSSARY_MISSING'));
+    expect(codes(good.labels, g.map((e) => ({ ...e, ref: 'zh' as const })))).toEqual([]);
   });
 
   it('is skipped when no glossary is supplied', () => {
@@ -85,6 +98,15 @@ describe('findConflicts', () => {
     expect(c[0]!.code).toBe('GLOSSARY_CONFLICT');
     expect(c[0]!.message).toContain('缓存');
     expect(findConflicts([a, { ...a, source: 'b', vi: 'Đệm' }])).toHaveLength(1);
+  });
+
+  it('keys on the reference locale: two en-source entries with the same en and different zh conflict', () => {
+    const a: GlossaryEntry = { zh: '缓存', en: 'Cache', vi: 'Bộ nhớ đệm', ref: 'en', source: 'a' };
+    const c = findConflicts([a, { ...a, source: 'b', zh: '高速缓存' }]);
+    expect(c).toHaveLength(1);
+    expect(c[0]!.code).toBe('GLOSSARY_CONFLICT');
+    // a zh-ref entry with the same zh text as an en-ref entry's zh translation is not a conflict
+    expect(findConflicts([a, { zh: '缓存', en: 'Buffer', vi: 'x', source: 'b' }])).toEqual([]);
   });
 });
 
@@ -114,8 +136,11 @@ describe('glossary on disk (tmp dir)', () => {
     expect(runGate(split)).toEqual([{ id: 'demo/toy/toy', errors: [] }]);
   });
 
-  it('runGate: glossary enforcement is off when no glossary file or sidecar exists', () => {
-    expect(runGate(fixtures)).toEqual([{ id: 'demo/toy/toy', errors: [] }]);
+  it('runGate: glossary is enforced even when no glossary file or sidecar exists', () => {
+    const root = setup(null, null);
+    rmSync(path.join(root, 'toy', 'glossary.diagram-labels.json'), { force: true });
+    const r = runGate(root)[0]!;
+    expect(r.errors.filter((e) => e.code === 'GLOSSARY_MISSING')).toHaveLength(all.length);
   });
 
   it('runGate: a conflict is reported once against the pseudo id "glossary"', () => {
@@ -151,7 +176,9 @@ describe('glossary on disk (tmp dir)', () => {
   it('check-diagrams CLI: --id works, "--" is ignored, conflicts fail even with --id', () => {
     const ok = setup({ terms: {}, labels: all }, null);
     expect(cli('scripts/check-diagrams.ts', ok, ['--', '--id', 'demo/toy/toy']).status).toBe(0);
-    expect(cli('scripts/check-diagrams.ts', ok, ['--id', 'nope']).status).not.toBe(0);
+    const nope = cli('scripts/check-diagrams.ts', ok, ['--id', 'nope']);
+    expect(nope.status).not.toBe(0);
+    expect(nope.out).toContain('0 diagrams, 1 errors');
     const bad = setup({ terms: {}, labels: all }, { labels: [{ ...all[0]!, vi: 'Khác' }] });
     const r = cli('scripts/check-diagrams.ts', bad, ['--id', 'demo/toy/toy']);
     expect(r.status).not.toBe(0);
@@ -177,6 +204,46 @@ describe('glossary on disk (tmp dir)', () => {
     expect(runGate(root)).toEqual([{ id: 'demo/toy/toy', errors: [] }]);
   });
 
+  it('mergeGlossaries preserves unknown entry fields, keys dedupe on ref, and writes no tmp files', () => {
+    const extra = { ...all[0]!, note: 'keep me' } as GlossaryEntry;
+    const enRef: GlossaryEntry = { zh: all[0]!.zh, en: 'Other', vi: 'Khác', ref: 'en' };
+    const root = setup({ terms: {}, labels: [extra, enRef] }, { labels: all.slice(1) });
+    const gfile = path.join(root, 'toy', 'glossary.diagram-labels.json');
+    const r = mergeGlossaries(root);
+    expect(r.errors).toEqual([]);
+    const written = JSON.parse(readFileSync(gfile, 'utf8')) as { labels: (GlossaryEntry & { note?: string })[] };
+    expect(written.labels.find((l) => l.note === 'keep me')).toBeDefined();
+    expect(written.labels.some((l) => l.ref === 'en' && l.en === 'Other')).toBe(true);
+    expect(readdirSync(path.join(root, 'toy')).filter((n) => n.includes('.tmp'))).toEqual([]);
+  });
+
+  it('mergeGlossaries reports a sidecar that was not loaded because its scene is unreadable', () => {
+    const root = setup({ terms: {}, labels: all }, null);
+    const dir = path.join(root, 'toy', '_diagrams', 'bad');
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(path.join(dir, 'broken.diagram.json'), '{ nope');
+    writeFileSync(path.join(dir, 'broken.glossary.json'), JSON.stringify({ labels: [] }));
+    const gfile = path.join(root, 'toy', 'glossary.diagram-labels.json');
+    const before = readFileSync(gfile, 'utf8');
+    const r = mergeGlossaries(root);
+    expect(r.errors.some((e) => e.message.includes('broken.glossary.json'))).toBe(true);
+    expect(readFileSync(gfile, 'utf8')).toBe(before);
+  });
+
+  it('sidecar entries take ref from the diagram source_lang', () => {
+    const root = setup({ terms: {}, labels: [] }, { labels: all });
+    const dir = path.join(root, 'toy', '_diagrams', 'demo', 'toy');
+    for (const loc of ['zh', 'en', 'vi'] as const) {
+      const f = path.join(dir, `toy.labels.${loc}.json`);
+      const j = JSON.parse(readFileSync(f, 'utf8')) as { meta: { source_lang: string } };
+      j.meta.source_lang = 'en';
+      writeFileSync(f, JSON.stringify(j));
+    }
+    const d = listDiagrams(root)[0]!;
+    expect(d.sidecar!.every((e) => e.ref === 'en')).toBe(true);
+    expect(listDiagrams(fixtures)[0]!.sidecar).toBeUndefined();
+  });
+
   it('mergeGlossaries writes nothing and deletes nothing on conflict', () => {
     const root = setup({ terms: {}, labels: all }, { labels: [{ ...all[0]!, en: 'Different' }] });
     const gfile = path.join(root, 'toy', 'glossary.diagram-labels.json');
@@ -200,5 +267,12 @@ describe('glossary on disk (tmp dir)', () => {
     expect(buildReviewData(okRoot, 'd').entries[0]!.glossaryCodes).toEqual([]);
     const missRoot = setup({ terms: {}, labels: [] }, null);
     expect(buildReviewData(missRoot, 'd').entries[0]!.glossaryCodes).toEqual(['GLOSSARY_MISSING']);
+  });
+
+  it('review data carries global glossary parse errors in every entry', () => {
+    const root = setup({ terms: {}, labels: all }, null);
+    writeFileSync(path.join(root, 'toy', 'glossary.diagram-labels.json'), '{ nope');
+    const e = buildReviewData(root, 'd').entries[0]!;
+    expect(e.errors.some((x) => x.code === 'META_INVALID' && x.message.includes('glossary.diagram-labels.json'))).toBe(true);
   });
 });

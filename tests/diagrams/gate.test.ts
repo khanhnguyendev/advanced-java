@@ -219,6 +219,29 @@ describe('checkDiagram hardening', () => {
     expect(withCode('OVERFLOW', g2, good.labels)).toBe(true);
   });
 
+  it('requires an edge to have at least 2 points', () => {
+    const s = clone(good.scene);
+    s.edges[0]!.points = [[10, 10]];
+    expect(metaMsgs(s, good.labels).some((m) => m.includes('at least 2 points'))).toBe(true);
+  });
+
+  it('requires title_key _title and desc_key _desc', () => {
+    const s = clone(good.scene);
+    s.title_key = 'n1';
+    expect(metaMsgs(s, good.labels).some((m) => m.includes('title_key'))).toBe(true);
+    const s2 = clone(good.scene);
+    s2.desc_key = 'n1';
+    expect(metaMsgs(s2, good.labels).some((m) => m.includes('desc_key'))).toBe(true);
+  });
+
+  it('validates the group border enum', () => {
+    const s = clone(good.scene);
+    (s.nodes[0] as { border: string }).border = 'wavy';
+    expect(metaMsgs(s, good.labels).some((m) => m.includes('border'))).toBe(true);
+    (s.nodes[0] as { border: string }).border = 'solid';
+    expect(metaMsgs(s, good.labels).some((m) => m.includes('border'))).toBe(false);
+  });
+
   it('uses the inscribed square for circle text', () => {
     const s = clone(good.scene);
     const n = s.nodes[1]!;

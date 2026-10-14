@@ -60,6 +60,75 @@ export function segmentHitsRect(p: Pt, q: Pt, r: Rect): boolean {
   );
 }
 
+/** The four border segments of a rect (a group outline). */
+export function rectBorder(r: Rect): [Pt, Pt][] {
+  return [
+    [[r.x0, r.y0], [r.x1, r.y0]],
+    [[r.x1, r.y0], [r.x1, r.y1]],
+    [[r.x1, r.y1], [r.x0, r.y1]],
+    [[r.x0, r.y1], [r.x0, r.y0]],
+  ];
+}
+
+/** Arrow markers are 8 user units: the head reaches 6.4 back from the tip and 3.2 to each side. */
+export const ARROW_LEN = 6.4;
+export const ARROW_HALF = 3.2;
+
+export type Tri = [Pt, Pt, Pt];
+
+/** Head triangle (tip, base corner, base corner) at `tip`, pointing away from `from`; null for a zero-length segment. */
+export function arrowTriangle(tip: Pt, from: Pt): Tri | null {
+  const dx = tip[0] - from[0];
+  const dy = tip[1] - from[1];
+  const len = Math.hypot(dx, dy);
+  if (!(len > 0)) return null;
+  const ux = dx / len;
+  const uy = dy / len;
+  const bx = tip[0] - ux * ARROW_LEN;
+  const by = tip[1] - uy * ARROW_LEN;
+  return [tip, [bx - uy * ARROW_HALF, by + ux * ARROW_HALF], [bx + uy * ARROW_HALF, by - ux * ARROW_HALF]];
+}
+
+/** Head triangles of an edge: end for `end`, both ends for `both`. Uses the last / first non-degenerate segment. */
+export function edgeArrowheads(e: { points: [number, number][]; arrow: string }): { which: 'end' | 'start'; tri: Tri }[] {
+  const out: { which: 'end' | 'start'; tri: Tri }[] = [];
+  const p = e.points;
+  if (p.length < 2) return out;
+  if (e.arrow === 'end' || e.arrow === 'both') {
+    for (let i = p.length - 2; i >= 0; i--) {
+      const t = arrowTriangle(p[p.length - 1]!, p[i]!);
+      if (t) {
+        out.push({ which: 'end', tri: t });
+        break;
+      }
+    }
+  }
+  if (e.arrow === 'both') {
+    for (let i = 1; i < p.length; i++) {
+      const t = arrowTriangle(p[0]!, p[i]!);
+      if (t) {
+        out.push({ which: 'start', tri: t });
+        break;
+      }
+    }
+  }
+  return out;
+}
+
+/** Closed triangle against closed rect. */
+export function triangleHitsRect(t: Tri, r: Rect): boolean {
+  if (r.x0 > r.x1 || r.y0 > r.y1) return false;
+  for (let i = 0; i < 3; i++) if (segmentHitsRect(t[i]!, t[(i + 1) % 3]!, r)) return true;
+  // rect wholly inside the triangle
+  const [a, b, c] = t;
+  const cross = (p: Pt, q: Pt, s: Pt) => (q[0] - p[0]) * (s[1] - p[1]) - (q[1] - p[1]) * (s[0] - p[0]);
+  const c0: Pt = [r.x0, r.y0];
+  const d1 = cross(a, b, c0);
+  const d2 = cross(b, c, c0);
+  const d3 = cross(c, a, c0);
+  return !((d1 < 0 || d2 < 0 || d3 < 0) && (d1 > 0 || d2 > 0 || d3 > 0));
+}
+
 export function nodeRect(n: { x: number; y: number; w: number; h: number }): Rect {
   return { x0: n.x, y0: n.y, x1: n.x + n.w, y1: n.y + n.h };
 }

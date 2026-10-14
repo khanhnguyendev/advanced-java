@@ -40,11 +40,13 @@ const UI_EM: Record<string, number> = {
   "i": 0.27, "j": 0.28, "k": 0.56, "l": 0.26, "m": 0.90, "n": 0.58, "o": 0.65, "p": 0.66, "q": 0.66,
   "r": 0.40, "s": 0.51, "t": 0.43, "u": 0.57, "v": 0.58, "w": 0.88, "x": 0.56, "y": 0.59, "z": 0.51,
   "{": 0.43, "|": 0.41, "}": 0.43, "~": 0.47,
+  // stroked d has no canonical decomposition, so the base-letter fallback cannot reach it
+  "đ": 0.69, "Đ": 0.76,
 };
 /** Measured 0.231em; kept at the older, more generous value. */
 const SPACE_EM = 0.28;
-/** Fallback for a non-ASCII, non-Han character with no base letter in the table. */
-export const UNKNOWN_EM = 0.7;
+/** Fallback for a non-ASCII, non-Han character with no base letter in the table (wide punctuation: em dash, ellipsis). */
+export const UNKNOWN_EM = 1.0;
 /** JetBrains Mono advances 0.601em; 0.62 leaves a margin. */
 export const MONO_EM = 0.62;
 
@@ -77,14 +79,41 @@ export function textWidth(segs: Seg[], fontSize = FONT_SIZE): number {
   return segs.reduce((n, s) => n + segWidth(s, fontSize), 0);
 }
 
-/** Split text into segments; declared literals become mono segments (longest first, left to right). */
+const WORD_CH = /^[\p{L}\p{N}_]$/u;
+const HAN_CH = /^\p{Script=Han}$/u;
+/** Word character for literal boundaries: letters/digits/underscore, Han counts as a boundary. */
+function isWordCh(ch: string | undefined): boolean {
+  return ch !== undefined && WORD_CH.test(ch) && !HAN_CH.test(ch);
+}
+function charBefore(text: string, i: number): string | undefined {
+  if (i <= 0) return undefined;
+  const lo = text.charCodeAt(i - 1);
+  if (lo >= 0xdc00 && lo <= 0xdfff && i >= 2) return text.slice(i - 2, i);
+  return text[i - 1];
+}
+function charAt(text: string, i: number): string | undefined {
+  return i < text.length ? String.fromCodePoint(text.codePointAt(i)!) : undefined;
+}
+/** True when the literal at text[i..] stands as a whole token (word-character edges need non-word neighbours). */
+function atBoundary(text: string, i: number, lit: string): boolean {
+  const first = String.fromCodePoint(lit.codePointAt(0)!);
+  if (isWordCh(first) && isWordCh(charBefore(text, i))) return false;
+  const lastCp = Array.from(lit).pop()!;
+  if (isWordCh(lastCp) && isWordCh(charAt(text, i + lit.length))) return false;
+  return true;
+}
+
+/**
+ * Split text into segments; declared literals become mono segments (longest first, left to right).
+ * A literal only matches as a whole token (see atBoundary). Single source of truth for renderer, wrapText and gate.
+ */
 export function splitSegments(text: string, literals: string[] = []): Seg[] {
   const lits = [...new Set(literals.filter((l) => l.length > 0))].sort((a, b) => b.length - a.length);
   const out: Seg[] = [];
   let buf = '';
   let i = 0;
   while (i < text.length) {
-    const hit = lits.find((l) => text.startsWith(l, i));
+    const hit = lits.find((l) => text.startsWith(l, i) && atBoundary(text, i, l));
     if (hit) {
       if (buf) out.push({ text: buf, mono: false });
       buf = '';

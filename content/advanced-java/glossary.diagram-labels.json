@@ -118,7 +118,7 @@
     },
     "注册中心": {
       "en": "service registry",
-      "vi": "trung tâm đăng ký dịch vụ (service registry)"
+      "vi": "trung tâm đăng ký dịch vụ"
     },
     "线程池": {
       "en": "thread pool",
@@ -488,18 +488,21 @@
       "zh": "a",
       "en": "a",
       "vi": "a",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
       "zh": "c",
       "en": "c",
       "vi": "c",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
       "zh": "d",
       "en": "d",
       "vi": "d",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
@@ -518,18 +521,21 @@
       "zh": "m",
       "en": "m",
       "vi": "m",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
       "zh": "n",
       "en": "n",
       "vi": "n",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
       "zh": "o",
       "en": "o",
       "vi": "o",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
@@ -548,18 +554,21 @@
       "zh": "root",
       "en": "root",
       "vi": "root",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
       "zh": "s",
       "en": "s",
       "vi": "s",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
       "zh": "t",
       "en": "t",
       "vi": "t",
+      "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {

@@ -1,0 +1,33 @@
+{
+  "_meta": {
+    "note": "toy fixture glossary"
+  },
+  "terms": {},
+  "labels": [
+    {
+      "zh": "查询 productId=1",
+      "en": "Query productId=1",
+      "vi": "Truy vấn productId=1"
+    },
+    {
+      "zh": "事务管理器",
+      "en": "Transaction manager",
+      "vi": "Bộ quản lý giao dịch"
+    },
+    {
+      "zh": "数据库",
+      "en": "Database",
+      "vi": "Cơ sở dữ liệu"
+    },
+    {
+      "zh": "请求",
+      "en": "Request",
+      "vi": "Yêu cầu"
+    },
+    {
+      "zh": "第一阶段，询问",
+      "en": "Phase one: ask",
+      "vi": "Giai đoạn một: hỏi"
+    }
+  ]
+}

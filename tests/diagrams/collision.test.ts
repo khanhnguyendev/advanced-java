@@ -18,6 +18,7 @@ const LABELS = {
   e1: 'link',
   t1: 'note',
   t2: 'other',
+  G2: 'Inner',
   _title: 't',
   _desc: 'd',
 };
@@ -130,5 +131,107 @@ describe('TEXT_COLLISION', () => {
     expect(bad.every((e) => e.locale === 'vi')).toBe(true);
     expect(bad.length).toBeGreaterThan(0);
     expect(bad[0]!.message).toContain('vi');
+  });
+});
+
+describe('group outlines as collision targets', () => {
+  const grouped = (): DiagramScene => {
+    const s = clone(base);
+    s.nodes.unshift({ id: 'G', shape: 'group', x: 5, y: 5, w: 380, h: 200, label: { key: 'G' } });
+    s.texts[0] = { key: 't1', x: 20, y: 150, anchor: 'start' };
+    return s;
+  };
+
+  it('a free text across a group border fails; inside passes', () => {
+    expect(hits(grouped())).toEqual([]);
+    const s = grouped();
+    s.texts[0] = { key: 't1', x: 20, y: 200, anchor: 'start' };
+    const bad = hits(s);
+    expect(bad.some((e) => e.message.includes('crosses group G border'))).toBe(true);
+  });
+
+  it('a text wholly outside a group passes', () => {
+    const s = grouped();
+    s.size.h = 300;
+    s.texts[0] = { key: 't1', x: 20, y: 250, anchor: 'start' };
+    expect(hits(s)).toEqual([]);
+  });
+
+  it('an inner group over an outer group label fails', () => {
+    const s = grouped();
+    s.nodes.splice(1, 0, { id: 'G2', shape: 'group', x: 10, y: 8, w: 150, h: 80, label: { key: 'G2' } });
+    const bad = hits(s);
+    expect(bad.some((e) => e.message.includes('group G2 sits over group G label'))).toBe(true);
+    // an inner group clear of the outer label is fine
+    const ok = grouped();
+    ok.nodes.splice(1, 0, { id: 'G2', shape: 'group', x: 10, y: 40, w: 150, h: 60, label: { key: 'G2' } });
+    ok.nodes[2]!.y = 120;
+    ok.nodes[3]!.y = 120;
+    ok.edges[0]!.points = [[120, 140], [220, 140]];
+    ok.edges[0]!.label!.at = [170, 120];
+    ok.texts[0]!.y = 185;
+    expect(hits(ok)).toEqual([]);
+  });
+});
+
+describe('arrowheads as collision targets', () => {
+  const tx = (y: number): DiagramScene => {
+    const s = clone(base);
+    s.texts[0] = { key: 't1', x: 217, y, anchor: 'end' };
+    return s;
+  };
+
+  it('a label beside the arrowhead fails', () => {
+    const bad = hits(tx(70));
+    expect(bad.some((e) => e.message.includes('arrowhead of edge 0'))).toBe(true);
+  });
+
+  it('a label 8px clear of the arrowhead passes', () => {
+    expect(hits(tx(58))).toEqual([]);
+  });
+
+  it('arrow none has no head; both tests the start head too', () => {
+    const s = tx(70);
+    s.edges[0]!.arrow = 'none';
+    expect(hits(s).some((e) => e.message.includes('arrowhead'))).toBe(false);
+    const b = clone(base);
+    b.edges[0]!.arrow = 'both';
+    // start head at (120,80) spans x 120..126.4, y 76.8..83.2
+    b.texts[0] = { key: 't1', x: 128, y: 70, anchor: 'end' };
+    expect(hits(b).some((e) => e.message.includes('arrowhead of edge 0'))).toBe(true);
+  });
+});
+
+describe('group label vs edges (browser grows the real bbox by 1px)', () => {
+  const g = (edges: DiagramScene['edges'], extra: DiagramScene['nodes'] = []): DiagramScene => ({
+    ...clone(base),
+    size: { w: 400, h: 300 },
+    nodes: [
+      { id: 'G', shape: 'group', border: 'solid', x: 50, y: 145, w: 190, h: 85, label: { key: 'G' } },
+      ...extra,
+    ],
+    edges,
+    texts: [],
+  });
+  const lab = labels({ G: 'Threads in the Hystrix' });
+
+  it('an edge ending 5px inside the group top, across the label, fails (edge + arrowhead)', () => {
+    const bad = hits(g([{ points: [[90, 110], [90, 150]], arrow: 'end', style: 'solid' }]), lab);
+    expect(bad.some((e) => e.message.includes('group G label crosses edge 0'))).toBe(true);
+    expect(bad.some((e) => e.message.includes('arrowhead of edge 0'))).toBe(true);
+  });
+  it('an edge ending on the group top border passes', () => {
+    expect(hits(g([{ points: [[90, 110], [90, 145]], arrow: 'end', style: 'solid' }]), lab)).toEqual([]);
+  });
+  it('an edge passing through the label fails', () => {
+    const bad = hits(g([{ points: [[90, 120], [90, 220]], arrow: 'end', style: 'solid' }]), lab);
+    expect(bad.some((e) => e.message.includes('crosses edge 0'))).toBe(true);
+  });
+  it('a node label inside the group does not collide with the group label when clear; overlapping fails', () => {
+    const inner = (y: number): DiagramScene['nodes'] => [
+      { id: 'A', shape: 'box', x: 60, y, w: 100, h: 30, label: { key: 'A' } },
+    ];
+    expect(hits(g([], inner(175)), lab)).toEqual([]);
+    expect(hits(g([], inner(150)), lab).length).toBeGreaterThan(0);
   });
 });

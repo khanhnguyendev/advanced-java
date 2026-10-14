@@ -38,7 +38,7 @@ if (path.basename(process.argv[1] ?? '') === 'check-diagrams.ts') {
       console.log(`${r.id}: ${e.code}${e.locale ? ` [${e.locale}]` : ''}: ${e.message}`);
     }
   }
-  const diagrams = results.filter((r) => r.id !== GLOSSARY_ID).length;
+  const diagrams = results.filter((r) => r.id !== GLOSSARY_ID && !r.notFound).length;
   console.log(`check:diagrams: ${diagrams} diagrams, ${n} errors`);
   process.exit(n > 0 ? 1 : 0);
 }

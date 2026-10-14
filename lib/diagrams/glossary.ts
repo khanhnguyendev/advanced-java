@@ -1,6 +1,6 @@
-import { existsSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { normLabel } from './glossary-norm';
+import { entryKey, entryRef, normLabel } from './glossary-norm';
 import type { LoadedDiagram } from './load';
 import { listDiagrams } from './load';
 import type { GateError, GlossaryEntry } from './types';
@@ -21,22 +21,32 @@ export interface GlossaryFile {
 export function isEntry(v: unknown): v is GlossaryEntry {
   if (typeof v !== 'object' || v === null) return false;
   const e = v as Record<string, unknown>;
+  if (e.ref !== undefined && e.ref !== 'zh' && e.ref !== 'en') return false;
   return typeof e.zh === 'string' && typeof e.en === 'string' && typeof e.vi === 'string';
 }
 
-/** Conflict: same zh text (normalised) with a different en or vi text. One error per zh text. */
+/**
+ * Conflict: same reference text (per entry `ref`, default zh; normalised) with a different text in either other
+ * locale. One error per reference text.
+ */
 export function findConflicts(entries: GlossaryEntry[]): GateError[] {
   const by = new Map<string, GlossaryEntry[]>();
-  for (const e of entries) by.set(normLabel(e.zh), [...(by.get(normLabel(e.zh)) ?? []), e]);
+  for (const e of entries) {
+    const k = entryKey(e);
+    by.set(k, [...(by.get(k) ?? []), e]);
+  }
   const out: GateError[] = [];
   for (const group of by.values()) {
     const first = group[0]!;
-    const differing = group.filter((g) => normLabel(g.en) !== normLabel(first.en) || normLabel(g.vi) !== normLabel(first.vi));
+    const r = entryRef(first);
+    const others = (['zh', 'en', 'vi'] as const).filter((l) => l !== r);
+    const differing = group.filter((g) => others.some((l) => normLabel(g[l]) !== normLabel(first[l])));
     if (differing.length === 0) continue;
-    const show = (g: GlossaryEntry) => `${g.source ?? '?'}: en "${g.en.replace(/\n/g, ' ')}", vi "${g.vi.replace(/\n/g, ' ')}"`;
+    const one = (t: string) => t.replace(/\n/g, ' ');
+    const show = (g: GlossaryEntry) => `${g.source ?? '?'}: ${others.map((l) => `${l} "${one(g[l])}"`).join(', ')}`;
     out.push({
       code: 'GLOSSARY_CONFLICT',
-      message: `"${first.zh.replace(/\n/g, ' ')}" has conflicting entries: ${[first, ...differing].map(show).join(' | ')}`,
+      message: `"${one(first[r])}" (${r}) has conflicting entries: ${[first, ...differing].map(show).join(' | ')}`,
     });
   }
   return out;
@@ -45,7 +55,7 @@ export function findConflicts(entries: GlossaryEntry[]): GateError[] {
 export interface CollectionGlossary {
   collection: string;
   file: string;
-  /** the global file exists, or at least one sidecar does */
+  /** always true: a collection with diagrams is always held to its glossary (a missing file means every label is missing) */
   enforced: boolean;
   global: GlossaryFile | null;
   /** global labels then sidecar entries (sidecar entries carry source = diagram id) */
@@ -82,7 +92,7 @@ export function loadGlossaries(root: string, diagrams: LoadedDiagram[]): Map<str
     out.set(d.collection, {
       collection: d.collection,
       file,
-      enforced: existsSync(file) || own.some((x) => x.sidecarFile !== undefined),
+      enforced: true,
       global: glossary,
       entries: [...(glossary?.labels ?? []), ...side],
       errors,
@@ -107,7 +117,18 @@ export function mergeGlossaries(root: string): MergeResult {
   const plans: { file: string; text: string; sidecars: string[] }[] = [];
   for (const g of gl.values()) {
     const own = diagrams.filter((d) => d.collection === g.collection);
-    for (const d of own) result.errors.push(...d.loadErrors.filter((e) => e.message.includes('glossary')));
+    for (const d of own) {
+      result.errors.push(...d.loadErrors.filter((e) => e.message.includes('glossary')));
+      if (d.unreadable) {
+        const sf = `${d.file.slice(0, -'.diagram.json'.length)}${SIDECAR_SUFFIX}`;
+        if (existsSync(sf)) {
+          result.errors.push({
+            code: 'META_INVALID',
+            message: `${path.basename(sf)} (glossary sidecar) was not loaded because ${path.basename(d.file)} is unreadable`,
+          });
+        }
+      }
+    }
     result.errors.push(...g.errors);
     const sidecars = own.filter((d) => d.sidecarFile !== undefined);
     if (sidecars.length === 0) continue;
@@ -119,22 +140,29 @@ export function mergeGlossaries(root: string): MergeResult {
     const seen = new Set<string>();
     const merged: GlossaryEntry[] = [];
     for (const e of g.entries) {
-      const k = normLabel(e.zh);
+      const k = entryKey(e);
       if (seen.has(k)) continue;
       seen.add(k);
-      merged.push({ zh: e.zh, en: e.en, vi: e.vi, source: e.source });
+      merged.push({ ...e });
     }
-    merged.sort((a, b) => (a.zh < b.zh ? -1 : a.zh > b.zh ? 1 : 0));
+    const cmp = (a: string, b: string) => (a < b ? -1 : a > b ? 1 : 0);
+    merged.sort((a, b) => cmp(a.zh, b.zh) || cmp(entryRef(a), entryRef(b)) || cmp(a.en, b.en));
     const body = {
       _meta: g.global?._meta ?? META,
       terms: g.global?.terms ?? {},
-      labels: merged.map((e) => (e.source === undefined ? { zh: e.zh, en: e.en, vi: e.vi } : e)),
+      labels: merged.map((e) => {
+        const { ref, source, ...rest } = e;
+        // zh is the default reference, so it is not written; source only when known
+        return { ...rest, ...(ref === 'en' ? { ref } : {}), ...(source === undefined ? {} : { source }) };
+      }),
     };
     plans.push({ file: g.file, text: `${JSON.stringify(body, null, 2)}\n`, sidecars: sidecars.map((d) => d.sidecarFile!) });
   }
   if (result.conflicts.length || result.errors.length) return result;
   for (const p of plans) {
-    writeFileSync(p.file, p.text);
+    const tmp = `${p.file}.tmp-${process.pid}`;
+    writeFileSync(tmp, p.text);
+    renameSync(tmp, p.file);
     result.written.push(p.file);
     for (const s of p.sidecars) {
       unlinkSync(s);

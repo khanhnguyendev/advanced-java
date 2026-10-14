@@ -41,7 +41,7 @@ export function buildReviewData(root: string, buildDate: string = new Date().toI
   const gl = loadGlossaries(root, diagrams);
   const entries: ReviewEntry[] = diagrams.map((d) => {
     const g = gl.get(d.collection);
-    const gateErrors = gateLoaded(d, g?.enforced ? g.entries : undefined);
+    const gateErrors = [...gateLoaded(d, g?.entries), ...(g ? g.errors : [])];
     const svgsByWidth = {} as Record<DiagramLocale, Record<number, string> | null>;
     const renderErrors: GateError[] = [];
     for (const loc of DIAGRAM_LOCALES) {
@@ -71,7 +71,7 @@ export function buildReviewData(root: string, buildDate: string = new Date().toI
     };
   });
   const glossaryConflicts: GateError[] = [];
-  for (const g of gl.values()) if (g.enforced) glossaryConflicts.push(...findConflicts(g.entries));
+  for (const g of gl.values()) glossaryConflicts.push(...findConflicts(g.entries));
   return {
     count: entries.length,
     errorCount: entries.reduce((n, e) => n + e.errors.length, 0) + glossaryConflicts.length,

@@ -3,6 +3,7 @@ export type DiagramLocale = (typeof DIAGRAM_LOCALES)[number];
 
 export type NodeShape = 'box' | 'round' | 'pill' | 'circle' | 'group';
 export type NodeRole = 'default' | 'accent' | 'muted';
+export type GroupBorder = 'dotted' | 'solid';
 export type Anchor = 'start' | 'middle' | 'end';
 
 export interface LabelRef {
@@ -19,6 +20,8 @@ export interface DiagramNode {
   h: number;
   label: LabelRef;
   role?: NodeRole;
+  /** group outline style: `dotted` (default) or `solid` (reproduces upstream container boxes) */
+  border?: GroupBorder;
 }
 
 export interface EdgeLabel extends LabelRef {
@@ -93,11 +96,13 @@ export interface GateError {
   locale?: DiagramLocale;
 }
 
-/** One whole-label glossary entry. Lookup is by the reference-locale text (zh, or en for source_lang en). */
+/** One whole-label glossary entry. Lookup is by the text of its reference locale `ref` (default zh). */
 export interface GlossaryEntry {
   zh: string;
   en: string;
   vi: string;
+  /** which locale holds the reference text; omitted means zh. Entries only match diagrams with the same reference locale. */
+  ref?: 'zh' | 'en';
   /** diagram id the entry was first used in (global file only) */
   source?: string;
 }

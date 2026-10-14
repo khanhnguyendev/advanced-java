@@ -16,7 +16,7 @@ describe('measure', () => {
     expect(FONT_SIZE).toBe(13);
     expect(HAN_EM).toBe(1.02);
     expect(MONO_EM).toBe(0.62);
-    expect(UNKNOWN_EM).toBe(0.7);
+    expect(UNKNOWN_EM).toBe(1.0);
   });
 
   it('estimates widths per script from the measured UI font table', () => {
@@ -31,6 +31,10 @@ describe('measure', () => {
     // Vietnamese: base letter + 0.03em; unknown symbols fall back to UNKNOWN_EM
     expect(segWidth({ text: 'ế', mono: false })).toBeCloseTo(em(0.6 + 0.03));
     expect(segWidth({ text: '→', mono: false })).toBeCloseTo(em(UNKNOWN_EM));
+    expect(segWidth({ text: '—', mono: false })).toBeCloseTo(em(1.0));
+    // d with stroke has no decomposition: explicit table entries
+    expect(segWidth({ text: 'đ', mono: false })).toBeCloseTo(em(0.69));
+    expect(segWidth({ text: 'Đ', mono: false })).toBeCloseTo(em(0.76));
   });
 
   // Browser measurements (getComputedTextLength / getBBox width, 13px, Be Vietnam Pro + JetBrains Mono),
@@ -50,6 +54,40 @@ describe('measure', () => {
     // layoutRect adds TEXT_PAD_X each side; the real box must sit >= 1px inside it
     expect(est + 2 * TEXT_PAD_X).toBeGreaterThanOrEqual(real + 2);
     expect(est).toBeLessThanOrEqual(real * 1.2 + 4);
+  });
+
+  describe('literal token boundaries', () => {
+    const mono = (t: string, l: string[]) => splitSegments(t, l).filter((s) => s.mono).map((s) => s.text);
+    it('does not split inside a longer word', () => {
+      expect(mono('configuration', ['config'])).toEqual([]);
+      expect(splitSegments('configuration', ['config'])).toEqual([{ text: 'configuration', mono: false }]);
+    });
+    it('splits a whole-word occurrence', () => {
+      expect(mono('the config file', ['config'])).toEqual(['config']);
+    });
+    it('treats Han neighbours as boundaries', () => {
+      expect(mono('zk锁', ['zk'])).toEqual(['zk']);
+      expect(mono('请求1:orderId=1', ['orderId=1'])).toEqual(['orderId=1']);
+    });
+    it('matches at text edges and inside punctuation', () => {
+      expect(mono('MQ', ['MQ'])).toEqual(['MQ']);
+      expect(mono('(MQ)', ['MQ'])).toEqual(['MQ']);
+    });
+    it('treats Vietnamese letters as word characters', () => {
+      expect(mono('đồng bộ', ['bộ'])).toEqual(['bộ']);
+      expect(mono('đồng bộhóa', ['bộ'])).toEqual([]);
+      expect(mono('xđồng bộ', ['đồng bộ'])).toEqual([]);
+      expect(mono('mã đồng bộ.', ['đồng bộ'])).toEqual(['đồng bộ']);
+    });
+    it('keeps punctuation edges unchecked and marks all occurrences', () => {
+      expect(mono('x(10 y', ['(10'])).toEqual(['(10']);
+      expect(mono('ip 192.168.0.1 ok', ['192.168.0.1'])).toEqual(['192.168.0.1']);
+      expect(mono('a MQ b MQ', ['MQ'])).toEqual(['MQ', 'MQ']);
+    });
+    it('is deterministic', () => {
+      const a = JSON.stringify(splitSegments('zk锁 config configuration', ['zk', 'config']));
+      expect(JSON.stringify(splitSegments('zk锁 config configuration', ['zk', 'config']))).toBe(a);
+    });
   });
 
   it('splits literals into mono segments', () => {

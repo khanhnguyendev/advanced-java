@@ -6,8 +6,20 @@ import type {
   LabelRef,
   LabelsByLocale,
 } from './types';
-import { nodeRect, rectContains, rectsOverlap, sceneTextBlocks, segmentHitsRect, shrinkRect, TEXT_HALF_H, TEXT_PAD_X } from './geometry';
-import { normLabel } from './glossary-norm';
+import {
+  edgeArrowheads,
+  nodeRect,
+  rectBorder,
+  rectContains,
+  rectsOverlap,
+  sceneTextBlocks,
+  segmentHitsRect,
+  shrinkRect,
+  TEXT_HALF_H,
+  TEXT_PAD_X,
+  triangleHitsRect,
+} from './geometry';
+import { entryRef, normLabel } from './glossary-norm';
 import { DIAGRAM_LOCALES } from './types';
 import { FONT_SIZE, LINE_HEIGHT, NODE_PAD, stripLiterals, hasHan, wrapText, splitSegments, textWidth, textMaxWidth } from './measure';
 
@@ -31,6 +43,10 @@ const ROLES = ['default', 'accent', 'muted'];
 const ARROWS = ['end', 'both', 'none'];
 const STYLES = ['solid', 'dashed', 'accent'];
 const ANCHORS = ['start', 'middle', 'end'];
+const BORDERS = ['dotted', 'solid'];
+/** Fixed names of the title and description keys; the glossary exempts exactly these. */
+const TITLE_KEY = '_title';
+const DESC_KEY = '_desc';
 
 function validateScene(
   scene: DiagramScene,
@@ -52,8 +68,8 @@ function validateScene(
   for (const k of ['nodes', 'edges', 'texts'] as const) {
     if (!Array.isArray(scene[k])) bad(`${k} is not an array`);
   }
-  if (typeof scene.title_key !== 'string' || scene.title_key === '') bad('title_key is not a non-empty string');
-  if (typeof scene.desc_key !== 'string' || scene.desc_key === '') bad('desc_key is not a non-empty string');
+  if (scene.title_key !== TITLE_KEY) bad(`title_key must be "${TITLE_KEY}"`);
+  if (scene.desc_key !== DESC_KEY) bad(`desc_key must be "${DESC_KEY}"`);
   if (typeof scene.source?.upstream !== 'string') bad('source.upstream is not a string');
   const keyOk = (r: unknown, p: string) => {
     const k = (r as { key?: unknown } | null | undefined)?.key;
@@ -84,6 +100,7 @@ function validateScene(
     fin(n.h, `${p} h`, true);
     oneOf(n.shape, SHAPES, `${p} shape`);
     oneOf(n.role, ROLES, `${p} role`, true);
+    oneOf(n.border, BORDERS, `${p} border`, true);
   }
   (Array.isArray(scene.edges) ? scene.edges : []).forEach((e, i) => {
     const p = `edge ${i}`;
@@ -93,6 +110,7 @@ function validateScene(
     }
     if (!Array.isArray(e.points)) bad(`${p} points is not an array`);
     else {
+      if (e.points.length < 2) bad(`${p} needs at least 2 points`);
       e.points.forEach((pt, j) => {
         if (!Array.isArray(pt) || pt.length !== 2) bad(`${p} points[${j}] is not a pair`);
         else {
@@ -318,6 +336,7 @@ export function checkDiagram(
 
   // 10. label collisions, per locale, with the renderer's own text geometry
   const solidNodes = scene.nodes.filter((n) => n.shape !== 'group');
+  const groups = scene.nodes.filter((n) => n.shape === 'group');
   for (const loc of DIAGRAM_LOCALES) {
     const f = labelsByLocale[loc];
     if (!f) continue;
@@ -343,27 +362,53 @@ export function checkDiagram(
         if (b.kind !== 'node' && b.kind !== 'group' && rectContains(r, b.rect)) continue;
         if (rectsOverlap(b.rect, r)) hit(`n${i}:${n.id}`, `${b.name} overlaps node ${n.id}`);
       }
+      // The browser check grows the real bbox by 1px for edges/arrowheads. b.rect is already real bbox + margin
+      // (TEXT_HALF_H = 9.05 + 1.05, TEXT_PAD_X), so edges are tested against it unshrunk; only group borders
+      // (browser: strict overlap with the raw bbox) use the shrunk probe.
       const probe = shrinkRect(b.rect, 1);
       scene.edges.forEach((e, k) => {
         for (let s = 0; s + 1 < e.points.length; s++) {
-          if (segmentHitsRect(e.points[s]!, e.points[s + 1]!, probe)) {
+          if (segmentHitsRect(e.points[s]!, e.points[s + 1]!, b.rect)) {
             hit(`e${i}:${k}`, `${b.name} crosses edge ${k}`);
             break;
           }
         }
+        for (const h of edgeArrowheads(e)) {
+          if (triangleHitsRect(h.tri, b.rect)) {
+            hit(`a${i}:${k}:${h.which}`, `${b.name} touches the arrowhead of edge ${k}`);
+          }
+        }
       });
+      // a text block must not cross a group outline (wholly inside or wholly outside passes)
+      for (const g of groups) {
+        if (b.kind === 'group' && b.nodeId === g.id) continue;
+        if (rectBorder(nodeRect(g)).some(([p, q]) => segmentHitsRect(p, q, probe))) {
+          hit(`g${i}:${g.id}`, `${b.name} crosses group ${g.id} border`);
+        }
+      }
+      // an inner group must not sit over another group's label
+      if (b.kind === 'group') {
+        const owner = groups.find((g) => g.id === b.nodeId);
+        for (const g of groups) {
+          if (g.id === b.nodeId) continue;
+          const gr = nodeRect(g);
+          if (owner && rectContains(gr, nodeRect(owner))) continue;
+          if (rectsOverlap(gr, b.rect)) hit(`gl${i}:${g.id}`, `group ${g.id} sits over group ${b.nodeId} label`);
+        }
+      }
     }
   }
 
   // 11. glossary
   if (opts.glossary) {
-    const lookupLoc = refLocale;
+    // only entries whose reference locale is this diagram's reference locale are candidates
     const byRef = new Map<string, GlossaryEntry[]>();
     for (const g of opts.glossary) {
-      const k = normLabel(g[lookupLoc]);
+      if (entryRef(g) !== refLocale) continue;
+      const k = normLabel(g[refLocale]);
       byRef.set(k, [...(byRef.get(k) ?? []), g]);
     }
-    const exempt = new Set([scene.title_key, scene.desc_key]);
+    const exempt = new Set([TITLE_KEY, DESC_KEY]);
     const reported = new Set<string>();
     for (const k of used) {
       if (exempt.has(k) || !ref || !Object.hasOwn(ref.labels, k) || isBlank(ref.labels[k])) continue;
