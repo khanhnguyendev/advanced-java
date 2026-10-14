@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { SectionCount } from '@/components/SectionCount';
 import { Attribution } from '@/components/Attribution';
 import { Sidebar } from '@/components/Sidebar';
 import { TopBar } from '@/components/TopBar';
@@ -57,8 +56,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ loc
           <ul>
             {nav.map((s) => (
               <li key={s.id}>
-                <a href={`/${loc}/${collection}/${s.id}`}>{s.title}</a>{' '}
-                <SectionCount groups={s.groups} />
+                <a href={`/${loc}/${collection}/${s.id}`}>{s.title}</a>
               </li>
             ))}
           </ul>

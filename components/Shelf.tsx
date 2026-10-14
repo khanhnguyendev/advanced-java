@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Attribution } from './Attribution';
-import { LOCALES, type Locale } from '@/lib/content/types';
+import type { Locale } from '@/lib/content/types';
 
 export interface ShelfItem {
   collection: string;
@@ -8,8 +8,6 @@ export interface ShelfItem {
   tabColor: string;
   /** first and last catalog id of the notebook, e.g. "HC-01 – BD-12" */
   idRange?: string;
-  total: number;
-  perLocale: Record<Locale, number>;
 }
 
 export function Shelf({ locale, items }: { locale: Locale; items: ShelfItem[] }) {
@@ -25,14 +23,6 @@ export function Shelf({ locale, items }: { locale: Locale; items: ShelfItem[] })
             <a href={`/${locale}/${it.collection}`}>
               <span className="spine-title">{it.title}</span>
             </a>
-            <dl className="ui">
-              {LOCALES.map((l) => (
-                <div key={l}>
-                  <dt className="ui-cjk" lang={l === 'zh' ? 'zh-Hans' : l}>{t(`languages.${l}`)}</dt>
-                  <dd className="mono">{`${it.perLocale[l]} / ${it.total}`}</dd>
-                </div>
-              ))}
-            </dl>
           </li>
         ))}
       </ul>

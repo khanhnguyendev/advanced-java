@@ -22,11 +22,13 @@ describe('message catalogs', () => {
     expect(keys(load('vi')).sort()).toEqual(en);
     expect(keys(load('zh')).sort()).toEqual(en);
   });
-  it('the fallback notice names both languages', () => {
+  it('defines no translation-status strings', () => {
     for (const l of ['en', 'vi', 'zh']) {
-      const m = load(l).doc.fallbackNotice as string;
-      expect(m).toContain('{requested}');
-      expect(m).toContain('{served}');
+      const doc = load(l).doc as Record<string, unknown>;
+      for (const k of ['fallbackNotice', 'fallbackNoticeTranslated', 'machine', 'stale', 'viewOriginal', 'translated', 'fallback', 'machineStatus'])
+        expect(doc[k]).toBeUndefined();
+      expect(load(l).home.sectionLanguage).toBeUndefined();
+      expect(load(l).home.sectionLanguageOriginal).toBeUndefined();
     }
   });
 });

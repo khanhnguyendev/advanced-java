@@ -1,5 +1,4 @@
 import type { NavGroup } from '@/lib/nav';
-import { DocStatus } from './DocStatus';
 
 export function DocList({ groups }: { groups: NavGroup[] }) {
   return (
@@ -10,10 +9,9 @@ export function DocList({ groups }: { groups: NavGroup[] }) {
           <ul>
             {g.docs.map((d) => (
               <li key={d.slug}>
-                <a href={d.href} data-status={d.status}>
+                <a href={d.href}>
                   <span className="doc-id mono">{d.catalogId}</span> {d.title}
-                </a>{' '}
-                <DocStatus status={d.status} />
+                </a>
               </li>
             ))}
           </ul>

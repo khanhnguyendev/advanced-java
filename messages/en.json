@@ -25,9 +25,7 @@
     "start": "Start reading",
     "resume": "Continue reading",
     "sections": "Sections",
-    "docCount": "{count, plural, one {# doc} other {# docs}}",
-    "sectionLanguage": "{language}: {available} of {total} available{machine, plural, =0 {} other {, # machine translated}}{fallback, plural, =0 {} other {, # not translated}}",
-    "sectionLanguageOriginal": "{language}: original, {total, plural, one {# doc} other {# docs}}"
+    "docCount": "{count, plural, one {# doc} other {# docs}}"
   },
   "diagram": {
     "credit": "Redrawn from the upstream image (doocs/advanced-java, CC-BY-SA-4.0)",
@@ -35,15 +33,7 @@
     "creditThirdPartyLicensed": "Redrawn from a figure in “{title}” by {author} ({licenseName})."
   },
   "doc": {
-    "fallbackNotice": "This page is not translated into {requested} yet. Showing the {served} original.",
-    "fallbackNoticeTranslated": "This page is not translated into {requested} yet. Showing the {served} translation.",
-    "machine": "Machine translated, may contain errors.",
-    "stale": "The Chinese original was updated after this translation; this page may be out of date.",
-    "viewOriginal": "View original",
     "idLabel": "ID",
-    "translated": "Translated",
-    "fallback": "Not translated",
-    "machineStatus": "Machine translated",
     "language": "Language"
   },
   "resume": {

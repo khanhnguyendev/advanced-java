@@ -6,18 +6,17 @@ import { Shelf } from '@/components/Shelf';
 import en from '../../messages/en.json';
 
 describe('Shelf', () => {
-  it('renders one notebook per collection with per-locale counts and links', () => {
+  it('renders one notebook per collection with a link', () => {
     render(
       <NextIntlClientProvider locale="en" messages={en}>
         <Shelf
           locale="en"
-          items={[{ collection: 'advanced-java', title: 'advanced-java', tabColor: '#2f5bea', total: 81, perLocale: { en: 3, vi: 5, zh: 81 } }]}
+          items={[{ collection: 'advanced-java', title: 'advanced-java', tabColor: '#2f5bea' }]}
         />
       </NextIntlClientProvider>,
     );
     const link = screen.getByRole('link', { name: /advanced-java/ });
     expect(link.getAttribute('href')).toBe('/en/advanced-java');
-    expect(screen.getByText('3 / 81')).toBeTruthy();
-    expect(screen.getByText('81 / 81')).toBeTruthy();
+    expect(screen.queryByText(/\d+ \/ \d+/)).toBeNull();
   });
 });

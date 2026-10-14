@@ -5,10 +5,7 @@ import { currentHeadingIndex } from '@/lib/anchor';
 import type { Locale } from '@/lib/content/types';
 import { writeLocaleCookie } from '@/lib/locale-cookie';
 
-export type SwitcherStatus = 'translated' | 'machine' | 'fallback';
-export interface SwitcherItem { locale: Locale; label: string; status: SwitcherStatus; href: string }
-
-const MARKER: Record<SwitcherStatus, string> = { translated: '●', machine: '◐', fallback: '○' };
+export interface SwitcherItem { locale: Locale; label: string; href: string }
 
 export function LanguageSwitcher({
   items,
@@ -20,9 +17,6 @@ export function LanguageSwitcher({
   navigate?: (url: string) => void;
 }) {
   const t = useTranslations('doc');
-  const statusLabel = (s: SwitcherStatus) =>
-    s === 'translated' ? t('translated') : s === 'machine' ? t('machineStatus') : t('fallback');
-
   return (
     <nav aria-label={t('language')} className="lang-switcher">
       <ul>
@@ -32,7 +26,6 @@ export function LanguageSwitcher({
               href={it.href}
               hrefLang={it.locale === 'zh' ? 'zh-Hans' : it.locale}
               aria-current={it.locale === current ? 'page' : undefined}
-              data-status={it.status}
               onClick={(e) => {
                 const modified = e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
                 if (it.locale === current) {
@@ -50,10 +43,6 @@ export function LanguageSwitcher({
               <span className="lang-label ui-cjk" lang={it.locale === 'zh' ? 'zh-Hans' : it.locale}>
                 {it.label}
               </span>
-              <span className="lang-marker" aria-hidden="true">
-                {MARKER[it.status]}
-              </span>{' '}
-              <span className="lang-status">{statusLabel(it.status)}</span>
             </a>
           </li>
         ))}

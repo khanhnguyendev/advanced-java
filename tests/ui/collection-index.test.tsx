@@ -6,12 +6,6 @@ import { CollectionIndex, type IndexSection } from '@/components/CollectionIndex
 import { newestFlag } from '@/components/PrimaryAction';
 import en from '../../messages/en.json';
 
-const counts = (translated: number, machine: number, total: number) => ({
-  total,
-  translated,
-  machine,
-  fallback: total - translated - machine,
-});
 const sections: IndexSection[] = [
   {
     id: 'high-concurrency',
@@ -19,7 +13,6 @@ const sections: IndexSection[] = [
     href: '/en/advanced-java/high-concurrency',
     idRange: 'HC-01 – HC-28',
     total: 28,
-    perLocale: { en: counts(20, 5, 28), vi: counts(0, 0, 28), zh: counts(28, 0, 28) },
   },
   {
     id: 'big-data',
@@ -27,7 +20,6 @@ const sections: IndexSection[] = [
     href: '/en/advanced-java/big-data',
     idRange: 'BD-01 – BD-02',
     total: 2,
-    perLocale: { en: counts(2, 0, 2), vi: counts(1, 0, 2), zh: counts(2, 0, 2) },
   },
 ];
 const docs = [
@@ -36,7 +28,7 @@ const docs = [
 ];
 const ui = () => (
   <NextIntlClientProvider locale="en" messages={en}>
-    <CollectionIndex locale="en" sourceLocale="zh" collection="advanced-java" sections={sections} docs={docs} />
+    <CollectionIndex locale="en" collection="advanced-java" sections={sections} docs={docs} />
   </NextIntlClientProvider>
 );
 
@@ -55,16 +47,11 @@ describe('CollectionIndex', () => {
     expect(rows[0].getAttribute('href')).toBe('/en/advanced-java/high-concurrency');
     expect(rows[0].textContent).toContain('HC-01 – HC-28');
   });
-  it('labels the counts with language names', () => {
+  it('shows only title, id range and doc count per row, with no translation status', () => {
     render(ui());
     const row = document.querySelectorAll('a.index-row')[0] as HTMLElement;
-    const langs = Array.from(row.querySelectorAll('.index-lang'));
-    expect(langs.map((e) => e.textContent)).toEqual([
-      'English: 25 of 28 available, 5 machine translated, 3 not translated',
-      'Tiếng Việt: 0 of 28 available, 28 not translated',
-      '中文: original, 28 docs',
-    ]);
-    expect(langs.map((e) => e.querySelector('[lang]')?.getAttribute('lang'))).toEqual(['en', 'vi', 'zh-Hans']);
+    expect(row.querySelector('.index-lang')).toBeNull();
+    expect(row.textContent).toBe('HC-01 – HC-28High concurrency28 docs');
   });
 });
 

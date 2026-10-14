@@ -25,9 +25,7 @@
     "start": "Bắt đầu đọc",
     "resume": "Đọc tiếp",
     "sections": "Các phần",
-    "docCount": "{count} tài liệu",
-    "sectionLanguage": "{language}: có {available} trên {total}{machine, plural, =0 {} other {, # bản dịch máy}}{fallback, plural, =0 {} other {, # chưa dịch}}",
-    "sectionLanguageOriginal": "{language}: bản gốc, {total, plural, other {# tài liệu}}"
+    "docCount": "{count} tài liệu"
   },
   "diagram": {
     "credit": "Vẽ lại từ hình gốc (doocs/advanced-java, CC-BY-SA-4.0)",
@@ -35,15 +33,7 @@
     "creditThirdPartyLicensed": "Vẽ lại từ một hình trong “{title}” của {author} ({licenseName})."
   },
   "doc": {
-    "fallbackNotice": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản gốc {served}.",
-    "fallbackNoticeTranslated": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản dịch {served}.",
-    "machine": "Bản dịch máy, có thể có lỗi.",
-    "stale": "Bản gốc tiếng Trung đã được cập nhật sau bản dịch này; trang có thể đã cũ.",
-    "viewOriginal": "Xem bản gốc",
     "idLabel": "Mã",
-    "translated": "Đã dịch",
-    "fallback": "Chưa dịch",
-    "machineStatus": "Dịch máy",
     "language": "Ngôn ngữ"
   },
   "resume": {

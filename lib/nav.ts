@@ -1,12 +1,10 @@
 import { loadMeta } from './content/collection';
-import { resolveDoc } from './content/fallback';
 import type { CollectionConfig, Locale } from './content/types';
 
 export interface NavDoc {
   slug: string;
   catalogId: string;
   title: string;
-  status: 'translated' | 'machine' | 'fallback';
   href: string;
 }
 export interface NavGroup {
@@ -18,21 +16,6 @@ export interface NavSection {
   id: string;
   title: string;
   groups: NavGroup[];
-}
-
-export type SwitcherStatus = NavDoc['status'];
-
-/** How a doc is available in `locale`: translated (source or reviewed), machine, or not translated. */
-export function switcherStatus(
-  root: string,
-  c: CollectionConfig,
-  locale: Locale,
-  section: string,
-  slug: string,
-): SwitcherStatus {
-  const r = resolveDoc(root, c, locale, section, slug);
-  if (!r || r.fallback) return 'fallback';
-  return r.served === c.sourceLocale || r.frontmatter?.status === 'reviewed' ? 'translated' : 'machine';
 }
 
 const navMemo = new Map<string, NavSection[]>();
@@ -68,7 +51,6 @@ function computeNav(root: string, c: CollectionConfig, locale: Locale): NavSecti
         slug,
         catalogId: c.ids[slug],
         title: pick(own.docs[slug]?.navTitle, src.docs[slug]?.navTitle, slug),
-        status: switcherStatus(root, c, locale, s.id, slug),
         href: `/${locale}/${c.id}/${s.id}/${slug}`,
       })),
     })),

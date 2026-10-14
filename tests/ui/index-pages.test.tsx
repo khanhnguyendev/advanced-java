@@ -8,7 +8,6 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { AboutContent } from '@/components/AboutContent';
 import { Attribution } from '@/components/Attribution';
 import { DocList } from '@/components/DocList';
-import { SectionCount } from '@/components/SectionCount';
 import { Shelf } from '@/components/Shelf';
 import { listImageCredits } from '@/lib/assets';
 import { loadCollection } from '@/lib/content/collection';
@@ -23,23 +22,21 @@ const wrap = (ui: React.ReactNode) => (
   </NextIntlClientProvider>
 );
 
-describe('DocList status labels', () => {
-  it('renders a visible label per doc status', () => {
+describe('DocList', () => {
+  it('renders each doc as a link with no status label', () => {
     const groups: NavGroup[] = [
       {
         id: 'g',
         title: 'G',
         docs: [
-          { slug: 'a', catalogId: 'X-1', title: 'A', status: 'translated', href: '/en/c/s/a' },
-          { slug: 'b', catalogId: 'X-2', title: 'B', status: 'machine', href: '/en/c/s/b' },
-          { slug: 'c', catalogId: 'X-3', title: 'C', status: 'fallback', href: '/en/c/s/c' },
+          { slug: 'a', catalogId: 'X-1', title: 'A', href: '/en/c/s/a' },
+          { slug: 'b', catalogId: 'X-2', title: 'B', href: '/en/c/s/b' },
         ],
       },
     ];
-    render(wrap(<DocList groups={groups} />));
-    expect(screen.getByText(en.doc.translated)).toBeTruthy();
-    expect(screen.getByText(en.doc.machineStatus)).toBeTruthy();
-    expect(screen.getByText(en.doc.fallback)).toBeTruthy();
+    const { container } = render(wrap(<DocList groups={groups} />));
+    expect(container.querySelectorAll('li a')).toHaveLength(2);
+    expect(container.querySelector('.doc-status, [data-status]')).toBeNull();
   });
 });
 
@@ -121,17 +118,17 @@ describe('Attribution on index pages', () => {
   });
 });
 
-describe('Shelf locale labels', () => {
-  it('marks the zh label with lang zh-Hans', () => {
+describe('Shelf', () => {
+  it('shows no per-locale translation counts', () => {
     const { container } = render(
       wrap(
         <Shelf
           locale="en"
-          items={[{ collection: 'c', title: 'c', tabColor: '#000', total: 1, perLocale: { en: 1, vi: 0, zh: 1 } }]}
+          items={[{ collection: 'c', title: 'c', tabColor: '#000' }]}
         />,
       ),
     );
-    expect(container.querySelector('dt[lang="zh-Hans"]')).toBeTruthy();
+    expect(container.querySelector('dt[lang="zh-Hans"]')).toBeNull();
     expect(container.querySelectorAll('main').length).toBe(1);
   });
 });
@@ -250,18 +247,5 @@ describe('listImageCredits', () => {
     expect(out.map((o) => o.path)).toEqual(['docs/hc/images/a.png', 'docs/hc/images/b.png']);
     expect(out[0].href).toBe('https://r/blob/abc/docs/hc/images/a.png');
     expect(listImageCredits(root, c, new Set(['hc/s1/a.png', 'hc/s2/a.png'])).map((o) => o.path)).toEqual(['docs/hc/images/b.png']);
-  });
-});
-
-describe('SectionCount', () => {
-  it('shows a visible label and counts only translated docs', () => {
-    const fx = path.resolve(__dirname, '../fixtures/content');
-    const nav = buildNav(fx, loadCollection(fx, 'demo'), 'en');
-    const groups = nav.flatMap((s) => s.groups);
-    // fixture demo/en: three docs, none reviewed-translated, one machine-translated (intro)
-    const { container } = render(wrap(<SectionCount groups={groups} />));
-    expect(screen.getByText(`${en.doc.translated}:`)).toBeTruthy();
-    expect(container.textContent).toContain('0 / 3');
-    expect(container.textContent).toContain(`${en.doc.machineStatus}: 1`);
   });
 });

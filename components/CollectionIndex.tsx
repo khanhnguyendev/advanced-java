@@ -1,8 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { Attribution } from './Attribution';
 import { PrimaryAction, type ResumeDoc } from './PrimaryAction';
-import { LOCALES, type Locale } from '@/lib/content/types';
-import type { StatusCounts } from '@/lib/stats';
+import type { Locale } from '@/lib/content/types';
 
 export interface IndexSection {
   id: string;
@@ -11,19 +10,16 @@ export interface IndexSection {
   /** "HC-01 – HC-28" */
   idRange: string;
   total: number;
-  perLocale: Record<Locale, StatusCounts>;
 }
 
 /** Home page when the site has one collection: start or resume, then its sections as ruled rows. */
 export function CollectionIndex({
   locale,
-  sourceLocale,
   collection,
   sections,
   docs,
 }: {
   locale: Locale;
-  sourceLocale: Locale;
   collection: string;
   sections: IndexSection[];
   docs: ResumeDoc[];
@@ -54,30 +50,6 @@ export function CollectionIndex({
               <span className="index-range mono">{s.idRange}</span>
               <span className="index-title">{s.title}</span>
               <span className="index-count ui">{t('home.docCount', { count: s.total })}</span>
-              <span className="index-langs ui">
-                {LOCALES.map((l) => {
-                  const c = s.perLocale[l];
-                  // render with a sentinel, then wrap the language name in its own lang span
-                  const MARK = '\u0000';
-                  const text = l === sourceLocale
-                    ? t('home.sectionLanguageOriginal', { language: MARK, total: c.total })
-                    : t('home.sectionLanguage', {
-                        language: MARK,
-                        available: c.translated + c.machine,
-                        total: c.total,
-                        machine: c.machine,
-                        fallback: c.fallback,
-                      });
-                  const [before, ...rest] = text.split(MARK);
-                  return (
-                    <span key={l} className="index-lang">
-                      {before}
-                      <span lang={l === 'zh' ? 'zh-Hans' : l}>{t(`languages.${l}`)}</span>
-                      {rest.join(MARK)}
-                    </span>
-                  );
-                })}
-              </span>
             </a>
           </li>
         ))}

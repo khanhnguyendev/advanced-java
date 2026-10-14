@@ -9,7 +9,6 @@ import { routing } from '@/i18n/routing';
 import { contentRoot, listCollections, loadCollection } from '@/lib/content/collection';
 import type { Locale } from '@/lib/content/types';
 import { buildNav, flatDocs } from '@/lib/nav';
-import { collectionStats, sectionStats } from '@/lib/stats';
 import { indexSwitcher } from '@/lib/switcher';
 
 export const dynamicParams = false;
@@ -36,10 +35,9 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   const collections = listCollections(root);
   const items: ShelfItem[] = collections.map((id) => {
     const c = loadCollection(root, id);
-    const s = collectionStats(root, c);
     const ids = Object.values(c.ids);
     const idRange = ids.length > 1 ? `${ids[0]} – ${ids[ids.length - 1]}` : ids[0];
-    return { collection: id, title: id, tabColor: c.tabColor, idRange, total: s.total, perLocale: s.perLocale };
+    return { collection: id, title: id, tabColor: c.tabColor, idRange };
   });
   return (
     <div className="grid-field">
@@ -60,19 +58,16 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
 function Index({ root, id, locale }: { root: string; id: string; locale: Locale }) {
   const c = loadCollection(root, id);
   const nav = buildNav(root, c, locale);
-  const stats = sectionStats(root, c);
   const sections: IndexSection[] = nav.map((s) => {
     const ids = s.groups.flatMap((g) => g.docs.map((d) => d.catalogId));
-    const st = stats.find((x) => x.id === s.id)!;
     return {
       id: s.id,
       title: s.title,
       href: `/${locale}/${id}/${s.id}`,
       idRange: ids.length > 1 ? `${ids[0]} – ${ids[ids.length - 1]}` : (ids[0] ?? ''),
-      total: st.total,
-      perLocale: st.perLocale,
+      total: ids.length,
     };
   });
   const docs = flatDocs(nav).map((d) => ({ catalogId: d.catalogId, title: d.title, href: d.href }));
-  return <CollectionIndex locale={locale} sourceLocale={c.sourceLocale} collection={id} sections={sections} docs={docs} />;
+  return <CollectionIndex locale={locale} collection={id} sections={sections} docs={docs} />;
 }

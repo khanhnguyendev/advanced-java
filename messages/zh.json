@@ -25,9 +25,7 @@
     "start": "开始阅读",
     "resume": "继续阅读",
     "sections": "章节",
-    "docCount": "{count} 篇文档",
-    "sectionLanguage": "{language}：可读 {available} / {total} 篇{machine, plural, =0 {} other {，机器翻译 # 篇}}{fallback, plural, =0 {} other {，未翻译 # 篇}}",
-    "sectionLanguageOriginal": "{language}：原文，共 {total, plural, other {# 篇}}"
+    "docCount": "{count} 篇文档"
   },
   "diagram": {
     "credit": "根据上游原图重绘（doocs/advanced-java，CC-BY-SA-4.0）",
@@ -35,15 +33,7 @@
     "creditThirdPartyLicensed": "重绘自 {author} 的《{title}》中的一幅插图（{licenseName}）。"
   },
   "doc": {
-    "fallbackNotice": "本页尚未翻译为{requested}，当前显示{served}原文。",
-    "fallbackNoticeTranslated": "本页尚未翻译为{requested}，当前显示{served}译文。",
-    "machine": "机器翻译，可能存在错误。",
-    "stale": "本译文之后中文原文已更新，本页可能已过时。",
-    "viewOriginal": "查看原文",
     "idLabel": "编号",
-    "translated": "已翻译",
-    "fallback": "未翻译",
-    "machineStatus": "机器翻译",
     "language": "语言"
   },
   "resume": {

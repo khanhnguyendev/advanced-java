@@ -26,13 +26,6 @@ for (const width of [1280, 375]) {
     info.annotations.push({ type: 'topbar-height', description: `${width}px: ${h}px` });
     await expect.poll(async () => page.evaluate(() => scrollY)).toBeGreaterThan(0);
     await expectClearOfBar(page, '[data-hi="3"]');
-    // status glyph markers: in the topbar switcher above 960px, inside the language dialog (opened from the dock) below; full status text is sr-only
-    if (width > 960) {
-      await expect(page.locator('.lang-switcher .lang-marker').first()).toBeVisible();
-    } else {
-      await page.locator('.dock').getByRole('button', { name: 'Language' }).click();
-      await expect(page.locator('dialog[open] .lang-switcher .lang-marker').first()).toBeVisible();
-    }
   });
 }
 

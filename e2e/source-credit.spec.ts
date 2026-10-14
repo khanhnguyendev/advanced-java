@@ -5,9 +5,9 @@ import { expect, test } from '@playwright/test';
 const PATH = 'advanced-java/micro-services/microservices-introduction';
 const HREF = 'https://martinfowler.com/articles/microservices.html';
 
-test('en: held doc shows the source credit, the fallback notice and a canonical to zh', async ({ page }) => {
+test('en: held doc shows the source credit and a canonical to zh', async ({ page }) => {
   await page.goto(`/en/${PATH}`);
-  await expect(page.getByRole('note').first()).toContainText(/is not translated into English yet/);
+  await expect(page.getByText(/is not translated into English yet/)).toHaveCount(0);
   await expect(page.locator('article.prose')).toHaveAttribute('lang', 'zh-Hans');
   const credit = page.locator('.source-credit');
   await expect(credit).toHaveAttribute('lang', 'en');

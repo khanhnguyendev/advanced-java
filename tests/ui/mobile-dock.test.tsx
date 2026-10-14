@@ -21,7 +21,7 @@ const nav: NavSection[] = ['a', 'b'].map((id) => ({
     {
       id: 'g',
       title: 'G',
-      docs: [{ slug: `${id}-doc`, catalogId: `${id.toUpperCase()}-01`, title: `Doc ${id}`, status: 'translated', href: `/en/c/${id}/${id}-doc` }],
+      docs: [{ slug: `${id}-doc`, catalogId: `${id.toUpperCase()}-01`, title: `Doc ${id}`, href: `/en/c/${id}/${id}-doc` }],
     },
   ],
 }));
@@ -38,7 +38,7 @@ describe('MobileDock', () => {
     };
   });
   const switcher = [
-    { locale: 'en' as const, label: 'English', href: '/en/c/a/a-doc', status: 'translated' as const },
+    { locale: 'en' as const, label: 'English', href: '/en/c/a/a-doc' },
     { locale: 'vi' as const, label: 'Tiếng Việt', href: '/vi/c/a/a-doc', status: 'machine' as const },
     { locale: 'zh' as const, label: '中文', href: '/zh/c/a/a-doc', status: 'fallback' as const },
   ];

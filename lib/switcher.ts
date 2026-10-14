@@ -6,7 +6,6 @@ export function indexSwitcher(pathAfterLocale: string, label: (l: Locale) => str
   return LOCALES.map((l) => ({
     locale: l,
     label: label(l),
-    status: 'translated' as const,
     href: `/${l}${pathAfterLocale}`,
   }));
 }

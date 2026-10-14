@@ -19,10 +19,10 @@ A multilingual reading site for the doocs/advanced-java corpus (81 Chinese docs 
 The only place this corpus exists in clean Vietnamese and English, with the original Chinese one switch away, and a collection model that lets new subjects join the same reading experience.
 
 ## Operating Context
-Docs are interview-style Q&A: "interview question", "interviewer psychology", then a long explained answer with diagrams (~190 images). Content is organized into 5 sections with ordered sub-topics. Translation can be partial for future collections: a doc missing in a locale falls back to the source with a visible notice.
+Docs are interview-style Q&A: "interview question", "interviewer psychology", then a long explained answer with diagrams (~190 images). Content is organized into 5 sections with ordered sub-topics. Translation can be partial for future collections: a doc missing in a locale falls back to the source (no notice is shown).
 
 ## Capabilities and Constraints
-- Locales vi, en, zh with per-doc fallback and a "not translated yet" notice.
+- Locales vi, en, zh with per-doc fallback to the source; no "not translated yet" notice or other translation-status UI (removed by the owner on 2026-10-14).
 - Collection-based content model; adding a collection is config plus a content folder.
 - Search, sidebar/TOC wayfinding, prev/next, light/dark. Comments (giscus in the original): **deferred**, out of v1, mount point reserved.
 - Content license CC-BY-SA-4.0 for everything under `content/`: attribution to Doocs and 中华石杉 required, share-alike applies, a statement of changes on every page. Application code is MIT-licensed (owner decision). README and /about state the split.
@@ -39,7 +39,7 @@ Real content: ref/docs/**/*.md (92 files, of which 81 are docs; the rest are sec
 ## Product Principles
 1. Reading comfort over chrome: long-form CJK, Vietnamese and Latin text must all set well.
 2. The language switch is always one step away and never loses the reader's place.
-3. Untranslated is visible, never silent.
+3. ~~Untranslated is visible, never silent.~~ Superseded: the owner removed all translation-status UI on 2026-10-14. A missing locale silently serves the source doc; licensing and credit text stays.
 4. A new collection must feel native on day one, not bolted on.
 5. Credit the source honestly.
 

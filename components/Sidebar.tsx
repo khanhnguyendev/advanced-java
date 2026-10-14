@@ -31,7 +31,7 @@ export function Sidebar({
               <ul>
                 {g.docs.map((d) => (
                   <li key={d.slug}>
-                    <a href={d.href} aria-current={d.slug === currentSlug ? 'page' : undefined} data-status={d.status}>
+                    <a href={d.href} aria-current={d.slug === currentSlug ? 'page' : undefined}>
                       <span className="doc-id mono">{d.catalogId}</span> {d.title}
                     </a>
                   </li>

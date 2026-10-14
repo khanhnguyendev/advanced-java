@@ -6,9 +6,9 @@ import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import en from '../../messages/en.json';
 
 const items = [
-  { locale: 'en' as const, label: 'English', status: 'translated' as const, href: '/en/c/a/x' },
-  { locale: 'vi' as const, label: 'Tiếng Việt', status: 'machine' as const, href: '/vi/c/a/x' },
-  { locale: 'zh' as const, label: '中文', status: 'fallback' as const, href: '/zh/c/a/x' },
+  { locale: 'en' as const, label: 'English', href: '/en/c/a/x' },
+  { locale: 'vi' as const, label: 'Tiếng Việt', href: '/vi/c/a/x' },
+  { locale: 'zh' as const, label: '中文', href: '/zh/c/a/x' },
 ];
 
 function wrap(ui: React.ReactElement) {
@@ -25,10 +25,11 @@ describe('LanguageSwitcher', () => {
     document.body.innerHTML = '';
   });
 
-  it('lists every locale with its status', () => {
+  it('lists every locale by name only, with no status marker or text', () => {
     render(wrap(<LanguageSwitcher items={items} current="en" />));
-    expect(screen.getByRole('link', { name: /Tiếng Việt/ }).textContent).toContain('Machine translated');
-    expect(screen.getByRole('link', { name: /中文/ }).textContent).toContain('Not translated');
+    expect(screen.getByRole('link', { name: 'Tiếng Việt' }).textContent).toBe('Tiếng Việt');
+    expect(screen.getByRole('link', { name: '中文' }).textContent).toBe('中文');
+    expect(document.querySelector('.lang-marker, .lang-status, [data-status]')).toBeNull();
   });
 
   it('writes the locale cookie and navigates keeping the heading position', () => {
@@ -91,14 +92,9 @@ describe('LanguageSwitcher', () => {
     expect(link.querySelector('.lang-label')?.getAttribute('lang')).toBe('zh-Hans');
   });
 
-  it('adds an aria-hidden glyph marker without changing the accessible name', () => {
+  it('marks only the current locale with aria-current', () => {
     render(wrap(<LanguageSwitcher items={items} current="en" />));
-    const link = screen.getByRole('link', { name: /Tiếng Việt/ });
-    const marker = link.querySelector('.lang-marker');
-    expect(marker?.getAttribute('aria-hidden')).toBe('true');
-    expect(marker?.textContent).toBe('◐');
-    expect(link.querySelector('.lang-status')?.textContent).toBe('Machine translated');
-    expect(screen.getByRole('link', { name: 'English Translated' })).toBeTruthy();
-    expect(screen.getByRole('link', { name: /中文/ }).querySelector('.lang-marker')?.textContent).toBe('○');
+    expect(screen.getByRole('link', { name: 'English' }).getAttribute('aria-current')).toBe('page');
+    expect(screen.getByRole('link', { name: 'Tiếng Việt' }).hasAttribute('aria-current')).toBe(false);
   });
 });

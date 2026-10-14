@@ -129,14 +129,14 @@ test('contents sheet closes with Esc and returns focus', async ({ page }) => {
   await expect(btn).toBeFocused();
 });
 
-test('language popover lists three locales with status and keeps the heading position', async ({ page }) => {
+test('language popover lists three locales and keeps the heading position', async ({ page }) => {
   await page.goto(PILOT_URL('en'));
   await page.locator('[data-hi="3"]').first().evaluate((el) => el.scrollIntoView({ block: 'start' }));
   await page.evaluate(() => window.scrollBy(0, 5));
   await page.locator('.dock').getByRole('button', { name: 'Language' }).click();
   const dlg = page.locator('dialog.sheet-popover[open]');
   await expect(dlg.locator('li')).toHaveCount(3);
-  await expect(dlg.locator('.lang-marker')).toHaveCount(3);
+  await expect(dlg.locator('.lang-marker, .lang-status')).toHaveCount(0);
   await dlg.getByRole('link', { name: /Tiếng Việt/ }).click();
   await expect(page).toHaveURL(/\/vi\/.*#h3(-|$)/);
 });
@@ -152,12 +152,13 @@ test('home: a Theme control is reachable through the language dialog', async ({ 
   await expect(theme).not.toHaveText(before!);
 });
 
-test('home shows Start (or Resume) and five section rows with labeled counts', async ({ page }) => {
+test('home shows Start (or Resume) and five section rows with doc counts', async ({ page }) => {
   await page.goto('/en');
   await expect(page.locator('[data-primary]')).toHaveCount(1);
   await expect(page.locator('[data-primary="start"]')).toHaveAttribute('href', /\/en\/advanced-java\//);
   await expect(page.locator('a.index-row')).toHaveCount(5);
-  await expect(page.locator('a.index-row').first().locator('.index-lang').first()).toHaveText(/^English: \d+ of \d+ available/);
+  await expect(page.locator('a.index-row').first().locator('.index-count')).toHaveText(/^\d+ docs?$/);
+  await expect(page.locator('a.index-row .index-lang')).toHaveCount(0);
   await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
   const rowH = await page.locator('a.index-row').first().evaluate((e) => e.getBoundingClientRect().height);
   expect(rowH).toBeGreaterThanOrEqual(44);

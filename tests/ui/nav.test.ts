@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { loadCollection } from '@/lib/content/collection';
-import { buildNav, flatDocs, switcherStatus } from '@/lib/nav';
+import { buildNav, flatDocs } from '@/lib/nav';
 
 const root = path.resolve(__dirname, '../fixtures/content');
 const c = loadCollection(root, 'demo');
@@ -18,19 +18,5 @@ describe('buildNav', () => {
     const docs = flatDocs(buildNav(root, c, 'en'));
     expect(docs[0].title).toBe('Intro');
     expect(docs[1].title).toBe('second');
-  });
-  it('marks status: translated/machine/fallback', () => {
-    const en = Object.fromEntries(flatDocs(buildNav(root, c, 'en')).map((d) => [d.slug, d.status]));
-    expect(en).toEqual({ intro: 'machine', second: 'fallback', third: 'fallback' });
-    const zh = Object.fromEntries(flatDocs(buildNav(root, c, 'zh')).map((d) => [d.slug, d.status]));
-    expect(zh).toEqual({ intro: 'translated', second: 'translated', third: 'translated' });
-  });
-});
-
-describe('switcherStatus', () => {
-  it('reports zh translated, en machine, vi not translated for the demo intro', () => {
-    expect(switcherStatus(root, c, 'zh', 'alpha', 'intro')).toBe('translated');
-    expect(switcherStatus(root, c, 'en', 'alpha', 'intro')).toBe('machine');
-    expect(switcherStatus(root, c, 'vi', 'alpha', 'intro')).toBe('fallback');
   });
 });

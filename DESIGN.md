@@ -75,7 +75,7 @@ components:
 
 A reading site that behaves like an engineer's grid-paper notebook: the grid is structure, never a texture behind running text. Light is cool blue-white paper with near-black ink and one cobalt accent; dark is a cyanotype (deep Prussian blue with white linework). Body is serif for long reading, chrome is a humanist sans, labels and catalog IDs are mono.
 
-Density is calm and reference-like. Notices are dotted-ruled margin notes, controls are thin-ruled and flat, and nothing is boxed in a card. Translation status is always visible but quiet (a short marker beside each language).
+Density is calm and reference-like. Notices are dotted-ruled margin notes, controls are thin-ruled and flat, and nothing is boxed in a card. Translation status is not shown anywhere in the UI (owner decision, 2026-10-14).
 
 **Key Characteristics:**
 - One accent (cobalt); no second hue anywhere.
@@ -147,17 +147,17 @@ Square-ish: 2px control radius, 1px borders, no pills. Indicators are text-based
 ### Navigation
 - **Top bar:** brand, search, segmented language switcher, theme and reading-mode controls on one ruled strip. At 960px and below it is a single row: brand, search and a compact language button (pages without a dock).
 - **Dock and dialogs (<=960px):** bottom dock with Previous / Next as links (unavailable side is plain muted text), and Language / Contents / Menu as buttons; 44px targets. Dialogs close with Esc, the Close button or a backdrop tap; tapping an in-page link closes the sheet or drawer and moves focus to the target heading.
-- **Language switcher:** bordered segmented list; current locale bold with cobalt underline; a short status marker (● translated, ◐ machine, ○ fallback) plus screen-reader text.
+- **Language switcher:** bordered segmented list; current locale bold with cobalt underline; language names only, no status markers or status text.
 - **Rails:** mono group labels, dense rows with mono catalog IDs, current row in cobalt with a 1px ink left rule.
 
 ### Notices
-- Dotted 2px left rule, Pencil text, no fill; used for machine-translated, stale and fallback states.
+- Dotted 2px left rule, Pencil text, no fill; used for the resume note only. There are no translation-status notices (machine, stale, fallback).
 
 ### Shelf spines
-- Ruled rows: ID range in mono at left, title and per-locale counts at right; 1px ink top rule, dotted row dividers.
+- Ruled rows: ID range in mono at left, title at right, with no per-locale counts; 1px ink top rule, dotted row dividers.
 
 ### Home index rows
-- Home (single collection): a start/resume action, a normal sans "Sections" heading, then one ruled row per section: ID range (mono), title, doc count, and one line per language (available of total, machine and untranslated counts; the original language says "original"). Rows are at least 44px tall.
+- Home (single collection): a start/resume action, a normal sans "Sections" heading, then one ruled row per section: ID range (mono), title, and doc count; no translation counts or status. Rows are at least 44px tall.
 
 ## Do's and Don'ts
 
@@ -171,7 +171,6 @@ Square-ish: 2px control radius, 1px borders, no pills. Indicators are text-based
 - **Don't** put the grid behind running text or add card containers.
 - **Don't** add a second accent color, gradients or hard offset shadows.
 - **Don't** load the CJK web font from UI chrome or preload it.
-- **Don't** rely on color alone for translation status.
 
 ## Known drift (not canonized)
 - Small mono label "On this page" and rail group labels sit near the craft-floor "eyebrow" line; they are functional navigation labels, not decorative kickers, and should not be reused as a kicker pattern on new surfaces.
@@ -179,3 +178,4 @@ Square-ish: 2px control radius, 1px borders, no pills. Indicators are text-based
 - The left rail is rendered twice on doc pages (rail and drawer); a known duplication cost.
 - Section groups in the left rail put their heading inside `<summary>`; VoiceOver flattens headings inside a summary, so they are not navigable as headings.
 - Reading mode only switches the grid background off; it has no other effect and no control on small screens.
+- Translation status UI (per-page notices, switcher markers, per-locale counts) was removed by the owner on 2026-10-14; this knowingly overrides PRODUCT.md principle 3 as originally written.

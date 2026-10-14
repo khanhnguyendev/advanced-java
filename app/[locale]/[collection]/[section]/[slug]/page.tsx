@@ -24,8 +24,7 @@ import { resolveDoc, zhHashOf } from '@/lib/content/fallback';
 import { docTitleOf } from '@/lib/content/title';
 import { headingsFor } from '@/lib/content/headings-index';
 import { LOCALES, type CollectionConfig, type Locale } from '@/lib/content/types';
-import { buildNav, flatDocs, switcherStatus } from '@/lib/nav';
-import { computeNotices } from '@/lib/notices';
+import { buildNav, flatDocs } from '@/lib/nav';
 import { extractHeadings } from '@/lib/render/headings';
 import { fsLinkTargets } from '@/lib/render/links';
 import { fsDiagramSource } from '@/lib/diagrams/source';
@@ -109,14 +108,6 @@ export default async function DocPage({
   const zhHash = zhHashOf(root, c, section, slug);
   const zhDoc = doc.served === c.sourceLocale ? doc : resolveDoc(root, c, c.sourceLocale, section, slug)!;
   const zhHeadings = extractHeadings(zhDoc.body);
-  const notices = computeNotices({
-    requested: loc,
-    served: doc.served,
-    sourceLocale: c.sourceLocale,
-    status: doc.frontmatter?.status,
-    sourceHash: doc.frontmatter?.source.hash,
-    zhHash,
-  });
   const { title, lang: titleLang } = docTitleOf(root, c, doc.served, slug);
 
   const contentLang = doc.served === 'zh' ? 'zh-Hans' : doc.served;
@@ -126,7 +117,6 @@ export default async function DocPage({
     locale: l,
     label: names(l),
     href: `/${l}/${collection}/${section}/${slug}`,
-    status: switcherStatus(root, c, l, section, slug),
   }));
 
   return (
@@ -140,12 +130,7 @@ export default async function DocPage({
         <DocHeader
           catalogId={c.ids[slug]}
           title={title}
-          notices={notices}
-          requestedName={names(loc)}
-          servedName={names(doc.served)}
-          originalHref={`/${c.sourceLocale}/${collection}/${section}/${slug}`}
           titleLang={titleLang}
-          servedIsOriginal={doc.served === c.sourceLocale}
         />
         <div className="doc-actions">
           <ResumeFlag
