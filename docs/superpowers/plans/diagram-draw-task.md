@@ -38,3 +38,12 @@ Only create files for your own diagram in its output directory (`<name>.diagram.
 - Raw `pnpm check:diagrams -- --id <id>` output (last run) and the number of gate runs and visual iterations.
 - New glossary entries (zh | en | vi), one per line.
 - Anything you are unsure of (a label you could not read, a translation choice, a layout deviation, a candidate for `license: original`).
+
+## Lessons from batches B01 and B02 (apply to every diagram)
+- Do not invent emphasis: use `role: accent/muted` or `style: accent/dashed` only where upstream visibly shows a distinct colour, fill or dashed line. Default everything else. Do not shade alternating nodes.
+- A node needs a `label.key`; for unlabelled shapes use a key whose text is `""` in every locale (the gate accepts blank when the reference is blank).
+- `group` nodes need a label too; their label is drawn top-left. If upstream draws a title outside the box, use a free text for it and give the group a blank-text key.
+- Vertical text: horizontal in a taller/wider box (approved rule). Ellipses: use `pill` (or `circle` for round ones).
+- Reuse sibling diagrams' sidecar entries (`**/*.glossary.json`) for shared labels; keep the same line-break-insensitive text. Do not reword an existing entry.
+- Re-rasterize after your LAST edit and Read the final vi PNG (longest locale) before reporting; say which PNGs you actually read.
+- Arrow labels: put them 4px clear of the edge (the gate checks text against edges).
