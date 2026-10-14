@@ -1,4 +1,4 @@
-import { cpSync, existsSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { replacedRasters } from '../lib/diagrams/credits';
 
@@ -19,6 +19,8 @@ export function copyAssets(contentRoot: string, publicRoot: string, opts: { keep
     const assets = path.join(contentRoot, collection, '_assets');
     if (!existsSync(assets) || !statSync(assets).isDirectory()) continue;
     const dest = path.join(publicRoot, '_content', collection);
+    // start clean: a previous DIAGRAM_REVIEW build must not leave replaced rasters behind
+    rmSync(dest, { recursive: true, force: true });
     mkdirSync(dest, { recursive: true });
     const skip = keepReplaced ? new Set<string>() : replacedRasters(contentRoot, collection);
     cpSync(assets, dest, {
