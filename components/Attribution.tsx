@@ -7,6 +7,7 @@ export function Attribution({
   aboutHref,
   credit,
   creditLang,
+  served,
 }: {
   /** omitted on index pages, where no single document is being attributed */
   kind?: 'zh' | 'translated';
@@ -17,6 +18,8 @@ export function Attribution({
   credit?: SourceCredit;
   /** language of the page chrome the credit sentence is written in (the UI locale) */
   creditLang?: string;
+  /** locale of the text actually served; picks the credit sentence that stays true */
+  served?: 'en' | 'vi' | 'zh';
 }) {
   const t = useTranslations('attribution');
   const stop = t('stop');
@@ -24,19 +27,26 @@ export function Attribution({
     <footer className="attribution ui">
       {credit ? (
         <p className="source-credit" lang={creditLang}>
-          {t.rich('sourceCredit', {
+          {t.rich(served === 'en' || served === 'vi' ? 'sourceCreditTranslated' : 'sourceCredit', {
             title: credit.title,
             author: credit.author,
             publisher: credit.publisher,
             year: credit.year,
+            cite: (chunks) => <cite lang="en">{chunks}</cite>,
             link: (chunks) => <a href={credit.url}>{chunks}</a>,
           })}
         </p>
       ) : null}
       <p>
-        <a href="https://creativecommons.org/licenses/by-sa/4.0/">{t('license')}</a>
-        {stop}
-        {t('credit')}
+        {credit ? (
+          t('licenseCredited')
+        ) : (
+          <>
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/">{t('license')}</a>
+            {stop}
+            {t('credit')}
+          </>
+        )}
         {stop}
         {kind ? (
           <>

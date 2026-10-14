@@ -163,6 +163,7 @@ export default async function DocPage({
           fileUrl={upstreamUrl}
           aboutHref={`/${loc}/about`}
           credit={creditFor(loadCredits(root, collection), section, slug)}
+          served={doc.served}
           creditLang={loc === 'zh' ? 'zh-Hans' : loc}
         />
         </div>

@@ -45,7 +45,9 @@
     "changesZh": "Reformatted from the original",
     "changesTranslated": "Translated and adapted from the Chinese original",
     "sourceFile": "Upstream file",
-    "sourceCredit": "Original source: “{title}” by {author}, {publisher}, {year}. This text is a Chinese translation of that work, reproduced here from the upstream repository; the original's rights remain with its authors. <link>Read the original</link>",
+    "licenseCredited": "Chinese translation published upstream by Doocs contributors under CC-BY-SA-4.0; the original work is not licensed by this site.",
+    "sourceCredit": "Original source: <cite>“{title}”</cite> by {author}, {publisher}, {year}. This text is a Chinese translation of that work, reproduced here from the upstream repository; rights in the original remain with its authors. <link>Read the original</link>",
+    "sourceCreditTranslated": "Original source: <cite>“{title}”</cite> by {author}, {publisher}, {year}. This page is a machine translation of a Chinese translation of that work, which is reproduced from the upstream repository; rights in the original remain with its authors. <link>Read the original</link>",
     "aboutLink": "About and licenses"
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },

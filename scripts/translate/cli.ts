@@ -5,6 +5,7 @@ import { parse } from '../../lib/content/fallback';
 import { pendingBatches } from './batches';
 import { applyMeta, buildMetaPrompt } from './meta';
 import { buildPrompt, type Glossary } from './prompt';
+import { heldMessage, loadPolicy } from '../../lib/content/policy';
 import { stampTranslation } from './stamp';
 
 const KEEP = [
@@ -49,6 +50,8 @@ if (cmd === 'prompt') {
   const slug = need('slug');
   const l = needLocale();
   const { c, d } = findDoc(slug);
+  const held = heldMessage(loadPolicy(root, collection), d.section, slug);
+  if (held) throw new Error(held);
   const zhBody = parse(readFileSync(docFile(root, collection, c.sourceLocale, d.section, slug), 'utf8')).content;
   const out = path.join('.translation', 'prompts', l, `${slug}.md`);
   mkdirSync(path.dirname(out), { recursive: true });

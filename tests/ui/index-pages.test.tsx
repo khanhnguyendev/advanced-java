@@ -71,6 +71,23 @@ describe('Attribution on index pages', () => {
     const plain = render(wrap(<Attribution kind="zh" aboutHref="/en/about" />));
     expect(plain.container.querySelector('.source-credit')).toBeNull();
   });
+  it('does not claim CC-BY-SA over the original when credited', () => {
+    const credit = { title: 'T', author: 'A', publisher: 'P', url: 'https://example.com', year: 2015 };
+    render(wrap(<Attribution aboutHref="/en/about" credit={credit} served="zh" />));
+    expect(screen.getByText(new RegExp(en.attribution.licenseCredited))).toBeTruthy();
+    expect(screen.queryByRole('link', { name: en.attribution.license })).toBeNull();
+    expect(screen.queryByText(new RegExp(en.attribution.credit))).toBeNull();
+  });
+  it('picks the credit sentence by served locale and language-tags the title', () => {
+    const credit = { title: 'Microservices', author: 'A', publisher: 'P', url: 'https://example.com', year: 2015 };
+    const zhServed = render(wrap(<Attribution aboutHref="/en/about" credit={credit} served="zh" />));
+    expect(zhServed.container.textContent).toContain('Chinese translation of that work, reproduced here');
+    expect(zhServed.container.textContent).not.toContain('machine translation');
+    expect(zhServed.container.querySelector('cite')!.getAttribute('lang')).toBe('en');
+    cleanup();
+    const enServed = render(wrap(<Attribution aboutHref="/en/about" credit={credit} served="en" />));
+    expect(enServed.container.textContent).toContain('machine translation of a Chinese translation');
+  });
   it('carries the UI locale on the credit block', () => {
     const credit = { title: 'T', author: 'A', publisher: 'P', url: 'https://example.com', year: 2015 };
     const { container } = render(wrap(<Attribution aboutHref="/zh/about" credit={credit} creditLang="zh-Hans" />));

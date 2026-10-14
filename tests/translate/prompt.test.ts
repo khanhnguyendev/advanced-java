@@ -48,4 +48,9 @@ describe('buildPrompt', () => {
     expect(en).not.toMatch(/Vietnamese only/);
     expect(en).toContain('接口 → API/interface');
   });
+  it('states the guidance rule range per locale', () => {
+    expect(p).toContain('Rules 8-14 are guidance');
+    const en = buildPrompt({ locale: 'en', slug: 's', zhBody: 'x', glossary: {}, keep: [] });
+    expect(en).toContain('Rules 8-12 are guidance');
+  });
 });

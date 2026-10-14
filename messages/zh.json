@@ -45,7 +45,9 @@
     "changesZh": "由原文重新排版",
     "changesTranslated": "译自并改编自中文原文",
     "sourceFile": "上游文件",
-    "sourceCredit": "原文出处：《{title}》，作者 {author}，{publisher}，{year} 年。本文是该作品的中文译文，转载自上游仓库；原作品的权利归其作者所有。<link>阅读原文</link>",
+    "licenseCredited": "中文译文由 Doocs 贡献者在上游以 CC-BY-SA-4.0 许可发布；原作品不由本站授权。",
+    "sourceCredit": "原文出处：<cite>《{title}》</cite>，作者 {author}，{publisher}，{year} 年。本文是该作品的中文译文，转载自上游仓库；原作品的权利归其作者所有。<link>阅读原文</link>",
+    "sourceCreditTranslated": "原文出处：<cite>《{title}》</cite>，作者 {author}，{publisher}，{year} 年。本页是该作品中文译文的机器翻译，中文译文转载自上游仓库；原作品的权利归其作者所有。<link>阅读原文</link>",
     "aboutLink": "关于与许可"
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },

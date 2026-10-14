@@ -45,7 +45,9 @@
     "changesZh": "Đã định dạng lại từ bản gốc",
     "changesTranslated": "Được dịch và chuyển thể từ bản gốc tiếng Trung",
     "sourceFile": "Tệp gốc",
-    "sourceCredit": "Nguồn gốc: “{title}” của {author}, {publisher}, {year}. Văn bản này là bản dịch tiếng Trung của tác phẩm đó, được sao lại ở đây từ kho mã nguồn gốc; quyền đối với bản gốc thuộc về các tác giả của nó. <link>Đọc bản gốc</link>",
+    "licenseCredited": "Bản dịch tiếng Trung do những người đóng góp của Doocs xuất bản ở thượng nguồn theo giấy phép CC-BY-SA-4.0; tác phẩm gốc không được trang này cấp phép.",
+    "sourceCredit": "Nguồn gốc: <cite>“{title}”</cite> của {author}, {publisher}, {year}. Văn bản này là bản dịch tiếng Trung của tác phẩm đó, được sao lại ở đây từ kho thượng nguồn (upstream); quyền đối với bản gốc thuộc về các tác giả của nó. <link>Đọc bản gốc</link>",
+    "sourceCreditTranslated": "Nguồn gốc: <cite>“{title}”</cite> của {author}, {publisher}, {year}. Trang này là bản dịch máy của một bản dịch tiếng Trung của tác phẩm đó, được sao lại từ kho thượng nguồn (upstream); quyền đối với bản gốc thuộc về các tác giả của nó. <link>Đọc bản gốc</link>",
     "aboutLink": "Giới thiệu và giấy phép"
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },

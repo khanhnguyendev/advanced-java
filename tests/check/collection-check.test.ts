@@ -158,10 +158,18 @@ describe('policy, credits and title gates', () => {
     expect(checkCollection(root, 'c').errors.join('\n')).toMatch(/zh\/s\/a: \[title-h1-mismatch\]/);
   });
   it('compares after NFC normalization and whitespace collapse', () => {
-    const decomposed = 'Tie\u0302\u0301u  \u0111e\u0302\u0300'.normalize('NFD');
     const { root } = build(fm, '# Tiêu đề\n\n## Phần\n\nNội dung.\n', { ...ok, 'c/vi/meta.json': meta('Tiêu  đề'.normalize('NFD')) });
-    expect(decomposed).toBeTruthy();
     expect(checkCollection(root, 'c').errors).toEqual([]);
+  });
+  it('flags a near-miss en title against its H1', () => {
+    const { root } = build(fm, undefined, {
+      ...ok,
+      'c/en/s/a.md': fm + '# A Description of the Microservices Architecture\n\n## Part\n\nBody.\n',
+      'c/en/meta.json': meta('Describing the Microservices Architecture'),
+    });
+    expect(checkCollection(root, 'c').errors.join('\n')).toMatch(
+      /en\/s\/a: \[title-h1-mismatch\].*"Describing the Microservices Architecture".*"A Description of the Microservices Architecture"/,
+    );
   });
   it('errors with title-missing-h1 when a body has no depth-1 heading', () => {
     const { root } = build(fm, '## Phần\n\nNội dung.\n', ok);

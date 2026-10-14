@@ -19,6 +19,12 @@ describe('meta tier', () => {
     expect(p).toMatch(/use A only/);
     expect(p).toMatch(/one rendering per concept/);
   });
+  it('includes the Vietnamese-numbers sentence for vi only', () => {
+    const vi = buildMetaPrompt({ locale: 'vi', zhMeta, glossary: {} });
+    const en = buildMetaPrompt({ locale: 'en', zhMeta, glossary: {} });
+    expect(vi).toContain('Vietnamese: numbers in Vietnamese units');
+    expect(en).not.toContain('numbers in Vietnamese units');
+  });
   it('applyMeta writes valid meta and rejects missing or extra keys', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'meta-'));
     mkdirSync(path.join(root, 'c/zh'), { recursive: true });
