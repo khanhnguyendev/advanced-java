@@ -137,6 +137,13 @@ A dev/preview-only route `/review/diagrams` (excluded from the production sitema
 - `content/ASSETS.md` gains a "Redrawn diagrams" section with the same statement and the mapping from diagram name to upstream image.
 - Diagram `<desc>` carries no licence text; the credit lives in the figure caption area of the page, quiet like the existing notices.
 
+### 3.8 Rendering rules (recorded 2026-10-14)
+
+- **Vertical text.** Upstream vertical text (single characters stacked in narrow boxes) is rendered horizontally in a taller or wider box. Accepted by the owner after the pilot; no writing-mode support is built.
+- **Label collisions.** Text is checked against every node, every edge and every other text (gate code `TEXT_COLLISION`, estimated; and a browser bbox check in the review e2e with real fonts).
+- **Label glossary.** `content/advanced-java/glossary.diagram-labels.json` holds `terms` (seeded from the prose glossaries) and whole-label `labels` entries. Every label text (except `_title` and `_desc`) must have an entry; other locales must use the entry's translation (case-insensitive, whitespace-normalised). New entries are written as per-diagram `<name>.glossary.json` sidecars and merged by `pnpm diagrams:glossary`.
+- **Sequence mode** is not built (no in-scope sequence diagram).
+
 ## 4. Phase 3 pilot (proposed set, not started)
 
 Chosen from the 87 core diagrams so each class and each risk is covered:

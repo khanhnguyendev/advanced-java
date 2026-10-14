@@ -1,0 +1,776 @@
+{
+  "_meta": {
+    "note": "Diagram label glossary. Read by the label translator; every diagram label text needs an entry. _title and _desc are exempt.",
+    "case": "compared case-insensitively"
+  },
+  "terms": {
+    "高并发": {
+      "en": "high concurrency",
+      "vi": "tải đồng thời cao (high concurrency)"
+    },
+    "分布式系统": {
+      "en": "distributed system",
+      "vi": "hệ thống phân tán"
+    },
+    "分布式": {
+      "en": "distributed",
+      "vi": "phân tán"
+    },
+    "高可用": {
+      "en": "high availability",
+      "vi": "tính sẵn sàng cao"
+    },
+    "微服务": {
+      "en": "microservices",
+      "vi": "microservices"
+    },
+    "海量数据": {
+      "en": "large-scale data",
+      "vi": "dữ liệu quy mô lớn"
+    },
+    "消息队列": {
+      "en": "message queue",
+      "vi": "hàng đợi thông điệp (message queue)"
+    },
+    "幂等性": {
+      "en": "idempotency",
+      "vi": "tính idempotent"
+    },
+    "分布式锁": {
+      "en": "distributed lock",
+      "vi": "khóa phân tán"
+    },
+    "分布式事务": {
+      "en": "distributed transaction",
+      "vi": "giao dịch phân tán"
+    },
+    "熔断": {
+      "en": "circuit breaking",
+      "vi": "ngắt mạch (circuit breaking)"
+    },
+    "断路器": {
+      "en": "circuit breaker",
+      "vi": "circuit breaker (bộ ngắt mạch)"
+    },
+    "降级": {
+      "en": "degradation (fallback)",
+      "vi": "suy giảm dịch vụ (fallback)"
+    },
+    "限流": {
+      "en": "rate limiting",
+      "vi": "giới hạn lưu lượng (rate limiting)"
+    },
+    "缓存": {
+      "en": "cache",
+      "vi": "bộ nhớ đệm (cache)"
+    },
+    "缓存雪崩": {
+      "en": "cache avalanche",
+      "vi": "cache avalanche (tuyết lở bộ nhớ đệm)"
+    },
+    "缓存穿透": {
+      "en": "cache penetration",
+      "vi": "cache penetration (xuyên thủng bộ nhớ đệm)"
+    },
+    "分库分表": {
+      "en": "database and table sharding",
+      "vi": "sharding (phân mảnh cơ sở dữ liệu và bảng)"
+    },
+    "读写分离": {
+      "en": "read/write splitting",
+      "vi": "tách đọc/ghi"
+    },
+    "搜索引擎": {
+      "en": "search engine",
+      "vi": "công cụ tìm kiếm"
+    },
+    "倒排索引": {
+      "en": "inverted index",
+      "vi": "chỉ mục đảo ngược (inverted index)"
+    },
+    "面试题": {
+      "en": "interview question",
+      "vi": "câu hỏi phỏng vấn"
+    },
+    "面试官": {
+      "en": "interviewer",
+      "vi": "người phỏng vấn"
+    },
+    "面试官心理分析": {
+      "en": "interviewer psychology",
+      "vi": "tâm lý người phỏng vấn"
+    },
+    "面试题剖析": {
+      "en": "answer analysis",
+      "vi": "phân tích câu trả lời"
+    },
+    "服务治理": {
+      "en": "service governance",
+      "vi": "quản trị dịch vụ"
+    },
+    "负载均衡": {
+      "en": "load balancing",
+      "vi": "cân bằng tải"
+    },
+    "序列化": {
+      "en": "serialization",
+      "vi": "tuần tự hóa (serialization)"
+    },
+    "注册中心": {
+      "en": "service registry",
+      "vi": "trung tâm đăng ký dịch vụ (service registry)"
+    },
+    "线程池": {
+      "en": "thread pool",
+      "vi": "thread pool (nhóm luồng)"
+    },
+    "信号量": {
+      "en": "semaphore",
+      "vi": "semaphore"
+    },
+    "隔离": {
+      "en": "isolation",
+      "vi": "cô lập (isolation)"
+    },
+    "超时": {
+      "en": "timeout",
+      "vi": "hết thời gian chờ (timeout)"
+    },
+    "一致性": {
+      "en": "consistency",
+      "vi": "tính nhất quán"
+    },
+    "可用性": {
+      "en": "availability",
+      "vi": "tính sẵn sàng"
+    },
+    "分区容错性": {
+      "en": "partition tolerance",
+      "vi": "khả năng chịu phân vùng"
+    },
+    "主从": {
+      "en": "master/replica",
+      "vi": "master/replica (master-slave)"
+    },
+    "集群": {
+      "en": "cluster",
+      "vi": "cụm (cluster)"
+    },
+    "持久化": {
+      "en": "persistence",
+      "vi": "lưu trữ bền vững (persistence)"
+    },
+    "过期": {
+      "en": "expiration",
+      "vi": "hết hạn"
+    },
+    "消息积压": {
+      "en": "message backlog",
+      "vi": "tồn đọng thông điệp"
+    },
+    "顺序性": {
+      "en": "ordering",
+      "vi": "tính thứ tự"
+    },
+    "重复消费": {
+      "en": "duplicate consumption",
+      "vi": "tiêu thụ trùng lặp"
+    },
+    "可靠性": {
+      "en": "reliability",
+      "vi": "độ tin cậy"
+    },
+    "接口": {
+      "en": "API/interface",
+      "vi": "API"
+    },
+    "临时耦合": {
+      "en": "temporal coupling",
+      "vi": "ràng buộc về thời gian (temporal coupling)"
+    },
+    "解耦": {
+      "en": "decoupling",
+      "vi": "tách rời (decoupling)"
+    },
+    "削峰": {
+      "en": "peak shaving",
+      "vi": "san phẳng đỉnh tải (peak shaving)"
+    },
+    "最终一致性": {
+      "en": "eventual consistency",
+      "vi": "nhất quán cuối cùng (eventual consistency)"
+    },
+    "有界上下文": {
+      "en": "bounded context",
+      "vi": "ngữ cảnh có biên (bounded context)"
+    },
+    "混合持久化": {
+      "en": "polyglot persistence",
+      "vi": "polyglot persistence (lưu trữ bền vững hỗn hợp)"
+    },
+    "小顶堆": {
+      "en": "min-heap",
+      "vi": "min-heap"
+    },
+    "大顶堆": {
+      "en": "max-heap",
+      "vi": "max-heap"
+    },
+    "哑管": {
+      "en": "dumb pipes",
+      "vi": "đường ống ngốc (dumb pipes)"
+    },
+    "康威定律": {
+      "en": "Conway's law",
+      "vi": "định luật Conway (Conway's law)"
+    },
+    "舱壁隔离": {
+      "en": "bulkhead isolation",
+      "vi": "bulkhead (cô lập theo khoang)"
+    },
+    "编排": {
+      "en": "orchestration",
+      "vi": "điều phối (orchestration)"
+    },
+    "编舞": {
+      "en": "choreography",
+      "vi": "phối hợp theo sự kiện (choreography)"
+    },
+    "持续交付": {
+      "en": "continuous delivery",
+      "vi": "phân phối liên tục (continuous delivery)"
+    },
+    "宕机": {
+      "en": "crash/outage",
+      "vi": "sập"
+    },
+    "挂起": {
+      "en": "hang",
+      "vi": "treo"
+    },
+    "依赖服务": {
+      "en": "dependency service",
+      "vi": "dịch vụ phụ thuộc"
+    },
+    "资源隔离": {
+      "en": "resource isolation",
+      "vi": "cô lập tài nguyên"
+    },
+    "容错": {
+      "en": "fault tolerance",
+      "vi": "chịu lỗi"
+    },
+    "快速失败": {
+      "en": "fail fast",
+      "vi": "fail-fast (thất bại nhanh)"
+    },
+    "优雅降级": {
+      "en": "graceful degradation",
+      "vi": "suy giảm dịch vụ êm dịu (graceful degradation)"
+    },
+    "近实时": {
+      "en": "near real-time",
+      "vi": "gần thời gian thực"
+    },
+    "热修改": {
+      "en": "hot modification",
+      "vi": "sửa đổi nóng"
+    },
+    "泳道": {
+      "en": "swimlane",
+      "vi": "swimlane (làn bơi)"
+    },
+    "吞吐量": {
+      "en": "throughput",
+      "vi": "thông lượng"
+    },
+    "时效性": {
+      "en": "latency",
+      "vi": "độ trễ"
+    },
+    "单机": {
+      "en": "single-node",
+      "vi": "trên một máy"
+    },
+    "副本": {
+      "en": "replica",
+      "vi": "bản sao"
+    },
+    "积压": {
+      "en": "backlog",
+      "vi": "tồn đọng"
+    },
+    "崩溃": {
+      "en": "collapse",
+      "vi": "sụp đổ"
+    },
+    "挂了": {
+      "en": "go down",
+      "vi": "sập"
+    },
+    "挂掉": {
+      "en": "go down",
+      "vi": "sập"
+    },
+    "跪了": {
+      "en": "go down",
+      "vi": "sập"
+    },
+    "不可用": {
+      "en": "unavailable",
+      "vi": "không khả dụng"
+    },
+    "异步": {
+      "en": "asynchronous",
+      "vi": "bất đồng bộ"
+    },
+    "发布订阅": {
+      "en": "publish/subscribe (pub/sub)",
+      "vi": "publish/subscribe (pub/sub)"
+    },
+    "缓存击穿": {
+      "en": "cache breakdown",
+      "vi": "cache breakdown"
+    },
+    "哨兵": {
+      "en": "Sentinel",
+      "vi": "Sentinel"
+    },
+    "系统拆分": {
+      "en": "system splitting",
+      "vi": "tách hệ thống"
+    },
+    "技术选型": {
+      "en": "technology selection",
+      "vi": "lựa chọn công nghệ"
+    },
+    "分而治之": {
+      "en": "divide and conquer",
+      "vi": "chia để trị"
+    },
+    "哈希取余": {
+      "en": "hash modulo",
+      "vi": "băm rồi lấy phần dư"
+    },
+    "大数据": {
+      "en": "big data",
+      "vi": "dữ liệu lớn"
+    },
+    "大量数据": {
+      "en": "large amounts of data",
+      "vi": "lượng dữ liệu lớn"
+    },
+    "重复次数": {
+      "en": "occurrence count",
+      "vi": "số lần xuất hiện"
+    },
+    "频数": {
+      "en": "frequency",
+      "vi": "tần suất"
+    },
+    "主观宕机": {
+      "en": "subjectively down (sdown)"
+    },
+    "客观宕机": {
+      "en": "objectively down (odown)"
+    },
+    "主备切换": {
+      "en": "failover",
+      "vi": "chuyển đổi master/replica"
+    },
+    "主备": {
+      "en": "master/standby"
+    },
+    "从节点": {
+      "en": "replica node"
+    },
+    "水平拆分": {
+      "en": "horizontal splitting"
+    },
+    "垂直拆分": {
+      "en": "vertical splitting"
+    },
+    "横向扩容": {
+      "en": "horizontal scaling (scale-out)"
+    },
+    "调用链路": {
+      "en": "call chain"
+    },
+    "预热": {
+      "en": "warm-up"
+    },
+    "线上": {
+      "en": "in production"
+    },
+    "协调节点": {
+      "en": "coordinating node",
+      "vi": "node điều phối"
+    },
+    "热点": {
+      "en": "hotspot"
+    },
+    "Java接口": {
+      "en": "interface (Java interface)",
+      "vi": "interface"
+    },
+    "万": {
+      "vi": "chục nghìn"
+    },
+    "十万": {
+      "vi": "trăm nghìn"
+    },
+    "脑裂": {
+      "vi": "split-brain"
+    },
+    "故障转移": {
+      "vi": "chuyển đổi dự phòng (failover)"
+    },
+    "镜像集群": {
+      "vi": "cụm phản chiếu"
+    },
+    "冷备": {
+      "vi": "sao lưu lạnh"
+    },
+    "中间件": {
+      "vi": "middleware"
+    },
+    "消息中间件": {
+      "vi": "message middleware"
+    },
+    "写并发": {
+      "vi": "lượng ghi đồng thời"
+    },
+    "库": {
+      "vi": "cơ sở dữ liệu"
+    },
+    "节点": {
+      "vi": "node"
+    },
+    "单体": {
+      "vi": "hệ thống nguyên khối (monolith)"
+    },
+    "前缀树": {
+      "vi": "cây tiền tố (trie)"
+    },
+    "请求上下文": {
+      "vi": "ngữ cảnh yêu cầu (request context)"
+    },
+    "生产环境": {
+      "vi": "production"
+    }
+  },
+  "labels": [
+    {
+      "zh": "1",
+      "en": "1",
+      "vi": "1",
+      "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "2亿\n用户",
+      "en": "200M\nusers",
+      "vi": "200 triệu\nngười dùng",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "Hystrix Cache",
+      "en": "Hystrix Cache",
+      "vi": "Hystrix Cache",
+      "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "MQ",
+      "en": "MQ",
+      "vi": "MQ",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "a",
+      "en": "a",
+      "vi": "a",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "c",
+      "en": "c",
+      "vi": "c",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "d",
+      "en": "d",
+      "vi": "d",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "elastics earch",
+      "en": "Elasticsearch",
+      "vi": "Elasticsearch",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "es集群",
+      "en": "ES cluster",
+      "vi": "Cụm ES",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "m",
+      "en": "m",
+      "vi": "m",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "n",
+      "en": "n",
+      "vi": "n",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "o",
+      "en": "o",
+      "vi": "o",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "productId=1",
+      "en": "productId=1",
+      "vi": "productId=1",
+      "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "productId=2",
+      "en": "productId=2",
+      "vi": "productId=2",
+      "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "root",
+      "en": "root",
+      "vi": "root",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "s",
+      "en": "s",
+      "vi": "s",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "t",
+      "en": "t",
+      "vi": "t",
+      "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "一次请求上下文",
+      "en": "One request context",
+      "vi": "Một ngữ cảnh yêu cầu",
+      "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "主库同步数据到从库",
+      "en": "Master syncs data to replica",
+      "vi": "Master đồng bộ dữ liệu sang replica",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "事务管理器",
+      "en": "Transaction manager",
+      "vi": "Bộ quản lý giao dịch",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
+    },
+    {
+      "zh": "内存队列",
+      "en": "In-memory queue",
+      "vi": "Hàng đợi trong bộ nhớ",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "削峰",
+      "en": "Peak\nshaving",
+      "vi": "San phẳng\nđỉnh tải",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "商品服务",
+      "en": "Product service",
+      "vi": "Dịch vụ sản phẩm",
+      "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "异步系统",
+      "en": "Async system",
+      "vi": "Hệ thống bất đồng bộ",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "扛读高并发",
+      "en": "Absorbs read-heavy\ntraffic",
+      "vi": "Chịu tải đọc\nđồng thời cao",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "接入服务",
+      "en": "Ingress service",
+      "vi": "Dịch vụ tiếp nhận",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "数据写入主库",
+      "en": "Writes to master",
+      "vi": "Ghi vào master",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "数据库",
+      "en": "Database",
+      "vi": "Cơ sở dữ liệu",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "数据库\n(主库)",
+      "en": "Database\n(master)",
+      "vi": "Cơ sở dữ liệu\n(master)",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "数据库\n(从库)",
+      "en": "Database\n(replica)",
+      "vi": "Cơ sở dữ liệu\n(replica)",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "数据库1",
+      "en": "Database 1",
+      "vi": "Cơ sở dữ liệu 1",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
+    },
+    {
+      "zh": "数据库2",
+      "en": "Database 2",
+      "vi": "Cơ sở dữ liệu 2",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
+    },
+    {
+      "zh": "数据库3",
+      "en": "Database 3",
+      "vi": "Cơ sở dữ liệu 3",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
+    },
+    {
+      "zh": "用户",
+      "en": "User",
+      "vi": "Người dùng",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "第一阶段，询问\n第二阶段，执行",
+      "en": "Phase 1: ask\nPhase 2: execute",
+      "vi": "Giai đoạn một: hỏi\nGiai đoạn hai: thực thi",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
+    },
+    {
+      "zh": "系统",
+      "en": "System",
+      "vi": "Hệ thống",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
+    },
+    {
+      "zh": "系统A",
+      "en": "System A",
+      "vi": "Hệ thống A",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "系统A从从库中读取数据",
+      "en": "System A reads\ndata from the replica",
+      "vi": "Hệ thống A đọc\ndữ liệu từ replica",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "系统B",
+      "en": "System B",
+      "vi": "Hệ thống B",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "系统C",
+      "en": "System C",
+      "vi": "Hệ thống C",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "系统拆分",
+      "en": "System split",
+      "vi": "Tách hệ thống",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "线程1",
+      "en": "Thread 1",
+      "vi": "Luồng 1",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "线程2",
+      "en": "Thread 2",
+      "vi": "Luồng 2",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "线程3",
+      "en": "Thread 3",
+      "vi": "Luồng 3",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "缓存",
+      "en": "Cache",
+      "vi": "Bộ nhớ đệm",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "请求1",
+      "en": "Request 1",
+      "vi": "Yêu cầu 1",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "请求1:orderId=1",
+      "en": "Request 1: orderId=1",
+      "vi": "Yêu cầu 1: orderId=1",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "请求2",
+      "en": "Request 2",
+      "vi": "Yêu cầu 2",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "请求2:orderId=1",
+      "en": "Request 2: orderId=1",
+      "vi": "Yêu cầu 2: orderId=1",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "请求3",
+      "en": "Request 3",
+      "vi": "Yêu cầu 3",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "请求3\n请求2\n请求1",
+      "en": "Request 3\nRequest 2\nRequest 1",
+      "vi": "Yêu cầu 3\nYêu cầu 2\nYêu cầu 1",
+      "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "读写分离",
+      "en": "Read/write splitting",
+      "vi": "Tách đọc/ghi",
+      "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    }
+  ]
+}

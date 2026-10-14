@@ -6,7 +6,7 @@
   },
   "labels": {
     "user": "User",
-    "entry": "Access service",
+    "entry": "Ingress service",
     "mq": "MQ",
     "sysA1": "System A",
     "sysA2": "System A",
@@ -25,6 +25,6 @@
     "r3": "Request 3",
     "stack": "Request 3\nRequest 2\nRequest 1",
     "_title": "Ordering requests in a distributed service",
-    "_desc": "A user sends requests carrying an order id to the access service, which forwards them through MQ to System A. System A puts requests for the same order into in-memory queues, each drained in order by its own thread."
+    "_desc": "A user sends requests carrying an order id to the ingress service, which forwards them through MQ to System A. System A puts requests for the same order into in-memory queues, each drained in order by its own thread."
   }
 }

@@ -22,7 +22,7 @@
     "es1": "Elasticsearch",
     "es2": "Elasticsearch",
     "es3": "Elasticsearch",
-    "e_cache": "Gánh tải đọc\nđồng thời cao",
+    "e_cache": "Chịu tải đọc\nđồng thời cao",
     "e_write": "Ghi vào master",
     "e_sync": "Master đồng bộ dữ liệu sang replica",
     "e_read": "Hệ thống A đọc\ndữ liệu từ replica",

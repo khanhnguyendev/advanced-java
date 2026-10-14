@@ -40,6 +40,15 @@ export default async function DiagramReview({ params }: { params: Promise<{ loca
       <p data-testid="review-summary" style={{ color: 'var(--ink-muted)' }}>
         {data.count} diagrams, {data.errorCount} gate errors, built {data.buildDate}
       </p>
+      {data.glossaryConflicts.length > 0 && (
+        <ul data-testid="glossary-conflicts">
+          {data.glossaryConflicts.map((c, i) => (
+            <li key={i} style={{ overflowWrap: 'anywhere' }}>
+              <code>{c.code}</code>: {c.message}
+            </li>
+          ))}
+        </ul>
+      )}
       {data.entries.map((e) => (
         <section
           key={e.id}
@@ -54,6 +63,9 @@ export default async function DiagramReview({ params }: { params: Promise<{ loca
           </p>
           <p data-testid="gate-status" style={{ color: e.errors.length ? 'var(--accent)' : 'var(--ink-muted)' }}>
             Gate: {e.errors.length === 0 ? 'OK, 0 errors' : `${e.errors.length} error(s)`}
+          </p>
+          <p data-testid="glossary-status" style={{ color: e.glossaryCodes.length ? 'var(--accent)' : 'var(--ink-muted)' }}>
+            Glossary: {e.glossaryCodes.length === 0 ? 'OK' : e.glossaryCodes.join(', ')}
           </p>
           {e.errors.length > 0 && (
             <ul>

@@ -2,15 +2,20 @@ import type {
   DiagramLocale,
   DiagramScene,
   GateError,
+  GlossaryEntry,
   LabelRef,
   LabelsByLocale,
 } from './types';
+import { nodeRect, rectContains, rectsOverlap, sceneTextBlocks, segmentHitsRect, shrinkRect, TEXT_HALF_H, TEXT_PAD_X } from './geometry';
+import { normLabel } from './glossary-norm';
 import { DIAGRAM_LOCALES } from './types';
 import { FONT_SIZE, LINE_HEIGHT, NODE_PAD, stripLiterals, hasHan, wrapText, splitSegments, textWidth, textMaxWidth } from './measure';
 
 export interface GateOptions {
   /** Whether `source.upstream` exists as a file under the collection's `_assets`. Omit to skip SOURCE_MISSING. */
   assetExists?: (upstream: string) => boolean;
+  /** Glossary entries (global labels plus sidecars). Omit to skip GLOSSARY_MISSING / GLOSSARY_MISMATCH. */
+  glossary?: GlossaryEntry[];
 }
 
 const LICENSES = ['derived', 'original'];
@@ -260,12 +265,12 @@ export function checkDiagram(
         const widest = Math.max(...lines.map((l) => l.width));
         if (widest > maxW) add('OVERFLOW', `${r.where}: line width ${widest.toFixed(1)} > ${maxW.toFixed(1)}`, loc);
         if (r.kind === 'node') {
-          const hgt = lines.length * LH;
-          const maxH = r.circle ? r.node.h * Math.SQRT1_2 : r.node.h - 2 * 4;
+          const hgt = (lines.length - 1) * LH + 2 * TEXT_HALF_H;
+          const maxH = r.circle ? r.node.h * Math.SQRT1_2 : r.node.h - 2;
           if (hgt > maxH) add('OVERFLOW', `${r.where}: text height ${hgt.toFixed(1)} > ${maxH.toFixed(1)}`, loc);
         } else {
           // group label: top-left, first line centre at PAD + HALF
-          const bottom = PAD + HALF + (lines.length - 1) * LH + HALF;
+          const bottom = PAD + HALF + (lines.length - 1) * LH + TEXT_HALF_H;
           if (bottom > r.node.h - PAD) {
             add('OVERFLOW', `${r.where}: label height ${bottom.toFixed(1)} > ${r.node.h - PAD}`, loc);
           }
@@ -273,15 +278,15 @@ export function checkDiagram(
       } else if (r.anchorX) {
         const { x, y, anchor } = r.anchorX;
         const n = v.split('\n').length;
-        const top = y - HALF;
-        const bottom = y + (n - 1) * LH + HALF;
+        const top = y - TEXT_HALF_H;
+        const bottom = y + (n - 1) * LH + TEXT_HALF_H;
         if (top < 0 || bottom > scene.size.h) {
           add('OVERFLOW', `${r.where}: text block ${top.toFixed(1)}..${bottom.toFixed(1)} outside height ${scene.size.h}`, loc);
         }
         const room = anchor === 'start' ? scene.size.w - x : anchor === 'end' ? x : 2 * Math.min(x, scene.size.w - x);
         for (const para of v.split('\n')) {
           const w = textWidth(splitSegments(para, lits));
-          if (w > room) add('OVERFLOW', `${r.where}: line width ${w.toFixed(1)} > ${room}`, loc);
+          if (w + (anchor === 'middle' ? 2 : 1) * TEXT_PAD_X > room) add('OVERFLOW', `${r.where}: line width ${w.toFixed(1)} > ${room}`, loc);
         }
       }
     }
@@ -307,6 +312,81 @@ export function checkDiagram(
       const b = solid[j]!;
       if (a.x < b.x + b.w && b.x < a.x + a.w && a.y < b.y + b.h && b.y < a.y + a.h) {
         add('NODE_OVERLAP', `nodes ${a.id} and ${b.id} overlap`);
+      }
+    }
+  }
+
+  // 10. label collisions, per locale, with the renderer's own text geometry
+  const solidNodes = scene.nodes.filter((n) => n.shape !== 'group');
+  for (const loc of DIAGRAM_LOCALES) {
+    const f = labelsByLocale[loc];
+    if (!f) continue;
+    const blocks = sceneTextBlocks(scene, f.labels);
+    const seen = new Set<string>();
+    const hit = (key: string, msg: string) => {
+      if (seen.has(key)) return;
+      seen.add(key);
+      add('TEXT_COLLISION', `[${loc}] ${msg}`, loc);
+    };
+    for (let i = 0; i < blocks.length; i++) {
+      for (let j = i + 1; j < blocks.length; j++) {
+        const a = blocks[i]!;
+        const b = blocks[j]!;
+        if (rectsOverlap(a.rect, b.rect)) hit(`t${i}:${j}`, `${a.name} overlaps ${b.name}`);
+      }
+    }
+    for (const [i, b] of blocks.entries()) {
+      for (const n of solidNodes) {
+        if (b.nodeId === n.id) continue;
+        const r = nodeRect(n);
+        // a free text or edge label lying wholly inside a node is part of that node
+        if (b.kind !== 'node' && b.kind !== 'group' && rectContains(r, b.rect)) continue;
+        if (rectsOverlap(b.rect, r)) hit(`n${i}:${n.id}`, `${b.name} overlaps node ${n.id}`);
+      }
+      const probe = shrinkRect(b.rect, 1);
+      scene.edges.forEach((e, k) => {
+        for (let s = 0; s + 1 < e.points.length; s++) {
+          if (segmentHitsRect(e.points[s]!, e.points[s + 1]!, probe)) {
+            hit(`e${i}:${k}`, `${b.name} crosses edge ${k}`);
+            break;
+          }
+        }
+      });
+    }
+  }
+
+  // 11. glossary
+  if (opts.glossary) {
+    const lookupLoc = refLocale;
+    const byRef = new Map<string, GlossaryEntry[]>();
+    for (const g of opts.glossary) {
+      const k = normLabel(g[lookupLoc]);
+      byRef.set(k, [...(byRef.get(k) ?? []), g]);
+    }
+    const exempt = new Set([scene.title_key, scene.desc_key]);
+    const reported = new Set<string>();
+    for (const k of used) {
+      if (exempt.has(k) || !ref || !Object.hasOwn(ref.labels, k) || isBlank(ref.labels[k])) continue;
+      const refText = ref.labels[k]!;
+      const cands = byRef.get(normLabel(refText));
+      if (!cands) {
+        add('GLOSSARY_MISSING', `key "${k}" ("${refText.replace(/\n/g, ' ')}") has no glossary entry`);
+        continue;
+      }
+      for (const loc of DIAGRAM_LOCALES) {
+        if (loc === refLocale) continue;
+        const f = labelsByLocale[loc];
+        if (!f || !Object.hasOwn(f.labels, k) || isBlank(f.labels[k])) continue;
+        const text = normLabel(f.labels[k]!);
+        if (cands.some((c) => normLabel(c[loc]) === text)) continue;
+        const sig = `${loc}\u0000${k}`;
+        if (reported.has(sig)) continue;
+        reported.add(sig);
+        add(
+          'GLOSSARY_MISMATCH',
+          `key "${k}": ${loc} text "${f.labels[k]!.replace(/\n/g, ' ')}" differs from glossary "${cands[0]![loc].replace(/\n/g, ' ')}"`,
+          loc,
+        );
       }
     }
   }

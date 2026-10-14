@@ -25,7 +25,8 @@
     "e2e": "playwright test",
     "search:gate": "tsx scripts/search-gate/run.ts",
     "check:diagrams": "tsx scripts/check-diagrams.ts",
-    "diagrams:png": "tsx scripts/diagrams-png.ts"
+    "diagrams:png": "tsx scripts/diagrams-png.ts",
+    "diagrams:glossary": "tsx scripts/diagrams-glossary.ts"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

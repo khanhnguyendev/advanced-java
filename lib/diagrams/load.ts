@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
-import type { DiagramScene, GateError, LabelsByLocale, LabelsFile } from './types';
+import type { DiagramScene, GateError, GlossaryEntry, LabelsByLocale, LabelsFile } from './types';
 import { DIAGRAM_LOCALES } from './types';
 
 export interface LoadedDiagram {
@@ -14,6 +14,10 @@ export interface LoadedDiagram {
   labels: LabelsByLocale;
   /** problems found while reading (unparseable JSON etc.), reported as META_INVALID */
   loadErrors: GateError[];
+  /** entries of `<name>.glossary.json` beside the diagram, with `source` set to the diagram id */
+  sidecar?: GlossaryEntry[];
+  /** path of the sidecar file when it exists */
+  sidecarFile?: string;
   /** whole-file failure: `scene` is a placeholder and must not be gated */
   unreadable?: boolean;
 }
@@ -68,7 +72,38 @@ export function loadDiagram(file: string, collection: string, root: string): Loa
       loadErrors.push({ code: 'META_INVALID', message: `cannot parse ${path.basename(lf)}: ${(e as Error).message}`, locale: loc });
     }
   }
-  return { id: validId ? scene.id : cleaned, file, collection, assetsDir: path.join(root, collection, '_assets'), scene, labels, loadErrors };
+  const id = validId ? scene.id : cleaned;
+  const sf = `${base}.glossary.json`;
+  let sidecar: GlossaryEntry[] | undefined;
+  let sidecarFile: string | undefined;
+  if (existsSync(sf)) {
+    sidecarFile = sf;
+    sidecar = [];
+    try {
+      const parsed = JSON.parse(readFileSync(sf, 'utf8')) as { labels?: unknown };
+      if (typeof parsed !== 'object' || parsed === null || !Array.isArray(parsed.labels)) throw new Error('"labels" is not an array');
+      for (const [i, e] of parsed.labels.entries()) {
+        const r = e as Record<string, unknown> | null;
+        if (r && typeof r.zh === 'string' && typeof r.en === 'string' && typeof r.vi === 'string') {
+          sidecar.push({ zh: r.zh, en: r.en, vi: r.vi, source: id });
+        } else {
+          loadErrors.push({ code: 'META_INVALID', message: `${path.basename(sf)} (glossary sidecar): entry ${i} lacks string zh/en/vi` });
+        }
+      }
+    } catch (e) {
+      loadErrors.push({ code: 'META_INVALID', message: `cannot parse ${path.basename(sf)} (glossary sidecar): ${(e as Error).message}` });
+    }
+  }
+  return {
+    id,
+    file,
+    collection,
+    assetsDir: path.join(root, collection, '_assets'),
+    scene,
+    labels,
+    loadErrors,
+    ...(sidecarFile ? { sidecar, sidecarFile } : {}),
+  };
 }
 
 /** Every `*.diagram.json` under `<root>/*\/_diagrams`, sorted. */

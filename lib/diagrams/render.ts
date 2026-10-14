@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import type { Anchor, DiagramEdge, DiagramLocale, DiagramNode, DiagramScene } from './types';
-import { FONT_SIZE, LINE_HEIGHT, NODE_PAD, textMaxWidth, wrapText } from './measure';
+import { FONT_SIZE, LINE_HEIGHT, NODE_PAD } from './measure';
+import { freeTextLayout, nodeTextLayout } from './geometry';
 import type { Line } from './measure';
 
 export { NODE_PAD };
@@ -58,6 +59,11 @@ function textBlock(
     .join('');
 }
 
+/** Attribute naming the scene element a `<text>` belongs to (used by the browser matching check). */
+function owner(v: string): string {
+  return ` data-text-owner="${esc(v)}"`;
+}
+
 function round(n: number): number {
   return Math.round(num(n) * 100) / 100;
 }
@@ -77,12 +83,12 @@ function renderNode(n0: DiagramNode, text: string): string {
   const col = nodeColors(n.role);
   const lits = n.label.literals ?? [];
   if (n.shape === 'group') {
-    const lines = wrapText(text, lits, Math.max(textMaxWidth(n), 1));
+    const tl = nodeTextLayout(n, text, lits);
     return (
       `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>` +
-      `<rect x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="2" fill="none" stroke="${C.rule}" ` +
+      `<rect data-group="1" x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="2" fill="none" stroke="${C.rule}" ` +
       `stroke-width="${SW}" stroke-dasharray="1.5 4" stroke-linecap="round"/>` +
-      textBlock(lines, n.x + NODE_PAD, n.y + NODE_PAD + FONT_SIZE / 2, 'start', C.muted) +
+      textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, C.muted, owner(`node:${n.id}`)) +
       `</g>`
     );
   }
@@ -94,28 +100,26 @@ function renderNode(n0: DiagramNode, text: string): string {
     shape = `<rect x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="${rx}"`;
   }
   shape += ` fill="${col.fill}" stroke="${col.stroke}" stroke-width="${SW}"/>`;
-  const lines = wrapText(text, lits, Math.max(textMaxWidth(n), 1));
-  const lh = FONT_SIZE * LINE_HEIGHT;
-  const top = n.y + n.h / 2 - ((lines.length - 1) * lh) / 2;
-  return `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>${shape}${textBlock(lines, n.x + n.w / 2, top, 'middle', col.text)}</g>`;
+  const tl = nodeTextLayout(n, text, lits);
+  return `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>${shape}${textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, col.text, owner(`node:${n.id}`))}</g>`;
 }
 
 function markerId(h: string, style: DiagramEdge['style'], end: 'e' | 's'): string {
   return `${h}-m-${style === 'accent' ? 'a' : 'i'}${end}`;
 }
 
-function renderEdge(e: DiagramEdge, h: string, labels: Record<string, string>): string {
+function renderEdge(e: DiagramEdge, i: number, h: string, labels: Record<string, string>): string {
   const color = e.style === 'accent' ? C.accent : C.ink;
   const pts = e.points.map((p) => `${num(p[0])},${num(p[1])}`).join(' ');
   const dash = e.style === 'dashed' ? ' stroke-dasharray="5 4"' : '';
   const mEnd = e.arrow === 'end' || e.arrow === 'both' ? ` marker-end="url(#${markerId(h, e.style, 'e')})"` : '';
   const mStart = e.arrow === 'both' ? ` marker-start="url(#${markerId(h, e.style, 's')})"` : '';
   let out =
-    `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="${SW}"${dash}` +
+    `<polyline data-edge="${i}" points="${pts}" fill="none" stroke="${color}" stroke-width="${SW}"${dash}` +
     ` stroke-linejoin="round" stroke-linecap="round"${mStart}${mEnd}/>`;
   if (e.label) {
-    const lines = wrapText(labelText(labels, e.label.key), e.label.literals ?? [], Infinity);
-    out += textBlock(lines, num(e.label.at[0]), num(e.label.at[1]), e.label.anchor, color);
+    const tl = freeTextLayout(labelText(labels, e.label.key), e.label.literals ?? [], num(e.label.at[0]), num(e.label.at[1]), e.label.anchor);
+    out += textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, color, owner(`edge:${i}`));
   }
   return out;
 }
@@ -158,10 +162,10 @@ export function renderDiagram(
   // groups first so they sit behind everything
   const ordered = [...scene.nodes.filter((n) => n.shape === 'group'), ...scene.nodes.filter((n) => n.shape !== 'group')];
   for (const n of ordered) parts.push(renderNode(n, labelText(labels, n.label.key)));
-  for (const e of scene.edges) parts.push(renderEdge(e, h, labels));
+  scene.edges.forEach((e, i) => parts.push(renderEdge(e, i, h, labels)));
   for (const tx of scene.texts) {
-    const lines = wrapText(labelText(labels, tx.key), tx.literals ?? [], Infinity);
-    parts.push(textBlock(lines, tx.x, tx.y, tx.anchor, C.ink));
+    const tl = freeTextLayout(labelText(labels, tx.key), tx.literals ?? [], num(tx.x), num(tx.y), tx.anchor);
+    parts.push(textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, C.ink, owner(`text:${tx.key}`)));
   }
   parts.push('</svg>');
   return parts.join('');

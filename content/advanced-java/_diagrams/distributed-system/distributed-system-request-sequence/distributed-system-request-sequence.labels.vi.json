@@ -6,7 +6,7 @@
   },
   "labels": {
     "user": "Người dùng",
-    "entry": "Dịch vụ truy cập",
+    "entry": "Dịch vụ tiếp nhận",
     "mq": "MQ",
     "sysA1": "Hệ thống A",
     "sysA2": "Hệ thống A",
@@ -25,6 +25,6 @@
     "r3": "Yêu cầu 3",
     "stack": "Yêu cầu 3\nYêu cầu 2\nYêu cầu 1",
     "_title": "Đảm bảo thứ tự yêu cầu trong dịch vụ phân tán",
-    "_desc": "Người dùng gửi các yêu cầu kèm mã đơn hàng tới dịch vụ truy cập, sau đó qua MQ phân phối đến Hệ thống A; Hệ thống A đưa các yêu cầu của cùng một đơn hàng vào hàng đợi trong bộ nhớ, mỗi hàng đợi do một luồng xử lý tuần tự."
+    "_desc": "Người dùng gửi các yêu cầu kèm mã đơn hàng tới dịch vụ tiếp nhận, sau đó qua MQ phân phối đến Hệ thống A; Hệ thống A đưa các yêu cầu của cùng một đơn hàng vào hàng đợi trong bộ nhớ, mỗi hàng đợi do một luồng xử lý tuần tự."
   }
 }

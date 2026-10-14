@@ -81,10 +81,23 @@ export type GateCode =
   | 'HASH_STALE'
   | 'LICENSE_INVALID'
   | 'SOURCE_MISSING'
-  | 'META_INVALID';
+  | 'META_INVALID'
+  | 'TEXT_COLLISION'
+  | 'GLOSSARY_MISSING'
+  | 'GLOSSARY_MISMATCH'
+  | 'GLOSSARY_CONFLICT';
 
 export interface GateError {
   code: GateCode;
   message: string;
   locale?: DiagramLocale;
+}
+
+/** One whole-label glossary entry. Lookup is by the reference-locale text (zh, or en for source_lang en). */
+export interface GlossaryEntry {
+  zh: string;
+  en: string;
+  vi: string;
+  /** diagram id the entry was first used in (global file only) */
+  source?: string;
 }

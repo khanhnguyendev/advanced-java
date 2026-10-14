@@ -1,3 +1,4 @@
+import { findConflicts, loadGlossaries } from './glossary';
 import { listDiagrams } from './load';
 import { renderDiagram } from './render';
 import { gateLoaded } from './run';
@@ -19,11 +20,15 @@ export interface ReviewEntry {
   /** inline SVG per locale and width, each rendered with its own id prefix so ids stay unique on the page; null when the locale cannot be rendered */
   svgsByWidth: Record<DiagramLocale, Record<number, string> | null>;
   errors: GateError[];
+  /** distinct GLOSSARY_* codes among `errors`; empty means glossary OK */
+  glossaryCodes: string[];
 }
 
 export interface ReviewData {
   count: number;
   errorCount: number;
+  /** GLOSSARY_CONFLICT errors (shared by all diagrams) */
+  glossaryConflicts: GateError[];
   buildDate: string;
   entries: ReviewEntry[];
 }
@@ -32,8 +37,11 @@ export const CREDIT_LINE =
   'Redrawn from the upstream image at commit 1a35221 (doocs/advanced-java), CC-BY-SA-4.0. Original authorship not documented upstream.';
 
 export function buildReviewData(root: string, buildDate: string = new Date().toISOString().slice(0, 10)): ReviewData {
-  const entries: ReviewEntry[] = listDiagrams(root).map((d) => {
-    const gateErrors = gateLoaded(d);
+  const diagrams = listDiagrams(root);
+  const gl = loadGlossaries(root, diagrams);
+  const entries: ReviewEntry[] = diagrams.map((d) => {
+    const g = gl.get(d.collection);
+    const gateErrors = gateLoaded(d, g?.enforced ? g.entries : undefined);
     const svgsByWidth = {} as Record<DiagramLocale, Record<number, string> | null>;
     const renderErrors: GateError[] = [];
     for (const loc of DIAGRAM_LOCALES) {
@@ -49,6 +57,7 @@ export function buildReviewData(root: string, buildDate: string = new Date().toI
       }
     }
     const upstream = d.scene.source?.upstream ?? '';
+    const errors = [...gateErrors, ...renderErrors];
     return {
       id: d.id,
       className: d.id.split('/')[0] ?? '',
@@ -57,12 +66,16 @@ export function buildReviewData(root: string, buildDate: string = new Date().toI
       upstream,
       imageUrl: `/_content/${d.collection}/${upstream}`,
       svgsByWidth,
-      errors: [...gateErrors, ...renderErrors],
+      errors,
+      glossaryCodes: [...new Set(errors.filter((e) => e.code.startsWith('GLOSSARY_')).map((e) => e.code))],
     };
   });
+  const glossaryConflicts: GateError[] = [];
+  for (const g of gl.values()) if (g.enforced) glossaryConflicts.push(...findConflicts(g.entries));
   return {
     count: entries.length,
-    errorCount: entries.reduce((n, e) => n + e.errors.length, 0),
+    errorCount: entries.reduce((n, e) => n + e.errors.length, 0) + glossaryConflicts.length,
+    glossaryConflicts,
     buildDate,
     entries,
   };
