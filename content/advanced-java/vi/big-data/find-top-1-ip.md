@@ -10,15 +10,15 @@ translatedAt: '2026-10-14'
 
 ## Mô tả đề bài
 
-Có một lượng lớn dữ liệu log được lưu trong một tệp cực lớn, tệp này không thể đọc trực tiếp vào bộ nhớ. Yêu cầu trích xuất ra địa chỉ IP truy cập Baidu nhiều lần nhất trong một ngày nào đó.
+Hiện có dữ liệu log quy mô lớn được lưu trong một tệp cực lớn, tệp này không thể đọc trực tiếp vào bộ nhớ. Yêu cầu trích xuất từ đó IP truy cập Baidu nhiều lần nhất trong một ngày nào đó.
 
 ## Hướng giải
 
-Bài này chỉ quan tâm đến IP truy cập Baidu nhiều nhất trong một ngày, vì vậy trước tiên có thể duyệt tệp một lượt, ghi các thông tin liên quan đến IP truy cập Baidu của ngày đó vào một tệp lớn riêng. Tiếp theo áp dụng phương pháp giống bài trước: đầu tiên băm và ánh xạ các IP, sau đó dùng HashMap để thống kê số lần xuất hiện của các IP trùng lặp, cuối cùng tính ra IP có số lần lặp nhiều nhất.
+Bài này chỉ quan tâm đến IP truy cập Baidu nhiều nhất trong một ngày, vì vậy trước hết có thể duyệt tệp một lượt, ghi các thông tin liên quan đến IP truy cập Baidu trong ngày đó vào một tệp lớn riêng. Tiếp theo áp dụng phương pháp giống bài trước, đại khái là trước hết ánh xạ băm các IP, sau đó dùng HashMap để thống kê số lần lặp của từng IP, cuối cùng tính ra IP có số lần lặp nhiều nhất.
 
-> Lưu ý: ở đây chỉ cần tìm IP có số lần xuất hiện nhiều nhất, nên không cần dùng heap, chỉ cần dùng trực tiếp một biến max là đủ.
+> Lưu ý: ở đây chỉ cần tìm IP xuất hiện nhiều lần nhất, nên không nhất thiết phải dùng heap, chỉ cần dùng trực tiếp một biến max là đủ.
 
-## Tổng kết phương pháp
+## Tóm tắt phương pháp
 
 1. Chia để trị, băm rồi lấy phần dư;
 2. Dùng HashMap để thống kê tần suất;
