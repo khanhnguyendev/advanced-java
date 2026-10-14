@@ -48,6 +48,9 @@
     "licenseCredited": "中文译文由 Doocs 贡献者在上游以 CC-BY-SA-4.0 许可发布；原作品不由本站授权。",
     "sourceCredit": "原文出处：<cite>《{title}》</cite>，作者 {author}，{publisher}，{year} 年。本文是该作品的中文译文，转载自上游仓库；原作品的权利归其作者所有。<link>阅读原文</link>",
     "sourceCreditTranslated": "原文出处：<cite>《{title}》</cite>，作者 {author}，{publisher}，{year} 年。本页是该作品中文译文的机器翻译，中文译文转载自上游仓库；原作品的权利归其作者所有。<link>阅读原文</link>",
+    "sourceCreditAdapted": "改编自 <cite>《{title}》</cite>，作者 {author}，{publisher}。本文是对该页面的中文改编，并非原文。<link>阅读原文</link>",
+    "sourceCreditAdaptedTranslated": "改编自 <cite>《{title}》</cite>，作者 {author}，{publisher}。本页是该页面中文改编版的机器翻译，并非原文。<link>阅读原文</link>",
+    "sourceCreditLicense": "原文采用 <licenseLink>{license}</licenseLink> 许可。",
     "aboutLink": "关于与许可"
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },
@@ -56,7 +59,7 @@
     "title": "关于与许可",
     "codeLicense": "站点代码采用 MIT 许可。",
     "contentLicense": "内容（文本与译文）采用 CC-BY-SA-4.0 许可。",
-    "images": "图片仅在我们有权授权时收录；其余图片归属上游仓库，不由本项目重新授权。",
+    "images": "全部 126 张图片均来自上游仓库 doocs/advanced-java（提交 1a35221），并按该仓库的许可证 CC-BY-SA-4.0 收录。上游未记录这些图片的原始作者。",
     "imageCredits": "图片来源"
   }
 }

@@ -54,6 +54,19 @@ describe('loadCredits / creditFor', () => {
     expect(creditFor(cr, 's', 'a')).toEqual(good);
     expect(creditFor(cr, 's', 'b')).toBeUndefined();
   });
+  it('accepts an adaptation with a license and no year', () => {
+    const ad = { kind: 'adaptation', title: 'T', author: 'A', publisher: 'P', url: 'https://example.com/x', license: { name: 'Apache-2.0', url: 'https://www.apache.org/licenses/LICENSE-2.0' } };
+    const cr = loadCredits(tmp({ 'c/source-credits.json': JSON.stringify({ 's/a': ad }) }), 'c');
+    expect(creditFor(cr, 's', 'a')).toEqual(ad);
+  });
+  it('rejects a bad kind, a bad license, a non-integer year and a translation without a year', () => {
+    const run = (v: object) => () => loadCredits(tmp({ 'c/source-credits.json': JSON.stringify({ 's/a': v }) }), 'c');
+    expect(run({ ...good, kind: 'copy' })).toThrow(/kind/);
+    expect(run({ ...good, license: { name: '', url: 'https://x.org' } })).toThrow(/license\.name/);
+    expect(run({ ...good, license: { name: 'MIT', url: 'ftp://x.org' } })).toThrow(/license\.url/);
+    expect(run({ ...good, year: 2014.5 })).toThrow(/year/);
+    expect(run({ ...good, year: undefined })).toThrow(/year/);
+  });
   it('rejects a non-http(s) url and missing fields', () => {
     expect(() => loadCredits(tmp({ 'c/source-credits.json': JSON.stringify({ 's/a': { ...good, url: 'javascript:alert(1)' } }) }), 'c')).toThrow(/http/);
     expect(() => loadCredits(tmp({ 'c/source-credits.json': JSON.stringify({ 's/a': { ...good, author: '' } }) }), 'c')).toThrow(/author/);
@@ -66,6 +79,7 @@ describe('real content policy and credits files', () => {
     const p = loadPolicy(root, 'advanced-java');
     expect(Object.keys(p.hold)).toHaveLength(10);
     expect(isHeld(p, 'micro-services', 'microservices-introduction')).toBe(true);
-    expect(Object.keys(loadCredits(root, 'advanced-java'))).toHaveLength(5);
+    expect(p.hold['high-availability/sentinel-vs-hystrix'].decision).toBe('translate');
+    expect(Object.keys(loadCredits(root, 'advanced-java'))).toHaveLength(6);
   });
 });

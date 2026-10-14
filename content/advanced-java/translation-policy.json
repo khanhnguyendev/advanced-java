@@ -9,6 +9,6 @@
     "micro-services/whats-microservice-how-to-communicate": { "reason": "Owner decision 2026-10-14: translate in the full run", "decision": "translate" },
     "micro-services/micro-service-governance": { "reason": "Owner decision 2026-10-14: translate in the full run", "decision": "translate" },
     "micro-services/micro-services-technology-stack": { "reason": "Owner decision 2026-10-14: translate in the full run", "decision": "translate" },
-    "high-availability/sentinel-vs-hystrix": { "reason": "Probably adapted from the Sentinel wiki; source not verified", "decision": "pending" }
+    "high-availability/sentinel-vs-hystrix": { "reason": "Owner decision 2026-10-14: translate; credit the Sentinel wiki page", "decision": "translate" }
   }
 }

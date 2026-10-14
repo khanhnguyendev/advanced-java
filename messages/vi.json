@@ -48,6 +48,9 @@
     "licenseCredited": "Bản dịch tiếng Trung do những người đóng góp của Doocs xuất bản ở thượng nguồn theo giấy phép CC-BY-SA-4.0; tác phẩm gốc không được trang này cấp phép.",
     "sourceCredit": "Nguồn gốc: <cite>“{title}”</cite> của {author}, {publisher}, {year}. Văn bản này là bản dịch tiếng Trung của tác phẩm đó, được sao lại ở đây từ kho thượng nguồn (upstream); quyền đối với bản gốc thuộc về các tác giả của nó. <link>Đọc bản gốc</link>",
     "sourceCreditTranslated": "Nguồn gốc: <cite>“{title}”</cite> của {author}, {publisher}, {year}. Trang này là bản dịch máy của một bản dịch tiếng Trung của tác phẩm đó, được sao lại từ kho thượng nguồn (upstream); quyền đối với bản gốc thuộc về các tác giả của nó. <link>Đọc bản gốc</link>",
+    "sourceCreditAdapted": "Phỏng theo <cite>“{title}”</cite> của {author}, {publisher}. Văn bản tiếng Trung ở đây là một bản chuyển thể từ trang đó; đây không phải bản gốc. <link>Đọc bản gốc</link>",
+    "sourceCreditAdaptedTranslated": "Phỏng theo <cite>“{title}”</cite> của {author}, {publisher}. Trang này là bản dịch máy của một bản chuyển thể tiếng Trung từ trang đó; đây không phải bản gốc. <link>Đọc bản gốc</link>",
+    "sourceCreditLicense": "Bản gốc được cấp phép theo <licenseLink>{license}</licenseLink>.",
     "aboutLink": "Giới thiệu và giấy phép"
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },
@@ -56,7 +59,7 @@
     "title": "Giới thiệu và giấy phép",
     "codeLicense": "Mã nguồn của trang theo giấy phép MIT.",
     "contentLicense": "Nội dung (văn bản và bản dịch) theo giấy phép CC-BY-SA-4.0.",
-    "images": "Hình ảnh chỉ được đưa vào khi chúng tôi có quyền cấp phép; các hình khác được ghi công cho kho gốc và không được cấp phép lại.",
+    "images": "Cả 126 hình ảnh đều đến từ kho thượng nguồn doocs/advanced-java tại commit 1a35221 và được đưa vào theo giấy phép của kho đó, CC-BY-SA-4.0. Quyền tác giả gốc của các hình ảnh không được ghi lại ở thượng nguồn.",
     "imageCredits": "Ghi công hình ảnh"
   }
 }
