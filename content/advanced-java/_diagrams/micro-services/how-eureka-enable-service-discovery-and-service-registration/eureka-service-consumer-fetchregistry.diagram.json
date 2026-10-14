@@ -6,7 +6,7 @@
   },
   "license": "derived",
   "size": {
-    "w": 1510,
+    "w": 1300,
     "h": 1040
   },
   "nodes": [
@@ -27,7 +27,7 @@
       "shape": "group",
       "x": 550,
       "y": 10,
-      "w": 940,
+      "w": 730,
       "h": 1020,
       "border": "solid",
       "label": {
@@ -63,7 +63,7 @@
       "shape": "group",
       "x": 560,
       "y": 212,
-      "w": 920,
+      "w": 710,
       "h": 116,
       "border": "solid",
       "label": {
@@ -349,7 +349,7 @@
       "y": 390,
       "anchor": "start",
       "literals": [
-        "// call and execute the pre registration handler before all background tasks (inc registration) is started"
+        "// call and execute the pre registration handler before all background tasks (inc r…"
       ]
     },
     {
@@ -385,7 +385,7 @@
       "y": 590,
       "anchor": "start",
       "literals": [
-        "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {"
+        "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrati…"
       ]
     },
     {
@@ -412,7 +412,7 @@
       "y": 710,
       "anchor": "start",
       "literals": [
-        "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");"
+        "            throw new IllegalStateException(\"Registration error at startup. Invalid…"
       ]
     },
     {

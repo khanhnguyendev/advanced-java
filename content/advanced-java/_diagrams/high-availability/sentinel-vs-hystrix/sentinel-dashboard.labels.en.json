@@ -2,7 +2,7 @@
   "meta": {
     "locale": "en",
     "status": "machine",
-    "from": "e6c22ee772cdf4e445431994fd9e48fb9637f00d872c331c1486942a90c2d005",
+    "from": "4907c763c63a365938d5e10aaac1d7a038e85aa1f0d7ef74d5a5a7e5f613ed33",
     "source_lang": "zh"
   },
   "labels": {
@@ -93,10 +93,6 @@
     "t84": "65.0",
     "t85": "0.0",
     "t86": "0.0",
-    "t87": "13:48:14",
-    "t88": "60.0",
-    "t89": "0.0",
-    "t90": "0.0",
     "wm": "阿里巴巴中间件",
     "_title": "Sentinel dashboard: real-time monitoring page with QPS line charts and tables for two resources",
     "_desc": "Screenshot of the Sentinel dashboard: a left navigation sidebar and a real-time monitoring page that shows p_qps and b_qps line charts and per-second data tables for the resources /resource/machineResource.json and /flow/rules.json; a hover tooltip reads p_qps 60 and b_qps 9 at 2018-07-24 13:46:24."

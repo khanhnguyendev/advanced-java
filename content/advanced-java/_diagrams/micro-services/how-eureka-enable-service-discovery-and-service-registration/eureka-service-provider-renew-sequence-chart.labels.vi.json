@@ -2,7 +2,7 @@
   "meta": {
     "locale": "vi",
     "status": "machine",
-    "from": "fa59e4f93c142fe5deb5c68310bedadbf98e03f7886a76b492f3e8b4f00354b5"
+    "from": "b8766b7b8378c781045f8d9e1b132a07f879d8fb89bec7a0439fea82642c7fe8"
   },
   "labels": {
     "p1": "DiscoveryClient.HeartbeatThread",
@@ -18,7 +18,7 @@
     "m3": "sendHeartBeat",
     "ttl": "Sơ đồ tuần tự gia hạn dịch vụ (Renew) của bên cung cấp dịch vụ Eureka",
     "blank": "",
-    "_title": "Sơ đồ tuần tự gia hạn dịch vụ của bên cung cấp dịch vụ Eureka",
+    "_title": "Sơ đồ tuần tự gia hạn dịch vụ (Renew) của bên cung cấp dịch vụ Eureka",
     "_desc": "Sơ đồ tuần tự: DiscoveryClient.HeartbeatThread gọi run trên DiscoveryClient, rồi gọi sendHeartBeat trên EurekaHttpClientDecorator, sau đó gọi sendHeartBeat trên AbstractJerseyEurekaHttpClient."
   }
 }

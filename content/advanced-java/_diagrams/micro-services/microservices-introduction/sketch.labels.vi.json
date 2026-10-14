@@ -2,13 +2,18 @@
   "meta": {
     "locale": "vi",
     "status": "machine",
-    "from": "5d846060f5dd7113dd38cb9355373767bb5adba131d3feaddad50bed50b68768",
+    "from": "4cd44c6d6044c3dc4874e7c468128fa8d433d3428d0ec8ef639d03563429e113",
     "source_lang": "en"
   },
   "labels": {
     "_title": "Một tiến trình duy nhất so với các dịch vụ riêng biệt và cách mở rộng của từng kiểu",
     "_desc": "Bên trái: ứng dụng nguyên khối chứa năm mô-đun trong một tiến trình duy nhất, rồi được nhân bản thành cùng tiến trình đó trên bốn máy chủ. Bên phải: các mô-đun đó là các dịch vụ riêng biệt, rồi được phân bố trên bốn máy chủ, một số dịch vụ được nhân bản.",
     "blank": "",
+    "mod_a": "A",
+    "mod_b": "B",
+    "mod_c": "C",
+    "mod_d": "D",
+    "mod_e": "E",
     "c1": "Ứng dụng nguyên khối đặt toàn bộ\nchức năng vào một tiến trình\nduy nhất...",
     "c2": "... và mở rộng bằng cách nhân bản\nhệ thống nguyên khối trên\nnhiều máy chủ",
     "c3": "Kiến trúc microservices đặt từng\nthành phần chức năng vào một\ndịch vụ riêng biệt...",

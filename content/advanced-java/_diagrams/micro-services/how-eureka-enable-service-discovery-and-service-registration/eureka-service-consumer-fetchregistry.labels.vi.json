@@ -2,7 +2,7 @@
   "meta": {
     "locale": "vi",
     "status": "machine",
-    "from": "d11b49d142977520ce436b3be552ebfab70cefdcf814ff8d4ce2aacab144d316"
+    "from": "2f5cc3754e17b6b21b26ed61adc45488ec771123036888f2ad7da75bdddb7cb4"
   },
   "labels": {
     "blank": "",
@@ -38,14 +38,14 @@
     "c30": "if (clientConfig.shouldFetchRegistry() && !fetchRegistry(false)) {",
     "c31": "    fetchRegistryFromBackup();",
     "c32": "}",
-    "c33": "// call and execute the pre registration handler before all background tasks (inc registration) is started",
+    "c33": "// call and execute the pre registration handler before all background tasks (inc r…",
     "c34": "if (this.preRegistrationHandler != null) {",
     "c35": "    this.preRegistrationHandler.beforeRegistration();",
     "c36": "}",
-    "c37": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {",
+    "c37": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrati…",
     "c38": "    try {",
     "c39": "        if (!register() ) {",
-    "c40": "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");",
+    "c40": "            throw new IllegalStateException(\"Registration error at startup. Invalid…",
     "c41": "        }",
     "c42": "    } catch (Throwable th) {",
     "c43": "        logger.error(\"Registration error at startup: {}\", th.getMessage());",

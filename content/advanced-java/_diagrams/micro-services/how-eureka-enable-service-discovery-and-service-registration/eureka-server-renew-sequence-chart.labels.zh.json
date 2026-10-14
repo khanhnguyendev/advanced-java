@@ -14,7 +14,7 @@
     "m4": "replicateToPeers",
     "m5": "replicationClient.register",
     "note1": "[InstanceReplicationTask\n后台定时调用]",
-    "_title": "Eureka 服务续约时序图",
+    "_title": "Eureka 服务续约（Renew）时序图",
     "_desc": "已注册服务向 InstanceResource 发送续约请求，InstanceResource 调用 PeerAwareInstanceRegistryImpl 的 renew，其内部依次调用 super.register 与 replicateToPeers，并由后台任务通过 replicationClient.register 复制到 PeerEurekaNode。",
     "reg_t": "已注册服务",
     "reg_b": "已注册服务",

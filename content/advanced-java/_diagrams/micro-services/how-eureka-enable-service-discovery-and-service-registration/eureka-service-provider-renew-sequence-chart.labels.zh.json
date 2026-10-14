@@ -18,7 +18,7 @@
     "m3": "sendHeartBeat",
     "ttl": "Eureka 服务提供者服务续约（Renew）时序图",
     "blank": "",
-    "_title": "Eureka 服务提供者服务续约时序图",
+    "_title": "Eureka 服务提供者服务续约（Renew）时序图",
     "_desc": "时序图：DiscoveryClient.HeartbeatThread 调用 DiscoveryClient 的 run，DiscoveryClient 调用 EurekaHttpClientDecorator 的 sendHeartBeat，再调用 AbstractJerseyEurekaHttpClient 的 sendHeartBeat。"
   }
 }

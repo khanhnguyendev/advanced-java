@@ -461,6 +461,41 @@
   },
   "labels": [
     {
+      "zh": "A",
+      "en": "A",
+      "vi": "A",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
+      "zh": "B",
+      "en": "B",
+      "vi": "B",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
+      "zh": "C",
+      "en": "C",
+      "vi": "C",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
+      "zh": "D",
+      "en": "D",
+      "vi": "D",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
+      "zh": "E",
+      "en": "E",
+      "vi": "E",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
       "zh": "                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {",
       "en": "                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {",
       "vi": "                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {",
@@ -495,9 +530,9 @@
       "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
     },
     {
-      "zh": "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");",
-      "en": "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");",
-      "vi": "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");",
+      "zh": "            throw new IllegalStateException(\"Registration error at startup. Invalid…",
+      "en": "            throw new IllegalStateException(\"Registration error at startup. Invalid…",
+      "vi": "            throw new IllegalStateException(\"Registration error at startup. Invalid…",
       "ref": "en",
       "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
     },
@@ -883,9 +918,9 @@
       "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
     },
     {
-      "zh": "// call and execute the pre registration handler before all background tasks (inc registration) is started",
-      "en": "// call and execute the pre registration handler before all background tasks (inc registration) is started",
-      "vi": "// call and execute the pre registration handler before all background tasks (inc registration) is started",
+      "zh": "// call and execute the pre registration handler before all background tasks (inc r…",
+      "en": "// call and execute the pre registration handler before all background tasks (inc r…",
+      "vi": "// call and execute the pre registration handler before all background tasks (inc r…",
       "ref": "en",
       "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
     },
@@ -3079,9 +3114,9 @@
       "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
     },
     {
-      "zh": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {",
-      "en": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {",
-      "vi": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {",
+      "zh": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrati…",
+      "en": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrati…",
+      "vi": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrati…",
       "ref": "en",
       "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
     },

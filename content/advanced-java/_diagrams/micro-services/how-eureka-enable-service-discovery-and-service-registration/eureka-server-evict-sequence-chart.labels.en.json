@@ -25,7 +25,7 @@
     "m6": "cancel",
     "title": "Eureka service eviction (Eviction) sequence diagram",
     "guard": "[evictionTimer called periodically\nin the background]",
-    "_title": "Eureka service eviction sequence diagram",
+    "_title": "Eureka service eviction (Eviction) sequence diagram",
     "_desc": "EurekaBootStrap calls openForTraffic on PeerAwareInstanceRegistryImpl, which runs super.postInit in AbstractInstanceRegistry; EvictionTask run, triggered by evictionTimer, calls evict and internalCancel, and in a loop calls cancel on Lease."
   }
 }
