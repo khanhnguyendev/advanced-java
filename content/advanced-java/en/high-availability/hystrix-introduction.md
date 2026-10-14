@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-introduction
-  hash: 'sha256:v1:8265377e5efd6294d8f8f0b69af53d3e0b2e330ab324d056f91782b3833bb685'
+  hash: 'sha256:v1:d2e6caa43367c503ef00c3deee6a2a2615ca432b6e07c792951cf634fe7adc9e'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -44,7 +44,7 @@ Suppose there is a distributed system in which service A depends on service B, a
 
 A call to service C takes only 20ms. Now service C fails, for example through latency or by going down, and the threads hang for about 2s. All 40 threads get stuck, and since requests keep pouring in, other threads are also used to call service C and likewise get stuck. As a result, service B's thread resources are exhausted and it cannot accept new requests, and it may even crash from a large number of threads running constantly. This impact is bound to spread to service A, causing service A to go down as well.
 
-![service-invoke-road](asset:high-availability/hystrix-introduction/service-invoke-road.png)
+![service-invoke-road](diagram:high-availability/hystrix-introduction/service-invoke-road)
 
 Hystrix can apply resource isolation here, for example by limiting service B to 40 threads for calling service C. When those 40 threads hang, the other 60 threads can still call and work normally, which ensures the whole system is not dragged down.
 

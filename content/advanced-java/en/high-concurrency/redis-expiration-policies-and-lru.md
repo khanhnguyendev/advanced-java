@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-expiration-policies-and-lru
-  hash: 'sha256:v1:f9d62a2aa5f83c7a0b903cc7d5aff696f7969e118e6e1e689f267cab0d9c49ba'
+  hash: 'sha256:v1:59363b25187396fcdf23f0d32f20720cdfe1fd2ef26375f812de9db904770e01'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -67,13 +67,13 @@ So how is it implemented?
 
 In fact, the idea is very simple, as described in the figure below.
 
-![](asset:high-concurrency/redis-expiration-policies-and-lru/lru.png)
+![](diagram:high-concurrency/redis-expiration-policies-and-lru/lru)
 
 You could write the most primitive LRU algorithm by hand on the spot, but the amount of code is too large, which seems unrealistic.
 
 You are not required to build your own LRU from scratch, but at the very least you should know how to implement a Java LRU using the existing JDK data structures.
 
-![](asset:high-concurrency/redis-expiration-policies-and-lru/lru-cache.png)
+![](diagram:high-concurrency/redis-expiration-policies-and-lru/lru-cache)
 
 ```java
 public class LRUCache<K, V> extends LinkedHashMap<K, V> {

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: es-introduction
-  hash: 'sha256:v1:62194d793abe900885c01cd6364a0f91b335a65dfa07764307531a49ada9e6d2'
+  hash: 'sha256:v1:13a547bbb56ac21eb4d9c44c38f1fe155b992390080f15788cb684f65010bf3c'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -67,7 +67,7 @@ Bất kỳ server nào cũng có thể gặp sự cố hoặc sập bất cứ l
 
 Nói thế này nhé, shard chia thành primary shard và replica shard. Còn primary shard thường được gọi tắt là shard, replica shard thường được gọi tắt là replica.
 
-![es-cluster-0](asset:high-concurrency/es-introduction/es-cluster-0.png)
+![es-cluster-0](diagram:high-concurrency/es-introduction/es-cluster-0)
 
 ## Khái niệm cốt lõi của ES so với khái niệm cốt lõi của DB
 

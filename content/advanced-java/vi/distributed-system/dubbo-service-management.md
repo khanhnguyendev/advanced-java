@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: dubbo-service-management
-  hash: 'sha256:v1:dc54de255dd785769aa3598fdb67176f25e44e482ee89adefbf27d7fec5d2e91'
+  hash: 'sha256:v1:b4ab9a80ecfc2407c23b6dbff678cd47ace0de3dc758f83381902b7fd7d5193d'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -32,7 +32,7 @@ Một hệ thống phân tán lớn, hay nói theo kiến trúc microservices đ
 
 Vậy thì trong hệ thống phân tán xây dựng dựa trên Dubbo, cần tự động ghi lại các lời gọi giữa các dịch vụ, sau đó tự động **sinh ra quan hệ phụ thuộc và chuỗi gọi giữa các dịch vụ**, làm thành một sơ đồ rồi hiển thị ra, mọi người mới nhìn thấy được, đúng không.
 
-![dubbo-service-invoke-road](asset:distributed-system/dubbo-service-management/dubbo-service-invoke-road.png)
+![dubbo-service-invoke-road](diagram:distributed-system/dubbo-service-management/dubbo-service-invoke-road)
 
 #### 2. Thống kê áp lực truy cập và thời gian xử lý của dịch vụ
 

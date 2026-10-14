@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: es-architecture
-  hash: 'sha256:v1:ee7a27bab9d79039957f0c02b32a674229d076132a000ebae998fae2a2a6fbb2'
+  hash: 'sha256:v1:787677daa237401687df251e2bd33d753566deb2854438ad782a3ca73a03f9a5'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -40,13 +40,13 @@ Vì vậy trong index đơn hàng sẽ tạo hai type, một là type đơn hàn
 
 Trong nhiều trường hợp, một index có thể chỉ có một type, nhưng đúng là nếu một index có nhiều type (**lưu ý**, khái niệm `mapping types` đã bị loại bỏ hoàn toàn trong ElasticSearch 7. X, chi tiết có thể tham khảo [tài liệu chính thức](https://github.com/elastic/elasticsearch/blob/6.5/docs/reference/mapping/removal_of_types.asciidoc)), bạn có thể coi index là bảng của một loại, mỗi type cụ thể đại diện cho một bảng trong mysql. Mỗi type có một mapping, nếu bạn coi một type là một bảng cụ thể, thì index đại diện cho một loại mà nhiều type cùng thuộc về, còn mapping là **định nghĩa cấu trúc bảng** của type này, bạn tạo một bảng trong mysql thì chắc chắn phải định nghĩa cấu trúc bảng, bên trong có những field nào, mỗi field kiểu gì. Thực tế một bản ghi dữ liệu bạn ghi vào một type trong index gọi là một document, một document đại diện cho một dòng trong một bảng nào đó của mysql, mỗi document có nhiều field, mỗi field đại diện cho giá trị của một trường trong document này.
 
-![es-index-type-mapping-document-field](asset:high-concurrency/es-architecture/es-index-type-mapping-document-field.png)
+![es-index-type-mapping-document-field](diagram:high-concurrency/es-architecture/es-index-type-mapping-document-field)
 
 Bạn tạo một chỉ mục, chỉ mục này có thể chia thành nhiều `shard`, mỗi shard lưu một phần dữ liệu. Chia thành nhiều shard có lợi ích, thứ nhất là **hỗ trợ mở rộng theo chiều ngang**, ví dụ lượng dữ liệu của bạn là 3T, 3 shard, mỗi shard chỉ có 1T dữ liệu, nếu bây giờ lượng dữ liệu tăng lên 4T, mở rộng thế nào, rất đơn giản, tạo lại một chỉ mục có 4 shard, nạp dữ liệu vào; thứ hai là **nâng cao hiệu năng**, dữ liệu phân bố trên nhiều shard, tức là nhiều server, mọi thao tác đều được thực thi song song, phân tán trên nhiều máy, nâng cao thông lượng và hiệu năng.
 
 Tiếp theo là dữ liệu của shard này thực tế có nhiều bản sao lưu, tức là mỗi shard đều có một `primary shard`, chịu trách nhiệm ghi dữ liệu, nhưng còn có vài `replica shard`. Sau khi `primary shard` ghi dữ liệu, sẽ đồng bộ dữ liệu sang vài `replica shard` khác.
 
-![es-cluster](asset:high-concurrency/es-architecture/es-cluster.png)
+![es-cluster](diagram:high-concurrency/es-architecture/es-cluster)
 
 Thông qua phương án replica này, dữ liệu của mỗi shard đều có nhiều bản sao lưu, nếu một máy nào đó sập, không sao, vẫn còn các bản sao dữ liệu khác trên các máy khác. Đạt tính sẵn sàng cao rồi chứ.
 

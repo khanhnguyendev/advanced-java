@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: database-shard-method
-  hash: 'sha256:v1:591e3bd452301aed0cf7d096b8422a220fb048dfeb7bbc22298afc2677565005'
+  hash: 'sha256:v1:27eafefb7e592f0e06afb623564b3bdffc96a0446eb4a84c4bb85c564eb1c796'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -34,7 +34,7 @@ Kiểm tra một chút, ok, hoàn hảo, mọi người vươn vai, ngắm cản
 
 Nhưng phương án này khá "low", ai cũng làm được, chúng ta xem phương án cao cấp hơn một chút.
 
-![database-shard-method-1](asset:high-concurrency/database-shard-method/database-shard-method-1.png)
+![database-shard-method-1](diagram:high-concurrency/database-shard-method/database-shard-method-1)
 
 ### Phương án di chuyển ghi kép
 
@@ -48,4 +48,4 @@ Sau khi nhập xong một vòng, có thể dữ liệu vẫn còn bất nhất, 
 
 Tiếp đó khi dữ liệu đã hoàn toàn nhất quán thì ok, dựa vào mã mới nhất chỉ dùng sharding, triển khai lại một lần, chẳng phải là chỉ thao tác trên sharding rồi sao, mà còn không có thời gian ngừng hệ thống mấy tiếng, rất ổn. Vì vậy hiện nay về cơ bản làm di chuyển dữ liệu đều làm như vậy.
 
-![database-shard-method-2](asset:high-concurrency/database-shard-method/database-shard-method-2.png)
+![database-shard-method-2](diagram:high-concurrency/database-shard-method/database-shard-method-2)

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: how-to-ensure-the-reliable-transmission-of-messages
-  hash: 'sha256:v1:5e2b989adad2c98bc3867b227834ac0baf518cb82e299bfae083cbb87a858767'
+  hash: 'sha256:v1:176a406be2b09f12c1c4576a68a967e5b9e3c5b675c86f84596d8ac881234eac'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -24,7 +24,7 @@ Vấn đề mất dữ liệu có thể xuất hiện ở producer, MQ và consu
 
 ### RabbitMQ
 
-![rabbitmq-message-lose](asset:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose.png)
+![rabbitmq-message-lose](diagram:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose)
 
 #### Producer làm mất dữ liệu
 
@@ -145,7 +145,7 @@ Lúc này phải dùng cơ chế `ack` do RabbitMQ cung cấp, nói đơn giản
 
 > Để đảm bảo thông điệp đến consumer một cách đáng tin cậy từ hàng đợi, RabbitMQ cung cấp cơ chế xác nhận thông điệp. Khi khai báo hàng đợi, consumer có thể chỉ định tham số noAck, khi noAck=false, RabbitMQ sẽ chờ consumer gửi lại tín hiệu ack một cách tường minh, rồi mới xóa thông điệp khỏi bộ nhớ (và đĩa, nếu là thông điệp bền vững). Ngược lại, một khi thông điệp được consumer tiêu thụ, RabbitMQ sẽ xóa nó khỏi hàng đợi ngay lập tức.
 
-![rabbitmq-message-lose-solution](asset:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution.png)
+![rabbitmq-message-lose-solution](diagram:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution)
 
 ### Kafka
 

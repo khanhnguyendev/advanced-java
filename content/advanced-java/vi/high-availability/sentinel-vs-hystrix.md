@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: sentinel-vs-hystrix
-  hash: 'sha256:v1:e288aa8bb5a5a5d6bbbed888c174ac7640980370783d40fed40c4d4ece0f5e78'
+  hash: 'sha256:v1:9843111b7307a38009737c0290d5d43f68730bc350c8940e509119a5045f4ff1'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -84,7 +84,7 @@ Sentinel hỗ trợ nhiều chiến lược định hình lưu lượng, khi QPS
     ![Slow-Start-Preheating-Mode](asset:high-availability/sentinel-vs-hystrix/Slow-Start-Preheating-Mode.jpg)
 
 -   **Chế độ đều đặn**: chế độ đều đặn hiện thực bằng thuật toán Leaky Bucket, kiểm soát nghiêm ngặt khoảng thời gian giữa các yêu cầu đi qua, đồng thời các yêu cầu tồn đọng sẽ xếp hàng, yêu cầu vượt quá thời gian chờ sẽ bị từ chối ngay. Sentinel còn hỗ trợ giới hạn lưu lượng (rate limiting) dựa trên quan hệ gọi, gồm giới hạn theo bên gọi, giới hạn theo điểm vào chuỗi gọi, giới hạn lưu lượng liên kết, ... Nhờ thông tin thống kê chuỗi gọi mạnh mẽ của Sentinel, có thể cung cấp giới hạn lưu lượng chính xác ở các chiều khác nhau.
-    ![Homogenizer-mode](asset:high-availability/sentinel-vs-hystrix/Homogenizer-mode.jpg)
+    ![Homogenizer-mode](diagram:high-availability/sentinel-vs-hystrix/homogenizer-mode)
 
 Hiện tại Sentinel hỗ trợ chuỗi gọi bất đồng bộ chưa tốt lắm, các phiên bản sau sẽ tập trung cải thiện việc hỗ trợ lời gọi bất đồng bộ.
 

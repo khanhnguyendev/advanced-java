@@ -16,7 +16,7 @@
 
 这就是缓存雪崩。
 
-![redis-caching-avalanche](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche.png)
+![redis-caching-avalanche](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche)
 
 大约在 3 年前，国内比较知名的一个互联网公司，曾因为缓存事故，导致雪崩，后台系统全部崩溃，事故从当天下午持续到晚上凌晨 3~4 点，公司损失了几千万。
 
@@ -26,7 +26,7 @@
 -   事中：本地 ehcache 缓存 + hystrix 限流&降级，避免 MySQL 被打死。
 -   事后：Redis 持久化，一旦重启，自动从磁盘上加载数据，快速恢复缓存数据。
 
-![redis-caching-avalanche-solution](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution.png)
+![redis-caching-avalanche-solution](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution)
 
 用户发送一个请求，系统 A 收到请求后，先查本地 ehcache 缓存，如果没查到再查 Redis。如果 ehcache 和 Redis 都没有，再查数据库，将数据库中的结果，写入 ehcache 和 Redis 中。
 
@@ -46,7 +46,7 @@
 
 举个栗子。数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“**视缓存于无物**”，直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。
 
-![redis-caching-penetration](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration.png)
+![redis-caching-penetration](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration)
 
 解决方式很简单，每次系统 A 从数据库中只要没查到，就写一个空值到缓存里去，比如 `set -999 UNKNOWN` 。然后设置一个过期时间，这样的话，下次有相同的 key 来访问的时候，在缓存失效之前，都可以直接从缓存中取数据。
 
@@ -57,7 +57,7 @@
 
 使用布隆过滤器能够对访问的请求起到了一定的初筛作用，避免了因数据不存在引起的查询压力。
 
-![redis-caching-avoid-penetration](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration.png)
+![redis-caching-avoid-penetration](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration)
 
 ### 缓存击穿(Hotspot Invalid)
 

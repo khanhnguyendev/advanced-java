@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-semphore-isolation
-  hash: 'sha256:v1:e9646249d0c55c17641513770ba57292d5068eeaeab129530023509b6698359a'
+  hash: 'sha256:v1:97c7d7ffc9706a518ad43c5009eb6d3994a9edf1c3868a4a471ad6bc8ccf4199'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -23,7 +23,7 @@ The thread pool technique has been covered earlier. This section covers resource
 
 Semaphore-based resource isolation merely acts as a switch. For example, if the semaphore size of service A is 10, it allows only 10 tomcat threads to access service A at the same time, and all other requests are rejected, which achieves resource isolation and rate limiting protection.
 
-![hystrix-semphore](asset:high-availability/hystrix-semphore-isolation/hystrix-semphore.png)
+![hystrix-semphore](diagram:high-availability/hystrix-semphore-isolation/hystrix-semphore)
 
 ## Differences between thread pool and semaphore
 
@@ -31,7 +31,7 @@ Thread pool isolation does not control the threads of a web container such as to
 
 With thread pool isolation, Hystrix's own threads execute the call; with semaphore isolation, the tomcat thread calls the dependency service directly. Semaphore isolation is just a checkpoint: as many tomcat threads as there are semaphore permits are allowed through it to execute.
 
-![hystrix-semphore-thread-pool](asset:high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool.png)
+![hystrix-semphore-thread-pool](diagram:high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool)
 
 **Use cases**:
 

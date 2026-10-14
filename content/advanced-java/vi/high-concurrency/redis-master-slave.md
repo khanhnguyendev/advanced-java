@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-master-slave
-  hash: 'sha256:v1:6f8efdf3fcb4f9e94b9e14246a636789e8b62e089d8c1473ba37b1adfd80c0bc'
+  hash: 'sha256:v1:b348d8784c43a3f6713987b0d2b440935b671e9522740a41de2b376b076204cc'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -10,7 +10,7 @@ translatedAt: '2026-10-14'
 
 Redis trên một máy có thể chịu QPS vào khoảng từ hơn chục nghìn đến vài chục nghìn. Đối với bộ nhớ đệm (cache), thường dùng để chịu **tải đọc đồng thời cao (high concurrency)**. Vì vậy kiến trúc được làm thành kiến trúc master/replica (master-slave), một master nhiều replica: master phụ trách ghi và sao chép dữ liệu sang các node slave khác, các node replica phụ trách đọc. **Tất cả request đọc đều đi qua node replica**. Như vậy cũng có thể dễ dàng mở rộng ngang, **chịu tải đọc đồng thời cao**.
 
-![Redis-master-slave](asset:high-concurrency/redis-master-slave/redis-master-slave.png)
+![Redis-master-slave](diagram:high-concurrency/redis-master-slave/redis-master-slave)
 
 Redis replication -> kiến trúc master/replica -> tách đọc/ghi -> mở rộng ngang để chịu tải đọc đồng thời cao
 
@@ -33,7 +33,7 @@ Khi khởi động một slave node, nó sẽ gửi một lệnh `PSYNC` đến 
 
 Nếu đây là lần đầu slave node kết nối tới master node thì sẽ kích hoạt một lần sao chép toàn bộ `full resynchronization` . Lúc này master sẽ khởi động một luồng nền, bắt đầu tạo một tệp snapshot `RDB` , đồng thời còn lưu đệm trong bộ nhớ tất cả các lệnh ghi mới nhận được từ client. Sau khi tệp `RDB` được tạo xong, master sẽ gửi `RDB` này cho slave, slave sẽ **ghi vào đĩa cục bộ trước, rồi mới nạp từ đĩa cục bộ vào bộ nhớ**, tiếp đó master sẽ gửi các lệnh ghi được lưu đệm trong bộ nhớ cho slave, slave cũng sẽ đồng bộ những dữ liệu này. Nếu slave node bị sự cố mạng với master node, bị ngắt kết nối thì sẽ tự động kết nối lại, sau khi kết nối, master node chỉ sao chép cho slave phần dữ liệu còn thiếu.
 
-![Redis-master-slave-replication](asset:high-concurrency/redis-master-slave/redis-master-slave-replication.png)
+![Redis-master-slave-replication](diagram:high-concurrency/redis-master-slave/redis-master-slave-replication)
 
 ### Tiếp tục sao chép từ điểm dừng trong sao chép master/replica
 
@@ -64,7 +64,7 @@ Khi slave node khởi động, nó sẽ lưu thông tin của master node ở c�
 
 Bên trong slave node có một tác vụ định kỳ, mỗi giây kiểm tra xem có master node mới cần kết nối và sao chép hay không, nếu phát hiện thì thiết lập kết nối mạng socket với master node. Sau đó slave node gửi lệnh `ping` cho master node. Nếu master có đặt requirepass thì slave node phải gửi mật khẩu masterauth sang để xác thực. Master node **thực hiện sao chép toàn bộ lần đầu**, gửi tất cả dữ liệu cho slave node. Còn sau đó, master node liên tục sao chép các lệnh ghi cho slave node một cách bất đồng bộ.
 
-![Redis-master-slave-replication-detail](asset:high-concurrency/redis-master-slave/redis-master-slave-replication-detail.png)
+![Redis-master-slave-replication-detail](diagram:high-concurrency/redis-master-slave/redis-master-slave-replication-detail)
 
 ### Sao chép toàn bộ
 

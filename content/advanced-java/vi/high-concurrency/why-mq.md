@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: why-mq
-  hash: 'sha256:v1:d85800610bd5ac920111f2abc85b5b837999503953882cadb78dd816c7b9e240'
+  hash: 'sha256:v1:e7976ce939a3e03b6b8a6ae45bfe8910622c15d82ac2f4ebcdbd5c9eb6d85a0c'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -48,13 +48,13 @@ Trước hết hãy nói về các tình huống sử dụng phổ biến của 
 
 Hãy xem tình huống này. Hệ thống A gửi dữ liệu đến ba hệ thống B, C, D, thông qua việc gọi API. Nếu hệ thống E cũng cần dữ liệu này thì sao? Nếu bây giờ hệ thống D không cần nữa thì sao? Người phụ trách hệ thống A gần như sụp đổ......
 
-![mq-1](asset:high-concurrency/why-mq/mq-1.png)
+![mq-1](diagram:high-concurrency/why-mq/mq-1)
 
 Trong tình huống này, hệ thống A bị ràng buộc chặt chẽ với đủ loại hệ thống khác, hệ thống A tạo ra một dữ liệu khá quan trọng, rất nhiều hệ thống cần hệ thống A gửi dữ liệu này đến. Hệ thống A phải luôn luôn cân nhắc nếu bốn hệ thống B, C, D, E bị sập thì phải làm sao? Có cần gửi lại không, có cần lưu thông điệp lại không? Tóc bạc cả đầu!
 
 Nếu dùng MQ, hệ thống A tạo ra một dữ liệu, gửi vào MQ, hệ thống nào cần dữ liệu thì tự vào MQ tiêu thụ. Nếu hệ thống mới cần dữ liệu, chỉ cần tiêu thụ trực tiếp từ MQ; nếu một hệ thống nào đó không cần dữ liệu này nữa, thì chỉ cần hủy việc tiêu thụ thông điệp từ MQ. Như vậy, hệ thống A hoàn toàn không cần cân nhắc phải gửi dữ liệu cho ai, không cần duy trì đoạn code này, cũng không cần cân nhắc việc người ta gọi thành công hay thất bại, hết thời gian chờ.
 
-![mq-2](asset:high-concurrency/why-mq/mq-2.png)
+![mq-2](diagram:high-concurrency/why-mq/mq-2)
 
 **Tóm lại**: thông qua một MQ, với mô hình thông điệp publish/subscribe (pub/sub), hệ thống A được tách rời hoàn toàn khỏi các hệ thống khác.
 
@@ -64,13 +64,13 @@ Nếu dùng MQ, hệ thống A tạo ra một dữ liệu, gửi vào MQ, hệ t
 
 Hãy xem thêm một tình huống nữa. Hệ thống A nhận một yêu cầu, cần ghi vào cơ sở dữ liệu cục bộ của mình, và còn cần ghi vào cơ sở dữ liệu của ba hệ thống B, C, D; ghi cơ sở dữ liệu cục bộ mất 3ms, ba hệ thống B, C, D ghi cơ sở dữ liệu lần lượt mất 300ms, 450ms, 200ms. Tổng độ trễ của yêu cầu cuối cùng là 3 + 300 + 450 + 200 = 953ms, gần 1s, người dùng cảm thấy sao mà chậm quá, chậm chết đi được. Người dùng gửi yêu cầu qua trình duyệt, phải chờ 1s, điều này gần như không thể chấp nhận được.
 
-![mq-3](asset:high-concurrency/why-mq/mq-3.png)
+![mq-3](diagram:high-concurrency/why-mq/mq-3)
 
 Thông thường các doanh nghiệp internet, đối với thao tác trực tiếp của người dùng, yêu cầu là mỗi yêu cầu đều phải hoàn thành trong vòng 200 ms, để người dùng gần như không cảm nhận được.
 
 Nếu **dùng MQ**, thì hệ thống A gửi liên tiếp 3 thông điệp vào hàng đợi MQ, giả sử mất 5ms, thì tổng thời gian từ lúc hệ thống A nhận một yêu cầu đến lúc trả về phản hồi cho người dùng là 3 + 5 = 8ms, đối với người dùng, cảm giác chỉ là bấm một nút, 8ms sau là trả về ngay, thích quá! Website làm thật tốt, thật nhanh!
 
-![mq-4](asset:high-concurrency/why-mq/mq-4.png)
+![mq-4](diagram:high-concurrency/why-mq/mq-4)
 
 #### San phẳng đỉnh tải
 
@@ -80,11 +80,11 @@ MySQL thông thường chịu được khoảng 2 nghìn yêu cầu mỗi giây 
 
 Nhưng khi giờ cao điểm qua đi, đến buổi chiều thì thành giờ thấp điểm, có thể chỉ có mười nghìn người dùng cùng thao tác trên website, số yêu cầu mỗi giây có thể chỉ khoảng 50 yêu cầu, gần như không gây áp lực gì cho toàn bộ hệ thống.
 
-![mq-5](asset:high-concurrency/why-mq/mq-5.png)
+![mq-5](diagram:high-concurrency/why-mq/mq-5)
 
 Nếu dùng MQ, mỗi giây 5 nghìn yêu cầu được ghi vào MQ, hệ thống A mỗi giây xử lý tối đa 2 nghìn yêu cầu, vì MySQL mỗi giây xử lý tối đa 2 nghìn. Hệ thống A kéo yêu cầu từ MQ một cách chậm rãi, mỗi giây kéo 2 nghìn yêu cầu, không vượt quá số yêu cầu tối đa mà mình có thể xử lý mỗi giây là ổn, như vậy, dù là giờ cao điểm, hệ thống A cũng tuyệt đối không bị sập. Còn MQ mỗi giây có 5 nghìn yêu cầu đi vào, chỉ có 2 nghìn yêu cầu đi ra, kết quả là vào giờ cao điểm buổi trưa (1 giờ), có thể có vài trăm nghìn thậm chí vài triệu yêu cầu tồn đọng trong MQ.
 
-![mq-6](asset:high-concurrency/why-mq/mq-6.png)
+![mq-6](diagram:high-concurrency/why-mq/mq-6)
 
 Việc tồn đọng trong thời gian cao điểm ngắn ngủi này là ổn, bởi vì sau khi giờ cao điểm qua đi, mỗi giây chỉ có 50 yêu cầu đi vào MQ, nhưng hệ thống A vẫn xử lý theo tốc độ 2 nghìn yêu cầu mỗi giây. Vì vậy, chỉ cần giờ cao điểm qua đi, hệ thống A sẽ nhanh chóng giải quyết hết các thông điệp tồn đọng.
 

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-thread-pool-current-limiting
-  hash: 'sha256:v1:1bc165702d27f14d79d9b44dc13452402c322fa98a477c034370c9806e8962c9'
+  hash: 'sha256:v1:5e79e0eef0346dc9ab2c8c1c90cee06d733c0e90e6795f6af4db4c562ce0ce64'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -10,7 +10,7 @@ translatedAt: '2026-10-14'
 
 Phần trước đã nói về bộ nhớ đệm yêu cầu (cache) request cache của Hystrix, suy giảm dịch vụ êm dịu (graceful degradation) fallback, và ngắt mạch nhanh (circuit breaking) của circuit breaker (bộ ngắt mạch); bài này chúng ta sẽ nói chi tiết về cô lập thread pool (nhóm luồng) và giới hạn lưu lượng (rate limiting) API của Hystrix.
 
-![hystrix-process](asset:high-availability/hystrix-thread-pool-current-limiting/hystrix-process.png)
+![hystrix-process](diagram:high-availability/hystrix-thread-pool-current-limiting/hystrix-process)
 
 Hystrix thông qua việc kiểm tra thread pool hoặc semaphore đã đầy hay chưa, các yêu cầu vượt quá dung lượng sẽ bị Reject và đi theo suy giảm dịch vụ, từ đó đạt được tác dụng giới hạn lưu lượng.
 

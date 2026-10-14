@@ -41,7 +41,7 @@ Redis 内部使用文件事件处理器 `file event handler` ，这个文件事�
 
 来看客户端与 Redis 的一次通信过程：
 
-![Redis-single-thread-model](asset:high-concurrency/redis-single-thread-model/redis-single-thread-model.png)
+![Redis-single-thread-model](diagram:high-concurrency/redis-single-thread-model/redis-single-thread-model)
 
 要明白，通信是通过 socket 来完成的，不懂的同学可以先去看一看 socket 网络编程。
 

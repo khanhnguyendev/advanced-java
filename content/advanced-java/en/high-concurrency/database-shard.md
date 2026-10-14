@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: database-shard
-  hash: 'sha256:v1:9c5c1de30ff89363123ec42f8049214c79979b372bf53dbe6fb0204ce8add38f'
+  hash: 'sha256:v1:2cd8f5357a47f8329a497b9f253d44c0e5b5153c12076f57ce4e0c38da0f52eb'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -100,11 +100,11 @@ Generally speaking, both solutions can be chosen, but my personal recommendation
 
 **Horizontal splitting** means putting the data of one table into multiple tables in multiple databases, where every database has the same table structure but each database table holds different data, and the data of all the database tables together is the full data. The point of horizontal splitting is to spread the data evenly over more databases, so that multiple databases carry higher concurrency, and also to scale capacity using the storage capacity of multiple databases.
 
-![database-split-horizon](asset:high-concurrency/database-shard/database-split-horizon.png)
+![database-split-horizon](diagram:high-concurrency/database-shard/database-split-horizon)
 
 **Vertical splitting** means **splitting a table with many fields into multiple tables**, **or onto multiple databases**. Each database table has a different structure, and each contains some of the fields. Generally, you **put the few fields that are accessed very frequently into one table**, and **put the many fields that are accessed rarely into another table**. Because databases have a cache, the fewer fields per row that are accessed frequently, the more rows can be cached, and the better the performance. This is generally done more at the table level.
 
-![database-split-vertically](asset:high-concurrency/database-shard/database-split-vertically.png)
+![database-split-vertically](diagram:high-concurrency/database-shard/database-split-vertically)
 
 This is actually quite common, and many of you may have done it yourselves: splitting a big table into an order table, an order payment table and an order product table.
 

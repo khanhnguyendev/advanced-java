@@ -59,7 +59,7 @@ Node 是集群中的一个节点，节点也有一个名称，默认是随机分
 
 这么说吧，shard 分为 primary shard 和 replica shard。而 primary shard 一般简称为 shard，而 replica shard 一般简称为 replica。
 
-![es-cluster-0](asset:high-concurrency/es-introduction/es-cluster-0.png)
+![es-cluster-0](diagram:high-concurrency/es-introduction/es-cluster-0)
 
 ## ES 核心概念 vs. DB 核心概念
 

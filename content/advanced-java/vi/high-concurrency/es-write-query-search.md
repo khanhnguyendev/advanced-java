@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: es-write-query-search
-  hash: 'sha256:v1:8308a0c5553e88aca4e9b5b46d3d45063894cf517da63effb75e6e6b46da3fe2'
+  hash: 'sha256:v1:96528d4f8432bd06657669082c49e1d78d53c2a45bb1e5b957f65fa8b4233736'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -27,7 +27,7 @@ Với es về cơ bản chỉ là một hộp đen, bạn còn làm được gì
 -   `primary shard` trên node thực tế xử lý yêu cầu, sau đó đồng bộ dữ liệu sang `replica node`.
 -   `coordinating node` nếu thấy `primary node` và tất cả `replica node` đều đã xong, thì trả về kết quả phản hồi cho client.
 
-![es-write](asset:high-concurrency/es-write-query-search/es-write.png)
+![es-write](diagram:high-concurrency/es-write-query-search/es-write)
 
 ### Quá trình es đọc dữ liệu
 
@@ -59,7 +59,7 @@ Bạn tìm kiếm theo từ khóa `java`, tìm ra các `document` chứa `java`.
 
 ### Nguyên lý bên dưới của việc ghi dữ liệu
 
-![es-write-detail](asset:high-concurrency/es-write-query-search/es-write-detail.png)
+![es-write-detail](diagram:high-concurrency/es-write-query-search/es-write-detail)
 
 Trước hết ghi vào buffer trong bộ nhớ, khi còn ở trong buffer thì dữ liệu không tìm kiếm được; đồng thời ghi dữ liệu vào tệp nhật ký translog.
 

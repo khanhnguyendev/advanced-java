@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: es-introduction
-  hash: 'sha256:v1:62194d793abe900885c01cd6364a0f91b335a65dfa07764307531a49ada9e6d2'
+  hash: 'sha256:v1:13a547bbb56ac21eb4d9c44c38f1fe155b992390080f15788cb684f65010bf3c'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -67,7 +67,7 @@ Any server may fail or crash at any time, and the shards on it may then be lost,
 
 Put another way, shards are divided into primary shards and replica shards. A primary shard is generally just called a shard, and a replica shard is generally just called a replica.
 
-![es-cluster-0](asset:high-concurrency/es-introduction/es-cluster-0.png)
+![es-cluster-0](diagram:high-concurrency/es-introduction/es-cluster-0)
 
 ## ES core concepts vs. DB core concepts
 

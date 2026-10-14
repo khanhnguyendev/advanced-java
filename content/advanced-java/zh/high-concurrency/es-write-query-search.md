@@ -19,7 +19,7 @@ ES 写入数据的工作原理是什么啊？ES 查询数据的工作原理是�
 -   实际的 node 上的 `primary shard` 处理请求，然后将数据同步到 `replica node` 。
 -   `coordinating node` 如果发现 `primary node` 和所有 `replica node` 都搞定之后，就返回响应结果给客户端。
 
-![es-write](asset:high-concurrency/es-write-query-search/es-write.png)
+![es-write](diagram:high-concurrency/es-write-query-search/es-write)
 
 ### es 读数据过程
 
@@ -51,7 +51,7 @@ j2ee特别牛
 
 ### 写数据底层原理
 
-![es-write-detail](asset:high-concurrency/es-write-query-search/es-write-detail.png)
+![es-write-detail](diagram:high-concurrency/es-write-query-search/es-write-detail)
 
 先写入内存 buffer，在 buffer 里的时候数据是搜索不到的；同时将数据写入 translog 日志文件。
 

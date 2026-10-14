@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: dubbo-serialization-protocol
-  hash: 'sha256:v1:13b508c4f37ff00beee59d422250cef2061fc4a5f6b2ac9c19f7e465c6e76366'
+  hash: 'sha256:v1:129b2acdd4a5831d5d3b48090e9b19df1850314c96f5a94790105d758ddd99f5'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -22,7 +22,7 @@ Tiếp theo có thể hỏi sâu vào tầng dưới, ví dụ bước đầu ti
 
 **Tuần tự hóa** là quá trình chuyển cấu trúc dữ liệu hoặc một số đối tượng thành chuỗi nhị phân, còn **giải tuần tự hóa** là quá trình chuyển chuỗi nhị phân được sinh ra trong quá trình tuần tự hóa trở lại thành cấu trúc dữ liệu hoặc đối tượng.
 
-![serialize-deserialize](asset:distributed-system/dubbo-serialization-protocol/serialize-deserialize.png)
+![serialize-deserialize](diagram:distributed-system/dubbo-serialization-protocol/serialize-deserialize)
 
 ### Dubbo hỗ trợ các giao thức giao tiếp khác nhau
 
@@ -34,11 +34,11 @@ Tiếp theo có thể hỏi sâu vào tầng dưới, ví dụ bước đầu ti
 
 Kết nối dài, nói cho dễ hiểu, là sau khi thiết lập kết nối thì có thể liên tục gửi yêu cầu, không cần thiết lập lại kết nối.
 
-![dubbo-keep-connection](asset:distributed-system/dubbo-serialization-protocol/dubbo-keep-connection.png)
+![dubbo-keep-connection](diagram:distributed-system/dubbo-serialization-protocol/dubbo-keep-connection)
 
 Còn kết nối ngắn thì mỗi lần trước khi gửi yêu cầu cần phải thiết lập lại một kết nối.
 
-![dubbo-not-keep-connection](asset:distributed-system/dubbo-serialization-protocol/dubbo-not-keep-connection.png)
+![dubbo-not-keep-connection](diagram:distributed-system/dubbo-serialization-protocol/dubbo-not-keep-connection)
 
 -   Giao thức rmi `rmi://`
 

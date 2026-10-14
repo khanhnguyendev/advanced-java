@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: dubbo-serialization-protocol
-  hash: 'sha256:v1:13b508c4f37ff00beee59d422250cef2061fc4a5f6b2ac9c19f7e465c6e76366'
+  hash: 'sha256:v1:129b2acdd4a5831d5d3b48090e9b19df1850314c96f5a94790105d758ddd99f5'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -22,7 +22,7 @@ After that the interviewer can dig into the lower level, for example starting wi
 
 **Serialization** is the process of converting a data structure or an object into a binary string, and **deserialization** is the process of converting the binary string generated during serialization back into a data structure or an object.
 
-![serialize-deserialize](asset:distributed-system/dubbo-serialization-protocol/serialize-deserialize.png)
+![serialize-deserialize](diagram:distributed-system/dubbo-serialization-protocol/serialize-deserialize)
 
 ### Dubbo supports different communication protocols
 
@@ -34,11 +34,11 @@ To support high-concurrency scenarios, there are usually only a few service prov
 
 A long connection, put simply, means that after the connection is established you can keep sending requests without establishing a connection again.
 
-![dubbo-keep-connection](asset:distributed-system/dubbo-serialization-protocol/dubbo-keep-connection.png)
+![dubbo-keep-connection](diagram:distributed-system/dubbo-serialization-protocol/dubbo-keep-connection)
 
 A short connection, on the other hand, has to be re-established every time before a request is sent.
 
-![dubbo-not-keep-connection](asset:distributed-system/dubbo-serialization-protocol/dubbo-not-keep-connection.png)
+![dubbo-not-keep-connection](diagram:distributed-system/dubbo-serialization-protocol/dubbo-not-keep-connection)
 
 -   rmi protocol `rmi://`
 

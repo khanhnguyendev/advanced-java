@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-execution-isolation
-  hash: 'sha256:v1:7b170988a8bc770bd89ef60309509766e695a98bb676727bd39b3e8ba1d23365'
+  hash: 'sha256:v1:528a5a92d133cac06cff126ca252f86aca4c21e8249efbd3cec86fa7e778b6a1'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -104,7 +104,7 @@ HystrixThreadPoolProperties.Setter().withCoreSize(int value);
 
 Nếu 10 luồng trong thread pool đều đang làm việc, không còn luồng rảnh để làm việc khác, thì lúc này khi có yêu cầu đến sẽ vào hàng đợi trước và tồn đọng. Nếu hàng đợi đã đầy, khi có yêu cầu đến nữa sẽ bị reject (từ chối) trực tiếp, thực thi logic suy giảm dịch vụ (fallback) và trả về nhanh.
 
-![hystrix-thread-pool-queue](asset:high-availability/hystrix-execution-isolation/hystrix-thread-pool-queue.png)
+![hystrix-thread-pool-queue](diagram:high-availability/hystrix-execution-isolation/hystrix-thread-pool-queue)
 
 Kiểm soát ngưỡng (threshold) reject sau khi queue đầy; vì maxQueueSize không cho phép sửa đổi nóng, nên cung cấp tham số này để có thể sửa đổi nóng, kiểm soát kích thước tối đa của hàng đợi.
 

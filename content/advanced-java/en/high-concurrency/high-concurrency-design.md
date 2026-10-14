@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: high-concurrency-design
-  hash: 'sha256:v1:edbc10e50587830b6242e3ee6baf1d6905008b4928c7aed01d7a2f5692240f14'
+  hash: 'sha256:v1:8f5cfc85ddced4276c05109a088625180ce8d48824b4b2d0af0fa239e857093b'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -49,7 +49,7 @@ It can be divided into the following 6 points:
 -   Read/write splitting
 -   Elasticsearch
 
-![high-concurrency-system-design](asset:high-concurrency/high-concurrency-design/high-concurrency-system-design.png)
+![high-concurrency-system-design](diagram:high-concurrency/high-concurrency-design/high-concurrency-system-design)
 
 ### System splitting
 

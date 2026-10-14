@@ -36,7 +36,7 @@ MQ、ES、Redis、Dubbo，上来先问你一些**思考性的问题**、**原理
 -   第三步：consumer 调用 provider
 -   第四步：consumer 和 provider 都异步通知监控中心
 
-![dubbo-operating-principle](asset:distributed-system/dubbo-operating-principle/dubbo-operating-principle.png)
+![dubbo-operating-principle](diagram:distributed-system/dubbo-operating-principle/dubbo-operating-principle)
 
 ### 注册中心挂了可以继续通信吗？
 

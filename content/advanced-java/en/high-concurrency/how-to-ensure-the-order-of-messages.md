@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: how-to-ensure-the-order-of-messages
-  hash: 'sha256:v1:81f808eca43c9deee464644230d5802d7c3ff1e6932e21c5b5b12722d9125277'
+  hash: 'sha256:v1:80e6b3081b7319a5aec6126ded2195ebf05ae5e00764d2035d2dcf2de3f442f7'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -28,11 +28,11 @@ First, look at two scenarios where the order gets scrambled:
 
 -   **RabbitMQ**: one queue, multiple consumers. For example, the producer sends three records into RabbitMQ in the order data1/data2/data3, pushed into an in-memory queue of RabbitMQ. Three consumers each consume one of these three records from MQ, and consumer 2 finishes its operation first and stores data2 into the database, then data1/data3. Isn't that clearly out of order?
 
-![rabbitmq-order-01](asset:high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-01.png)
+![rabbitmq-order-01](diagram:high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-01)
 
 -   **Kafka**: for example, we create a topic with three partitions. When writing, the producer can actually specify a key, for example we specify an order id as the key. Then the data related to this order is certain to be dispatched to the same partition, and the data in this partition is certain to be in order.<br>When a consumer takes data out of the partition, it is also certain to be in order. So far, the order is fine and not scrambled. Next, in the consumer we may use **multiple threads to process messages concurrently**. If the consumer consumes and processes in a single thread and the processing is time-consuming, for example tens of ms per message, then only a few dozen messages can be processed per second, which is far too low a throughput. But if multiple threads run concurrently, the order may get scrambled.
 
-![kafka-order-01](asset:high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01.png)
+![kafka-order-01](diagram:high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01)
 
 ### Solutions
 
@@ -40,7 +40,7 @@ First, look at two scenarios where the order gets scrambled:
 
 Split into multiple queues with one consumer per queue, which simply means more queues. It is indeed a bit troublesome, and it also lowers throughput; you can use multiple threads inside the consumer to consume.
 
-![rabbitmq-order-02](asset:high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-02.png)
+![rabbitmq-order-02](diagram:high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-02)
 
 Or use just one queue with one corresponding consumer, and have this consumer queue messages in in-memory queues internally and then dispatch them to different underlying workers for processing.
 
@@ -51,4 +51,4 @@ Note that here the consumer does not consume messages directly. Instead, it hash
 -   One topic, one partition, one consumer, consuming in a single thread internally. The throughput of a single thread is too low, so this is generally not used.
 -   Write N in-memory queues, and data with the same key goes to the same in-memory queue; then, with N threads, each thread consumes one in-memory queue. This ensures ordering.
 
-![kafka-order-02](asset:high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-02.png)
+![kafka-order-02](diagram:high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-02)

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-caching-avalanche-and-caching-penetration
-  hash: 'sha256:v1:939e5a97f7c255268f474035e9f75f0107688d1b2f5f0829f89d2918bad396b8'
+  hash: 'sha256:v1:f880b0fbd86e5670042b9aaec8b220cd844b21cff8f1fe3c01e4d6d1c47aafda'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -24,7 +24,7 @@ Take system A. Suppose it receives 5,000 requests per second at the daily peak, 
 
 This is a cache avalanche.
 
-![redis-caching-avalanche](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche.png)
+![redis-caching-avalanche](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche)
 
 About 3 years ago, a fairly well-known internet company in China suffered a cache incident that caused an avalanche. The back-end systems all collapsed, the incident lasted from the afternoon until 3 to 4 a.m., and the company lost tens of millions.
 
@@ -34,7 +34,7 @@ The solutions for a cache avalanche before, during and after the event are as fo
 -   During: local ehcache cache + hystrix rate limiting and degradation (fallback), to avoid MySQL being killed.
 -   After: Redis persistence. Once restarted, data is loaded automatically from disk, so the cache data recovers quickly.
 
-![redis-caching-avalanche-solution](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution.png)
+![redis-caching-avalanche-solution](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution)
 
 A user sends a request. After system A receives it, it first checks the local ehcache cache, and if nothing is found it checks Redis. If neither ehcache nor Redis has it, it queries the database and writes the result from the database into both ehcache and Redis.
 
@@ -54,7 +54,7 @@ Those 4,000 attack requests cannot be found in the cache, and every time you que
 
 Take an example. Database ids start from 1, but all the ids in the requests sent by the hacker are negative. The cache will not contain them, so each request "**treats the cache as if it did not exist**" and queries the database directly. In this kind of malicious attack, cache penetration will directly kill the database.
 
-![redis-caching-penetration](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration.png)
+![redis-caching-penetration](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration)
 
 The solution is simple. Whenever system A fails to find something in the database, it writes an empty value into the cache, for example `set -999 UNKNOWN`. Then it sets an expiration time, so that the next time the same key comes in, the data can be fetched directly from the cache until the entry expires.
 
@@ -65,7 +65,7 @@ Of course, if the hacker uses a different negative id each time, writing empty v
 
 Using a Bloom filter provides a degree of initial screening of incoming requests, avoiding the query pressure caused by non-existent data.
 
-![redis-caching-avoid-penetration](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration.png)
+![redis-caching-avoid-penetration](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration)
 
 ### Cache breakdown
 

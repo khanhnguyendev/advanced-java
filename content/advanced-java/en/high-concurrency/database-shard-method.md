@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: database-shard-method
-  hash: 'sha256:v1:591e3bd452301aed0cf7d096b8422a220fb048dfeb7bbc22298afc2677565005'
+  hash: 'sha256:v1:27eafefb7e592f0e06afb623564b3bdffc96a0446eb4a84c4bb85c564eb1c796'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -34,7 +34,7 @@ Verify, ok, perfect. Everyone stretches, looks at the Beijing night view at 4 in
 
 But this plan is quite low-end, and anyone can do it. Let us look at a more high-end plan.
 
-![database-shard-method-1](asset:high-concurrency/database-shard-method/database-shard-method-1.png)
+![database-shard-method-1](diagram:high-concurrency/database-shard-method/database-shard-method-1)
 
 ### Dual-write migration plan
 
@@ -48,4 +48,4 @@ After one pass of the transfer, the data may still be inconsistent, so the progr
 
 Then, once the data is fully consistent, it is ok. Redeploy using the latest code that uses only the sharded databases and tables, and then you operate on the sharded databases and tables only, without hours of downtime, which is very stable. So basically this is how people do data migration now.
 
-![database-shard-method-2](asset:high-concurrency/database-shard-method/database-shard-method-2.png)
+![database-shard-method-2](diagram:high-concurrency/database-shard-method/database-shard-method-2)

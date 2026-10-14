@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: es-write-query-search
-  hash: 'sha256:v1:8308a0c5553e88aca4e9b5b46d3d45063894cf517da63effb75e6e6b46da3fe2'
+  hash: 'sha256:v1:96528d4f8432bd06657669082c49e1d78d53c2a45bb1e5b957f65fa8b4233736'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -27,7 +27,7 @@ If es is basically a black box to you, what can you do? The only thing you can d
 -   The `primary shard` on the actual node processes the request, and then synchronizes the data to the `replica node`.
 -   If the `coordinating node` finds that the `primary node` and all `replica node`s are done, it returns the response to the client.
 
-![es-write](asset:high-concurrency/es-write-query-search/es-write.png)
+![es-write](diagram:high-concurrency/es-write-query-search/es-write)
 
 ### The process of reading data in es
 
@@ -59,7 +59,7 @@ You search with the keyword `java`, and the `document`s containing `java` are fo
 
 ### The underlying principle of writing data
 
-![es-write-detail](asset:high-concurrency/es-write-query-search/es-write-detail.png)
+![es-write-detail](diagram:high-concurrency/es-write-query-search/es-write-detail)
 
 Data is first written into the in-memory buffer, where it cannot be searched; at the same time the data is written into the translog log file.
 

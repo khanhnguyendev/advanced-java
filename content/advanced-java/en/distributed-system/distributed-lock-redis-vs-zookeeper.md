@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: distributed-lock-redis-vs-zookeeper
-  hash: 'sha256:v1:f8f366102d50f199a6ab7c2517236af455132bdf606196116a81ab8a9f945258'
+  hash: 'sha256:v1:63bd17c60fb057e0577f769a64c681fbdec8fe5ed566bb3c52e85c47fc9475f3'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -68,7 +68,7 @@ Assume a Redis cluster with 5 Redis master instances. The steps to acquire a loc
 5. If creating the lock failed, delete the locks that were created, one by one;
 6. As long as someone else holds a distributed lock, you have to **keep polling to try to acquire the lock**.
 
-![redis-redlock](asset:distributed-system/distributed-lock-redis-vs-zookeeper/redis-redlock.png)
+![redis-redlock](diagram:distributed-system/distributed-lock-redis-vs-zookeeper/redis-redlock)
 
 [Redis official](https://redis.io/) gives the two Redis-based distributed lock methods above. For details, see https://redis.io/topics/distlock .
 

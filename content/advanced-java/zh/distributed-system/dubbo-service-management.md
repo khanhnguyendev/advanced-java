@@ -24,7 +24,7 @@
 
 那就需要基于 dubbo 做的分布式系统中，对各个服务之间的调用自动记录下来，然后自动将**各个服务之间的依赖关系和调用链路生成出来**，做成一张图，显示出来，大家才可以看到对吧。
 
-![dubbo-service-invoke-road](asset:distributed-system/dubbo-service-management/dubbo-service-invoke-road.png)
+![dubbo-service-invoke-road](diagram:distributed-system/dubbo-service-management/dubbo-service-invoke-road)
 
 #### 2. 服务访问压力以及时长统计
 

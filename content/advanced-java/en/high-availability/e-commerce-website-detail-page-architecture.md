@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: e-commerce-website-detail-page-architecture
-  hash: 'sha256:v1:cfdfe29dfe206dfd2ee1134e7ebaaa2944a73b747deb62dfc98f70aa1b89cb23'
+  hash: 'sha256:v1:f0fb6aedb8c19e23ff8d83eb05f379b190234e2ad2193f0682b4550b154592b1'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -12,7 +12,7 @@ translatedAt: '2026-10-14'
 
 A small e-commerce website displays its pages by fully statically generating every page. The database holds all product information; a page static-generation system fills the data into static templates to produce static pages and pushes them to an Nginx server. When a user browses a page, the site simply returns a ready-made static html page, with no business logic involved at all.
 
-![e-commerce-website-detail-page-architecture-1](asset:high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1.png)
+![e-commerce-website-detail-page-architecture-1](diagram:high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1)
 
 Below is a simple demo of a page template.
 
@@ -38,7 +38,7 @@ In the system design of a large e-commerce website's product detail page, when p
 
 When a user browses a page, the Nginx local data is dynamically rendered into the local html template and returned to the user.
 
-![e-commerce-website-detail-page-architecture-2](asset:high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2.png)
+![e-commerce-website-detail-page-architecture-2](diagram:high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2)
 
 It is not as fast as returning an html page directly, but because the data is cached locally it is still fast; the cost is really just the performance of dynamically rendering an html page. If the html template changes, there is no need to statically regenerate all pages and no need to send requests, so there is no network overhead: the data is simply rendered into the latest html template and returned.
 

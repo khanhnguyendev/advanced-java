@@ -59,13 +59,13 @@ LRU 就是 Least Recently Used 的缩写，翻译过来就是“最近最少使�
 
 其实，实现的思路非常简单，就像下面这张图种描述的一样。
 
-![](asset:high-concurrency/redis-expiration-policies-and-lru/lru.png)
+![](diagram:high-concurrency/redis-expiration-policies-and-lru/lru)
 
 你可以现场手写最原始的 LRU 算法，那个代码量太大了，似乎不太现实。
 
 不求自己纯手工从底层开始打造出自己的 LRU，但是起码要知道如何利用已有的 JDK 数据结构实现一个 Java 版的 LRU。
 
-![](asset:high-concurrency/redis-expiration-policies-and-lru/lru-cache.png)
+![](diagram:high-concurrency/redis-expiration-policies-and-lru/lru-cache)
 
 ```java
 public class LRUCache<K, V> extends LinkedHashMap<K, V> {

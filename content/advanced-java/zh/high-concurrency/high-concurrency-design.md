@@ -41,7 +41,7 @@
 -   读写分离
 -   ElasticSearch
 
-![high-concurrency-system-design](asset:high-concurrency/high-concurrency-design/high-concurrency-system-design.png)
+![high-concurrency-system-design](diagram:high-concurrency/high-concurrency-design/high-concurrency-system-design)
 
 ### 系统拆分
 

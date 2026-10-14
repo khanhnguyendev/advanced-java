@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-sentinel
-  hash: 'sha256:v1:c9a7e6e2f653765f345b4f6fcdbbc76277a7fea000331c8202a7064eb29f6085'
+  hash: 'sha256:v1:25b423905e6c353c557a6ba60a7505c63c89ab9eb208d3f578e848c2fdb91b59'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -75,7 +75,7 @@ The failover process may cause data loss:
 
 Because master->slave replication is asynchronous, the master may crash before some data has been replicated to the slave, and that data is then lost.
 
-![async-replication-data-lose-case](asset:high-concurrency/redis-sentinel/async-replication-data-lose-case.png)
+![async-replication-data-lose-case](diagram:high-concurrency/redis-sentinel/async-replication-data-lose-case)
 
 -   Data loss caused by split brain
 
@@ -83,7 +83,7 @@ Split brain means that the machine hosting a master suddenly **drops off the nor
 
 Although a slave has been switched to master, clients may not have had time to switch to the new master and keep writing data to the old master. So when the old master recovers, it is attached to the new master as a slave, its own data is cleared, and it replicates data from the new master again. The new master does not have the data that clients wrote afterwards, so that data is lost.
 
-![Redis-cluster-split-brain](asset:high-concurrency/redis-sentinel/redis-cluster-split-brain.png)
+![Redis-cluster-split-brain](diagram:high-concurrency/redis-sentinel/redis-cluster-split-brain)
 
 ### Solution to the data loss problem
 

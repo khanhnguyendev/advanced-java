@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-single-thread-model
-  hash: 'sha256:v1:1e754adb6555b0c13cc758c2b35ca23f05d0b5520ae4944519c3f075496870fe'
+  hash: 'sha256:v1:084d77058a30583b74b133f170080bd6b3306965f426526a6b88bc956649dfeb'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -49,7 +49,7 @@ Nhiều socket có thể đồng thời phát sinh các thao tác khác nhau, m�
 
 Hãy xem một lần giao tiếp giữa client và Redis:
 
-![Redis-single-thread-model](asset:high-concurrency/redis-single-thread-model/redis-single-thread-model.png)
+![Redis-single-thread-model](diagram:high-concurrency/redis-single-thread-model/redis-single-thread-model)
 
 Cần hiểu rằng giao tiếp được thực hiện thông qua socket, bạn nào chưa rõ thì có thể xem trước về lập trình mạng socket.
 

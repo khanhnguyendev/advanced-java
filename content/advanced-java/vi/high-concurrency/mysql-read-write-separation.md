@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: mysql-read-write-separation
-  hash: 'sha256:v1:e84d7e40d9c85bc2723de9211e2a34e2321e8f2094aa7b1f9b97132b71bf35a1'
+  hash: 'sha256:v1:63b2314ff19dd9180d7c7f03ee54c7eb5ca7f9a0cbd5ee9bccdcd2d8a07c8000'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -26,7 +26,7 @@ Thực ra rất đơn giản, dựa trên kiến trúc sao chép master/replica:
 
 Master ghi các thay đổi vào nhật ký binlog; sau khi replica kết nối đến master, replica có một luồng IO sao chép nhật ký binlog của master về máy cục bộ và ghi vào một nhật ký trung chuyển relay log. Tiếp theo, trong replica có một luồng SQL đọc binlog từ relay log rồi thực thi nội dung trong nhật ký binlog, tức là thực thi lại các câu SQL đó một lần nữa trên máy cục bộ, nhờ vậy đảm bảo dữ liệu của replica giống với master.
 
-![mysql-master-slave](asset:high-concurrency/mysql-read-write-separation/mysql-master-slave.png)
+![mysql-master-slave](diagram:high-concurrency/mysql-read-write-separation/mysql-master-slave)
 
 Có một điểm vô cùng quan trọng: quá trình replica đồng bộ dữ liệu từ master là tuần tự, nghĩa là các thao tác chạy song song trên master sẽ được thực thi tuần tự trên replica. Đây chính là một điểm rất quan trọng: do đặc điểm replica sao chép nhật ký từ master và thực thi SQL tuần tự, trong kịch bản tải đồng thời cao, dữ liệu trên replica chắc chắn chậm hơn master một chút, tức là **có độ trễ**. Vì vậy thường xảy ra tình huống dữ liệu vừa ghi vào master có thể chưa đọc được, phải mất vài chục mili giây, thậm chí vài trăm mili giây mới đọc được.
 

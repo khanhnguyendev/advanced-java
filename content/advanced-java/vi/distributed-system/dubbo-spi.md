@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: dubbo-spi
-  hash: 'sha256:v1:59472b08c3ee8536d60fd53369e13023afbbeb28af46e32896df076812e81b8d'
+  hash: 'sha256:v1:18bfee42f8f7346cd6b11a5b83c157d96074611a483902029d6de8ef04a9df76'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -101,7 +101,7 @@ Sau đó tự tạo một dự án `dubbo provider`, trong dự án này phụ t
 
 Khi provider khởi động, sẽ nạp dòng cấu hình `my=com.bingo.MyProtocol` trong jar của chúng ta, tiếp đó sẽ dựa theo cấu hình của bạn để dùng MyProtocol mà bạn đã định nghĩa. Đây chỉ là giải thích đơn giản; qua cách trên, bạn có thể thay thế rất nhiều thành phần bên trong Dubbo, chỉ cần ném jar của bạn vào rồi cấu hình một chút là xong.
 
-![dubbo-spi](asset:distributed-system/dubbo-spi/dubbo-spi.png)
+![dubbo-spi](diagram:distributed-system/dubbo-spi/dubbo-spi)
 
 Dubbo cung cấp rất nhiều điểm mở rộng tương tự như trên, tức là nếu bạn muốn mở rộng một thứ gì, chỉ cần tự viết một jar, để dự án consumer hoặc provider của bạn phụ thuộc vào jar đó, trong jar của bạn cấu hình sẵn tệp tương ứng với tên API ở thư mục chỉ định, bên trong dùng `key=实现类` (key = lớp hiện thực).
 

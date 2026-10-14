@@ -127,7 +127,7 @@ int main() {
 
 字典树（trie）的具体结构和查询方式，不在这里赘述了，自行百度一下就有很多。这里主要说一下优缺点。
 
-![](asset:big-data/topk-problems-and-solutions/topk-trie.png)
+![](diagram:big-data/topk-problems-and-solutions/topk-trie)
 
 字典树的思想，还是通过前期建立索引信息，后期可以反复多次查询，并且后期增删数据也很方便。比较适合于需要反复多次查询的情况。
 

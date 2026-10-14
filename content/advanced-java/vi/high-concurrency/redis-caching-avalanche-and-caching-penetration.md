@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-caching-avalanche-and-caching-penetration
-  hash: 'sha256:v1:939e5a97f7c255268f474035e9f75f0107688d1b2f5f0829f89d2918bad396b8'
+  hash: 'sha256:v1:f880b0fbd86e5670042b9aaec8b220cd844b21cff8f1fe3c01e4d6d1c47aafda'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -24,7 +24,7 @@ Với hệ thống A, giả sử giờ cao điểm mỗi ngày có 5000 yêu c�
 
 Đây chính là cache avalanche.
 
-![redis-caching-avalanche](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche.png)
+![redis-caching-avalanche](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche)
 
 Khoảng 3 năm trước, một công ty internet khá nổi tiếng trong nước từng vì sự cố bộ nhớ đệm mà gây ra avalanche, hệ thống backend sụp đổ toàn bộ, sự cố kéo dài từ chiều hôm đó đến tận 3~4 giờ sáng, công ty thiệt hại vài chục triệu.
 
@@ -34,7 +34,7 @@ Giải pháp cho cache avalanche trước, trong và sau sự cố như sau:
 -   Trong sự cố: bộ nhớ đệm cục bộ ehcache + hystrix giới hạn lưu lượng & suy giảm dịch vụ (fallback), tránh MySQL bị đánh sập.
 -   Sau sự cố: lưu trữ bền vững (persistence) cho Redis, một khi khởi động lại sẽ tự động nạp dữ liệu từ đĩa, nhanh chóng khôi phục dữ liệu cache.
 
-![redis-caching-avalanche-solution](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution.png)
+![redis-caching-avalanche-solution](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution)
 
 Người dùng gửi một yêu cầu, hệ thống A nhận yêu cầu thì trước hết tra bộ nhớ đệm cục bộ ehcache, nếu không thấy thì tra Redis. Nếu cả ehcache và Redis đều không có thì tra cơ sở dữ liệu, rồi ghi kết quả từ cơ sở dữ liệu vào ehcache và Redis.
 
@@ -54,7 +54,7 @@ Với hệ thống A, giả sử một giây có 5000 yêu cầu, kết quả tr
 
 Ví dụ nhé. id trong cơ sở dữ liệu bắt đầu từ 1, kết quả các yêu cầu hacker gửi đến có id đều là số âm. Như vậy bộ nhớ đệm sẽ không có, yêu cầu lần nào cũng "**coi bộ nhớ đệm như không có**", truy vấn thẳng cơ sở dữ liệu. Kịch bản cache penetration do tấn công độc hại này sẽ đánh sập thẳng cơ sở dữ liệu.
 
-![redis-caching-penetration](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration.png)
+![redis-caching-penetration](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration)
 
 Cách giải quyết rất đơn giản, mỗi lần hệ thống A không tra được trong cơ sở dữ liệu thì ghi một giá trị rỗng vào bộ nhớ đệm, ví dụ `set -999 UNKNOWN`. Sau đó đặt một thời gian hết hạn, như vậy lần sau có cùng key đến truy cập, trước khi cache hết hiệu lực, đều có thể lấy dữ liệu thẳng từ bộ nhớ đệm.
 
@@ -65,7 +65,7 @@ Tất nhiên, nếu hacker mỗi lần dùng một id số âm khác nhau để 
 
 Dùng bloom filter có thể đóng vai trò sàng lọc sơ bộ đối với các yêu cầu truy cập, tránh áp lực truy vấn do dữ liệu không tồn tại gây ra.
 
-![redis-caching-avoid-penetration](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration.png)
+![redis-caching-avoid-penetration](diagram:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration)
 
 ### Cache breakdown
 

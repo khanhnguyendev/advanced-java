@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: how-to-ensure-high-availability-of-message-queues
-  hash: 'sha256:v1:a4a5aad82e18cc743dd6510d7fcf7a04b735afe44ea552907ca5bbb46541b231'
+  hash: 'sha256:v1:e8e01d6d26e4e66d57f95452983a1d2f7a0c230f14314b32a7623988e2babed8'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -38,7 +38,7 @@ Chế độ trên một máy chỉ ở mức Demo, thường là bạn khởi đ
 
 Chế độ cụm thông thường nghĩa là khởi động nhiều instance RabbitMQ trên nhiều máy, mỗi máy một instance. **Queue bạn tạo ra chỉ nằm trên một instance RabbitMQ**, nhưng mỗi instance đều đồng bộ siêu dữ liệu (metadata) của queue (metadata có thể hiểu là một số thông tin cấu hình của queue, thông qua metadata có thể tìm ra instance chứa queue). Khi bạn tiêu thụ, nếu thực tế kết nối vào một instance khác, thì instance đó sẽ kéo dữ liệu từ instance chứa queue về.
 
-![mq-7](asset:high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7.png)
+![mq-7](diagram:high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7)
 
 Cách này thực sự rất phiền phức, cũng không hay lắm, **chưa đạt được cái gọi là phân tán**, chỉ là một cụm thông thường. Bởi vì điều này dẫn đến việc hoặc là consumer mỗi lần kết nối ngẫu nhiên một instance rồi kéo dữ liệu, hoặc là cố định kết nối đến instance chứa queue đó để tiêu thụ dữ liệu; cách đầu có **chi phí kéo dữ liệu**, cách sau dẫn đến **nút thắt cổ chai hiệu năng ở một instance**.
 
@@ -52,7 +52,7 @@ Vì vậy chuyện này khá khó xử, nó **không có cái gọi là tính s�
 
 Chế độ này từng là chế độ có tính sẵn sàng cao của RabbitMQ. Khác với chế độ cụm thông thường, trong chế độ cụm phản chiếu, queue bạn tạo, cả metadata lẫn thông điệp trong queue đều **tồn tại trên nhiều instance**, tức là mỗi node RabbitMQ đều có một **bản phản chiếu hoàn chỉnh** của queue này, nghĩa là chứa toàn bộ dữ liệu của queue. Sau đó mỗi lần bạn ghi thông điệp vào queue, **thông điệp sẽ được tự động đồng bộ** sang queue trên nhiều instance.
 
-![mq-8](asset:high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8.png)
+![mq-8](diagram:high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8)
 
 Vậy **làm thế nào để bật chế độ cụm phản chiếu**? Thực ra rất đơn giản, RabbitMQ có bảng điều khiển quản trị rất tốt, chỉ cần thêm một chính sách ở trang quản trị, chính sách này là **chính sách của chế độ cụm phản chiếu**, khi chỉ định có thể yêu cầu đồng bộ dữ liệu sang tất cả node, hoặc đồng bộ sang một số lượng node chỉ định; khi tạo queue lần sau và áp dụng chính sách này, dữ liệu sẽ tự động được đồng bộ sang các node khác.
 
@@ -100,11 +100,11 @@ Trước Kafka 0.8, không có cơ chế HA, tức là bất kỳ broker nào s�
 
 Ví dụ, giả sử ta tạo một topic, chỉ định số partition là 3, nằm trên ba máy. Nhưng nếu máy thứ hai sập, thì 1/3 dữ liệu của topic này sẽ mất, do đó không thể đạt tính sẵn sàng cao.
 
-![kafka-before](asset:high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-before.png)
+![kafka-before](diagram:high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-before)
 
 Sau Kafka 0.8, cơ chế HA được cung cấp, đó là cơ chế replica (bản sao). Dữ liệu của mỗi partition đều được đồng bộ sang các máy khác, tạo thành nhiều replica của chính nó. Tất cả replica sẽ bầu ra một leader, việc sản xuất và tiêu thụ đều làm việc với leader này, các replica còn lại là follower. Khi ghi, leader chịu trách nhiệm đồng bộ dữ liệu sang tất cả follower, khi đọc thì đọc thẳng dữ liệu trên leader. Tại sao chỉ đọc ghi leader? Rất đơn giản, **nếu bạn có thể đọc ghi tùy ý từng follower thì phải quan tâm đến vấn đề nhất quán dữ liệu**, độ phức tạp của hệ thống quá cao, rất dễ xảy ra sự cố. Kafka sẽ phân bố đều tất cả replica của một partition lên các máy khác nhau, như vậy mới tăng được khả năng chịu lỗi.
 
-![kafka-after](asset:high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after.png)
+![kafka-after](diagram:high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after)
 
 Làm như vậy thì mới có cái gọi là **tính sẵn sàng cao**, vì nếu một broker nào đó sập cũng không sao, partition trên broker đó đều có bản sao ở các máy khác. Nếu trên broker sập này có leader của một partition nào đó, thì lúc này sẽ **bầu lại** một leader mới từ các follower, mọi người tiếp tục đọc ghi leader mới đó là được. Như vậy mới có cái gọi là tính sẵn sàng cao.
 

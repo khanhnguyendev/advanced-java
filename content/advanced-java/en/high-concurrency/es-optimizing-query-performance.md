@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: es-optimizing-query-performance
-  hash: 'sha256:v1:0644c179492493c544baf422fedb47846270bf2c94160fdf36501819b42559fd'
+  hash: 'sha256:v1:25b7f6d0f722d8aaf8a5fed8a82684bfbbd162ca7b154adc10855e2bd5ddf082'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -26,7 +26,7 @@ Honestly, there is no silver bullet for ES performance optimization. What does t
 
 The data you write into ES is actually written to disk files. **At query time**, the operating system automatically caches the data in those disk files into the `filesystem cache`.
 
-![es-search-process](asset:high-concurrency/es-optimizing-query-performance/es-search-process.png)
+![es-search-process](diagram:high-concurrency/es-optimizing-query-performance/es-search-process)
 
 The ES search engine relies heavily on the underlying `filesystem cache`. If you give the `filesystem cache` more memory, and let that memory hold all of the `idx segment file ` index data files if possible, then searches will basically be served from memory and performance will be very high.
 

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: es-optimizing-query-performance
-  hash: 'sha256:v1:0644c179492493c544baf422fedb47846270bf2c94160fdf36501819b42559fd'
+  hash: 'sha256:v1:25b7f6d0f722d8aaf8a5fed8a82684bfbbd162ca7b154adc10855e2bd5ddf082'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -26,7 +26,7 @@ Nói thật, tối ưu hiệu năng ES không có viên đạn bạc nào cả. 
 
 Dữ liệu bạn ghi vào ES thực chất đều được ghi vào các tệp trên đĩa. **Khi truy vấn**, hệ điều hành sẽ tự động đưa dữ liệu trong các tệp đĩa đó vào `filesystem cache` (bộ nhớ đệm của hệ thống tệp).
 
-![es-search-process](asset:high-concurrency/es-optimizing-query-performance/es-search-process.png)
+![es-search-process](diagram:high-concurrency/es-optimizing-query-performance/es-search-process)
 
 Công cụ tìm kiếm của ES phụ thuộc rất nặng vào `filesystem cache` bên dưới. Nếu bạn cấp cho `filesystem cache` nhiều bộ nhớ hơn, cố gắng để bộ nhớ chứa được toàn bộ các tệp dữ liệu chỉ mục `idx segment file ` , thì khi tìm kiếm gần như đều chạy trên bộ nhớ, hiệu năng sẽ rất cao.
 

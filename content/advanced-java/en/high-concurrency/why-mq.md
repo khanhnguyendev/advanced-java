@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: why-mq
-  hash: 'sha256:v1:d85800610bd5ac920111f2abc85b5b837999503953882cadb78dd816c7b9e240'
+  hash: 'sha256:v1:e7976ce939a3e03b6b8a6ae45bfe8910622c15d82ac2f4ebcdbd5c9eb6d85a0c'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -48,13 +48,13 @@ Let's first go over the common use cases of a message queue. There are actually 
 
 Consider this scenario. System A sends data to systems B, C, and D through API calls. What if system E also needs this data? What if system D no longer needs it? The owner of system A is nearly driven mad......
 
-![mq-1](asset:high-concurrency/why-mq/mq-1.png)
+![mq-1](diagram:high-concurrency/why-mq/mq-1)
 
 In this scenario, system A is heavily coupled with all kinds of other systems. System A produces a piece of critical data, and many systems need system A to send it over. System A has to keep worrying about what to do if systems B, C, D, and E go down. Should it resend? Should it store the message? Its hair has turned white from worry!
 
 With an MQ, system A produces a piece of data and sends it to the MQ, and whichever system needs the data consumes it from the MQ itself. If a new system needs the data, it simply consumes from the MQ; if a system no longer needs the data, it just stops consuming the MQ messages. This way, system A does not need to think about who to send data to, does not need to maintain that code, and does not need to think about whether the other side's call succeeded, failed, or timed out.
 
-![mq-2](asset:high-concurrency/why-mq/mq-2.png)
+![mq-2](diagram:high-concurrency/why-mq/mq-2)
 
 **Summary**: With an MQ and the publish/subscribe (pub/sub) message model, system A is completely decoupled from the other systems.
 
@@ -64,13 +64,13 @@ With an MQ, system A produces a piece of data and sends it to the MQ, and whiche
 
 Now consider another scenario. System A receives a request, and needs to write to its own local database and also to the databases of systems B, C, and D. Writing locally takes 3ms, and writing to B, C, and D takes 300ms, 450ms, and 200ms respectively. The total request latency is 3 + 300 + 450 + 200 = 953ms, close to 1s, and the user feels it is painfully slow. The user sends a request from the browser and waits about 1s, which is nearly unacceptable.
 
-![mq-3](asset:high-concurrency/why-mq/mq-3.png)
+![mq-3](diagram:high-concurrency/why-mq/mq-3)
 
 For direct user operations, internet companies generally require every request to complete within 200 ms, so that the user barely perceives it.
 
 If you **use an MQ**, system A sends 3 messages to the MQ queue in succession, say taking 5ms. From receiving a request to returning the response to the user, system A takes 3 + 5 = 8ms in total. For the user, it feels like clicking a button and getting a response after 8ms. Great! The website is well built, and fast!
 
-![mq-4](asset:high-concurrency/why-mq/mq-4.png)
+![mq-4](diagram:high-concurrency/why-mq/mq-4)
 
 #### Peak shaving
 
@@ -80,11 +80,11 @@ An ordinary MySQL can handle roughly 2k requests per second. At 5k requests per 
 
 But once the peak is over, in the afternoon it becomes an off-peak period. Perhaps only 10k users are operating on the site at the same time, the request volume may be only 50 requests per second, and the whole system is under almost no pressure.
 
-![mq-5](asset:high-concurrency/why-mq/mq-5.png)
+![mq-5](diagram:high-concurrency/why-mq/mq-5)
 
 With an MQ, 5k requests per second are written into the MQ, while system A handles at most 2k requests per second, because MySQL handles at most 2k per second. System A slowly pulls requests from the MQ, 2k per second, never exceeding the maximum it can process per second. This way, even at peak time, system A will absolutely not go down. Meanwhile 5k requests per second enter the MQ and only 2k leave, so during the midday peak (1 hour), hundreds of thousands or even millions of requests may pile up in the MQ.
 
-![mq-6](asset:high-concurrency/why-mq/mq-6.png)
+![mq-6](diagram:high-concurrency/why-mq/mq-6)
 
 This brief peak backlog is fine, because after the peak only 50 requests per second enter the MQ, while system A continues to process at 2k requests per second. So once the peak passes, system A quickly clears the backlogged messages.
 

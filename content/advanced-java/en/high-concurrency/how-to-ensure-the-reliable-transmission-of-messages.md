@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: how-to-ensure-the-reliable-transmission-of-messages
-  hash: 'sha256:v1:5e2b989adad2c98bc3867b227834ac0baf518cb82e299bfae083cbb87a858767'
+  hash: 'sha256:v1:176a406be2b09f12c1c4576a68a967e5b9e3c5b675c86f84596d8ac881234eac'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -24,7 +24,7 @@ Data loss may occur in the producer, in the MQ, or in the consumer. Let us analy
 
 ### RabbitMQ
 
-![rabbitmq-message-lose](asset:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose.png)
+![rabbitmq-message-lose](diagram:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose)
 
 #### The producer loses data
 
@@ -145,7 +145,7 @@ This is where you need the `ack` mechanism provided by RabbitMQ. Simply put, you
 
 > To ensure that messages reach consumers reliably from the queue, RabbitMQ provides a message acknowledgment mechanism. When declaring a queue, a consumer can specify the noAck parameter. When noAck=false, RabbitMQ waits for the consumer to explicitly send back an ack signal before removing the message from memory (and from disk, if it is a persistent message). Otherwise, once a message is consumed by the consumer, RabbitMQ deletes it from the queue immediately.
 
-![rabbitmq-message-lose-solution](asset:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution.png)
+![rabbitmq-message-lose-solution](diagram:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution)
 
 ### Kafka
 

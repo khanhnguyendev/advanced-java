@@ -2,7 +2,7 @@
 
 单机的 Redis，能够承载的 QPS 大概就在上万到几万不等。对于缓存来说，一般都是用来支撑**读高并发**的。因此架构做成主从(master-slave)架构，一主多从，主负责写，并且将数据复制到其它的 slave 节点，从节点负责读。所有的**读请求全部走从节点**。这样也可以很轻松实现水平扩容，**支撑读高并发**。
 
-![Redis-master-slave](asset:high-concurrency/redis-master-slave/redis-master-slave.png)
+![Redis-master-slave](diagram:high-concurrency/redis-master-slave/redis-master-slave)
 
 Redis replication -> 主从架构 -> 读写分离 -> 水平扩容支撑读高并发
 
@@ -25,7 +25,7 @@ Redis replication -> 主从架构 -> 读写分离 -> 水平扩容支撑读高并
 
 如果这是 slave node 初次连接到 master node，那么会触发一次 `full resynchronization` 全量复制。此时 master 会启动一个后台线程，开始生成一份 `RDB` 快照文件，同时还会将从客户端 client 新收到的所有写命令缓存在内存中。 `RDB` 文件生成完毕后， master 会将这个 `RDB` 发送给 slave，slave 会先**写入本地磁盘，然后再从本地磁盘加载到内存**中，接着 master 会将内存中缓存的写命令发送到 slave，slave 也会同步这些数据。slave node 如果跟 master node 有网络故障，断开了连接，会自动重连，连接之后 master node 仅会复制给 slave 部分缺少的数据。
 
-![Redis-master-slave-replication](asset:high-concurrency/redis-master-slave/redis-master-slave-replication.png)
+![Redis-master-slave-replication](diagram:high-concurrency/redis-master-slave/redis-master-slave-replication)
 
 ### 主从复制的断点续传
 
@@ -56,7 +56,7 @@ slave node 启动时，会在自己本地保存 master node 的信息，包括 m
 
 slave node 内部有个定时任务，每秒检查是否有新的 master node 要连接和复制，如果发现，就跟 master node 建立 socket 网络连接。然后 slave node 发送 `ping` 命令给 master node。如果 master 设置了 requirepass，那么 slave node 必须发送 masterauth 的口令过去进行认证。master node **第一次执行全量复制**，将所有数据发给 slave node。而在后续，master node 持续将写命令，异步复制给 slave node。
 
-![Redis-master-slave-replication-detail](asset:high-concurrency/redis-master-slave/redis-master-slave-replication-detail.png)
+![Redis-master-slave-replication-detail](diagram:high-concurrency/redis-master-slave/redis-master-slave-replication-detail)
 
 ### 全量复制
 

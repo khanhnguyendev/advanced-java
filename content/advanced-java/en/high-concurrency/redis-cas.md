@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-cas
-  hash: 'sha256:v1:3b3a3f0784326ae472fb87db96f0807e18436038e798253015f05196d6a0f897'
+  hash: 'sha256:v1:f151e12c6e418af7335242ddf322eb97454e622721418c8e18f5854c72320465'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -22,7 +22,7 @@ Moreover, Redis itself has a natural CAS-style optimistic locking approach that 
 
 At some moment, multiple system instances all update a certain key. You can implement a distributed lock based on zookeeper. Each system obtains the distributed lock through zookeeper, which ensures that at any given time only one system instance can operate on the key, and no one else is allowed to read or write it.
 
-![zookeeper-distributed-lock](asset:high-concurrency/redis-cas/zookeeper-distributed-lock.png)
+![zookeeper-distributed-lock](diagram:high-concurrency/redis-cas/zookeeper-distributed-lock)
 
 The data you want to write into the cache is all queried from mysql and must be written into mysql. When writing into mysql you must save a timestamp, and when you query from mysql, the timestamp is queried too.
 

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: dubbo-operating-principle
-  hash: 'sha256:v1:3eae4eb41899041a7dbf47b4d4b97438170beb5e00245f8c56ce9383cfde0fa7'
+  hash: 'sha256:v1:6d880021d6b82d8915339933efc6bc36fccb10276bd820e806023eb123109eb9'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -44,7 +44,7 @@ Tất nhiên từ năm ngoái Spring Cloud rất hot, hiện nay nhiều công t
 -   Bước 3: consumer gọi provider
 -   Bước 4: consumer và provider đều thông báo bất đồng bộ cho trung tâm giám sát
 
-![dubbo-operating-principle](asset:distributed-system/dubbo-operating-principle/dubbo-operating-principle.png)
+![dubbo-operating-principle](diagram:distributed-system/dubbo-operating-principle/dubbo-operating-principle)
 
 ### Trung tâm đăng ký dịch vụ sập thì có thể tiếp tục liên lạc được không?
 

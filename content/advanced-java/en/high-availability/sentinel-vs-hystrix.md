@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: sentinel-vs-hystrix
-  hash: 'sha256:v1:e288aa8bb5a5a5d6bbbed888c174ac7640980370783d40fed40c4d4ece0f5e78'
+  hash: 'sha256:v1:9843111b7307a38009737c0290d5d43f68730bc350c8940e509119a5045f4ff1'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -84,7 +84,7 @@ Sentinel supports diversified traffic shaping strategies and can automatically s
     ![Slow-Start-Preheating-Mode](asset:high-availability/sentinel-vs-hystrix/Slow-Start-Preheating-Mode.jpg)
 
 -   **Homogenizer mode**: a constant-rate mode implemented with the Leaky Bucket algorithm, which strictly controls the interval at which requests pass; queued requests wait in line, and requests that exceed the timeout are rejected directly. Sentinel also supports rate limiting based on call relationships, including rate limiting by caller, by call chain entry, and by associated traffic. Relying on Sentinel's powerful call chain statistics, it can provide precise rate limiting along different dimensions.
-    ![Homogenizer-mode](asset:high-availability/sentinel-vs-hystrix/Homogenizer-mode.jpg)
+    ![Homogenizer-mode](diagram:high-availability/sentinel-vs-hystrix/homogenizer-mode)
 
 Sentinel's support for asynchronous call chains is currently not very good; later versions will focus on improving support for asynchronous calls.
 

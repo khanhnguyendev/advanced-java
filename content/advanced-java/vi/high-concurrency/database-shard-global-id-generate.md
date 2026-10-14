@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: database-shard-global-id-generate
-  hash: 'sha256:v1:89141ef3bc389d33a29493163bc7d724abc9dbda3f7e76824e51317244516b43'
+  hash: 'sha256:v1:d9c370ccf988c86adc5901db4d2eea131b5ca8878e0e2604423de1a5f5ef2784'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -34,7 +34,7 @@ Có thể đặt sequence của cơ sở dữ liệu hoặc bước nhảy của
 
 Ví dụ, hiện có 8 node dịch vụ, mỗi node dịch vụ dùng một chức năng sequence để sinh ID, ID khởi đầu của mỗi sequence khác nhau, và tăng dần lần lượt, bước nhảy đều là 8.
 
-![database-id-sequence-step](asset:high-concurrency/database-shard-global-id-generate/database-id-sequence-step.png)
+![database-id-sequence-step](diagram:high-concurrency/database-shard-global-id-generate/database-id-sequence-step)
 
 **Kịch bản phù hợp**: khi người dùng muốn tránh sinh ID trùng lặp, phương án này hiện thực khá đơn giản, cũng đạt được mục tiêu hiệu năng. Nhưng node dịch vụ cố định, bước nhảy cũng cố định, sau này nếu còn muốn thêm node dịch vụ thì khó làm.
 

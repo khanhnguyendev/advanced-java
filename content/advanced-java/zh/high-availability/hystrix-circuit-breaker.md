@@ -4,7 +4,7 @@
 
 Hystrix 断路器有三种状态，分别是关闭（Closed）、打开（Open）与半开（Half-Open），三种状态转化关系如下：
 
-![image-20191104211642271](asset:high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine.png)
+![image-20191104211642271](diagram:high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine)
 
 1. `Closed` 断路器关闭：调用下游的请求正常通过
 1. `Open` 断路器打开：阻断对下游服务的调用，直接走 Fallback 逻辑

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: distributed-transaction
-  hash: 'sha256:v1:0f0b028fcea1a077bfcf9a5bcf25f80223cf029041d8a512cccbfd7cb048c891'
+  hash: 'sha256:v1:91c0391082d5166c4f55fda982edbb7dfa73e1460128c5c255fd17a3ab38ba96'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -41,7 +41,7 @@ Nếu bạn muốn thao tác trên cơ sở dữ liệu của dịch vụ khác 
 
 Nếu bạn muốn thao tác trên cơ sở dữ liệu của dịch vụ khác thì phải thực hiện bằng cách **gọi API của dịch vụ đó**, tuyệt đối không cho phép truy cập chéo vào cơ sở dữ liệu của người khác.
 
-![distributed-transacion-XA](asset:distributed-system/distributed-transaction/distributed-transaction-XA.png)
+![distributed-transacion-XA](diagram:distributed-system/distributed-transaction/distributed-transaction-xa)
 
 ### Phương án TCC
 
@@ -59,7 +59,7 @@ Và tốt nhất là thời gian thực thi của từng nghiệp vụ đều kh
 
 Nhưng nói thật, nhìn chung nên cố gắng đừng làm như vậy, tự tay viết logic rollback hay logic bù trừ thật sự quá khó chịu, code nghiệp vụ đó rất khó bảo trì.
 
-![distributed-transacion-TCC](asset:distributed-system/distributed-transaction/distributed-transaction-TCC.png)
+![distributed-transacion-TCC](diagram:distributed-system/distributed-transaction/distributed-transaction-tcc)
 
 ### Phương án Saga
 
@@ -69,7 +69,7 @@ Các nghiệp vụ như lõi tài chính có thể chọn phương án TCC để
 
 Mỗi bên tham gia trong quy trình nghiệp vụ đều commit giao dịch cục bộ; nếu một bên tham gia nào đó thất bại thì bù trừ cho các bên tham gia đã thành công trước đó. Phía bên trái của hình dưới là quy trình giao dịch bình thường, khi thực thi đến T3 thì xảy ra lỗi, bắt đầu thực thi quy trình bù trừ giao dịch ở bên phải: thực thi ngược các dịch vụ bù trừ C3, C2, C1 của T3, T2, T1, bù trừ dữ liệu mà T3, T2, T1 đã sửa.
 
-![distributed-transacion-TCC](asset:distributed-system/distributed-transaction/distributed-transaction-saga.png)
+![distributed-transacion-TCC](diagram:distributed-system/distributed-transaction/distributed-transaction-saga)
 
 #### Tình huống sử dụng
 
@@ -107,7 +107,7 @@ Bảng thông điệp cục bộ thực ra là một tư tưởng do ebay ở n�
 
 Nói thật, vấn đề lớn nhất của phương án này là **phụ thuộc nặng vào bảng thông điệp trong cơ sở dữ liệu để quản lý giao dịch**, vậy nếu là tình huống tải đồng thời cao thì sao? Mở rộng thế nào? Cho nên nhìn chung quả thực rất ít dùng.
 
-![distributed-transaction-local-message-table](asset:distributed-system/distributed-transaction/distributed-transaction-local-message-table.png)
+![distributed-transaction-local-message-table](diagram:distributed-system/distributed-transaction/distributed-transaction-local-message-table)
 
 ### Phương án thông điệp tin cậy với nhất quán cuối cùng
 
@@ -122,7 +122,7 @@ Nói thật, vấn đề lớn nhất của phương án này là **phụ thuộ
 5. Trong phương án này, nếu giao dịch của hệ thống B thất bại thì sao? Thử lại thôi, tự động liên tục thử lại cho đến khi thành công; nếu thực sự không được thì hoặc là với các nghiệp vụ quan trọng liên quan đến tiền thì rollback, ví dụ sau khi B rollback cục bộ thì tìm cách thông báo cho hệ thống A cũng rollback; hoặc là gửi cảnh báo để con người rollback và bù trừ thủ công.
 6. Phương án này khá phù hợp, hiện nay các công ty internet trong nước phần lớn đều làm như vậy, hoặc bạn dùng loại được RocketMQ hỗ trợ, hoặc bạn tự dựa trên ActiveMQ? RabbitMQ? mà tự đóng gói một bộ logic tương tự, tóm lại ý tưởng là như vậy.
 
-![distributed-transaction-reliable-message](asset:distributed-system/distributed-transaction/distributed-transaction-reliable-message.png)
+![distributed-transaction-reliable-message](diagram:distributed-system/distributed-transaction/distributed-transaction-reliable-message)
 
 ### Phương án thông báo nỗ lực tối đa
 

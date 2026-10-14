@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-execution-isolation
-  hash: 'sha256:v1:7b170988a8bc770bd89ef60309509766e695a98bb676727bd39b3e8ba1d23365'
+  hash: 'sha256:v1:528a5a92d133cac06cff126ca252f86aca4c21e8249efbd3cec86fa7e778b6a1'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -104,7 +104,7 @@ HystrixThreadPoolProperties.Setter().withCoreSize(int value);
 
 If all 10 threads in the thread pool are busy and no thread is free for other work, new requests first queue up in the backlog. If the queue is full, any further request is rejected directly, the degradation (fallback) logic is executed, and the call returns quickly.
 
-![hystrix-thread-pool-queue](asset:high-availability/hystrix-execution-isolation/hystrix-thread-pool-queue.png)
+![hystrix-thread-pool-queue](diagram:high-availability/hystrix-execution-isolation/hystrix-thread-pool-queue)
 
 This controls the threshold at which requests are rejected once the queue is full. Because maxQueueSize does not allow hot modification, this parameter is provided so that the maximum queue size can be modified hot.
 

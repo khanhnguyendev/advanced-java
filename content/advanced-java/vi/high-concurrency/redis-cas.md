@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-cas
-  hash: 'sha256:v1:3b3a3f0784326ae472fb87db96f0807e18436038e798253015f05196d6a0f897'
+  hash: 'sha256:v1:f151e12c6e418af7335242ddf322eb97454e622721418c8e18f5854c72320465'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -22,7 +22,7 @@ Hơn nữa bản thân Redis đã có sẵn phương án khóa lạc quan kiểu
 
 Tại một thời điểm nào đó, nhiều instance hệ thống cùng đi cập nhật một key. Có thể dựa vào zookeeper để hiện thực khóa phân tán. Mỗi hệ thống lấy khóa phân tán qua zookeeper, đảm bảo tại cùng một thời điểm chỉ có một instance hệ thống thao tác một key nào đó, những instance khác không được phép đọc và ghi.
 
-![zookeeper-distributed-lock](asset:high-concurrency/redis-cas/zookeeper-distributed-lock.png)
+![zookeeper-distributed-lock](diagram:high-concurrency/redis-cas/zookeeper-distributed-lock)
 
 Dữ liệu bạn cần ghi vào bộ nhớ đệm đều được truy vấn từ mysql ra, đều phải ghi vào mysql, khi ghi vào mysql thì bắt buộc phải lưu một timestamp, khi truy vấn từ mysql ra thì timestamp cũng được truy vấn ra.
 

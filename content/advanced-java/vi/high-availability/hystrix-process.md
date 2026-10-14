@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-process
-  hash: 'sha256:v1:1a09a0d5375edeb278fb7f7a2573623a6e374d103efab79be5d5490ece5cf1db'
+  hash: 'sha256:v1:c734f95b5dcfac17afebf30d34b078f7c682734c47b04c0ce79c0a1c6e56aed9'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -20,7 +20,7 @@ Trong quá trình giải thích luồng này, tôi sẽ nhắc đến một số
 
 Đây là sơ đồ luồng của toàn bộ 8 bước lớn, tôi sẽ giải thích chi tiết từng bước. Trong quá trình học, đối chiếu với sơ đồ luồng này, tin rằng mạch suy nghĩ sẽ rõ ràng hơn.
 
-![hystrix-process](asset:high-availability/hystrix-process/new-hystrix-process.jpg)
+![hystrix-process](diagram:high-availability/hystrix-process/new-hystrix-process)
 
 ## Bước một: Tạo command
 

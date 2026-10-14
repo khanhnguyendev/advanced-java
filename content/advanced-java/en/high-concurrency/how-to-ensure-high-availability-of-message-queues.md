@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: how-to-ensure-high-availability-of-message-queues
-  hash: 'sha256:v1:a4a5aad82e18cc743dd6510d7fcf7a04b735afe44ea552907ca5bbb46541b231'
+  hash: 'sha256:v1:e8e01d6d26e4e66d57f95452983a1d2f7a0c230f14314b32a7623988e2babed8'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -38,7 +38,7 @@ Single-node mode is demo-grade. It is generally something you start locally to p
 
 Normal cluster mode means starting multiple RabbitMQ instances on multiple machines, one per machine. The **queue you create is placed on only one RabbitMQ instance**, but every instance synchronizes the queue's metadata (metadata can be seen as some configuration information of the queue, through which the instance holding the queue can be found). When you consume, if you actually connect to another instance, that instance pulls the data over from the instance where the queue lives.
 
-![mq-7](asset:high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7.png)
+![mq-7](diagram:high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7)
 
 This approach is indeed troublesome and not very good: it **does not achieve what is called distributed**, it is just an ordinary cluster. As a result, either consumers connect to a random instance each time and pull data, or they always connect to the instance where the queue lives to consume data. The former has the **overhead of pulling data**, and the latter causes a **performance bottleneck on a single instance**.
 
@@ -52,7 +52,7 @@ So this is rather awkward: there is **no so-called high availability**, and **th
 
 This mode used to be the so-called high availability mode of RabbitMQ. Unlike normal cluster mode, in mirrored cluster mode, both the metadata and the messages of the queue you create **exist on multiple instances**. That is, every RabbitMQ node has a **complete mirror** of this queue, meaning all of the queue's data. Then every time you write a message to the queue, the **message is automatically synchronized** to the queue on multiple instances.
 
-![mq-8](asset:high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8.png)
+![mq-8](diagram:high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8)
 
 So **how do you enable this mirrored cluster mode**? It is actually very simple. RabbitMQ has a good management console: you add a policy in the console, and this policy is the **mirrored cluster mode policy**. When specifying it, you can require data to be synchronized to all nodes, or to a specified number of nodes. When you create a queue again and apply this policy, the data is automatically synchronized to the other nodes.
 
@@ -100,11 +100,11 @@ Before Kafka 0.8 there was no HA mechanism: if any broker crashed, the partition
 
 For example, suppose we create a topic with 3 partitions, on three machines respectively. But if the second machine crashes, 1/3 of this topic's data is lost, so high availability cannot be achieved.
 
-![kafka-before](asset:high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-before.png)
+![kafka-before](diagram:high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-before)
 
 After Kafka 0.8, an HA mechanism was provided, which is the replica mechanism. The data of every partition is synchronized to other machines, forming its own multiple replicas. All replicas elect a leader, so producing and consuming both deal with this leader, and the other replicas are followers. When writing, the leader is responsible for synchronizing the data to all followers; when reading, you simply read the data on the leader. Only the leader can be read and written? It is simple: **if you could read and write every follower freely, you would have to care about data consistency**, which makes the system far too complex and prone to problems. Kafka distributes all replicas of a partition evenly across different machines, which is what improves fault tolerance.
 
-![kafka-after](asset:high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after.png)
+![kafka-after](diagram:high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after)
 
 Doing it this way gives the so-called **high availability**: if some broker crashes, no problem, because the partitions on that broker have replicas on other machines. If the crashed broker holds the leader of some partition, a new leader is **re-elected** from the followers, and everyone keeps reading and writing the new leader. That is the so-called high availability.
 

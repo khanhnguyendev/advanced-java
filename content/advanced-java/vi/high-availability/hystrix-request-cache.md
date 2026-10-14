@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-request-cache
-  hash: 'sha256:v1:dfa7a26e5b58510b167ce217cb188151aacc4bc9277c8c19d1b7a618c7d2c34b'
+  hash: 'sha256:v1:89742b42de1712c7b19858b418912aef459b7cfc272fa9fce8dbf88104153ab9'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -18,7 +18,7 @@ Như vậy, lợi ích là không phải thực thi lặp đi lặp lại nhiề
 
 Lấy ví dụ. Chẳng hạn trong một ngữ cảnh yêu cầu, chúng ta yêu cầu lấy dữ liệu của productId bằng 1, lần đầu bộ nhớ đệm chưa có, thì sẽ lấy dữ liệu từ dịch vụ sản phẩm, trả về kết quả dữ liệu mới nhất, đồng thời lưu dữ liệu vào bộ nhớ. Sau đó trong cùng ngữ cảnh yêu cầu, nếu còn yêu cầu lấy dữ liệu của productId bằng 1, thì lấy thẳng từ bộ nhớ đệm.
 
-![hystrix-request-cache](asset:high-availability/hystrix-request-cache/hystrix-request-cache.png)
+![hystrix-request-cache](diagram:high-availability/hystrix-request-cache/hystrix-request-cache)
 
 HystrixCommand và HystrixObservableCommand đều có thể chỉ định một cache key, sau đó Hystrix sẽ tự động lưu bộ nhớ đệm, rồi trong cùng một request context, nếu truy cập lần nữa thì sẽ dùng trực tiếp bộ nhớ đệm.
 

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: distributed-transaction
-  hash: 'sha256:v1:0f0b028fcea1a077bfcf9a5bcf25f80223cf029041d8a512cccbfd7cb048c891'
+  hash: 'sha256:v1:91c0391082d5166c4f55fda982edbb7dfa73e1460128c5c255fd17a3ab38ba96'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -41,7 +41,7 @@ If you need to operate on the database of another service, you must not connect 
 
 If you need to operate on another service's database, you must do it by **calling the other service's API**. Cross-accessing someone else's database is absolutely not allowed.
 
-![distributed-transacion-XA](asset:distributed-system/distributed-transaction/distributed-transaction-XA.png)
+![distributed-transacion-XA](diagram:distributed-system/distributed-transaction/distributed-transaction-xa)
 
 ### TCC
 
@@ -59,7 +59,7 @@ It is also best if the execution time of each business step is short.
 
 But honestly, try to avoid it. Writing rollback or compensation logic by hand is really unpleasant, and that business code is very hard to maintain.
 
-![distributed-transacion-TCC](asset:distributed-system/distributed-transaction/distributed-transaction-TCC.png)
+![distributed-transacion-TCC](diagram:distributed-system/distributed-transaction/distributed-transaction-tcc)
 
 ### Saga
 
@@ -69,7 +69,7 @@ Core financial businesses may choose TCC in pursuit of strong consistency and hi
 
 Every participant in the business flow commits a local transaction. If one participant fails, the participants that already succeeded are compensated. In the figure below, the left side is the normal transaction flow. When an error occurs at T3, the compensation flow on the right begins, executing the compensation services C3, C2 and C1 in reverse order, to compensate the data already modified by T3, T2 and T1.
 
-![distributed-transacion-TCC](asset:distributed-system/distributed-transaction/distributed-transaction-saga.png)
+![distributed-transacion-TCC](diagram:distributed-system/distributed-transaction/distributed-transaction-saga)
 
 #### Use cases
 
@@ -107,7 +107,7 @@ Roughly, it works like this:
 
 Honestly, the biggest problem of this solution is that it **relies heavily on the message table in the database to manage transactions**. What about high concurrency scenarios? How do you scale it? So it is indeed rarely used.
 
-![distributed-transaction-local-message-table](asset:distributed-system/distributed-transaction/distributed-transaction-local-message-table.png)
+![distributed-transaction-local-message-table](diagram:distributed-system/distributed-transaction/distributed-transaction-local-message-table)
 
 ### Reliable message eventual consistency
 
@@ -122,7 +122,7 @@ Roughly:
 5. In this solution, what if system B's transaction fails? Retry, of course: keep retrying automatically until it succeeds. If it really does not work, then for important funds-related business you roll back, for example after rolling back locally, system B finds a way to notify system A to roll back too; or it sends an alert and a human rolls back and compensates manually;
 6. This is quite suitable, and most Internet companies in China do it this way today. Either use what RocketMQ supports, or build a similar piece of logic yourself on something like ActiveMQ or RabbitMQ. In any case, the idea is the same.
 
-![distributed-transaction-reliable-message](asset:distributed-system/distributed-transaction/distributed-transaction-reliable-message.png)
+![distributed-transaction-reliable-message](diagram:distributed-system/distributed-transaction/distributed-transaction-reliable-message)
 
 ### Best-effort notification
 

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: distributed-system-request-sequence
-  hash: 'sha256:v1:c9ba198723c9a1755684b3fd007e3f2ce0853fb35479162c051a774ff6f2e234'
+  hash: 'sha256:v1:6d79dcdd86596ff7b0b0213ccc52b150a18b3b95447ba0cf175ea2c9842a7d1d'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -26,7 +26,7 @@ First, my personal suggestion is that the system you design from the business lo
 
 Let me give a solution we have used. In short, first you use Dubbo's consistent hash load balancing strategy to dispatch, for example, all the requests for a given order id to one machine. Then on that machine, since execution may still be concurrent across multiple threads, you may need to immediately throw the requests for that order id into an **in-memory queue**, forcing them to queue, so that their ordering is guaranteed.
 
-![distributed-system-request-sequence](asset:distributed-system/distributed-system-request-sequence/distributed-system-request-sequence.png)
+![distributed-system-request-sequence](diagram:distributed-system/distributed-system-request-sequence/distributed-system-request-sequence)
 
 But this causes many follow-up problems. For example, what if the requests for some order are especially numerous and make one machine a **hotspot**? Solving these problems opens up a whole series of further complex technical solutions... Problems like this once gave us endless headaches, so what do I still recommend?
 

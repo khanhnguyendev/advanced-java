@@ -35,11 +35,11 @@ Redis cluster，主要是针对**海量数据+高并发+高可用**的场景。R
 
 **集中式**是将集群元数据（节点信息、故障等等）集中存储在某个节点上。集中式元数据集中存储的一个典型代表，就是大数据领域的 `storm` 。它是分布式的大数据实时计算引擎，是集中式的元数据存储的结构，底层基于 zookeeper（分布式协调的中间件）对所有元数据进行存储维护。
 
-![zookeeper-centralized-storage](asset:high-concurrency/redis-cluster/zookeeper-centralized-storage.png)
+![zookeeper-centralized-storage](diagram:high-concurrency/redis-cluster/zookeeper-centralized-storage)
 
 Redis 维护集群元数据采用另一个方式， `gossip` 协议，所有节点都持有一份元数据，不同的节点如果出现了元数据的变更，就不断将元数据发送给其它的节点，让其它节点也进行元数据的变更。
 
-![Redis-gossip](asset:high-concurrency/redis-cluster/redis-gossip.png)
+![Redis-gossip](diagram:high-concurrency/redis-cluster/redis-gossip)
 
 **集中式**的**好处**在于，元数据的读取和更新，时效性非常好，一旦元数据出现了变更，就立即更新到集中式的存储中，其它节点读取的时候就可以感知到；**不好**在于，所有的元数据的更新压力全部集中在一个地方，可能会导致元数据的存储有压力。
 
@@ -83,7 +83,7 @@ ping 时要携带一些元数据，如果很频繁，可能会加重网络负担
 
 来了一个 key，首先计算 hash 值，然后对节点数取模。然后打在不同的 master 节点上。一旦某一个 master 节点宕机，所有请求过来，都会基于最新的剩余 master 节点数去取模，尝试去取数据。这会导致**大部分的请求过来，全部无法拿到有效的缓存**，导致大量的流量涌入数据库。
 
-![hash](asset:high-concurrency/redis-cluster/hash.png)
+![hash](diagram:high-concurrency/redis-cluster/hash)
 
 #### 一致性 hash 算法
 
@@ -95,7 +95,7 @@ ping 时要携带一些元数据，如果很频繁，可能会加重网络负担
 
 燃鹅，一致性哈希算法在节点太少时，容易因为节点分布不均匀而造成**缓存热点**的问题。为了解决这种热点问题，一致性 hash 算法引入了虚拟节点机制，即对每一个节点计算多个 hash，每个计算结果位置都放置一个虚拟节点。这样就实现了数据的均匀分布，负载均衡。
 
-![consistent-hashing-algorithm](asset:high-concurrency/redis-cluster/consistent-hashing-algorithm.png)
+![consistent-hashing-algorithm](diagram:high-concurrency/redis-cluster/consistent-hashing-algorithm)
 
 #### Redis cluster 的 hash slot 算法
 
@@ -105,7 +105,7 @@ Redis cluster 中每个 master 都会持有部分 slot，比如有 3 个 master�
 
 任何一台机器宕机，另外两个节点，不影响的。因为 key 找的是 hash slot，不是机器。
 
-![hash-slot](asset:high-concurrency/redis-cluster/hash-slot.png)
+![hash-slot](diagram:high-concurrency/redis-cluster/hash-slot)
 
 ### Redis cluster 的高可用与主备切换原理
 

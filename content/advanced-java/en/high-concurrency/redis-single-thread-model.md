@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-single-thread-model
-  hash: 'sha256:v1:1e754adb6555b0c13cc758c2b35ca23f05d0b5520ae4944519c3f075496870fe'
+  hash: 'sha256:v1:084d77058a30583b74b133f170080bd6b3306965f426526a6b88bc956649dfeb'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -49,7 +49,7 @@ Multiple sockets may generate different operations concurrently, and each operat
 
 Consider one communication between a client and Redis:
 
-![Redis-single-thread-model](asset:high-concurrency/redis-single-thread-model/redis-single-thread-model.png)
+![Redis-single-thread-model](diagram:high-concurrency/redis-single-thread-model/redis-single-thread-model)
 
 Note that communication is done through sockets. If you are not familiar with them, read up on socket network programming first.
 

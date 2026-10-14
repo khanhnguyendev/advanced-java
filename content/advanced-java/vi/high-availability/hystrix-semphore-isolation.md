@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-semphore-isolation
-  hash: 'sha256:v1:e9646249d0c55c17641513770ba57292d5068eeaeab129530023509b6698359a'
+  hash: 'sha256:v1:97c7d7ffc9706a518ad43c5009eb6d3994a9edf1c3868a4a471ad6bc8ccf4199'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -23,7 +23,7 @@ Phần trước đã nói về kỹ thuật thread pool; phần này sẽ nói v
 
 Việc cô lập tài nguyên bằng semaphore chỉ đóng vai trò như một công tắc. Ví dụ, semaphore của dịch vụ A có kích thước 10, nghĩa là cùng lúc chỉ cho phép 10 luồng tomcat truy cập dịch vụ A, các yêu cầu còn lại đều bị từ chối, qua đó đạt được tác dụng cô lập tài nguyên và bảo vệ bằng giới hạn lưu lượng (rate limiting).
 
-![hystrix-semphore](asset:high-availability/hystrix-semphore-isolation/hystrix-semphore.png)
+![hystrix-semphore](diagram:high-availability/hystrix-semphore-isolation/hystrix-semphore)
 
 ## Khác biệt giữa thread pool và semaphore
 
@@ -31,7 +31,7 @@ Kỹ thuật cô lập bằng thread pool không phải là kiểm soát các lu
 
 Kỹ thuật cô lập thread pool dùng luồng riêng của Hystrix để thực thi lời gọi; còn kỹ thuật cô lập bằng semaphore là để luồng tomcat gọi trực tiếp dịch vụ phụ thuộc. Cô lập bằng semaphore chỉ là một chốt chặn: semaphore có bao nhiêu thì cho phép bấy nhiêu luồng tomcat đi qua và thực thi.
 
-![hystrix-semphore-thread-pool](asset:high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool.png)
+![hystrix-semphore-thread-pool](diagram:high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool)
 
 **Tình huống áp dụng**:
 

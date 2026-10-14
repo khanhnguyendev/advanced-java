@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-consistence
-  hash: 'sha256:v1:c99efab2c8c76e1105241de77a247d69443537b5cd676f2f5ce159ea162d6f66'
+  hash: 'sha256:v1:3e0444d42ca49dde36366b3aa94b2f25f06884672a2fa372d370ab80accbe98b'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -45,7 +45,7 @@ Thực ra xóa bộ nhớ đệm thay vì cập nhật bộ nhớ đệm chính 
 
 Vấn đề: cập nhật cơ sở dữ liệu trước, rồi xóa bộ nhớ đệm. Nếu xóa bộ nhớ đệm thất bại thì cơ sở dữ liệu là dữ liệu mới, bộ nhớ đệm là dữ liệu cũ, dữ liệu sẽ bị bất nhất.
 
-![redis-junior-inconsistent](asset:high-concurrency/redis-consistence/redis-junior-inconsistent.png)
+![redis-junior-inconsistent](diagram:high-concurrency/redis-consistence/redis-junior-inconsistent)
 
 Hướng giải quyết 1: xóa bộ nhớ đệm trước, rồi cập nhật cơ sở dữ liệu. Nếu cập nhật cơ sở dữ liệu thất bại thì cơ sở dữ liệu là dữ liệu cũ, bộ nhớ đệm rỗng, vậy dữ liệu sẽ không bất nhất. Vì khi đọc bộ nhớ đệm không có, nên đi đọc dữ liệu cũ trong cơ sở dữ liệu, rồi cập nhật vào bộ nhớ đệm.
 

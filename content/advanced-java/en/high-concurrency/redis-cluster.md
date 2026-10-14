@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-cluster
-  hash: 'sha256:v1:b2301c4f74a1c7fc4f3acb688789757d2731fdd6e4cde9c6e3039ce149da50fd'
+  hash: 'sha256:v1:5c1c2664ac4fff708a471d907a0ca2b6e6c1f2d98043dcb43bcc11dd7bdb7cdf'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -43,11 +43,11 @@ There are two ways to maintain cluster metadata: centralized, and the gossip pro
 
 **Centralized** storage keeps the cluster metadata (node information, failures and so on) on a single node. A typical example of centralized metadata storage is `storm` in the big data field. It is a distributed real-time big data computing engine with a centralized metadata structure, and underneath it relies on zookeeper (distributed coordination middleware) to store and maintain all the metadata.
 
-![zookeeper-centralized-storage](asset:high-concurrency/redis-cluster/zookeeper-centralized-storage.png)
+![zookeeper-centralized-storage](diagram:high-concurrency/redis-cluster/zookeeper-centralized-storage)
 
 Redis maintains cluster metadata in another way, the `gossip` protocol. Every node holds a copy of the metadata, and when the metadata changes on one node, it keeps sending the metadata to other nodes so that they update their metadata as well.
 
-![Redis-gossip](asset:high-concurrency/redis-cluster/redis-gossip.png)
+![Redis-gossip](diagram:high-concurrency/redis-cluster/redis-gossip)
 
 The **advantage** of **centralized** storage is that metadata reads and updates have very good latency: as soon as the metadata changes it is updated in the central store, and other nodes notice it when they read. The **disadvantage** is that all metadata update pressure is concentrated in one place, which may put the metadata store under strain.
 
@@ -91,7 +91,7 @@ Each ping carries the node's own information plus the information of 1/10 of the
 
 When a key arrives, compute its hash value first, then take the modulo by the number of nodes (hash modulo), and the key lands on one of the master nodes. Once one master node crashes, all requests take the modulo by the new, reduced number of remaining master nodes and try to fetch data. This causes **most requests to be unable to obtain a valid cache entry**, so a large amount of traffic floods into the database.
 
-![hash](asset:high-concurrency/redis-cluster/hash.png)
+![hash](diagram:high-concurrency/redis-cluster/hash)
 
 #### Consistent hashing algorithm
 
@@ -103,7 +103,7 @@ In consistent hashing, if a node goes down, the only data affected is the data b
 
 However, when there are too few nodes, consistent hashing easily suffers from **cache hotspots** because the nodes are distributed unevenly. To solve this hotspot problem, consistent hashing introduces a virtual node mechanism: several hashes are computed for each node, and a virtual node is placed at the position of each result. This achieves even data distribution and load balancing.
 
-![consistent-hashing-algorithm](asset:high-concurrency/redis-cluster/consistent-hashing-algorithm.png)
+![consistent-hashing-algorithm](diagram:high-concurrency/redis-cluster/consistent-hashing-algorithm)
 
 #### The hash slot algorithm of Redis cluster
 
@@ -113,7 +113,7 @@ Every master in a Redis cluster holds some of the slots. For example, with 3 mas
 
 If any one machine crashes, the other two nodes are not affected, because a key maps to a hash slot, not to a machine.
 
-![hash-slot](asset:high-concurrency/redis-cluster/hash-slot.png)
+![hash-slot](diagram:high-concurrency/redis-cluster/hash-slot)
 
 ### High availability and master/replica failover in Redis cluster
 

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: database-shard
-  hash: 'sha256:v1:9c5c1de30ff89363123ec42f8049214c79979b372bf53dbe6fb0204ce8add38f'
+  hash: 'sha256:v1:2cd8f5357a47f8329a497b9f253d44c0e5b5153c12076f57ce4e0c38da0f52eb'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -100,11 +100,11 @@ Thông thường, hai phương án này thực ra đều có thể chọn dùng,
 
 **Tách ngang** nghĩa là đưa dữ liệu của một bảng vào nhiều bảng của nhiều cơ sở dữ liệu, nhưng cấu trúc bảng của mỗi cơ sở dữ liệu đều giống nhau, chỉ là dữ liệu đặt trong bảng của mỗi cơ sở dữ liệu khác nhau, dữ liệu của tất cả các bảng cộng lại là toàn bộ dữ liệu. Ý nghĩa của tách ngang là đặt dữ liệu đồng đều vào nhiều cơ sở dữ liệu hơn, rồi dùng nhiều cơ sở dữ liệu để chống đỡ mức đồng thời cao hơn, ngoài ra là dùng dung lượng lưu trữ của nhiều cơ sở dữ liệu để mở rộng.
 
-![database-split-horizon](asset:high-concurrency/database-shard/database-split-horizon.png)
+![database-split-horizon](diagram:high-concurrency/database-shard/database-split-horizon)
 
 **Tách dọc** nghĩa là **tách một bảng có rất nhiều trường thành nhiều bảng**, **hoặc lên nhiều cơ sở dữ liệu**. Cấu trúc của mỗi bảng ở mỗi cơ sở dữ liệu đều khác nhau, mỗi bảng đều chứa một phần các trường. Nói chung, sẽ **đặt các trường ít mà tần suất truy cập rất cao vào một bảng**, rồi **đặt các trường nhiều mà tần suất truy cập rất thấp vào một bảng khác**. Vì cơ sở dữ liệu có bộ nhớ đệm, các trường của dòng có tần suất truy cập cao của bạn càng ít thì càng có thể cache được nhiều dòng hơn trong bộ nhớ đệm, hiệu năng càng tốt. Cái này nói chung làm ở tầng bảng nhiều hơn.
 
-![database-split-vertically](asset:high-concurrency/database-shard/database-split-vertically.png)
+![database-split-vertically](diagram:high-concurrency/database-shard/database-split-vertically)
 
 Cái này thực ra khá phổ biến, không nhất thiết phải do tôi nói, nhiều bạn có thể tự mình đã làm, tách một bảng lớn ra, bảng đơn hàng, bảng thanh toán đơn hàng, bảng sản phẩm của đơn hàng.
 

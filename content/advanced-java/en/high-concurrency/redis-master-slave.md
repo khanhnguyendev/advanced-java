@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-master-slave
-  hash: 'sha256:v1:6f8efdf3fcb4f9e94b9e14246a636789e8b62e089d8c1473ba37b1adfd80c0bc'
+  hash: 'sha256:v1:b348d8784c43a3f6713987b0d2b440935b671e9522740a41de2b376b076204cc'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -10,7 +10,7 @@ translatedAt: '2026-10-14'
 
 A single Redis node can carry roughly from over ten thousand to tens of thousands of QPS. A cache is generally used to support **high-concurrency reads**. So the architecture is built as a master/replica (master-slave) architecture with one master and multiple slaves: the master handles writes and replicates data to the other replica nodes, and the replica nodes handle reads. **All read requests go to the replica nodes.** This also makes horizontal scaling easy and **supports high-concurrency reads**.
 
-![Redis-master-slave](asset:high-concurrency/redis-master-slave/redis-master-slave.png)
+![Redis-master-slave](diagram:high-concurrency/redis-master-slave/redis-master-slave)
 
 Redis replication -> master/replica architecture -> read/write splitting -> horizontal scaling to support high-concurrency reads
 
@@ -33,7 +33,7 @@ When a replica node starts, it sends a `PSYNC` command to the master node.
 
 If this is the first time the replica node connects to the master node, it triggers a `full resynchronization`, a full replication. The master then starts a background thread to generate an `RDB` snapshot file, and meanwhile caches in memory all new write commands received from clients. After the `RDB` file is generated, the master sends this `RDB` to the slave. The slave first **writes it to local disk and then loads it from local disk into memory**, after which the master sends the write commands cached in memory to the slave, and the slave synchronizes that data as well. If a replica node loses its connection to the master node because of a network failure, it reconnects automatically, and after reconnecting the master node copies only the missing part of the data to the slave.
 
-![Redis-master-slave-replication](asset:high-concurrency/redis-master-slave/redis-master-slave-replication.png)
+![Redis-master-slave-replication](diagram:high-concurrency/redis-master-slave/redis-master-slave-replication)
 
 ### Resumable master/replica replication
 
@@ -64,7 +64,7 @@ When a replica node starts, it saves the master node's information locally, incl
 
 A replica node has an internal scheduled task that checks every second whether there is a new master node to connect to and replicate from. If it finds one, it establishes a socket network connection with the master node. Then the replica node sends a `ping` command to the master node. If the master has requirepass set, the replica node must send the masterauth password to authenticate. The master node **performs a full replication for the first time**, sending all data to the replica node. Afterwards, the master node continuously replicates write commands to the replica node asynchronously.
 
-![Redis-master-slave-replication-detail](asset:high-concurrency/redis-master-slave/redis-master-slave-replication-detail.png)
+![Redis-master-slave-replication-detail](diagram:high-concurrency/redis-master-slave/redis-master-slave-replication-detail)
 
 ### Full replication
 

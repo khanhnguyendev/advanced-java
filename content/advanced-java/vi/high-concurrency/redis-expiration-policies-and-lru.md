@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-expiration-policies-and-lru
-  hash: 'sha256:v1:f9d62a2aa5f83c7a0b903cc7d5aff696f7969e118e6e1e689f267cab0d9c49ba'
+  hash: 'sha256:v1:59363b25187396fcdf23f0d32f20720cdfe1fd2ef26375f812de9db904770e01'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -67,13 +67,13 @@ Vậy cài đặt như thế nào?
 
 Thực ra ý tưởng cài đặt rất đơn giản, như được mô tả trong hình dưới đây.
 
-![](asset:high-concurrency/redis-expiration-policies-and-lru/lru.png)
+![](diagram:high-concurrency/redis-expiration-policies-and-lru/lru)
 
 Bạn có thể viết tay ngay tại chỗ thuật toán LRU nguyên thủy nhất, nhưng lượng code quá lớn, dường như không thực tế.
 
 Không đòi hỏi bạn tự tay xây dựng LRU từ tầng thấp nhất, nhưng ít nhất phải biết cách tận dụng các cấu trúc dữ liệu có sẵn của JDK để cài đặt một LRU phiên bản Java.
 
-![](asset:high-concurrency/redis-expiration-policies-and-lru/lru-cache.png)
+![](diagram:high-concurrency/redis-expiration-policies-and-lru/lru-cache)
 
 ```java
 public class LRUCache<K, V> extends LinkedHashMap<K, V> {

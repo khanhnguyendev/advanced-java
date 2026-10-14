@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: how-to-ensure-that-messages-are-not-repeatedly-consumed
-  hash: 'sha256:v1:c8f0c7b5c48d8bfc391a63549429a74d07bfbe46b0c8f410f4bc07d416a4ace2'
+  hash: 'sha256:v1:69b79a47e604c30a686c03794a835a3ad40fd0fb7ac4fa8eb148578b6eeee1e0'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -32,7 +32,7 @@ Consider this scenario. Data 1/2/3 enters Kafka in order, and Kafka assigns each
 
 Note: newer versions of Kafka have moved offset storage from ZooKeeper to the Kafka brokers, and store it in the internal offsets topic `__consumer_offsets`.
 
-![mq-10](asset:high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10.png)
+![mq-10](diagram:high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10)
 
 If what the consumer does is write one row to the database for each record it takes, you may well insert data 1/2 into the database twice, and then the data is wrong.
 
@@ -53,6 +53,6 @@ You still have to think in combination with the business. Here are a few ideas:
 -   For example, if you are not in either of the two scenarios above, do something slightly more complex. You need the producer to add a globally unique id to each record it sends, something like an order id. When you consume it, first check, for example in Redis by this id, whether it has been consumed before. If not, process it and write this id to Redis. If it has been consumed, do not process it, so that the same message is not processed repeatedly.
 -   For example, rely on the unique key of the database to ensure that duplicate data is not inserted as multiple rows. Because of the unique key constraint, inserting duplicate data only raises an error and does not cause dirty data in the database.
 
-![mq-11](asset:high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-11.png)
+![mq-11](diagram:high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-11)
 
 Of course, how to ensure that MQ consumption is idempotent has to be considered together with the specific business in actual applications.

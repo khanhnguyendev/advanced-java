@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: dubbo-service-management
-  hash: 'sha256:v1:dc54de255dd785769aa3598fdb67176f25e44e482ee89adefbf27d7fec5d2e91'
+  hash: 'sha256:v1:b4ab9a80ecfc2407c23b6dbff678cd47ace0de3dc758f83381902b7fd7d5193d'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -32,7 +32,7 @@ Take a large distributed system, or, in terms of the popular microservices archi
 
 So in a distributed system built on Dubbo, the calls between services need to be recorded automatically, and then **the dependencies and call chains between services are generated** automatically and drawn as a diagram, so that everyone can see them, right?
 
-![dubbo-service-invoke-road](asset:distributed-system/dubbo-service-management/dubbo-service-invoke-road.png)
+![dubbo-service-invoke-road](diagram:distributed-system/dubbo-service-management/dubbo-service-invoke-road)
 
 #### 2. Service access pressure and duration statistics
 

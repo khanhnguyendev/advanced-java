@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-thread-pool-current-limiting
-  hash: 'sha256:v1:1bc165702d27f14d79d9b44dc13452402c322fa98a477c034370c9806e8962c9'
+  hash: 'sha256:v1:5e79e0eef0346dc9ab2c8c1c90cee06d733c0e90e6795f6af4db4c562ce0ce64'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -10,7 +10,7 @@ translatedAt: '2026-10-14'
 
 We have covered Hystrix's request cache, fallback graceful degradation and fast circuit breaking with the circuit breaker. In this lesson we look in detail at Hystrix thread pool isolation and API rate limiting.
 
-![hystrix-process](asset:high-availability/hystrix-thread-pool-current-limiting/hystrix-process.png)
+![hystrix-process](diagram:high-availability/hystrix-thread-pool-current-limiting/hystrix-process)
 
 Hystrix checks whether the thread pool or semaphore is full; requests beyond the capacity are rejected (Reject) directly and go to degradation, which achieves rate limiting.
 

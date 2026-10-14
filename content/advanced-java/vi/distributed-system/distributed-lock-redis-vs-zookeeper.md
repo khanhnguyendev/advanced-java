@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: distributed-lock-redis-vs-zookeeper
-  hash: 'sha256:v1:f8f366102d50f199a6ab7c2517236af455132bdf606196116a81ab8a9f945258'
+  hash: 'sha256:v1:63bd17c60fb057e0577f769a64c681fbdec8fe5ed566bb3c52e85c47fc9475f3'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -68,7 +68,7 @@ Tình huống này giả định có một Redis cluster với 5 instance Redis 
 5. Nếu thiết lập khóa thất bại thì lần lượt xóa các khóa đã tạo trước đó;
 6. Chỉ cần người khác đã tạo một khóa phân tán thì bạn phải **liên tục thăm dò (polling) để thử lấy khóa**.
 
-![redis-redlock](asset:distributed-system/distributed-lock-redis-vs-zookeeper/redis-redlock.png)
+![redis-redlock](diagram:distributed-system/distributed-lock-redis-vs-zookeeper/redis-redlock)
 
 [Redis chính thức](https://redis.io/) đưa ra hai phương pháp triển khai khóa phân tán dựa trên Redis như trên, xem giải thích chi tiết tại: https://redis.io/topics/distlock .
 

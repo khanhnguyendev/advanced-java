@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-thread-pool-isolation
-  hash: 'sha256:v1:31ce788c7245b50fd65d74847b02d6a159153efcf06310d3c331c4fdaa50e72e'
+  hash: 'sha256:v1:2af51689979c0c9d225595673a0152d3bea4b15a048bb88bf37b3f65e669c0fc'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -122,6 +122,6 @@ public String getProductInfos(String productIds) {
 
 Hãy quay lại xem kỹ thuật thread pool của Hystrix thực hiện cô lập tài nguyên như thế nào.
 
-![hystrix-thread-pool-isolation](asset:high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation.png)
+![hystrix-thread-pool-isolation](diagram:high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation)
 
 Tính từ Nginx, bộ nhớ đệm đều mất hiệu lực, thì Nginx gọi dịch vụ sản phẩm thông qua dịch vụ bộ nhớ đệm. Kích thước luồng mặc định của dịch vụ bộ nhớ đệm là 10, nghĩa là tối đa chỉ có 10 luồng gọi API của dịch vụ sản phẩm. Dù API của dịch vụ sản phẩm gặp sự cố, tối đa cũng chỉ có 10 luồng bị treo trên đường gọi API của dịch vụ sản phẩm, các luồng còn lại trong Tomcat của dịch vụ bộ nhớ đệm vẫn có thể dùng để gọi các dịch vụ khác, làm những việc khác.

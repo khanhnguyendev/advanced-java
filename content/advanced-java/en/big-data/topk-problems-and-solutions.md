@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: topk-problems-and-solutions
-  hash: 'sha256:v1:5c14ca87aec7c9fd86dbee92ae9a5c5d57c294b614e78d335180f39f4d4a3ac0'
+  hash: 'sha256:v1:463932b244b45ca66944b1a0d4ba2d130eb0d7406334e32b92f228e770b073cd'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -135,7 +135,7 @@ This method suits lookups of URLs or phone numbers. The drawback is that if mult
 
 We will not go into the exact structure and query method of a trie here; there is plenty of material online. Here we only discuss its pros and cons.
 
-![](asset:big-data/topk-problems-and-solutions/topk-trie.png)
+![](diagram:big-data/topk-problems-and-solutions/topk-trie)
 
 The idea of a trie is to build index information up front so that it can be queried repeatedly later, and adding or deleting data afterwards is also convenient. It suits situations where repeated queries are needed.
 

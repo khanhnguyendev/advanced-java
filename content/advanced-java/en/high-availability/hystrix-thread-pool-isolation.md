@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-thread-pool-isolation
-  hash: 'sha256:v1:31ce788c7245b50fd65d74847b02d6a159153efcf06310d3c331c4fdaa50e72e'
+  hash: 'sha256:v1:2af51689979c0c9d225595673a0152d3bea4b15a048bb88bf37b3f65e669c0fc'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -122,6 +122,6 @@ public String getProductInfos(String productIds) {
 
 Let us step back and look at how the Hystrix thread pool technique achieves resource isolation.
 
-![hystrix-thread-pool-isolation](asset:high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation.png)
+![hystrix-thread-pool-isolation](diagram:high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation)
 
 Starting from Nginx, the caches have all failed, so Nginx calls the product service through the cache service. The default thread pool size of the cache service is 10, so at most 10 threads call the product service API. Even if the product service API fails, at most 10 threads will hang on the way to calling it, and the other threads inside the cache service's Tomcat can still be used to call other services and do other work.

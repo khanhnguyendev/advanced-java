@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: database-shard-global-id-generate
-  hash: 'sha256:v1:89141ef3bc389d33a29493163bc7d724abc9dbda3f7e76824e51317244516b43'
+  hash: 'sha256:v1:d9c370ccf988c86adc5901db4d2eea131b5ca8878e0e2604423de1a5f5ef2784'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -34,7 +34,7 @@ You can scale horizontally by setting a database sequence or the step of a table
 
 For example, suppose there are now 8 service nodes. Each service node uses a sequence to produce IDs, each sequence has a different starting ID, and they increase in turn, with a step of 8 for all.
 
-![database-id-sequence-step](asset:high-concurrency/database-shard-global-id-generate/database-id-sequence-step.png)
+![database-id-sequence-step](diagram:high-concurrency/database-shard-global-id-generate/database-id-sequence-step)
 
 **Suitable scenarios**: when users want to prevent duplicate IDs, this plan is fairly simple to implement and can also meet the performance goal. But the service nodes are fixed and the step is fixed, so it becomes hard to handle if you need to add service nodes in the future.
 

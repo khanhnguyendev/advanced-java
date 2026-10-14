@@ -14,7 +14,7 @@ dubbo 支持哪些通信协议？支持哪些序列化协议？说一下 Hessian
 
 **序列化**，就是把数据结构或者是一些对象，转换为二进制串的过程，而**反序列化**是将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程。
 
-![serialize-deserialize](asset:distributed-system/dubbo-serialization-protocol/serialize-deserialize.png)
+![serialize-deserialize](diagram:distributed-system/dubbo-serialization-protocol/serialize-deserialize)
 
 ### dubbo 支持不同的通信协议
 
@@ -26,11 +26,11 @@ dubbo 支持哪些通信协议？支持哪些序列化协议？说一下 Hessian
 
 长连接，通俗点说，就是建立连接过后可以持续发送请求，无须再建立连接。
 
-![dubbo-keep-connection](asset:distributed-system/dubbo-serialization-protocol/dubbo-keep-connection.png)
+![dubbo-keep-connection](diagram:distributed-system/dubbo-serialization-protocol/dubbo-keep-connection)
 
 而短连接，每次要发送请求之前，需要先重新建立一次连接。
 
-![dubbo-not-keep-connection](asset:distributed-system/dubbo-serialization-protocol/dubbo-not-keep-connection.png)
+![dubbo-not-keep-connection](diagram:distributed-system/dubbo-serialization-protocol/dubbo-not-keep-connection)
 
 -   rmi 协议 `rmi://`
 

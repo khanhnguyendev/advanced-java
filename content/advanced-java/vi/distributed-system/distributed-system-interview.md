@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: distributed-system-interview
-  hash: 'sha256:v1:5334f47996272bdfa100d3a6d1cc8efbbe0c209a140bea37660c0c35a76fa174'
+  hash: 'sha256:v1:d110025897cb5d231e4695514fd603a7ede09035bfed2f964eb962215e8e6e17'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -12,7 +12,7 @@ Có một số bạn trước đây chủ yếu làm trong các ngành truyền 
 
 Hệ thống nghiệp vụ phân tán là việc tách một hệ thống lớn vốn được phát triển bằng Java thành **nhiều hệ thống con**, các hệ thống con gọi lẫn nhau để tạo thành một hệ thống lớn hoàn chỉnh. Giả sử trước đây bạn làm một hệ thống OA, bên trong gồm mô-đun phân quyền, mô-đun nhân viên, mô-đun nghỉ phép, mô-đun tài chính; tất cả nằm trong một dự án, các mô-đun gọi lẫn nhau, triển khai trên 1 máy. Bây giờ nếu bạn tách hệ thống này ra thành 4 hệ thống là hệ thống phân quyền, hệ thống nhân viên, hệ thống nghỉ phép, hệ thống tài chính, tức 4 dự án, triển khai lần lượt trên 4 máy. Khi một yêu cầu đến, để hoàn tất yêu cầu này, hệ thống nhân viên gọi hệ thống phân quyền, gọi hệ thống nghỉ phép, gọi hệ thống tài chính; 4 hệ thống mỗi hệ thống hoàn thành một phần công việc, và chỉ sau khi cả 4 hệ thống làm xong thì yêu cầu mới được coi là hoàn tất.
 
-![simple-distributed-system-oa](asset:distributed-system/distributed-system-interview/simple-distributed-system-oa.png)
+![simple-distributed-system-oa](diagram:distributed-system/distributed-system-interview/simple-distributed-system-oa)
 
 > Mấy năm gần đây Spring Cloud bắt đầu nổi lên và trở nên phổ biến, nhưng mới chỉ thịnh hành, chưa bắt đầu được dùng rộng rãi; hiện nay thứ được dùng phổ biến là Dubbo, vì vậy ở đây cũng chủ yếu nói về Dubbo.
 

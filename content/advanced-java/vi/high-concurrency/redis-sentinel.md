@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-sentinel
-  hash: 'sha256:v1:c9a7e6e2f653765f345b4f6fcdbbc76277a7fea000331c8202a7064eb29f6085'
+  hash: 'sha256:v1:25b423905e6c353c557a6ba60a7505c63c89ab9eb208d3f578e848c2fdb91b59'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -75,7 +75,7 @@ Quá trình chuyển đổi master/replica có thể dẫn đến mất dữ li�
 
 Vì sao chép master->slave là bất đồng bộ, nên có thể một phần dữ liệu chưa kịp sao chép sang slave thì master đã sập, lúc này phần dữ liệu đó bị mất.
 
-![async-replication-data-lose-case](asset:high-concurrency/redis-sentinel/async-replication-data-lose-case.png)
+![async-replication-data-lose-case](diagram:high-concurrency/redis-sentinel/async-replication-data-lose-case)
 
 -   Mất dữ liệu do split-brain
 
@@ -83,7 +83,7 @@ Split-brain (não tách), nghĩa là máy chứa một master nào đó đột n
 
 Lúc này tuy một slave nào đó đã được chuyển thành master, nhưng có thể client chưa kịp chuyển sang master mới, vẫn tiếp tục ghi dữ liệu vào master cũ. Vì vậy khi master cũ phục hồi trở lại, nó sẽ được gắn vào master mới làm một slave, dữ liệu của nó sẽ bị xóa sạch, sao chép lại dữ liệu từ master mới. Còn master mới không có dữ liệu mà client ghi vào về sau, do đó phần dữ liệu này cũng bị mất.
 
-![Redis-cluster-split-brain](asset:high-concurrency/redis-sentinel/redis-cluster-split-brain.png)
+![Redis-cluster-split-brain](diagram:high-concurrency/redis-sentinel/redis-cluster-split-brain)
 
 ### Giải pháp cho vấn đề mất dữ liệu
 

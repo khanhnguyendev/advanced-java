@@ -12,7 +12,7 @@
 
 这里是整个 8 大步骤的流程图，我会对每个步骤进行细致的讲解。学习的过程中，对照着这个流程图，相信思路会比较清晰。
 
-![hystrix-process](asset:high-availability/hystrix-process/new-hystrix-process.jpg)
+![hystrix-process](diagram:high-availability/hystrix-process/new-hystrix-process)
 
 ## 步骤一：创建 command
 

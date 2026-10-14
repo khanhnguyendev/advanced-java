@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: e-commerce-website-detail-page-architecture
-  hash: 'sha256:v1:cfdfe29dfe206dfd2ee1134e7ebaaa2944a73b747deb62dfc98f70aa1b89cb23'
+  hash: 'sha256:v1:f0fb6aedb8c19e23ff8d83eb05f379b190234e2ad2193f0682b4550b154592b1'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -12,7 +12,7 @@ translatedAt: '2026-10-14'
 
 Website thương mại điện tử nhỏ hiển thị trang theo tư tưởng tĩnh hóa toàn bộ trang. Cơ sở dữ liệu lưu toàn bộ thông tin sản phẩm, hệ thống tĩnh hóa trang sẽ điền dữ liệu vào các mẫu tĩnh để tạo ra các trang đã tĩnh hóa, rồi đẩy lên máy chủ Nginx. Khi người dùng duyệt trang, hệ thống lấy một trang html đã được tĩnh hóa sẵn và trả về trực tiếp, không liên quan đến bất kỳ xử lý logic nghiệp vụ nào.
 
-![e-commerce-website-detail-page-architecture-1](asset:high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1.png)
+![e-commerce-website-detail-page-architecture-1](diagram:high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1)
 
 Dưới đây là một Demo đơn giản về mẫu trang.
 
@@ -38,7 +38,7 @@ Trong thiết kế hệ thống trang chi tiết sản phẩm của website thư
 
 Khi người dùng duyệt trang, dữ liệu cục bộ của Nginx được render động vào mẫu html cục bộ rồi trả về cho người dùng.
 
-![e-commerce-website-detail-page-architecture-2](asset:high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2.png)
+![e-commerce-website-detail-page-architecture-2](diagram:high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2)
 
 Tuy không nhanh bằng việc trả về thẳng trang html, nhưng do dữ liệu nằm trong bộ nhớ đệm cục bộ nên vẫn rất nhanh, chi phí thực chất chỉ là hiệu năng của việc render động một trang html. Nếu mẫu html thay đổi, không cần tĩnh hóa lại toàn bộ các trang, cũng không cần gửi yêu cầu, không có chi phí của yêu cầu mạng, chỉ cần render trực tiếp dữ liệu vào mẫu html mới nhất rồi phản hồi.
 

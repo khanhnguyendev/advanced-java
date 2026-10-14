@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: topk-problems-and-solutions
-  hash: 'sha256:v1:5c14ca87aec7c9fd86dbee92ae9a5c5d57c294b614e78d335180f39f4d4a3ac0'
+  hash: 'sha256:v1:463932b244b45ca66944b1a0d4ba2d130eb0d7406334e32b92f228e770b073cd'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -135,7 +135,7 @@ Phương pháp này khá phù hợp để truy vấn địa chỉ trang web ho�
 
 Cấu trúc cụ thể và cách truy vấn của cây tiền tố (trie) xin không nhắc lại ở đây, bạn có thể tự tìm kiếm trên mạng sẽ có rất nhiều. Ở đây chủ yếu nói về ưu nhược điểm.
 
-![](asset:big-data/topk-problems-and-solutions/topk-trie.png)
+![](diagram:big-data/topk-problems-and-solutions/topk-trie)
 
 Tư tưởng của cây tiền tố vẫn là xây dựng thông tin chỉ mục ở giai đoạn đầu, giai đoạn sau có thể truy vấn lặp lại nhiều lần, và việc thêm xóa dữ liệu về sau cũng rất thuận tiện. Nó khá phù hợp với trường hợp cần truy vấn lặp lại nhiều lần.
 

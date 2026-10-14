@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-consistence
-  hash: 'sha256:v1:c99efab2c8c76e1105241de77a247d69443537b5cd676f2f5ce159ea162d6f66'
+  hash: 'sha256:v1:3e0444d42ca49dde36366b3aa94b2f25f06884672a2fa372d370ab80accbe98b'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -45,7 +45,7 @@ Deleting the cache instead of updating it is really a lazy computation idea: do 
 
 Problem: update the database first, then delete the cache. If deleting the cache fails, the database holds the new data while the cache holds the old data, so the data is inconsistent.
 
-![redis-junior-inconsistent](asset:high-concurrency/redis-consistence/redis-junior-inconsistent.png)
+![redis-junior-inconsistent](diagram:high-concurrency/redis-consistence/redis-junior-inconsistent)
 
 Solution 1: delete the cache first, then update the database. If the database update fails, the database holds the old data and the cache is empty, so the data is not inconsistent. When it is read, the cache has nothing, so the old data in the database is read and then written into the cache.
 

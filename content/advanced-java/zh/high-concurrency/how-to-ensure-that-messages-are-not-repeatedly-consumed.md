@@ -24,7 +24,7 @@ Kafka 实际上有个 offset 的概念，就是每个消息写进去，都有一
 
 注意：新版的 Kafka 已经将 offset 的存储从 Zookeeper 转移至 Kafka brokers，并使用内部位移主题 `__consumer_offsets` 进行存储。
 
-![mq-10](asset:high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10.png)
+![mq-10](diagram:high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10)
 
 如果消费者干的事儿是拿一条数据就往数据库里写一条，会导致说，你可能就把数据 1/2 在数据库里插入了 2 次，那么数据就错啦。
 
@@ -45,6 +45,6 @@ Kafka 实际上有个 offset 的概念，就是每个消息写进去，都有一
 -   比如你不是上面两个场景，那做的稍微复杂一点，你需要让生产者发送每条数据的时候，里面加一个全局唯一的 id，类似订单 id 之类的东西，然后你这里消费到了之后，先根据这个 id 去比如 Redis 里查一下，之前消费过吗？如果没有消费过，你就处理，然后这个 id 写 Redis。如果消费过了，那你就别处理了，保证别重复处理相同的消息即可。
 -   比如基于数据库的唯一键来保证重复数据不会重复插入多条。因为有唯一键约束了，重复数据插入只会报错，不会导致数据库中出现脏数据。
 
-![mq-11](asset:high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-11.png)
+![mq-11](diagram:high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-11)
 
 当然，如何保证 MQ 的消费是幂等性的，在实际应用中需要结合具体的业务来看。

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: distributed-system-interview
-  hash: 'sha256:v1:5334f47996272bdfa100d3a6d1cc8efbbe0c209a140bea37660c0c35a76fa174'
+  hash: 'sha256:v1:d110025897cb5d231e4695514fd603a7ede09035bfed2f964eb962215e8e6e17'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -12,7 +12,7 @@ Some of you have worked mainly in traditional industries or on outsourced projec
 
 A distributed business system takes a large system originally developed in Java and splits it into **multiple subsystems** that call each other and together form one large system. Suppose you originally built an OA system containing a permission module, an employee module, a leave module, and a finance module: one project holding a pile of modules that call each other, deployed on 1 machine. Now split that system into 4 systems (permission, employee, leave, and finance), as 4 projects deployed on 4 machines. When a request comes in, the employee system calls the permission system, the leave system, and the finance system; each of the 4 systems does part of the work, and only when all 4 have finished is the request considered complete.
 
-![simple-distributed-system-oa](asset:distributed-system/distributed-system-interview/simple-distributed-system-oa.png)
+![simple-distributed-system-oa](diagram:distributed-system/distributed-system-interview/simple-distributed-system-oa)
 
 > Spring Cloud has begun to rise and gain popularity in recent years, but it was only just becoming popular and had not yet been widely adopted. Dubbo is what is widely used today, so this section focuses on Dubbo.
 

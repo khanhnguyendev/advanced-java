@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: redis-cluster
-  hash: 'sha256:v1:b2301c4f74a1c7fc4f3acb688789757d2731fdd6e4cde9c6e3039ce149da50fd'
+  hash: 'sha256:v1:5c1c2664ac4fff708a471d907a0ca2b6e6c1f2d98043dcb43bcc11dd7bdb7cdf'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -43,11 +43,11 @@ Có hai cách để duy trì metadata của cụm: tập trung và giao thức G
 
 **Tập trung** là lưu metadata của cụm (thông tin node, sự cố, v.v.) tập trung ở một node nào đó. Đại diện tiêu biểu của lưu trữ metadata tập trung trong lĩnh vực dữ liệu lớn là `storm`. Đây là công cụ tính toán thời gian thực phân tán cho dữ liệu lớn, có cấu trúc lưu trữ metadata tập trung, bên dưới dựa vào zookeeper (middleware điều phối phân tán) để lưu trữ và duy trì toàn bộ metadata.
 
-![zookeeper-centralized-storage](asset:high-concurrency/redis-cluster/zookeeper-centralized-storage.png)
+![zookeeper-centralized-storage](diagram:high-concurrency/redis-cluster/zookeeper-centralized-storage)
 
 Redis duy trì metadata của cụm theo một cách khác, giao thức `gossip`: mọi node đều giữ một bản metadata, khi metadata ở một node nào đó thay đổi thì node đó liên tục gửi metadata cho các node khác để chúng cũng cập nhật metadata.
 
-![Redis-gossip](asset:high-concurrency/redis-cluster/redis-gossip.png)
+![Redis-gossip](diagram:high-concurrency/redis-cluster/redis-gossip)
 
 **Ưu điểm** của kiểu **tập trung** là việc đọc và cập nhật metadata có độ trễ rất thấp: metadata vừa thay đổi là được cập nhật ngay vào kho lưu trữ tập trung, các node khác khi đọc sẽ nhận biết được; **nhược điểm** là toàn bộ áp lực cập nhật metadata đều dồn vào một chỗ, có thể gây áp lực lên kho lưu trữ metadata.
 
@@ -91,7 +91,7 @@ Mỗi lần ping sẽ mang theo thông tin của chính node đó, cùng với t
 
 Khi một key đến, trước hết tính giá trị hash, sau đó lấy phần dư theo số node, rồi đưa vào các master node khác nhau. Một khi có master node sập, mọi yêu cầu đến đều được lấy phần dư theo số master node còn lại mới nhất để cố lấy dữ liệu. Điều này khiến **phần lớn yêu cầu đến đều không lấy được cache hợp lệ**, làm một lượng lớn lưu lượng đổ vào cơ sở dữ liệu.
 
-![hash](asset:high-concurrency/redis-cluster/hash.png)
+![hash](diagram:high-concurrency/redis-cluster/hash)
 
 #### Thuật toán consistent hash
 
@@ -103,7 +103,7 @@ Trong thuật toán consistent hash, nếu một node sập, dữ liệu bị �
 
 Tuy nhiên, khi có quá ít node, thuật toán consistent hash dễ gây ra vấn đề **điểm nóng cache** do các node phân bố không đều. Để giải quyết vấn đề điểm nóng này, thuật toán consistent hash đưa vào cơ chế node ảo, tức là tính nhiều hash cho mỗi node, mỗi vị trí kết quả tính được đặt một node ảo. Nhờ vậy đạt được việc phân bố dữ liệu đồng đều và cân bằng tải.
 
-![consistent-hashing-algorithm](asset:high-concurrency/redis-cluster/consistent-hashing-algorithm.png)
+![consistent-hashing-algorithm](diagram:high-concurrency/redis-cluster/consistent-hashing-algorithm)
 
 #### Thuật toán hash slot của Redis cluster
 
@@ -113,7 +113,7 @@ Mỗi master trong Redis cluster đều nắm giữ một phần slot, ví dụ 
 
 Một máy nào đó sập thì hai node còn lại không bị ảnh hưởng. Vì key tìm đến hash slot chứ không phải máy.
 
-![hash-slot](asset:high-concurrency/redis-cluster/hash-slot.png)
+![hash-slot](diagram:high-concurrency/redis-cluster/hash-slot)
 
 ### Tính sẵn sàng cao và nguyên lý chuyển đổi master-replica của Redis cluster
 

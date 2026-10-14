@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-circuit-breaker
-  hash: 'sha256:v1:c51c29661f9b7fc6fc9f95724918c2a018ffde574aa25a973a703814bc8ab71f'
+  hash: 'sha256:v1:338760c9acdbe047160cc4cbab8925b20ab7429c39c39f2112c85529cb74e33a'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -12,7 +12,7 @@ translatedAt: '2026-10-14'
 
 A Hystrix circuit breaker has three states: Closed, Open and Half-Open. The transitions between the three states are as follows:
 
-![image-20191104211642271](asset:high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine.png)
+![image-20191104211642271](diagram:high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine)
 
 1. `Closed` the circuit breaker is closed: calls to the downstream pass through normally
 1. `Open` the circuit breaker is open: calls to the downstream service are blocked and go straight to the Fallback logic

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-request-cache
-  hash: 'sha256:v1:dfa7a26e5b58510b167ce217cb188151aacc4bc9277c8c19d1b7a618c7d2c34b'
+  hash: 'sha256:v1:89742b42de1712c7b19858b418912aef459b7cfc272fa9fce8dbf88104153ab9'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -18,7 +18,7 @@ The benefit is that the same command is not executed repeatedly within one reque
 
 For example, within one request context we request the data for productId 1. The first time it is not in the cache, so the data is fetched from the product service, the latest result is returned, and the data is cached in memory. If the same request context later asks for the data of productId 1 again, it is simply taken from the cache.
 
-![hystrix-request-cache](asset:high-availability/hystrix-request-cache/hystrix-request-cache.png)
+![hystrix-request-cache](diagram:high-availability/hystrix-request-cache/hystrix-request-cache)
 
 Both HystrixCommand and HystrixObservableCommand can specify a cache key; Hystrix then caches automatically, and on a later access within the same request context it uses the cached result directly.
 

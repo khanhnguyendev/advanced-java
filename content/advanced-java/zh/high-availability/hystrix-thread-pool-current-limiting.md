@@ -2,7 +2,7 @@
 
 前面讲了 Hystrix 的 request cache 请求缓存、fallback 优雅降级、circuit breaker 断路器快速熔断，这一讲，我们来详细说说 Hystrix 的线程池隔离与接口限流。
 
-![hystrix-process](asset:high-availability/hystrix-thread-pool-current-limiting/hystrix-process.png)
+![hystrix-process](diagram:high-availability/hystrix-thread-pool-current-limiting/hystrix-process)
 
 Hystrix 通过判断线程池或者信号量是否已满，超出容量的请求，直接 Reject 走降级，从而达到限流的作用。
 

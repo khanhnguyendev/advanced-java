@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: mysql-read-write-separation
-  hash: 'sha256:v1:e84d7e40d9c85bc2723de9211e2a34e2321e8f2094aa7b1f9b97132b71bf35a1'
+  hash: 'sha256:v1:63b2314ff19dd9180d7c7f03ee54c7eb5ca7f9a0cbd5ee9bccdcd2d8a07c8000'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -26,7 +26,7 @@ It is actually very simple. It is built on a master/replica replication architec
 
 The master writes changes to its binlog. After a replica connects to the master, an IO thread on the replica copies the master's binlog to the local machine and writes it into a relay log. Then an SQL thread on the replica reads the binlog from the relay log and executes its contents, that is, it re-runs the SQL locally, which keeps the replica's data identical to the master's.
 
-![mysql-master-slave](asset:high-concurrency/mysql-read-write-separation/mysql-master-slave.png)
+![mysql-master-slave](diagram:high-concurrency/mysql-read-write-separation/mysql-master-slave)
 
 One very important point here: the process by which a replica synchronizes the master's data is serial. Operations that ran in parallel on the master are executed serially on the replica. Because the replica copies logs from the master and then executes SQL serially, under high concurrency the replica's data will always lag behind the master's; there is **delay**. This is why data you have just written to the master often cannot be read right away, and only becomes readable after tens or even hundreds of milliseconds.
 

@@ -76,7 +76,7 @@ Sentinel 支持多样化的流量整形策略，在 QPS 过高的时候可以自
     ![Slow-Start-Preheating-Mode](asset:high-availability/sentinel-vs-hystrix/Slow-Start-Preheating-Mode.jpg)
 
 -   **匀速器模式**：利用 Leaky Bucket 算法实现的匀速模式，严格控制了请求通过的时间间隔，同时堆积的请求将会排队，超过超时时长的请求直接被拒绝。Sentinel 还支持基于调用关系的限流，包括基于调用方限流、基于调用链入口限流、关联流量限流等，依托于 Sentinel 强大的调用链路统计信息，可以提供精准的不同维度的限流。
-    ![Homogenizer-mode](asset:high-availability/sentinel-vs-hystrix/Homogenizer-mode.jpg)
+    ![Homogenizer-mode](diagram:high-availability/sentinel-vs-hystrix/homogenizer-mode)
 
 目前 Sentinel 对异步调用链路的支持还不是很好，后续版本会着重改善支持异步调用。
 

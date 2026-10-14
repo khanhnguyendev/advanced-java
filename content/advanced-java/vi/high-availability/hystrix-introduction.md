@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-introduction
-  hash: 'sha256:v1:8265377e5efd6294d8f8f0b69af53d3e0b2e330ab324d056f91782b3833bb685'
+  hash: 'sha256:v1:d2e6caa43367c503ef00c3deee6a2a2615ca432b6e07c792951cf634fe7adc9e'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -44,7 +44,7 @@ Có một hệ thống phân tán như sau, dịch vụ A phụ thuộc vào d�
 
 Gọi dịch vụ C chỉ cần 20ms, giờ vì dịch vụ C gặp sự cố, ví dụ bị trễ, hoặc sập, lúc này các luồng sẽ bị treo khoảng 2s. 40 luồng đều bị kẹt, do yêu cầu liên tục đổ vào, các luồng khác cũng được dùng để gọi dịch vụ C, và cũng sẽ bị kẹt. Điều này khiến tài nguyên luồng của dịch vụ B bị cạn kiệt, không thể nhận yêu cầu mới, thậm chí có thể do lượng lớn luồng liên tục vận hành mà tự mình sập. Ảnh hưởng này chắc chắn sẽ lan đến dịch vụ A, khiến dịch vụ A cũng sập theo.
 
-![service-invoke-road](asset:high-availability/hystrix-introduction/service-invoke-road.png)
+![service-invoke-road](diagram:high-availability/hystrix-introduction/service-invoke-road)
 
 Hystrix có thể thực hiện cô lập tài nguyên, ví dụ giới hạn dịch vụ B chỉ có 40 luồng gọi dịch vụ C. Khi 40 luồng này bị treo, 60 luồng còn lại vẫn có thể gọi và làm việc bình thường. Nhờ đó đảm bảo toàn hệ thống không bị kéo sập.
 

@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: es-architecture
-  hash: 'sha256:v1:ee7a27bab9d79039957f0c02b32a674229d076132a000ebae998fae2a2a6fbb2'
+  hash: 'sha256:v1:787677daa237401687df251e2bd33d753566deb2854438ad782a3ca73a03f9a5'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -40,13 +40,13 @@ So in the order index you create two types, one for physical goods orders and on
 
 In many cases an index may have only one type, but if an index does have multiple types (**note**: the concept of `mapping types` has been completely removed in ElasticSearch 7.x; for details see the [official documentation](https://github.com/elastic/elasticsearch/blob/6.5/docs/reference/mapping/removal_of_types.asciidoc)), you can regard an index as a table of one category, and each type represents one concrete table in mysql. Each type has a mapping. If you regard a type as a concrete table, then the index represents the category that multiple types belong to together, and the mapping is the **table schema definition** of this type. When you create a table in mysql you certainly have to define the table schema: which fields it has and what type each field is. A record you actually write into a type of an index is called a document. A document represents one row in some table in mysql. Each document has multiple fields, and each field represents the value of one field in this document.
 
-![es-index-type-mapping-document-field](asset:high-concurrency/es-architecture/es-index-type-mapping-document-field.png)
+![es-index-type-mapping-document-field](diagram:high-concurrency/es-architecture/es-index-type-mapping-document-field)
 
 When you create an index, it can be split into multiple `shard`s, with each shard storing part of the data. Splitting into multiple shards has benefits. First, it **supports horizontal scaling**. For example, if you have 3T of data and 3 shards, each shard holds 1T of data; if the data grows to 4T, how do you scale? Simple: create a new index with 4 shards and import the data. Second, it **improves performance**: the data is distributed across multiple shards, that is, multiple servers, and all operations are executed in parallel and distributed across multiple machines, which improves throughput and performance.
 
 Next, the data of a shard actually has multiple copies. Each shard has one `primary shard`, responsible for writing data, and also several `replica shard`s. After the `primary shard` writes data, it synchronizes the data to the other `replica shard`s.
 
-![es-cluster](asset:high-concurrency/es-architecture/es-cluster.png)
+![es-cluster](diagram:high-concurrency/es-architecture/es-cluster)
 
 With this replica scheme, the data of every shard has multiple copies. If some machine crashes, no problem, because other copies of the data are on other machines. That is high availability.
 

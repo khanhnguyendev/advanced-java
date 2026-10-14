@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: distributed-system-request-sequence
-  hash: 'sha256:v1:c9ba198723c9a1755684b3fd007e3f2ce0853fb35479162c051a774ff6f2e234'
+  hash: 'sha256:v1:6d79dcdd86596ff7b0b0213ccc52b150a18b3b95447ba0cf175ea2c9842a7d1d'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -26,7 +26,7 @@ Trước hết, nói chung, đề xuất cá nhân là hệ thống mà các b�
 
 Dưới đây tôi đưa ra một phương án mà chúng tôi từng dùng. Nói đơn giản, trước hết bạn phải dùng chiến lược cân bằng tải hash nhất quán của Dubbo, để phân phối tất cả các yêu cầu tương ứng với, ví dụ, một id đơn hàng nào đó tới cùng một máy; tiếp theo là trên máy đó, vì có thể vẫn chạy đồng thời đa luồng, bạn có thể phải lập tức ném các yêu cầu tương ứng với một id đơn hàng nào đó vào một **hàng đợi trong bộ nhớ**, ép buộc xếp hàng, như vậy để đảm bảo tính thứ tự của chúng.
 
-![distributed-system-request-sequence](asset:distributed-system/distributed-system-request-sequence/distributed-system-request-sequence.png)
+![distributed-system-request-sequence](diagram:distributed-system/distributed-system-request-sequence/distributed-system-request-sequence)
 
 Nhưng như vậy sẽ gây ra rất nhiều vấn đề phía sau, ví dụ nếu yêu cầu tương ứng với một đơn hàng nào đó đặc biệt nhiều, khiến một máy nào đó trở thành **điểm nóng** thì làm thế nào? Giải quyết các vấn đề này lại phải mở ra một loạt phương án kỹ thuật phức tạp phía sau... Loại vấn đề này từng khiến chúng tôi đau đầu không thôi, vì vậy, vẫn đề xuất điều gì?
 

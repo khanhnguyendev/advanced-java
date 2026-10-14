@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: dubbo-spi
-  hash: 'sha256:v1:59472b08c3ee8536d60fd53369e13023afbbeb28af46e32896df076812e81b8d'
+  hash: 'sha256:v1:18bfee42f8f7346cd6b11a5b83c157d96074611a483902029d6de8ef04a9df76'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -101,7 +101,7 @@ Then create a `dubbo provider` project, have it depend on the jar you made, and 
 
 When the provider starts, it loads the line `my=com.bingo.MyProtocol` from the configuration in our jar, and then uses the MyProtocol you defined according to your configuration. This is just a simple illustration: in the way above, you can replace a large number of Dubbo's internal components by dropping in your own jar and adding some configuration.
 
-![dubbo-spi](asset:distributed-system/dubbo-spi/dubbo-spi.png)
+![dubbo-spi](diagram:distributed-system/dubbo-spi/dubbo-spi)
 
 Dubbo provides a large number of extension points like the one above. That is, if you want to extend something, you just write a jar yourself, make your consumer or provider project depend on that jar, and in your jar configure, in the specified directory, a file named after the interface, containing `key=实现类` (key=implementation class).
 
