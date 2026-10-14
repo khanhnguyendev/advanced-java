@@ -58,6 +58,24 @@ describe('Attribution on index pages', () => {
     expect(screen.getByRole('link', { name: en.attribution.sourceFile }).getAttribute('href')).toBe('https://example.com/f.md');
     expect(screen.getByText(new RegExp(en.attribution.changesTranslated))).toBeTruthy();
   });
+  it('renders a source credit with a plain link, only for credited docs', () => {
+    const credit = { title: 'Microservices', author: 'Martin Fowler and James Lewis', publisher: 'martinfowler.com', url: 'https://martinfowler.com/articles/microservices.html', year: 2014 };
+    const { container } = render(wrap(<Attribution kind="zh" aboutHref="/en/about" credit={credit} creditLang="en" />));
+    const block = container.querySelector('.source-credit')!;
+    expect(block.getAttribute('lang')).toBe('en');
+    expect(block.textContent).toContain('Original source: “Microservices” by Martin Fowler and James Lewis, martinfowler.com');
+    const a = screen.getByRole('link', { name: 'Read the original' });
+    expect(a.getAttribute('href')).toBe(credit.url);
+    expect(a.getAttribute('target')).toBeNull();
+    cleanup();
+    const plain = render(wrap(<Attribution kind="zh" aboutHref="/en/about" />));
+    expect(plain.container.querySelector('.source-credit')).toBeNull();
+  });
+  it('carries the UI locale on the credit block', () => {
+    const credit = { title: 'T', author: 'A', publisher: 'P', url: 'https://example.com', year: 2015 };
+    const { container } = render(wrap(<Attribution aboutHref="/zh/about" credit={credit} creditLang="zh-Hans" />));
+    expect(container.querySelector('.source-credit')!.getAttribute('lang')).toBe('zh-Hans');
+  });
   it('is rendered by the shelf', () => {
     render(wrap(<Shelf locale="en" items={[]} />));
     expect(screen.getByRole('link', { name: en.attribution.license })).toBeTruthy();

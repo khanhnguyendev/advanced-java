@@ -16,6 +16,7 @@ import { Toc } from '@/components/Toc';
 import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
 import { contentRoot, listCollections, listDocs, loadCollection } from '@/lib/content/collection';
+import { creditFor, loadCredits } from '@/lib/content/credits';
 import { resolveDoc, zhHashOf } from '@/lib/content/fallback';
 import { docTitleOf } from '@/lib/content/title';
 import { headingsFor } from '@/lib/content/headings-index';
@@ -161,6 +162,8 @@ export default async function DocPage({
           kind={doc.served === 'zh' ? 'zh' : 'translated'}
           fileUrl={upstreamUrl}
           aboutHref={`/${loc}/about`}
+          credit={creditFor(loadCredits(root, collection), section, slug)}
+          creditLang={loc === 'zh' ? 'zh-Hans' : loc}
         />
         </div>
       </main>

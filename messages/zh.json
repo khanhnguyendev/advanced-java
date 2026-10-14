@@ -45,6 +45,7 @@
     "changesZh": "由原文重新排版",
     "changesTranslated": "译自并改编自中文原文",
     "sourceFile": "上游文件",
+    "sourceCredit": "原文出处：《{title}》，作者 {author}，{publisher}，{year} 年。本文是该作品的中文译文，转载自上游仓库；原作品的权利归其作者所有。<link>阅读原文</link>",
     "aboutLink": "关于与许可"
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },

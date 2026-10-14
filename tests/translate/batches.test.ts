@@ -45,3 +45,29 @@ describe('pendingBatches', () => {
     ]);
   });
 });
+
+describe('pendingBatches with a translation policy', () => {
+  function held(decision: string) {
+    const r = mkdtempSync(path.join(os.tmpdir(), 'batch-pol-'));
+    mkdirSync(path.join(r, 'c'), { recursive: true });
+    writeFileSync(
+      path.join(r, 'c/collection.json'),
+      JSON.stringify({
+        id: 'c', sourceLocale: 'zh', tabColor: '#000000', fallback: { vi: ['zh'], en: ['zh'], zh: ['zh'] },
+        sections: [{ id: 's', prefix: 'A', groups: [{ id: 'g', docs: ['a', 'b'] }] }],
+        ids: { a: 'A-1', b: 'A-2' }, upstream: { repo: 'r', commit: 'c' }, upstreamFiles: {},
+      }),
+    );
+    writeFileSync(path.join(r, 'c/translation-policy.json'), JSON.stringify({ hold: { 's/a': { reason: 'r', decision } } }));
+    return r;
+  }
+  it('skips docs held as pending or exclude', () => {
+    for (const d of ['pending', 'exclude']) {
+      expect(pendingBatches(held(d), 'c', 'en', 10)).toEqual([{ section: 's', slugs: ['b'] }]);
+    }
+  });
+  it('includes a held doc once its decision is translate', () => {
+    expect(pendingBatches(held('translate'), 'c', 'en', 10)).toEqual([{ section: 's', slugs: ['a', 'b'] }]);
+  });
+});
+

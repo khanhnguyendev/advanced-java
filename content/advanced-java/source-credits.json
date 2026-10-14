@@ -1,0 +1,7 @@
+{
+  "micro-services/microservices-introduction": { "title": "Microservices", "author": "Martin Fowler and James Lewis", "publisher": "martinfowler.com", "url": "https://martinfowler.com/articles/microservices.html", "year": 2014 },
+  "micro-services/advantages-and-disadvantages-of-microservice": { "title": "Introduction to Microservices", "author": "Chris Richardson", "publisher": "NGINX blog (series: Microservices: From Design to Deployment)", "url": "https://www.nginx.com/blog/introduction-to-microservices/", "year": 2015 },
+  "micro-services/choose-microservice-deployment-strategy": { "title": "Choosing a Deployment Strategy", "author": "Chris Richardson", "publisher": "NGINX blog (series: Microservices: From Design to Deployment)", "url": "https://www.nginx.com/blog/deploying-microservices/", "year": 2015 },
+  "micro-services/event-driven-data-management-for-microservices": { "title": "Event-Driven Data Management for Microservices", "author": "Chris Richardson", "publisher": "NGINX blog (series: Microservices: From Design to Deployment)", "url": "https://www.nginx.com/blog/event-driven-data-management-microservices/", "year": 2015 },
+  "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture": { "title": "Refactoring a Monolith into Microservices", "author": "Chris Richardson", "publisher": "NGINX blog (series: Microservices: From Design to Deployment)", "url": "https://www.nginx.com/blog/refactoring-a-monolith-into-microservices/", "year": 2015 }
+}
