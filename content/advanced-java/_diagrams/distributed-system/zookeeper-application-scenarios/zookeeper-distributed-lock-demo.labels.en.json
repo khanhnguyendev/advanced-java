@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "468163802dd45501e507f4abcf0d2e90fc99fd0c2dd8a9cb675a88997d3e1121", "source_lang": "zh" },
+  "labels": {
+    "sysa": "System A",
+    "zk": "zookeeper",
+    "t_head1": "Acquires the zk lock first, processes,\nthen releases the lock",
+    "t_head2": "Acquires the zk lock, processes,\nthen releases the lock",
+    "t_release": "Release\nzk lock",
+    "t_try1": "Try to acquire\nzk lock",
+    "t_try2": "Try to acquire the zk lock;\nif it fails, register a\nlistener on this lock",
+    "t_sense": "After sensing the lock\nwas released, try\nto acquire it again",
+    "t_only": "zookeeper guarantees only one party can acquire this lock",
+    "_title": "ZooKeeper distributed lock demo",
+    "_desc": "Two System A instances compete for a ZooKeeper lock: the first acquires, processes and releases it, while the other registers a listener and retries once it senses the release."
+  }
+}

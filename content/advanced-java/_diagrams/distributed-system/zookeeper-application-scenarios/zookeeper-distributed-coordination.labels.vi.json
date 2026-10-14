@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "47f637848191ac7561b0e6e45a86d396b46b486c375602f3c95b37e46ede4b6f"
+  },
+  "labels": {
+    "_title": "Điều phối giữa hệ thống A và hệ thống B bằng ZooKeeper",
+    "_desc": "Hệ thống A lưu đơn hàng và gửi thông điệp qua MQ, đăng ký listener trên một node ZooKeeper, rồi được thông báo khi hệ thống B cập nhật node đó.",
+    "user": "Người dùng",
+    "sysA": "Hệ thống A",
+    "sysB": "Hệ thống B",
+    "mq": "MQ",
+    "zk": "zookeeper",
+    "e1": "Đã gửi yêu cầu\nđơn hàng",
+    "e2": "Ghi\nthông điệp",
+    "e3": "Tiêu thụ",
+    "e4": "Đăng ký một listener cho\nnode của đơn hàng orderId=1",
+    "e5": "Cập nhật giá trị node của đơn hàng\norderId=1: finish_update",
+    "e6": "Node của đơn hàng\norderId=1 đã thay đổi",
+    "t_save": "Hoàn tất lưu đơn hàng\norderId=1",
+    "t_sense": "Nhận biết B đã\nthực thi thành công",
+    "t_stock": "Hoàn tất cập nhật\ntồn kho"
+  }
+}

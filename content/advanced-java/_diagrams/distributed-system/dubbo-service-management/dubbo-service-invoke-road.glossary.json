@@ -1,0 +1,5 @@
+{ "labels": [
+  { "zh": "服务F", "en": "Service F", "vi": "Dịch vụ F" },
+  { "zh": "服务G", "en": "Service G", "vi": "Dịch vụ G" },
+  { "zh": "服务间调用链路", "en": "Call chain between services", "vi": "Chuỗi gọi giữa các dịch vụ" }
+] }

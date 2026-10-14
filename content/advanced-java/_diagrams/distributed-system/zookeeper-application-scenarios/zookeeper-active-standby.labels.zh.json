@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "sysa_active": "系统A（主）",
+    "sysa_standby": "系统A（备）",
+    "zk": "zookeeper",
+    "t_create": "active node\nworker1创建的临时节点",
+    "t_notify": "发通知",
+    "t_crash": "worker1挂掉，临时节点被\n删除",
+    "t_listen": "worker2什么也不干，给\nactive 临时节点注册监听器",
+    "t_recreate": "再次创建同名节点active，\n值是worker2",
+    "_title": "ZooKeeper 主备切换",
+    "_desc": "系统A的主进程创建临时节点，挂掉后节点被删除，备进程收到通知并重新创建该节点接管工作。"
+  }
+}

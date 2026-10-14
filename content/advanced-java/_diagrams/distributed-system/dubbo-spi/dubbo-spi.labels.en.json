@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "24750787ecc064734131cf08ab09462d38f11ecb7d7e3e119c8c497a1cac6586" },
+  "labels": {
+    "provider_box": "",
+    "jar_box": "",
+    "t_provider": "provider project",
+    "t_code": "At execution time, for the Protocal\ninterface, the com.bingo.MyProtocal\ncorresponding to my is used",
+    "xml": "xml configuration file\n<dubbo:protocol name=\"my\">",
+    "pom": "pom.xml\n<dependency> the jar configured\nas a dependency",
+    "t_jar": "jar package",
+    "t_impl": "com.bingo.MyProtocol implements Protocal",
+    "t_meta": "In the file\nMETA-INF/services/com.alibaba.rpc.Protocal,\nconfigure my=com.bingo.MyProtocal",
+    "_title": "Configuring a Dubbo SPI extension",
+    "_desc": "A provider project depends, via pom.xml, on a jar that contains the MyProtocol implementation and its SPI configuration file, and selects it with my in the xml configuration."
+  }
+}

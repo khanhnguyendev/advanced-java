@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "6b5cf1115a21015568431293f78e715c4c5fb273f0dca484eacc2bc7bf94b4b9", "source_lang": "zh" },
+  "labels": {
+    "sysa_active": "Hệ thống A (chính)",
+    "sysa_standby": "Hệ thống A\n(dự phòng)",
+    "zk": "zookeeper",
+    "t_create": "active node\nNode tạm do worker1 tạo",
+    "t_notify": "Gửi thông báo",
+    "t_crash": "worker1 sập,\nnode tạm bị xóa",
+    "t_listen": "worker2 không làm gì,\nđăng ký listener cho\nnode tạm active",
+    "t_recreate": "Tạo lại node cùng tên\nactive, giá trị là worker2",
+    "_title": "Chuyển đổi chính/dự phòng với ZooKeeper",
+    "_desc": "Tiến trình chính của hệ thống A tạo node tạm; khi nó sập, node bị xóa, tiến trình dự phòng nhận thông báo và tạo lại node để tiếp quản."
+  }
+}

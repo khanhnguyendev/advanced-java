@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "4c96f801ac630799b9f7c8e283f236439d1daa86d2d40bda519879da2c7fa7d4" },
+  "labels": {
+    "_title": "Trung tâm đăng ký dịch vụ dubbo lưu thông tin đăng ký trong zookeeper",
+    "_desc": "Bên gọi hỏi trung tâm đăng ký dịch vụ dubbo địa chỉ của Dịch vụ A; ba phiên bản Dịch vụ A đăng ký với nó, và trung tâm đăng ký lưu dữ liệu vào zookeeper và đăng ký một listener.",
+    "caller": "Bên gọi",
+    "dubbo": "Trung tâm đăng ký\ndịch vụ dubbo",
+    "svc1": "Dịch vụ A\n192.168.0.1",
+    "svc2": "Dịch vụ A\n192.168.0.2",
+    "svc3": "Dịch vụ A\n192.168.0.3",
+    "zk": "zookeeper",
+    "t_want": "Tôi muốn lấy địa chỉ\ncủa dịch vụ A",
+    "t_listen": "Đăng ký một\nlistener",
+    "t_save": "Lưu thông tin\nđăng ký của\ndịch vụ A vào zk"
+  }
+}

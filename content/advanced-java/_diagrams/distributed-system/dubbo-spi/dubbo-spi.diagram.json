@@ -1,0 +1,143 @@
+{
+  "id": "distributed-system/dubbo-spi/dubbo-spi",
+  "source": {
+    "upstream": "distributed-system/dubbo-spi/dubbo-spi.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 900,
+    "h": 330
+  },
+  "nodes": [
+    {
+      "id": "provider",
+      "shape": "group",
+      "x": 40,
+      "y": 45,
+      "w": 340,
+      "h": 258,
+      "label": {
+        "key": "provider_box"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "xml",
+      "shape": "box",
+      "x": 70,
+      "y": 172,
+      "w": 280,
+      "h": 44,
+      "label": {
+        "key": "xml",
+        "literals": [
+          "<dubbo:protocol name=\"my\">"
+        ]
+      }
+    },
+    {
+      "id": "pom",
+      "shape": "box",
+      "x": 70,
+      "y": 232,
+      "w": 280,
+      "h": 64,
+      "label": {
+        "key": "pom",
+        "literals": [
+          "pom.xml",
+          "<dependency>"
+        ]
+      }
+    },
+    {
+      "id": "jar",
+      "shape": "group",
+      "x": 470,
+      "y": 68,
+      "w": 420,
+      "h": 168,
+      "label": {
+        "key": "jar_box"
+      },
+      "border": "solid"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          470,
+          152
+        ],
+        [
+          415,
+          152
+        ],
+        [
+          415,
+          264
+        ],
+        [
+          350,
+          264
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_provider",
+      "x": 210,
+      "y": 78,
+      "anchor": "middle",
+      "literals": [
+        "provider"
+      ]
+    },
+    {
+      "key": "t_code",
+      "x": 210,
+      "y": 123,
+      "anchor": "middle",
+      "literals": [
+        "Protocal",
+        "com.bingo.MyProtocal"
+      ]
+    },
+    {
+      "key": "t_jar",
+      "x": 680,
+      "y": 104,
+      "anchor": "middle",
+      "literals": [
+        "jar"
+      ]
+    },
+    {
+      "key": "t_impl",
+      "x": 680,
+      "y": 137,
+      "anchor": "middle",
+      "literals": [
+        "com.bingo.MyProtocol",
+        "Protocal"
+      ]
+    },
+    {
+      "key": "t_meta",
+      "x": 680,
+      "y": 191,
+      "anchor": "middle",
+      "literals": [
+        "META-INF/services/com.alibaba.rpc.Protocal",
+        "my=com.bingo.MyProtocal"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

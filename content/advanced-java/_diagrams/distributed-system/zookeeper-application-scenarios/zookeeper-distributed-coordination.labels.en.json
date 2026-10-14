@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "47f637848191ac7561b0e6e45a86d396b46b486c375602f3c95b37e46ede4b6f"
+  },
+  "labels": {
+    "_title": "ZooKeeper coordinates system A and system B",
+    "_desc": "System A saves an order and sends a message through MQ, registers a listener on a ZooKeeper node, and is notified when system B updates that node.",
+    "user": "User",
+    "sysA": "System A",
+    "sysB": "System B",
+    "mq": "MQ",
+    "zk": "zookeeper",
+    "e1": "Submitted\norder request",
+    "e2": "Write\nmessage",
+    "e3": "Consume",
+    "e4": "Register a listener on\nthe node of order orderId=1",
+    "e5": "Update the value of the node of\norder orderId=1: finish_update",
+    "e6": "The node of order\norderId=1 changed",
+    "t_save": "Finish saving the order\norderId=1",
+    "t_sense": "Detects that B\nhas succeeded",
+    "t_stock": "Finish updating\ninventory"
+  }
+}

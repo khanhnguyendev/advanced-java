@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "6b5cf1115a21015568431293f78e715c4c5fb273f0dca484eacc2bc7bf94b4b9", "source_lang": "zh" },
+  "labels": {
+    "sysa_active": "System A (active)",
+    "sysa_standby": "System A (standby)",
+    "zk": "zookeeper",
+    "t_create": "active node\nworker1's ephemeral node",
+    "t_notify": "Send notification",
+    "t_crash": "worker1 goes down,\nephemeral node is deleted",
+    "t_listen": "worker2 does nothing,\nregisters a listener on the\nactive ephemeral node",
+    "t_recreate": "Re-creates the node\nnamed active,\nvalue is worker2",
+    "_title": "ZooKeeper active-standby failover",
+    "_desc": "The active process of system A creates an ephemeral node; when it goes down the node is deleted, the standby is notified and re-creates the node to take over."
+  }
+}

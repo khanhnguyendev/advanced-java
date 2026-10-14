@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "24750787ecc064734131cf08ab09462d38f11ecb7d7e3e119c8c497a1cac6586" },
+  "labels": {
+    "provider_box": "",
+    "jar_box": "",
+    "t_provider": "Dự án provider",
+    "t_code": "Khi code thực thi, đối với API Protocal,\nsẽ dùng com.bingo.MyProtocal\ntương ứng với my",
+    "xml": "Tệp cấu hình xml\n<dubbo:protocol name=\"my\">",
+    "pom": "pom.xml\n<dependency> jar được cấu hình\nlàm phụ thuộc",
+    "t_jar": "Gói jar",
+    "t_impl": "com.bingo.MyProtocol hiện thực Protocal",
+    "t_meta": "Trong tệp\nMETA-INF/services/com.alibaba.rpc.Protocal\ncấu hình my=com.bingo.MyProtocal",
+    "_title": "Cấu hình một điểm mở rộng SPI của Dubbo",
+    "_desc": "Dự án provider phụ thuộc qua pom.xml vào một jar chứa lớp hiện thực MyProtocol cùng tệp cấu hình SPI, rồi chọn nó bằng my trong cấu hình xml."
+  }
+}

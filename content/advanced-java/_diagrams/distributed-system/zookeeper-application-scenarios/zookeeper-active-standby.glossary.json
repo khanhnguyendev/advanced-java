@@ -1,0 +1,11 @@
+{
+  "labels": [
+    { "zh": "系统A（主）", "en": "System A (active)", "vi": "Hệ thống A (chính)" },
+    { "zh": "系统A（备）", "en": "System A (standby)", "vi": "Hệ thống A\n(dự phòng)" },
+    { "zh": "active node\nworker1创建的临时节点", "en": "active node\nworker1's ephemeral node", "vi": "active node\nNode tạm do worker1 tạo" },
+    { "zh": "发通知", "en": "Send notification", "vi": "Gửi thông báo" },
+    { "zh": "worker1挂掉，临时节点被\n删除", "en": "worker1 goes down,\nephemeral node is deleted", "vi": "worker1 sập,\nnode tạm bị xóa" },
+    { "zh": "worker2什么也不干，给\nactive 临时节点注册监听器", "en": "worker2 does nothing,\nregisters a listener on the\nactive ephemeral node", "vi": "worker2 không làm gì,\nđăng ký listener cho\nnode tạm active" },
+    { "zh": "再次创建同名节点active，\n值是worker2", "en": "Re-creates the node\nnamed active,\nvalue is worker2", "vi": "Tạo lại node cùng tên\nactive, giá trị là worker2" }
+  ]
+}

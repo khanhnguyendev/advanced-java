@@ -1,0 +1,10 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "48e92072f641b137e8104250cc6c5e688e0f01eea32d2d40042405243992a927" },
+  "labels": {
+    "q1": "Yêu cầu 1", "q2": "Yêu cầu 2", "q3": "Yêu cầu 3",
+    "c1": "consumer", "c2": "consumer", "c3": "consumer", "c4": "consumer",
+    "p1": "provider", "p2": "provider",
+    "_title": "Kết nối ngắn của Dubbo",
+    "_desc": "Trước mỗi yêu cầu, consumer phải thiết lập lại kết nối tới provider."
+  }
+}

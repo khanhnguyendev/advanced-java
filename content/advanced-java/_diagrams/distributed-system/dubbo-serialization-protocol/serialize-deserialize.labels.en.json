@@ -1,0 +1,11 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "66051c2e7a8b773bb9104e028eb05de9ecb003a4d240f097ff5784bd7ceb1033" },
+  "labels": {
+    "obj": "Data structure /\nobject",
+    "bin": "Binary\nstring",
+    "ser": "Serialization",
+    "de": "Deserialization",
+    "_title": "Serialization and deserialization",
+    "_desc": "A data structure or object is serialized into a binary string, and the binary string is deserialized back into a data structure or object."
+  }
+}

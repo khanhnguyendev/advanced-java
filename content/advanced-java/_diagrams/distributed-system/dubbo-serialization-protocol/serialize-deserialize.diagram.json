@@ -1,0 +1,101 @@
+{
+ "id": "distributed-system/dubbo-serialization-protocol/serialize-deserialize",
+ "source": {
+  "upstream": "distributed-system/dubbo-serialization-protocol/serialize-deserialize.png",
+  "commit": "1a35221"
+ },
+ "license": "derived",
+ "size": {
+  "w": 480,
+  "h": 240
+ },
+ "nodes": [
+  {
+   "id": "obj",
+   "shape": "pill",
+   "x": 30,
+   "y": 88,
+   "w": 160,
+   "h": 64,
+   "label": {
+    "key": "obj"
+   }
+  },
+  {
+   "id": "bin",
+   "shape": "pill",
+   "x": 340,
+   "y": 88,
+   "w": 110,
+   "h": 64,
+   "label": {
+    "key": "bin"
+   }
+  }
+ ],
+ "edges": [
+  {
+   "points": [
+    [
+     110,
+     88
+    ],
+    [
+     110,
+     46
+    ],
+    [
+     395,
+     46
+    ],
+    [
+     395,
+     88
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid",
+   "label": {
+    "key": "ser",
+    "at": [
+     252,
+     68
+    ],
+    "anchor": "middle"
+   }
+  },
+  {
+   "points": [
+    [
+     395,
+     152
+    ],
+    [
+     395,
+     194
+    ],
+    [
+     110,
+     194
+    ],
+    [
+     110,
+     152
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid",
+   "label": {
+    "key": "de",
+    "at": [
+     252,
+     172
+    ],
+    "anchor": "middle"
+   }
+  }
+ ],
+ "texts": [],
+ "title_key": "_title",
+ "desc_key": "_desc"
+}

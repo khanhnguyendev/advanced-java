@@ -1,0 +1,265 @@
+{
+  "id": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination",
+  "source": {
+    "upstream": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 800,
+    "h": 380
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "shape": "circle",
+      "x": 47,
+      "y": 92,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "user"
+      }
+    },
+    {
+      "id": "sysA",
+      "shape": "box",
+      "x": 240,
+      "y": 88,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "sysA"
+      }
+    },
+    {
+      "id": "mq",
+      "shape": "round",
+      "x": 432,
+      "y": 55,
+      "w": 60,
+      "h": 140,
+      "label": {
+        "key": "mq"
+      }
+    },
+    {
+      "id": "sysB",
+      "shape": "box",
+      "x": 590,
+      "y": 88,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "sysB"
+      }
+    },
+    {
+      "id": "zk",
+      "shape": "round",
+      "x": 345,
+      "y": 283,
+      "w": 250,
+      "h": 50,
+      "label": {
+        "key": "zk",
+        "literals": [
+          "zookeeper"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          117,
+          127
+        ],
+        [
+          240,
+          127
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e1",
+        "at": [
+          178,
+          98
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          340,
+          127
+        ],
+        [
+          432,
+          127
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e2",
+        "at": [
+          386,
+          98
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          492,
+          127
+        ],
+        [
+          590,
+          127
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e3",
+        "at": [
+          541,
+          108
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          290,
+          158
+        ],
+        [
+          290,
+          218
+        ],
+        [
+          413,
+          218
+        ],
+        [
+          413,
+          283
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e4",
+        "at": [
+          405,
+          243
+        ],
+        "anchor": "end",
+        "literals": [
+          "orderId=1"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          640,
+          158
+        ],
+        [
+          640,
+          218
+        ],
+        [
+          520,
+          218
+        ],
+        [
+          520,
+          283
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e5",
+        "at": [
+          530,
+          243
+        ],
+        "anchor": "start",
+        "literals": [
+          "orderId=1",
+          "finish_update"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          345,
+          308
+        ],
+        [
+          178,
+          308
+        ],
+        [
+          178,
+          147
+        ],
+        [
+          240,
+          147
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e6",
+        "at": [
+          170,
+          235
+        ],
+        "anchor": "end",
+        "literals": [
+          "orderId=1"
+        ]
+      }
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_save",
+      "x": 290,
+      "y": 44,
+      "anchor": "middle",
+      "literals": [
+        "orderId=1"
+      ]
+    },
+    {
+      "key": "t_sense",
+      "x": 296,
+      "y": 186,
+      "anchor": "start"
+    },
+    {
+      "key": "t_stock",
+      "x": 640,
+      "y": 44,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

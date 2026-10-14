@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "8008909ec4b2ed55eb3b469464f55a77473e29207e8c431f29d6ed69789445eb"
+  },
+  "labels": {
+    "a": "Service A",
+    "b": "Service B",
+    "c": "Service C",
+    "d": "Service D",
+    "e": "Service E",
+    "f": "Service F",
+    "g": "Service G",
+    "title": "Call chain between services",
+    "_title": "Call chain between services",
+    "_desc": "Service A calls services B, C and D; service B calls services E and F; services C and D call service G."
+  }
+}

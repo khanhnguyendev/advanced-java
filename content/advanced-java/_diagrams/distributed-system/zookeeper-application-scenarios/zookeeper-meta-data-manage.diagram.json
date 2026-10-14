@@ -1,0 +1,31 @@
+{
+  "id": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage",
+  "source": { "upstream": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 760, "h": 470 },
+  "nodes": [
+    { "id": "caller", "shape": "circle", "x": 43, "y": 163, "w": 80, "h": 80, "label": { "key": "caller" }, "role": "default" },
+    { "id": "dubbo", "shape": "box", "x": 290, "y": 162, "w": 180, "h": 80, "label": { "key": "dubbo", "literals": ["dubbo"] }, "role": "default" },
+    { "id": "svc1", "shape": "box", "x": 600, "y": 47, "w": 120, "h": 72, "label": { "key": "svc1", "literals": ["192.168.0.1"] }, "role": "default" },
+    { "id": "svc2", "shape": "box", "x": 600, "y": 167, "w": 120, "h": 72, "label": { "key": "svc2", "literals": ["192.168.0.2"] }, "role": "default" },
+    { "id": "svc3", "shape": "box", "x": 600, "y": 286, "w": 120, "h": 72, "label": { "key": "svc3", "literals": ["192.168.0.3"] }, "role": "default" },
+    { "id": "zk", "shape": "box", "x": 224, "y": 387, "w": 306, "h": 52, "label": { "key": "zk", "literals": ["zookeeper"] }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[123,203],[290,203]], "arrow": "end", "style": "solid" },
+    { "points": [[290,232],[262,232],[262,266],[83,266],[83,243]], "arrow": "end", "style": "solid" },
+    { "points": [[600,83],[530,83],[530,178],[470,178]], "arrow": "end", "style": "solid" },
+    { "points": [[600,203],[470,203]], "arrow": "end", "style": "solid" },
+    { "points": [[600,322],[530,322],[530,222],[470,222]], "arrow": "end", "style": "solid" },
+    { "points": [[410,242],[410,387]], "arrow": "end", "style": "solid" },
+    { "points": [[450,242],[450,387]], "arrow": "end", "style": "solid" },
+    { "points": [[300,387],[300,242]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "t_want", "x": 204, "y": 174, "anchor": "middle" },
+    { "key": "t_listen", "x": 402, "y": 300, "anchor": "end" },
+    { "key": "t_save", "x": 458, "y": 340, "anchor": "start", "literals": ["zk"] }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

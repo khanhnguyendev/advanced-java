@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "468163802dd45501e507f4abcf0d2e90fc99fd0c2dd8a9cb675a88997d3e1121", "source_lang": "zh" },
+  "labels": {
+    "sysa": "Hệ thống A",
+    "zk": "zookeeper",
+    "t_head1": "Lấy được khóa zk trước, xử lý\nxong thì giải phóng khóa",
+    "t_head2": "Lấy được khóa zk, xử lý\nxong thì giải phóng khóa",
+    "t_release": "Giải phóng\nkhóa zk",
+    "t_try1": "Thử lấy\nkhóa zk",
+    "t_try2": "Thử lấy khóa zk; nếu không\nlấy được thì đăng ký một\nlistener cho khóa này",
+    "t_sense": "Sau khi nhận biết khóa đã\nđược giải phóng, thử lấy\nkhóa lại lần nữa",
+    "t_only": "zookeeper đảm bảo chỉ một bên lấy được khóa này",
+    "_title": "Ví dụ khóa phân tán với ZooKeeper",
+    "_desc": "Hai phiên bản hệ thống A tranh khóa ZooKeeper: bên lấy trước xử lý rồi giải phóng, bên sau đăng ký listener và thử lại khi nhận biết khóa được giải phóng."
+  }
+}

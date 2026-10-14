@@ -1,0 +1,11 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "66051c2e7a8b773bb9104e028eb05de9ecb003a4d240f097ff5784bd7ceb1033" },
+  "labels": {
+    "obj": "Cấu trúc dữ liệu /\nđối tượng",
+    "bin": "Chuỗi\nnhị phân",
+    "ser": "Tuần tự hóa",
+    "de": "Giải tuần tự hóa",
+    "_title": "Tuần tự hóa và giải tuần tự hóa",
+    "_desc": "Cấu trúc dữ liệu hoặc đối tượng được tuần tự hóa thành chuỗi nhị phân, và chuỗi nhị phân được giải tuần tự hóa trở lại thành cấu trúc dữ liệu hoặc đối tượng."
+  }
+}

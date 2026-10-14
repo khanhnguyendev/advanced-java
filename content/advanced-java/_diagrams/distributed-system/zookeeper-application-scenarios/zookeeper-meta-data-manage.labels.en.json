@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "4c96f801ac630799b9f7c8e283f236439d1daa86d2d40bda519879da2c7fa7d4" },
+  "labels": {
+    "_title": "The Dubbo service registry stores service registration data in zookeeper",
+    "_desc": "A caller asks the dubbo service registry for the address of Service A; three Service A instances register with it, and the registry saves the data to zookeeper and registers a listener.",
+    "caller": "Caller",
+    "dubbo": "dubbo service\nregistry",
+    "svc1": "Service A\n192.168.0.1",
+    "svc2": "Service A\n192.168.0.2",
+    "svc3": "Service A\n192.168.0.3",
+    "zk": "zookeeper",
+    "t_want": "I want to get the\naddress of service A",
+    "t_listen": "Register a\nlistener",
+    "t_save": "Save service A's\nregistration info\nto zk"
+  }
+}

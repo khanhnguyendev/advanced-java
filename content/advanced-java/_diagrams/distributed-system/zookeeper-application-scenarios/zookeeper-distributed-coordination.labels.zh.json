@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "_title": "用 ZooKeeper 协调系统A与系统B",
+    "_desc": "系统A保存订单并经MQ发送消息，在ZooKeeper节点上注册监听器，系统B更新该节点后系统A收到通知。",
+    "user": "用户",
+    "sysA": "系统A",
+    "sysB": "系统B",
+    "mq": "MQ",
+    "zk": "zookeeper",
+    "e1": "提交了订单请求",
+    "e2": "写消息",
+    "e3": "消费",
+    "e4": "对订单orderId=1的node\n节点注册一个监听器",
+    "e5": "对订单orderId=1的node节点更新\n值:finish_update",
+    "e6": "订单orderId=1的node节\n点变化了",
+    "t_save": "完成订单的保存\norderId=1",
+    "t_sense": "感知到B已经\n成功执行",
+    "t_stock": "完成库存的更新"
+  }
+}

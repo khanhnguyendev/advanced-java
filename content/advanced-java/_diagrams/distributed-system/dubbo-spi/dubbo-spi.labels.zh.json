@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "zh", "status": "source" },
+  "labels": {
+    "provider_box": "",
+    "jar_box": "",
+    "t_provider": "provider 工程",
+    "t_code": "代码执行的时候，对 Protocal 接口，\n会使用 my 对应的 com.bingo.MyProtocal",
+    "xml": "xml 配置文件\n<dubbo:protocol name=\"my\">",
+    "pom": "pom.xml\n<dependency> 依赖配置的 jar",
+    "t_jar": "jar 包",
+    "t_impl": "com.bingo.MyProtocol implements Protocal",
+    "t_meta": "在META-INF/services/com.alibaba.rpc.Protocal文件\n中配置my=com.bingo.MyProtocal",
+    "_title": "Dubbo SPI 扩展的配置方式",
+    "_desc": "provider 工程通过 pom.xml 依赖包含 MyProtocol 实现与 SPI 配置文件的 jar 包，并在 xml 中配置 my 来使用它。"
+  }
+}

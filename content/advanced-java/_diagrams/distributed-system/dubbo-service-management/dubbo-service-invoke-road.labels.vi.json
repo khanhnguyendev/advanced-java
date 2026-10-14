@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "8008909ec4b2ed55eb3b469464f55a77473e29207e8c431f29d6ed69789445eb"
+  },
+  "labels": {
+    "a": "Dịch vụ A",
+    "b": "Dịch vụ B",
+    "c": "Dịch vụ C",
+    "d": "Dịch vụ D",
+    "e": "Dịch vụ E",
+    "f": "Dịch vụ F",
+    "g": "Dịch vụ G",
+    "title": "Chuỗi gọi giữa các dịch vụ",
+    "_title": "Chuỗi gọi giữa các dịch vụ",
+    "_desc": "Dịch vụ A gọi các dịch vụ B, C, D; dịch vụ B gọi các dịch vụ E, F; dịch vụ C và D gọi dịch vụ G."
+  }
+}

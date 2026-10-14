@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "_title": "Dubbo 注册中心借助 zookeeper 保存服务注册信息",
+    "_desc": "调用者向 dubbo 注册中心请求服务A的地址，服务A的三个实例向注册中心注册，注册中心把注册信息保存到 zookeeper 并注册监听器。",
+    "caller": "调用者",
+    "dubbo": "dubbo注册中心",
+    "svc1": "服务A\n192.168.0.1",
+    "svc2": "服务A\n192.168.0.2",
+    "svc3": "服务A\n192.168.0.3",
+    "zk": "zookeeper",
+    "t_want": "我希望获取服务A的地址",
+    "t_listen": "注册一个监听器",
+    "t_save": "将服务A的注册信息保\n存到zk"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby",
+  "source": { "upstream": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 760, "h": 370 },
+  "nodes": [
+    { "id": "sysa_active", "shape": "box", "x": 53, "y": 47, "w": 150, "h": 88, "label": { "key": "sysa_active" }, "role": "default" },
+    { "id": "sysa_standby", "shape": "box", "x": 354, "y": 47, "w": 150, "h": 88, "label": { "key": "sysa_standby" }, "role": "default" },
+    { "id": "zk", "shape": "round", "x": 122, "y": 242, "w": 282, "h": 50, "label": { "key": "zk", "literals": ["zookeeper"] }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[160,135],[160,187],[213,187],[213,242]], "arrow": "end", "style": "solid" },
+    { "points": [[404,267],[427,267],[427,135]], "arrow": "end", "style": "solid" },
+    { "points": [[471,135],[471,320],[342,320],[342,292]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "t_create", "x": 205, "y": 212, "anchor": "end", "literals": ["active", "worker1"] },
+    { "key": "t_notify", "x": 417, "y": 188, "anchor": "end" },
+    { "key": "t_crash", "x": 78, "y": 322, "anchor": "start", "literals": ["worker1"] },
+    { "key": "t_listen", "x": 512, "y": 100, "anchor": "start", "literals": ["worker2", "active"] },
+    { "key": "t_recreate", "x": 480, "y": 228, "anchor": "start", "literals": ["active", "worker2"] }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

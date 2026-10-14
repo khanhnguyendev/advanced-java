@@ -1,0 +1,49 @@
+{
+  "labels": [
+    {
+      "zh": "提交了订单请求",
+      "en": "Submitted\norder request",
+      "vi": "Đã gửi yêu cầu\nđơn hàng"
+    },
+    {
+      "zh": "写消息",
+      "en": "Write\nmessage",
+      "vi": "Ghi\nthông điệp"
+    },
+    {
+      "zh": "消费",
+      "en": "Consume",
+      "vi": "Tiêu thụ"
+    },
+    {
+      "zh": "对订单orderId=1的node\n节点注册一个监听器",
+      "en": "Register a listener on\nthe node of order orderId=1",
+      "vi": "Đăng ký một listener cho\nnode của đơn hàng orderId=1"
+    },
+    {
+      "zh": "对订单orderId=1的node节点更新\n值:finish_update",
+      "en": "Update the value of the node of\norder orderId=1: finish_update",
+      "vi": "Cập nhật giá trị node của đơn hàng\norderId=1: finish_update"
+    },
+    {
+      "zh": "订单orderId=1的node节\n点变化了",
+      "en": "The node of order\norderId=1 changed",
+      "vi": "Node của đơn hàng\norderId=1 đã thay đổi"
+    },
+    {
+      "zh": "完成订单的保存\norderId=1",
+      "en": "Finish saving the order\norderId=1",
+      "vi": "Hoàn tất lưu đơn hàng\norderId=1"
+    },
+    {
+      "zh": "感知到B已经\n成功执行",
+      "en": "Detects that B\nhas succeeded",
+      "vi": "Nhận biết B đã\nthực thi thành công"
+    },
+    {
+      "zh": "完成库存的更新",
+      "en": "Finish updating\ninventory",
+      "vi": "Hoàn tất cập nhật\ntồn kho"
+    }
+  ]
+}

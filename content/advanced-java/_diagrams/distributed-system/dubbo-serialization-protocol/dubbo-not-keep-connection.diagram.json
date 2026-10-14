@@ -1,0 +1,28 @@
+{
+  "id": "distributed-system/dubbo-serialization-protocol/dubbo-not-keep-connection",
+  "source": { "upstream": "distributed-system/dubbo-serialization-protocol/dubbo-not-keep-connection.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 440, "h": 330 },
+  "nodes": [
+    { "id": "q1", "shape": "round", "x": 262, "y": 34, "w": 100, "h": 28, "label": { "key": "q1" } },
+    { "id": "q2", "shape": "round", "x": 210, "y": 76, "w": 100, "h": 28, "label": { "key": "q2" } },
+    { "id": "q3", "shape": "round", "x": 140, "y": 116, "w": 100, "h": 28, "label": { "key": "q3" } },
+    { "id": "c1", "shape": "box", "x": 40, "y": 96, "w": 96, "h": 30, "label": { "key": "c1", "literals": ["consumer"] } },
+    { "id": "c2", "shape": "box", "x": 40, "y": 170, "w": 96, "h": 30, "label": { "key": "c2", "literals": ["consumer"] } },
+    { "id": "c3", "shape": "box", "x": 44, "y": 220, "w": 96, "h": 30, "label": { "key": "c3", "literals": ["consumer"] } },
+    { "id": "c4", "shape": "box", "x": 44, "y": 272, "w": 96, "h": 30, "label": { "key": "c4", "literals": ["consumer"] } },
+    { "id": "p1", "shape": "box", "x": 300, "y": 170, "w": 90, "h": 30, "label": { "key": "p1", "literals": ["provider"] } },
+    { "id": "p2", "shape": "box", "x": 304, "y": 220, "w": 90, "h": 30, "label": { "key": "p2", "literals": ["provider"] } }
+  ],
+  "edges": [
+    { "points": [[88, 96], [88, 70], [372, 70], [372, 170]], "arrow": "end", "style": "solid" },
+    { "points": [[136, 111], [346, 111], [346, 170]], "arrow": "end", "style": "solid" },
+    { "points": [[88, 126], [88, 148], [320, 148], [320, 170]], "arrow": "end", "style": "solid" },
+    { "points": [[136, 185], [300, 185]], "arrow": "end", "style": "solid" },
+    { "points": [[140, 235], [304, 235]], "arrow": "end", "style": "solid" },
+    { "points": [[140, 287], [349, 287], [349, 250]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,10 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "48e92072f641b137e8104250cc6c5e688e0f01eea32d2d40042405243992a927" },
+  "labels": {
+    "q1": "Request 1", "q2": "Request 2", "q3": "Request 3",
+    "c1": "consumer", "c2": "consumer", "c3": "consumer", "c4": "consumer",
+    "p1": "provider", "p2": "provider",
+    "_title": "Dubbo short connection",
+    "_desc": "Before every request is sent, the consumer has to establish a new connection to the provider."
+  }
+}

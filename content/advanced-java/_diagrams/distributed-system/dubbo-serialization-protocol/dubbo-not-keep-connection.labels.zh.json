@@ -1,0 +1,10 @@
+{
+  "meta": { "locale": "zh", "status": "source" },
+  "labels": {
+    "q1": "请求1", "q2": "请求2", "q3": "请求3",
+    "c1": "consumer", "c2": "consumer", "c3": "consumer", "c4": "consumer",
+    "p1": "provider", "p2": "provider",
+    "_title": "Dubbo 短连接",
+    "_desc": "每次发送请求之前，consumer 都要先与 provider 重新建立连接。"
+  }
+}

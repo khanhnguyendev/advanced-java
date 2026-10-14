@@ -1,0 +1,256 @@
+{
+  "id": "distributed-system/dubbo-service-management/dubbo-service-invoke-road",
+  "source": {
+    "upstream": "distributed-system/dubbo-service-management/dubbo-service-invoke-road.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 460,
+    "h": 440
+  },
+  "nodes": [
+    {
+      "id": "a",
+      "shape": "box",
+      "x": 48,
+      "y": 221,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "a"
+      },
+      "role": "default"
+    },
+    {
+      "id": "b",
+      "shape": "box",
+      "x": 192,
+      "y": 105,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "b"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c",
+      "shape": "box",
+      "x": 192,
+      "y": 221,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "c"
+      },
+      "role": "default"
+    },
+    {
+      "id": "d",
+      "shape": "box",
+      "x": 192,
+      "y": 345,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "d"
+      },
+      "role": "default"
+    },
+    {
+      "id": "e",
+      "shape": "box",
+      "x": 340,
+      "y": 48,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "e"
+      },
+      "role": "default"
+    },
+    {
+      "id": "f",
+      "shape": "box",
+      "x": 340,
+      "y": 155,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "f"
+      },
+      "role": "default"
+    },
+    {
+      "id": "g",
+      "shape": "box",
+      "x": 340,
+      "y": 284,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "g"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          148,
+          233
+        ],
+        [
+          170,
+          233
+        ],
+        [
+          170,
+          140
+        ],
+        [
+          192,
+          140
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          148,
+          256
+        ],
+        [
+          192,
+          256
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          148,
+          276
+        ],
+        [
+          170,
+          276
+        ],
+        [
+          170,
+          380
+        ],
+        [
+          192,
+          380
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          292,
+          125
+        ],
+        [
+          316,
+          125
+        ],
+        [
+          316,
+          83
+        ],
+        [
+          340,
+          83
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          292,
+          155
+        ],
+        [
+          316,
+          155
+        ],
+        [
+          316,
+          190
+        ],
+        [
+          340,
+          190
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          292,
+          256
+        ],
+        [
+          316,
+          256
+        ],
+        [
+          316,
+          300
+        ],
+        [
+          340,
+          300
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          292,
+          380
+        ],
+        [
+          316,
+          380
+        ],
+        [
+          316,
+          338
+        ],
+        [
+          340,
+          338
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "title",
+      "x": 82,
+      "y": 84,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}
