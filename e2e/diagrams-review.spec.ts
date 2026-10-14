@@ -103,6 +103,8 @@ for (const width of [1280, 360]) {
           }
           const r = shape.getBoundingClientRect();
           for (const text of texts) {
+            // a blank line of a multi-line label renders an empty <text>: no glyphs, nothing to contain
+            if ((text.textContent ?? '').trim() === '') continue;
             const t = text.getBoundingClientRect();
             if (t.left < r.left - tol || t.right > r.right + tol || t.top < r.top - tol || t.bottom > r.bottom + tol) {
               out.push(name);
