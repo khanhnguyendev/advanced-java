@@ -10,16 +10,16 @@ translatedAt: '2026-10-14'
 
 ## Mô tả đề bài
 
-Hiện có dữ liệu log quy mô lớn được lưu trong một tệp cực lớn, tệp này không thể đọc trực tiếp vào bộ nhớ. Yêu cầu trích xuất từ đó IP truy cập Baidu nhiều lần nhất trong một ngày nào đó.
+Hiện có dữ liệu log quy mô lớn được lưu trong một tệp cực lớn, tệp này không thể đọc trực tiếp vào bộ nhớ, yêu cầu trích xuất từ đó IP có số lần truy cập Baidu nhiều nhất trong một ngày nào đó.
 
 ## Hướng giải
 
-Bài này chỉ quan tâm đến IP truy cập Baidu nhiều nhất trong một ngày, vì vậy trước hết có thể duyệt tệp một lượt, ghi các thông tin liên quan đến IP truy cập Baidu trong ngày đó vào một tệp lớn riêng. Tiếp theo áp dụng phương pháp giống bài trước, đại khái là trước hết ánh xạ băm các IP, sau đó dùng HashMap để thống kê số lần lặp của từng IP, cuối cùng tính ra IP có số lần lặp nhiều nhất.
+Bài này chỉ quan tâm đến IP truy cập Baidu nhiều nhất trong một ngày, do đó có thể trước hết duyệt tệp một lần, ghi thông tin liên quan của các IP truy cập Baidu trong ngày đó vào một tệp lớn riêng. Tiếp theo dùng phương pháp giống bài trước, đại khái là trước hết ánh xạ băm các IP, sau đó dùng HashMap thống kê số lần xuất hiện của các IP lặp lại, cuối cùng tính ra IP có số lần xuất hiện nhiều nhất.
 
-> Lưu ý: ở đây chỉ cần tìm IP xuất hiện nhiều lần nhất, nên không nhất thiết phải dùng heap, chỉ cần dùng trực tiếp một biến max là đủ.
+> Lưu ý: ở đây chỉ cần tìm IP có số lần xuất hiện nhiều nhất, có thể không cần dùng heap, chỉ cần dùng trực tiếp một biến max là đủ.
 
-## Tóm tắt phương pháp
+## Tổng kết phương pháp
 
 1. Chia để trị, băm rồi lấy phần dư;
 2. Dùng HashMap để thống kê tần suất;
-3. Để tìm TopN phần tử **lớn nhất**, dùng **min-heap**; để tìm TopN phần tử **nhỏ nhất**, dùng **max-heap**.
+3. Tìm TopN phần tử **lớn nhất** thì dùng **min-heap**; tìm TopN phần tử **nhỏ nhất** thì dùng **max-heap**.
