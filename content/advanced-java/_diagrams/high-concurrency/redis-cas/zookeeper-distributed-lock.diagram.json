@@ -1,0 +1,28 @@
+{
+  "id": "high-concurrency/redis-cas/zookeeper-distributed-lock",
+  "source": { "upstream": "high-concurrency/redis-cas/zookeeper-distributed-lock.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 840, "h": 460 },
+  "nodes": [
+    { "id": "zk", "shape": "round", "x": 331, "y": 48, "w": 230, "h": 40, "label": { "key": "zk", "literals": ["zookeeper"] } },
+    { "id": "sysa", "shape": "box", "x": 168, "y": 183, "w": 130, "h": 70, "label": { "key": "sysa" } },
+    { "id": "sysb", "shape": "box", "x": 384, "y": 183, "w": 130, "h": 70, "label": { "key": "sysb" } },
+    { "id": "sysc", "shape": "box", "x": 592, "y": 183, "w": 130, "h": 70, "label": { "key": "sysc" } },
+    { "id": "cache", "shape": "pill", "x": 394, "y": 365, "w": 110, "h": 60, "label": { "key": "cache" } }
+  ],
+  "edges": [
+    { "points": [[233,183],[233,68],[331,68]], "arrow": "end", "style": "solid" },
+    { "points": [[449,183],[449,88]], "arrow": "end", "style": "solid" },
+    { "points": [[657,183],[657,68],[561,68]], "arrow": "end", "style": "solid" },
+    { "points": [[233,253],[233,395],[394,395]], "arrow": "end", "style": "solid" },
+    { "points": [[449,253],[449,365]], "arrow": "end", "style": "solid" },
+    { "points": [[657,253],[657,395],[504,395]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "t_get", "x": 225, "y": 135, "anchor": "end" },
+    { "key": "t_tryb", "x": 441, "y": 135, "anchor": "end" },
+    { "key": "t_tryc", "x": 649, "y": 135, "anchor": "end" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

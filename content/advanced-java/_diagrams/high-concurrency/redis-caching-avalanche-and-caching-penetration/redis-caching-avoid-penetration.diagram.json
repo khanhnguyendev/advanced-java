@@ -1,0 +1,25 @@
+{
+  "id": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration",
+  "source": { "upstream": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 600, "h": 420 },
+  "nodes": [
+    { "id": "user", "shape": "pill", "x": 300, "y": 40, "w": 100, "h": 70, "label": { "key": "user" }, "role": "default" },
+    { "id": "sysa", "shape": "box", "x": 300, "y": 190, "w": 100, "h": 70, "label": { "key": "sysa" }, "role": "default" },
+    { "id": "bloom", "shape": "box", "x": 150, "y": 199, "w": 110, "h": 52, "label": { "key": "bloom" }, "role": "default" },
+    { "id": "cache", "shape": "pill", "x": 10, "y": 195, "w": 110, "h": 60, "label": { "key": "cache" }, "role": "default" },
+    { "id": "db", "shape": "box", "x": 200, "y": 340, "w": 300, "h": 44, "label": { "key": "db" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[350, 110], [350, 190]], "arrow": "end", "style": "solid" },
+    { "points": [[300, 225], [260, 225]], "arrow": "end", "style": "solid" },
+    { "points": [[150, 225], [120, 225]], "arrow": "end", "style": "solid" },
+    { "points": [[350, 260], [350, 340]], "arrow": "end", "style": "solid" },
+    { "points": [[160, 275], [240, 275]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "ret", "x": 150, "y": 308, "anchor": "start" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

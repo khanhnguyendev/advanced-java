@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "fd5708cae14b837612a4a585b36d49ccec54ab34e00620dfab0f1a1abddd1e0a", "source_lang": "zh" },
+  "labels": {
+    "producer": "Producer",
+    "mq": "RabbitMQ",
+    "consumer": "Consumer",
+    "msg1": "Thông điệp 1",
+    "heading": "3 trường hợp RabbitMQ mất thông điệp",
+    "case2": "2. RabbitMQ nhận được thông điệp, lưu tạm\ntrong bộ nhớ, chưa kịp tiêu thụ thì\nbản thân bị sập, dữ liệu trong bộ nhớ bị mất",
+    "case1": "1. Thông điệp bị mất trong quá trình truyền",
+    "case3": "3. Consumer nhận được thông điệp nhưng bị sập\ntrước khi kịp xử lý, và RabbitMQ\ntưởng thông điệp đã được xử lý",
+    "_title": "Ba trường hợp RabbitMQ mất thông điệp",
+    "_desc": "Producer gửi thông điệp qua RabbitMQ tới consumer, với ba điểm có thể làm mất thông điệp."
+  }
+}

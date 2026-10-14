@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "_title": "缓存穿透：用布隆过滤器拦截不存在的 key",
+    "_desc": "用户请求经系统A先由布隆过滤器判断，key 不存在则直接返回，否则才查询缓存，未命中再查数据库。",
+    "user": "用户",
+    "sysa": "系统A",
+    "bloom": "布隆过滤器",
+    "cache": "缓存",
+    "db": "数据库",
+    "ret": "如果key不存在，直接返回"
+  }
+}

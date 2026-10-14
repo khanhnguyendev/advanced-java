@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "ef0ce5525275a5362d558b0a0774ad87e45106d64515be3948f54bca850f11f9", "source_lang": "zh" },
+  "labels": {
+    "_title": "Cache avalanche: mọi yêu cầu đổ xuống cơ sở dữ liệu khi bộ nhớ đệm sập",
+    "_desc": "Người dùng truy cập qua Hệ thống A; khi máy chủ bộ nhớ đệm sập, 5000 yêu cầu mỗi giây đổ hết xuống cơ sở dữ liệu.",
+    "user": "Người dùng",
+    "sysa": "Hệ thống A",
+    "cache": "Bộ nhớ đệm\n(máy chủ sập)",
+    "db": "Cơ sở dữ liệu",
+    "peak": "Giờ cao điểm: 5000 yêu cầu mỗi giây",
+    "down": "Bộ nhớ đệm sập, 5000 yêu cầu mỗi giây\nđổ hết xuống cơ sở dữ liệu"
+  }
+}

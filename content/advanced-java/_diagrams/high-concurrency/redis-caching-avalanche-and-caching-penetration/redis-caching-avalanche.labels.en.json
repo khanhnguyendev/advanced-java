@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "ef0ce5525275a5362d558b0a0774ad87e45106d64515be3948f54bca850f11f9", "source_lang": "zh" },
+  "labels": {
+    "_title": "Cache avalanche: all requests fall through to the database once the cache is down",
+    "_desc": "Users reach System A; when the cache machine goes down, all 5000 requests per second land on the database.",
+    "user": "User",
+    "sysa": "System A",
+    "cache": "Cache\n(machine down)",
+    "db": "Database",
+    "peak": "Peak: 5000 requests per second",
+    "down": "Cache down: 5000 requests per second\nall hit the database"
+  }
+}

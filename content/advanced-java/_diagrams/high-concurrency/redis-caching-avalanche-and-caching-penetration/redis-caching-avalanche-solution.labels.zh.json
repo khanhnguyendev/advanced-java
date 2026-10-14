@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "用户",
+    "sysa_g": "",
+    "sysa": "系统A",
+    "ehcache": "ehcache",
+    "hystrix": "hystrix限流",
+    "db": "数据库",
+    "e_peak": "高峰期每秒 5000 请求",
+    "e_limit": "限流组件\n可以设置假设5000个请求，就\n2000个请求能通过该组件",
+    "s1": "缓存\nslave",
+    "m1": "缓存\nmaster",
+    "s2": "缓存\nslave",
+    "m2": "缓存\nmaster",
+    "s3": "缓存\nslave",
+    "m3": "缓存\nmaster",
+    "_title": "缓存雪崩解决方案示意图",
+    "_desc": "用户请求先经系统A的ehcache，再经hystrix限流后才访问数据库，缓存为一主一从多组。"
+  }
+}

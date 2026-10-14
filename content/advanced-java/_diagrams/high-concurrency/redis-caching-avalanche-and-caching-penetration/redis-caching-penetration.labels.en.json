@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "c0fae55795e5a8f1efadd05cddd5538d1d69f265377977aed535aa80a80c7110", "source_lang": "zh" },
+  "labels": {
+    "_title": "Cache penetration: malicious requests bypass the cache and kill the database",
+    "_desc": "Of 5000 requests per second, 4000 come from hackers; they find nothing in the cache, so all of them land on the database.",
+    "user": "User",
+    "sysa": "System A",
+    "cache": "Cache",
+    "db": "Database",
+    "peak": "5000 requests per second,\n4000 sent by hackers",
+    "normal": "1000 requests are\nsent by normal users.",
+    "req": "4000 requests",
+    "kill": "Cache penetration:\nthe database is\nkilled outright"
+  }
+}

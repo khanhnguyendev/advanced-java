@@ -1,0 +1,396 @@
+{
+  "id": "high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-02",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-02.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 372,
+    "h": 550
+  },
+  "nodes": [
+    {
+      "id": "producer",
+      "shape": "pill",
+      "x": 147,
+      "y": 50,
+      "w": 80,
+      "h": 28,
+      "label": {
+        "key": "producer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "top3",
+      "shape": "round",
+      "x": 195,
+      "y": 83,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "top3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "top2",
+      "shape": "round",
+      "x": 121,
+      "y": 101,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "top2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "top1",
+      "shape": "round",
+      "x": 121,
+      "y": 139,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "top1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "g",
+      "shape": "group",
+      "x": 56,
+      "y": 176,
+      "w": 264,
+      "h": 66,
+      "label": {
+        "key": "g"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "q1",
+      "shape": "box",
+      "x": 65,
+      "y": 183,
+      "w": 70,
+      "h": 24,
+      "label": {
+        "key": "q1",
+        "literals": [
+          "queue1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "q2",
+      "shape": "box",
+      "x": 152,
+      "y": 183,
+      "w": 70,
+      "h": 24,
+      "label": {
+        "key": "q2",
+        "literals": [
+          "queue2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "q3",
+      "shape": "box",
+      "x": 239,
+      "y": 183,
+      "w": 70,
+      "h": 24,
+      "label": {
+        "key": "q3",
+        "literals": [
+          "queue3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid3",
+      "shape": "round",
+      "x": 113,
+      "y": 246,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "mid3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid2",
+      "shape": "round",
+      "x": 113,
+      "y": 273,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "mid2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid1",
+      "shape": "round",
+      "x": 113,
+      "y": 300,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "mid1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c1",
+      "shape": "pill",
+      "x": 58,
+      "y": 333,
+      "w": 84,
+      "h": 26,
+      "label": {
+        "key": "c1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c2",
+      "shape": "pill",
+      "x": 145,
+      "y": 333,
+      "w": 84,
+      "h": 26,
+      "label": {
+        "key": "c2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c3",
+      "shape": "pill",
+      "x": 232,
+      "y": 333,
+      "w": 84,
+      "h": 26,
+      "label": {
+        "key": "c3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "low3",
+      "shape": "round",
+      "x": 113,
+      "y": 380,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "low3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "low2",
+      "shape": "round",
+      "x": 113,
+      "y": 416,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "low2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "low1",
+      "shape": "round",
+      "x": 113,
+      "y": 451,
+      "w": 60,
+      "h": 24,
+      "label": {
+        "key": "low1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "db",
+      "shape": "box",
+      "x": 78,
+      "y": 483,
+      "w": 220,
+      "h": 34,
+      "label": {
+        "key": "db"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          187,
+          78
+        ],
+        [
+          187,
+          176
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          100,
+          207
+        ],
+        [
+          100,
+          333
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          274,
+          207
+        ],
+        [
+          274,
+          333
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          187,
+          242
+        ],
+        [
+          187,
+          333
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          187,
+          359
+        ],
+        [
+          187,
+          483
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          58,
+          346
+        ],
+        [
+          30,
+          346
+        ],
+        [
+          30,
+          500
+        ],
+        [
+          78,
+          500
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          316,
+          346
+        ],
+        [
+          344,
+          346
+        ],
+        [
+          344,
+          500
+        ],
+        [
+          298,
+          500
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "rmq",
+      "x": 187,
+      "y": 226,
+      "anchor": "middle",
+      "literals": [
+        "RabbitMQ"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

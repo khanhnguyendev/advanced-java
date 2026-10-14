@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "32d08a3c2f29a6b2e5eeaa8eee2063a7dc79c04bb2afa46e8c073c198ac3b975",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "nA": "Node A",
+    "hA": "Hash( )",
+    "nD": "Node D",
+    "hD": "Hash( )",
+    "nB": "Node B",
+    "hB": "Hash( )",
+    "nC": "Node C",
+    "hC": "Hash( )",
+    "nX": "Node X",
+    "hX": "Hash( )",
+    "hoA": "Hash( )",
+    "hoB": "Hash( )",
+    "hoC": "Hash( )",
+    "hoD": "Hash( )",
+    "toA": "Đối tượng A",
+    "toB": "Đối tượng B",
+    "toC": "Đối tượng C",
+    "toD": "Đối tượng D",
+    "t32": "2^32−1",
+    "t0": "0",
+    "_title": "Vòng consistent hash: các node và đối tượng nằm trên vòng hash, có thêm node X.",
+    "_desc": "Vòng hash từ 0 đến 2^32−1, đối tượng được ánh xạ theo chiều kim đồng hồ tới node kế tiếp; thêm node X sẽ tiếp quản một phần phạm vi của node C."
+  }
+}

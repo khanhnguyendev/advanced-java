@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "producer": "生产者",
+    "mq": "RabbitMQ",
+    "consumer": "消费者",
+    "msg1": "消息1",
+    "heading": "RabbitMQ 消息丢失的 3 种情况",
+    "case2": "2.RabbitMQ收到消息，\n暂存内存中，还没消费，\n自己挂掉了，内存中的数据搞丢",
+    "case1": "1.消息在传入过程中丢失",
+    "case3": "3.消费者消费到了这个消息，\n但还没来得及处理，就挂了，\nRabbitMQ 以为消息已经被处理",
+    "_title": "RabbitMQ 消息丢失的三种情况",
+    "_desc": "生产者经 RabbitMQ 向消费者发送消息，并标出消息可能丢失的三个环节。"
+  }
+}

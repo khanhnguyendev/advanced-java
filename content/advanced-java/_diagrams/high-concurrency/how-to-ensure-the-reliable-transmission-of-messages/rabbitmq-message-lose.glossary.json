@@ -1,0 +1,7 @@
+{ "labels": [
+  { "zh": "消息1", "en": "Message 1", "vi": "Thông điệp 1" },
+  { "zh": "RabbitMQ 消息丢失的 3 种情况", "en": "3 cases of RabbitMQ message loss", "vi": "3 trường hợp RabbitMQ mất thông điệp" },
+  { "zh": "2.RabbitMQ收到消息，\n暂存内存中，还没消费，\n自己挂掉了，内存中的数据搞丢", "en": "2. RabbitMQ receives the message and holds it\ntemporarily in memory; before it is consumed,\nRabbitMQ itself crashes and the data in memory is lost", "vi": "2. RabbitMQ nhận được thông điệp, lưu tạm\ntrong bộ nhớ, chưa kịp tiêu thụ thì\nbản thân bị sập, dữ liệu trong bộ nhớ bị mất" },
+  { "zh": "1.消息在传入过程中丢失", "en": "1. The message is lost in transit", "vi": "1. Thông điệp bị mất trong quá trình truyền" },
+  { "zh": "3.消费者消费到了这个消息，\n但还没来得及处理，就挂了，\nRabbitMQ 以为消息已经被处理", "en": "3. The consumer receives the message but crashes\nbefore it can process it, and RabbitMQ\nthinks the message has already been processed", "vi": "3. Consumer nhận được thông điệp nhưng bị sập\ntrước khi kịp xử lý, và RabbitMQ\ntưởng thông điệp đã được xử lý" }
+] }

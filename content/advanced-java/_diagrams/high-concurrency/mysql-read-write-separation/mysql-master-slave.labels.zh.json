@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "sys": "系统",
+    "gm": "",
+    "gs": "",
+    "w1": "工作\n线程",
+    "w2": "工作\n线程",
+    "mio": "IO\n线程",
+    "binlog": "binlog 日志",
+    "mdata": "数据",
+    "sio": "IO\n线程",
+    "sql": "SQL\n线程",
+    "relay": "relay 日志",
+    "sdata": "数据",
+    "tm": "主库",
+    "ts": "从库",
+    "_title": "MySQL 主从复制的流程",
+    "_desc": "系统写入主库，主库的 binlog 经 IO 线程复制到从库的 relay 日志，再由 SQL 线程回放到从库数据。"
+  }
+}

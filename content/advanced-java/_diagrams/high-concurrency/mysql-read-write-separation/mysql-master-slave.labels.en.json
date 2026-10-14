@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "75aeceb684967ea29d633dc655de33466ba2b79525e50e1faeef7f611d7b5ed4",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "sys": "System",
+    "gm": "",
+    "gs": "",
+    "w1": "Worker\nthread",
+    "w2": "Worker\nthread",
+    "mio": "IO\nthread",
+    "binlog": "binlog",
+    "mdata": "Data",
+    "sio": "IO\nthread",
+    "sql": "SQL\nthread",
+    "relay": "Relay log",
+    "sdata": "Data",
+    "tm": "Master",
+    "ts": "Replica",
+    "_title": "MySQL master/replica replication flow",
+    "_desc": "The system writes to the master; the master's binlog is copied by an IO thread into the replica's relay log, and an SQL thread replays it into the replica's data."
+  }
+}

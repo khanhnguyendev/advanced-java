@@ -1,0 +1,19 @@
+{
+  "labels": [
+    {
+      "zh": "queue1",
+      "en": "queue1",
+      "vi": "queue1"
+    },
+    {
+      "zh": "queue2",
+      "en": "queue2",
+      "vi": "queue2"
+    },
+    {
+      "zh": "queue3",
+      "en": "queue3",
+      "vi": "queue3"
+    }
+  ]
+}

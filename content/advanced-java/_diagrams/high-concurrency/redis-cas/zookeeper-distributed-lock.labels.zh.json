@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "zk": "zookeeper",
+    "sysa": "系统A",
+    "sysb": "系统B",
+    "sysc": "系统C",
+    "cache": "缓存",
+    "t_get": "获取分布式锁",
+    "t_tryb": "尝试获取分布式锁\n(获取不到)",
+    "t_tryc": "尝试获取分布式锁\n(获取不到)",
+    "_title": "基于 zookeeper 的分布式锁",
+    "_desc": "三个系统通过 zookeeper 竞争分布式锁，获取到锁的系统再操作缓存。"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "1585370f0eacb561e51a85b0b192f316207bf56510420fd46e7623b60874122e", "source_lang": "zh" },
+  "labels": {
+    "zk": "zookeeper",
+    "sysa": "System A",
+    "sysb": "System B",
+    "sysc": "System C",
+    "cache": "Cache",
+    "t_get": "Acquire\ndistributed lock",
+    "t_tryb": "Try to acquire\ndistributed lock\n(not acquired)",
+    "t_tryc": "Try to acquire\ndistributed lock\n(not acquired)",
+    "_title": "Distributed lock based on zookeeper",
+    "_desc": "Three systems compete for a distributed lock through zookeeper, and the system holding the lock operates on the cache."
+  }
+}

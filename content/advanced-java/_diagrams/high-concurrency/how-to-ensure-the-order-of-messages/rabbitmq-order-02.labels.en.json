@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "13f050c65322ae5ee40181083397f3371191ae0ad0a845128216497748d69d4c",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "Producer",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "g": "",
+    "q1": "queue1",
+    "q2": "queue2",
+    "q3": "queue3",
+    "rmq": "RabbitMQ",
+    "mid3": "data3",
+    "mid2": "data2",
+    "mid1": "data1",
+    "c1": "Consumer",
+    "c2": "Consumer",
+    "c3": "Consumer",
+    "low3": "data3",
+    "low2": "data2",
+    "low1": "data1",
+    "db": "Database",
+    "_title": "One RabbitMQ queue per consumer keeps message order",
+    "_desc": "The producer sends data1 to data3 through RabbitMQ queue1 to queue3, each to its own consumer, and the consumers write to the database."
+  }
+}

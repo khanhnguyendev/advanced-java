@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "00a60893a21e803b0ca779aea2a4e794121c7e4fd28723d254a9d8d9cc234ce8", "source_lang": "zh" },
+  "labels": {
+    "_title": "Cache penetration: a Bloom filter blocks keys that do not exist",
+    "_desc": "A user request reaches System A and is checked by the Bloom filter first; if the key does not exist it returns directly, otherwise the cache and then the database are queried.",
+    "user": "User",
+    "sysa": "System A",
+    "bloom": "Bloom\nfilter",
+    "cache": "Cache",
+    "db": "Database",
+    "ret": "If the key does not exist,\nreturn directly"
+  }
+}

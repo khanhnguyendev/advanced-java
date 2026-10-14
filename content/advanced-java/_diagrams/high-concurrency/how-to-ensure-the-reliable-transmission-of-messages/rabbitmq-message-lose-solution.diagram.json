@@ -1,0 +1,217 @@
+{
+  "id": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 700,
+    "h": 300
+  },
+  "nodes": [],
+  "edges": [
+    {
+      "points": [
+        [
+          201,
+          168
+        ],
+        [
+          213,
+          168
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          213,
+          95
+        ],
+        [
+          213,
+          238
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          213,
+          95
+        ],
+        [
+          226,
+          95
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          213,
+          168
+        ],
+        [
+          226,
+          168
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          213,
+          238
+        ],
+        [
+          226,
+          238
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          300,
+          97
+        ],
+        [
+          314,
+          97
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          326,
+          68
+        ],
+        [
+          314,
+          74
+        ],
+        [
+          314,
+          120
+        ],
+        [
+          326,
+          122
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          312,
+          168
+        ],
+        [
+          330,
+          168
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          312,
+          238
+        ],
+        [
+          330,
+          238
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "title",
+      "x": 195,
+      "y": 168,
+      "anchor": "end",
+      "literals": [
+        "RabbitMQ"
+      ]
+    },
+    {
+      "key": "producer",
+      "x": 232,
+      "y": 95,
+      "anchor": "start"
+    },
+    {
+      "key": "mq",
+      "x": 232,
+      "y": 168,
+      "anchor": "start"
+    },
+    {
+      "key": "consumer",
+      "x": 232,
+      "y": 238,
+      "anchor": "start"
+    },
+    {
+      "key": "opt1",
+      "x": 342,
+      "y": 68,
+      "anchor": "start",
+      "literals": [
+        "RabbitMQ"
+      ]
+    },
+    {
+      "key": "opt2",
+      "x": 342,
+      "y": 122,
+      "anchor": "start",
+      "literals": [
+        "confirm"
+      ]
+    },
+    {
+      "key": "opt3",
+      "x": 342,
+      "y": 168,
+      "anchor": "start",
+      "literals": [
+        "RabbitMQ"
+      ]
+    },
+    {
+      "key": "opt4",
+      "x": 342,
+      "y": 238,
+      "anchor": "start",
+      "literals": [
+        "RabbitMQ",
+        "ACK"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

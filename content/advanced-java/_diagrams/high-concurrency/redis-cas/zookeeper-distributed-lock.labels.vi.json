@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "1585370f0eacb561e51a85b0b192f316207bf56510420fd46e7623b60874122e", "source_lang": "zh" },
+  "labels": {
+    "zk": "zookeeper",
+    "sysa": "Hệ thống A",
+    "sysb": "Hệ thống B",
+    "sysc": "Hệ thống C",
+    "cache": "Bộ nhớ đệm",
+    "t_get": "Lấy\nkhóa phân tán",
+    "t_tryb": "Thử lấy\nkhóa phân tán\n(không lấy được)",
+    "t_tryc": "Thử lấy\nkhóa phân tán\n(không lấy được)",
+    "_title": "Khóa phân tán dựa trên zookeeper",
+    "_desc": "Ba hệ thống tranh khóa phân tán qua zookeeper, hệ thống giữ khóa mới thao tác với bộ nhớ đệm."
+  }
+}

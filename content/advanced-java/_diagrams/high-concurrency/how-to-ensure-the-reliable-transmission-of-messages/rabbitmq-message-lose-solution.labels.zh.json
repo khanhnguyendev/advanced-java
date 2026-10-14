@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "title": "RabbitMQ 消息丢失\n及对应解决方案",
+    "producer": "生产者",
+    "mq": "MQ",
+    "consumer": "消费者",
+    "opt1": "方案1：开启RabbitMQ事务(同步，不推荐)",
+    "opt2": "方案2：开启confirm模式（异步，推荐）",
+    "opt3": "方案：开启RabbitMQ持久化",
+    "opt4": "方案：关闭RabbitMQ自动ACK",
+    "_title": "RabbitMQ 消息丢失及对应解决方案",
+    "_desc": "按生产者、MQ、消费者三个环节列出 RabbitMQ 消息丢失的对应解决方案。"
+  }
+}

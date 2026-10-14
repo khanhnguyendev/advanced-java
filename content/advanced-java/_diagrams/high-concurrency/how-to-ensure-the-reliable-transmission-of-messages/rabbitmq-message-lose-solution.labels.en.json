@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "1c0aa3f945f2a7cfd0c7854152a31b3c5e824a41038e0617a50dc0bc8676c0b5",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "title": "RabbitMQ message loss\nand its solutions",
+    "producer": "Producer",
+    "mq": "MQ",
+    "consumer": "Consumer",
+    "opt1": "Option 1: enable RabbitMQ transactions\n(synchronous, not recommended)",
+    "opt2": "Option 2: enable confirm mode\n(asynchronous, recommended)",
+    "opt3": "Option: enable RabbitMQ persistence",
+    "opt4": "Option: turn off RabbitMQ auto ACK",
+    "_title": "RabbitMQ message loss and its solutions",
+    "_desc": "Solutions for RabbitMQ message loss at the producer, the MQ and the consumer."
+  }
+}

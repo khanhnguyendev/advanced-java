@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "75aeceb684967ea29d633dc655de33466ba2b79525e50e1faeef7f611d7b5ed4",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "sys": "Hệ thống",
+    "gm": "",
+    "gs": "",
+    "w1": "Luồng\nworker",
+    "w2": "Luồng\nworker",
+    "mio": "Luồng\nIO",
+    "binlog": "Nhật ký\nbinlog",
+    "mdata": "Dữ liệu",
+    "sio": "Luồng\nIO",
+    "sql": "Luồng\nSQL",
+    "relay": "Nhật ký\nrelay",
+    "sdata": "Dữ liệu",
+    "tm": "Master",
+    "ts": "Replica",
+    "_title": "Luồng sao chép master/replica của MySQL",
+    "_desc": "Hệ thống ghi vào master; binlog của master được luồng IO sao chép vào relay log của replica, rồi luồng SQL phát lại vào dữ liệu của replica."
+  }
+}

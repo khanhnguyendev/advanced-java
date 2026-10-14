@@ -1,0 +1,25 @@
+{
+  "id": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration",
+  "source": { "upstream": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 590, "h": 424 },
+  "nodes": [
+    { "id": "user", "shape": "pill", "x": 245, "y": 45, "w": 100, "h": 70, "label": { "key": "user" }, "role": "default" },
+    { "id": "sysa", "shape": "box", "x": 227, "y": 192, "w": 136, "h": 67, "label": { "key": "sysa" }, "role": "default" },
+    { "id": "cache", "shape": "pill", "x": 10, "y": 196, "w": 110, "h": 60, "label": { "key": "cache" }, "role": "default" },
+    { "id": "db", "shape": "box", "x": 135, "y": 347, "w": 321, "h": 44, "label": { "key": "db" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[295, 115], [295, 192]], "arrow": "end", "style": "solid" },
+    { "points": [[227, 226], [120, 226]], "arrow": "end", "style": "solid" },
+    { "points": [[295, 259], [295, 347]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "peak", "x": 310, "y": 150, "anchor": "start", "literals": ["5000", "4000"] },
+    { "key": "normal", "x": 95, "y": 148, "anchor": "start", "literals": ["1000"] },
+    { "key": "req", "x": 310, "y": 300, "anchor": "start", "literals": ["4000"] },
+    { "key": "kill", "x": 410, "y": 285, "anchor": "start" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

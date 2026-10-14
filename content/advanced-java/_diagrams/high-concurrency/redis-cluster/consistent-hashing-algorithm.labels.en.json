@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "nA": "Node A",
+    "hA": "Hash( )",
+    "nD": "Node D",
+    "hD": "Hash( )",
+    "nB": "Node B",
+    "hB": "Hash( )",
+    "nC": "Node C",
+    "hC": "Hash( )",
+    "nX": "Node X",
+    "hX": "Hash( )",
+    "hoA": "Hash( )",
+    "hoB": "Hash( )",
+    "hoC": "Hash( )",
+    "hoD": "Hash( )",
+    "toA": "Object A",
+    "toB": "Object B",
+    "toC": "Object C",
+    "toD": "Object D",
+    "t32": "2^32−1",
+    "t0": "0",
+    "_title": "Consistent hashing ring: nodes and objects placed on a hash ring, with node X added.",
+    "_desc": "A hash ring from 0 to 2^32−1 where objects map clockwise to the next node; adding node X takes over part of node C's range."
+  }
+}

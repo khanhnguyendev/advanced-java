@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "0fa3b34f01338591b0f4b48addd77f411db14a95d50c6fab8f2ad04bb3d878df",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "User",
+    "sysa_g": "",
+    "sysa": "System A",
+    "ehcache": "ehcache",
+    "hystrix": "hystrix\nrate limiting",
+    "db": "Database",
+    "e_peak": "Peak: 5000 requests per second",
+    "e_limit": "Rate-limiting component\nCan be set so that of, say, 5000\nrequests, only 2000 pass\nthrough this component",
+    "s1": "Cache\nslave",
+    "m1": "Cache\nmaster",
+    "s2": "Cache\nslave",
+    "m2": "Cache\nmaster",
+    "s3": "Cache\nslave",
+    "m3": "Cache\nmaster",
+    "_title": "Cache avalanche solution",
+    "_desc": "A user request reaches System A, goes through ehcache and hystrix rate limiting before the database, with cache master/slave pairs."
+  }
+}

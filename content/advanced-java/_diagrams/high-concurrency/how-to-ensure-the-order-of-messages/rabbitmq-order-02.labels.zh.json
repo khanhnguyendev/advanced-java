@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "生产者",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "g": "",
+    "q1": "queue1",
+    "q2": "queue2",
+    "q3": "queue3",
+    "rmq": "RabbitMQ",
+    "mid3": "data3",
+    "mid2": "data2",
+    "mid1": "data1",
+    "c1": "消费者",
+    "c2": "消费者",
+    "c3": "消费者",
+    "low3": "data3",
+    "low2": "data2",
+    "low1": "data1",
+    "db": "数据库",
+    "_title": "RabbitMQ 每个 queue 各自对应一个消费者时，消息顺序得以保证",
+    "_desc": "生产者依次发送 data1 至 data3，经 RabbitMQ 的 queue1 至 queue3 分别交给三个消费者，再写入数据库。"
+  }
+}

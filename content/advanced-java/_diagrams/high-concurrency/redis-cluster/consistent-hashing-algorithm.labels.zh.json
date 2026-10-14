@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "32d08a3c2f29a6b2e5eeaa8eee2063a7dc79c04bb2afa46e8c073c198ac3b975",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "nA": "节点 A",
+    "hA": "Hash( )",
+    "nD": "节点 D",
+    "hD": "Hash( )",
+    "nB": "节点 B",
+    "hB": "Hash( )",
+    "nC": "节点 C",
+    "hC": "Hash( )",
+    "nX": "节点 X",
+    "hX": "Hash( )",
+    "hoA": "Hash( )",
+    "hoB": "Hash( )",
+    "hoC": "Hash( )",
+    "hoD": "Hash( )",
+    "toA": "对象 A",
+    "toB": "对象 B",
+    "toC": "对象 C",
+    "toD": "对象 D",
+    "t32": "2^32−1",
+    "t0": "0",
+    "_title": "一致性哈希环：节点与对象分布在哈希环上，并加入节点 X。",
+    "_desc": "哈希环取值范围为 0 到 2^32−1，对象顺时针映射到下一个节点；加入节点 X 后接管节点 C 的一部分范围。"
+  }
+}

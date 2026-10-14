@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "fd5708cae14b837612a4a585b36d49ccec54ab34e00620dfab0f1a1abddd1e0a", "source_lang": "zh" },
+  "labels": {
+    "producer": "Producer",
+    "mq": "RabbitMQ",
+    "consumer": "Consumer",
+    "msg1": "Message 1",
+    "heading": "3 cases of RabbitMQ message loss",
+    "case2": "2. RabbitMQ receives the message and holds it\ntemporarily in memory; before it is consumed,\nRabbitMQ itself crashes and the data in memory is lost",
+    "case1": "1. The message is lost in transit",
+    "case3": "3. The consumer receives the message but crashes\nbefore it can process it, and RabbitMQ\nthinks the message has already been processed",
+    "_title": "Three cases of RabbitMQ message loss",
+    "_desc": "A producer sends messages through RabbitMQ to a consumer, with the three points where a message can be lost."
+  }
+}

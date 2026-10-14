@@ -1,0 +1,333 @@
+{
+  "id": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution",
+  "source": {
+    "upstream": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 840,
+    "h": 490
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "shape": "pill",
+      "x": 402,
+      "y": 62,
+      "w": 100,
+      "h": 50,
+      "label": {
+        "key": "user"
+      },
+      "role": "default"
+    },
+    {
+      "id": "sysa",
+      "shape": "group",
+      "x": 300,
+      "y": 180,
+      "w": 316,
+      "h": 110,
+      "label": {
+        "key": "sysa_g"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "ehcache",
+      "shape": "pill",
+      "x": 327,
+      "y": 221,
+      "w": 100,
+      "h": 38,
+      "label": {
+        "key": "ehcache",
+        "literals": [
+          "ehcache"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "hystrix",
+      "shape": "box",
+      "x": 466,
+      "y": 210,
+      "w": 140,
+      "h": 60,
+      "label": {
+        "key": "hystrix",
+        "literals": [
+          "hystrix"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "db",
+      "shape": "box",
+      "x": 293,
+      "y": 419,
+      "w": 319,
+      "h": 42,
+      "label": {
+        "key": "db"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s1",
+      "shape": "pill",
+      "x": 20,
+      "y": 105,
+      "w": 100,
+      "h": 56,
+      "label": {
+        "key": "s1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m1",
+      "shape": "pill",
+      "x": 150,
+      "y": 105,
+      "w": 100,
+      "h": 56,
+      "label": {
+        "key": "m1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s2",
+      "shape": "pill",
+      "x": 20,
+      "y": 212,
+      "w": 100,
+      "h": 56,
+      "label": {
+        "key": "s2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m2",
+      "shape": "pill",
+      "x": 150,
+      "y": 212,
+      "w": 100,
+      "h": 56,
+      "label": {
+        "key": "m2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s3",
+      "shape": "pill",
+      "x": 20,
+      "y": 307,
+      "w": 100,
+      "h": 56,
+      "label": {
+        "key": "s3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m3",
+      "shape": "pill",
+      "x": 150,
+      "y": 307,
+      "w": 100,
+      "h": 56,
+      "label": {
+        "key": "m3"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          452,
+          112
+        ],
+        [
+          452,
+          170
+        ],
+        [
+          370,
+          170
+        ],
+        [
+          370,
+          221
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_peak",
+        "literals": ["5000"],
+        "at": [
+          472,
+          158
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          350,
+          221
+        ],
+        [
+          350,
+          133
+        ],
+        [
+          250,
+          133
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          350,
+          259
+        ],
+        [
+          350,
+          335
+        ],
+        [
+          250,
+          335
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          327,
+          240
+        ],
+        [
+          250,
+          240
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          427,
+          240
+        ],
+        [
+          466,
+          240
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          536,
+          270
+        ],
+        [
+          536,
+          345
+        ],
+        [
+          455,
+          345
+        ],
+        [
+          455,
+          419
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_limit",
+        "literals": ["5000", "2000"],
+        "at": [
+          552,
+          336
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          150,
+          133
+        ],
+        [
+          120,
+          133
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          150,
+          240
+        ],
+        [
+          120,
+          240
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          150,
+          335
+        ],
+        [
+          120,
+          335
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "sysa",
+      "x": 470,
+      "y": 197,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

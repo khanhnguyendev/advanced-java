@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "1c0aa3f945f2a7cfd0c7854152a31b3c5e824a41038e0617a50dc0bc8676c0b5",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "title": "Mất thông điệp RabbitMQ\nvà các giải pháp",
+    "producer": "Producer",
+    "mq": "MQ",
+    "consumer": "Consumer",
+    "opt1": "Phương án 1: bật giao dịch RabbitMQ\n(đồng bộ, không khuyến nghị)",
+    "opt2": "Phương án 2: bật chế độ confirm\n(bất đồng bộ, khuyến nghị)",
+    "opt3": "Phương án: bật lưu trữ bền vững RabbitMQ",
+    "opt4": "Phương án: tắt ACK tự động của RabbitMQ",
+    "_title": "Mất thông điệp RabbitMQ và các giải pháp",
+    "_desc": "Các giải pháp chống mất thông điệp RabbitMQ ở phía producer, MQ và consumer."
+  }
+}

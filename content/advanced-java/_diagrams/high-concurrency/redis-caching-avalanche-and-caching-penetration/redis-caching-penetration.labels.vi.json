@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "c0fae55795e5a8f1efadd05cddd5538d1d69f265377977aed535aa80a80c7110", "source_lang": "zh" },
+  "labels": {
+    "_title": "Cache penetration: yêu cầu độc hại vượt qua bộ nhớ đệm và đánh sập cơ sở dữ liệu",
+    "_desc": "Trong 5000 yêu cầu mỗi giây có 4000 yêu cầu của hacker; chúng không tra được trong bộ nhớ đệm nên đều đổ xuống cơ sở dữ liệu.",
+    "user": "Người dùng",
+    "sysa": "Hệ thống A",
+    "cache": "Bộ nhớ đệm",
+    "db": "Cơ sở dữ liệu",
+    "peak": "5000 yêu cầu mỗi giây,\n4000 do hacker gửi",
+    "normal": "1000 yêu cầu do\nngười dùng\nbình thường gửi.",
+    "req": "4000 yêu cầu",
+    "kill": "Cache penetration:\nđánh sập thẳng\ncơ sở dữ liệu"
+  }
+}

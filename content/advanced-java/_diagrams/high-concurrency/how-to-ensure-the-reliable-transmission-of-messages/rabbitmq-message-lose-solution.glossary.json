@@ -1,0 +1,29 @@
+{
+  "labels": [
+    {
+      "zh": "RabbitMQ 消息丢失\n及对应解决方案",
+      "en": "RabbitMQ message loss\nand its solutions",
+      "vi": "Mất thông điệp RabbitMQ\nvà các giải pháp"
+    },
+    {
+      "zh": "方案1：开启RabbitMQ事务(同步，不推荐)",
+      "en": "Option 1: enable RabbitMQ transactions\n(synchronous, not recommended)",
+      "vi": "Phương án 1: bật giao dịch RabbitMQ\n(đồng bộ, không khuyến nghị)"
+    },
+    {
+      "zh": "方案2：开启confirm模式（异步，推荐）",
+      "en": "Option 2: enable confirm mode\n(asynchronous, recommended)",
+      "vi": "Phương án 2: bật chế độ confirm\n(bất đồng bộ, khuyến nghị)"
+    },
+    {
+      "zh": "方案：开启RabbitMQ持久化",
+      "en": "Option: enable RabbitMQ persistence",
+      "vi": "Phương án: bật lưu trữ bền vững RabbitMQ"
+    },
+    {
+      "zh": "方案：关闭RabbitMQ自动ACK",
+      "en": "Option: turn off RabbitMQ auto ACK",
+      "vi": "Phương án: tắt ACK tự động của RabbitMQ"
+    }
+  ]
+}

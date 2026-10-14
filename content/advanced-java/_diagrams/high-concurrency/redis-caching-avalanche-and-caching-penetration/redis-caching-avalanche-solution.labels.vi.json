@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "0fa3b34f01338591b0f4b48addd77f411db14a95d50c6fab8f2ad04bb3d878df",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "Người dùng",
+    "sysa_g": "",
+    "sysa": "Hệ thống A",
+    "ehcache": "ehcache",
+    "hystrix": "hystrix\ngiới hạn lưu lượng",
+    "db": "Cơ sở dữ liệu",
+    "e_peak": "Giờ cao điểm: 5000 yêu cầu mỗi giây",
+    "e_limit": "Thành phần giới hạn lưu lượng\nCó thể đặt giả sử 5000 yêu cầu,\nthì chỉ 2000 yêu cầu\ncó thể đi qua thành phần này",
+    "s1": "Bộ nhớ đệm\nslave",
+    "m1": "Bộ nhớ đệm\nmaster",
+    "s2": "Bộ nhớ đệm\nslave",
+    "m2": "Bộ nhớ đệm\nmaster",
+    "s3": "Bộ nhớ đệm\nslave",
+    "m3": "Bộ nhớ đệm\nmaster",
+    "_title": "Giải pháp cho cache avalanche",
+    "_desc": "Yêu cầu của người dùng vào hệ thống A, qua ehcache và hystrix giới hạn lưu lượng rồi mới tới cơ sở dữ liệu, cùng các cặp bộ nhớ đệm master/slave."
+  }
+}
