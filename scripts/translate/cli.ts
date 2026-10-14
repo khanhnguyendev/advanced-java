@@ -4,7 +4,7 @@ import { contentRoot, docFile, listDocs, loadCollection, loadMeta } from '../../
 import { parse } from '../../lib/content/fallback';
 import { pendingBatches } from './batches';
 import { applyMeta, buildMetaPrompt } from './meta';
-import { buildPrompt, type Glossary } from './prompt';
+import { buildPrompt, requireTitle, type Glossary } from './prompt';
 import { heldMessage, loadPolicy } from '../../lib/content/policy';
 import { stampTranslation } from './stamp';
 
@@ -53,9 +53,10 @@ if (cmd === 'prompt') {
   const held = heldMessage(loadPolicy(root, collection), d.section, slug);
   if (held) throw new Error(held);
   const zhBody = parse(readFileSync(docFile(root, collection, c.sourceLocale, d.section, slug), 'utf8')).content;
+  const title = requireTitle(loadMeta(root, collection, l), slug, l);
   const out = path.join('.translation', 'prompts', l, `${slug}.md`);
   mkdirSync(path.dirname(out), { recursive: true });
-  writeFileSync(out, buildPrompt({ locale: l, slug, zhBody, glossary: glossary(), keep: KEEP }));
+  writeFileSync(out, buildPrompt({ locale: l, slug, title, zhBody, glossary: glossary(), keep: KEEP }));
   console.log(out);
 } else if (cmd === 'stamp') {
   const slug = need('slug');

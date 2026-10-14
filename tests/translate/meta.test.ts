@@ -19,6 +19,11 @@ describe('meta tier', () => {
     expect(p).toMatch(/use A only/);
     expect(p).toMatch(/one rendering per concept/);
   });
+  it('carries the navTitle policy', () => {
+    const p = buildMetaPrompt({ locale: 'en', zhMeta, glossary: {} });
+    expect(p).toContain('`navTitle` is the translation of the zh `navTitle`: the short label of the upstream sidebar, a brief noun phrase; never a question and never a re-worded copy of the title. Keep sections and groups short as in zh.');
+    expect(p).toContain('`title` is the translation of the zh `title` (the full page title, same wording and question form as the heading)');
+  });
   it('includes the Vietnamese-numbers sentence for vi only', () => {
     const vi = buildMetaPrompt({ locale: 'vi', zhMeta, glossary: {} });
     const en = buildMetaPrompt({ locale: 'en', zhMeta, glossary: {} });

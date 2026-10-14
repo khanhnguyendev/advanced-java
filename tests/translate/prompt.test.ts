@@ -1,10 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { buildPrompt } from '@/scripts/translate/prompt';
 
+import { requireTitle } from '@/scripts/translate/prompt';
+
 describe('buildPrompt', () => {
   const p = buildPrompt({
     locale: 'vi',
     slug: 'why-mq',
+    title: 'Why use a message queue?',
     zhBody: '# 为什么使用消息队列？\n\n正文。\n',
     glossary: { 消息队列: 'hàng đợi tin nhắn', 幂等性: 'tính idempotent' },
     keep: ['Kafka', 'RabbitMQ'],
@@ -44,13 +47,26 @@ describe('buildPrompt', () => {
   it('includes Vietnamese number rules for vi only', () => {
     expect(p).toMatch(/13\. Vietnamese only: write numbers in Vietnamese units/);
     expect(p).toMatch(/14\. Vietnamese only: write 接口 as API/);
-    const en = buildPrompt({ locale: 'en', slug: 's', zhBody: 'x', glossary: { 接口: 'API/interface' }, keep: [] });
+    const en = buildPrompt({ locale: 'en', slug: 's', title: 'T', zhBody: 'x', glossary: { 接口: 'API/interface' }, keep: [] });
     expect(en).not.toMatch(/Vietnamese only/);
     expect(en).toContain('接口 → API/interface');
   });
   it('states the guidance rule range per locale', () => {
     expect(p).toContain('Rules 8-14 are guidance');
-    const en = buildPrompt({ locale: 'en', slug: 's', zhBody: 'x', glossary: {}, keep: [] });
+    const en = buildPrompt({ locale: 'en', slug: 's', title: 'T', zhBody: 'x', glossary: {}, keep: [] });
     expect(en).toContain('Rules 8-12 are guidance');
+  });
+  it('pins the H1 to the meta title', () => {
+    expect(p).toContain('The document\'s first heading `# …` MUST be exactly: Why use a message queue?');
+  });
+  it('forbids parentheticals in headings and a second 降级 term', () => {
+    expect(p).toContain('Never put the parenthetical in a heading: headings use A only; give B at the first use in body prose.');
+    expect(p).toContain('降级 has exactly one rendering per language (see glossary)');
+    expect(p).toContain('Do not write a second term.');
+  });
+  it('requireTitle returns the title or throws a clear error', () => {
+    expect(requireTitle({ docs: { a: { title: 'T' } } }, 'a', 'en')).toBe('T');
+    expect(() => requireTitle({ docs: {} }, 'a', 'vi')).toThrow(/run the titles tier first/);
+    expect(() => requireTitle({ docs: { a: { title: ' ' } } }, 'a', 'vi')).toThrow(/titles tier/);
   });
 });

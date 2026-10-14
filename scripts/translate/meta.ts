@@ -7,7 +7,7 @@ const LANG = { en: 'English', vi: 'Vietnamese' } as const;
 
 export function buildMetaPrompt(i: { locale: 'en' | 'vi'; zhMeta: LocaleMeta; glossary: Glossary }): string {
   const gloss = Object.entries(i.glossary).map(([zh, t]) => `- ${zh} → ${t}`).join('\n');
-  return `Translate the VALUES of this JSON from Chinese into ${LANG[i.locale]}. Return ONLY valid JSON with identical keys and the same structure. Keep product names (Kafka, Redis, Dubbo, Hystrix, ...) untranslated. Every value must be non-empty. Titles are interview-style questions; keep them natural and concise. Use each glossary term exactly as given (one rendering per concept); for glossary values written \`A (B)\` use A only (titles are short; do not add the parenthetical). ${i.locale === 'vi' ? 'Vietnamese: numbers in Vietnamese units; 降级 as per glossary.' : ''}
+  return `Translate the VALUES of this JSON from Chinese into ${LANG[i.locale]}. Return ONLY valid JSON with identical keys and the same structure. Keep product names (Kafka, Redis, Dubbo, Hystrix, ...) untranslated. Every value must be non-empty. For each doc, \`title\` is the translation of the zh \`title\` (the full page title, same wording and question form as the heading). \`navTitle\` is the translation of the zh \`navTitle\`: the short label of the upstream sidebar, a brief noun phrase; never a question and never a re-worded copy of the title. Keep sections and groups short as in zh. Use each glossary term exactly as given (one rendering per concept); for glossary values written \`A (B)\` use A only (titles are short; do not add the parenthetical). ${i.locale === 'vi' ? 'Vietnamese: numbers in Vietnamese units; 降级 as per glossary.' : ''}
 
 Glossary:
 ${gloss}
