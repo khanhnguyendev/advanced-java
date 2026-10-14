@@ -59,7 +59,7 @@
     "title": "About and licenses",
     "codeLicense": "The site code is MIT licensed.",
     "contentLicense": "The content (text and translations) is licensed CC-BY-SA-4.0.",
-    "images": "All 126 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.",
+    "images": "All 125 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.",
     "imageCredits": "Image credits"
   }
 }

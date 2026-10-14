@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-timeout
-  hash: 'sha256:v1:ae5a073ced6a1a3ca15d7b6d7b2e6c38eb1852e7a7ac8624df31e22d81f7456d'
+  hash: 'sha256:v1:ae4f69b5f7bfc7f949828e22f9b8fd6af6501996b437937712185fb841b6c4ff'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -13,8 +13,6 @@ Nói chung, khi gọi API của dịch vụ phụ thuộc, một vấn đề kh�
 Bạn gọi đủ loại dịch vụ phụ thuộc, nhất là ở công ty lớn, thậm chí bạn còn không quen người phát triển dịch vụ đó, không biết trình độ kỹ thuật của người đó ra sao, hoàn toàn không hiểu gì về người đó.
 
 Peter Steiner từng nói, "[On the Internet, nobody knows you're a dog](https://en.wikipedia.org/wiki/On_the_Internet,_nobody_knows_you%27re_a_dog)", nghĩa là ở đầu bên kia của internet, thậm chí bạn còn không biết người ngồi đó có khi là một con chó.
-
-![220px-Internet_dog.jpg](asset:high-availability/hystrix-timeout/220px-Internet_dog.jpg)
 
 Với những hệ thống phân tán đặc biệt phức tạp, nhất là trong công ty lớn, nhiều nhóm cộng tác quy mô lớn, có thể bạn không biết dịch vụ là của ai, rất có thể anh bạn phát triển dịch vụ đó thậm chí chỉ là một thực tập sinh. Hiệu năng API của dịch vụ phụ thuộc có thể rất không ổn định, có lúc 2ms, có lúc 200ms, thậm chí 2s, đều có thể xảy ra.
 

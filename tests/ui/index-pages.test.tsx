@@ -161,7 +161,7 @@ describe('About', () => {
   it('states the image provenance and no longer disclaims relicensing', () => {
     const { container } = render(wrap(<AboutContent collections={collections} />));
     const text = container.textContent!;
-    expect(text).toContain("All 126 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.");
+    expect(text).toContain("All 125 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.");
     expect(text).not.toMatch(/relicensed|original terms|third-party/);
   });
 

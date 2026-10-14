@@ -3,7 +3,8 @@
 - upstream: https://github.com/doocs/advanced-java @ 1a35221e471fa3adf8997895268fd18b36f27c01
 - docs imported: 81
 - sections: high-concurrency, distributed-system, high-availability, micro-services, big-data
-- images copied: 126 (127 image references)
+- images copied: 125 (126 image references)
+- note: one image removed on 2026-10-14: 220px-Internet_dog.jpg, third-party cartoon, low resolution
 
 ## Skipped files
 - docs/big-data/README.md: section index, generated from collection.json
@@ -166,7 +167,6 @@
 - high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine.png (84886 bytes)
 - high-availability/hystrix-thread-pool-current-limiting/hystrix-process.png (31384 bytes)
 - high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition.jpg (6799 bytes)
-- high-availability/hystrix-timeout/220px-Internet_dog.jpg (18205 bytes)
 - high-availability/sentinel-vs-hystrix/Slow-Start-Preheating-Mode.jpg (22250 bytes)
 - high-availability/sentinel-vs-hystrix/Homogenizer-mode.jpg (25225 bytes)
 - high-availability/sentinel-vs-hystrix/BRP.jpg (7073 bytes)

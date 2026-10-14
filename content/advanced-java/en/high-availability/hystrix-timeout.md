@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-timeout
-  hash: 'sha256:v1:ae5a073ced6a1a3ca15d7b6d7b2e6c38eb1852e7a7ac8624df31e22d81f7456d'
+  hash: 'sha256:v1:ae4f69b5f7bfc7f949828e22f9b8fd6af6501996b437937712185fb841b6c4ff'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -13,8 +13,6 @@ In general, a very common problem when calling the API of a dependency service i
 You call all kinds of dependency services, especially in a large company, where you may not even know the people who developed a service, have no idea how skilled they are, and know nothing about them at all.
 
 Peter Steiner said, "[On the Internet, nobody knows you're a dog](https://en.wikipedia.org/wiki/On_the_Internet,_nobody_knows_you%27re_a_dog)", which means that on the other end of the Internet you do not even know whether a dog is sitting there.
-
-![220px-Internet_dog.jpg](asset:high-availability/hystrix-timeout/220px-Internet_dog.jpg)
 
 In a very complex distributed system, especially in a large company with many teams and large-scale collaboration, you may not even know whose service it is, and it is quite possible that the guy who developed the service is an intern. The performance of a dependency service's API may be very unstable: sometimes 2ms, sometimes 200ms, even 2s.
 

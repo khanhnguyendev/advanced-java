@@ -1,6 +1,6 @@
 # Image inventory (Phase 1)
 
-Source: 126 images under `content/advanced-java/_assets`, viewed 2026-10-14. Classified by a vision pass; label counts are approximate. Each image is referenced by exactly one doc.
+Source: 126 images (125 after the removal below) under `content/advanced-java/_assets`, viewed 2026-10-14. Classified by a vision pass; label counts are approximate. Each image is referenced by exactly one doc.
 
 | # | image | doc | class | lang | labels | code | size | excluded-doc |
 |---|---|---|---|---|---|---|---|---|
@@ -113,7 +113,7 @@ Source: 126 images under `content/advanced-java/_assets`, viewed 2026-10-14. Cla
 | 107 | `micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure.png` | micro-services/how-eureka-enable-service-discovery-and-service-registration.md | other | en | 1 | Y | simple |  |
 | 108 | `micro-services/microservices-introduction/conways-law.png` | micro-services/microservices-introduction.md | other | en | 8 |  | simple | Y |
 | 109 | `high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition.jpg` | high-availability/hystrix-thread-pool-current-limiting.md | photo-or-branding | en | 2 |  | simple |  |
-| 110 | `high-availability/hystrix-timeout/220px-Internet_dog.jpg` | high-availability/hystrix-timeout.md | photo-or-branding | en | 1 |  | simple |  |
+| 110 | ~~`high-availability/hystrix-timeout/220px-Internet_dog.jpg`~~ REMOVED 2026-10-14 (third-party cartoon, low resolution) | high-availability/hystrix-timeout.md | photo-or-branding | en | 1 |  | simple |  |
 | 111 | `distributed-system/distributed-system-request-sequence/distributed-system-request-sequence.png` | distributed-system/distributed-system-request-sequence.md | sequence | zh | 14 | Y | dense |  |
 | 112 | `micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-cancellease-sequence-chart.png` | micro-services/how-eureka-enable-service-discovery-and-service-registration.md | sequence | mixed | 14 | Y | medium |  |
 | 113 | `micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart.png` | micro-services/how-eureka-enable-service-discovery-and-service-registration.md | sequence | mixed | 16 | Y | medium |  |
