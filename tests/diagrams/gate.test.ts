@@ -1,4 +1,6 @@
 import { execFileSync } from 'node:child_process';
+import { mkdirSync, mkdtempSync, rmSync, symlinkSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { checkDiagram } from '@/lib/diagrams/gate';
@@ -330,25 +332,67 @@ describe('broken scene files', () => {
 
   it('listDiagrams does not throw and runGate reports META_INVALID', () => {
     const list = listDiagrams(broken);
-    expect(list.map((d) => d.id)).toEqual(['a/_diagrams/x/invalid.diagram.json', 'b/_diagrams/x/null.diagram.json']);
+    expect(list.map((d) => d.id)).toEqual(['x/invalid', 'x/null', 'x/empty']);
     const res = runGate(broken);
-    expect(res).toHaveLength(2);
-    for (const r of res) expect(r.errors.some((e) => e.code === 'META_INVALID' && e.message.includes('cannot parse'))).toBe(true);
+    expect(res).toHaveLength(3);
+    for (const r of res) expect(r.errors.some((e) => e.code === 'META_INVALID')).toBe(true);
   });
 
   it('buildReviewData survives them', () => {
     const d = buildReviewData(broken, '2026-10-14');
-    expect(d.count).toBe(2);
+    expect(d.count).toBe(3);
     for (const e of d.entries) expect(e.errors.some((x) => x.code === 'META_INVALID')).toBe(true);
+  });
+
+  it('a scene without a string id reports META_INVALID and uses the path as id', () => {
+    const list = listDiagrams(broken);
+    const empty = list.find((d) => d.file.endsWith('empty.diagram.json'))!;
+    expect(empty.id).toBe('x/empty');
+    expect(empty.loadErrors.some((e) => e.code === 'META_INVALID' && e.message.includes('id is not a non-empty string'))).toBe(true);
+    const r = runGate(broken).find((x) => x.id === empty.id)!;
+    expect(r.errors.some((e) => e.message.includes('id is not a non-empty string'))).toBe(true);
+    expect(checkDiagram({ id: 5 } as unknown as DiagramScene, {}).errors.some((e) => e.message.includes('id is not a non-empty string'))).toBe(true);
+  });
+
+  it('parse failure message includes the cause and no follow-on gate noise', () => {
+    const inv = listDiagrams(broken).find((d) => d.file.endsWith('invalid.diagram.json'))!;
+    expect(inv.loadErrors[0]!.message).toMatch(/^cannot parse a\/_diagrams\/x\/invalid\.diagram\.json: .+/);
+    expect(inv.id).toBe('x/invalid');
+    expect(gateLoaded(inv)).toEqual(inv.loadErrors);
   });
 });
 
 describe('gateLoaded', () => {
   it('rejects source.upstream escaping _assets', () => {
     const d = clone(good);
-    d.scene.source.upstream = '../../x';
+    d.scene.source.upstream = '../_diagrams/demo/toy/toy.diagram.json';
     expect(gateLoaded(d).some((e) => e.code === 'SOURCE_MISSING')).toBe(true);
     expect(gateLoaded(good)).toEqual([]);
+  });
+
+  it('rejects an absolute source.upstream pointing at an existing file', () => {
+    const d = clone(good);
+    d.scene.source.upstream = good.file;
+    expect(gateLoaded(d).some((e) => e.code === 'SOURCE_MISSING')).toBe(true);
+  });
+
+  it('rejects a symlink inside _assets that points outside', () => {
+    const tmp = mkdtempSync(path.join(os.tmpdir(), 'diag-'));
+    try {
+      const assets = path.join(tmp, 'c', '_assets');
+      mkdirSync(assets, { recursive: true });
+      try {
+        symlinkSync(good.file, path.join(assets, 'link.json'));
+      } catch {
+        return; // no symlink support
+      }
+      const d = clone(good);
+      d.assetsDir = assets;
+      d.scene.source.upstream = 'link.json';
+      expect(gateLoaded(d).some((e) => e.code === 'SOURCE_MISSING')).toBe(true);
+    } finally {
+      rmSync(tmp, { recursive: true, force: true });
+    }
   });
 
   it('a bad label file does not suppress other locales checks', () => {

@@ -14,6 +14,8 @@ export interface LoadedDiagram {
   labels: LabelsByLocale;
   /** problems found while reading (unparseable JSON etc.), reported as META_INVALID */
   loadErrors: GateError[];
+  /** whole-file failure: `scene` is a placeholder and must not be gated */
+  unreadable?: boolean;
 }
 
 function walk(dir: string, out: string[]): void {
@@ -26,23 +28,29 @@ function walk(dir: string, out: string[]): void {
 
 export function loadDiagram(file: string, collection: string, root: string): LoadedDiagram {
   const loadErrors: GateError[] = [];
+  const rel = path.relative(root, file).split(path.sep).join('/');
+  const cleaned = rel
+    .replace(new RegExp(`^${collection.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/_diagrams/`), '')
+    .replace(/\.diagram\.json$/, '');
   let scene: DiagramScene;
   try {
     const parsed: unknown = JSON.parse(readFileSync(file, 'utf8'));
     if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) throw new Error('not an object');
     scene = parsed as DiagramScene;
-  } catch {
-    const rel = path.relative(root, file).split(path.sep).join('/');
+  } catch (e) {
     return {
-      id: rel,
+      id: cleaned,
       file,
       collection,
       assetsDir: path.join(root, collection, '_assets'),
       scene: { nodes: [], edges: [], texts: [] } as unknown as DiagramScene,
       labels: {},
-      loadErrors: [{ code: 'META_INVALID', message: `cannot parse ${rel}` }],
+      loadErrors: [{ code: 'META_INVALID', message: `cannot parse ${rel}: ${(e as Error).message}` }],
+      unreadable: true,
     };
   }
+  const validId = typeof scene.id === 'string' && scene.id !== '';
+  if (!validId) loadErrors.push({ code: 'META_INVALID', message: 'id is not a non-empty string' });
   const base = file.slice(0, -'.diagram.json'.length);
   const labels: LabelsByLocale = {};
   for (const loc of DIAGRAM_LOCALES) {
@@ -60,7 +68,7 @@ export function loadDiagram(file: string, collection: string, root: string): Loa
       loadErrors.push({ code: 'META_INVALID', message: `cannot parse ${path.basename(lf)}: ${(e as Error).message}`, locale: loc });
     }
   }
-  return { id: scene.id, file, collection, assetsDir: path.join(root, collection, '_assets'), scene, labels, loadErrors };
+  return { id: validId ? scene.id : cleaned, file, collection, assetsDir: path.join(root, collection, '_assets'), scene, labels, loadErrors };
 }
 
 /** Every `*.diagram.json` under `<root>/*\/_diagrams`, sorted. */

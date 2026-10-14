@@ -26,7 +26,7 @@
     "e_write": "Writes to master",
     "e_sync": "Master syncs data to replica",
     "e_read": "System A reads\ndata from the replica",
-    "split": "System splitting",
+    "split": "System split",
     "peak": "Peak\nshaving",
     "rw": "Read/write splitting",
     "escluster": "ES cluster",

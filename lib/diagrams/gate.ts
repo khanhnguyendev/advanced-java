@@ -41,6 +41,7 @@ function validateScene(
     if (v === undefined && optional) return;
     if (typeof v !== 'string' || !set.includes(v)) bad(`${name} "${String(v)}" is not one of ${set.join('|')}`);
   };
+  if (typeof scene.id !== 'string' || scene.id === '') bad('id is not a non-empty string');
   fin(scene.size?.w, 'size.w', true);
   fin(scene.size?.h, 'size.h', true);
   for (const k of ['nodes', 'edges', 'texts'] as const) {
