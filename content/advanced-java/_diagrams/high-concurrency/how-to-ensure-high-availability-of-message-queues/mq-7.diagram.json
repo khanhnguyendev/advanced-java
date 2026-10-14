@@ -1,0 +1,232 @@
+{
+  "id": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 880,
+    "h": 570
+  },
+  "nodes": [
+    {
+      "id": "bubble",
+      "shape": "pill",
+      "x": 470,
+      "y": 28,
+      "w": 260,
+      "h": 58,
+      "label": {
+        "key": "bubble"
+      },
+      "role": "default"
+    },
+    {
+      "id": "qbox",
+      "shape": "box",
+      "x": 301,
+      "y": 96,
+      "w": 178,
+      "h": 152,
+      "label": {
+        "key": "qbox",
+        "literals": [
+          "data1",
+          "data2",
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "meta1",
+      "shape": "box",
+      "x": 87,
+      "y": 196,
+      "w": 122,
+      "h": 40,
+      "label": {
+        "key": "meta"
+      },
+      "role": "default"
+    },
+    {
+      "id": "meta3",
+      "shape": "box",
+      "x": 566,
+      "y": 196,
+      "w": 122,
+      "h": 40,
+      "label": {
+        "key": "meta"
+      },
+      "role": "default"
+    },
+    {
+      "id": "r1",
+      "shape": "box",
+      "x": 47,
+      "y": 262,
+      "w": 202,
+      "h": 96,
+      "label": {
+        "key": "rabbit",
+        "literals": [
+          "RabbitMQ"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r2",
+      "shape": "box",
+      "x": 290,
+      "y": 262,
+      "w": 200,
+      "h": 96,
+      "label": {
+        "key": "rabbit",
+        "literals": [
+          "RabbitMQ"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r3",
+      "shape": "box",
+      "x": 527,
+      "y": 262,
+      "w": 199,
+      "h": 96,
+      "label": {
+        "key": "rabbit",
+        "literals": [
+          "RabbitMQ"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "consumer",
+      "shape": "box",
+      "x": 340,
+      "y": 465,
+      "w": 102,
+      "h": 70,
+      "label": {
+        "key": "consumer"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          290,
+          310
+        ],
+        [
+          249,
+          310
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "n2",
+        "at": [
+          270,
+          294
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          177,
+          358
+        ],
+        [
+          177,
+          388
+        ],
+        [
+          389,
+          388
+        ],
+        [
+          389,
+          358
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "pull",
+        "at": [
+          283,
+          376
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          69,
+          358
+        ],
+        [
+          69,
+          414
+        ],
+        [
+          389,
+          414
+        ],
+        [
+          389,
+          465
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "n3",
+        "at": [
+          130,
+          402
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          500,
+          86
+        ],
+        [
+          479,
+          106
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "cons",
+      "x": 475,
+      "y": 455,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

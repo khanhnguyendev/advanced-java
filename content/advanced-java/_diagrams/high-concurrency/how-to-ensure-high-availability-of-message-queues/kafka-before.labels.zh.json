@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "_title": "Kafka 多个 partition 分布在各机器上（无副本）",
+    "_desc": "生产者把 topic 的数据 1、2、3 分别写入位于三台机器 broker 进程上的 partition1、2、3。",
+    "blank": "",
+    "producer": "生产者",
+    "m1": "机器1",
+    "m2": "机器2",
+    "m3": "机器3",
+    "broker": "broker\n进程",
+    "td1": "topic data1",
+    "td2": "topic data2",
+    "td3": "topic data3",
+    "tp1": "topic partition1",
+    "tp2": "topic partition2",
+    "tp3": "topic partition3"
+  }
+}

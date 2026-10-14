@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "zk": "Zookeeper",
+    "producer": "生产者",
+    "kafka": "Kafka",
+    "consumer": "消费者",
+    "e_off": "offset给Kafka",
+    "e_commit": "提交offset",
+    "l0": "数据1, offset=152",
+    "l1": "数据2, offset=153",
+    "l2": "数据3, offset=154",
+    "r0": "数据1, offset=152",
+    "r1": "数据2, offset=153",
+    "r2": "数据1, offset=152",
+    "r3": "数据2, offset=153",
+    "r4": "数据3, offset=154",
+    "_title": "Kafka 消费者提交 offset 的流程",
+    "_desc": "消费者消费数据后把 offset 提交给 Zookeeper，重启后 Kafka 依据 offset 重新投递数据。"
+  }
+}

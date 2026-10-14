@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "_title": "RabbitMQ 普通集群模式",
+    "_desc": "普通集群中 queue 只存在于一个 RabbitMQ 实例，其他实例只同步元数据并在消费时从该实例拉取数据。",
+    "bubble": "每台机器启动一个进程，作为集群\n中的一个节点",
+    "qbox": "queue\n只在这台机器上\n（元数据和实际数据）\n\ndata1\ndata2\ndata3",
+    "meta": "queue 元数据",
+    "rabbit": "RabbitMQ 进程（实例）\n\n部署在独立的一台机器上",
+    "consumer": "消费者",
+    "n2": "2",
+    "pull": "1. 拉取数据",
+    "n3": "3",
+    "cons": "缺点：\n\n1. MQ 集群内部可能产生大量的数据传输；\n2. 可用性无保障，queue所在节点宕机，数据就丢了。"
+  }
+}

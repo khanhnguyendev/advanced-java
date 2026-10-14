@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "89817bcf25cea08f54af91e62d8a31e8a8611340433244ceb200bbf1c7682732",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "Producer",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "kafka": "Kafka",
+    "lft3": "data3",
+    "bot3": "data3",
+    "lft2": "data2",
+    "bot2": "data2",
+    "lft1": "data1",
+    "bot1": "data1",
+    "p1": "partition1",
+    "p2": "partition2",
+    "p3": "partition3",
+    "c1": "Consumer",
+    "c2": "Consumer",
+    "c3": "Consumer",
+    "callout": "To the same\nin-memory queue",
+    "q1": "In-memory\nqueue 1",
+    "th1": "Thread 1",
+    "q2": "In-memory\nqueue 2",
+    "th2": "Thread 2",
+    "q3": "In-memory\nqueue 3",
+    "th3": "Thread 3",
+    "db": "Database",
+    "t_same": "Reached the same\npartition",
+    "_title": "Messages from one Kafka partition consumed by a consumer, split into in-memory queues, each handled by one thread before writing to the database.",
+    "_desc": "The producer sends data1 to data3 to Kafka; data in one partition is dispatched by the consumer into separate in-memory queues, and each thread writes its queue to the database.",
+    "mid3": "data3",
+    "mid2": "data2",
+    "mid1": "data1"
+  }
+}

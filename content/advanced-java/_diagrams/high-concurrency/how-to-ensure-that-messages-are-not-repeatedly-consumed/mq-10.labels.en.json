@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "b54cd44d290e217b4bca29b8d72bb06234a1e392b0e968dd8d96be0d593630fe",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "zk": "Zookeeper",
+    "producer": "Producer",
+    "kafka": "Kafka",
+    "consumer": "Consumer",
+    "e_off": "offset to Kafka",
+    "e_commit": "Commit offset",
+    "l0": "Data 1, offset=152",
+    "l1": "Data 2, offset=153",
+    "l2": "Data 3, offset=154",
+    "r0": "Data 1, offset=152",
+    "r1": "Data 2, offset=153",
+    "r2": "Data 1, offset=152",
+    "r3": "Data 2, offset=153",
+    "r4": "Data 3, offset=154",
+    "_title": "How a Kafka consumer commits offsets",
+    "_desc": "A consumer commits offsets to Zookeeper after consuming data, and Kafka redelivers data from the last committed offset after a restart."
+  }
+}

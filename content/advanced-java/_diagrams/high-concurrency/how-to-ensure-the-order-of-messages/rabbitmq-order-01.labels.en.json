@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "6d8130d642e04381a052c33803f29dcd0199dc1bf088063c1d19eb5fe42af1c0",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "Producer",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "g": "",
+    "queue": "queue",
+    "rmq": "RabbitMQ",
+    "lft1": "data1",
+    "lft2": "data2",
+    "lft3": "data3",
+    "c1": "Consumer",
+    "c2": "Consumer",
+    "c3": "Consumer",
+    "bot3": "data3",
+    "bot1": "data1",
+    "bot2": "data2",
+    "db": "Database",
+    "_title": "With one RabbitMQ queue and several consumers, message order is broken",
+    "_desc": "The producer sends data1 to data3 into one RabbitMQ queue; three consumers each take one message, so the writes to the database can arrive out of order."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "b2329e0c90ea9e22d116478f37677edf8a533c20cc80a02a32dc1d97c042395f",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "g_m1": "",
+    "g_p1": "",
+    "t_m1": "Machine 1",
+    "t_p1": "ES process 01",
+    "shard1": "shard 01\nprimary",
+    "shard3": "shard 03\nreplica",
+    "buffer": "In-memory buffer",
+    "oscache": "os cache",
+    "segment": "segment file\n(disk file)",
+    "translog": "translog file",
+    "commit": "commit point\n(disk file)",
+    "t_in": "Write",
+    "t_mem": "Write to the in-memory\nbuffer and, at the same\ntime, to the os cache",
+    "t_refresh": "Every 1s, refresh to the os cache",
+    "t_data": "Once data is refreshed to\nthe os cache, it becomes\nsearchable; the in-memory\nbuffer is then cleared",
+    "t_fsync": "fsync",
+    "t_5s": "Every 5s, write to the translog\n(so a machine crash may lose 5s of data)",
+    "t_flush": "When the translog grows\npast a threshold, commit\n(flush) is triggered",
+    "t_def": "By default, flush\nevery 30 minutes",
+    "t_list": "1. Flush the buffer data to the os cache\n2. Force fsync the os cache to the\nsegment file, and write the commit point\n3. Clear the translog and start a new one",
+    "_title": "ES write internals: data goes through the in-memory buffer and os cache into segment files, with the translog and commit point ensuring durability",
+    "_desc": "A write reaches the primary shard and goes into the in-memory buffer and the translog; a refresh every second moves it to the os cache where it is searchable, and a flush fsyncs it to segment files and writes a commit point."
+  }
+}

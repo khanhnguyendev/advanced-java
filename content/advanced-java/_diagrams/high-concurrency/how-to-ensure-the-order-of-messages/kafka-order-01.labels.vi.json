@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "438341d77a44baa433e9caacfea8d90bf4d1addcf2269799d3707999e716f460",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "Producer",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "kafka": "Kafka",
+    "lft3": "data3",
+    "lft2": "data2",
+    "lft1": "data1",
+    "p1": "partition1",
+    "p2": "partition2",
+    "p3": "partition3",
+    "c1": "Consumer",
+    "c2": "Consumer",
+    "c3": "Consumer",
+    "mid1": "data1",
+    "mid2": "data2",
+    "mid3": "data3",
+    "th1": "Luồng 1",
+    "th2": "Luồng 2",
+    "th3": "Luồng 3",
+    "rt3": "data3",
+    "rt1": "data1",
+    "rt2": "data2",
+    "db": "Cơ sở dữ liệu",
+    "t_same": "Đến cùng một\npartition",
+    "_title": "Ghi sai thứ tự khi nhiều luồng cùng xử lý một partition của Kafka",
+    "_desc": "Producer gửi data1 đến data3 vào Kafka; một Consumer giao dữ liệu của một partition cho nhiều luồng và các luồng này ghi đồng thời vào cơ sở dữ liệu."
+  }
+}

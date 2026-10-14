@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "e0fda0fec8c22fe2d6f0fc77484c9505caf9d70037688af2cbd4b430a6f215c6",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "Producer",
+    "mq": "MQ",
+    "consumer": "Consumer",
+    "db": "Database",
+    "d1": "Data 1, id=1",
+    "d2": "Data 1, id=1",
+    "d3": "Data 1, id=1",
+    "set": "In-memory Set\ndeduplication\nid=1",
+    "_title": "In-memory Set deduplication for repeated message consumption",
+    "_desc": "A producer sends duplicate data through MQ; the consumer deduplicates by id with an in-memory Set and writes a single record to the database."
+  }
+}

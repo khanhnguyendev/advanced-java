@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "producer": "生产者",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "kafka": "Kafka",
+    "lft3": "data3",
+    "lft2": "data2",
+    "lft1": "data1",
+    "p1": "partition1",
+    "p2": "partition2",
+    "p3": "partition3",
+    "c1": "消费者",
+    "c2": "消费者",
+    "c3": "消费者",
+    "mid1": "data1",
+    "mid2": "data2",
+    "mid3": "data3",
+    "th1": "thread1",
+    "th2": "thread2",
+    "th3": "thread3",
+    "rt3": "data3",
+    "rt1": "data1",
+    "rt2": "data2",
+    "db": "数据库",
+    "t_same": "到了同一个partition",
+    "_title": "Kafka 单个 partition 的消息经多线程消费后写入数据库的乱序示意图",
+    "_desc": "生产者把 data1 到 data3 发到 Kafka，同一个 partition 的数据由消费者交给多个线程并发处理，再写入数据库。"
+  }
+}

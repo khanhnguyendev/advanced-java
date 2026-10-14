@@ -1,0 +1,69 @@
+{
+  "labels": [
+    {
+      "zh": "生产者",
+      "en": "Producer",
+      "vi": "Producer"
+    },
+    {
+      "zh": "data3",
+      "en": "data3",
+      "vi": "data3"
+    },
+    {
+      "zh": "data2",
+      "en": "data2",
+      "vi": "data2"
+    },
+    {
+      "zh": "data1",
+      "en": "data1",
+      "vi": "data1"
+    },
+    {
+      "zh": "Kafka",
+      "en": "Kafka",
+      "vi": "Kafka"
+    },
+    {
+      "zh": "partition1",
+      "en": "partition1",
+      "vi": "partition1"
+    },
+    {
+      "zh": "partition2",
+      "en": "partition2",
+      "vi": "partition2"
+    },
+    {
+      "zh": "partition3",
+      "en": "partition3",
+      "vi": "partition3"
+    },
+    {
+      "zh": "消费者",
+      "en": "Consumer",
+      "vi": "Consumer"
+    },
+    {
+      "zh": "thread1",
+      "en": "Thread 1",
+      "vi": "Luồng 1"
+    },
+    {
+      "zh": "thread2",
+      "en": "Thread 2",
+      "vi": "Luồng 2"
+    },
+    {
+      "zh": "thread3",
+      "en": "Thread 3",
+      "vi": "Luồng 3"
+    },
+    {
+      "zh": "到了同一个partition",
+      "en": "Reached the same\npartition",
+      "vi": "Đến cùng một partition"
+    }
+  ]
+}

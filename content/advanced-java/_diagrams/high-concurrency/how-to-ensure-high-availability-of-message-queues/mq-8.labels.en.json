@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "58c6d33a976323ef6352dc9f13f5d6a752d6b2e0be28afa5ddd26af031a5813c",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "RabbitMQ mirrored cluster mode",
+    "_desc": "Every RabbitMQ node holds the complete data of the queue; messages from the producer are synchronised to all nodes and consumers can read from any node.",
+    "producer": "Producer",
+    "bubble": "Every MQ node holds\nthe complete data",
+    "queue": "queue",
+    "send": "Send message",
+    "sync": "Sync message",
+    "rabbit": "RabbitMQ\nnode",
+    "consumer": "Consumer"
+  }
+}

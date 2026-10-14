@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "e0fda0fec8c22fe2d6f0fc77484c9505caf9d70037688af2cbd4b430a6f215c6",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "Producer",
+    "mq": "MQ",
+    "consumer": "Consumer",
+    "db": "Cơ sở dữ liệu",
+    "d1": "Dữ liệu 1, id=1",
+    "d2": "Dữ liệu 1, id=1",
+    "d3": "Dữ liệu 1, id=1",
+    "set": "Loại trùng bằng\nSet trong bộ nhớ\nid=1",
+    "_title": "Loại trùng bằng Set trong bộ nhớ khi tiêu thụ lặp thông điệp",
+    "_desc": "Producer gửi dữ liệu trùng qua MQ; Consumer loại trùng theo id bằng Set trong bộ nhớ rồi chỉ ghi một bản ghi vào cơ sở dữ liệu."
+  }
+}

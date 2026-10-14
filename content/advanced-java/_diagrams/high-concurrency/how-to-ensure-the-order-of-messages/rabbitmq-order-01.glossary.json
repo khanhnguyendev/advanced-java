@@ -1,0 +1,39 @@
+{
+  "labels": [
+    {
+      "zh": "生产者",
+      "en": "Producer",
+      "vi": "Producer"
+    },
+    {
+      "zh": "data3",
+      "en": "data3",
+      "vi": "data3"
+    },
+    {
+      "zh": "data2",
+      "en": "data2",
+      "vi": "data2"
+    },
+    {
+      "zh": "data1",
+      "en": "data1",
+      "vi": "data1"
+    },
+    {
+      "zh": "queue",
+      "en": "queue",
+      "vi": "queue"
+    },
+    {
+      "zh": "RabbitMQ",
+      "en": "RabbitMQ",
+      "vi": "RabbitMQ"
+    },
+    {
+      "zh": "消费者",
+      "en": "Consumer",
+      "vi": "Consumer"
+    }
+  ]
+}

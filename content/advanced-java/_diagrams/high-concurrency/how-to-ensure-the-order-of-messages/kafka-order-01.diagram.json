@@ -1,0 +1,594 @@
+{
+  "id": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 680,
+    "h": 780
+  },
+  "nodes": [
+    {
+      "id": "producer",
+      "shape": "pill",
+      "x": 38,
+      "y": 83,
+      "w": 100,
+      "h": 40,
+      "label": {
+        "key": "producer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "top3",
+      "shape": "round",
+      "x": 153,
+      "y": 62,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "top3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "top2",
+      "shape": "round",
+      "x": 237,
+      "y": 62,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "top2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "top1",
+      "shape": "round",
+      "x": 319,
+      "y": 62,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "top1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "kafka",
+      "shape": "box",
+      "x": 405,
+      "y": 75,
+      "w": 112,
+      "h": 55,
+      "label": {
+        "key": "kafka",
+        "literals": [
+          "Kafka"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "lft3",
+      "shape": "round",
+      "x": 198,
+      "y": 150,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "lft3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "lft2",
+      "shape": "round",
+      "x": 198,
+      "y": 187,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "lft2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "lft1",
+      "shape": "round",
+      "x": 198,
+      "y": 222,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "lft1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "p1",
+      "shape": "box",
+      "x": 281,
+      "y": 221,
+      "w": 110,
+      "h": 36,
+      "label": {
+        "key": "p1",
+        "literals": [
+          "partition1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "p2",
+      "shape": "box",
+      "x": 403,
+      "y": 221,
+      "w": 110,
+      "h": 36,
+      "label": {
+        "key": "p2",
+        "literals": [
+          "partition2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "p3",
+      "shape": "box",
+      "x": 525,
+      "y": 221,
+      "w": 110,
+      "h": 36,
+      "label": {
+        "key": "p3",
+        "literals": [
+          "partition3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c1",
+      "shape": "pill",
+      "x": 286,
+      "y": 372,
+      "w": 100,
+      "h": 36,
+      "label": {
+        "key": "c1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c2",
+      "shape": "pill",
+      "x": 407,
+      "y": 372,
+      "w": 100,
+      "h": 36,
+      "label": {
+        "key": "c2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c3",
+      "shape": "pill",
+      "x": 530,
+      "y": 372,
+      "w": 100,
+      "h": 36,
+      "label": {
+        "key": "c3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid1",
+      "shape": "round",
+      "x": 100,
+      "y": 452,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "mid1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid2",
+      "shape": "round",
+      "x": 250,
+      "y": 456,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "mid2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid3",
+      "shape": "round",
+      "x": 488,
+      "y": 456,
+      "w": 78,
+      "h": 32,
+      "label": {
+        "key": "mid3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "th1",
+      "shape": "box",
+      "x": 146,
+      "y": 511,
+      "w": 92,
+      "h": 38,
+      "label": {
+        "key": "th1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "th2",
+      "shape": "box",
+      "x": 290,
+      "y": 511,
+      "w": 92,
+      "h": 38,
+      "label": {
+        "key": "th2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "th3",
+      "shape": "box",
+      "x": 430,
+      "y": 511,
+      "w": 92,
+      "h": 38,
+      "label": {
+        "key": "th3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "rt3",
+      "shape": "round",
+      "x": 346,
+      "y": 575,
+      "w": 78,
+      "h": 30,
+      "label": {
+        "key": "rt3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "rt1",
+      "shape": "round",
+      "x": 346,
+      "y": 610,
+      "w": 78,
+      "h": 30,
+      "label": {
+        "key": "rt1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "rt2",
+      "shape": "round",
+      "x": 346,
+      "y": 645,
+      "w": 78,
+      "h": 30,
+      "label": {
+        "key": "rt2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "db",
+      "shape": "round",
+      "x": 114,
+      "y": 695,
+      "w": 441,
+      "h": 50,
+      "label": {
+        "key": "db"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          138,
+          103
+        ],
+        [
+          405,
+          103
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          430,
+          130
+        ],
+        [
+          430,
+          192
+        ],
+        [
+          336,
+          192
+        ],
+        [
+          336,
+          221
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          457,
+          130
+        ],
+        [
+          457,
+          221
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          492,
+          130
+        ],
+        [
+          492,
+          192
+        ],
+        [
+          580,
+          192
+        ],
+        [
+          580,
+          221
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          336,
+          257
+        ],
+        [
+          336,
+          372
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          457,
+          257
+        ],
+        [
+          457,
+          372
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          580,
+          257
+        ],
+        [
+          580,
+          372
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          316,
+          408
+        ],
+        [
+          316,
+          430
+        ],
+        [
+          192,
+          430
+        ],
+        [
+          192,
+          511
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          336,
+          408
+        ],
+        [
+          336,
+          511
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          356,
+          408
+        ],
+        [
+          356,
+          430
+        ],
+        [
+          475,
+          430
+        ],
+        [
+          475,
+          511
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          192,
+          549
+        ],
+        [
+          192,
+          566
+        ],
+        [
+          475,
+          566
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          336,
+          549
+        ],
+        [
+          336,
+          566
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          475,
+          549
+        ],
+        [
+          475,
+          566
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          336,
+          566
+        ],
+        [
+          336,
+          695
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_same",
+      "x": 284,
+      "y": 150,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

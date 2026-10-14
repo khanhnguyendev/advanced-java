@@ -1,0 +1,506 @@
+{
+  "id": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 900,
+    "h": 670
+  },
+  "nodes": [
+    {
+      "id": "producer",
+      "shape": "box",
+      "x": 440,
+      "y": 44,
+      "w": 120,
+      "h": 44,
+      "label": {
+        "key": "producer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "consumer",
+      "shape": "box",
+      "x": 440,
+      "y": 590,
+      "w": 120,
+      "h": 44,
+      "label": {
+        "key": "consumer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m1",
+      "shape": "group",
+      "x": 190,
+      "y": 215,
+      "w": 120,
+      "h": 108,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid",
+      "role": "default"
+    },
+    {
+      "id": "m1b",
+      "shape": "round",
+      "x": 205,
+      "y": 251,
+      "w": 90,
+      "h": 62,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m2",
+      "shape": "group",
+      "x": 440,
+      "y": 215,
+      "w": 120,
+      "h": 108,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid",
+      "role": "default"
+    },
+    {
+      "id": "m2b",
+      "shape": "round",
+      "x": 455,
+      "y": 251,
+      "w": 90,
+      "h": 62,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m3",
+      "shape": "group",
+      "x": 690,
+      "y": 215,
+      "w": 120,
+      "h": 108,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid",
+      "role": "default"
+    },
+    {
+      "id": "m3b",
+      "shape": "round",
+      "x": 705,
+      "y": 251,
+      "w": 90,
+      "h": 62,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m4",
+      "shape": "group",
+      "x": 190,
+      "y": 420,
+      "w": 120,
+      "h": 108,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid",
+      "role": "default"
+    },
+    {
+      "id": "m4b",
+      "shape": "round",
+      "x": 205,
+      "y": 456,
+      "w": 90,
+      "h": 62,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m5a",
+      "shape": "group",
+      "x": 440,
+      "y": 420,
+      "w": 120,
+      "h": 108,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid",
+      "role": "default"
+    },
+    {
+      "id": "m5ab",
+      "shape": "round",
+      "x": 455,
+      "y": 456,
+      "w": 90,
+      "h": 62,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m5b",
+      "shape": "group",
+      "x": 690,
+      "y": 420,
+      "w": 120,
+      "h": 108,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid",
+      "role": "default"
+    },
+    {
+      "id": "m5bb",
+      "shape": "round",
+      "x": 705,
+      "y": 456,
+      "w": 90,
+      "h": 62,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          480,
+          88
+        ],
+        [
+          480,
+          170
+        ],
+        [
+          250,
+          170
+        ],
+        [
+          250,
+          215
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          500,
+          88
+        ],
+        [
+          500,
+          215
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          520,
+          88
+        ],
+        [
+          520,
+          170
+        ],
+        [
+          750,
+          170
+        ],
+        [
+          750,
+          215
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          250,
+          323
+        ],
+        [
+          250,
+          420
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          500,
+          323
+        ],
+        [
+          500,
+          420
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          750,
+          323
+        ],
+        [
+          750,
+          420
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          440,
+          612
+        ],
+        [
+          350,
+          612
+        ],
+        [
+          350,
+          269
+        ],
+        [
+          310,
+          269
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          560,
+          612
+        ],
+        [
+          650,
+          612
+        ],
+        [
+          650,
+          269
+        ],
+        [
+          690,
+          269
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "m1",
+      "x": 250,
+      "y": 231,
+      "anchor": "middle"
+    },
+    {
+      "key": "m2",
+      "x": 500,
+      "y": 231,
+      "anchor": "middle"
+    },
+    {
+      "key": "m3",
+      "x": 750,
+      "y": 231,
+      "anchor": "middle"
+    },
+    {
+      "key": "m4",
+      "x": 250,
+      "y": 436,
+      "anchor": "middle"
+    },
+    {
+      "key": "m5",
+      "x": 500,
+      "y": 436,
+      "anchor": "middle"
+    },
+    {
+      "key": "m5",
+      "x": 750,
+      "y": 436,
+      "anchor": "middle"
+    },
+    {
+      "key": "write",
+      "x": 532,
+      "y": 106,
+      "anchor": "start"
+    },
+    {
+      "key": "td1",
+      "x": 365,
+      "y": 152,
+      "anchor": "middle",
+      "literals": [
+        "data1"
+      ]
+    },
+    {
+      "key": "td2",
+      "x": 508,
+      "y": 192,
+      "anchor": "start",
+      "literals": [
+        "data2"
+      ]
+    },
+    {
+      "key": "td3",
+      "x": 640,
+      "y": 152,
+      "anchor": "middle",
+      "literals": [
+        "data3"
+      ]
+    },
+    {
+      "key": "tp1",
+      "x": 244,
+      "y": 203,
+      "anchor": "end",
+      "literals": [
+        "partition1"
+      ]
+    },
+    {
+      "key": "tp2",
+      "x": 494,
+      "y": 205,
+      "anchor": "end",
+      "literals": [
+        "partition2"
+      ]
+    },
+    {
+      "key": "tp3",
+      "x": 744,
+      "y": 203,
+      "anchor": "end",
+      "literals": [
+        "partition3"
+      ]
+    },
+    {
+      "key": "rep1",
+      "x": 184,
+      "y": 245,
+      "anchor": "end"
+    },
+    {
+      "key": "elect",
+      "x": 184,
+      "y": 290,
+      "anchor": "end"
+    },
+    {
+      "key": "sync",
+      "x": 244,
+      "y": 372,
+      "anchor": "end"
+    },
+    {
+      "key": "tp1",
+      "x": 244,
+      "y": 405,
+      "anchor": "end",
+      "literals": [
+        "partition1"
+      ]
+    },
+    {
+      "key": "rep2",
+      "x": 184,
+      "y": 448,
+      "anchor": "end"
+    },
+    {
+      "key": "follower",
+      "x": 184,
+      "y": 490,
+      "anchor": "end"
+    },
+    {
+      "key": "tp2",
+      "x": 494,
+      "y": 405,
+      "anchor": "end",
+      "literals": [
+        "partition2"
+      ]
+    },
+    {
+      "key": "rep2",
+      "x": 434,
+      "y": 448,
+      "anchor": "end"
+    },
+    {
+      "key": "lsync",
+      "x": 506,
+      "y": 372,
+      "anchor": "start"
+    },
+    {
+      "key": "sync",
+      "x": 744,
+      "y": 372,
+      "anchor": "end"
+    },
+    {
+      "key": "pull",
+      "x": 500,
+      "y": 558,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

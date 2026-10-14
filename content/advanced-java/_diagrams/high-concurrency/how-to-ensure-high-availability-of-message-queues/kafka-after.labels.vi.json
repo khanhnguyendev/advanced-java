@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "cf482869ed587a0064f30fe65628c8c25408df57f48326453a81064e02cb2925",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "Tính sẵn sàng cao của Kafka dựa trên replica",
+    "_desc": "Mỗi partition có các replica follower trên máy khác, producer và consumer chỉ làm việc với leader của từng node.",
+    "blank": "",
+    "producer": "Producer",
+    "consumer": "Consumer",
+    "m1": "Máy 1",
+    "m2": "Máy 2",
+    "m3": "Máy 3",
+    "m4": "Máy 4",
+    "m5": "Máy 5",
+    "broker": "Tiến trình\nbroker",
+    "write": "Producer ghi dữ liệu\nvào leader",
+    "td1": "topic data1",
+    "td2": "topic data2",
+    "td3": "topic data3",
+    "tp1": "topic partition1",
+    "tp2": "topic partition2",
+    "tp3": "topic partition3",
+    "rep1": "Replica 1",
+    "elect": "Được bầu làm leader",
+    "sync": "Đồng bộ",
+    "follower": "follower",
+    "lsync": "leader đồng bộ\ndữ liệu sang\nfollower",
+    "pull": "Consumer tiêu thụ dữ liệu\ntừ leader của mỗi node",
+    "rep2": "Replica 2"
+  }
+}

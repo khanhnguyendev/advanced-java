@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "58c6d33a976323ef6352dc9f13f5d6a752d6b2e0be28afa5ddd26af031a5813c",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "Chế độ cụm phản chiếu của RabbitMQ",
+    "_desc": "Mỗi node RabbitMQ đều giữ đầy đủ dữ liệu của queue; thông điệp từ producer được đồng bộ sang mọi node và consumer có thể tiêu thụ từ bất kỳ node nào.",
+    "producer": "Producer",
+    "bubble": "Mỗi node MQ đều có\nđầy đủ dữ liệu",
+    "queue": "queue",
+    "send": "Gửi thông điệp",
+    "sync": "Đồng bộ\nthông điệp",
+    "rabbit": "Node\nRabbitMQ",
+    "consumer": "Consumer"
+  }
+}

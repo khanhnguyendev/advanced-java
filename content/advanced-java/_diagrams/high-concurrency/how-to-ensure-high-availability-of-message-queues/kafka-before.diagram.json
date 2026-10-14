@@ -1,0 +1,234 @@
+{
+  "id": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-before",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-before.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 760,
+    "h": 330
+  },
+  "nodes": [
+    {
+      "id": "producer",
+      "shape": "box",
+      "x": 375,
+      "y": 48,
+      "w": 110,
+      "h": 70,
+      "label": {
+        "key": "producer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m1",
+      "shape": "group",
+      "x": 182,
+      "y": 218,
+      "w": 104,
+      "h": 84,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "b1",
+      "shape": "box",
+      "x": 192,
+      "y": 248,
+      "w": 84,
+      "h": 46,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m2",
+      "shape": "group",
+      "x": 372,
+      "y": 218,
+      "w": 104,
+      "h": 84,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "b2",
+      "shape": "box",
+      "x": 382,
+      "y": 248,
+      "w": 84,
+      "h": 46,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m3",
+      "shape": "group",
+      "x": 569,
+      "y": 218,
+      "w": 104,
+      "h": 84,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "b3",
+      "shape": "box",
+      "x": 579,
+      "y": 248,
+      "w": 84,
+      "h": 46,
+      "label": {
+        "key": "broker"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          400,
+          118
+        ],
+        [
+          400,
+          168
+        ],
+        [
+          234,
+          168
+        ],
+        [
+          234,
+          218
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          424,
+          118
+        ],
+        [
+          424,
+          218
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          446,
+          118
+        ],
+        [
+          446,
+          168
+        ],
+        [
+          621,
+          168
+        ],
+        [
+          621,
+          218
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "m1",
+      "x": 234,
+      "y": 234,
+      "anchor": "middle"
+    },
+    {
+      "key": "m2",
+      "x": 424,
+      "y": 234,
+      "anchor": "middle"
+    },
+    {
+      "key": "m3",
+      "x": 621,
+      "y": 234,
+      "anchor": "middle"
+    },
+    {
+      "key": "td1",
+      "x": 292,
+      "y": 150,
+      "anchor": "middle",
+      "literals": [
+        "data1"
+      ]
+    },
+    {
+      "key": "td2",
+      "x": 432,
+      "y": 186,
+      "anchor": "start",
+      "literals": [
+        "data2"
+      ]
+    },
+    {
+      "key": "td3",
+      "x": 558,
+      "y": 150,
+      "anchor": "middle",
+      "literals": [
+        "data3"
+      ]
+    },
+    {
+      "key": "tp1",
+      "x": 228,
+      "y": 205,
+      "anchor": "end",
+      "literals": [
+        "partition1"
+      ]
+    },
+    {
+      "key": "tp2",
+      "x": 418,
+      "y": 205,
+      "anchor": "end",
+      "literals": [
+        "partition2"
+      ]
+    },
+    {
+      "key": "tp3",
+      "x": 629,
+      "y": 205,
+      "anchor": "start",
+      "literals": [
+        "partition3"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

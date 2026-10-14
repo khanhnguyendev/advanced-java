@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "生产者",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "g": "",
+    "queue": "queue",
+    "rmq": "RabbitMQ",
+    "lft1": "data1",
+    "lft2": "data2",
+    "lft3": "data3",
+    "c1": "消费者",
+    "c2": "消费者",
+    "c3": "消费者",
+    "bot3": "data3",
+    "bot1": "data1",
+    "bot2": "data2",
+    "db": "数据库",
+    "_title": "RabbitMQ 单队列多消费者时消息顺序被打乱",
+    "_desc": "生产者依次发送 data1 至 data3 到 RabbitMQ 的同一个 queue，三个消费者各取一条，写入数据库时顺序可能错乱。"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "617e3150ac528a398c5f6a9a4a5666350c6af136e085382a09fc84539c895757",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "RabbitMQ normal cluster mode",
+    "_desc": "In a normal cluster the queue lives on only one RabbitMQ instance; the other instances sync only metadata and pull data from it when consuming.",
+    "bubble": "Each machine starts one process,\nacting as a node in the cluster",
+    "qbox": "queue\nOnly on this machine\n(metadata and\nactual data)\n\ndata1\ndata2\ndata3",
+    "meta": "Queue metadata",
+    "rabbit": "RabbitMQ process\n(instance)\n\nDeployed on\nits own machine",
+    "consumer": "Consumer",
+    "n2": "2",
+    "pull": "1. Pull data",
+    "n3": "3",
+    "cons": "Drawbacks:\n\n1. A large amount of data may be\ntransferred inside the MQ cluster;\n2. No availability guarantee: if the node\nholding the queue goes down, the data is lost."
+  }
+}

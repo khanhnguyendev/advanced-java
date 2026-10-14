@@ -1,0 +1,397 @@
+{
+  "id": "high-concurrency/es-write-query-search/es-write-detail",
+  "source": {
+    "upstream": "high-concurrency/es-write-query-search/es-write-detail.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1000,
+    "h": 710
+  },
+  "nodes": [
+    {
+      "id": "m1",
+      "shape": "group",
+      "x": 48,
+      "y": 104,
+      "w": 905,
+      "h": 580,
+      "label": {
+        "key": "g_m1"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "p1",
+      "shape": "group",
+      "x": 120,
+      "y": 134,
+      "w": 540,
+      "h": 210,
+      "label": {
+        "key": "g_p1"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "shard1",
+      "shape": "round",
+      "x": 380,
+      "y": 172,
+      "w": 84,
+      "h": 52,
+      "label": {
+        "key": "shard1",
+        "literals": [
+          "shard 01"
+        ]
+      }
+    },
+    {
+      "id": "shard3",
+      "shape": "round",
+      "x": 560,
+      "y": 172,
+      "w": 84,
+      "h": 52,
+      "label": {
+        "key": "shard3",
+        "literals": [
+          "shard 03"
+        ]
+      }
+    },
+    {
+      "id": "buffer",
+      "shape": "box",
+      "x": 300,
+      "y": 290,
+      "w": 170,
+      "h": 30,
+      "label": {
+        "key": "buffer"
+      }
+    },
+    {
+      "id": "oscache",
+      "shape": "box",
+      "x": 320,
+      "y": 378,
+      "w": 106,
+      "h": 30,
+      "label": {
+        "key": "oscache",
+        "literals": [
+          "os cache"
+        ]
+      }
+    },
+    {
+      "id": "segment",
+      "shape": "box",
+      "x": 330,
+      "y": 468,
+      "w": 122,
+      "h": 46,
+      "label": {
+        "key": "segment",
+        "literals": [
+          "segment file"
+        ]
+      }
+    },
+    {
+      "id": "translog",
+      "shape": "box",
+      "x": 600,
+      "y": 420,
+      "w": 170,
+      "h": 34,
+      "label": {
+        "key": "translog",
+        "literals": [
+          "translog"
+        ]
+      }
+    },
+    {
+      "id": "commit",
+      "shape": "box",
+      "x": 420,
+      "y": 530,
+      "w": 130,
+      "h": 44,
+      "label": {
+        "key": "commit",
+        "literals": [
+          "commit point"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          376,
+          48
+        ],
+        [
+          372,
+          90
+        ],
+        [
+          380,
+          125
+        ],
+        [
+          400,
+          172
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          422,
+          224
+        ],
+        [
+          405,
+          250
+        ],
+        [
+          390,
+          290
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          385,
+          320
+        ],
+        [
+          385,
+          350
+        ],
+        [
+          385,
+          378
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          464,
+          208
+        ],
+        [
+          500,
+          250
+        ],
+        [
+          505,
+          330
+        ],
+        [
+          470,
+          372
+        ],
+        [
+          426,
+          392
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          464,
+          188
+        ],
+        [
+          520,
+          190
+        ],
+        [
+          545,
+          240
+        ],
+        [
+          545,
+          340
+        ],
+        [
+          520,
+          440
+        ],
+        [
+          490,
+          530
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          426,
+          398
+        ],
+        [
+          550,
+          398
+        ],
+        [
+          640,
+          406
+        ],
+        [
+          680,
+          420
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          360,
+          408
+        ],
+        [
+          362,
+          440
+        ],
+        [
+          368,
+          455
+        ],
+        [
+          372,
+          468
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_m1",
+      "x": 470,
+      "y": 120,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_p1",
+      "x": 510,
+      "y": 150,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_in",
+      "x": 355,
+      "y": 74,
+      "anchor": "end"
+    },
+    {
+      "key": "t_mem",
+      "x": 138,
+      "y": 232,
+      "anchor": "start",
+      "literals": [
+        "os cache"
+      ]
+    },
+    {
+      "key": "t_refresh",
+      "x": 372,
+      "y": 360,
+      "anchor": "end",
+      "literals": [
+        "1s",
+        "refresh",
+        "os cache"
+      ]
+    },
+    {
+      "key": "t_data",
+      "x": 60,
+      "y": 450,
+      "anchor": "start",
+      "literals": [
+        "refresh",
+        "os cache"
+      ]
+    },
+    {
+      "key": "t_fsync",
+      "x": 400,
+      "y": 440,
+      "anchor": "start",
+      "literals": [
+        "fsync"
+      ]
+    },
+    {
+      "key": "t_5s",
+      "x": 560,
+      "y": 356,
+      "anchor": "start",
+      "literals": [
+        "5s",
+        "translog"
+      ]
+    },
+    {
+      "key": "t_flush",
+      "x": 565,
+      "y": 490,
+      "anchor": "start",
+      "literals": [
+        "translog",
+        "commit",
+        "flush"
+      ]
+    },
+    {
+      "key": "t_def",
+      "x": 790,
+      "y": 490,
+      "anchor": "start",
+      "literals": [
+        "flush"
+      ]
+    },
+    {
+      "key": "t_list",
+      "x": 570,
+      "y": 596,
+      "anchor": "start",
+      "literals": [
+        "os cache",
+        "fsync",
+        "segment file",
+        "commit point",
+        "translog"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,264 @@
+{
+  "id": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 580,
+    "h": 470
+  },
+  "nodes": [
+    {
+      "id": "zk",
+      "shape": "box",
+      "x": 280,
+      "y": 46,
+      "w": 100,
+      "h": 30,
+      "label": {
+        "key": "zk"
+      },
+      "role": "default"
+    },
+    {
+      "id": "producer",
+      "shape": "box",
+      "x": 48,
+      "y": 130,
+      "w": 88,
+      "h": 34,
+      "label": {
+        "key": "producer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "kafka",
+      "shape": "box",
+      "x": 204,
+      "y": 118,
+      "w": 100,
+      "h": 58,
+      "label": {
+        "key": "kafka"
+      },
+      "role": "default"
+    },
+    {
+      "id": "consumer",
+      "shape": "box",
+      "x": 376,
+      "y": 130,
+      "w": 88,
+      "h": 34,
+      "label": {
+        "key": "consumer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "l0",
+      "shape": "round",
+      "x": 150,
+      "y": 200,
+      "w": 190,
+      "h": 30,
+      "label": {
+        "key": "l0",
+        "literals": [
+          "offset=152"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "l1",
+      "shape": "round",
+      "x": 150,
+      "y": 247,
+      "w": 190,
+      "h": 30,
+      "label": {
+        "key": "l1",
+        "literals": [
+          "offset=153"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "l2",
+      "shape": "round",
+      "x": 150,
+      "y": 294,
+      "w": 190,
+      "h": 30,
+      "label": {
+        "key": "l2",
+        "literals": [
+          "offset=154"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r0",
+      "shape": "round",
+      "x": 348,
+      "y": 200,
+      "w": 190,
+      "h": 30,
+      "label": {
+        "key": "r0",
+        "literals": [
+          "offset=152"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r1",
+      "shape": "round",
+      "x": 348,
+      "y": 247,
+      "w": 190,
+      "h": 30,
+      "label": {
+        "key": "r1",
+        "literals": [
+          "offset=153"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r2",
+      "shape": "round",
+      "x": 348,
+      "y": 294,
+      "w": 190,
+      "h": 30,
+      "label": {
+        "key": "r2",
+        "literals": [
+          "offset=152"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r3",
+      "shape": "round",
+      "x": 348,
+      "y": 341,
+      "w": 190,
+      "h": 30,
+      "label": {
+        "key": "r3",
+        "literals": [
+          "offset=153"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r4",
+      "shape": "round",
+      "x": 348,
+      "y": 388,
+      "w": 190,
+      "h": 30,
+      "label": {
+        "key": "r4",
+        "literals": [
+          "offset=154"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          136,
+          147
+        ],
+        [
+          204,
+          147
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          304,
+          147
+        ],
+        [
+          376,
+          147
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          280,
+          61
+        ],
+        [
+          256,
+          61
+        ],
+        [
+          256,
+          118
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          420,
+          130
+        ],
+        [
+          420,
+          61
+        ],
+        [
+          380,
+          61
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "e_off",
+      "x": 248,
+      "y": 90,
+      "anchor": "end"
+    },
+    {
+      "key": "e_commit",
+      "x": 428,
+      "y": 100,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

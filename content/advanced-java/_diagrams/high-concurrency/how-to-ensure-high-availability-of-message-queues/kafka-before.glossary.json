@@ -1,0 +1,39 @@
+{
+  "labels": [
+    {
+      "zh": "topic data1",
+      "en": "topic data1",
+      "vi": "topic data1"
+    },
+    {
+      "zh": "topic data2",
+      "en": "topic data2",
+      "vi": "topic data2"
+    },
+    {
+      "zh": "topic data3",
+      "en": "topic data3",
+      "vi": "topic data3"
+    },
+    {
+      "zh": "topic partition1",
+      "en": "topic partition1",
+      "vi": "topic partition1"
+    },
+    {
+      "zh": "topic partition2",
+      "en": "topic partition2",
+      "vi": "topic partition2"
+    },
+    {
+      "zh": "topic partition3",
+      "en": "topic partition3",
+      "vi": "topic partition3"
+    },
+    {
+      "zh": "broker\n进程",
+      "en": "Broker\nprocess",
+      "vi": "Tiến trình\nbroker"
+    }
+  ]
+}

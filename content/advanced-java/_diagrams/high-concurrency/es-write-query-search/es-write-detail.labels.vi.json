@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "b2329e0c90ea9e22d116478f37677edf8a533c20cc80a02a32dc1d97c042395f",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "g_m1": "",
+    "g_p1": "",
+    "t_m1": "Máy 1",
+    "t_p1": "Tiến trình ES 01",
+    "shard1": "shard 01\nprimary",
+    "shard3": "shard 03\nreplica",
+    "buffer": "Buffer trong bộ nhớ",
+    "oscache": "os cache",
+    "segment": "segment file\n(tệp trên đĩa)",
+    "translog": "Tệp nhật ký translog",
+    "commit": "commit point\n(tệp trên đĩa)",
+    "t_in": "Ghi",
+    "t_mem": "Ghi vào buffer trong\nbộ nhớ, đồng thời\nghi vào os cache",
+    "t_refresh": "Mỗi 1s, refresh vào os cache",
+    "t_data": "Sau khi dữ liệu được\nrefresh vào os cache thì\ncó thể được tìm kiếm;\nbuffer trong bộ nhớ\nsẽ bị xóa sạch",
+    "t_fsync": "fsync",
+    "t_5s": "Mỗi 5s, ghi vào translog\n(vì vậy khi máy sập có thể mất 5s dữ liệu)",
+    "t_flush": "Khi translog lớn đến\nmột ngưỡng nhất định,\nsẽ kích hoạt commit (flush)",
+    "t_def": "Mặc định cứ 30 phút\nflush một lần",
+    "t_list": "1. Ghi dữ liệu buffer vào os cache\n2. fsync cưỡng chế os cache xuống\nsegment file, ghi commit point\n3. Xóa sạch translog,\nkhởi động một translog mới",
+    "_title": "Nguyên lý ghi dữ liệu ES: dữ liệu đi qua buffer, os cache vào segment file, translog và commit point đảm bảo tính bền vững",
+    "_desc": "Yêu cầu ghi vào primary shard rồi vào buffer trong bộ nhớ và translog; mỗi giây refresh sang os cache để tìm kiếm được, và flush sẽ fsync xuống segment file rồi ghi commit point."
+  }
+}

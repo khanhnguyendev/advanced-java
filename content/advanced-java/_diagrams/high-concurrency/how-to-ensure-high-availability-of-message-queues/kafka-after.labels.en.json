@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "cf482869ed587a0064f30fe65628c8c25408df57f48326453a81064e02cb2925",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "Kafka replica-based high availability",
+    "_desc": "Each partition has follower replicas on other machines, and producers and consumers only talk to the leader of each node.",
+    "blank": "",
+    "producer": "Producer",
+    "consumer": "Consumer",
+    "m1": "Machine 1",
+    "m2": "Machine 2",
+    "m3": "Machine 3",
+    "m4": "Machine 4",
+    "m5": "Machine 5",
+    "broker": "Broker\nprocess",
+    "write": "Producer writes data\nto the leader",
+    "td1": "topic data1",
+    "td2": "topic data2",
+    "td3": "topic data3",
+    "tp1": "topic partition1",
+    "tp2": "topic partition2",
+    "tp3": "topic partition3",
+    "rep1": "Replica 1",
+    "elect": "Elected as leader",
+    "sync": "Sync",
+    "follower": "follower",
+    "lsync": "leader syncs\ndata to\nfollower",
+    "pull": "Consumer consumes data from\nthe leader of each node",
+    "rep2": "Replica 2"
+  }
+}

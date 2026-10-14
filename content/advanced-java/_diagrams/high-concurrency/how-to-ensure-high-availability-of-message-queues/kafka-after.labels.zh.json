@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "_title": "Kafka 的多副本高可用机制",
+    "_desc": "每个 partition 在其他机器上有 follower 副本，生产者和消费者只与各节点的 leader 交互。",
+    "blank": "",
+    "producer": "生产者",
+    "consumer": "消费者",
+    "m1": "机器1",
+    "m2": "机器2",
+    "m3": "机器3",
+    "m4": "机器4",
+    "m5": "机器5",
+    "broker": "broker\n进程",
+    "write": "生产者将数据写入leader",
+    "td1": "topic data1",
+    "td2": "topic data2",
+    "td3": "topic data3",
+    "tp1": "topic partition1",
+    "tp2": "topic partition2",
+    "tp3": "topic partition3",
+    "rep1": "副本1",
+    "elect": "选举为leader",
+    "sync": "同步",
+    "follower": "follower",
+    "lsync": "leader同步数据\n到follower",
+    "pull": "消费者从每个节点的\nleader消费数据",
+    "rep2": "副本2"
+  }
+}

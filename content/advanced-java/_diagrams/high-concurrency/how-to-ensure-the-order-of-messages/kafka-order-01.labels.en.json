@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "438341d77a44baa433e9caacfea8d90bf4d1addcf2269799d3707999e716f460",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "producer": "Producer",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "kafka": "Kafka",
+    "lft3": "data3",
+    "lft2": "data2",
+    "lft1": "data1",
+    "p1": "partition1",
+    "p2": "partition2",
+    "p3": "partition3",
+    "c1": "Consumer",
+    "c2": "Consumer",
+    "c3": "Consumer",
+    "mid1": "data1",
+    "mid2": "data2",
+    "mid3": "data3",
+    "th1": "Thread 1",
+    "th2": "Thread 2",
+    "th3": "Thread 3",
+    "rt3": "data3",
+    "rt1": "data1",
+    "rt2": "data2",
+    "db": "Database",
+    "t_same": "Reached the same\npartition",
+    "_title": "Out-of-order writes when several threads consume one Kafka partition",
+    "_desc": "A producer sends data1 to data3 to Kafka; one consumer hands the data of a single partition to several threads that write to the database concurrently."
+  }
+}

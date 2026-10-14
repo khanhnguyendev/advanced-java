@@ -1,0 +1,29 @@
+{
+  "labels": [
+    {
+      "zh": "每个MQ 节点都有完整数据",
+      "en": "Every MQ node holds\nthe complete data",
+      "vi": "Mỗi node MQ đều có\nđầy đủ dữ liệu"
+    },
+    {
+      "zh": "发送消息",
+      "en": "Send message",
+      "vi": "Gửi thông điệp"
+    },
+    {
+      "zh": "同步消息",
+      "en": "Sync message",
+      "vi": "Đồng bộ\nthông điệp"
+    },
+    {
+      "zh": "RabbitMQ\n节点",
+      "en": "RabbitMQ\nnode",
+      "vi": "Node\nRabbitMQ"
+    },
+    {
+      "zh": "queue",
+      "en": "queue",
+      "vi": "queue"
+    }
+  ]
+}

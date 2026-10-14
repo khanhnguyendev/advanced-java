@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "_title": "RabbitMQ 镜像集群模式",
+    "_desc": "每个 RabbitMQ 节点都有 queue 的完整数据，生产者发送的消息会同步到所有节点，消费者可从任一节点消费。",
+    "producer": "生产者",
+    "bubble": "每个MQ 节点都有完整数据",
+    "queue": "queue",
+    "send": "发送消息",
+    "sync": "同步消息",
+    "rabbit": "RabbitMQ\n节点",
+    "consumer": "消费者"
+  }
+}

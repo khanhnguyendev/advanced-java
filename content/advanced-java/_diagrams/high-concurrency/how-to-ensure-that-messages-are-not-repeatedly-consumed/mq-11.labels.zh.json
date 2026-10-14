@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "producer": "生产者",
+    "mq": "MQ",
+    "consumer": "消费者",
+    "db": "数据库",
+    "d1": "数据1，id=1",
+    "d2": "数据1，id=1",
+    "d3": "数据1，id=1",
+    "set": "内存Set去重\nid=1",
+    "_title": "消息重复消费的内存 Set 去重示意图",
+    "_desc": "生产者经 MQ 发送重复的数据，消费者用内存 Set 按 id 去重后只把一条数据写入数据库。"
+  }
+}

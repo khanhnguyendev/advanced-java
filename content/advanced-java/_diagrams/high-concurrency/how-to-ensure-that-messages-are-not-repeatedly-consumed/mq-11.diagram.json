@@ -1,0 +1,175 @@
+{
+  "id": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-11",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-11.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 440,
+    "h": 375
+  },
+  "nodes": [
+    {
+      "id": "producer",
+      "shape": "box",
+      "x": 30,
+      "y": 59,
+      "w": 94,
+      "h": 42,
+      "label": {
+        "key": "producer"
+      }
+    },
+    {
+      "id": "mq",
+      "shape": "round",
+      "x": 184,
+      "y": 48,
+      "w": 46,
+      "h": 62,
+      "label": {
+        "key": "mq"
+      }
+    },
+    {
+      "id": "consumer",
+      "shape": "box",
+      "x": 157,
+      "y": 203,
+      "w": 100,
+      "h": 42,
+      "label": {
+        "key": "consumer"
+      }
+    },
+    {
+      "id": "db",
+      "shape": "box",
+      "x": 132,
+      "y": 297,
+      "w": 150,
+      "h": 42,
+      "label": {
+        "key": "db"
+      }
+    },
+    {
+      "id": "d1",
+      "shape": "round",
+      "x": 228,
+      "y": 126,
+      "w": 124,
+      "h": 28,
+      "label": {
+        "key": "d1",
+        "literals": [
+          "id=1"
+        ]
+      }
+    },
+    {
+      "id": "d2",
+      "shape": "round",
+      "x": 228,
+      "y": 160,
+      "w": 124,
+      "h": 28,
+      "label": {
+        "key": "d2",
+        "literals": [
+          "id=1"
+        ]
+      }
+    },
+    {
+      "id": "d3",
+      "shape": "round",
+      "x": 228,
+      "y": 258,
+      "w": 124,
+      "h": 28,
+      "label": {
+        "key": "d3",
+        "literals": [
+          "id=1"
+        ]
+      }
+    },
+    {
+      "id": "set",
+      "shape": "pill",
+      "x": 262,
+      "y": 192,
+      "w": 160,
+      "h": 60,
+      "label": {
+        "key": "set",
+        "literals": [
+          "id=1"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          124,
+          80
+        ],
+        [
+          182,
+          80
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          207,
+          110
+        ],
+        [
+          207,
+          201
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          207,
+          245
+        ],
+        [
+          207,
+          295
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          267,
+          238
+        ],
+        [
+          257,
+          238
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc",
+  "texts": []
+}

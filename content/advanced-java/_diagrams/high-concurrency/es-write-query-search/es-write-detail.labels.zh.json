@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "g_m1": "",
+    "g_p1": "",
+    "t_m1": "机器1",
+    "t_p1": "es进程01",
+    "shard1": "shard 01\nprimary",
+    "shard3": "shard 03\nreplica",
+    "buffer": "内存 buffer",
+    "oscache": "os cache",
+    "segment": "segment file\n磁盘文件",
+    "translog": "translog日志文件",
+    "commit": "commit point\n磁盘文件",
+    "t_in": "写入",
+    "t_mem": "写入内存buffer，\n同时写入os cache",
+    "t_refresh": "每隔1s, refresh到os cache",
+    "t_data": "数据 refresh 到os cache后\n就能被搜索到；\n内存buffer 会被清空",
+    "t_fsync": "fsync",
+    "t_5s": "每隔5s，写入translog\n(所以宕机可能会有 5s 的数据丢失)",
+    "t_flush": "translog大到一定阈值，\n触发commit(flush)",
+    "t_def": "默认每隔30分钟 flush",
+    "t_list": "1. 将buffer数据刷到os cache\n2. os cache fsync 强刷到segment file,写\ncommit point\n3. 清空translog，重启一个",
+    "_title": "ES 写数据底层原理：数据经内存 buffer、os cache 写入 segment file，并由 translog 与 commit point 保证持久化",
+    "_desc": "写请求进入 shard 的 primary 后同时写入内存 buffer 和 translog，每秒 refresh 到 os cache 后即可被搜索，translog 过大或定时触发 flush，将数据 fsync 到 segment file 并写入 commit point。"
+  }
+}

@@ -1,0 +1,282 @@
+{
+  "id": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 800,
+    "h": 580
+  },
+  "nodes": [
+    {
+      "id": "producer",
+      "shape": "box",
+      "x": 329,
+      "y": 59,
+      "w": 126,
+      "h": 89,
+      "label": {
+        "key": "producer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "bubble",
+      "shape": "pill",
+      "x": 488,
+      "y": 102,
+      "w": 260,
+      "h": 66,
+      "label": {
+        "key": "bubble"
+      },
+      "role": "default"
+    },
+    {
+      "id": "q0",
+      "shape": "round",
+      "x": 69,
+      "y": 219,
+      "w": 120,
+      "h": 45,
+      "label": {
+        "key": "queue"
+      },
+      "role": "default"
+    },
+    {
+      "id": "q1",
+      "shape": "round",
+      "x": 332,
+      "y": 219,
+      "w": 120,
+      "h": 45,
+      "label": {
+        "key": "queue"
+      },
+      "role": "default"
+    },
+    {
+      "id": "q2",
+      "shape": "round",
+      "x": 597,
+      "y": 219,
+      "w": 120,
+      "h": 45,
+      "label": {
+        "key": "queue"
+      },
+      "role": "default"
+    },
+    {
+      "id": "r0",
+      "shape": "box",
+      "x": 60,
+      "y": 280,
+      "w": 140,
+      "h": 89,
+      "label": {
+        "key": "rabbit",
+        "literals": [
+          "RabbitMQ"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r1",
+      "shape": "box",
+      "x": 323,
+      "y": 280,
+      "w": 140,
+      "h": 89,
+      "label": {
+        "key": "rabbit",
+        "literals": [
+          "RabbitMQ"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r2",
+      "shape": "box",
+      "x": 589,
+      "y": 280,
+      "w": 140,
+      "h": 89,
+      "label": {
+        "key": "rabbit",
+        "literals": [
+          "RabbitMQ"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c0",
+      "shape": "box",
+      "x": 60,
+      "y": 459,
+      "w": 140,
+      "h": 89,
+      "label": {
+        "key": "consumer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c1",
+      "shape": "box",
+      "x": 323,
+      "y": 459,
+      "w": 140,
+      "h": 89,
+      "label": {
+        "key": "consumer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c2",
+      "shape": "box",
+      "x": 589,
+      "y": 459,
+      "w": 140,
+      "h": 89,
+      "label": {
+        "key": "consumer"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          392,
+          148
+        ],
+        [
+          392,
+          219
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "send",
+        "at": [
+          400,
+          183
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          332,
+          258
+        ],
+        [
+          189,
+          258
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "sync",
+        "at": [
+          260,
+          216
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          452,
+          258
+        ],
+        [
+          597,
+          258
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "sync",
+        "at": [
+          524,
+          216
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          130,
+          369
+        ],
+        [
+          130,
+          459
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          393,
+          369
+        ],
+        [
+          393,
+          459
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          659,
+          369
+        ],
+        [
+          659,
+          459
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          492,
+          140
+        ],
+        [
+          462,
+          150
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

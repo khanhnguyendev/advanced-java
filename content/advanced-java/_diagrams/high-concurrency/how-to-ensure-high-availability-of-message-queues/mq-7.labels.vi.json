@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "617e3150ac528a398c5f6a9a4a5666350c6af136e085382a09fc84539c895757",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "Chế độ cụm thông thường của RabbitMQ",
+    "_desc": "Trong cụm thông thường, queue chỉ nằm trên một instance RabbitMQ; các instance khác chỉ đồng bộ siêu dữ liệu và kéo dữ liệu từ instance đó khi tiêu thụ.",
+    "bubble": "Mỗi máy khởi động một tiến trình,\nđóng vai trò một node trong cụm",
+    "qbox": "queue\nChỉ nằm trên máy này\n(siêu dữ liệu\nvà dữ liệu thực)\n\ndata1\ndata2\ndata3",
+    "meta": "Siêu dữ liệu queue",
+    "rabbit": "Tiến trình RabbitMQ\n(instance)\n\nTriển khai trên\nmột máy riêng",
+    "consumer": "Consumer",
+    "n2": "2",
+    "pull": "1. Kéo dữ liệu",
+    "n3": "3",
+    "cons": "Nhược điểm:\n\n1. Bên trong cụm MQ có thể phát sinh\nlượng lớn dữ liệu truyền qua lại;\n2. Không đảm bảo tính sẵn sàng:\nnode chứa queue bị sập là mất dữ liệu."
+  }
+}

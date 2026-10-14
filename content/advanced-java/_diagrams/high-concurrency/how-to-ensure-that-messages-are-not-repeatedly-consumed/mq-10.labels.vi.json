@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "b54cd44d290e217b4bca29b8d72bb06234a1e392b0e968dd8d96be0d593630fe",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "zk": "Zookeeper",
+    "producer": "Producer",
+    "kafka": "Kafka",
+    "consumer": "Consumer",
+    "e_off": "offset gửi cho Kafka",
+    "e_commit": "Commit offset",
+    "l0": "Dữ liệu 1, offset=152",
+    "l1": "Dữ liệu 2, offset=153",
+    "l2": "Dữ liệu 3, offset=154",
+    "r0": "Dữ liệu 1, offset=152",
+    "r1": "Dữ liệu 2, offset=153",
+    "r2": "Dữ liệu 1, offset=152",
+    "r3": "Dữ liệu 2, offset=153",
+    "r4": "Dữ liệu 3, offset=154",
+    "_title": "Quy trình consumer Kafka commit offset",
+    "_desc": "Consumer commit offset lên Zookeeper sau khi tiêu thụ dữ liệu, và sau khi khởi động lại Kafka gửi lại dữ liệu từ offset đã commit gần nhất."
+  }
+}

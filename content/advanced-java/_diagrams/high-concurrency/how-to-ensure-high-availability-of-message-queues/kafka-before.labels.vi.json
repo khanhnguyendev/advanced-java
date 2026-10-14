@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "782b35be987bb50b3427f09bb8a981fae6342a1730c41eff5f536171beff079b",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "Các partition của Kafka phân bố trên nhiều máy (không có bản sao)",
+    "_desc": "Producer ghi dữ liệu data1, data2, data3 của topic vào partition1, 2, 3 nằm trên tiến trình broker của ba máy.",
+    "blank": "",
+    "producer": "Producer",
+    "m1": "Máy 1",
+    "m2": "Máy 2",
+    "m3": "Máy 3",
+    "broker": "Tiến trình\nbroker",
+    "td1": "topic data1",
+    "td2": "topic data2",
+    "td3": "topic data3",
+    "tp1": "topic partition1",
+    "tp2": "topic partition2",
+    "tp3": "topic partition3"
+  }
+}

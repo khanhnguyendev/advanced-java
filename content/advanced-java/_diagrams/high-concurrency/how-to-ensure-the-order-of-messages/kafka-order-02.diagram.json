@@ -1,0 +1,688 @@
+{
+  "id": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-02",
+  "source": {
+    "upstream": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-02.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 800,
+    "h": 830
+  },
+  "nodes": [
+    {
+      "id": "producer",
+      "shape": "pill",
+      "x": 40,
+      "y": 65,
+      "w": 130,
+      "h": 40,
+      "label": {
+        "key": "producer"
+      },
+      "role": "default"
+    },
+    {
+      "id": "top3",
+      "shape": "round",
+      "x": 190,
+      "y": 22,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "top3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "top2",
+      "shape": "round",
+      "x": 280,
+      "y": 22,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "top2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "top1",
+      "shape": "round",
+      "x": 370,
+      "y": 22,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "top1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "kafka",
+      "shape": "box",
+      "x": 470,
+      "y": 55,
+      "w": 120,
+      "h": 60,
+      "label": {
+        "key": "kafka",
+        "literals": [
+          "Kafka"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "lft3",
+      "shape": "round",
+      "x": 40,
+      "y": 413,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "lft3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "bot3",
+      "shape": "round",
+      "x": 372,
+      "y": 623,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "bot3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "lft2",
+      "shape": "round",
+      "x": 40,
+      "y": 453,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "lft2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "bot2",
+      "shape": "round",
+      "x": 372,
+      "y": 661,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "bot2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "lft1",
+      "shape": "round",
+      "x": 40,
+      "y": 493,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "lft1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "bot1",
+      "shape": "round",
+      "x": 372,
+      "y": 699,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "bot1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "p1",
+      "shape": "box",
+      "x": 285,
+      "y": 260,
+      "w": 130,
+      "h": 50,
+      "label": {
+        "key": "p1",
+        "literals": [
+          "partition1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "p2",
+      "shape": "box",
+      "x": 465,
+      "y": 260,
+      "w": 130,
+      "h": 50,
+      "label": {
+        "key": "p2",
+        "literals": [
+          "partition2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "p3",
+      "shape": "box",
+      "x": 645,
+      "y": 260,
+      "w": 130,
+      "h": 50,
+      "label": {
+        "key": "p3",
+        "literals": [
+          "partition3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c1",
+      "shape": "pill",
+      "x": 295,
+      "y": 325,
+      "w": 110,
+      "h": 40,
+      "label": {
+        "key": "c1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c2",
+      "shape": "pill",
+      "x": 475,
+      "y": 325,
+      "w": 110,
+      "h": 40,
+      "label": {
+        "key": "c2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c3",
+      "shape": "pill",
+      "x": 655,
+      "y": 325,
+      "w": 110,
+      "h": 40,
+      "label": {
+        "key": "c3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "callout",
+      "shape": "pill",
+      "x": 40,
+      "y": 290,
+      "w": 210,
+      "h": 56,
+      "label": {
+        "key": "callout"
+      },
+      "role": "default"
+    },
+    {
+      "id": "q1",
+      "shape": "box",
+      "x": 150,
+      "y": 410,
+      "w": 120,
+      "h": 84,
+      "label": {
+        "key": "q1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "th1",
+      "shape": "box",
+      "x": 160,
+      "y": 545,
+      "w": 100,
+      "h": 36,
+      "label": {
+        "key": "th1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "q2",
+      "shape": "box",
+      "x": 290,
+      "y": 410,
+      "w": 120,
+      "h": 84,
+      "label": {
+        "key": "q2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "th2",
+      "shape": "box",
+      "x": 300,
+      "y": 545,
+      "w": 100,
+      "h": 36,
+      "label": {
+        "key": "th2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "q3",
+      "shape": "box",
+      "x": 430,
+      "y": 410,
+      "w": 120,
+      "h": 84,
+      "label": {
+        "key": "q3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "th3",
+      "shape": "box",
+      "x": 440,
+      "y": 545,
+      "w": 100,
+      "h": 36,
+      "label": {
+        "key": "th3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "db",
+      "shape": "round",
+      "x": 100,
+      "y": 760,
+      "w": 600,
+      "h": 50,
+      "label": {
+        "key": "db"
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid3",
+      "shape": "round",
+      "x": 200,
+      "y": 133,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "mid3",
+        "literals": [
+          "data3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid2",
+      "shape": "round",
+      "x": 200,
+      "y": 173,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "mid2",
+        "literals": [
+          "data2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "mid1",
+      "shape": "round",
+      "x": 200,
+      "y": 213,
+      "w": 80,
+      "h": 34,
+      "label": {
+        "key": "mid1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          170,
+          85
+        ],
+        [
+          470,
+          85
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          490,
+          115
+        ],
+        [
+          490,
+          180
+        ],
+        [
+          350,
+          180
+        ],
+        [
+          350,
+          260
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          530,
+          115
+        ],
+        [
+          530,
+          260
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          570,
+          115
+        ],
+        [
+          570,
+          180
+        ],
+        [
+          710,
+          180
+        ],
+        [
+          710,
+          260
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          350,
+          310
+        ],
+        [
+          350,
+          325
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          530,
+          310
+        ],
+        [
+          530,
+          325
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          710,
+          310
+        ],
+        [
+          710,
+          325
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          320,
+          365
+        ],
+        [
+          320,
+          385
+        ],
+        [
+          210,
+          385
+        ],
+        [
+          210,
+          410
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          350,
+          365
+        ],
+        [
+          350,
+          410
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          380,
+          365
+        ],
+        [
+          380,
+          385
+        ],
+        [
+          490,
+          385
+        ],
+        [
+          490,
+          410
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          110,
+          346
+        ],
+        [
+          80,
+          413
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          210,
+          494
+        ],
+        [
+          210,
+          545
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          350,
+          494
+        ],
+        [
+          350,
+          545
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          490,
+          494
+        ],
+        [
+          490,
+          545
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          350,
+          581
+        ],
+        [
+          350,
+          760
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          210,
+          581
+        ],
+        [
+          210,
+          615
+        ],
+        [
+          350,
+          615
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          490,
+          581
+        ],
+        [
+          490,
+          615
+        ],
+        [
+          350,
+          615
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_same",
+      "x": 205,
+      "y": 100,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

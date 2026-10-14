@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "producer": "生产者",
+    "top3": "data3",
+    "top2": "data2",
+    "top1": "data1",
+    "kafka": "Kafka",
+    "lft3": "data3",
+    "bot3": "data3",
+    "lft2": "data2",
+    "bot2": "data2",
+    "lft1": "data1",
+    "bot1": "data1",
+    "p1": "partition1",
+    "p2": "partition2",
+    "p3": "partition3",
+    "c1": "消费者",
+    "c2": "消费者",
+    "c3": "消费者",
+    "callout": "到同一个内存queue",
+    "q1": "内存队列1",
+    "th1": "thread1",
+    "q2": "内存队列2",
+    "th2": "thread2",
+    "q3": "内存队列3",
+    "th3": "thread3",
+    "db": "数据库",
+    "t_same": "到了同一个partition",
+    "_title": "Kafka 同一 partition 的消息经多线程消费到数据库的顺序示意图",
+    "_desc": "生产者把 data1 到 data3 发到 Kafka，同一 partition 的数据由消费者按键分发到不同的内存队列，再由各自线程写入数据库。",
+    "mid3": "data3",
+    "mid2": "data2",
+    "mid1": "data1"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "782b35be987bb50b3427f09bb8a981fae6342a1730c41eff5f536171beff079b",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "Kafka partitions spread across machines (no replicas)",
+    "_desc": "The producer writes topic data1, data2 and data3 to partition1, 2 and 3 held by the broker processes on three machines.",
+    "blank": "",
+    "producer": "Producer",
+    "m1": "Machine 1",
+    "m2": "Machine 2",
+    "m3": "Machine 3",
+    "broker": "Broker\nprocess",
+    "td1": "topic data1",
+    "td2": "topic data2",
+    "td3": "topic data3",
+    "tp1": "topic partition1",
+    "tp2": "topic partition2",
+    "tp3": "topic partition3"
+  }
+}
