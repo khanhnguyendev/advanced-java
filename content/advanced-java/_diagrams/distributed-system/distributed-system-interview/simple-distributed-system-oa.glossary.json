@@ -1,0 +1,44 @@
+{
+  "labels": [
+    {
+      "zh": "员工系统",
+      "en": "Employee\nsystem",
+      "vi": "Hệ thống\nnhân viên"
+    },
+    {
+      "zh": "权限系统",
+      "en": "Permission\nsystem",
+      "vi": "Hệ thống\nphân quyền"
+    },
+    {
+      "zh": "财务系统",
+      "en": "Finance\nsystem",
+      "vi": "Hệ thống\ntài chính"
+    },
+    {
+      "zh": "请假系统",
+      "en": "Leave\nsystem",
+      "vi": "Hệ thống\nnghỉ phép"
+    },
+    {
+      "zh": "独立的1个工程\n独立部署在1台机器上",
+      "en": "One independent\nproject, deployed\non 1 machine",
+      "vi": "Một dự án độc lập,\ntriển khai độc lập\ntrên 1 máy"
+    },
+    {
+      "zh": "员工系统+请假系统+权限系统+财务\n系统=分布式OA系统",
+      "en": "Employee system + leave system +\npermission system + finance system\n= distributed OA system",
+      "vi": "Hệ thống nhân viên + hệ thống nghỉ phép\n+ hệ thống phân quyền + hệ thống tài chính\n= hệ thống OA phân tán"
+    },
+    {
+      "zh": "系统之间如何调用？\n传递json？",
+      "en": "How do the systems\ncall each other?\nPass json?",
+      "vi": "Các hệ thống gọi\nnhau thế nào?\nTruyền json?"
+    },
+    {
+      "zh": "多个系统之间的调用，如何\n放在一个事务？",
+      "en": "How can calls across\nmultiple systems be\nplaced in one transaction?",
+      "vi": "Làm sao đặt các lời gọi\ngiữa nhiều hệ thống\ntrong một giao dịch?"
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+ "id": "distributed-system/distributed-transaction/distributed-transaction-reliable-message",
+ "source": {
+  "upstream": "distributed-system/distributed-transaction/distributed-transaction-reliable-message.png",
+  "commit": "1a35221"
+ },
+ "license": "derived",
+ "size": {
+  "w": 1040,
+  "h": 540
+ },
+ "nodes": [
+  {
+   "id": "zk",
+   "shape": "box",
+   "x": 433,
+   "y": 47,
+   "w": 120,
+   "h": 28,
+   "label": {
+    "key": "zk",
+    "literals": [
+     "zookeeper"
+    ]
+   },
+   "role": "default"
+  },
+  {
+   "id": "a",
+   "shape": "box",
+   "x": 137,
+   "y": 181,
+   "w": 100,
+   "h": 70,
+   "label": {
+    "key": "a"
+   },
+   "role": "default"
+  },
+  {
+   "id": "mq",
+   "shape": "box",
+   "x": 435,
+   "y": 116,
+   "w": 113,
+   "h": 184,
+   "label": {
+    "key": "mq",
+    "literals": [
+     "RocketMQ"
+    ]
+   },
+   "role": "default"
+  },
+  {
+   "id": "b",
+   "shape": "box",
+   "x": 727,
+   "y": 181,
+   "w": 100,
+   "h": 70,
+   "label": {
+    "key": "b"
+   },
+   "role": "default"
+  },
+  {
+   "id": "dba",
+   "shape": "box",
+   "x": 137,
+   "y": 312,
+   "w": 100,
+   "h": 70,
+   "label": {
+    "key": "dba"
+   },
+   "role": "default"
+  },
+  {
+   "id": "dbb",
+   "shape": "box",
+   "x": 898,
+   "y": 181,
+   "w": 100,
+   "h": 70,
+   "label": {
+    "key": "dbb"
+   },
+   "role": "default"
+  }
+ ],
+ "edges": [
+  {
+   "points": [
+    [
+     213,
+     181
+    ],
+    [
+     213,
+     61
+    ],
+    [
+     433,
+     61
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     453,
+     75
+    ],
+    [
+     453,
+     100
+    ],
+    [
+     226,
+     100
+    ],
+    [
+     226,
+     181
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     237,
+     190
+    ],
+    [
+     335,
+     190
+    ],
+    [
+     335,
+     127
+    ],
+    [
+     435,
+     127
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     237,
+     218
+    ],
+    [
+     435,
+     218
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     435,
+     300
+    ],
+    [
+     217,
+     300
+    ],
+    [
+     217,
+     251
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     187,
+     251
+    ],
+    [
+     187,
+     312
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     548,
+     215
+    ],
+    [
+     638,
+     215
+    ],
+    [
+     638,
+     200
+    ],
+    [
+     727,
+     200
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     827,
+     215
+    ],
+    [
+     898,
+     215
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     777,
+     181
+    ],
+    [
+     777,
+     61
+    ],
+    [
+     553,
+     61
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  }
+ ],
+ "texts": [
+  {
+   "key": "t1",
+   "x": 105,
+   "y": 62,
+   "anchor": "middle",
+   "literals": [
+    "prepared"
+   ]
+  },
+  {
+   "key": "t2",
+   "x": 105,
+   "y": 112,
+   "anchor": "middle",
+   "literals": [
+    "prepared"
+   ]
+  },
+  {
+   "key": "t3",
+   "x": 562,
+   "y": 120,
+   "anchor": "start",
+   "literals": [
+    "confirm",
+    "MQ"
+   ]
+  },
+  {
+   "key": "t4",
+   "x": 320,
+   "y": 259,
+   "anchor": "middle",
+   "literals": [
+    "confirm"
+   ]
+  },
+  {
+   "key": "t5",
+   "x": 242,
+   "y": 340,
+   "anchor": "start",
+   "literals": []
+  },
+  {
+   "key": "t6",
+   "x": 452,
+   "y": 345,
+   "anchor": "start",
+   "literals": [
+    "prepared"
+   ]
+  },
+  {
+   "key": "t7",
+   "x": 452,
+   "y": 425,
+   "anchor": "start",
+   "literals": [
+    "rocketmq",
+    "prepared"
+   ]
+  },
+  {
+   "key": "t8",
+   "x": 790,
+   "y": 282,
+   "anchor": "middle",
+   "literals": []
+  },
+  {
+   "key": "t9",
+   "x": 790,
+   "y": 358,
+   "anchor": "middle",
+   "literals": [
+    "redis"
+   ]
+  },
+  {
+   "key": "t10",
+   "x": 790,
+   "y": 450,
+   "anchor": "middle",
+   "literals": [
+    "zk",
+    "node"
+   ]
+  }
+ ],
+ "title_key": "_title",
+ "desc_key": "_desc"
+}

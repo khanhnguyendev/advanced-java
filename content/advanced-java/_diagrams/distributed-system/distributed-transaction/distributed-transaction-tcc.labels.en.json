@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "f5a7000f66715db30f9447f356ed71b504717aa6707e5a545aa2f52253f62fd1", "source_lang": "zh" },
+  "labels": {
+    "user": "User",
+    "sysa": "System A",
+    "db1": "Database",
+    "bankb": "Bank B",
+    "bankc": "Bank C",
+    "db2": "Database",
+    "db3": "Database",
+    "t1": "Try phase: freeze the\nbank funds\n\nConfirm phase\n\n1. Insert data into\nits own database\n2. Call Bank B's API,\ndeduct funds\n3. Call Bank C's API,\ntransfer funds\n\nCancel phase: roll back\n\nAdd the amount deducted\nfrom Bank B back to it",
+    "_title": "TCC transaction flow",
+    "_desc": "A user calls System A, which writes to its own database and calls the APIs of Bank B and Bank C, each operating on its own database; the left side explains the Try, Confirm and Cancel phases."
+  }
+}

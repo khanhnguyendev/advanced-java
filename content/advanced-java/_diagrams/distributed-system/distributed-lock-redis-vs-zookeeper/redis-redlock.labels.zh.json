@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "a1": "系统A",
+    "a2": "系统A",
+    "a3": "系统A",
+    "r1": "redis\nmaster",
+    "r2": "redis\nmaster",
+    "r3": "redis\nmaster",
+    "r4": "redis\nmaster",
+    "r5": "redis\nmaster",
+    "_title": "RedLock 加锁：系统A 向五个 redis master 请求锁",
+    "_desc": "三个系统A 中的一个同时向五个独立的 redis master 节点中的三个发起加锁请求。"
+  }
+}

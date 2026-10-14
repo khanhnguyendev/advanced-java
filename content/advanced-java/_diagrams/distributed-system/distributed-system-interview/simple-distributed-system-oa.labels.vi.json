@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "991df79d14a195bf58b64e8d309ea313ceb9190aea5e85123b9192a4b4904633",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "Người dùng",
+    "emp": "Hệ thống\nnhân viên",
+    "perm": "Hệ thống\nphân quyền",
+    "fin": "Hệ thống\ntài chính",
+    "leave": "Hệ thống\nnghỉ phép",
+    "t_top": "Một dự án độc lập,\ntriển khai độc lập\ntrên 1 máy",
+    "t_b1": "Một dự án độc lập,\ntriển khai độc lập\ntrên 1 máy",
+    "t_b2": "Một dự án độc lập,\ntriển khai độc lập\ntrên 1 máy",
+    "t_b3": "Một dự án độc lập,\ntriển khai độc lập\ntrên 1 máy",
+    "t_sum": "Hệ thống nhân viên + hệ thống nghỉ phép\n+ hệ thống phân quyền + hệ thống tài chính\n= hệ thống OA phân tán",
+    "t_call": "Các hệ thống gọi\nnhau thế nào?\nTruyền json?",
+    "t_tx": "Làm sao đặt các lời gọi\ngiữa nhiều hệ thống\ntrong một giao dịch?",
+    "_title": "Hệ thống OA phân tán đơn giản",
+    "_desc": "Yêu cầu của người dùng đến hệ thống nhân viên, sau đó hệ thống này gọi các hệ thống phân quyền, tài chính và nghỉ phép, mỗi hệ thống được triển khai độc lập."
+  }
+}

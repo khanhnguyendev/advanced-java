@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "5183e439f98d9964e10ccbc67e95e0ac5c32c2f916d433b02ef6e496f4ac5281",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "a1": "Hệ thống A",
+    "a2": "Hệ thống A",
+    "a3": "Hệ thống A",
+    "r1": "redis\nmaster",
+    "r2": "redis\nmaster",
+    "r3": "redis\nmaster",
+    "r4": "redis\nmaster",
+    "r5": "redis\nmaster",
+    "_title": "RedLock: Hệ thống A yêu cầu khóa từ năm redis master",
+    "_desc": "Một trong ba Hệ thống A gửi yêu cầu khóa tới ba trong năm node redis master độc lập."
+  }
+}

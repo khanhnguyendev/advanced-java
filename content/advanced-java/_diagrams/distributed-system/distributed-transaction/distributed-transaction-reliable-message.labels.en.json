@@ -1,0 +1,23 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "33f8c48a2b32b7bc65bc54421e62828d53e9e92decff36f4df9d316a4ee7c9e2", "source_lang": "zh" },
+  "labels": {
+    "zk": "zookeeper",
+    "a": "System A",
+    "mq": "RocketMQ",
+    "b": "System B",
+    "dba": "Database",
+    "dbb": "Database",
+    "t1": "Send prepared message",
+    "t2": "If the local transaction\nfails, a message is sent\nto roll back the prepared\nmessage just sent",
+    "t3": "Once system A sends the\nconfirm message, MQ lets\nsystem B consume it",
+    "t4": "Send confirm message",
+    "t5": "Calls back an API of\nsystem A and asks: roll\nthis message back, or\nresend a confirm message?",
+    "t6": "If system A fails while\nsending the confirm message,\nthe message stays in the\nprepared state",
+    "t7": "rocketmq automatically polls\nall prepared messages",
+    "t8": "System B must guarantee\nits own idempotency",
+    "t9": "It can also record a flag in\nredis to show that it has\nalready processed a message",
+    "t10": "It can also create a node in zk\nto mean that it has already\nprocessed a certain message. If a\nduplicate message arrives, creating\nthe zk node reports an error",
+    "_title": "Reliable message eventual consistency with RocketMQ",
+    "_desc": "System A sends a prepared message to RocketMQ, then a confirm message once its local transaction succeeds, and RocketMQ lets system B consume it; RocketMQ polls unconfirmed prepared messages and calls system A back, and system B must be idempotent."
+  }
+}

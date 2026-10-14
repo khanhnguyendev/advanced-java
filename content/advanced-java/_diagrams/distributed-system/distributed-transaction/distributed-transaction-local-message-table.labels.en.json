@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "5c95d779b4a366f75a7ea26416c93b72bc288625e719f8320f7129fd01929c29",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "a": "System A",
+    "zk": "zookeeper",
+    "mq": "MQ",
+    "b": "System B",
+    "bdb": "System B's\ndatabase",
+    "bbiz": "Business\ntable",
+    "bmsg": "Message\ntable",
+    "adb": "System A's\ndatabase",
+    "abiz": "Business\ntable",
+    "amsg": "Message\ntable",
+    "t1": "In its local transaction,\ninsert into its business table,\nthen into its message table",
+    "t2": "Register a listener on\nthe node orderId=1",
+    "t3": "Modify the value of\nthe node orderId=1",
+    "t4": "In its own local transaction,\nfirst insert into the message table,\nthen insert into its business table",
+    "t5": "System A updates the\nmessage status: success",
+    "t6": "System A runs a background thread\nthat polls every 1 second for all\nmessages awaiting confirmation",
+    "t7": "A message has been awaiting\nconfirmation for over 1 minute",
+    "t8": "Initial state of System A's messages:\nall awaiting confirmation",
+    "t9": "Create a unique constraint:\nmake orderId a unique key",
+    "_title": "Local message table solution",
+    "_desc": "System A writes its business table and message table in one local transaction and notifies System B through MQ; System B writes its own tables in a local transaction, and a background thread in System A polls unconfirmed messages."
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "id": "distributed-system/distributed-transaction/distributed-transaction-tcc",
+  "source": {
+    "upstream": "distributed-system/distributed-transaction/distributed-transaction-TCC.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 620,
+    "h": 520
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "shape": "circle",
+      "x": 265,
+      "y": 40,
+      "w": 80,
+      "h": 80,
+      "label": {
+        "key": "user"
+      },
+      "role": "default"
+    },
+    {
+      "id": "sysa",
+      "shape": "box",
+      "x": 255,
+      "y": 175,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "sysa"
+      },
+      "role": "default"
+    },
+    {
+      "id": "db1",
+      "shape": "box",
+      "x": 487,
+      "y": 175,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "db1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "bankb",
+      "shape": "box",
+      "x": 160,
+      "y": 325,
+      "w": 116,
+      "h": 70,
+      "label": {
+        "key": "bankb"
+      },
+      "role": "default"
+    },
+    {
+      "id": "bankc",
+      "shape": "box",
+      "x": 352,
+      "y": 325,
+      "w": 116,
+      "h": 70,
+      "label": {
+        "key": "bankc"
+      },
+      "role": "default"
+    },
+    {
+      "id": "db2",
+      "shape": "box",
+      "x": 160,
+      "y": 430,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "db2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "db3",
+      "shape": "box",
+      "x": 352,
+      "y": 430,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "db3"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          305,
+          120
+        ],
+        [
+          305,
+          175
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          355,
+          210
+        ],
+        [
+          487,
+          210
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          288,
+          245
+        ],
+        [
+          288,
+          295
+        ],
+        [
+          210,
+          295
+        ],
+        [
+          210,
+          325
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          332,
+          245
+        ],
+        [
+          332,
+          295
+        ],
+        [
+          402,
+          295
+        ],
+        [
+          402,
+          325
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          210,
+          395
+        ],
+        [
+          210,
+          430
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          402,
+          395
+        ],
+        [
+          402,
+          430
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t1",
+      "x": 12,
+      "y": 20,
+      "anchor": "start",
+      "literals": [
+        "Try",
+        "Confirm",
+        "Cancel"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

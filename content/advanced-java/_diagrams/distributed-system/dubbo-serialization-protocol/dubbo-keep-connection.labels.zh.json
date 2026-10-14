@@ -1,0 +1,17 @@
+{
+  "meta": { "locale": "zh", "status": "source" },
+  "labels": {
+    "bubble": "建立连接之后保持着，持续发送请求",
+    "q3": "请求3",
+    "q2": "请求2",
+    "q1": "请求1",
+    "c1": "consumer",
+    "c2": "consumer",
+    "c3": "consumer",
+    "c4": "consumer",
+    "p1": "provider",
+    "p2": "provider",
+    "_title": "Dubbo 长连接",
+    "_desc": "多个 consumer 与 provider 建立连接后保持着，持续发送请求。"
+  }
+}

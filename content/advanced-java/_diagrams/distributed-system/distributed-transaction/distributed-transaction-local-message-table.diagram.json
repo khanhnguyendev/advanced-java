@@ -1,0 +1,383 @@
+{
+  "id": "distributed-system/distributed-transaction/distributed-transaction-local-message-table",
+  "source": {
+    "upstream": "distributed-system/distributed-transaction/distributed-transaction-local-message-table.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1120,
+    "h": 520
+  },
+  "nodes": [
+    {
+      "id": "a",
+      "shape": "box",
+      "x": 140,
+      "y": 145,
+      "w": 115,
+      "h": 70,
+      "label": {
+        "key": "a"
+      },
+      "role": "default"
+    },
+    {
+      "id": "zk",
+      "shape": "box",
+      "x": 313,
+      "y": 87,
+      "w": 110,
+      "h": 30,
+      "label": {
+        "key": "zk",
+        "literals": [
+          "zookeeper"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "mq",
+      "shape": "box",
+      "x": 361,
+      "y": 166,
+      "w": 108,
+      "h": 30,
+      "label": {
+        "key": "mq",
+        "literals": [
+          "MQ"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "b",
+      "shape": "box",
+      "x": 545,
+      "y": 145,
+      "w": 115,
+      "h": 70,
+      "label": {
+        "key": "b"
+      },
+      "role": "default"
+    },
+    {
+      "id": "bdb",
+      "shape": "group",
+      "x": 755,
+      "y": 125,
+      "w": 275,
+      "h": 137,
+      "label": {
+        "key": "bdb"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "bbiz",
+      "shape": "box",
+      "x": 790,
+      "y": 173,
+      "w": 100,
+      "h": 52,
+      "label": {
+        "key": "bbiz"
+      },
+      "role": "default"
+    },
+    {
+      "id": "bmsg",
+      "shape": "box",
+      "x": 918,
+      "y": 173,
+      "w": 100,
+      "h": 52,
+      "label": {
+        "key": "bmsg"
+      },
+      "role": "default"
+    },
+    {
+      "id": "adb",
+      "shape": "group",
+      "x": 40,
+      "y": 308,
+      "w": 310,
+      "h": 122,
+      "label": {
+        "key": "adb"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "abiz",
+      "shape": "box",
+      "x": 70,
+      "y": 354,
+      "w": 120,
+      "h": 52,
+      "label": {
+        "key": "abiz"
+      },
+      "role": "default"
+    },
+    {
+      "id": "amsg",
+      "shape": "box",
+      "x": 218,
+      "y": 354,
+      "w": 100,
+      "h": 52,
+      "label": {
+        "key": "amsg"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          235,
+          145
+        ],
+        [
+          235,
+          101
+        ],
+        [
+          313,
+          101
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          358,
+          117
+        ],
+        [
+          358,
+          157
+        ],
+        [
+          255,
+          157
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          255,
+          180
+        ],
+        [
+          361,
+          180
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          469,
+          180
+        ],
+        [
+          545,
+          180
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          571,
+          145
+        ],
+        [
+          571,
+          101
+        ],
+        [
+          423,
+          101
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          660,
+          180
+        ],
+        [
+          725,
+          180
+        ],
+        [
+          725,
+          199
+        ],
+        [
+          790,
+          199
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          587,
+          215
+        ],
+        [
+          587,
+          253
+        ],
+        [
+          968,
+          253
+        ],
+        [
+          968,
+          225
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          180,
+          215
+        ],
+        [
+          180,
+          354
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          235,
+          215
+        ],
+        [
+          235,
+          354
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          255,
+          205
+        ],
+        [
+          300,
+          205
+        ],
+        [
+          300,
+          354
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t1",
+      "x": 115,
+      "y": 80,
+      "anchor": "middle"
+    },
+    {
+      "key": "t2",
+      "x": 305,
+      "y": 50,
+      "anchor": "middle",
+      "literals": [
+        "orderId=1"
+      ]
+    },
+    {
+      "key": "t3",
+      "x": 486,
+      "y": 50,
+      "anchor": "middle",
+      "literals": [
+        "orderId=1"
+      ]
+    },
+    {
+      "key": "t4",
+      "x": 715,
+      "y": 63,
+      "anchor": "middle"
+    },
+    {
+      "key": "t5",
+      "x": 325,
+      "y": 262,
+      "anchor": "start"
+    },
+    {
+      "key": "t6",
+      "x": 475,
+      "y": 326,
+      "anchor": "middle"
+    },
+    {
+      "key": "t7",
+      "x": 475,
+      "y": 410,
+      "anchor": "middle"
+    },
+    {
+      "key": "t8",
+      "x": 287,
+      "y": 457,
+      "anchor": "middle"
+    },
+    {
+      "key": "t9",
+      "x": 985,
+      "y": 285,
+      "anchor": "middle",
+      "literals": [
+        "orderId"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

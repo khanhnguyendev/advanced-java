@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "e60efacc75b6c8a69840de8c01e29376f9480c6d91dfa232445ba680159660e4"
+  },
+  "labels": {
+    "l1": "service layer: provider and consumer, the interfaces left for you to implement",
+    "l2": "config layer: every framework needs to provide configuration files so that you can configure it",
+    "l3": "proxy layer: the proxy layer; for both consumer and provider, dubbo generates proxies for you, and the proxies communicate over the network",
+    "l4": "registry layer: a provider registers itself as a service, so a consumer can ask the service registry for the service it wants to call",
+    "l5": "cluster layer: a provider can be deployed on multiple machines, and multiple providers form a cluster",
+    "l6": "monitor layer: how many times has the consumer called the provider? Statistics and monitoring",
+    "l7": "protocol layer: handles the network communication when a concrete provider and consumer call an interface",
+    "l8": "exchange layer: information exchange",
+    "l9": "serialize layer: serialization",
+    "user": "User",
+    "reg": "Service registry",
+    "consumer": "consumer",
+    "px1": "Proxy",
+    "px2": "Proxy",
+    "px3": "Proxy",
+    "px4": "Proxy",
+    "lb": "Load balancing",
+    "pv1": "provider (service A)\nN interfaces\ncustom configuration",
+    "pv2": "provider (service A)\nN interfaces\ncustom configuration",
+    "pv3": "provider (service A)\nN interfaces\ncustom configuration",
+    "t_reg": "The service registry knows that service A\nis deployed on 3 machines, at\n196.168.0.1, 192.168.0.2,\n192.168.0.3 respectively",
+    "t_ask": "Ask the service registry:\nis service A there? Which machines\nis it deployed on?",
+    "t_know": "The consumer now knows that\nservice A runs on 3 machines,\nalong with each machine's\nIP address and port",
+    "t_proxy": "Proxy of service A\nlistens for network\nrequests",
+    "t_r1": "Register\nservice info",
+    "t_r2": "Register\nservice\ninfo",
+    "t_r3": "Register\nservice\ninfo",
+    "_title": "Dubbo layers and the runtime flow of one RPC call",
+    "_desc": "The nine Dubbo layers are listed on top; below, a consumer calls several providers through a proxy and load balancing, providers register with the service registry, and the registry tells the consumer where service A runs."
+  }
+}

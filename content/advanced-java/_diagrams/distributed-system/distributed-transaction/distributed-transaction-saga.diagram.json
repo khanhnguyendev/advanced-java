@@ -1,0 +1,300 @@
+{
+  "id": "distributed-system/distributed-transaction/distributed-transaction-saga",
+  "source": {
+    "upstream": "distributed-system/distributed-transaction/distributed-transaction-saga.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 470,
+    "h": 490
+  },
+  "nodes": [
+    {
+      "id": "gl",
+      "shape": "group",
+      "x": 10,
+      "y": 40,
+      "w": 180,
+      "h": 440,
+      "role": "default",
+      "label": {
+        "key": "ttl"
+      }
+    },
+    {
+      "id": "gr",
+      "shape": "group",
+      "x": 230,
+      "y": 40,
+      "w": 215,
+      "h": 315,
+      "role": "default",
+      "label": {
+        "key": "ttr"
+      }
+    },
+    {
+      "id": "t1",
+      "shape": "round",
+      "x": 30,
+      "y": 70,
+      "w": 115,
+      "h": 50,
+      "label": {
+        "key": "t1",
+        "literals": [
+          "T1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "t2",
+      "shape": "round",
+      "x": 30,
+      "y": 175,
+      "w": 115,
+      "h": 50,
+      "label": {
+        "key": "t2",
+        "literals": [
+          "T2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "t3",
+      "shape": "round",
+      "x": 30,
+      "y": 290,
+      "w": 115,
+      "h": 50,
+      "label": {
+        "key": "t3",
+        "literals": [
+          "T3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "tn",
+      "shape": "round",
+      "x": 30,
+      "y": 400,
+      "w": 115,
+      "h": 50,
+      "label": {
+        "key": "tn",
+        "literals": [
+          "Tn"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c1",
+      "shape": "round",
+      "x": 265,
+      "y": 70,
+      "w": 115,
+      "h": 50,
+      "label": {
+        "key": "c1",
+        "literals": [
+          "C1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c2",
+      "shape": "round",
+      "x": 265,
+      "y": 175,
+      "w": 115,
+      "h": 50,
+      "label": {
+        "key": "c2",
+        "literals": [
+          "C2"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c3",
+      "shape": "round",
+      "x": 265,
+      "y": 290,
+      "w": 115,
+      "h": 50,
+      "label": {
+        "key": "c3",
+        "literals": [
+          "C3"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "fail",
+      "shape": "box",
+      "x": 205,
+      "y": 375,
+      "w": 90,
+      "h": 70,
+      "label": {
+        "key": "fail"
+      },
+      "role": "accent"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          87,
+          120
+        ],
+        [
+          87,
+          175
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          87,
+          225
+        ],
+        [
+          87,
+          290
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          87,
+          340
+        ],
+        [
+          87,
+          400
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          145,
+          303
+        ],
+        [
+          265,
+          303
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          322,
+          290
+        ],
+        [
+          322,
+          225
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          322,
+          175
+        ],
+        [
+          322,
+          120
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          145,
+          95
+        ],
+        [
+          265,
+          95
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          145,
+          200
+        ],
+        [
+          265,
+          200
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          145,
+          327
+        ],
+        [
+          265,
+          327
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          205,
+          395
+        ],
+        [
+          135,
+          340
+        ]
+      ],
+      "arrow": "end",
+      "style": "accent"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

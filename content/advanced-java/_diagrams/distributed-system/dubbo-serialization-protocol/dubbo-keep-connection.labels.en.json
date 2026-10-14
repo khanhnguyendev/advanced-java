@@ -1,0 +1,17 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "c51659c4c7eb1f4773117b2d6098ca11917e44257eb27d72f68cc6757708b896" },
+  "labels": {
+    "bubble": "The connection stays open once established; requests keep being sent",
+    "q3": "Request 3",
+    "q2": "Request 2",
+    "q1": "Request 1",
+    "c1": "consumer",
+    "c2": "consumer",
+    "c3": "consumer",
+    "c4": "consumer",
+    "p1": "provider",
+    "p2": "provider",
+    "_title": "Dubbo long connection",
+    "_desc": "Several consumers keep their connections to a provider open after establishing them and keep sending requests over them."
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "id": "distributed-system/distributed-lock-redis-vs-zookeeper/redis-redlock",
+  "source": {
+    "upstream": "distributed-system/distributed-lock-redis-vs-zookeeper/redis-redlock.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 560,
+    "h": 310
+  },
+  "nodes": [
+    {
+      "id": "a1",
+      "shape": "box",
+      "x": 68,
+      "y": 47,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "a1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "a2",
+      "shape": "box",
+      "x": 233,
+      "y": 47,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "a2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "a3",
+      "shape": "box",
+      "x": 403,
+      "y": 47,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "a3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "r1",
+      "shape": "circle",
+      "x": 43,
+      "y": 198,
+      "w": 80,
+      "h": 80,
+      "label": {
+        "key": "r1",
+        "literals": [
+          "redis",
+          "master"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r2",
+      "shape": "circle",
+      "x": 143,
+      "y": 198,
+      "w": 80,
+      "h": 80,
+      "label": {
+        "key": "r2",
+        "literals": [
+          "redis",
+          "master"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r3",
+      "shape": "circle",
+      "x": 243,
+      "y": 198,
+      "w": 80,
+      "h": 80,
+      "label": {
+        "key": "r3",
+        "literals": [
+          "redis",
+          "master"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r4",
+      "shape": "circle",
+      "x": 343,
+      "y": 198,
+      "w": 80,
+      "h": 80,
+      "label": {
+        "key": "r4",
+        "literals": [
+          "redis",
+          "master"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "r5",
+      "shape": "circle",
+      "x": 443,
+      "y": 198,
+      "w": 80,
+      "h": 80,
+      "label": {
+        "key": "r5",
+        "literals": [
+          "redis",
+          "master"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          255,
+          117
+        ],
+        [
+          255,
+          160
+        ],
+        [
+          83,
+          160
+        ],
+        [
+          83,
+          198
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          283,
+          117
+        ],
+        [
+          283,
+          198
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          305,
+          117
+        ],
+        [
+          305,
+          160
+        ],
+        [
+          483,
+          160
+        ],
+        [
+          483,
+          198
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

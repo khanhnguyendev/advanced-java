@@ -1,0 +1,12 @@
+{
+  "meta": { "locale": "zh", "status": "machine", "from": "15d52f74fcf7a0541d884511f7fed8f589d6486c2b14c9501e02651fdee85230", "source_lang": "en" },
+  "labels": {
+    "ttl": "正常事务",
+    "ttr": "补偿事务",
+    "t1": "T1", "t2": "T2", "t3": "T3", "tn": "Tn",
+    "c1": "C1", "c2": "C2", "c3": "C3",
+    "fail": "失败！",
+    "_title": "Saga：正常事务与补偿事务",
+    "_desc": "执行到 T3 时失败，右侧补偿事务 C3、C2、C1 按相反顺序执行。"
+  }
+}

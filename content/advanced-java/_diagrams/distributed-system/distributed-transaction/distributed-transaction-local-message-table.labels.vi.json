@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "5c95d779b4a366f75a7ea26416c93b72bc288625e719f8320f7129fd01929c29",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "a": "Hệ thống A",
+    "zk": "zookeeper",
+    "mq": "MQ",
+    "b": "Hệ thống B",
+    "bdb": "Cơ sở dữ liệu\ncủa hệ thống B",
+    "bbiz": "Bảng\nnghiệp vụ",
+    "bmsg": "Bảng\nthông điệp",
+    "adb": "Cơ sở dữ liệu\ncủa hệ thống A",
+    "abiz": "Bảng\nnghiệp vụ",
+    "amsg": "Bảng\nthông điệp",
+    "t1": "Trong giao dịch cục bộ:\nchèn vào bảng nghiệp vụ,\nrồi chèn vào bảng thông điệp",
+    "t2": "Đăng ký một listener\ncho node orderId=1",
+    "t3": "Sửa giá trị của\nnode orderId=1",
+    "t4": "Trong giao dịch cục bộ của mình:\nchèn vào bảng thông điệp trước,\nrồi chèn vào bảng nghiệp vụ",
+    "t5": "Hệ thống A cập nhật\ntrạng thái thông điệp:\nthành công",
+    "t6": "Hệ thống A chạy một luồng nền,\ncứ mỗi 1 giây quét mọi thông điệp\nở trạng thái chờ xác nhận",
+    "t7": "Có thông điệp chờ xác nhận\nquá 1 phút",
+    "t8": "Trạng thái ban đầu của thông điệp\ntrong hệ thống A:\nđều là chờ xác nhận",
+    "t9": "Tạo ràng buộc duy nhất:\nđặt orderId làm\nkhóa duy nhất",
+    "_title": "Phương án bảng thông điệp cục bộ",
+    "_desc": "Hệ thống A ghi bảng nghiệp vụ và bảng thông điệp trong một giao dịch cục bộ rồi báo cho hệ thống B qua MQ; hệ thống B ghi các bảng của mình trong giao dịch cục bộ, còn một luồng nền của hệ thống A quét các thông điệp chưa được xác nhận."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "f5a7000f66715db30f9447f356ed71b504717aa6707e5a545aa2f52253f62fd1", "source_lang": "zh" },
+  "labels": {
+    "user": "Người dùng",
+    "sysa": "Hệ thống A",
+    "db1": "Cơ sở\ndữ liệu",
+    "bankb": "Ngân hàng B",
+    "bankc": "Ngân hàng C",
+    "db2": "Cơ sở\ndữ liệu",
+    "db3": "Cơ sở\ndữ liệu",
+    "t1": "Giai đoạn Try: đóng băng\ntiền ngân hàng\n\nGiai đoạn Confirm\n\n1. Chèn dữ liệu vào\ncơ sở dữ liệu của mình\n2. Gọi API của ngân hàng B,\ntrừ tiền\n3. Gọi API của ngân hàng C,\nchuyển khoản\n\nGiai đoạn Cancel: rollback\n\nCộng lại khoản đã trừ\nở ngân hàng B",
+    "_title": "Luồng giao dịch TCC",
+    "_desc": "Người dùng gọi hệ thống A, hệ thống A ghi vào cơ sở dữ liệu của mình và gọi API của ngân hàng B và ngân hàng C, mỗi bên thao tác trên cơ sở dữ liệu riêng; bên trái giải thích các giai đoạn Try, Confirm và Cancel."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "15d52f74fcf7a0541d884511f7fed8f589d6486c2b14c9501e02651fdee85230", "source_lang": "en" },
+  "labels": {
+    "ttl": "Giao dịch bình thường",
+    "ttr": "Giao dịch bù trừ",
+    "t1": "T1", "t2": "T2", "t3": "T3", "tn": "Tn",
+    "c1": "C1", "c2": "C2", "c3": "C3",
+    "fail": "THẤT BẠI",
+    "_title": "Saga: giao dịch bình thường và giao dịch bù trừ",
+    "_desc": "Bên trái, các giao dịch bình thường T1, T2, T3 và Tn chạy lần lượt. Khi T3 thất bại, bên phải các giao dịch bù trừ C3, C2, C1 chạy theo thứ tự ngược lại."
+  }
+}

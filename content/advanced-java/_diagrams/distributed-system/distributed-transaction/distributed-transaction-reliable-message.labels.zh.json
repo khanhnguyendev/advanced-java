@@ -1,0 +1,23 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "zk": "zookeeper",
+    "a": "A系统",
+    "mq": "RocketMQ",
+    "b": "B系统",
+    "dba": "数据库",
+    "dbb": "数据库",
+    "t1": "发送prepared消息",
+    "t2": "如果本地事务失败，\n就会发送消息回滚刚才的那个\nprepared消息",
+    "t3": "一旦A系统发送confirm消息，\nMQ就会让B系统消费到这条消息",
+    "t4": "发送confirm消息",
+    "t5": "回调A系统的一个接口问你，\n这个消息是回滚？还是重新\n发送一次确认消息？",
+    "t6": "假如说A系统发行确认消息\n的时候失败了，消息停留在\nprepared状态",
+    "t7": "rocketmq自动轮询所有\nprepared消息",
+    "t8": "B系统一定要保证自己的幂\n等性",
+    "t9": "也可以通过在redis里记录一\n个标识，表明说，自己已经\n处理过某个消息了",
+    "t10": "也可以在zk中，创建一个node，\n就是代表某个消息自己已经处理过了，\n如果重复消息过来，\n创建zk node，会报错",
+    "_title": "基于 RocketMQ 的可靠消息最终一致性方案",
+    "_desc": "A 系统先向 RocketMQ 发送 prepared 消息，本地事务成功后发送 confirm 消息，RocketMQ 再让 B 系统消费；RocketMQ 会轮询未确认的 prepared 消息并回调 A 系统，B 系统需保证幂等。"
+  }
+}

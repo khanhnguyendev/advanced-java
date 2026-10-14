@@ -1,0 +1,23 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "33f8c48a2b32b7bc65bc54421e62828d53e9e92decff36f4df9d316a4ee7c9e2", "source_lang": "zh" },
+  "labels": {
+    "zk": "zookeeper",
+    "a": "Hệ thống A",
+    "mq": "RocketMQ",
+    "b": "Hệ thống B",
+    "dba": "Cơ sở\ndữ liệu",
+    "dbb": "Cơ sở\ndữ liệu",
+    "t1": "Gửi thông điệp prepared",
+    "t2": "Nếu giao dịch cục bộ\nthất bại, sẽ gửi thông điệp\nđể rollback thông điệp\nprepared vừa gửi",
+    "t3": "Một khi hệ thống A gửi\nthông điệp confirm, MQ sẽ\ncho hệ thống B tiêu thụ\nthông điệp này",
+    "t4": "Gửi thông điệp confirm",
+    "t5": "Gọi lại một API của\nhệ thống A để hỏi:\nthông điệp này rollback\nhay gửi lại thông điệp\nxác nhận?",
+    "t6": "Nếu hệ thống A gửi\nthông điệp xác nhận\nthất bại, thông điệp\ndừng ở trạng thái prepared",
+    "t7": "rocketmq tự động thăm dò\ntất cả thông điệp prepared",
+    "t8": "Hệ thống B phải tự đảm bảo\ntính idempotent của mình",
+    "t9": "Cũng có thể ghi một dấu hiệu\nvào redis để cho biết mình đã\nxử lý thông điệp đó rồi",
+    "t10": "Cũng có thể tạo một node trong zk\nđể biểu thị đã xử lý một thông điệp.\nNếu thông điệp trùng lặp đến,\ntạo zk node sẽ báo lỗi",
+    "_title": "Thông điệp tin cậy với nhất quán cuối cùng dựa trên RocketMQ",
+    "_desc": "Hệ thống A gửi thông điệp prepared đến RocketMQ, rồi gửi thông điệp confirm sau khi giao dịch cục bộ thành công để RocketMQ cho hệ thống B tiêu thụ; RocketMQ thăm dò các thông điệp prepared chưa xác nhận và gọi lại hệ thống A, còn hệ thống B phải idempotent."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "e60efacc75b6c8a69840de8c01e29376f9480c6d91dfa232445ba680159660e4"
+  },
+  "labels": {
+    "l1": "Tầng service: provider và consumer, các API do bạn tự triển khai",
+    "l2": "Tầng config: framework nào cũng cần cung cấp tệp cấu hình để bạn có thể cấu hình",
+    "l3": "Tầng proxy: tầng proxy, dù là consumer hay provider thì dubbo đều sinh proxy cho bạn, việc giao tiếp mạng được thực hiện giữa các proxy",
+    "l4": "Tầng registry: provider đăng ký chính nó như một dịch vụ, nhờ đó consumer có thể tìm đến trung tâm đăng ký dịch vụ để tìm dịch vụ cần gọi",
+    "l5": "Tầng cluster: provider có thể được triển khai trên nhiều máy, nhiều provider tạo thành một cụm (cluster)",
+    "l6": "Tầng monitor: consumer gọi provider bao nhiêu lần? Giám sát thông tin thống kê",
+    "l7": "Tầng protocol: chịu trách nhiệm giao tiếp mạng khi provider và consumer cụ thể gọi API của nhau",
+    "l8": "Tầng exchange: trao đổi thông tin",
+    "l9": "Tầng serialize: tuần tự hóa (serialization)",
+    "user": "Người dùng",
+    "reg": "Trung tâm đăng ký dịch vụ",
+    "consumer": "consumer",
+    "px1": "Proxy",
+    "px2": "Proxy",
+    "px3": "Proxy",
+    "px4": "Proxy",
+    "lb": "Cân bằng tải",
+    "pv1": "provider (dịch vụ A)\nN API\ncấu hình tùy chỉnh",
+    "pv2": "provider (dịch vụ A)\nN API\ncấu hình tùy chỉnh",
+    "pv3": "provider (dịch vụ A)\nN API\ncấu hình tùy chỉnh",
+    "t_reg": "Trung tâm đăng ký dịch vụ biết rằng\ndịch vụ A được triển khai trên 3 máy,\nlần lượt tại 196.168.0.1,\n192.168.0.2, 192.168.0.3",
+    "t_ask": "Hỏi trung tâm đăng ký:\ndịch vụ A có không? Được\ntriển khai ở những máy nào?",
+    "t_know": "consumer biết dịch vụ A\nđược triển khai trên 3 máy,\ncùng địa chỉ IP và cổng\ncủa từng máy",
+    "t_proxy": "Proxy của dịch vụ A\nlắng nghe\nyêu cầu mạng",
+    "t_r1": "Đăng ký\nthông tin dịch vụ",
+    "t_r2": "Đăng ký\nthông tin\ndịch vụ",
+    "t_r3": "Đăng ký\nthông tin\ndịch vụ",
+    "_title": "Các tầng của Dubbo và luồng chạy của một lời gọi RPC",
+    "_desc": "Phía trên liệt kê chín tầng của Dubbo; phía dưới là consumer gọi nhiều provider qua proxy và cân bằng tải, provider đăng ký với trung tâm đăng ký dịch vụ, trung tâm này cho consumer biết dịch vụ A chạy ở đâu."
+  }
+}

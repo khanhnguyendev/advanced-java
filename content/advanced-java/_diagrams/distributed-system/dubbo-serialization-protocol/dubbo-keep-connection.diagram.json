@@ -1,0 +1,27 @@
+{
+  "id": "distributed-system/dubbo-serialization-protocol/dubbo-keep-connection",
+  "source": { "upstream": "distributed-system/dubbo-serialization-protocol/dubbo-keep-connection.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 480, "h": 330 },
+  "nodes": [
+    { "id": "bubble", "shape": "pill", "x": 110, "y": 12, "w": 320, "h": 50, "label": { "key": "bubble" } },
+    { "id": "q3", "shape": "round", "x": 120, "y": 78, "w": 100, "h": 28, "label": { "key": "q3" } },
+    { "id": "q2", "shape": "round", "x": 230, "y": 78, "w": 100, "h": 28, "label": { "key": "q2" } },
+    { "id": "q1", "shape": "round", "x": 340, "y": 78, "w": 100, "h": 28, "label": { "key": "q1" } },
+    { "id": "c1", "shape": "box", "x": 40, "y": 120, "w": 92, "h": 30, "label": { "key": "c1", "literals": ["consumer"] } },
+    { "id": "c2", "shape": "box", "x": 40, "y": 170, "w": 92, "h": 30, "label": { "key": "c2", "literals": ["consumer"] } },
+    { "id": "c3", "shape": "box", "x": 40, "y": 220, "w": 92, "h": 30, "label": { "key": "c3", "literals": ["consumer"] } },
+    { "id": "c4", "shape": "box", "x": 40, "y": 272, "w": 92, "h": 30, "label": { "key": "c4", "literals": ["consumer"] } },
+    { "id": "p1", "shape": "box", "x": 290, "y": 170, "w": 90, "h": 30, "label": { "key": "p1", "literals": ["provider"] } },
+    { "id": "p2", "shape": "box", "x": 290, "y": 220, "w": 90, "h": 30, "label": { "key": "p2", "literals": ["provider"] } }
+  ],
+  "edges": [
+    { "points": [[132, 135], [335, 135], [335, 170]], "arrow": "end", "style": "solid" },
+    { "points": [[132, 185], [290, 185]], "arrow": "end", "style": "solid" },
+    { "points": [[132, 235], [290, 235]], "arrow": "end", "style": "solid" },
+    { "points": [[132, 287], [335, 287], [335, 250]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

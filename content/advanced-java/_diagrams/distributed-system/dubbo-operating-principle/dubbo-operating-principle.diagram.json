@@ -1,0 +1,566 @@
+{
+  "id": "distributed-system/dubbo-operating-principle/dubbo-operating-principle",
+  "source": {
+    "upstream": "distributed-system/dubbo-operating-principle/dubbo-operating-principle.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1100,
+    "h": 920
+  },
+  "nodes": [
+    {
+      "id": "l1",
+      "shape": "box",
+      "x": 200,
+      "y": 47,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l1",
+        "literals": [
+          "service",
+          "provider",
+          "consumer"
+        ]
+      }
+    },
+    {
+      "id": "l2",
+      "shape": "box",
+      "x": 200,
+      "y": 99,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l2"
+      }
+    },
+    {
+      "id": "l3",
+      "shape": "box",
+      "x": 200,
+      "y": 151,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l3",
+        "literals": [
+          "proxy",
+          "consumer",
+          "provider",
+          "dubbo"
+        ]
+      }
+    },
+    {
+      "id": "l4",
+      "shape": "box",
+      "x": 200,
+      "y": 203,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l4"
+      }
+    },
+    {
+      "id": "l5",
+      "shape": "box",
+      "x": 200,
+      "y": 258,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l5"
+      }
+    },
+    {
+      "id": "l6",
+      "shape": "box",
+      "x": 200,
+      "y": 309,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l6"
+      }
+    },
+    {
+      "id": "l7",
+      "shape": "box",
+      "x": 200,
+      "y": 363,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l7",
+        "literals": [
+          "protocol",
+          "provider",
+          "consumer"
+        ]
+      }
+    },
+    {
+      "id": "l8",
+      "shape": "box",
+      "x": 200,
+      "y": 414,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l8",
+        "literals": [
+          "exchange"
+        ]
+      }
+    },
+    {
+      "id": "l9",
+      "shape": "box",
+      "x": 200,
+      "y": 466,
+      "w": 700,
+      "h": 42,
+      "label": {
+        "key": "l9",
+        "literals": [
+          "serialize"
+        ]
+      }
+    },
+    {
+      "id": "user",
+      "shape": "circle",
+      "x": 83,
+      "y": 512,
+      "w": 76,
+      "h": 76,
+      "label": {
+        "key": "user"
+      }
+    },
+    {
+      "id": "reg",
+      "shape": "box",
+      "x": 500,
+      "y": 556,
+      "w": 150,
+      "h": 70,
+      "label": {
+        "key": "reg"
+      }
+    },
+    {
+      "id": "consumer",
+      "shape": "box",
+      "x": 105,
+      "y": 684,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "consumer",
+        "literals": [
+          "consumer"
+        ]
+      }
+    },
+    {
+      "id": "px1",
+      "shape": "box",
+      "x": 240,
+      "y": 684,
+      "w": 60,
+      "h": 70,
+      "label": {
+        "key": "px1"
+      }
+    },
+    {
+      "id": "lb",
+      "shape": "box",
+      "x": 330,
+      "y": 684,
+      "w": 90,
+      "h": 70,
+      "label": {
+        "key": "lb"
+      }
+    },
+    {
+      "id": "px2",
+      "shape": "box",
+      "x": 610,
+      "y": 645,
+      "w": 60,
+      "h": 65,
+      "label": {
+        "key": "px2"
+      }
+    },
+    {
+      "id": "pv1",
+      "shape": "box",
+      "x": 700,
+      "y": 645,
+      "w": 176,
+      "h": 65,
+      "label": {
+        "key": "pv1",
+        "literals": [
+          "provider",
+          "N"
+        ]
+      }
+    },
+    {
+      "id": "px3",
+      "shape": "box",
+      "x": 610,
+      "y": 727,
+      "w": 60,
+      "h": 65,
+      "label": {
+        "key": "px3"
+      }
+    },
+    {
+      "id": "pv2",
+      "shape": "box",
+      "x": 700,
+      "y": 727,
+      "w": 176,
+      "h": 65,
+      "label": {
+        "key": "pv2",
+        "literals": [
+          "provider",
+          "N"
+        ]
+      }
+    },
+    {
+      "id": "px4",
+      "shape": "box",
+      "x": 610,
+      "y": 813,
+      "w": 60,
+      "h": 65,
+      "label": {
+        "key": "px4"
+      }
+    },
+    {
+      "id": "pv3",
+      "shape": "box",
+      "x": 700,
+      "y": 813,
+      "w": 176,
+      "h": 65,
+      "label": {
+        "key": "pv3",
+        "literals": [
+          "provider",
+          "N"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          121,
+          588
+        ],
+        [
+          121,
+          632
+        ],
+        [
+          175,
+          632
+        ],
+        [
+          175,
+          684
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          135,
+          684
+        ],
+        [
+          135,
+          655
+        ],
+        [
+          62,
+          655
+        ],
+        [
+          62,
+          550
+        ],
+        [
+          83,
+          550
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          500,
+          610
+        ],
+        [
+          195,
+          610
+        ],
+        [
+          195,
+          684
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          205,
+          719
+        ],
+        [
+          240,
+          719
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          240,
+          742
+        ],
+        [
+          205,
+          742
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          300,
+          719
+        ],
+        [
+          330,
+          719
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          420,
+          722
+        ],
+        [
+          512,
+          722
+        ],
+        [
+          512,
+          845
+        ],
+        [
+          610,
+          845
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          610,
+          862
+        ],
+        [
+          270,
+          862
+        ],
+        [
+          270,
+          754
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          670,
+          838
+        ],
+        [
+          700,
+          838
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          700,
+          858
+        ],
+        [
+          670,
+          858
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          788,
+          645
+        ],
+        [
+          788,
+          592
+        ],
+        [
+          650,
+          592
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          876,
+          759
+        ],
+        [
+          906,
+          759
+        ],
+        [
+          906,
+          527
+        ],
+        [
+          560,
+          527
+        ],
+        [
+          560,
+          556
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          876,
+          845
+        ],
+        [
+          996,
+          845
+        ],
+        [
+          996,
+          563
+        ],
+        [
+          650,
+          563
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_reg",
+      "x": 350,
+      "y": 530.5,
+      "anchor": "middle",
+      "literals": [
+        "196.168.0.1",
+        "192.168.0.2",
+        "192.168.0.3"
+      ]
+    },
+    {
+      "key": "t_ask",
+      "x": 345,
+      "y": 633,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_know",
+      "x": 135,
+      "y": 770.5,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_proxy",
+      "x": 540,
+      "y": 648,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_r1",
+      "x": 715,
+      "y": 613.5,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_r2",
+      "x": 951,
+      "y": 604,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_r3",
+      "x": 1043,
+      "y": 781,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,7 @@
+{
+  "labels": [
+    { "zh": "建立连接之后保持着，持续发送请求", "en": "The connection stays open once established; requests keep being sent", "vi": "Sau khi thiết lập kết nối thì giữ nguyên kết nối và liên tục gửi yêu cầu" },
+    { "zh": "consumer", "en": "consumer", "vi": "consumer" },
+    { "zh": "provider", "en": "provider", "vi": "provider" }
+  ]
+}

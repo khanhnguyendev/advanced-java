@@ -1,0 +1,15 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "user": "用户",
+    "sysa": "系统A",
+    "db1": "数据库",
+    "bankb": "银行B",
+    "bankc": "银行C",
+    "db2": "数据库",
+    "db3": "数据库",
+    "t1": "Try阶段：冻结银行资金\n\nConfirm阶段\n\n1、在自己的库里插入数据\n2、调用银行B的接口，扣款\n3、调用银行C的接口，转账\n\nCancel阶段：回滚\n\n将银行B的扣的款给他加回去",
+    "_title": "TCC 事务流程",
+    "_desc": "用户调用系统A，系统A写入自己的数据库，并调用银行B和银行C的接口，各自操作自己的数据库；左侧说明 Try、Confirm、Cancel 三个阶段。"
+  }
+}

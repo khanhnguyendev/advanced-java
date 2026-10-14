@@ -1,0 +1,12 @@
+{
+  "meta": { "locale": "en", "status": "source", "source_lang": "en" },
+  "labels": {
+    "ttl": "Normal transactions",
+    "ttr": "Compensating transactions",
+    "t1": "T1", "t2": "T2", "t3": "T3", "tn": "Tn",
+    "c1": "C1", "c2": "C2", "c3": "C3",
+    "fail": "FAILS",
+    "_title": "Saga: normal transactions with compensating transactions",
+    "_desc": "Normal transactions T1, T2, T3 and Tn run in sequence on the left. When T3 fails, the compensating transactions C3, C2 and C1 run in reverse order on the right."
+  }
+}

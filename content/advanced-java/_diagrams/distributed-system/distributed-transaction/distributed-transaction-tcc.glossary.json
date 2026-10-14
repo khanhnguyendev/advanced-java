@@ -1,0 +1,7 @@
+{
+  "labels": [
+    { "zh": "银行B", "en": "Bank B", "vi": "Ngân hàng B" },
+    { "zh": "银行C", "en": "Bank C", "vi": "Ngân hàng C" },
+    { "zh": "Try阶段：冻结银行资金\n\nConfirm阶段\n\n1、在自己的库里插入数据\n2、调用银行B的接口，扣款\n3、调用银行C的接口，转账\n\nCancel阶段：回滚\n\n将银行B的扣的款给他加回去", "en": "Try phase: freeze the\nbank funds\n\nConfirm phase\n\n1. Insert data into\nits own database\n2. Call Bank B's API,\ndeduct funds\n3. Call Bank C's API,\ntransfer funds\n\nCancel phase: roll back\n\nAdd the amount deducted\nfrom Bank B back to it", "vi": "Giai đoạn Try: đóng băng\ntiền ngân hàng\n\nGiai đoạn Confirm\n\n1. Chèn dữ liệu vào\ncơ sở dữ liệu của mình\n2. Gọi API của ngân hàng B,\ntrừ tiền\n3. Gọi API của ngân hàng C,\nchuyển khoản\n\nGiai đoạn Cancel: rollback\n\nCộng lại khoản đã trừ\nở ngân hàng B" }
+  ]
+}

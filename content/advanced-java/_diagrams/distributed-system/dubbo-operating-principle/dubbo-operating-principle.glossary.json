@@ -1,0 +1,99 @@
+{
+  "labels": [
+    {
+      "zh": "service层：provider和consumer，接口，留给你来实现的",
+      "en": "service layer: provider and consumer, the interfaces left for you to implement",
+      "vi": "Tầng service: provider và consumer, các API do bạn tự triển khai"
+    },
+    {
+      "zh": "config层：任何一个框架，都需要提供配置文件，让你可以进行配置",
+      "en": "config layer: every framework needs to provide configuration files so that you can configure it",
+      "vi": "Tầng config: framework nào cũng cần cung cấp tệp cấu hình để bạn có thể cấu hình"
+    },
+    {
+      "zh": "proxy层：代理层，无论是consumer，还是provider，dubbo都会给你生成代理，代理之间进行网络通信",
+      "en": "proxy layer: the proxy layer; for both consumer and provider, dubbo generates proxies for you, and the proxies communicate over the network",
+      "vi": "Tầng proxy: tầng proxy, dù là consumer hay provider thì dubbo đều sinh proxy cho bạn, việc giao tiếp mạng được thực hiện giữa các proxy"
+    },
+    {
+      "zh": "registry层：provider注册自己作为一个服务，consumer就可以找注册中心去寻找自己要调用的服务",
+      "en": "registry layer: a provider registers itself as a service, so a consumer can ask the service registry for the service it wants to call",
+      "vi": "Tầng registry: provider đăng ký chính nó như một dịch vụ, nhờ đó consumer có thể tìm đến trung tâm đăng ký dịch vụ để tìm dịch vụ cần gọi"
+    },
+    {
+      "zh": "cluster层：provider可以部署在多台机器上的，多个provider就组成了一个集群",
+      "en": "cluster layer: a provider can be deployed on multiple machines, and multiple providers form a cluster",
+      "vi": "Tầng cluster: provider có thể được triển khai trên nhiều máy, nhiều provider tạo thành một cụm (cluster)"
+    },
+    {
+      "zh": "monitor层：consumer调用provider，调用了多少次啊？统计信息监控",
+      "en": "monitor layer: how many times has the consumer called the provider? Statistics and monitoring",
+      "vi": "Tầng monitor: consumer gọi provider bao nhiêu lần? Giám sát thông tin thống kê"
+    },
+    {
+      "zh": "protocol层：负责具体的provider和consumer之间调用接口的时候的网络通信",
+      "en": "protocol layer: handles the network communication when a concrete provider and consumer call an interface",
+      "vi": "Tầng protocol: chịu trách nhiệm giao tiếp mạng khi provider và consumer cụ thể gọi API của nhau"
+    },
+    {
+      "zh": "exchange层：信息交换",
+      "en": "exchange layer: information exchange",
+      "vi": "Tầng exchange: trao đổi thông tin"
+    },
+    {
+      "zh": "serialize层：序列化",
+      "en": "serialize layer: serialization",
+      "vi": "Tầng serialize: tuần tự hóa (serialization)"
+    },
+    {
+      "zh": "用户",
+      "en": "User",
+      "vi": "Người dùng"
+    },
+    {
+      "zh": "注册中心",
+      "en": "Service registry",
+      "vi": "Trung tâm đăng ký dịch vụ"
+    },
+    {
+      "zh": "代理",
+      "en": "Proxy",
+      "vi": "Proxy"
+    },
+    {
+      "zh": "负载均衡",
+      "en": "Load balancing",
+      "vi": "Cân bằng tải"
+    },
+    {
+      "zh": "provider（服务A）\nN个接口\n自定义配置",
+      "en": "provider (service A)\nN interfaces\ncustom configuration",
+      "vi": "provider (dịch vụ A)\nN API\ncấu hình tùy chỉnh"
+    },
+    {
+      "zh": "注册中心就知道说，服务A部署了\n3台机器，分别在196.168.0.1，\n192.168.0.2，192.168.0.3，\n这几个ip的机器上",
+      "en": "The service registry knows that service A\nis deployed on 3 machines, at\n196.168.0.1, 192.168.0.2,\n192.168.0.3 respectively",
+      "vi": "Trung tâm đăng ký dịch vụ biết rằng\ndịch vụ A được triển khai trên 3 máy,\nlần lượt tại 196.168.0.1,\n192.168.0.2, 192.168.0.3"
+    },
+    {
+      "zh": "问问注册中心\n服务A有没有啊？部署在哪\n些机器上啊？",
+      "en": "Ask the service registry:\nis service A there? Which machines\nis it deployed on?",
+      "vi": "Hỏi trung tâm đăng ký:\ndịch vụ A có không? Được\ntriển khai ở những máy nào?"
+    },
+    {
+      "zh": "consumer就知道\n服务A部署在3台机器上，以\n及每台机器的ip地址和端口\n号",
+      "en": "The consumer now knows that\nservice A runs on 3 machines,\nalong with each machine's\nIP address and port",
+      "vi": "consumer biết dịch vụ A\nđược triển khai trên 3 máy,\ncùng địa chỉ IP và cổng\ncủa từng máy"
+    },
+    {
+      "zh": "服务A的代理\n监听网络请求",
+      "en": "Proxy of service A\nlistens for network\nrequests",
+      "vi": "Proxy của dịch vụ A\nlắng nghe\nyêu cầu mạng"
+    },
+    {
+      "zh": "注册服务信息",
+      "en": "Register\nservice info",
+      "vi": "Đăng ký\nthông tin dịch vụ"
+    }
+  ]
+}

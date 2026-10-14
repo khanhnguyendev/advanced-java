@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "l1": "service层：provider和consumer，接口，留给你来实现的",
+    "l2": "config层：任何一个框架，都需要提供配置文件，让你可以进行配置",
+    "l3": "proxy层：代理层，无论是consumer，还是provider，dubbo都会给你生成代理，代理之间进行网络通信",
+    "l4": "registry层：provider注册自己作为一个服务，consumer就可以找注册中心去寻找自己要调用的服务",
+    "l5": "cluster层：provider可以部署在多台机器上的，多个provider就组成了一个集群",
+    "l6": "monitor层：consumer调用provider，调用了多少次啊？统计信息监控",
+    "l7": "protocol层：负责具体的provider和consumer之间调用接口的时候的网络通信",
+    "l8": "exchange层：信息交换",
+    "l9": "serialize层：序列化",
+    "user": "用户",
+    "reg": "注册中心",
+    "consumer": "consumer",
+    "px1": "代理",
+    "px2": "代理",
+    "px3": "代理",
+    "px4": "代理",
+    "lb": "负载均衡",
+    "pv1": "provider（服务A）\nN个接口\n自定义配置",
+    "pv2": "provider（服务A）\nN个接口\n自定义配置",
+    "pv3": "provider（服务A）\nN个接口\n自定义配置",
+    "t_reg": "注册中心就知道说，服务A部署了\n3台机器，分别在196.168.0.1，\n192.168.0.2，192.168.0.3，\n这几个ip的机器上",
+    "t_ask": "问问注册中心\n服务A有没有啊？部署在哪\n些机器上啊？",
+    "t_know": "consumer就知道\n服务A部署在3台机器上，以\n及每台机器的ip地址和端口\n号",
+    "t_proxy": "服务A的代理\n监听网络请求",
+    "t_r1": "注册服务信息",
+    "t_r2": "注册服务信息",
+    "t_r3": "注册服务信息",
+    "_title": "Dubbo 的分层结构与一次 RPC 调用的运行流程",
+    "_desc": "上方列出 Dubbo 的九个分层；下方展示 consumer 经代理和负载均衡调用多个 provider，provider 向注册中心注册，注册中心把服务地址告知 consumer 的过程。"
+  }
+}

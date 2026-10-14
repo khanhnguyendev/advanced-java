@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "991df79d14a195bf58b64e8d309ea313ceb9190aea5e85123b9192a4b4904633",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "User",
+    "emp": "Employee\nsystem",
+    "perm": "Permission\nsystem",
+    "fin": "Finance\nsystem",
+    "leave": "Leave\nsystem",
+    "t_top": "One independent\nproject, deployed\non 1 machine",
+    "t_b1": "One independent\nproject, deployed\non 1 machine",
+    "t_b2": "One independent\nproject, deployed\non 1 machine",
+    "t_b3": "One independent\nproject, deployed\non 1 machine",
+    "t_sum": "Employee system + leave system +\npermission system + finance system\n= distributed OA system",
+    "t_call": "How do the systems\ncall each other?\nPass json?",
+    "t_tx": "How can calls across\nmultiple systems be\nplaced in one transaction?",
+    "_title": "Simple distributed OA system",
+    "_desc": "A user request reaches the employee system, which then calls the permission, finance and leave systems, each deployed independently."
+  }
+}

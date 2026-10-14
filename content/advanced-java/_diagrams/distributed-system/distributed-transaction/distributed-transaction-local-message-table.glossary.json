@@ -1,0 +1,84 @@
+{
+  "labels": [
+    {
+      "zh": "A系统",
+      "en": "System A",
+      "vi": "Hệ thống A"
+    },
+    {
+      "zh": "B系统",
+      "en": "System B",
+      "vi": "Hệ thống B"
+    },
+    {
+      "zh": "zookeeper",
+      "en": "zookeeper",
+      "vi": "zookeeper"
+    },
+    {
+      "zh": "B系统的数据库",
+      "en": "System B's\ndatabase",
+      "vi": "Cơ sở dữ liệu\ncủa hệ thống B"
+    },
+    {
+      "zh": "A系统的数据库",
+      "en": "System A's\ndatabase",
+      "vi": "Cơ sở dữ liệu\ncủa hệ thống A"
+    },
+    {
+      "zh": "业务表",
+      "en": "Business\ntable",
+      "vi": "Bảng\nnghiệp vụ"
+    },
+    {
+      "zh": "消息表",
+      "en": "Message\ntable",
+      "vi": "Bảng\nthông điệp"
+    },
+    {
+      "zh": "自己本地的一个事务里\n先插入自己的业务表\n插入自己的一个消息表",
+      "en": "In its local transaction,\ninsert into its business table,\nthen into its message table",
+      "vi": "Trong giao dịch cục bộ:\nchèn vào bảng nghiệp vụ,\nrồi chèn vào bảng thông điệp"
+    },
+    {
+      "zh": "对orderId=1的node\n注册一个监听",
+      "en": "Register a listener on\nthe node orderId=1",
+      "vi": "Đăng ký một listener\ncho node orderId=1"
+    },
+    {
+      "zh": "修改orderId=1的node\n的值",
+      "en": "Modify the value of\nthe node orderId=1",
+      "vi": "Sửa giá trị của\nnode orderId=1"
+    },
+    {
+      "zh": "在自己本地的事务里\n先插入消息表\n再插入自己的业务表",
+      "en": "In its own local transaction,\nfirst insert into the message table,\nthen insert into its business table",
+      "vi": "Trong giao dịch cục bộ của mình:\nchèn vào bảng thông điệp trước,\nrồi chèn vào bảng nghiệp vụ"
+    },
+    {
+      "zh": "A系统更新\n消息的状态，成功",
+      "en": "System A updates the\nmessage status: success",
+      "vi": "Hệ thống A cập nhật\ntrạng thái thông điệp:\nthành công"
+    },
+    {
+      "zh": "A系统搞一个后台线程\n每隔1秒轮询所有待确认状\n态的消息",
+      "en": "System A runs a background thread\nthat polls every 1 second for all\nmessages awaiting confirmation",
+      "vi": "Hệ thống A chạy một luồng nền,\ncứ mỗi 1 giây quét mọi thông điệp\nở trạng thái chờ xác nhận"
+    },
+    {
+      "zh": "某个消息待确认都超过1分\n钟了",
+      "en": "A message has been awaiting\nconfirmation for over 1 minute",
+      "vi": "Có thông điệp chờ xác nhận\nquá 1 phút"
+    },
+    {
+      "zh": "A系统的消息初始状态：\n都是待确认",
+      "en": "Initial state of System A's messages:\nall awaiting confirmation",
+      "vi": "Trạng thái ban đầu của thông điệp\ntrong hệ thống A:\nđều là chờ xác nhận"
+    },
+    {
+      "zh": "建好一个唯一约束\norderId建个唯一键",
+      "en": "Create a unique constraint:\nmake orderId a unique key",
+      "vi": "Tạo ràng buộc duy nhất:\nđặt orderId làm\nkhóa duy nhất"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+ "labels": [
+  {
+   "en": "Normal transactions",
+   "zh": "正常事务",
+   "vi": "Giao dịch bình thường"
+  },
+  {
+   "en": "Compensating transactions",
+   "zh": "补偿事务",
+   "vi": "Giao dịch bù trừ"
+  },
+  {
+   "en": "FAILS",
+   "zh": "失败！",
+   "vi": "THẤT BẠI"
+  },
+  {
+   "en": "T1",
+   "zh": "T1",
+   "vi": "T1"
+  },
+  {
+   "en": "T2",
+   "zh": "T2",
+   "vi": "T2"
+  },
+  {
+   "en": "T3",
+   "zh": "T3",
+   "vi": "T3"
+  },
+  {
+   "en": "Tn",
+   "zh": "Tn",
+   "vi": "Tn"
+  },
+  {
+   "en": "C1",
+   "zh": "C1",
+   "vi": "C1"
+  },
+  {
+   "en": "C2",
+   "zh": "C2",
+   "vi": "C2"
+  },
+  {
+   "en": "C3",
+   "zh": "C3",
+   "vi": "C3"
+  }
+ ]
+}
