@@ -1,0 +1,12 @@
+{ "meta": { "locale": "zh", "status": "source" },
+  "labels": {
+    "_title": "异步复制导致数据丢失的案例",
+    "_desc": "master 在数据尚未复制到 slave 时宕机，sentinel 集群把 slave 选举为新的 master，未复制的数据丢失。",
+    "master": "master",
+    "slave": "slave",
+    "blank": "",
+    "master_in": "master",
+    "sent": "sentinel 集群",
+    "elect": "选举为 master",
+    "lost": "数据没来的及复制，\nmaster 宕机"
+  } }

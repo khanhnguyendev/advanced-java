@@ -1,0 +1,23 @@
+{
+  "id": "high-concurrency/why-mq/mq-6",
+  "source": { "upstream": "high-concurrency/why-mq/mq-6.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 720, "h": 620 },
+  "nodes": [
+    { "id": "user", "shape": "circle", "x": 65, "y": 85, "w": 150, "h": 150, "label": { "key": "user" }, "role": "default" },
+    { "id": "mq", "shape": "round", "x": 350, "y": 77, "w": 80, "h": 163, "label": { "key": "mq" }, "role": "default" },
+    { "id": "sysa", "shape": "box", "x": 310, "y": 330, "w": 160, "h": 100, "label": { "key": "sysa" }, "role": "default" },
+    { "id": "db", "shape": "box", "x": 140, "y": 510, "w": 500, "h": 64, "label": { "key": "db" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[215, 160], [350, 160]], "arrow": "end", "style": "solid" },
+    { "points": [[390, 240], [390, 330]], "arrow": "end", "style": "solid" },
+    { "points": [[390, 430], [390, 510]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "rate", "x": 222, "y": 130, "anchor": "start" },
+    { "key": "pull", "x": 404, "y": 285, "anchor": "start" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

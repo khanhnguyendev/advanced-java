@@ -1,0 +1,11 @@
+{ "labels": [
+  { "zh": "E系统(新增)", "en": "System E\n(new)", "vi": "Hệ thống E\n(mới)" },
+  { "zh": "B系统", "en": "System B", "vi": "Hệ thống B" },
+  { "zh": "C系统", "en": "System C", "vi": "Hệ thống C" },
+  { "zh": "D系统", "en": "System D", "vi": "Hệ thống D" },
+  { "zh": "调用接口", "en": "Call API", "vi": "Gọi API" },
+  { "zh": "A系统需要改代码\n调用E系统接口", "en": "System A needs code changes\nto call system E's API", "vi": "Hệ thống A cần sửa code\nđể gọi API của hệ thống E" },
+  { "zh": "A系统需要改代码\n将调用D系统的代码删除", "en": "System A needs code changes:\nremove the code that\ncalls system D", "vi": "Hệ thống A cần sửa code:\nxóa code gọi hệ thống D" },
+  { "zh": "A系统", "en": "System A", "vi": "Hệ thống A" },
+  { "zh": "X", "en": "X", "vi": "X" }
+] }

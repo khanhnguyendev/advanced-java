@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "blank": "",
+    "title": "redis 进程",
+    "client": "client\nsocket 01",
+    "server": "server\nsocket",
+    "io": "IO多路复用程序\n（监听多个socket ）",
+    "queue": "queue",
+    "qs1a": "s1",
+    "qs1b": "s1",
+    "qss": "ss",
+    "disp": "文件事件\n分派器",
+    "sock": "socket 01",
+    "h1": "连接应答\n处理器",
+    "h2": "命令请求\n处理器",
+    "h3": "命令回复\n处理器",
+    "p1": "ss",
+    "p2": "s1",
+    "p3": "s1",
+    "ta": "1. 发送建立连接的请求",
+    "tb": "2. 发送\nset key value\n请求",
+    "tc": "3. 返回结果 ok",
+    "td": "1. 产生 AE_READABLE事件",
+    "te": "2. 产生 AE_READABLE事件\n3. 产生 AE_WRITABLE事件",
+    "tf": "1. 创建 socket 01",
+    "tg": "将 socket 01 的\nAE_READABLE 事件与\n命令请求处理器关联",
+    "th": "2. 从 socket 01 中读出 key value 并在自己内存中完成 key value 的设置\n将 socket 01 的 AE_WRITABLE 事件与命令回复处理器关联",
+    "ti": "3. 向 socket 01 输出本次操作的一个结果: ok\n将 socket 01 的 AE_WRITABLE 事件与命名回复处理器解除关联",
+    "note": "注意：图中文字前面相同的\n序号表示同一次请求/回复",
+    "_title": "Redis 单线程模型中文件事件处理器的工作流程图",
+    "_desc": "从 client 建立连接到 socket 01 完成读写的流程，展示 IO 多路复用程序、队列、文件事件分派器与各处理器之间的关系。"
+  }
+}

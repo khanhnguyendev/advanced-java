@@ -1,0 +1,24 @@
+{
+  "labels": [
+    {
+      "zh": "产生数据，发送到 MQ",
+      "en": "Produce data and send it to MQ",
+      "vi": "Tạo dữ liệu, gửi vào MQ"
+    },
+    {
+      "zh": "新系统要数据，直接从 MQ 消费即可",
+      "en": "New system needs data, consumes directly from MQ",
+      "vi": "Hệ thống mới cần dữ liệu, tiêu thụ trực tiếp từ MQ"
+    },
+    {
+      "zh": "哪个系统需要，自己去 MQ 消费即可",
+      "en": "Any system that needs the data consumes it from MQ itself",
+      "vi": "Hệ thống nào cần thì tự vào MQ tiêu thụ"
+    },
+    {
+      "zh": "如果某个系统不需要数据， 取消对 MQ 消息的消费即 可",
+      "en": "If a system does not need the data, cancel its consumption of MQ messages",
+      "vi": "Nếu hệ thống nào đó không\ncần dữ liệu, hủy việc tiêu thụ\nthông điệp MQ"
+    }
+  ]
+}

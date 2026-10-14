@@ -1,0 +1,19 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "cbd764205770505878fd6ef6147bc3f270659605e47145e8ceee4cb9fdf076ea", "source_lang": "zh" },
+  "labels": {
+    "a": "System A",
+    "e": "System E\n(new)",
+    "b": "System B",
+    "c": "System C",
+    "d": "System D",
+    "call_e": "Call API",
+    "call_b": "Call API",
+    "call_c": "Call API",
+    "call_d": "Call API",
+    "t_e": "System A needs code changes\nto call system E's API",
+    "t_d": "System A needs code changes:\nremove the code that\ncalls system D",
+    "x": "X",
+    "_title": "System A calls several systems directly through APIs",
+    "_desc": "System A calls systems B, C and D through APIs; adding system E means changing A's code, and dropping system D means deleting the call code."
+  }
+}

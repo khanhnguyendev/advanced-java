@@ -1,0 +1,19 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "cbd764205770505878fd6ef6147bc3f270659605e47145e8ceee4cb9fdf076ea", "source_lang": "zh" },
+  "labels": {
+    "a": "Hệ thống A",
+    "e": "Hệ thống E\n(mới)",
+    "b": "Hệ thống B",
+    "c": "Hệ thống C",
+    "d": "Hệ thống D",
+    "call_e": "Gọi API",
+    "call_b": "Gọi API",
+    "call_c": "Gọi API",
+    "call_d": "Gọi API",
+    "t_e": "Hệ thống A cần sửa code\nđể gọi API của hệ thống E",
+    "t_d": "Hệ thống A cần sửa code:\nxóa code gọi hệ thống D",
+    "x": "X",
+    "_title": "Hệ thống A gọi trực tiếp API của nhiều hệ thống",
+    "_desc": "Hệ thống A gọi API của các hệ thống B, C, D; thêm hệ thống E thì phải sửa code của A, bỏ hệ thống D thì phải xóa code gọi."
+  }
+}

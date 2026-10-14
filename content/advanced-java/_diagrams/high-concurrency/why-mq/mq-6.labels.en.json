@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "9459a166b5d6d97f759658a107a10690496846b3d9859f5a2d5e10cf67e1dd03", "source_lang": "zh" },
+  "labels": {
+    "_title": "Peak shaving with an MQ: system A pulls requests at its own pace",
+    "_desc": "Users write 5k requests per second into the MQ, and system A pulls 2k requests per second from it and writes them to MySQL.",
+    "user": "User",
+    "mq": "MQ",
+    "sysa": "System A",
+    "db": "MySQL",
+    "rate": "5k requests\nper second",
+    "pull": "System A pulls 2k requests\nfrom MQ per second"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "cf910dc070b6810a65d015af142bef62756474f5096c7c173387359f6afc5ab6" },
+  "labels": { "user": "User", "sys": "System A", "db": "MySQL", "_title": "A user request reaches MySQL through system A", "_desc": "A user sends a request to system A, which then accesses the MySQL database directly." }
+}

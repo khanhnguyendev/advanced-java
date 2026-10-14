@@ -1,0 +1,5 @@
+{ "labels": [
+  { "zh": "sentinel 集群", "en": "Sentinel cluster", "vi": "Cụm Sentinel" },
+  { "zh": "选举为 master", "en": "Elected as master", "vi": "Được bầu làm master" },
+  { "zh": "数据没来的及复制，\nmaster 宕机", "en": "Data not yet replicated,\nmaster crashed", "vi": "Dữ liệu chưa kịp sao chép,\nmaster sập" }
+] }

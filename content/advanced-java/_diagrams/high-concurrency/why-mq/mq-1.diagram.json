@@ -1,0 +1,26 @@
+{
+  "id": "high-concurrency/why-mq/mq-1",
+  "source": { "upstream": "high-concurrency/why-mq/mq-1.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 760, "h": 380 },
+  "nodes": [
+    { "id": "a", "shape": "box", "x": 394, "y": 64, "w": 100, "h": 70, "label": { "key": "a" }, "role": "default" },
+    { "id": "e", "shape": "box", "x": 38, "y": 195, "w": 120, "h": 70, "label": { "key": "e" }, "role": "default" },
+    { "id": "b", "shape": "box", "x": 234, "y": 278, "w": 100, "h": 70, "label": { "key": "b" }, "role": "default" },
+    { "id": "c", "shape": "box", "x": 394, "y": 278, "w": 100, "h": 70, "label": { "key": "c" }, "role": "default" },
+    { "id": "d", "shape": "box", "x": 560, "y": 278, "w": 100, "h": 70, "label": { "key": "d" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[394,99],[98,99],[98,195]], "arrow": "end", "style": "solid", "label": { "key": "call_e", "at": [210,86], "anchor": "middle" } },
+    { "points": [[413,134],[413,205],[284,205],[284,278]], "arrow": "end", "style": "solid", "label": { "key": "call_b", "at": [348,192], "anchor": "middle" } },
+    { "points": [[444,134],[444,278]], "arrow": "end", "style": "solid", "label": { "key": "call_c", "at": [452,240], "anchor": "start" } },
+    { "points": [[475,134],[475,205],[610,205],[610,278]], "arrow": "end", "style": "solid", "label": { "key": "call_d", "at": [572,192], "anchor": "middle" } }
+  ],
+  "texts": [
+    { "key": "t_e", "x": 385, "y": 36, "anchor": "end" },
+    { "key": "t_d", "x": 510, "y": 95, "anchor": "start" },
+    { "key": "x", "x": 497, "y": 192, "anchor": "middle" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

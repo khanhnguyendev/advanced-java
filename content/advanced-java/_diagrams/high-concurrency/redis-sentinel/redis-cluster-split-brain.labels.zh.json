@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "client": "client",
+    "master": "master",
+    "slave": "slave",
+    "sentinel": "sentinel 集群",
+    "x": "x",
+    "elect": "选举为 master",
+    "blank": "",
+    "_title": "Redis 哨兵集群的脑裂",
+    "_desc": "网络隔离的 master 仍在服务 client，同时哨兵集群选举 slave 为新的 master，形成两个 master。"
+  }
+}

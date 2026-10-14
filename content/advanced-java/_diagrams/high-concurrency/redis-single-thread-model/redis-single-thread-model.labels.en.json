@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "df4f3314bf387a0889229ae4c4eefa38689e82172996eb6b7afae27f3ca39c59"
+  },
+  "labels": {
+    "blank": "",
+    "title": "Redis process",
+    "client": "Client\nsocket 01",
+    "server": "Server\nsocket",
+    "io": "IO multiplexing program\n(listens to multiple sockets)",
+    "queue": "queue",
+    "qs1a": "s1",
+    "qs1b": "s1",
+    "qss": "ss",
+    "disp": "File event\ndispatcher",
+    "sock": "socket 01",
+    "h1": "Connection\nacceptance\nhandler",
+    "h2": "Command\nrequest\nhandler",
+    "h3": "Command\nreply\nhandler",
+    "p1": "ss",
+    "p2": "s1",
+    "p3": "s1",
+    "ta": "1. Send a request to\nestablish a connection",
+    "tb": "2. Send a\nset key value\nrequest",
+    "tc": "3. Return\nresult ok",
+    "td": "1. Generate AE_READABLE event",
+    "te": "2. Generate AE_READABLE event\n3. Generate AE_WRITABLE event",
+    "tf": "1. Create socket 01",
+    "tg": "Associate the AE_READABLE\nevent of socket 01 with\nthe command request handler",
+    "th": "2. Read key value from socket 01 and complete\nthe setting of key value in its own memory\nAssociate the AE_WRITABLE event of socket 01\nwith the command reply handler",
+    "ti": "3. Output the result of this operation to socket 01: ok\nRemove the association between the AE_WRITABLE event of\nsocket 01 and the command reply handler",
+    "note": "Note: identical numbers at the\nstart of text in the diagram\nmean the same request/reply",
+    "_title": "Redis single-threaded model: file event handler workflow",
+    "_desc": "Diagram of how the Redis single-threaded file event handler processes a client request."
+  }
+}

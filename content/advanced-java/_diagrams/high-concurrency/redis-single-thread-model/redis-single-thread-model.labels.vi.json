@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "df4f3314bf387a0889229ae4c4eefa38689e82172996eb6b7afae27f3ca39c59"
+  },
+  "labels": {
+    "blank": "",
+    "title": "Tiến trình Redis",
+    "client": "Client\nsocket 01",
+    "server": "Server\nsocket",
+    "io": "Chương trình ghép kênh I/O\n(lắng nghe nhiều socket)",
+    "queue": "queue",
+    "qs1a": "s1",
+    "qs1b": "s1",
+    "qss": "ss",
+    "disp": "Bộ điều phối\nsự kiện tệp",
+    "sock": "socket 01",
+    "h1": "Bộ xử lý\ntrả lời\nkết nối",
+    "h2": "Bộ xử lý\nyêu cầu lệnh",
+    "h3": "Bộ xử lý\nphản hồi lệnh",
+    "p1": "ss",
+    "p2": "s1",
+    "p3": "s1",
+    "ta": "1. Gửi yêu cầu\nthiết lập kết nối",
+    "tb": "2. Gửi yêu cầu\nset key value",
+    "tc": "3. Trả về\nkết quả ok",
+    "td": "1. Phát sinh sự kiện AE_READABLE",
+    "te": "2. Phát sinh sự kiện AE_READABLE\n3. Phát sinh sự kiện AE_WRITABLE",
+    "tf": "1. Tạo socket 01",
+    "tg": "Liên kết sự kiện\nAE_READABLE của socket 01\nvới bộ xử lý yêu cầu lệnh",
+    "th": "2. Đọc key value từ socket 01 và hoàn tất việc\nthiết lập key value trong bộ nhớ của mình\nLiên kết sự kiện AE_WRITABLE của socket 01\nvới bộ xử lý phản hồi lệnh",
+    "ti": "3. Xuất kết quả của thao tác lần này ra socket 01: ok\nHủy liên kết giữa sự kiện AE_WRITABLE của\nsocket 01 và bộ xử lý phản hồi lệnh",
+    "note": "Lưu ý: các số thứ tự giống nhau\nở đầu chữ trong hình biểu thị\ncùng một yêu cầu/phản hồi",
+    "_title": "Mô hình đơn luồng của Redis: quy trình bộ xử lý sự kiện tệp",
+    "_desc": "Sơ đồ quy trình bộ xử lý sự kiện tệp đơn luồng của Redis xử lý một yêu cầu của client."
+  }
+}

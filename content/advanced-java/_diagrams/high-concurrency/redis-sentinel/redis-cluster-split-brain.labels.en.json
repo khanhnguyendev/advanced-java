@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "b13b2157ef04d4c06274beb3434701164da46f6b601ed4f8b1899905ce4001d8"
+  },
+  "labels": {
+    "client": "Client",
+    "master": "master",
+    "slave": "slave",
+    "sentinel": "Sentinel cluster",
+    "x": "x",
+    "elect": "Elected as master",
+    "blank": "",
+    "_title": "Redis split brain with Sentinel",
+    "_desc": "A master cut off by the network keeps serving the client while the Sentinel cluster elects a slave as the new master, leaving two masters."
+  }
+}

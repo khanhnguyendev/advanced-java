@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "022d2e999d39886ec23603b8997e489582b92d9e1db46cf7343fdaca226df1f7",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "User",
+    "req": "User sends a\nrequest to\nsystem A",
+    "sysa": "System A\n3ms",
+    "sysb": "System B\n300ms",
+    "sysc": "System C\n450ms",
+    "sysd": "System D\n200ms",
+    "call": "Call API",
+    "_title": "System A calling several systems synchronously",
+    "_desc": "A user sends a request to System A, which calls systems B, C and D through their APIs; they take 300ms, 450ms and 200ms respectively."
+  }
+}

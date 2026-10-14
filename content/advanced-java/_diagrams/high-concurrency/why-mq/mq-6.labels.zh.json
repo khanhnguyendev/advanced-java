@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "zh", "status": "source" },
+  "labels": {
+    "_title": "用 MQ 削峰：系统 A 按自身能力从 MQ 拉取请求",
+    "_desc": "用户每秒向 MQ 写入 5k 个请求，A 系统每秒从 MQ 拉取 2k 个请求再写入 MySQL。",
+    "user": "用户",
+    "mq": "MQ",
+    "sysa": "A系统",
+    "db": "My'SQL",
+    "rate": "每秒5k个请求",
+    "pull": "A系统从MQ中每秒拉取2k\n个请求"
+  }
+}

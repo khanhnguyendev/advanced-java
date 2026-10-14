@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "9459a166b5d6d97f759658a107a10690496846b3d9859f5a2d5e10cf67e1dd03", "source_lang": "zh" },
+  "labels": {
+    "_title": "San phẳng đỉnh tải bằng MQ: hệ thống A kéo yêu cầu theo năng lực của mình",
+    "_desc": "Người dùng ghi 5 nghìn yêu cầu mỗi giây vào MQ, hệ thống A kéo 2 nghìn yêu cầu mỗi giây từ MQ rồi ghi vào MySQL.",
+    "user": "Người dùng",
+    "mq": "MQ",
+    "sysa": "Hệ thống A",
+    "db": "MySQL",
+    "rate": "5 nghìn yêu cầu\nmỗi giây",
+    "pull": "Hệ thống A kéo 2 nghìn yêu cầu\ntừ MQ mỗi giây"
+  }
+}

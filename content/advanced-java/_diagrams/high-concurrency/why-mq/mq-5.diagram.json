@@ -1,0 +1,18 @@
+{
+  "id": "high-concurrency/why-mq/mq-5",
+  "source": { "upstream": "high-concurrency/why-mq/mq-5.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 400, "h": 390 },
+  "nodes": [
+    { "id": "user", "shape": "circle", "x": 144, "y": 20, "w": 112, "h": 112, "label": { "key": "user" }, "role": "default" },
+    { "id": "sys", "shape": "box", "x": 150, "y": 190, "w": 100, "h": 70, "label": { "key": "sys" }, "role": "default" },
+    { "id": "db", "shape": "box", "x": 45, "y": 320, "w": 310, "h": 46, "label": { "key": "db" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[200, 132], [200, 190]], "arrow": "end", "style": "solid" },
+    { "points": [[200, 260], [200, 320]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

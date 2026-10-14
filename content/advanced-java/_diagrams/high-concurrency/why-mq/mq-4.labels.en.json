@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "cea64b24a9af570cb2485e51869da5d275b6512e5ca3d5fdffb7a8a67b27632d",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "User",
+    "req": "User sends a request\nto system A",
+    "a": "System A\n3ms",
+    "note": "System A sends 3 messages\nto 3 MQ queues in succession,\n5ms in total",
+    "q1": "MQ\nQueue 1",
+    "q2": "MQ\nQueue 2",
+    "q3": "MQ\nQueue 3",
+    "b": "System B\n300ms",
+    "c": "System C\n450ms",
+    "d": "System D\n200ms",
+    "_title": "Call latency with an MQ",
+    "_desc": "The user calls system A, which sends messages to three MQ queues in turn; systems B, C and D consume them separately."
+  }
+}

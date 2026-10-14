@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "user": "用户",
+    "req": "用户对A系统发起请求",
+    "sysa": "A系统\n3ms",
+    "sysb": "B系统\n300ms",
+    "sysc": "C系统\n450ms",
+    "sysd": "D系统\n200ms",
+    "call": "调用接口",
+    "_title": "系统A同步调用多个系统",
+    "_desc": "用户向A系统发起请求，A系统依次通过调用接口访问B、C、D三个系统，各自耗时300ms、450ms、200ms。"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "fa7d170f47d4c5a9e7af786729b5391743d325a2eef15f95ecab3da3463b9cf7", "source_lang": "zh" },
+  "labels": {
+    "_title": "Decoupling systems with MQ",
+    "_desc": "System A sends data to MQ; systems B, C and a new system consume from MQ on demand, and a system that no longer needs the data simply stops consuming.",
+    "a": "System A",
+    "mq": "MQ",
+    "blank": "",
+    "b": "System B",
+    "c": "System C",
+    "d": "System D",
+    "t_prod": "Produce data and send it to MQ",
+    "t_new": "New system needs data,\nconsumes directly from MQ",
+    "t_need": "Any system that needs\nthe data consumes it\nfrom MQ itself",
+    "t_cancel": "If a system does not need\nthe data, cancel its\nconsumption of MQ messages"
+  }
+}

@@ -1,0 +1,273 @@
+{
+  "id": "high-concurrency/why-mq/mq-4",
+  "source": {
+    "upstream": "high-concurrency/why-mq/mq-4.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 660,
+    "h": 430
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "shape": "circle",
+      "x": 22,
+      "y": 33,
+      "w": 110,
+      "h": 110,
+      "label": {
+        "key": "user"
+      },
+      "role": "default"
+    },
+    {
+      "id": "a",
+      "shape": "box",
+      "x": 290,
+      "y": 56,
+      "w": 110,
+      "h": 64,
+      "label": {
+        "key": "a",
+        "literals": [
+          "3ms"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "q1",
+      "shape": "box",
+      "x": 167,
+      "y": 165,
+      "w": 96,
+      "h": 130,
+      "label": {
+        "key": "q1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "q2",
+      "shape": "box",
+      "x": 297,
+      "y": 165,
+      "w": 96,
+      "h": 130,
+      "label": {
+        "key": "q2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "q3",
+      "shape": "box",
+      "x": 427,
+      "y": 165,
+      "w": 96,
+      "h": 130,
+      "label": {
+        "key": "q3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "b",
+      "shape": "box",
+      "x": 113,
+      "y": 350,
+      "w": 104,
+      "h": 60,
+      "label": {
+        "key": "b",
+        "literals": [
+          "300ms"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c",
+      "shape": "box",
+      "x": 293,
+      "y": 350,
+      "w": 104,
+      "h": 60,
+      "label": {
+        "key": "c",
+        "literals": [
+          "450ms"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "d",
+      "shape": "box",
+      "x": 473,
+      "y": 350,
+      "w": 104,
+      "h": 60,
+      "label": {
+        "key": "d",
+        "literals": [
+          "200ms"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          132,
+          88
+        ],
+        [
+          290,
+          88
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          315,
+          120
+        ],
+        [
+          315,
+          144
+        ],
+        [
+          215,
+          144
+        ],
+        [
+          215,
+          165
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          345,
+          120
+        ],
+        [
+          345,
+          165
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          375,
+          120
+        ],
+        [
+          375,
+          144
+        ],
+        [
+          475,
+          144
+        ],
+        [
+          475,
+          165
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          215,
+          295
+        ],
+        [
+          215,
+          322
+        ],
+        [
+          165,
+          322
+        ],
+        [
+          165,
+          350
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          345,
+          295
+        ],
+        [
+          345,
+          350
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          475,
+          295
+        ],
+        [
+          475,
+          322
+        ],
+        [
+          525,
+          322
+        ],
+        [
+          525,
+          350
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "req",
+      "x": 210,
+      "y": 40,
+      "anchor": "middle"
+    },
+    {
+      "key": "note",
+      "x": 420,
+      "y": 86,
+      "anchor": "start",
+      "literals": [
+        "5ms"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

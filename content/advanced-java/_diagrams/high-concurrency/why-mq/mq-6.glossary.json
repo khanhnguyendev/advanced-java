@@ -1,0 +1,6 @@
+{
+  "labels": [
+    { "zh": "每秒5k个请求", "en": "5k requests per second", "vi": "5 nghìn yêu cầu mỗi giây" },
+    { "zh": "A系统从MQ中每秒拉取2k\n个请求", "en": "System A pulls 2k requests\nfrom MQ per second", "vi": "Hệ thống A kéo 2 nghìn yêu cầu\ntừ MQ mỗi giây" }
+  ]
+}

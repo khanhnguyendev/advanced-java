@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "022d2e999d39886ec23603b8997e489582b92d9e1db46cf7343fdaca226df1f7",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "Người dùng",
+    "req": "Người dùng gửi\nyêu cầu đến\nhệ thống A",
+    "sysa": "Hệ thống A\n3ms",
+    "sysb": "Hệ thống B\n300ms",
+    "sysc": "Hệ thống C\n450ms",
+    "sysd": "Hệ thống D\n200ms",
+    "call": "Gọi API",
+    "_title": "Hệ thống A gọi đồng bộ nhiều hệ thống",
+    "_desc": "Người dùng gửi yêu cầu đến hệ thống A, hệ thống A gọi API của các hệ thống B, C, D, lần lượt mất 300ms, 450ms và 200ms."
+  }
+}

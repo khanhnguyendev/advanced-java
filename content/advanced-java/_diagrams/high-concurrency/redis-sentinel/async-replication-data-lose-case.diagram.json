@@ -1,0 +1,26 @@
+{
+  "id": "high-concurrency/redis-sentinel/async-replication-data-lose-case",
+  "source": { "upstream": "high-concurrency/redis-sentinel/async-replication-data-lose-case.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 600, "h": 420 },
+  "nodes": [
+    { "id": "m_new", "shape": "round", "x": 450, "y": 40, "w": 110, "h": 60, "label": { "key": "master" }, "role": "default" },
+    { "id": "m_old", "shape": "group", "border": "solid", "x": 187, "y": 161, "w": 100, "h": 84, "label": { "key": "blank" }, "role": "default" },
+    { "id": "dot", "shape": "pill", "x": 228, "y": 208, "w": 30, "h": 29, "label": { "key": "blank" }, "role": "default" },
+    { "id": "slave", "shape": "round", "x": 450, "y": 161, "w": 110, "h": 70, "label": { "key": "slave" }, "role": "default" },
+    { "id": "sent", "shape": "box", "x": 246, "y": 348, "w": 194, "h": 46, "label": { "key": "sent" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[287, 196], [450, 196]], "arrow": "end", "style": "solid" },
+    { "points": [[505, 161], [505, 100]], "arrow": "end", "style": "solid",
+      "label": { "key": "elect", "at": [497, 130], "anchor": "end" } },
+    { "points": [[140, 304], [243, 304], [243, 245]], "arrow": "end", "style": "solid" },
+    { "points": [[343, 348], [343, 290], [505, 290], [505, 231]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "master_in", "x": 237, "y": 186, "anchor": "middle" },
+    { "key": "lost", "x": 140, "y": 272, "anchor": "middle" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

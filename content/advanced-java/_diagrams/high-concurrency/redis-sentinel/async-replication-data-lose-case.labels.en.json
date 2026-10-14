@@ -1,0 +1,12 @@
+{ "meta": { "locale": "en", "status": "machine", "from": "f5ec6608b7af8b3209b7897ac37919367f1ba11d1472d9773af687e75d7788f8" },
+  "labels": {
+    "_title": "Data loss case caused by asynchronous replication",
+    "_desc": "The master crashes before its data is replicated to the slave, and the sentinel cluster elects the slave as the new master, so the unreplicated data is lost.",
+    "master": "master",
+    "slave": "slave",
+    "blank": "",
+    "master_in": "master",
+    "sent": "Sentinel cluster",
+    "elect": "Elected as master",
+    "lost": "Data not yet replicated,\nmaster crashed"
+  } }

@@ -1,0 +1,12 @@
+{ "meta": { "locale": "vi", "status": "machine", "from": "f5ec6608b7af8b3209b7897ac37919367f1ba11d1472d9773af687e75d7788f8" },
+  "labels": {
+    "_title": "Trường hợp mất dữ liệu do sao chép bất đồng bộ",
+    "_desc": "Master sập trước khi dữ liệu kịp sao chép sang slave, cụm Sentinel bầu slave làm master mới nên dữ liệu chưa sao chép bị mất.",
+    "master": "master",
+    "slave": "slave",
+    "blank": "",
+    "master_in": "master",
+    "sent": "Cụm Sentinel",
+    "elect": "Được bầu làm master",
+    "lost": "Dữ liệu chưa kịp sao chép,\nmaster sập"
+  } }

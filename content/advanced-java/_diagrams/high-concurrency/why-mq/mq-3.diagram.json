@@ -1,0 +1,188 @@
+{
+  "id": "high-concurrency/why-mq/mq-3",
+  "source": {
+    "upstream": "high-concurrency/why-mq/mq-3.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 640,
+    "h": 380
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "shape": "circle",
+      "x": 20,
+      "y": 37,
+      "w": 104,
+      "h": 104,
+      "label": {
+        "key": "user"
+      },
+      "role": "default"
+    },
+    {
+      "id": "sysa",
+      "shape": "box",
+      "x": 335,
+      "y": 53,
+      "w": 120,
+      "h": 70,
+      "label": {
+        "key": "sysa",
+        "literals": [
+          "3ms"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "sysb",
+      "shape": "box",
+      "x": 165,
+      "y": 266,
+      "w": 120,
+      "h": 70,
+      "label": {
+        "key": "sysb",
+        "literals": [
+          "300ms"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "sysc",
+      "shape": "box",
+      "x": 325,
+      "y": 266,
+      "w": 120,
+      "h": 70,
+      "label": {
+        "key": "sysc",
+        "literals": [
+          "450ms"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "sysd",
+      "shape": "box",
+      "x": 490,
+      "y": 266,
+      "w": 120,
+      "h": 70,
+      "label": {
+        "key": "sysd",
+        "literals": [
+          "200ms"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          124,
+          89
+        ],
+        [
+          335,
+          89
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          354,
+          123
+        ],
+        [
+          354,
+          195
+        ],
+        [
+          225,
+          195
+        ],
+        [
+          225,
+          266
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          385,
+          123
+        ],
+        [
+          385,
+          266
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          416,
+          123
+        ],
+        [
+          416,
+          195
+        ],
+        [
+          550,
+          195
+        ],
+        [
+          550,
+          266
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "req",
+      "x": 259,
+      "y": 44,
+      "anchor": "middle"
+    },
+    {
+      "key": "call",
+      "x": 290,
+      "y": 180,
+      "anchor": "middle"
+    },
+    {
+      "key": "call",
+      "x": 348,
+      "y": 230,
+      "anchor": "middle"
+    },
+    {
+      "key": "call",
+      "x": 483,
+      "y": 180,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

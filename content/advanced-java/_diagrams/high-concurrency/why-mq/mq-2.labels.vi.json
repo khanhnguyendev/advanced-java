@@ -1,0 +1,17 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "fa7d170f47d4c5a9e7af786729b5391743d325a2eef15f95ecab3da3463b9cf7", "source_lang": "zh" },
+  "labels": {
+    "_title": "Tách rời các hệ thống bằng MQ",
+    "_desc": "Hệ thống A gửi dữ liệu vào MQ; hệ thống B, C và hệ thống mới tiêu thụ từ MQ khi cần, hệ thống nào không cần dữ liệu nữa thì chỉ cần hủy tiêu thụ.",
+    "a": "Hệ thống A",
+    "mq": "MQ",
+    "blank": "",
+    "b": "Hệ thống B",
+    "c": "Hệ thống C",
+    "d": "Hệ thống D",
+    "t_prod": "Tạo dữ liệu, gửi vào MQ",
+    "t_new": "Hệ thống mới cần dữ liệu,\ntiêu thụ trực tiếp từ MQ",
+    "t_need": "Hệ thống nào cần\nthì tự vào MQ tiêu thụ",
+    "t_cancel": "Nếu hệ thống nào đó không\ncần dữ liệu, hủy việc tiêu thụ\nthông điệp MQ"
+  }
+}

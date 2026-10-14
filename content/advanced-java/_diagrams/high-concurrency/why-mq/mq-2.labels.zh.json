@@ -1,0 +1,17 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "_title": "用 MQ 解耦多个系统",
+    "_desc": "A 系统把数据发送到 MQ，B、C 系统和新系统按需从 MQ 消费，不需要数据的系统取消消费即可。",
+    "a": "A系统",
+    "mq": "MQ",
+    "blank": "",
+    "b": "B系统",
+    "c": "C系统",
+    "d": "D系统",
+    "t_prod": "产生数据，发送到 MQ",
+    "t_new": "新系统要数据，直接从 MQ\n消费即可",
+    "t_need": "哪个系统需要，自己去 MQ\n消费即可",
+    "t_cancel": "如果某个系统不需要数据，\n取消对 MQ 消息的消费即\n可"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "meta": { "locale": "zh", "status": "source" },
+  "labels": { "user": "用户", "sys": "A系统", "db": "My'SQL", "_title": "用户请求经过A系统写入MySQL", "_desc": "用户向A系统发起请求，A系统再直接访问MySQL数据库。" }
+}

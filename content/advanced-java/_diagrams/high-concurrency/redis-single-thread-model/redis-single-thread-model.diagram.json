@@ -1,0 +1,544 @@
+{
+  "id": "high-concurrency/redis-single-thread-model/redis-single-thread-model",
+  "source": {
+    "upstream": "high-concurrency/redis-single-thread-model/redis-single-thread-model.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1010,
+    "h": 545
+  },
+  "nodes": [
+    {
+      "id": "grp",
+      "shape": "group",
+      "x": 285,
+      "y": 80,
+      "w": 705,
+      "h": 440,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "client",
+      "shape": "box",
+      "x": 26,
+      "y": 165,
+      "w": 94,
+      "h": 46,
+      "label": {
+        "key": "client",
+        "literals": [
+          "socket 01"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "server",
+      "shape": "box",
+      "x": 341,
+      "y": 94,
+      "w": 75,
+      "h": 40,
+      "label": {
+        "key": "server"
+      },
+      "role": "default"
+    },
+    {
+      "id": "io",
+      "shape": "box",
+      "x": 296,
+      "y": 183,
+      "w": 226,
+      "h": 44,
+      "label": {
+        "key": "io"
+      },
+      "role": "default"
+    },
+    {
+      "id": "queue",
+      "shape": "group",
+      "x": 542,
+      "y": 188,
+      "w": 190,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "qs1a",
+      "shape": "pill",
+      "x": 551,
+      "y": 193,
+      "w": 38,
+      "h": 26,
+      "label": {
+        "key": "qs1a"
+      },
+      "role": "default"
+    },
+    {
+      "id": "qs1b",
+      "shape": "pill",
+      "x": 608,
+      "y": 193,
+      "w": 38,
+      "h": 26,
+      "label": {
+        "key": "qs1b"
+      },
+      "role": "default"
+    },
+    {
+      "id": "qss",
+      "shape": "pill",
+      "x": 665,
+      "y": 193,
+      "w": 38,
+      "h": 26,
+      "label": {
+        "key": "qss"
+      },
+      "role": "default"
+    },
+    {
+      "id": "disp",
+      "shape": "box",
+      "x": 752,
+      "y": 183,
+      "w": 116,
+      "h": 44,
+      "label": {
+        "key": "disp"
+      },
+      "role": "default"
+    },
+    {
+      "id": "sock",
+      "shape": "round",
+      "x": 320,
+      "y": 287,
+      "w": 92,
+      "h": 40,
+      "label": {
+        "key": "sock",
+        "literals": [
+          "socket 01"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "h1",
+      "shape": "box",
+      "x": 646,
+      "y": 276,
+      "w": 104,
+      "h": 62,
+      "label": {
+        "key": "h1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "h2",
+      "shape": "box",
+      "x": 756,
+      "y": 276,
+      "w": 104,
+      "h": 62,
+      "label": {
+        "key": "h2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "h3",
+      "shape": "box",
+      "x": 866,
+      "y": 276,
+      "w": 104,
+      "h": 62,
+      "label": {
+        "key": "h3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "p1",
+      "shape": "pill",
+      "x": 660,
+      "y": 244,
+      "w": 32,
+      "h": 26,
+      "label": {
+        "key": "p1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "p2",
+      "shape": "pill",
+      "x": 770,
+      "y": 244,
+      "w": 32,
+      "h": 26,
+      "label": {
+        "key": "p2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "p3",
+      "shape": "pill",
+      "x": 880,
+      "y": 244,
+      "w": 32,
+      "h": 26,
+      "label": {
+        "key": "p3"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          73,
+          165
+        ],
+        [
+          73,
+          114
+        ],
+        [
+          341,
+          114
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          120,
+          177
+        ],
+        [
+          240,
+          177
+        ],
+        [
+          240,
+          298
+        ],
+        [
+          320,
+          298
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          320,
+          320
+        ],
+        [
+          73,
+          320
+        ],
+        [
+          73,
+          211
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          410,
+          134
+        ],
+        [
+          410,
+          183
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          340,
+          287
+        ],
+        [
+          340,
+          227
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          522,
+          205
+        ],
+        [
+          542,
+          205
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          732,
+          205
+        ],
+        [
+          752,
+          205
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          810,
+          227
+        ],
+        [
+          810,
+          276
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          810,
+          238
+        ],
+        [
+          700,
+          238
+        ],
+        [
+          700,
+          276
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          810,
+          238
+        ],
+        [
+          920,
+          238
+        ],
+        [
+          920,
+          276
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          650,
+          307
+        ],
+        [
+          412,
+          307
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          810,
+          338
+        ],
+        [
+          810,
+          372
+        ],
+        [
+          362,
+          372
+        ],
+        [
+          362,
+          327
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          920,
+          338
+        ],
+        [
+          920,
+          452
+        ],
+        [
+          337,
+          452
+        ],
+        [
+          337,
+          327
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "title",
+      "x": 570,
+      "y": 64,
+      "anchor": "middle"
+    },
+    {
+      "key": "ta",
+      "x": 90,
+      "y": 84,
+      "anchor": "start"
+    },
+    {
+      "key": "tb",
+      "x": 128,
+      "y": 127,
+      "anchor": "start",
+      "literals": [
+        "set key value"
+      ]
+    },
+    {
+      "key": "tc",
+      "x": 90,
+      "y": 288,
+      "anchor": "start",
+      "literals": [
+        "ok"
+      ]
+    },
+    {
+      "key": "td",
+      "x": 420,
+      "y": 148,
+      "anchor": "start",
+      "literals": [
+        "AE_READABLE"
+      ]
+    },
+    {
+      "key": "queue",
+      "x": 637,
+      "y": 174,
+      "anchor": "middle"
+    },
+    {
+      "key": "te",
+      "x": 350,
+      "y": 248,
+      "anchor": "start",
+      "literals": [
+        "AE_READABLE",
+        "AE_WRITABLE"
+      ]
+    },
+    {
+      "key": "tf",
+      "x": 531,
+      "y": 290,
+      "anchor": "middle",
+      "literals": [
+        "socket 01"
+      ]
+    },
+    {
+      "key": "tg",
+      "x": 532,
+      "y": 320,
+      "anchor": "middle",
+      "literals": [
+        "socket 01",
+        "AE_READABLE"
+      ]
+    },
+    {
+      "key": "th",
+      "x": 352,
+      "y": 385,
+      "anchor": "start",
+      "literals": [
+        "socket 01",
+        "key value",
+        "AE_WRITABLE"
+      ]
+    },
+    {
+      "key": "ti",
+      "x": 352,
+      "y": 465,
+      "anchor": "start",
+      "literals": [
+        "socket 01",
+        "ok",
+        "AE_WRITABLE"
+      ]
+    },
+    {
+      "key": "note",
+      "x": 24,
+      "y": 352,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "b13b2157ef04d4c06274beb3434701164da46f6b601ed4f8b1899905ce4001d8"
+  },
+  "labels": {
+    "client": "client",
+    "master": "master",
+    "slave": "slave",
+    "sentinel": "Cụm Sentinel",
+    "x": "x",
+    "elect": "Được bầu làm master",
+    "blank": "",
+    "_title": "Split brain của Redis với Sentinel",
+    "_desc": "Một master bị cắt mạng vẫn phục vụ client trong khi cụm Sentinel bầu một slave làm master mới, dẫn đến có hai master."
+  }
+}

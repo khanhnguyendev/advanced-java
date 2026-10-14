@@ -1,0 +1,4 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "cf910dc070b6810a65d015af142bef62756474f5096c7c173387359f6afc5ab6" },
+  "labels": { "user": "Người dùng", "sys": "Hệ thống A", "db": "MySQL", "_title": "Yêu cầu của người dùng đi qua hệ thống A đến MySQL", "_desc": "Người dùng gửi yêu cầu đến hệ thống A, sau đó hệ thống A truy cập trực tiếp cơ sở dữ liệu MySQL." }
+}

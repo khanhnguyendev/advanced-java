@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "cea64b24a9af570cb2485e51869da5d275b6512e5ca3d5fdffb7a8a67b27632d",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "Người dùng",
+    "req": "Người dùng gửi\nyêu cầu đến\nhệ thống A",
+    "a": "Hệ thống A\n3ms",
+    "note": "Hệ thống A gửi liên tiếp\n3 thông điệp đến 3 hàng đợi MQ,\ntổng thời gian 5ms",
+    "q1": "MQ\nHàng đợi 1",
+    "q2": "MQ\nHàng đợi 2",
+    "q3": "MQ\nHàng đợi 3",
+    "b": "Hệ thống B\n300ms",
+    "c": "Hệ thống C\n450ms",
+    "d": "Hệ thống D\n200ms",
+    "_title": "Độ trễ khi dùng MQ",
+    "_desc": "Người dùng gọi hệ thống A, hệ thống A lần lượt gửi thông điệp vào ba hàng đợi MQ để các hệ thống B, C, D tiêu thụ riêng."
+  }
+}

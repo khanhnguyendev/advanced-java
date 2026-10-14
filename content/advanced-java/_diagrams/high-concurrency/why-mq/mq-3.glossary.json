@@ -1,0 +1,34 @@
+{
+  "labels": [
+    {
+      "zh": "用户对A系统发起请求",
+      "en": "User sends a\nrequest to\nsystem A",
+      "vi": "Người dùng gửi\nyêu cầu đến\nhệ thống A"
+    },
+    {
+      "zh": "A系统\n3ms",
+      "en": "System A\n3ms",
+      "vi": "Hệ thống A\n3ms"
+    },
+    {
+      "zh": "B系统\n300ms",
+      "en": "System B\n300ms",
+      "vi": "Hệ thống B\n300ms"
+    },
+    {
+      "zh": "C系统\n450ms",
+      "en": "System C\n450ms",
+      "vi": "Hệ thống C\n450ms"
+    },
+    {
+      "zh": "D系统\n200ms",
+      "en": "System D\n200ms",
+      "vi": "Hệ thống D\n200ms"
+    },
+    {
+      "zh": "调用接口",
+      "en": "Call API",
+      "vi": "Gọi API"
+    }
+  ]
+}

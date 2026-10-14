@@ -1,0 +1,28 @@
+{
+  "id": "high-concurrency/why-mq/mq-2",
+  "source": { "upstream": "high-concurrency/why-mq/mq-2.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 660, "h": 420 },
+  "nodes": [
+    { "id": "a", "shape": "box", "x": 219, "y": 48, "w": 100, "h": 70, "label": { "key": "a" } },
+    { "id": "mq", "shape": "round", "x": 247, "y": 165, "w": 46, "h": 110, "label": { "key": "mq" } },
+    { "id": "new", "shape": "box", "x": 533, "y": 224, "w": 101, "h": 70, "label": { "key": "blank" } },
+    { "id": "b", "shape": "box", "x": 48, "y": 334, "w": 100, "h": 66, "label": { "key": "b" } },
+    { "id": "c", "shape": "box", "x": 219, "y": 334, "w": 100, "h": 66, "label": { "key": "c" } },
+    { "id": "d", "shape": "box", "x": 405, "y": 334, "w": 100, "h": 66, "label": { "key": "d" } }
+  ],
+  "edges": [
+    { "points": [[269, 118], [269, 165]], "arrow": "end", "style": "solid" },
+    { "points": [[293, 220], [413, 220], [413, 259], [533, 259]], "arrow": "end", "style": "solid" },
+    { "points": [[257, 275], [257, 298], [98, 298], [98, 334]], "arrow": "end", "style": "solid" },
+    { "points": [[269, 275], [269, 334]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "t_prod", "x": 261, "y": 142, "anchor": "end" },
+    { "key": "t_new", "x": 305, "y": 170, "anchor": "start" },
+    { "key": "t_need", "x": 30, "y": 232, "anchor": "start" },
+    { "key": "t_cancel", "x": 313, "y": 272, "anchor": "start" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}
