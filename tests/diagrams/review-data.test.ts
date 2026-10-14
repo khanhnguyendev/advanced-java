@@ -2,7 +2,7 @@ import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import * as gateMod from '@/lib/diagrams/gate';
 import * as render from '@/lib/diagrams/render';
-import { buildReviewData, CREDIT_LINE } from '@/lib/diagrams/review-data';
+import { buildReviewData, CREDIT_LINE, thirdPartyCreditLine } from '@/lib/diagrams/review-data';
 
 const root = path.join(__dirname, '..', 'fixtures', 'diagrams', 'content');
 
@@ -21,6 +21,22 @@ describe('buildReviewData', () => {
     expect(e.license).toBe('derived');
     for (const loc of ['zh', 'en', 'vi'] as const) expect(e.svgsByWidth[loc]![720]).toMatch(/^<svg[\s>]/);
     expect(e.errors).toEqual([]);
+  });
+
+  it('derived entries carry the CC-BY-SA credit line', () => {
+    const e = a.entries[0]!;
+    expect(e.creditLine).toBe(CREDIT_LINE);
+    expect(e.attribution).toBeUndefined();
+  });
+
+  it('third-party entries show attribution instead of the CC-BY-SA line', () => {
+    expect(thirdPartyCreditLine({ author: 'A', title: 'T', url: 'https://x' })).toBe(
+      'Redrawn from a figure in “T” by A. Rights remain with the author; not relicensed here.',
+    );
+    expect(thirdPartyCreditLine({ author: 'A', title: 'T', url: 'https://x', licenseName: 'Apache-2.0' })).toBe(
+      'Redrawn from a figure in “T” by A (Apache-2.0).',
+    );
+    expect(thirdPartyCreditLine(undefined)).not.toContain('CC-BY-SA');
   });
 
   it('renders per width with distinct ids and reports render exceptions as META_INVALID', () => {

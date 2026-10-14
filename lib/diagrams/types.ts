@@ -54,6 +54,16 @@ export interface DiagramScene {
   desc_key: string;
 }
 
+/** Who a third-party figure belongs to; shown in the figure caption and on /about. */
+export interface DiagramAttribution {
+  author: string;
+  title: string;
+  url: string;
+  publisher?: string;
+  licenseName?: string;
+  licenseUrl?: string;
+}
+
 export interface LabelsMeta {
   locale: string;
   status: string;
@@ -83,6 +93,7 @@ export type GateCode =
   | 'NODE_OVERLAP'
   | 'HASH_STALE'
   | 'LICENSE_INVALID'
+  | 'ATTRIBUTION_MISSING'
   | 'SOURCE_MISSING'
   | 'META_INVALID'
   | 'TEXT_COLLISION'

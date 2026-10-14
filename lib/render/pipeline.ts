@@ -93,6 +93,7 @@ export async function renderMarkdown(
         source: ctx.diagrams,
         bodyLocale: ctx.bodyLocale ?? ctx.routeLocale,
         credit: ctx.diagramCredit ?? '',
+        ...(ctx.diagramCreditThirdParty ? { creditThirdParty: ctx.diagramCreditThirdParty } : {}),
       })
       .use(rehypeHeadingIds)
       .use(rehypePrettyCode, { theme: { light: 'github-light', dark: 'github-dark' }, keepBackground: false })

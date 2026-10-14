@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { fsDiagramSource } from '@/lib/diagrams/source';
 import { extractHeadings } from '@/lib/render/headings';
 import type { LinkContext } from '@/lib/render/links';
+import type { DiagramSource } from '@/lib/render/diagrams';
 import { renderMarkdown } from '@/lib/render/pipeline';
 
 const root = path.resolve(__dirname, '../fixtures/diagrams/content');
@@ -33,6 +34,30 @@ describe('diagram: images', () => {
     expect(html).not.toContain('data-dg');
     expect(html).not.toContain('<p><figure');
     expect(headings).toHaveLength(1);
+  });
+
+  it('third-party figure: attribution caption with linked title, no derived credit', async () => {
+    const att = { author: 'Ann Author', title: 'The Article', url: 'https://x.example/a?b=1&c=2' };
+    const third = (a: typeof att & { licenseName?: string }): DiagramSource => ({
+      load(id) {
+        const l = diagrams.load(id);
+        return l ? { ...l, scene: { ...l.scene, license: 'third-party' }, attribution: a } : null;
+      },
+    });
+    const fmt = (a: { title: string; author: string; licenseName?: string }) =>
+      a.licenseName ? `Redrawn from “${a.title}” by ${a.author} (${a.licenseName}).` : `Redrawn from “${a.title}” by ${a.author}. Rights remain.`;
+    const md = `![a](diagram:${ID})\n`;
+    const run = (src: DiagramSource) =>
+      renderMarkdown(md, { ...base(md), bodyLocale: 'en', diagrams: src, diagramCredit: 'Credit line', diagramCreditThirdParty: fmt });
+    const plain = (await run(third(att))).html;
+    expect(plain).toContain(
+      '<figcaption class="diagram-credit">Redrawn from “<a href="https://x.example/a?b=1&#x26;c=2" rel="noopener noreferrer">The Article</a>” by Ann Author. Rights remain.</figcaption>',
+    );
+    expect(plain).not.toContain('Credit line');
+    const lic = (await run(third({ ...att, licenseName: 'Apache-2.0' }))).html;
+    expect(lic).toContain('by Ann Author (Apache-2.0).</figcaption>');
+    expect(lic).not.toContain('Rights remain');
+    await expect(run({ load: (id) => ({ ...diagrams.load(id)!, scene: { ...diagrams.load(id)!.scene, license: 'third-party' } }) })).rejects.toThrow('attribution');
   });
 
   it('uses the body locale labels', async () => {

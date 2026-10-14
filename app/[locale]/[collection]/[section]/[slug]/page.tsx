@@ -86,6 +86,10 @@ export default async function DocPage({
       bodyLocale: doc.served,
       diagrams: fsDiagramSource(root, collection),
       diagramCredit: td('credit'),
+      diagramCreditThirdParty: (a) =>
+        a.licenseName
+          ? td('creditThirdPartyLicensed', { title: a.title, author: a.author, licenseName: a.licenseName })
+          : td('creditThirdParty', { title: a.title, author: a.author }),
       headingsOf: (cc, ss, sl) =>
         listCollections(root).includes(cc) ? headingsFor(root, loadCollection(root, cc), loc, ss, sl) : null,
     },

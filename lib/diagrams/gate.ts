@@ -28,9 +28,11 @@ export interface GateOptions {
   assetExists?: (upstream: string) => boolean;
   /** Glossary entries (global labels plus sidecars). Omit to skip GLOSSARY_MISSING / GLOSSARY_MISMATCH. */
   glossary?: GlossaryEntry[];
+  /** Whether `source.upstream` has an entry in the collection's source-credits.json. Omit to skip ATTRIBUTION_MISSING. */
+  hasCredit?: (upstream: string) => boolean;
 }
 
-const LICENSES = ['derived', 'original'];
+const LICENSES = ['derived', 'original', 'third-party'];
 const STATUSES = ['source', 'machine'];
 const PAD = NODE_PAD;
 const LH = FONT_SIZE * LINE_HEIGHT;
@@ -198,7 +200,10 @@ export function checkDiagram(
 
   // 8. license / source
   const license = scene.license ?? 'derived';
-  if (!LICENSES.includes(license)) add('LICENSE_INVALID', `license "${license}" is not derived|original`);
+  if (!LICENSES.includes(license)) add('LICENSE_INVALID', `license "${license}" is not derived|original|third-party`);
+  if (license === 'third-party' && opts.hasCredit && !opts.hasCredit(scene.source.upstream)) {
+    add('ATTRIBUTION_MISSING', `license third-party needs a source-credits.json entry for "${scene.source.upstream}"`);
+  }
   if (opts.assetExists && !opts.assetExists(scene.source.upstream)) {
     add('SOURCE_MISSING', `source.upstream "${scene.source.upstream}" not found under _assets`);
   }

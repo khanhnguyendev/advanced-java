@@ -4,12 +4,12 @@ import { unified } from 'unified';
 import rehypeParse from 'rehype-parse';
 import { SKIP, visit } from 'unist-util-visit';
 import { renderDiagram } from '../diagrams/render';
-import type { DiagramScene } from '../diagrams/types';
+import type { DiagramAttribution, DiagramScene } from '../diagrams/types';
 import type { Locale } from '../content/types';
 
 export interface DiagramSource {
   /** `id` is `<section>/<slug>/<name>`; null when the diagram does not exist. */
-  load(id: string): { scene: DiagramScene; labels: Partial<Record<Locale, Record<string, string>>> } | null;
+  load(id: string): { scene: DiagramScene; labels: Partial<Record<Locale, Record<string, string>>>; attribution?: DiagramAttribution } | null;
 }
 
 export interface DiagramEntry {
@@ -23,6 +23,8 @@ export interface DiagramRenderContext {
   diagrams?: DiagramSource;
   /** one-line credit under every diagram */
   diagramCredit?: string;
+  /** caption of a `third-party` diagram; must contain `attribution.title` verbatim, which becomes a link to `attribution.url` */
+  diagramCreditThirdParty?: (a: DiagramAttribution) => string;
 }
 
 const SCHEME = 'diagram:';
@@ -64,7 +66,7 @@ function parseSvg(svg: string): Element {
 
 /** hast stage, after sanitize: placeholders in the per-render list become inline SVG figures. */
 export function rehypeDiagrams(
-  opts: { entries: DiagramEntry[]; source: DiagramSource | undefined; bodyLocale: Locale; credit: string },
+  opts: { entries: DiagramEntry[]; source: DiagramSource | undefined; bodyLocale: Locale; credit: string; creditThirdParty?: (a: DiagramAttribution) => string },
 ) {
   return (tree: HastRoot) => {
     const used = new Set<number>();
@@ -86,7 +88,28 @@ export function rehypeDiagrams(
       const children: ElementContent[] = [
         { type: 'element', tagName: 'div', properties: { className: ['diagram-scroll'] }, children: [svg] },
       ];
-      if (opts.credit) {
+      if (loaded.scene.license === 'third-party') {
+        const a = loaded.attribution;
+        if (!a) throw new Error(`diagram ${entry.id}: license third-party but no attribution in source-credits.json`);
+        const text = opts.creditThirdParty ? opts.creditThirdParty(a) : '';
+        if (text) {
+          const at = text.indexOf(a.title);
+          const nodes: ElementContent[] =
+            at < 0
+              ? [{ type: 'text', value: text }]
+              : [
+                  ...(at > 0 ? [{ type: 'text', value: text.slice(0, at) } as ElementContent] : []),
+                  {
+                    type: 'element',
+                    tagName: 'a',
+                    properties: { href: a.url, rel: ['noopener', 'noreferrer'] },
+                    children: [{ type: 'text', value: a.title }],
+                  } as ElementContent,
+                  ...(at + a.title.length < text.length ? [{ type: 'text', value: text.slice(at + a.title.length) } as ElementContent] : []),
+                ];
+          children.push({ type: 'element', tagName: 'figcaption', properties: { className: ['diagram-credit'] }, children: nodes });
+        }
+      } else if (opts.credit) {
         children.push({
           type: 'element',
           tagName: 'figcaption',

@@ -191,6 +191,37 @@ describe('About redrawn diagrams', () => {
     const { container } = render(wrap(<AboutContent collections={[{ ...base, diagrams: [d('a/b/x', 'original')] }]} />));
     expect(container.textContent).toContain('Original drawing');
   });
+  it('lists third-party figures separately, without the CC-BY-SA wording, counts from data', () => {
+    const tp = (id: string, licenseName?: string) => ({
+      ...d(id, 'third-party'),
+      attribution: {
+        author: 'Ann Author',
+        title: 'The Article',
+        url: 'https://x.example/article',
+        ...(licenseName ? { licenseName, licenseUrl: 'https://lic.example/l' } : {}),
+      },
+    });
+    const dd = [d('a/b/x'), d('a/b/y'), tp('a/c/p'), tp('a/c/q', 'Apache-2.0'), tp('a/c/r')];
+    const { container } = render(wrap(<AboutContent collections={[{ ...base, diagrams: dd }]} />));
+    const text = container.textContent!;
+    expect(text).toContain('2 diagrams were redrawn from upstream images');
+    expect(text).toContain(en.about.thirdPartyCredits);
+    expect(text).toContain('3 diagrams were redrawn from figures made by other authors');
+    const list = container.querySelector('.third-party-credits')!;
+    expect(list.querySelectorAll('li')).toHaveLength(3);
+    expect(list.textContent).not.toContain('CC-BY-SA');
+    expect(list.textContent).toContain('Redrawn from a figure in The Article by Ann Author, upstream image docs/a/images/x.png. Rights remain with the author; not relicensed here.');
+    expect(list.textContent).toContain('License: Apache-2.0.');
+    const hrefs = [...list.querySelectorAll('li:first-child a')].map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual(['https://x.example/article', dd[2]!.href]);
+    expect(list.querySelector('a[href="https://lic.example/l"]')).not.toBeNull();
+    // derived list unchanged: only the two derived ids
+    expect(container.querySelectorAll('.diagram-credits:not(.third-party-credits) li')).toHaveLength(2);
+  });
+  it('omits the third-party section when there are none', () => {
+    const { container } = render(wrap(<AboutContent collections={[{ ...base, diagrams: [d('a/b/x')] }]} />));
+    expect(container.textContent).not.toContain(en.about.thirdPartyCredits);
+  });
   it('omits the section when there are no diagrams', () => {
     const { container } = render(wrap(<AboutContent collections={[base]} />));
     expect(container.textContent).not.toContain(en.about.diagramCredits);

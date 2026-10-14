@@ -1,0 +1,9 @@
+{
+  "demo/toy": {
+    "title": "Toy Article",
+    "author": "Toy Author",
+    "publisher": "toy.example",
+    "url": "https://toy.example/article",
+    "year": 2020
+  }
+}

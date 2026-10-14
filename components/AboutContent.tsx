@@ -17,7 +17,10 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
   const names = useTranslations('languages');
   const stop = a('stop');
   const served = collections.reduce((n, u) => n + u.images.length, 0);
-  const redrawn = collections.reduce((n, u) => n + (u.diagrams?.length ?? 0), 0);
+  const own = (u: AboutCollection) => (u.diagrams ?? []).filter((d) => d.license !== 'third-party');
+  const third = (u: AboutCollection) => (u.diagrams ?? []).filter((d) => d.license === 'third-party');
+  const redrawn = collections.reduce((n, u) => n + own(u).length, 0);
+  const thirdCount = collections.reduce((n, u) => n + third(u).length, 0);
   const name = (l: Locale) => <span lang={l === 'zh' ? 'zh-Hans' : l}>{names(l)}</span>;
   return (
     <main id="main-content" tabIndex={-1} className="reader">
@@ -76,13 +79,13 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
             <h2>{t('diagramCredits')}</h2>
             <p>{t('diagrams', { count: redrawn })}</p>
             {collections.map((u) =>
-              u.diagrams?.length ? (
+              own(u).length ? (
                 <details key={u.id}>
                   <summary>
-                    <span className="mono">{u.id}</span> ({u.diagrams.length})
+                    <span className="mono">{u.id}</span> ({own(u).length})
                   </summary>
                   <ul className="image-credits diagram-credits">
-                    {u.diagrams.map((d) => (
+                    {own(u).map((d) => (
                       <li key={d.id}>
                         <span className="mono">{d.id}</span>:{' '}
                         {t.rich('diagramEntry', {
@@ -97,6 +100,45 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
                         {d.license === 'original' ? <> {t('diagramOriginal')}{stop}</> : null}
                       </li>
                     ))}
+                  </ul>
+                </details>
+              ) : null,
+            )}
+          </>
+        ) : null}
+        {thirdCount > 0 ? (
+          <>
+            <h2>{t('thirdPartyCredits')}</h2>
+            <p>{t('thirdParty', { count: thirdCount })}</p>
+            {collections.map((u) =>
+              third(u).length ? (
+                <details key={u.id}>
+                  <summary>
+                    <span className="mono">{u.id}</span> ({third(u).length})
+                  </summary>
+                  <ul className="image-credits diagram-credits third-party-credits">
+                    {third(u).map((d) => {
+                      const at = d.attribution;
+                      if (!at) return null;
+                      return (
+                        <li key={d.id}>
+                          <span className="mono">{d.id}</span>:{' '}
+                          {t.rich(at.licenseName ? 'thirdPartyEntryLicensed' : 'thirdPartyEntry', {
+                            title: (chunks) => <a href={at.url}>{chunks}</a>,
+                            work: at.title,
+                            author: at.author,
+                            path: d.path,
+                            licenseName: at.licenseName ?? '',
+                            link: (chunks) => (
+                              <a href={d.href} className="mono">
+                                {chunks}
+                              </a>
+                            ),
+                            lic: (chunks) => (at.licenseUrl ? <a href={at.licenseUrl}>{chunks}</a> : <>{chunks}</>),
+                          })}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </details>
               ) : null,

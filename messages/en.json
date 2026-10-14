@@ -18,7 +18,9 @@
     "skip": "Skip to content"
   },
   "diagram": {
-    "credit": "Redrawn from the upstream image (doocs/advanced-java, CC-BY-SA-4.0)"
+    "credit": "Redrawn from the upstream image (doocs/advanced-java, CC-BY-SA-4.0)",
+    "creditThirdParty": "Redrawn from a figure in “{title}” by {author}. Rights remain with the author; not relicensed here.",
+    "creditThirdPartyLicensed": "Redrawn from a figure in “{title}” by {author} ({licenseName})."
   },
   "doc": {
     "fallbackNotice": "This page is not translated into {requested} yet. Showing the {served} original.",
@@ -67,6 +69,10 @@
     "diagrams": "{count} diagrams were redrawn from upstream images and replace them in the documents.",
     "diagramEntry": "Redrawn from the upstream image <link>{path}</link> at commit {commit} (doocs/advanced-java), CC-BY-SA-4.0. Original authorship not documented upstream.",
     "diagramOriginal": "Original drawing",
-    "imageCredits": "Image credits"
+    "imageCredits": "Image credits",
+    "thirdPartyCredits": "Redrawn from third-party figures",
+    "thirdParty": "{count} diagrams were redrawn from figures made by other authors. They are not covered by this site's CC-BY-SA-4.0 license.",
+    "thirdPartyEntry": "Redrawn from a figure in <title>{work}</title> by {author}, upstream image <link>{path}</link>. Rights remain with the author; not relicensed here.",
+    "thirdPartyEntryLicensed": "Redrawn from a figure in <title>{work}</title> by {author}, upstream image <link>{path}</link>. License: <lic>{licenseName}</lic>."
   }
 }

@@ -4,7 +4,7 @@
     "upstream": "high-availability/sentinel-vs-hystrix/Homogenizer-mode.jpg",
     "commit": "1a35221"
   },
-  "license": "derived",
+  "license": "third-party",
   "size": {
     "w": 1080,
     "h": 365

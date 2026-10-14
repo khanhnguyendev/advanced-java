@@ -18,7 +18,9 @@
     "skip": "Chuyển đến nội dung"
   },
   "diagram": {
-    "credit": "Vẽ lại từ hình gốc (doocs/advanced-java, CC-BY-SA-4.0)"
+    "credit": "Vẽ lại từ hình gốc (doocs/advanced-java, CC-BY-SA-4.0)",
+    "creditThirdParty": "Vẽ lại từ một hình trong “{title}” của {author}. Quyền thuộc về tác giả; không được cấp phép lại ở đây.",
+    "creditThirdPartyLicensed": "Vẽ lại từ một hình trong “{title}” của {author} ({licenseName})."
   },
   "doc": {
     "fallbackNotice": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản gốc {served}.",
@@ -67,6 +69,10 @@
     "diagrams": "{count} sơ đồ được vẽ lại từ hình ảnh thượng nguồn và thay thế chúng trong tài liệu.",
     "diagramEntry": "Vẽ lại từ hình ảnh thượng nguồn <link>{path}</link> tại commit {commit} (doocs/advanced-java), CC-BY-SA-4.0. Quyền tác giả gốc không được ghi lại ở thượng nguồn.",
     "diagramOriginal": "Bản vẽ gốc",
-    "imageCredits": "Ghi công hình ảnh"
+    "imageCredits": "Ghi công hình ảnh",
+    "thirdPartyCredits": "Vẽ lại từ hình của bên thứ ba",
+    "thirdParty": "{count} sơ đồ được vẽ lại từ hình của các tác giả khác. Chúng không thuộc giấy phép CC-BY-SA-4.0 của trang này.",
+    "thirdPartyEntry": "Vẽ lại từ một hình trong <title>{work}</title> của {author}, ảnh gốc <link>{path}</link>. Quyền thuộc về tác giả; không được cấp phép lại ở đây.",
+    "thirdPartyEntryLicensed": "Vẽ lại từ một hình trong <title>{work}</title> của {author}, ảnh gốc <link>{path}</link>. Giấy phép: <lic>{licenseName}</lic>."
   }
 }

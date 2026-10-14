@@ -121,6 +121,24 @@ describe('checkDiagram', () => {
     expect(withCode('LICENSE_INVALID', s, good.labels)).toBe(false);
   });
 
+  it('third-party license needs a credit (ATTRIBUTION_MISSING)', () => {
+    const s = clone(good.scene);
+    s.license = 'third-party';
+    expect(withCode('LICENSE_INVALID', s, good.labels)).toBe(false);
+    expect(withCode('ATTRIBUTION_MISSING', s, good.labels, { hasCredit: () => false })).toBe(true);
+    expect(withCode('ATTRIBUTION_MISSING', s, good.labels, { hasCredit: () => true })).toBe(false);
+    // derived never asks for a credit
+    expect(withCode('ATTRIBUTION_MISSING', good.scene, good.labels, { hasCredit: () => false })).toBe(false);
+  });
+
+  it('gateLoaded reads source-credits.json of the collection', () => {
+    const d = clone(good);
+    d.scene.license = 'third-party';
+    expect(gateLoaded(d).some((e) => e.code === 'ATTRIBUTION_MISSING')).toBe(false);
+    d.scene.source.upstream = 'demo/other.png';
+    expect(gateLoaded(d).some((e) => e.code === 'ATTRIBUTION_MISSING')).toBe(true);
+  });
+
   it('SOURCE_MISSING', () => {
     expect(withCode('SOURCE_MISSING', good.scene, good.labels, { assetExists: () => false })).toBe(true);
     expect(withCode('SOURCE_MISSING', good.scene, good.labels, { assetExists: () => true })).toBe(false);

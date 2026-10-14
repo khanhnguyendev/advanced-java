@@ -3,7 +3,7 @@ import path from 'node:path';
 import { checkDiagram } from './gate';
 import type { LoadedDiagram } from './load';
 import { findConflicts, loadGlossaries } from './glossary';
-import { listDiagrams } from './load';
+import { creditOf, listDiagrams } from './load';
 import type { GateError, GlossaryEntry } from './types';
 
 /** Gate one loaded diagram: load errors + gate errors, asset existence confined to the collection's `_assets`. */
@@ -13,6 +13,7 @@ export function gateLoaded(d: LoadedDiagram, glossary?: GlossaryEntry[]): GateEr
   try {
     const { errors } = checkDiagram(d.scene, d.labels, {
       ...(glossary ? { glossary } : {}),
+      hasCredit: (up) => creditOf(d.root, d.collection, up) !== undefined,
       assetExists: (up) => {
         if (path.isAbsolute(up)) return false;
         const p = path.resolve(assetsDir, up);

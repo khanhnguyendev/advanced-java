@@ -1,13 +1,53 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
-import type { DiagramScene, GateError, GlossaryEntry, LabelsByLocale, LabelsFile } from './types';
+import type { DiagramAttribution, DiagramScene, GateError, GlossaryEntry, LabelsByLocale, LabelsFile } from './types';
 import { DIAGRAM_LOCALES } from './types';
+import { loadCredits, type SourceCredit, type SourceCredits } from '../content/credits';
+
+/** Key of a source-credits.json entry for an `_assets` key: `<section>/<slug>`, extension dropped. */
+export function creditKeyOf(upstream: string): string {
+  return upstream.split('/').slice(0, 2).join('/').replace(/\.[A-Za-z0-9]+$/, '');
+}
+
+const creditCache = new Map<string, SourceCredits>();
+
+/** source-credits.json of one collection, read once per process; unreadable or invalid means no credits. */
+export function collectionCredits(root: string, collection: string): SourceCredits {
+  const k = `${root}\u0000${collection}`;
+  let c = creditCache.get(k);
+  if (!c) {
+    try {
+      c = loadCredits(root, collection);
+    } catch {
+      c = {};
+    }
+    creditCache.set(k, c);
+  }
+  return c;
+}
+
+export function attributionOf(c: SourceCredit): DiagramAttribution {
+  return {
+    author: c.author,
+    title: c.title,
+    url: c.url,
+    publisher: c.publisher,
+    ...(c.license ? { licenseName: c.license.name, licenseUrl: c.license.url } : {}),
+  };
+}
+
+export function creditOf(root: string, collection: string, upstream: string): SourceCredit | undefined {
+  return collectionCredits(root, collection)[creditKeyOf(upstream)];
+}
+
 
 export interface LoadedDiagram {
   id: string;
   file: string;
   collection: string;
+  /** content root the diagram was loaded from */
+  root: string;
   /** `<root>/<collection>/_assets` */
   assetsDir: string;
   scene: DiagramScene;
@@ -46,6 +86,7 @@ export function loadDiagram(file: string, collection: string, root: string): Loa
       id: cleaned,
       file,
       collection,
+      root,
       assetsDir: path.join(root, collection, '_assets'),
       scene: { nodes: [], edges: [], texts: [] } as unknown as DiagramScene,
       labels: {},
@@ -100,6 +141,7 @@ export function loadDiagram(file: string, collection: string, root: string): Loa
     id,
     file,
     collection,
+    root,
     assetsDir: path.join(root, collection, '_assets'),
     scene,
     labels,

@@ -2,6 +2,8 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { upstreamBlobHref, upstreamDocPath } from '../assets';
 import type { CollectionConfig } from '../content/types';
+import { attributionOf, creditOf } from './load';
+import type { DiagramAttribution } from './types';
 
 export interface DiagramCredit {
   id: string;
@@ -11,6 +13,8 @@ export interface DiagramCredit {
   path: string;
   href: string;
   license: string;
+  /** third-party diagrams only: who the figure belongs to (from source-credits.json) */
+  attribution?: DiagramAttribution;
 }
 
 function walk(dir: string, out: string[]) {
@@ -33,7 +37,16 @@ export function listDiagramCredits(root: string, c: CollectionConfig): DiagramCr
       const d = JSON.parse(readFileSync(f, 'utf8')) as { id?: string; source?: { upstream?: string }; license?: string };
       if (!d.id || !d.source?.upstream) continue;
       const p = upstreamDocPath(d.source.upstream);
-      out.push({ id: d.id, upstream: d.source.upstream, path: p, href: upstreamBlobHref(c, p), license: d.license ?? 'derived' });
+      const license = d.license ?? 'derived';
+      const cr = license === 'third-party' ? creditOf(root, c.id, d.source.upstream) : undefined;
+      out.push({
+        id: d.id,
+        upstream: d.source.upstream,
+        path: p,
+        href: upstreamBlobHref(c, p),
+        license,
+        ...(cr ? { attribution: attributionOf(cr) } : {}),
+      });
     } catch {
       /* skip */
     }

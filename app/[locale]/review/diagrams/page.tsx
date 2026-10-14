@@ -4,7 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { contentRoot } from '@/lib/content/collection';
-import { buildReviewData, CREDIT_LINE, REVIEW_WIDTHS } from '@/lib/diagrams/review-data';
+import { buildReviewData, REVIEW_WIDTHS } from '@/lib/diagrams/review-data';
 import { DIAGRAM_LOCALES } from '@/lib/diagrams/types';
 
 export const dynamicParams = false;
@@ -120,7 +120,15 @@ export default async function DiagramReview({ params }: { params: Promise<{ loca
               ))}
             </div>
           </div>
-          <p style={{ color: 'var(--ink-muted)' }}>{CREDIT_LINE}</p>
+          <p style={{ color: 'var(--ink-muted)' }}>{e.creditLine}
+            {e.attribution && (
+              <>
+                {' '}
+                <a href={e.attribution.url}>{e.attribution.title}</a>
+                {e.attribution.publisher ? `, ${e.attribution.publisher}` : ''}
+              </>
+            )}
+          </p>
         </section>
       ))}
     </main>
