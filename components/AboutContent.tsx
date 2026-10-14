@@ -54,26 +54,30 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
             </li>
           ))}
         </ul>
-        <h2>{t('imageCredits')}</h2>
-        <p>{t('images', { count: served })}</p>
-        {collections.map((u) =>
-          u.images.length ? (
-            <details key={u.id}>
-              <summary>
-                <span className="mono">{u.id}</span> ({u.images.length})
-              </summary>
-              <ul className="image-credits">
-                {u.images.map((im) => (
-                  <li key={im.path}>
-                    <a href={im.href} className="mono">
-                      {im.path}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </details>
-          ) : null,
-        )}
+        {served > 0 ? (
+          <>
+            <h2>{t('imageCredits')}</h2>
+            <p>{t('images', { count: served })}</p>
+            {collections.map((u) =>
+              u.images.length ? (
+                <details key={u.id}>
+                  <summary>
+                    <span className="mono">{u.id}</span> ({u.images.length})
+                  </summary>
+                  <ul className="image-credits">
+                    {u.images.map((im) => (
+                      <li key={im.path}>
+                        <a href={im.href} className="mono">
+                          {im.path}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : null,
+            )}
+          </>
+        ) : null}
         {redrawn > 0 ? (
           <>
             <h2>{t('diagramCredits')}</h2>

@@ -165,6 +165,12 @@ describe('About', () => {
     expect(text).not.toMatch(/relicensed|original terms|third-party/);
   });
 
+  it('omits the image credits block when no raster is served', () => {
+    const { container } = render(wrap(<AboutContent collections={collections.map((c) => ({ ...c, images: [] }))} />));
+    expect(container.textContent).not.toContain('Image credits');
+    expect(container.textContent).not.toContain('images are served');
+  });
+
   it('lists one link per image, each pointing at the commit', () => {
     const { container } = render(wrap(<AboutContent collections={collections} />));
     const links = container.querySelectorAll('details a');
