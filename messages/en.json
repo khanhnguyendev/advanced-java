@@ -45,6 +45,7 @@
     "changesZh": "Reformatted from the original",
     "changesTranslated": "Translated and adapted from the Chinese original",
     "sourceFile": "Upstream file",
+    "sourceCredit": "Original source: “{title}” by {author}, {publisher}, {year}. This text is a Chinese translation of that work, reproduced here from the upstream repository; the original's rights remain with its authors. <link>Read the original</link>",
     "aboutLink": "About and licenses"
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },

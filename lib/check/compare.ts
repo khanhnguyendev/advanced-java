@@ -6,10 +6,13 @@ import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import { visit } from 'unist-util-visit';
 import { disallowedHtml } from '../../scripts/import/html-guard';
-import { docFile, listDocs, loadCollection } from '../content/collection';
+import { docFile, listDocs, loadCollection, loadMeta } from '../content/collection';
 import { parse, zhHashOf } from '../content/fallback';
 import { canonicalHash } from '../content/hash';
 import { LOCALES } from '../content/types';
+import { loadCredits } from '../content/credits';
+import { isHeld, loadPolicy } from '../content/policy';
+import { firstH1 } from '../render/headings';
 import type { DocFrontmatter, Locale } from '../content/types';
 import { commentFamily, stripComments } from './comments';
 
@@ -203,8 +206,28 @@ export function checkCollection(root: string, id: string): CheckReport {
   const exceptions = loadExceptions(root, id);
   const used = new Set<string>();
   const locales = LOCALES.filter((l) => l !== c.sourceLocale);
+  const policy = loadPolicy(root, id);
+  const credits = loadCredits(root, id);
+  const docs = listDocs(c);
+  const known = new Set(docs.map((d) => `${d.section}/${d.slug}`));
+  for (const key of Object.keys(policy.hold)) {
+    if (!known.has(key)) report.errors.push(`${key}: [policy-unknown-doc] translation-policy.json key matches no doc`);
+  }
+  for (const key of Object.keys(credits)) {
+    if (!known.has(key)) report.errors.push(`${key}: [credit-unknown-doc] source-credits.json key matches no doc`);
+  }
+  const norm = (s: string) => s.normalize('NFC').replace(/\s+/g, ' ').trim();
+  const metas = new Map(LOCALES.map((l) => [l, loadMeta(root, id, l)]));
+  const titleGate = (locale: Locale, section: string, slug: string, body: string) => {
+    const tag = `${locale}/${section}/${slug}`;
+    const h1 = firstH1(body);
+    if (h1 === undefined) return report.errors.push(`${tag}: [title-missing-h1] document has no depth-1 heading`);
+    const title = metas.get(locale)?.docs[slug]?.title;
+    if (title === undefined) return report.errors.push(`${tag}: [title-h1-mismatch] meta has no title for "${slug}" (H1 "${h1}")`);
+    if (norm(title) !== norm(h1)) report.errors.push(`${tag}: [title-h1-mismatch] meta title "${title}" does not equal H1 "${h1}"`);
+  };
 
-  for (const d of listDocs(c)) {
+  for (const d of docs) {
     const zhFile = docFile(root, id, c.sourceLocale, d.section, d.slug);
     if (!existsSync(zhFile)) {
       report.errors.push(`${c.sourceLocale}/${d.section}/${d.slug}: source file missing`);
@@ -219,14 +242,19 @@ export function checkCollection(root: string, id: string): CheckReport {
       report.errors.push(`${c.sourceLocale}/${d.section}/${d.slug}: [parse] ${(e as Error).message}`);
       continue;
     }
+    titleGate(c.sourceLocale, d.section, d.slug, zhBody);
 
     for (const locale of locales) {
       const file = docFile(root, id, locale, d.section, d.slug);
       if (!existsSync(file)) continue;
       const tag = `${locale}/${d.section}/${d.slug}`;
       report.checked += 1;
+      if (isHeld(policy, d.section, d.slug)) {
+        report.errors.push(`${tag}: [held-doc-translated] translation exists for a doc held by translation-policy.json`);
+      }
       try {
         const parsed = parse(readFileSync(file, 'utf8'));
+        titleGate(locale, d.section, d.slug, parsed.content);
         const fm = parsed.data as Partial<DocFrontmatter>;
 
         if (!fm.source || !fm.source.hash) report.errors.push(`${tag}: missing source frontmatter`);

@@ -23,6 +23,9 @@ function build(frontmatter: string, viBody = '# Tiêu đề\n\n## Phần\n\nNộ
   const zh = ZH;
   w('c/zh/s/a.md', zh);
   w('c/vi/s/a.md', frontmatter + viBody);
+  const m = (title: string) => JSON.stringify({ sections: {}, groups: {}, docs: { a: { title, navTitle: title } } });
+  w('c/zh/meta.json', m('标题'));
+  w('c/vi/meta.json', m('Tiêu đề'));
   for (const [rel, data] of Object.entries(extra)) w(rel, data);
   return { root, zh };
 }
@@ -78,7 +81,10 @@ describe('checkCollection', () => {
     expect(checkCollection(root, 'c').errors.join('\n')).toMatch(/source file missing/);
   });
   it('checks en alongside vi', () => {
-    const { root } = build(goodFm(), undefined, { 'c/en/s/a.md': goodFm() + '# Title\n\n## Part\n\nBody.\n' });
+    const { root } = build(goodFm(), undefined, {
+      'c/en/s/a.md': goodFm() + '# Title\n\n## Part\n\nBody.\n',
+      'c/en/meta.json': JSON.stringify({ sections: {}, groups: {}, docs: { a: { title: 'Title', navTitle: 'Title' } } }),
+    });
     const r = checkCollection(root, 'c');
     expect(r.checked).toBe(2);
     expect(r.errors).toEqual([]);
@@ -129,3 +135,54 @@ describe('checkCollection', () => {
     expect(checkCollection(root, 'c').sampled).toEqual(['vi/s/a: text-block:0']);
   });
 });
+
+describe('policy, credits and title gates', () => {
+  const fm = `---\nsource:\n  locale: zh\n  slug: a\n  hash: ${canonicalHash(ZH)}\nstatus: machine\ntranslatedAt: 2026-10-13\n---\n\n`;
+  const meta = (title: string) => JSON.stringify({ sections: {}, groups: {}, docs: { a: { title, navTitle: title } } });
+  const ok = {
+    'c/zh/meta.json': meta('标题'),
+    'c/vi/meta.json': meta('Tiêu đề'),
+  };
+
+  it('passes when every meta title equals its H1', () => {
+    const { root } = build(fm, undefined, ok);
+    expect(checkCollection(root, 'c').errors).toEqual([]);
+  });
+  it('flags a title that differs from the H1 (vi), naming locale, slug and both strings', () => {
+    const { root } = build(fm, undefined, { ...ok, 'c/vi/meta.json': meta('Khác') });
+    const e = checkCollection(root, 'c').errors.join('\n');
+    expect(e).toMatch(/vi\/s\/a: \[title-h1-mismatch\].*"Khác".*"Tiêu đề"/);
+  });
+  it('flags a zh source whose meta title differs from its H1', () => {
+    const { root } = build(fm, undefined, { ...ok, 'c/zh/meta.json': meta('别的') });
+    expect(checkCollection(root, 'c').errors.join('\n')).toMatch(/zh\/s\/a: \[title-h1-mismatch\]/);
+  });
+  it('compares after NFC normalization and whitespace collapse', () => {
+    const decomposed = 'Tie\u0302\u0301u  \u0111e\u0302\u0300'.normalize('NFD');
+    const { root } = build(fm, '# Tiêu đề\n\n## Phần\n\nNội dung.\n', { ...ok, 'c/vi/meta.json': meta('Tiêu  đề'.normalize('NFD')) });
+    expect(decomposed).toBeTruthy();
+    expect(checkCollection(root, 'c').errors).toEqual([]);
+  });
+  it('errors with title-missing-h1 when a body has no depth-1 heading', () => {
+    const { root } = build(fm, '## Phần\n\nNội dung.\n', ok);
+    expect(checkCollection(root, 'c').errors.join('\n')).toMatch(/\[title-missing-h1\]/);
+  });
+  it('errors held-doc-translated for a translation of a blocked doc, not when decision is translate', () => {
+    const hold = (decision: string) => ({ ...ok, 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision } } }) });
+    expect(checkCollection(build(fm, undefined, hold('pending')).root, 'c').errors.join('\n')).toMatch(/vi\/s\/a: \[held-doc-translated\]/);
+    expect(checkCollection(build(fm, undefined, hold('exclude')).root, 'c').errors.join('\n')).toMatch(/held-doc-translated/);
+    expect(checkCollection(build(fm, undefined, hold('translate')).root, 'c').errors).toEqual([]);
+  });
+  it('errors on policy and credit keys that match no doc', () => {
+    const credit = { title: 'T', author: 'A', publisher: 'P', url: 'https://example.com', year: 2014 };
+    const { root } = build(fm, undefined, {
+      ...ok,
+      'c/translation-policy.json': JSON.stringify({ hold: { 's/nope': { reason: 'r', decision: 'pending' } } }),
+      'c/source-credits.json': JSON.stringify({ 's/gone': credit }),
+    });
+    const e = checkCollection(root, 'c').errors.join('\n');
+    expect(e).toMatch(/\[policy-unknown-doc\]/);
+    expect(e).toMatch(/\[credit-unknown-doc\]/);
+  });
+});
+
