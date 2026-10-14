@@ -31,5 +31,3 @@ Dưới đây tôi đưa ra một phương án mà chúng tôi từng dùng. Nó
 Nhưng như vậy sẽ gây ra rất nhiều vấn đề phía sau, ví dụ nếu yêu cầu tương ứng với một đơn hàng nào đó đặc biệt nhiều, khiến một máy nào đó trở thành **điểm nóng** thì làm thế nào? Giải quyết các vấn đề này lại phải mở ra một loạt phương án kỹ thuật phức tạp phía sau... Loại vấn đề này từng khiến chúng tôi đau đầu không thôi, vì vậy, vẫn đề xuất điều gì?
 
 Tốt nhất là ví dụ như trường hợp vừa rồi, thao tác chèn và xóa của một đơn hàng, có thể gộp thành một thao tác hay không, tức là một thao tác xóa, hoặc cái gì khác, để tránh phát sinh vấn đề này.
-
------

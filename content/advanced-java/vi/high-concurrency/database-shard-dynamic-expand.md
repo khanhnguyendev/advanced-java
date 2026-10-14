@@ -33,7 +33,7 @@ Vậy bây giờ vấn đề đến rồi, các cơ sở dữ liệu và bảng 
 
 ### Mở rộng có ngừng hệ thống (không khuyến nghị)
 
-Phương án này giống như di chuyển có ngừng hệ thống, các bước gần như giống nhau, điểm duy nhất là công cụ nhập dữ liệu đó, là rút dữ liệu của cơ sở dữ liệu và bảng hiện có ra rồi từ từ đổ vào cơ sở dữ liệu và bảng mới. Nhưng tốt nhất đừng làm như vậy, hơi không đáng tin, vì đã **sharding** thì chứng tỏ lượng dữ liệu thật sự quá lớn, có thể lên tới hàng trăm triệu bản ghi, thậm chí hàng chục tỷ, bạn làm vậy có thể xảy ra vấn đề.
+Phương án này giống như di chuyển có ngừng hệ thống, các bước gần như giống nhau, điểm duy nhất là công cụ nhập dữ liệu đó, là rút dữ liệu của cơ sở dữ liệu và bảng hiện có ra rồi từ từ đổ vào cơ sở dữ liệu và bảng mới. Nhưng tốt nhất đừng làm như vậy, hơi không đáng tin, vì đã **sharding** thì chứng tỏ lượng dữ liệu thật sự quá lớn, có thể lên tới hàng trăm triệu bản ghi, thậm chí hàng tỷ, bạn làm vậy có thể xảy ra vấn đề.
 
 Khi di chuyển từ một cơ sở dữ liệu một bảng sang sharding, lượng dữ liệu không quá lớn, bảng đơn lớn nhất cũng chỉ 20 đến 30 triệu. Vậy bạn viết một công cụ, dùng thêm vài máy chạy song song, 1 giờ là nhập dữ liệu xong. Cái này không vấn đề.
 

@@ -58,5 +58,3 @@ Nói chung, nếu độ trễ master/replica khá nghiêm trọng thì có các 
 -   Bật sao chép song song mà MySQL hỗ trợ, sao chép song song nhiều CSDL. Nếu số lần ghi đồng thời của một CSDL vốn đã đặc biệt cao, ví dụ đạt 2000/s trên một CSDL, thì sao chép song song vẫn vô nghĩa.
 -   Viết lại code: người viết code cần cẩn trọng, vì chèn dữ liệu xong truy vấn ngay có thể không tìm thấy.
 -   Nếu thực sự có trường hợp bắt buộc phải chèn trước rồi truy vấn thấy ngay, sau đó lập tức làm ngược lại một số thao tác, thì với truy vấn này hãy **đặt kết nối thẳng đến master**. **Không khuyến nghị** cách này, vì nếu làm vậy thì ý nghĩa của tách đọc/ghi sẽ mất.
-
------

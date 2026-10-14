@@ -66,7 +66,7 @@ So in an interview you can mention the trie approach. In this scenario, parsing 
 
 - Approach 1 mentioned single files of 300MB+. With a trie these 300MB+ may be compressed to, say, 200MB+. Considering machine utilization, in scenarios where the CPU is plentiful you can introduce concurrency: since the compression ratio is 1/3, the remaining space can be freed up to load more files for concurrent processing and raise throughput.
 
-- If the CPU is not plentiful, for example a single core, you can consider increasing the size of the split files. The original 1000 files drop to 200, so each file grows five times, from 300MB to 300\*5 = 1.5G, which fills the memory of a 4G machine, reduces the number of IO operations and the copying from kernel mode to user mode. You could also mention DMA.
+- If the CPU is not plentiful, for example a single core, you can consider increasing the size of the split files. The original 1000 files drop to 200, so the file size is enlarged two times, from 300MB to 300\*5 = 1.5G, which fills the memory of a 4G machine, reduces the number of IO operations and the copying from kernel mode to user mode. You could also mention DMA.
 
 ## Summary
 

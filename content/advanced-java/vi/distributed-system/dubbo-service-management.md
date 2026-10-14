@@ -127,5 +127,3 @@ Có thể kết hợp với kịch bản cụ thể của công ty các bạn đ
 
 -   `timeout` : thường đặt là `200ms` , chúng ta cho rằng không thể quá `200ms` mà vẫn chưa trả về.
 -   `retries` : đặt retries, thường là với yêu cầu đọc, ví dụ bạn muốn truy vấn một dữ liệu, bạn có thể đặt retries, nếu lần đầu không đọc được, báo lỗi, thì thử lại đúng số lần chỉ định, cố gắng đọc lại.
-
------

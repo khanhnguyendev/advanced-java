@@ -106,5 +106,3 @@ Khi provider khởi động, sẽ nạp dòng cấu hình `my=com.bingo.MyProtoc
 Dubbo cung cấp rất nhiều điểm mở rộng tương tự như trên, tức là nếu bạn muốn mở rộng một thứ gì, chỉ cần tự viết một jar, để dự án consumer hoặc provider của bạn phụ thuộc vào jar đó, trong jar của bạn cấu hình sẵn tệp tương ứng với tên API ở thư mục chỉ định, bên trong dùng `key=实现类` (key = lớp hiện thực).
 
 Sau đó với thành phần tương ứng, giống như `<dubbo:protocol>`, dùng lớp hiện thực tương ứng với key của bạn để hiện thực một API nào đó; bạn có thể tự mở rộng các chức năng của Dubbo, cung cấp hiện thực của riêng bạn.
-
------

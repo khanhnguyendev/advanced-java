@@ -44,5 +44,3 @@ Người phỏng vấn (interviewer) có thể sẽ hỏi bạn các câu hỏi 
 ## Session phân tán
 
 -   Khi triển khai theo cụm (cluster), Session phân tán được hiện thực như thế nào?
-
------

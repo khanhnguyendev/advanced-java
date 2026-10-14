@@ -382,5 +382,3 @@ spring:
 ### Tổng kết
 
 > Sentinel và Spring Cloud Gateway đều là các framework giới hạn lưu lượng rất tốt, nhưng trong quá trình sử dụng của tôi chưa đưa [spring-cloud-alibaba](https://github.com/alibaba/spring-cloud-alibaba) vào dự án, nên tôi sẽ chọn **Spring Cloud Gateway**; khi đã tích hợp đầy đủ hoặc tích hợp Nacos vào dự án thì dùng Sentinel sẽ có trải nghiệm tốt hơn.
-
------

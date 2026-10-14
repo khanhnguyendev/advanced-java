@@ -30,7 +30,7 @@ Không ngờ chúng ta lại may mắn đến vậy, gặp được một CEO d�
 
 Được rồi, không sao, bây giờ mọi người cảm thấy áp lực đã hơi lớn, tại sao ư? Vì mỗi ngày tăng thêm 100 nghìn bản ghi, một tháng tăng thêm 3 triệu bản ghi, bây giờ bảng đơn của chúng ta đã có vài triệu bản ghi, sắp vượt 10 triệu. Nhưng vẫn còn gượng chống được. Yêu cầu giờ cao điểm hiện tại là 1000, chúng ta triển khai vài máy trực tuyến, làm cân bằng tải một chút, cơ sở dữ liệu chống đỡ 1000QPS cũng tạm ổn. Nhưng bây giờ mọi người bắt đầu cảm thấy hơi lo, tiếp theo làm thế nào đây......
 
-Vài tháng tiếp theo, trời ơi, CEO quá đỉnh, số người dùng của công ty đã đạt 100 triệu, công ty tiếp tục gọi vốn hàng chục tỷ nhân dân tệ! Định giá công ty đạt mức kinh ngạc hàng chục tỷ USD, trở thành công ty khởi nghiệp ngôi sao đỉnh nhất trong nước năm nay! Trời, chúng ta quá may mắn.
+Vài tháng tiếp theo, trời ơi, CEO quá đỉnh, số người dùng của công ty đã đạt 100 triệu, công ty tiếp tục gọi vốn hàng tỷ nhân dân tệ! Định giá công ty đạt mức kinh ngạc hàng tỷ USD, trở thành công ty khởi nghiệp ngôi sao đỉnh nhất trong nước năm nay! Trời, chúng ta quá may mắn.
 
 Nhưng đồng thời chúng ta cũng bất hạnh, vì lúc này số người dùng hoạt động mỗi ngày là hàng chục triệu, mỗi ngày một bảng tăng thêm tới 500 nghìn bản ghi, hiện tại tổng lượng dữ liệu của một bảng đã đạt 20 đến 30 triệu rồi! Không chịu nổi nữa! Dung lượng đĩa của cơ sở dữ liệu liên tục bị tiêu hao! Tải đồng thời giờ cao điểm đạt mức kinh ngạc `5000~8000` ! Đừng đùa nữa anh bạn. Tôi đảm bảo với bạn, hệ thống của bạn không chống đỡ nổi đến bây giờ, đã sập rồi!
 

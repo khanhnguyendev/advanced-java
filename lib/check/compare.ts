@@ -79,6 +79,22 @@ const normBlock = (s: string) =>
     .filter((l) => l.trim() !== '')
     .join('\n');
 
+/** Counts standalone lines made only of 4+ dashes, outside fenced code blocks. */
+function strayDelimiters(md: string): number {
+  let fence: string | null = null;
+  let n = 0;
+  for (const line of md.split('\n')) {
+    const m = /^ {0,3}(`{3,}|~{3,})/.exec(line);
+    if (m) {
+      if (fence === null) fence = m[1][0];
+      else if (m[1][0] === fence) fence = null;
+      continue;
+    }
+    if (fence === null && /^ {0,3}-{4,}[ \t]*$/.test(line)) n += 1;
+  }
+  return n;
+}
+
 export interface CompareOptions { exceptions?: string[]; locale?: Locale }
 export interface CompareResult { issues: Issue[]; waived: Issue[]; sampled: number[] }
 
@@ -132,6 +148,12 @@ export function compareTranslationDetailed(zhMd: string, trMd: string, opts: Com
   if (targets.length) err('link-targets', `link/asset targets differ: ${targets.slice(0, 5).join(' | ')}`);
 
   for (const h of disallowedHtml(trMd)) err('raw-html', `line ${h.line}: raw HTML <${h.tag}> is not allowed`);
+
+  const strayZh = strayDelimiters(zhMd);
+  const strayTr = strayDelimiters(trMd);
+  if (strayTr > strayZh) {
+    err('stray-delimiter', `translation has ${strayTr} standalone "-----" line(s), source has ${strayZh}`);
+  }
 
   const hanOf = (t: string) => (t.match(/\p{Script=Han}/gu) ?? []).length;
   const lettersOf = (t: string) => (t.match(/[\p{L}\p{N}]/gu) ?? []).length || 1;

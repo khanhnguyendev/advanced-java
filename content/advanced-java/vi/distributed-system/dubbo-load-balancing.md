@@ -122,5 +122,3 @@ Gọi lần lượt tất cả provider. Bất kỳ provider nào gặp lỗi th
 ### Chiến lược proxy động của Dubbo
 
 Mặc định dùng javassist để sinh bytecode động, tạo lớp proxy. Nhưng có thể cấu hình chiến lược proxy động của riêng mình qua cơ chế mở rộng spi.
-
------

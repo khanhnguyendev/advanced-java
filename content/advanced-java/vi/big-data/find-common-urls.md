@@ -66,7 +66,7 @@ Vì vậy trong buổi phỏng vấn có thể nhắc đến phương án trie; 
 
 - Phương án một nói mỗi tệp có kích thước 300MB+, sau khi dùng cây trie thì 300MB+ này sẽ được nén phần nào, ví dụ còn 200MB+; xét đến mức sử dụng hiệu năng máy, trong một số kịch bản CPU dư dả có thể cân nhắc đưa vào xử lý đồng thời, vì tỷ lệ nén 1/3 nên phần không gian còn lại có thể dùng để nạp thêm tệp nhằm xử lý đồng thời, tăng tốc độ xử lý.
 
-- Nếu CPU không dư dả, ví dụ đơn nhân, có thể cân nhắc tăng kích thước tệp khi chia: từ 1000 tệp ban đầu giảm xuống 200 tệp, tức kích thước tệp tăng gấp năm lần, trước là 300MB, giờ là 300\*5 = 1.5G, trên máy 4G có thể lấp đầy bộ nhớ, giảm số lần IO, giảm việc sao chép từ kernel mode sang user mode, cũng có thể nhắc thêm DMA.
+- Nếu CPU không dư dả, ví dụ đơn nhân, có thể cân nhắc tăng kích thước tệp khi chia: từ 1000 tệp ban đầu giảm xuống 200 tệp, tức kích thước tệp được mở rộng gấp đôi, trước là 300MB, giờ là 300\*5 = 1.5G, trên máy 4G có thể lấp đầy bộ nhớ, giảm số lần IO, giảm việc sao chép từ kernel mode sang user mode, cũng có thể nhắc thêm DMA.
 
 ## Tổng kết phương pháp
 

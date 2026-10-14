@@ -99,4 +99,26 @@ describe('compareTranslation', () => {
     expect(codes(compareTranslation(z, t, { locale: 'en' }))).toContain('length-ratio');
     expect(codes(compareTranslation(z, t))).not.toContain('length-ratio');
   });
+  describe('stray-delimiter', () => {
+    const z = '# 标题\n\n内容。\n';
+    const t = (extra: string) => `# Title\n\nContent.\n${extra}`;
+    it('rejects a leaked delimiter line', () => {
+      expect(codes(compareTranslation(z, t('\n-----\n')))).toContain('stray-delimiter');
+    });
+    it('accepts a break that the source also has', () => {
+      const zb = '# 标题\n\n内容。\n\n-----\n';
+      expect(codes(compareTranslation(zb, t('\n-----\n')))).not.toContain('stray-delimiter');
+    });
+    it('ignores table separator rows and short thematic breaks', () => {
+      const tbl = '\n| a | b |\n| --- | --- |\n| 1 | 2 |\n\n---\n';
+      expect(codes(compareTranslation(z, t(tbl)))).not.toContain('stray-delimiter');
+    });
+    it('ignores fenced code', () => {
+      const zf = '# 标题\n\n' + F + '\n-----\n' + F + '\n';
+      const tf = '# Title\n\n' + F + '\n-----\n' + F + '\n';
+      expect(codes(compareTranslation(zf, tf))).not.toContain('stray-delimiter');
+      const tf2 = '# Title\n\n' + F + '\nx\n' + F + '\n\n-----\n';
+      expect(codes(compareTranslation('# 标题\n\n' + F + '\nx\n' + F + '\n', tf2))).toContain('stray-delimiter');
+    });
+  });
 });

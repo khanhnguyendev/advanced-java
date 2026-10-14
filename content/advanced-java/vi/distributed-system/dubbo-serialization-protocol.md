@@ -106,5 +106,3 @@ Còn có một kiểu đặc biệt:
 ### Vì sao PB có hiệu quả cao nhất?
 
 Thực ra PB có hiệu năng tốt như vậy chủ yếu nhờ hai điểm: **thứ nhất**, nó dùng trình biên dịch proto, tự động thực hiện tuần tự hóa và giải tuần tự hóa, tốc độ rất nhanh, nhanh hơn `XML` và `JSON` khoảng `20~100` lần; **thứ hai**, hiệu quả nén dữ liệu của nó tốt, tức là dữ liệu sau khi tuần tự hóa có kích thước nhỏ. Vì kích thước nhỏ nên khi truyền sẽ được tối ưu về băng thông và tốc độ.
-
------

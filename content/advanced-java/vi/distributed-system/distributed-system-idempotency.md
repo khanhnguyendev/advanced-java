@@ -39,5 +39,3 @@ Thực ra để đảm bảo tính idempotent chủ yếu có ba điểm:
 Trong quá trình vận hành thực tế, bạn phải kết hợp với nghiệp vụ của mình, ví dụ tận dụng Redis, dùng orderId làm khóa duy nhất. Chỉ khi chèn thành công bản ghi thanh toán này thì mới có thể thực hiện thanh toán trừ tiền thực sự.
 
 Yêu cầu là thanh toán một đơn hàng thì bắt buộc phải chèn một bản ghi thanh toán, order_id tạo một khóa duy nhất `unique key` . Trước khi thanh toán một đơn hàng, bạn chèn trước một bản ghi thanh toán, order_id đã vào rồi. Bạn có thể ghi một đánh dấu vào Redis, `set order_id payed` , lần sau khi yêu cầu lặp lại đến, truy vấn trước value tương ứng của order_id trong Redis, nếu là `payed` thì nghĩa là đã thanh toán rồi, bạn đừng thanh toán lặp lại nữa.
-
------

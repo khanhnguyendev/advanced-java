@@ -49,5 +49,3 @@ Tất nhiên từ năm ngoái Spring Cloud rất hot, hiện nay nhiều công t
 ### Trung tâm đăng ký dịch vụ sập thì có thể tiếp tục liên lạc được không?
 
 Được, vì ngay khi khởi tạo ban đầu, consumer sẽ **kéo về bộ nhớ đệm cục bộ** các thông tin như địa chỉ của provider, nên trung tâm đăng ký dịch vụ sập thì vẫn có thể tiếp tục liên lạc.
-
------

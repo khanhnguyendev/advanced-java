@@ -71,5 +71,3 @@ Nói sâu thì thực sự rất sâu, nên ở đây tôi đưa ra một ví d�
 Tất nhiên là được. Tệ nhất thì các hệ thống trực tiếp giao tiếp với nhau bằng API http thuần dựa trên spring mvc, còn làm gì được nữa. Nhưng chắc chắn là có vấn đề, vì việc bảo trì giao tiếp bằng API http có chi phí rất cao, bạn phải cân nhắc đủ thứ vấn đề lằng nhằng như **thử lại khi hết thời gian chờ (timeout)**, **cân bằng tải**, v.v. Ví dụ hệ thống đơn hàng của bạn gọi hệ thống sản phẩm, hệ thống sản phẩm triển khai trên 5 máy, làm sao bạn phân phối đều yêu cầu cho 5 máy đó? Đó chẳng phải là cân bằng tải sao? Nếu tự làm hết thì cũng được, nhưng quả thật rất khổ.
 
 Vì vậy nói thẳng ra thì Dubbo là một framework RPC, nghĩa là ở phía cục bộ bạn chỉ thực hiện việc gọi API, nhưng Dubbo sẽ proxy yêu cầu gọi này, giao tiếp mạng với máy từ xa, xử lý giúp bạn cân bằng tải, tự động nhận biết instance dịch vụ lên xuống, thử lại khi hết thời gian chờ, và đủ thứ vấn đề lằng nhằng khác. Như vậy bạn không cần tự làm nữa, dùng Dubbo là được.
-
------

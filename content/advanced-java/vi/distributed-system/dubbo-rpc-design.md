@@ -35,5 +35,3 @@ Lấy một ví dụ, tôi nói với mọi người một hướng trả lời 
 -   Phía server cũng như vậy, cần sinh một proxy động cho dịch vụ của bạn, lắng nghe một cổng mạng nào đó, rồi proxy code dịch vụ cục bộ của bạn. Khi nhận được yêu cầu thì gọi code dịch vụ tương ứng, đúng không.
 
 Đây là hướng suy nghĩ về một framework RPC cơ bản nhất, chưa nói bạn có nền tảng kỹ thuật giỏi đến đâu, thì ít nhất hướng suy nghĩ đơn giản nhất này bạn đưa ra trước được không?
-
------
