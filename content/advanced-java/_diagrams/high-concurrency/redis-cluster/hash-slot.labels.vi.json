@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "27dcdae3a615143f5ef6696059fa8434f3e29b9dfa86ac58c811d5deae4f0fcf",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "master": "master",
+    "_title": "Các hash slot phân bố trên ba master, master ở giữa bị sập",
+    "_desc": "Ba master mỗi cái giữ một phần hash slot; master ở giữa đã bị sập và được đánh dấu bằng dấu X."
+  }
+}

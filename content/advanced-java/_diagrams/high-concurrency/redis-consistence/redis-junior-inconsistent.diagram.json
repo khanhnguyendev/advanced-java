@@ -1,0 +1,19 @@
+{
+  "id": "high-concurrency/redis-consistence/redis-junior-inconsistent",
+  "source": { "upstream": "high-concurrency/redis-consistence/redis-junior-inconsistent.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 440, "h": 340 },
+  "nodes": [
+    { "id": "db", "shape": "box", "x": 36, "y": 57, "w": 190, "h": 70, "label": { "key": "db", "literals": ["1000->999"] }, "role": "default" },
+    { "id": "cache", "shape": "pill", "x": 296, "y": 48, "w": 132, "h": 70, "label": { "key": "cache", "literals": ["1000"] }, "role": "default" },
+    { "id": "svc", "shape": "box", "x": 187, "y": 184, "w": 162, "h": 56, "label": { "key": "svc" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[268, 184], [268, 155], [125, 155], [125, 127]], "arrow": "end", "style": "solid" },
+    { "points": [[349, 211], [364, 211], [364, 118]], "arrow": "end", "style": "solid", "label": { "key": "x", "at": [372, 177], "anchor": "start" } },
+    { "points": [[268, 318], [268, 240]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

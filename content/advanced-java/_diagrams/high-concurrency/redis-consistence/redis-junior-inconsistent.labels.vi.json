@@ -1,0 +1,11 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "d34604414c5e8a54fa55c47dd74bf978d19aee0ba7e3edc3dfd5d21fc7e2c14c", "source_lang": "zh" },
+  "labels": {
+    "db": "Cơ sở dữ liệu\nTồn kho 1000->999",
+    "cache": "Bộ nhớ đệm\nTồn kho 1000",
+    "svc": "Dịch vụ\ntồn kho",
+    "x": "X",
+    "_title": "Dịch vụ tồn kho cập nhật cơ sở dữ liệu rồi mới cập nhật bộ nhớ đệm",
+    "_desc": "Dịch vụ tồn kho đổi tồn kho trong cơ sở dữ liệu từ 1000 xuống 999, nhưng cập nhật bộ nhớ đệm thất bại (X) nên bộ nhớ đệm vẫn giữ 1000, dữ liệu bị bất nhất."
+  }
+}

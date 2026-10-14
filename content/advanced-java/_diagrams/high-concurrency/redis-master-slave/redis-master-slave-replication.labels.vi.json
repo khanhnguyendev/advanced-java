@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "afc786d93cf506f9b669474dd56ad73cdaa8a51aff15223036759a7f4c174bd0",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "rdb": "RDB",
+    "master": "master",
+    "slave": "slave",
+    "disk": "Đĩa",
+    "ping": "ping",
+    "write": "Ghi",
+    "persist": "Lưu trữ bền vững RDB",
+    "load": "Nạp vào bộ nhớ",
+    "first": "Kết nối lần đầu:\nsao chép toàn bộ",
+    "again": "Kết nối lại:\nsao chép một phần dữ liệu",
+    "_title": "Luồng sao chép master/replica của Redis",
+    "_desc": "Slave gửi ping cho master; kết nối lần đầu sao chép toàn bộ RDB, kết nối lại chỉ sao chép một phần dữ liệu, slave ghi xuống đĩa rồi nạp vào bộ nhớ."
+  }
+}

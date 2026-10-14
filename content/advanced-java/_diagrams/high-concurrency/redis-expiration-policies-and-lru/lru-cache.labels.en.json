@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "LRU cache structure",
+    "_desc": "Keys k1 to k5 point to the nodes n1 to n5 of a doubly linked list, with Head and End marking the two ends.",
+    "k1": "k1",
+    "k2": "k2",
+    "k3": "k3",
+    "k4": "k4",
+    "k5": "k5",
+    "n1": "n1",
+    "n2": "n2",
+    "n3": "n3",
+    "n4": "n4",
+    "n5": "n5",
+    "head": "Head",
+    "end": "End"
+  }
+}

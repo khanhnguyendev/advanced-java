@@ -1,0 +1,21 @@
+{
+ "meta": {
+  "locale": "en",
+  "status": "machine",
+  "from": "3568e37c3221157e95971a5b8b4676b22534a39c19f43fd91308d726c6022b71",
+  "source_lang": "zh"
+ },
+ "labels": {
+  "master": "master",
+  "slave": "slave",
+  "client": "Client",
+  "s4": "4. master starts a full replication\nand sends all of its data to\nslave to synchronize the data",
+  "s2": "2. slave has an internal scheduled task\nthat checks every second whether a\nmaster needs connecting; if so, it sets\nup a socket network connection\nwith master",
+  "socket": "Socket network connection",
+  "s3": "3. If master has requirepass configured,\nthe replica node sends the masterauth\npassword over to authenticate",
+  "s1": "1. slave starts and saves the host\nand ip of master node locally",
+  "s5": "5. Every time master receives new data,\nit sends it asynchronously to the replica node",
+  "_title": "Redis master/replica replication in detail",
+  "_desc": "The slave saves the master's address, connects over a socket, authenticates with masterauth if needed, then the master replicates all data and afterwards sends new data asynchronously."
+ }
+}

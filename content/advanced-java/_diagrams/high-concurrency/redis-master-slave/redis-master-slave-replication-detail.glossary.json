@@ -1,0 +1,39 @@
+{
+  "labels": [
+    {
+      "zh": "client",
+      "en": "Client",
+      "vi": "Client"
+    },
+    {
+      "zh": "socket 网络连接",
+      "en": "Socket network connection",
+      "vi": "Kết nối mạng socket"
+    },
+    {
+      "zh": "4. master 启动全量复制，\n将自己所有的数据，都发送给\nslave，实现数据的同步",
+      "en": "4. master starts a full replication\nand sends all of its data to\nslave to synchronize the data",
+      "vi": "4. master bắt đầu sao chép toàn bộ,\ngửi tất cả dữ liệu của mình\ncho slave để đồng bộ dữ liệu"
+    },
+    {
+      "zh": "2. slave 内部有定时任务，每秒会check\n是否有 master 要连接，如果有就跟\nmaster 建立 socket 网络来连接",
+      "en": "2. slave has an internal scheduled task\nthat checks every second whether a\nmaster needs connecting; if so, it sets\nup a socket network connection\nwith master",
+      "vi": "2. slave có tác vụ định kỳ bên trong,\nmỗi giây kiểm tra xem có master\ncần kết nối không, nếu có thì thiết lập\nkết nối mạng socket với master"
+    },
+    {
+      "zh": "3. 如果 master 配置了\nrequirepass，那么 slave node\n会发送 masterauth 口令过去认证",
+      "en": "3. If master has requirepass configured,\nthe replica node sends the masterauth\npassword over to authenticate",
+      "vi": "3. Nếu master có cấu hình requirepass\nthì slave node sẽ gửi mật khẩu masterauth\nsang để xác thực"
+    },
+    {
+      "zh": "1. slave 启动，在本地保存\nmaster node 的host 和 ip",
+      "en": "1. slave starts and saves the host\nand ip of master node locally",
+      "vi": "1. slave khởi động, lưu cục bộ host\nvà ip của master node"
+    },
+    {
+      "zh": "5. 每次master 接收到新的\n数据，都异步发送给 slave node",
+      "en": "5. Every time master receives new data,\nit sends it asynchronously to the replica node",
+      "vi": "5. Mỗi khi master nhận được dữ liệu mới,\nđều gửi bất đồng bộ cho slave node"
+    }
+  ]
+}

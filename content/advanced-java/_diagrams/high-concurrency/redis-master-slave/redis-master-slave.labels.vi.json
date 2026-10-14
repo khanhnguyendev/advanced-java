@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "25752aa12f60618a2d73f957a0c63702e7408937bcbc2c4f1c1e9efcde76f144",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_desc": "Một master node nhận thao tác ghi và sao chép dữ liệu sang bốn slave node, các slave node phục vụ thao tác đọc.",
+    "_title": "Kiến trúc master/replica của Redis",
+    "c1": "Sao chép\ndữ liệu",
+    "c2": "Sao chép\ndữ liệu",
+    "c3": "Sao chép\ndữ liệu",
+    "c4": "Sao chép\ndữ liệu",
+    "master": "Master node",
+    "r1": "Đọc",
+    "r2": "Đọc",
+    "r3": "Đọc",
+    "r4": "Đọc",
+    "s1": "Slave node",
+    "s2": "Slave node",
+    "s3": "Slave node",
+    "s4": "Slave node",
+    "w": "Ghi"
+  }
+}

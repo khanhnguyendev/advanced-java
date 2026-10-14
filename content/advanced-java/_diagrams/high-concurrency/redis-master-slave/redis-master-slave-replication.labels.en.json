@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "afc786d93cf506f9b669474dd56ad73cdaa8a51aff15223036759a7f4c174bd0",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "rdb": "RDB",
+    "master": "master",
+    "slave": "slave",
+    "disk": "Disk",
+    "ping": "ping",
+    "write": "Write",
+    "persist": "RDB persistence",
+    "load": "Load into memory",
+    "first": "First connection:\nfull replication",
+    "again": "Reconnection:\npartial data replication",
+    "_title": "Redis master/replica replication flow",
+    "_desc": "The slave pings the master; a first connection does a full RDB replication, a reconnection copies only part of the data, and the slave writes to disk then loads into memory."
+  }
+}

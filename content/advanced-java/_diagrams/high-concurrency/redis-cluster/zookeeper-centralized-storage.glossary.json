@@ -1,0 +1,14 @@
+{
+  "labels": [
+    {
+      "zh": "master",
+      "en": "master",
+      "vi": "master"
+    },
+    {
+      "zh": "zookeeper 集中式元数据的维护和存储",
+      "en": "zookeeper centralized metadata maintenance and storage",
+      "vi": "zookeeper duy trì và lưu trữ metadata tập trung"
+    }
+  ]
+}

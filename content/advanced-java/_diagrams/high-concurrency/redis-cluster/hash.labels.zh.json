@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "e8d2877722979798746a062700962cf57e7e62bb19ad02ad97fff9ba7c7ab480",
+    "source_lang": "en"
+  },
+  "labels": {
+    "master": "master",
+    "_title": "三个 master 各自接收请求，中间的 master 宕机",
+    "_desc": "三个 master 各自接收请求，中间的 master 已宕机并以叉号标出。"
+  }
+}

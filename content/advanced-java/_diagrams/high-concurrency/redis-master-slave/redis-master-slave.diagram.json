@@ -1,0 +1,309 @@
+{
+  "id": "high-concurrency/redis-master-slave/redis-master-slave",
+  "source": {
+    "upstream": "high-concurrency/redis-master-slave/redis-master-slave.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 700,
+    "h": 370
+  },
+  "nodes": [
+    {
+      "id": "master",
+      "shape": "round",
+      "x": 290,
+      "y": 170,
+      "w": 120,
+      "h": 64,
+      "label": {
+        "key": "master"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s1",
+      "shape": "round",
+      "x": 30,
+      "y": 60,
+      "w": 120,
+      "h": 64,
+      "label": {
+        "key": "s1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s2",
+      "shape": "round",
+      "x": 30,
+      "y": 270,
+      "w": 120,
+      "h": 64,
+      "label": {
+        "key": "s2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s3",
+      "shape": "round",
+      "x": 550,
+      "y": 60,
+      "w": 120,
+      "h": 64,
+      "label": {
+        "key": "s3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s4",
+      "shape": "round",
+      "x": 550,
+      "y": 270,
+      "w": 120,
+      "h": 64,
+      "label": {
+        "key": "s4"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          290,
+          202
+        ],
+        [
+          220,
+          202
+        ],
+        [
+          220,
+          92
+        ],
+        [
+          150,
+          92
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "c1",
+        "at": [
+          185,
+          128
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          290,
+          202
+        ],
+        [
+          220,
+          202
+        ],
+        [
+          220,
+          302
+        ],
+        [
+          150,
+          302
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "c2",
+        "at": [
+          185,
+          266
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          410,
+          202
+        ],
+        [
+          480,
+          202
+        ],
+        [
+          480,
+          92
+        ],
+        [
+          550,
+          92
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "c3",
+        "at": [
+          515,
+          128
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          410,
+          202
+        ],
+        [
+          480,
+          202
+        ],
+        [
+          480,
+          302
+        ],
+        [
+          550,
+          302
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "c4",
+        "at": [
+          515,
+          266
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          350,
+          20
+        ],
+        [
+          350,
+          170
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "w",
+        "at": [
+          358,
+          60
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          90,
+          20
+        ],
+        [
+          90,
+          60
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "r1",
+        "at": [
+          98,
+          40
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          90,
+          200
+        ],
+        [
+          90,
+          270
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "r2",
+        "at": [
+          98,
+          235
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          610,
+          20
+        ],
+        [
+          610,
+          60
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "r3",
+        "at": [
+          618,
+          40
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          610,
+          200
+        ],
+        [
+          610,
+          270
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "r4",
+        "at": [
+          618,
+          235
+        ],
+        "anchor": "start"
+      }
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc",
+  "texts": []
+}

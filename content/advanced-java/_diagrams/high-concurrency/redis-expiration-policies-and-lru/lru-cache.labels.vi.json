@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "fe7ae594d4b6a2ce856427a2a87632fb60908dbd1539128ef713f1d0a69aaf0c",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Cấu trúc bộ nhớ đệm LRU",
+    "_desc": "Các khóa k1 đến k5 trỏ tới các nút n1 đến n5 của danh sách liên kết đôi, với Head và End đánh dấu hai đầu danh sách.",
+    "k1": "k1",
+    "k2": "k2",
+    "k3": "k3",
+    "k4": "k4",
+    "k5": "k5",
+    "n1": "n1",
+    "n2": "n2",
+    "n3": "n3",
+    "n4": "n4",
+    "n5": "n5",
+    "head": "Head",
+    "end": "End"
+  }
+}

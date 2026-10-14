@@ -1,0 +1,11 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "d34604414c5e8a54fa55c47dd74bf978d19aee0ba7e3edc3dfd5d21fc7e2c14c", "source_lang": "zh" },
+  "labels": {
+    "db": "Database\nInventory 1000->999",
+    "cache": "Cache\nInventory 1000",
+    "svc": "Inventory service",
+    "x": "X",
+    "_title": "Inventory service updates the database, then the cache",
+    "_desc": "The inventory service changes the database inventory from 1000 to 999, but the cache update fails (X) and the cache still holds 1000, leaving the data inconsistent."
+  }
+}

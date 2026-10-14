@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "25752aa12f60618a2d73f957a0c63702e7408937bcbc2c4f1c1e9efcde76f144",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_desc": "One master node takes writes and replicates data to four replica nodes, which serve reads.",
+    "_title": "Redis master/replica architecture",
+    "c1": "Replicate\ndata",
+    "c2": "Replicate\ndata",
+    "c3": "Replicate\ndata",
+    "c4": "Replicate\ndata",
+    "master": "Master node",
+    "r1": "Read",
+    "r2": "Read",
+    "r3": "Read",
+    "r4": "Read",
+    "s1": "Replica node",
+    "s2": "Replica node",
+    "s3": "Replica node",
+    "s4": "Replica node",
+    "w": "Write"
+  }
+}

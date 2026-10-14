@@ -1,0 +1,29 @@
+{
+  "labels": [
+    {
+      "zh": "master node",
+      "en": "Master node",
+      "vi": "Master node"
+    },
+    {
+      "zh": "slave node",
+      "en": "Replica node",
+      "vi": "Slave node"
+    },
+    {
+      "zh": "读",
+      "en": "Read",
+      "vi": "Đọc"
+    },
+    {
+      "zh": "写",
+      "en": "Write",
+      "vi": "Ghi"
+    },
+    {
+      "zh": "复制数据",
+      "en": "Replicate\ndata",
+      "vi": "Sao chép\ndữ liệu"
+    }
+  ]
+}

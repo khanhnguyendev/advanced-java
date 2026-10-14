@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "rdb": "RDB",
+    "master": "master",
+    "slave": "slave",
+    "disk": "磁盘",
+    "ping": "ping",
+    "write": "写入",
+    "persist": "RDB持久化",
+    "load": "加载到内存",
+    "first": "初次连接：全量复制",
+    "again": "重新连接：部分数据复制",
+    "_title": "Redis 主从复制流程",
+    "_desc": "slave 向 master 发送 ping，首次连接全量复制 RDB，重新连接只复制部分数据，slave 写入磁盘后再加载到内存。"
+  }
+}

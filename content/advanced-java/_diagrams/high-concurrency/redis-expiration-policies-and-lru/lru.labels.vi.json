@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "54219df651608089326119bad1cf846aef6dd1873949912dc28d42f853e91849",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Bộ nhớ đệm LRU",
+    "_desc": "Một hàng sáu mục bộ nhớ đệm, gọi get() cho một mục sẽ chuyển nó lên đầu bộ nhớ đệm; mục ngoài cùng bên trái là mục ít được dùng nhất.",
+    "blank": "",
+    "title": "Bộ nhớ đệm LRU",
+    "least": "Các mục ít được dùng nhất\ntrong danh sách",
+    "get": "get()",
+    "caption": "Gọi get() cho một mục sẽ chuyển nó lên đầu bộ nhớ đệm"
+  }
+}

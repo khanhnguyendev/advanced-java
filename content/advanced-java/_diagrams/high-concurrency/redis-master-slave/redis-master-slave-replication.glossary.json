@@ -1,0 +1,49 @@
+{
+  "labels": [
+    {
+      "zh": "初次连接：全量复制",
+      "en": "First connection:\nfull replication",
+      "vi": "Kết nối lần đầu:\nsao chép toàn bộ"
+    },
+    {
+      "zh": "重新连接：部分数据复制",
+      "en": "Reconnection:\npartial data replication",
+      "vi": "Kết nối lại:\nsao chép một phần dữ liệu"
+    },
+    {
+      "zh": "加载到内存",
+      "en": "Load into memory",
+      "vi": "Nạp vào bộ nhớ"
+    },
+    {
+      "zh": "磁盘",
+      "en": "Disk",
+      "vi": "Đĩa"
+    },
+    {
+      "zh": "RDB持久化",
+      "en": "RDB persistence",
+      "vi": "Lưu trữ bền vững RDB"
+    },
+    {
+      "zh": "RDB",
+      "en": "RDB",
+      "vi": "RDB"
+    },
+    {
+      "zh": "master",
+      "en": "master",
+      "vi": "master"
+    },
+    {
+      "zh": "slave",
+      "en": "slave",
+      "vi": "slave"
+    },
+    {
+      "zh": "ping",
+      "en": "ping",
+      "vi": "ping"
+    }
+  ]
+}

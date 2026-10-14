@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "master": "master",
+    "_title": "Three masters exchange metadata with each other",
+    "_desc": "Three master nodes are linked by arrows in both directions, showing metadata spreading between them under the gossip protocol."
+  }
+}

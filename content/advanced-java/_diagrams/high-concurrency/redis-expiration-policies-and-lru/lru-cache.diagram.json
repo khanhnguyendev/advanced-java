@@ -1,0 +1,422 @@
+{
+  "id": "high-concurrency/redis-expiration-policies-and-lru/lru-cache",
+  "source": {
+    "upstream": "high-concurrency/redis-expiration-policies-and-lru/lru-cache.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 660,
+    "h": 290
+  },
+  "nodes": [
+    {
+      "id": "k1",
+      "shape": "box",
+      "x": 166,
+      "y": 10,
+      "w": 58,
+      "h": 52,
+      "label": {
+        "key": "k1",
+        "literals": [
+          "k1"
+        ]
+      }
+    },
+    {
+      "id": "k2",
+      "shape": "box",
+      "x": 225,
+      "y": 10,
+      "w": 58,
+      "h": 52,
+      "label": {
+        "key": "k2",
+        "literals": [
+          "k2"
+        ]
+      }
+    },
+    {
+      "id": "k3",
+      "shape": "box",
+      "x": 284,
+      "y": 10,
+      "w": 58,
+      "h": 52,
+      "label": {
+        "key": "k3",
+        "literals": [
+          "k3"
+        ]
+      }
+    },
+    {
+      "id": "k4",
+      "shape": "box",
+      "x": 343,
+      "y": 10,
+      "w": 58,
+      "h": 52,
+      "label": {
+        "key": "k4",
+        "literals": [
+          "k4"
+        ]
+      }
+    },
+    {
+      "id": "k5",
+      "shape": "box",
+      "x": 402,
+      "y": 10,
+      "w": 58,
+      "h": 52,
+      "label": {
+        "key": "k5",
+        "literals": [
+          "k5"
+        ]
+      }
+    },
+    {
+      "id": "n1",
+      "shape": "box",
+      "x": 10,
+      "y": 128,
+      "w": 58,
+      "h": 58,
+      "label": {
+        "key": "n1",
+        "literals": [
+          "n1"
+        ]
+      }
+    },
+    {
+      "id": "n2",
+      "shape": "box",
+      "x": 147,
+      "y": 128,
+      "w": 58,
+      "h": 58,
+      "label": {
+        "key": "n2",
+        "literals": [
+          "n2"
+        ]
+      }
+    },
+    {
+      "id": "n3",
+      "shape": "box",
+      "x": 284,
+      "y": 128,
+      "w": 58,
+      "h": 58,
+      "label": {
+        "key": "n3",
+        "literals": [
+          "n3"
+        ]
+      }
+    },
+    {
+      "id": "n4",
+      "shape": "box",
+      "x": 420,
+      "y": 128,
+      "w": 58,
+      "h": 58,
+      "label": {
+        "key": "n4",
+        "literals": [
+          "n4"
+        ]
+      }
+    },
+    {
+      "id": "n5",
+      "shape": "box",
+      "x": 557,
+      "y": 128,
+      "w": 58,
+      "h": 58,
+      "label": {
+        "key": "n5",
+        "literals": [
+          "n5"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          195,
+          62
+        ],
+        [
+          195,
+          76
+        ],
+        [
+          449,
+          100
+        ],
+        [
+          449,
+          128
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          254,
+          62
+        ],
+        [
+          254,
+          76
+        ],
+        [
+          176,
+          110
+        ],
+        [
+          176,
+          128
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          313,
+          62
+        ],
+        [
+          313,
+          76
+        ],
+        [
+          39,
+          95
+        ],
+        [
+          39,
+          128
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          372,
+          62
+        ],
+        [
+          372,
+          76
+        ],
+        [
+          313,
+          110
+        ],
+        [
+          313,
+          128
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          431,
+          62
+        ],
+        [
+          431,
+          76
+        ],
+        [
+          586,
+          95
+        ],
+        [
+          586,
+          128
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          68,
+          145
+        ],
+        [
+          147,
+          145
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          147,
+          167
+        ],
+        [
+          68,
+          167
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          205,
+          145
+        ],
+        [
+          284,
+          145
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          284,
+          167
+        ],
+        [
+          205,
+          167
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          342,
+          145
+        ],
+        [
+          420,
+          145
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          420,
+          167
+        ],
+        [
+          342,
+          167
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          478,
+          145
+        ],
+        [
+          557,
+          145
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          557,
+          167
+        ],
+        [
+          478,
+          167
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          39,
+          245
+        ],
+        [
+          39,
+          186
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          586,
+          245
+        ],
+        [
+          586,
+          186
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "head",
+      "x": 39,
+      "y": 262,
+      "anchor": "middle"
+    },
+    {
+      "key": "end",
+      "x": 586,
+      "y": 262,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

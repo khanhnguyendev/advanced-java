@@ -1,0 +1,16 @@
+{
+  "meta": {"locale": "zh", "status": "source"},
+  "labels": {
+    "master": "master",
+    "slave": "slave",
+    "client": "client",
+    "s4": "4. master 启动全量复制，\n将自己所有的数据，都发送给\nslave，实现数据的同步",
+    "s2": "2. slave 内部有定时任务，每秒会check\n是否有 master 要连接，如果有就跟\nmaster 建立 socket 网络来连接",
+    "socket": "socket 网络连接",
+    "s3": "3. 如果 master 配置了\nrequirepass，那么 slave node\n会发送 masterauth 口令过去认证",
+    "s1": "1. slave 启动，在本地保存\nmaster node 的host 和 ip",
+    "s5": "5. 每次master 接收到新的\n数据，都异步发送给 slave node",
+    "_title": "Redis 主从复制的详细流程",
+    "_desc": "slave 启动后保存 master 信息，定时建立 socket 连接，必要时用 masterauth 认证，master 全量复制数据，之后异步发送新数据。"
+  }
+}

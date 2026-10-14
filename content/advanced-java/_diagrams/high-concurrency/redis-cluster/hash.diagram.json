@@ -1,0 +1,125 @@
+{
+  "id": "high-concurrency/redis-cluster/hash",
+  "source": {
+    "upstream": "high-concurrency/redis-cluster/hash.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 470,
+    "h": 310
+  },
+  "nodes": [
+    {
+      "id": "m0",
+      "shape": "box",
+      "x": 48,
+      "y": 160,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "master"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m1",
+      "shape": "box",
+      "x": 187,
+      "y": 160,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "master"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m2",
+      "shape": "box",
+      "x": 324,
+      "y": 160,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "master"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          98,
+          48
+        ],
+        [
+          98,
+          136
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          237,
+          52
+        ],
+        [
+          237,
+          136
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          374,
+          48
+        ],
+        [
+          374,
+          136
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          210,
+          208
+        ],
+        [
+          266,
+          268
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          266,
+          208
+        ],
+        [
+          210,
+          268
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "LRU Cache",
+    "_desc": "A row of six cache entries where calling get() on an item moves it to the top of the cache; the leftmost entry is the least used.",
+    "blank": "",
+    "title": "LRU Cache",
+    "least": "Least used\nitems in the list",
+    "get": "get()",
+    "caption": "Calling get() for an item, moves it to the top of the cache"
+  }
+}

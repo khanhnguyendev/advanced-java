@@ -1,0 +1,421 @@
+{
+  "id": "high-concurrency/redis-cluster/hash-slot",
+  "source": {
+    "upstream": "high-concurrency/redis-cluster/hash-slot.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 740,
+    "h": 190
+  },
+  "nodes": [
+    {
+      "id": "m0",
+      "shape": "group",
+      "x": 48,
+      "y": 48,
+      "w": 181,
+      "h": 95,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "c01",
+      "shape": "round",
+      "x": 56,
+      "y": 56,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c02",
+      "shape": "round",
+      "x": 93,
+      "y": 52,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c03",
+      "shape": "round",
+      "x": 134,
+      "y": 56,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c04",
+      "shape": "round",
+      "x": 181,
+      "y": 52,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c05",
+      "shape": "round",
+      "x": 57,
+      "y": 93,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c06",
+      "shape": "round",
+      "x": 93,
+      "y": 110,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c07",
+      "shape": "round",
+      "x": 134,
+      "y": 110,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c08",
+      "shape": "round",
+      "x": 185,
+      "y": 93,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m1",
+      "shape": "group",
+      "x": 278,
+      "y": 48,
+      "w": 181,
+      "h": 95,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "c11",
+      "shape": "round",
+      "x": 286,
+      "y": 56,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c12",
+      "shape": "round",
+      "x": 323,
+      "y": 52,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c13",
+      "shape": "round",
+      "x": 364,
+      "y": 56,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c14",
+      "shape": "round",
+      "x": 411,
+      "y": 52,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c15",
+      "shape": "round",
+      "x": 287,
+      "y": 93,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c16",
+      "shape": "round",
+      "x": 323,
+      "y": 110,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c17",
+      "shape": "round",
+      "x": 364,
+      "y": 110,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c18",
+      "shape": "round",
+      "x": 415,
+      "y": 93,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m2",
+      "shape": "group",
+      "x": 508,
+      "y": 48,
+      "w": 181,
+      "h": 95,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "c21",
+      "shape": "round",
+      "x": 516,
+      "y": 56,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c22",
+      "shape": "round",
+      "x": 553,
+      "y": 52,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c23",
+      "shape": "round",
+      "x": 594,
+      "y": 56,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c24",
+      "shape": "round",
+      "x": 641,
+      "y": 52,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c25",
+      "shape": "round",
+      "x": 517,
+      "y": 93,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c26",
+      "shape": "round",
+      "x": 553,
+      "y": 110,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c27",
+      "shape": "round",
+      "x": 594,
+      "y": 110,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "c28",
+      "shape": "round",
+      "x": 645,
+      "y": 93,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          278,
+          96
+        ],
+        [
+          229,
+          96
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          459,
+          96
+        ],
+        [
+          508,
+          96
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          350,
+          120
+        ],
+        [
+          386,
+          156
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          386,
+          120
+        ],
+        [
+          350,
+          156
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "master",
+      "x": 138,
+      "y": 94,
+      "anchor": "middle"
+    },
+    {
+      "key": "master",
+      "x": 368,
+      "y": 94,
+      "anchor": "middle"
+    },
+    {
+      "key": "master",
+      "x": 598,
+      "y": 94,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

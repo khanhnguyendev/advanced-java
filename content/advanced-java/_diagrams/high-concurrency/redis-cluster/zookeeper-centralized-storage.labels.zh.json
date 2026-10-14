@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "m0": "master",
+    "m1": "master",
+    "m2": "master",
+    "zk": "zookeeper 集中式元数据的维护和存储",
+    "_title": "多个 master 节点将元数据集中存放在 zookeeper",
+    "_desc": "三个 master 节点各有一条箭头指向 zookeeper，由 zookeeper 集中维护和存储元数据。"
+  }
+}

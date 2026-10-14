@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "_desc": "一个 master 节点接收写请求并把数据复制到四个 slave 节点，slave 节点负责读请求。",
+    "_title": "Redis 主从架构：master 节点写，slave 节点读",
+    "c1": "复制数据",
+    "c2": "复制数据",
+    "c3": "复制数据",
+    "c4": "复制数据",
+    "master": "master node",
+    "r1": "读",
+    "r2": "读",
+    "r3": "读",
+    "r4": "读",
+    "s1": "slave node",
+    "s2": "slave node",
+    "s3": "slave node",
+    "s4": "slave node",
+    "w": "写"
+  }
+}

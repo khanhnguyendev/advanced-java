@@ -1,0 +1,142 @@
+{
+ "id": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail",
+ "source": {
+  "upstream": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail.png",
+  "commit": "1a35221"
+ },
+ "license": "derived",
+ "size": {
+  "w": 980,
+  "h": 360
+ },
+ "nodes": [
+  {
+   "id": "master",
+   "shape": "box",
+   "x": 90,
+   "y": 110,
+   "w": 110,
+   "h": 80,
+   "label": {
+    "key": "master"
+   },
+   "role": "default"
+  },
+  {
+   "id": "slave",
+   "shape": "box",
+   "x": 560,
+   "y": 110,
+   "w": 110,
+   "h": 80,
+   "label": {
+    "key": "slave"
+   },
+   "role": "default"
+  },
+  {
+   "id": "client",
+   "shape": "box",
+   "x": 40,
+   "y": 220,
+   "w": 66,
+   "h": 40,
+   "label": {
+    "key": "client"
+   },
+   "role": "default"
+  }
+ ],
+ "edges": [
+  {
+   "points": [
+    [
+     200,
+     128
+    ],
+    [
+     560,
+     128
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     560,
+     160
+    ],
+    [
+     200,
+     160
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  },
+  {
+   "points": [
+    [
+     73,
+     220
+    ],
+    [
+     73,
+     150
+    ],
+    [
+     90,
+     150
+    ]
+   ],
+   "arrow": "end",
+   "style": "solid"
+  }
+ ],
+ "texts": [
+  {
+   "key": "s4",
+   "x": 380,
+   "y": 72,
+   "anchor": "middle"
+  },
+  {
+   "key": "s2",
+   "x": 835,
+   "y": 56,
+   "anchor": "middle"
+  },
+  {
+   "key": "socket",
+   "x": 380,
+   "y": 144,
+   "anchor": "middle"
+  },
+  {
+   "key": "s3",
+   "x": 380,
+   "y": 222,
+   "anchor": "middle",
+   "literals": [
+    "requirepass",
+    "masterauth"
+   ]
+  },
+  {
+   "key": "s1",
+   "x": 700,
+   "y": 242,
+   "anchor": "middle"
+  },
+  {
+   "key": "s5",
+   "x": 200,
+   "y": 312,
+   "anchor": "middle"
+  }
+ ],
+ "title_key": "_title",
+ "desc_key": "_desc"
+}

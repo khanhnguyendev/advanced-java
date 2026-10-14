@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "c8c3c0f9f07146c9895e216535242d481c4d3f02be9468879f48f4adf2551059",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "m0": "master",
+    "m1": "master",
+    "m2": "master",
+    "zk": "zookeeper duy trì và lưu trữ\nmetadata tập trung",
+    "_title": "Nhiều master lưu metadata tập trung trong zookeeper",
+    "_desc": "Ba node master đều có mũi tên trỏ tới zookeeper, nơi duy trì và lưu trữ metadata tập trung."
+  }
+}

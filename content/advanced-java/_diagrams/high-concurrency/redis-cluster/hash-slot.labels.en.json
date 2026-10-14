@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "master": "master",
+    "_title": "Hash slots spread across three masters, with the middle master down",
+    "_desc": "Three masters each hold a share of the hash slots; the middle master has crashed and is marked with a cross."
+  }
+}

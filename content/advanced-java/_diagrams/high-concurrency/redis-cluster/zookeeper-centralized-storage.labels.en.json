@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "c8c3c0f9f07146c9895e216535242d481c4d3f02be9468879f48f4adf2551059",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "m0": "master",
+    "m1": "master",
+    "m2": "master",
+    "zk": "zookeeper centralized metadata\nmaintenance and storage",
+    "_title": "Several masters keep metadata centrally in zookeeper",
+    "_desc": "Three master nodes each point an arrow to zookeeper, which maintains and stores the metadata centrally."
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "high-concurrency/redis-cluster/zookeeper-centralized-storage",
+  "source": {
+    "upstream": "high-concurrency/redis-cluster/zookeeper-centralized-storage.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 520,
+    "h": 270
+  },
+  "nodes": [
+    {
+      "id": "m0",
+      "shape": "box",
+      "x": 66,
+      "y": 45,
+      "w": 124,
+      "h": 70,
+      "label": {
+        "key": "m0"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m1",
+      "shape": "box",
+      "x": 210,
+      "y": 45,
+      "w": 124,
+      "h": 70,
+      "label": {
+        "key": "m1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m2",
+      "shape": "box",
+      "x": 353,
+      "y": 45,
+      "w": 124,
+      "h": 70,
+      "label": {
+        "key": "m2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "zk",
+      "shape": "box",
+      "x": 48,
+      "y": 180,
+      "w": 424,
+      "h": 46,
+      "label": {
+        "key": "zk",
+        "literals": [
+          "zookeeper"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          128,
+          115
+        ],
+        [
+          128,
+          150
+        ],
+        [
+          222,
+          150
+        ],
+        [
+          222,
+          180
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          272,
+          115
+        ],
+        [
+          272,
+          180
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          415,
+          115
+        ],
+        [
+          415,
+          150
+        ],
+        [
+          322,
+          150
+        ],
+        [
+          322,
+          180
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

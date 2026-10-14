@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "41c80e5852040463f5b8dfddb36a26c3f2adf2983eb42ab2704532ea8065c44f",
+    "source_lang": "en"
+  },
+  "labels": {
+    "master": "master",
+    "_title": "master 节点之间两两互相通信，彼此交换元数据",
+    "_desc": "三个 master 节点之间用箭头相互连接，表示 gossip 协议下元数据的相互传播。"
+  }
+}

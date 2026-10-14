@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "41c80e5852040463f5b8dfddb36a26c3f2adf2983eb42ab2704532ea8065c44f",
+    "source_lang": "en"
+  },
+  "labels": {
+    "master": "master",
+    "_title": "Ba master trao đổi metadata với nhau",
+    "_desc": "Ba node master được nối với nhau bằng các mũi tên theo cả hai chiều, thể hiện metadata lan truyền giữa chúng theo giao thức gossip."
+  }
+}

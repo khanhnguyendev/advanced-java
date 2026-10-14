@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "master": "master",
+    "_title": "Three masters each receive requests, with the middle master down",
+    "_desc": "Three masters each receive requests; the middle master has crashed and is marked with a cross."
+  }
+}

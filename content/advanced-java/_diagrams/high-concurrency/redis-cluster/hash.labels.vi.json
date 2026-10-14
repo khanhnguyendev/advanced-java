@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "e8d2877722979798746a062700962cf57e7e62bb19ad02ad97fff9ba7c7ab480",
+    "source_lang": "en"
+  },
+  "labels": {
+    "master": "master",
+    "_title": "Ba master cùng nhận yêu cầu, trong đó master ở giữa bị sập",
+    "_desc": "Ba master cùng nhận yêu cầu; master ở giữa đã bị sập và được đánh dấu bằng dấu chéo."
+  }
+}

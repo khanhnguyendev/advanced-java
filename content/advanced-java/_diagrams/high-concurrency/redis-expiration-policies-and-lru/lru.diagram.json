@@ -1,0 +1,176 @@
+{
+  "id": "high-concurrency/redis-expiration-policies-and-lru/lru",
+  "source": {
+    "upstream": "high-concurrency/redis-expiration-policies-and-lru/lru.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 800,
+    "h": 500
+  },
+  "nodes": [
+    {
+      "id": "b1",
+      "shape": "box",
+      "x": 16,
+      "y": 264,
+      "w": 108,
+      "h": 90,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b2",
+      "shape": "box",
+      "x": 142,
+      "y": 264,
+      "w": 108,
+      "h": 90,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b3",
+      "shape": "box",
+      "x": 268,
+      "y": 264,
+      "w": 108,
+      "h": 90,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b4",
+      "shape": "box",
+      "x": 394,
+      "y": 264,
+      "w": 108,
+      "h": 90,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b5",
+      "shape": "box",
+      "x": 520,
+      "y": 264,
+      "w": 108,
+      "h": 90,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b6",
+      "shape": "box",
+      "x": 646,
+      "y": 264,
+      "w": 108,
+      "h": 90,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          70,
+          176
+        ],
+        [
+          70,
+          264
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          322,
+          264
+        ],
+        [
+          326,
+          246
+        ],
+        [
+          345,
+          230
+        ],
+        [
+          380,
+          216
+        ],
+        [
+          430,
+          206
+        ],
+        [
+          512,
+          202
+        ],
+        [
+          590,
+          206
+        ],
+        [
+          640,
+          218
+        ],
+        [
+          675,
+          236
+        ],
+        [
+          696,
+          264
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "title",
+      "x": 8,
+      "y": 28,
+      "anchor": "start"
+    },
+    {
+      "key": "least",
+      "x": 17,
+      "y": 136,
+      "anchor": "start"
+    },
+    {
+      "key": "get",
+      "x": 514,
+      "y": 176,
+      "anchor": "middle",
+      "literals": [
+        "get()"
+      ]
+    },
+    {
+      "key": "caption",
+      "x": 348,
+      "y": 434,
+      "anchor": "middle",
+      "literals": [
+        "get()"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

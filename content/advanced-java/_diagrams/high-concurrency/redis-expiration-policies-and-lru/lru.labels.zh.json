@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "54219df651608089326119bad1cf846aef6dd1873949912dc28d42f853e91849",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "LRU 缓存",
+    "_desc": "一排六个缓存项，对某项调用 get() 会把它移到缓存顶部，最左边的项是最少使用的。",
+    "blank": "",
+    "title": "LRU 缓存",
+    "least": "列表中\n最少使用的项",
+    "get": "get()",
+    "caption": "对某项调用 get()，会把它移到缓存顶部"
+  }
+}
