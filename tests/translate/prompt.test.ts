@@ -31,4 +31,21 @@ describe('buildPrompt', () => {
     expect(p).not.toMatch(/inside code spans/i);
     expect(p).toMatch(/without angle brackets/i);
   });
+  it('documents the inline-code Han exception', () => {
+    expect(p).toMatch(/inside an inline code span in the source stays inside that span unchanged/);
+    expect(p).toContain('one place a Han character may remain');
+  });
+  it('carries first-use parenthetical and term-separation rules', () => {
+    expect(p).toMatch(/11\. Glossary values written `A \(B\)`/);
+    expect(p).toMatch(/only the first time the concept appears/);
+    expect(p).toContain("宕机 (crash/outage, vi 'sập') and 挂起 (hang, vi 'treo') stay separate");
+    expect(p).toContain('编排 (orchestration) and 编舞 (choreography) stay separate');
+  });
+  it('includes Vietnamese number rules for vi only', () => {
+    expect(p).toMatch(/13\. Vietnamese only: write numbers in Vietnamese units/);
+    expect(p).toMatch(/14\. Vietnamese only: write 接口 as API/);
+    const en = buildPrompt({ locale: 'en', slug: 's', zhBody: 'x', glossary: { 接口: 'API/interface' }, keep: [] });
+    expect(en).not.toMatch(/Vietnamese only/);
+    expect(en).toContain('接口 → API/interface');
+  });
 });

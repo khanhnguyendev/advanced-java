@@ -39,3 +39,12 @@ pnpm check:translations                                # structure, code, links,
 
 Translations are written with `status: machine`. Only the owner marks a document reviewed
 (`pnpm check:translations --mark-reviewed advanced-java/vi/why-mq`).
+
+Translation rules:
+
+- Direct from zh only; never translate from another translation.
+- Han characters inside an inline code span are a documented exception: the span is kept unchanged and the gloss is written outside it.
+- One term per concept: use the glossary files (`content/advanced-java/glossary.{en,vi}.json`) exactly as given.
+- For glossary values written `A (B)`, use A everywhere and write B in parentheses only on first use in a document.
+- Vietnamese numbers use Vietnamese units (nghìn, triệu, tỷ), never 万, w or vạn.
+- Held docs are not translated (see `content/advanced-java/translation-policy.json`).

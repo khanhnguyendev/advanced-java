@@ -16,6 +16,8 @@ describe('meta tier', () => {
     expect(p).toContain('高并发架构');
     expect(p).toMatch(/identical keys/i);
     expect(p).toContain('消息队列 → message queue');
+    expect(p).toMatch(/use A only/);
+    expect(p).toMatch(/one rendering per concept/);
   });
   it('applyMeta writes valid meta and rejects missing or extra keys', () => {
     const root = mkdtempSync(path.join(os.tmpdir(), 'meta-'));

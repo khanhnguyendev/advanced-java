@@ -7,7 +7,7 @@ const LANG = { en: 'English', vi: 'Vietnamese' } as const;
 
 export function buildMetaPrompt(i: { locale: 'en' | 'vi'; zhMeta: LocaleMeta; glossary: Glossary }): string {
   const gloss = Object.entries(i.glossary).map(([zh, t]) => `- ${zh} → ${t}`).join('\n');
-  return `Translate the VALUES of this JSON from Chinese into ${LANG[i.locale]}. Return ONLY valid JSON with identical keys and the same structure. Keep product names (Kafka, Redis, Dubbo, Hystrix, ...) untranslated. Every value must be non-empty. Titles are interview-style questions; keep them natural and concise.
+  return `Translate the VALUES of this JSON from Chinese into ${LANG[i.locale]}. Return ONLY valid JSON with identical keys and the same structure. Keep product names (Kafka, Redis, Dubbo, Hystrix, ...) untranslated. Every value must be non-empty. Titles are interview-style questions; keep them natural and concise. Use each glossary term exactly as given (one rendering per concept); for glossary values written \`A (B)\` use A only (titles are short; do not add the parenthetical). Vietnamese: numbers in Vietnamese units; 降级 as per glossary.
 
 Glossary:
 ${gloss}
