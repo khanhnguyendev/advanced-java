@@ -22,7 +22,7 @@
     "es1": "Elasticsearch",
     "es2": "Elasticsearch",
     "es3": "Elasticsearch",
-    "e_cache": "Handles high read concurrency",
+    "e_cache": "Handles high\nread concurrency",
     "e_write": "Writes to master",
     "e_sync": "Master syncs data to replica",
     "e_read": "System A reads\ndata from the replica",
