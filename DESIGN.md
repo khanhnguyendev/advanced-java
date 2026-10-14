@@ -101,7 +101,7 @@ A two-ground palette: paper and ink, with cobalt as the only chromatic voice.
 ### Named Rules
 **The One Voice Rule.** Cobalt marks interaction and place (links, current item, focus). It never fills large areas and never decorates.
 
-**The Margin Grid Rule.** The grid is painted on the shell only; `.reader` and `.shelf` cover it. Reading mode removes it entirely.
+**The Margin Grid Rule.** The grid is painted on the shell only; `.reader` and `.shelf` cover it. Reading mode removes it entirely. At 960px and below the shell is one column and the grid is not painted at all.
 
 ## Typography
 
@@ -123,11 +123,13 @@ A two-ground palette: paper and ink, with cobalt as the only chromatic voice.
 
 ## Layout
 
-Three-column shell: left rail (220-280px), reading column, right rail (200-260px); the sticky `.topbar-slot` spans all columns and publishes its height as `--topbar-h` for anchor offsets. Header, notice, actions and body share one reading-column edge. At 960px the rails collapse into a `Menu` disclosure; at 640px the top bar wraps into two rows. Spacing rhythm: 0.25 / 0.5 / 1 / 2rem.
+Three-column shell inside a full-bleed grid: left rail (220-280px), reading column, right rail (200-260px). The 90rem cap is carried by the grid columns (flexible outer columns absorb the rest), so the grid background and the top bar rule run edge to edge. The rails are sticky under the top bar and scroll inside themselves; section groups in the left rail are collapsible `<details>` with the current section open. The sticky `.topbar-slot` spans all columns and publishes its measured height as `--topbar-h` for sticky offsets and anchor scroll margins; the top bar itself only sets a minimum height. Header, notice, actions and body share one reading-column edge.
+
+At 960px and below the shell is one column, the shell grid background is not painted, and `.reader` and `.shelf` share a 16px gutter and the rails are removed. Doc pages gain a fixed bottom dock (Previous, Next, Language, Contents, Menu): Contents opens the TOC and steps in a bottom sheet (70dvh cap), Menu opens the section tree in a left drawer with a Theme control, Language opens a small popover. Pages without a dock (home, collection, section, about) put Language, with Theme in its footer, behind a compact button in the top bar. All three are native `<dialog>` elements opened with `showModal()`; the page behind them does not scroll. Spacing rhythm: 0.25 / 0.5 / 1 / 2rem.
 
 ## Elevation & Depth
 
-Flat. Depth is conveyed by rules (1px solid for structure, 1px dotted for secondary division) and by the paper/grid contrast. The only shadow is the search results popover (a soft ambient 0 6px 16px -8px at 40% ink), used because it floats over content.
+Flat. Depth is conveyed by rules (1px solid for structure, 1px dotted for secondary division) and by the paper/grid contrast. The only shadow is the search results popover (a soft ambient 0 6px 16px -8px at 40% ink), used because it floats over content. Modal dialogs (drawer, sheet, language popover) sit on a flat backdrop of 45% ink; they carry a 1px Pencil rule, no shadow.
 
 ## Shapes
 
@@ -143,7 +145,8 @@ Square-ish: 2px control radius, 1px borders, no pills. Indicators are text-based
 - **Style:** the search field matches the buttons (paper fill, 1px Pencil border, 2px radius); hover darkens the border to ink.
 
 ### Navigation
-- **Top bar:** brand, search, segmented language switcher, theme and reading-mode controls on one ruled strip.
+- **Top bar:** brand, search, segmented language switcher, theme and reading-mode controls on one ruled strip. At 960px and below it is a single row: brand, search and a compact language button (pages without a dock).
+- **Dock and dialogs (<=960px):** bottom dock with Previous / Next as links (unavailable side is plain muted text), and Language / Contents / Menu as buttons; 44px targets. Dialogs close with Esc, the Close button or a backdrop tap; tapping an in-page link closes the sheet or drawer and moves focus to the target heading.
 - **Language switcher:** bordered segmented list; current locale bold with cobalt underline; a short status marker (● translated, ◐ machine, ○ fallback) plus screen-reader text.
 - **Rails:** mono group labels, dense rows with mono catalog IDs, current row in cobalt with a 1px ink left rule.
 
@@ -152,6 +155,9 @@ Square-ish: 2px control radius, 1px borders, no pills. Indicators are text-based
 
 ### Shelf spines
 - Ruled rows: ID range in mono at left, title and per-locale counts at right; 1px ink top rule, dotted row dividers.
+
+### Home index rows
+- Home (single collection): a start/resume action, a normal sans "Sections" heading, then one ruled row per section: ID range (mono), title, doc count, and one line per language (available of total, machine and untranslated counts; the original language says "original"). Rows are at least 44px tall.
 
 ## Do's and Don'ts
 
@@ -169,4 +175,7 @@ Square-ish: 2px control radius, 1px borders, no pills. Indicators are text-based
 
 ## Known drift (not canonized)
 - Small mono label "On this page" and rail group labels sit near the craft-floor "eyebrow" line; they are functional navigation labels, not decorative kickers, and should not be reused as a kicker pattern on new surfaces.
-- Wide `pre` blocks are scroll regions without `tabindex` (keyboard reachability) until the render pipeline adds it.
+- Wide `pre` blocks and diagrams become focusable, labelled scroll regions on the client (`ScrollRegions`), only where they actually overflow; the render pipeline itself does not add `tabindex`.
+- The left rail is rendered twice on doc pages (rail and drawer); a known duplication cost.
+- Section groups in the left rail put their heading inside `<summary>`; VoiceOver flattens headings inside a summary, so they are not navigable as headings.
+- Reading mode only switches the grid background off; it has no other effect and no control on small screens.

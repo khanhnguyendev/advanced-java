@@ -15,7 +15,19 @@
     "home": "首页",
     "collections": "笔记本",
     "sidebar": "文档",
-    "skip": "跳到正文"
+    "skip": "跳到正文",
+    "close": "关闭",
+    "pageNav": "页面导航",
+    "scrollCode": "可滚动的代码",
+    "scrollDiagram": "可滚动的图示"
+  },
+  "home": {
+    "start": "开始阅读",
+    "resume": "继续阅读",
+    "sections": "章节",
+    "docCount": "{count} 篇文档",
+    "sectionLanguage": "{language}：可读 {available} / {total} 篇{machine, plural, =0 {} other {，机器翻译 # 篇}}{fallback, plural, =0 {} other {，未翻译 # 篇}}",
+    "sectionLanguageOriginal": "{language}：原文，共 {total, plural, other {# 篇}}"
   },
   "diagram": {
     "credit": "根据上游原图重绘（doocs/advanced-java，CC-BY-SA-4.0）",

@@ -26,3 +26,32 @@ test('axe: search overlay with results has no serious or critical violations', a
   const bad = r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical');
   expect(bad.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
 });
+
+test.describe('mobile 390x844 dialogs', () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+  const serious = async (page: import('@playwright/test').Page) => {
+    const r = await new AxeBuilder({ page }).analyze();
+    return r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical').map((v) => `${v.id}: ${v.help}`);
+  };
+
+  test('axe: /en and its language dialog', async ({ page }) => {
+    await page.goto('/en');
+    expect(await serious(page)).toEqual([]);
+    await page.getByRole('button', { name: /EN, Language/ }).click();
+    await expect(page.locator('dialog[open]')).toHaveCount(1);
+    expect(await serious(page)).toEqual([]);
+  });
+
+  for (const [name, button] of [
+    ['drawer', 'Menu'],
+    ['sheet', 'Contents'],
+    ['language dialog', 'Language'],
+  ] as const) {
+    test(`axe: doc page with the ${name} open`, async ({ page }) => {
+      await page.goto(`/en/advanced-java/${sectionOf(PILOT)}/${PILOT}`);
+      await page.locator('.dock').getByRole('button', { name: button }).click();
+      await expect(page.locator('dialog[open]')).toHaveCount(1);
+      expect(await serious(page)).toEqual([]);
+    });
+  }
+});

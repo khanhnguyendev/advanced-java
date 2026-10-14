@@ -2,12 +2,14 @@ import type { Metadata } from 'next';
 import { hasLocale } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { CollectionIndex, type IndexSection } from '@/components/CollectionIndex';
 import { Shelf, type ShelfItem } from '@/components/Shelf';
 import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
 import { contentRoot, listCollections, loadCollection } from '@/lib/content/collection';
 import type { Locale } from '@/lib/content/types';
-import { collectionStats } from '@/lib/stats';
+import { buildNav, flatDocs } from '@/lib/nav';
+import { collectionStats, sectionStats } from '@/lib/stats';
 import { indexSwitcher } from '@/lib/switcher';
 
 export const dynamicParams = false;
@@ -30,7 +32,9 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   const names = await getTranslations('languages');
   const site = await getTranslations('site');
   const root = contentRoot();
-  const items: ShelfItem[] = listCollections(root).map((id) => {
+  const loc = locale as Locale;
+  const collections = listCollections(root);
+  const items: ShelfItem[] = collections.map((id) => {
     const c = loadCollection(root, id);
     const s = collectionStats(root, c);
     const ids = Object.values(c.ids);
@@ -48,7 +52,27 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
           switcher={indexSwitcher('', (l) => names(l))}
         />
       </div>
-      <Shelf locale={locale as Locale} items={items} />
+      {collections.length === 1 ? <Index root={root} id={collections[0]} locale={loc} /> : <Shelf locale={loc} items={items} />}
     </div>
   );
+}
+
+function Index({ root, id, locale }: { root: string; id: string; locale: Locale }) {
+  const c = loadCollection(root, id);
+  const nav = buildNav(root, c, locale);
+  const stats = sectionStats(root, c);
+  const sections: IndexSection[] = nav.map((s) => {
+    const ids = s.groups.flatMap((g) => g.docs.map((d) => d.catalogId));
+    const st = stats.find((x) => x.id === s.id)!;
+    return {
+      id: s.id,
+      title: s.title,
+      href: `/${locale}/${id}/${s.id}`,
+      idRange: ids.length > 1 ? `${ids[0]} – ${ids[ids.length - 1]}` : (ids[0] ?? ''),
+      total: st.total,
+      perLocale: st.perLocale,
+    };
+  });
+  const docs = flatDocs(nav).map((d) => ({ catalogId: d.catalogId, title: d.title, href: d.href }));
+  return <CollectionIndex locale={locale} sourceLocale={c.sourceLocale} collection={id} sections={sections} docs={docs} />;
 }

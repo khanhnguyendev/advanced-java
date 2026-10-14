@@ -8,11 +8,14 @@ import { DocFooter } from '@/components/DocFooter';
 import { DocHeader } from '@/components/DocHeader';
 import type { SwitcherItem } from '@/components/LanguageSwitcher';
 import { MarginSteps } from '@/components/MarginSteps';
-import { MobileNav } from '@/components/MobileNav';
+import { MobileDock } from '@/components/MobileDock';
+import { CurrentDocScroll } from '@/components/CurrentDocScroll';
 import { ResumeFlag } from '@/components/ResumeFlag';
 import { SetAside } from '@/components/SetAside';
 import { Sidebar } from '@/components/Sidebar';
+import { ScrollRegions } from '@/components/ScrollRegions';
 import { Toc } from '@/components/Toc';
+import { TocSpy } from '@/components/TocSpy';
 import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
 import { contentRoot, listCollections, listDocs, loadCollection } from '@/lib/content/collection';
@@ -97,7 +100,6 @@ export default async function DocPage({
   );
 
   const names = await getTranslations('languages');
-  const tn = await getTranslations('nav');
   const nav = buildNav(root, c, loc);
   const flat = flatDocs(nav);
   const at = flat.findIndex((d) => d.href === `/${loc}/${collection}/${section}/${slug}`);
@@ -130,17 +132,10 @@ export default async function DocPage({
   return (
     <div className="shell">
       <div className="topbar-slot">
-        <TopBar locale={loc} collectionId={c.id} collectionTitle={c.id} homeHref={`/${loc}`} switcher={switcher} />
-      </div>
-      <div style={{ gridColumn: '1 / -1' }}>
-        <MobileNav label={tn('menu')}>
-          <Sidebar nav={nav} currentSlug={slug} />
-          <Toc headings={headings} />
-          <MarginSteps steps={steps} />
-        </MobileNav>
+        <TopBar locale={loc} collectionId={c.id} collectionTitle={c.id} homeHref={`/${loc}`} switcher={switcher} hasDock />
       </div>
       <Sidebar nav={nav} currentSlug={slug} />
-      <main id="main-content" tabIndex={-1} className="reader">
+      <main id="main-content" tabIndex={-1} className="reader reader-docked">
         <div className="doc-col">
         <DocHeader
           catalogId={c.ids[slug]}
@@ -181,7 +176,23 @@ export default async function DocPage({
         <Toc headings={headings} />
         <MarginSteps steps={steps} />
       </div>
+      <MobileDock
+        prev={prev && { href: prev.href, title: prev.title }}
+        next={next && { href: next.href, title: next.title }}
+        switcher={switcher}
+        current={loc}
+        drawer={<Sidebar nav={nav} currentSlug={slug} />}
+        sheet={
+          <>
+            <Toc headings={headings} />
+            <MarginSteps steps={steps} />
+          </>
+        }
+      />
       <AnchorResolver />
+      <CurrentDocScroll />
+      <TocSpy />
+      <ScrollRegions />
     </div>
   );
 }

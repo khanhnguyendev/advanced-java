@@ -15,7 +15,19 @@
     "home": "Home",
     "collections": "Notebooks",
     "sidebar": "Documents",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "close": "Close",
+    "pageNav": "Page navigation",
+    "scrollCode": "Scrollable code",
+    "scrollDiagram": "Scrollable diagram"
+  },
+  "home": {
+    "start": "Start reading",
+    "resume": "Continue reading",
+    "sections": "Sections",
+    "docCount": "{count, plural, one {# doc} other {# docs}}",
+    "sectionLanguage": "{language}: {available} of {total} available{machine, plural, =0 {} other {, # machine translated}}{fallback, plural, =0 {} other {, # not translated}}",
+    "sectionLanguageOriginal": "{language}: original, {total, plural, one {# doc} other {# docs}}"
   },
   "diagram": {
     "credit": "Redrawn from the upstream image (doocs/advanced-java, CC-BY-SA-4.0)",

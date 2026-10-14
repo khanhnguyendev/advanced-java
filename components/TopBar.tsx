@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import { LanguagePopover } from './LanguagePopover';
 import { LanguageSwitcher, type SwitcherItem } from './LanguageSwitcher';
 import { SearchBoxClient } from './SearchBoxClient';
 import { ReadingModeToggle } from './ReadingModeToggle';
@@ -12,12 +13,15 @@ export function TopBar({
   collectionTitle,
   homeHref,
   switcher,
+  hasDock = false,
 }: {
   locale: Locale;
   collectionId: string;
   collectionTitle: string;
   homeHref: string;
   switcher: SwitcherItem[];
+  /** doc pages carry the language control in the bottom dock on <=960px */
+  hasDock?: boolean;
 }) {
   const t = useTranslations('nav');
   return (
@@ -29,6 +33,7 @@ export function TopBar({
         <SearchBoxClient locale={locale} collection={collectionId} />
       </div>
       <LanguageSwitcher items={switcher} current={locale} />
+      {hasDock ? null : <LanguagePopover items={switcher} current={locale} />}
       <div className="topbar-tools">
         <ThemeToggle />
         <ReadingModeToggle />

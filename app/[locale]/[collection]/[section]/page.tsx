@@ -63,7 +63,7 @@ export default async function SectionPage({
           switcher={indexSwitcher(`/${collection}/${section}`, (l) => names(l))}
         />
       </div>
-      <Sidebar nav={nav} currentSlug="" />
+      <Sidebar nav={nav} currentSlug="" currentSection={section} />
       <main id="main-content" tabIndex={-1} className="reader">
         <div className="prose">
           <nav className="ui breadcrumb" aria-label={tn('collections')}>

@@ -15,7 +15,19 @@
     "home": "Trang chủ",
     "collections": "Sổ tay",
     "sidebar": "Tài liệu",
-    "skip": "Chuyển đến nội dung"
+    "skip": "Chuyển đến nội dung",
+    "close": "Đóng",
+    "pageNav": "Điều hướng trang",
+    "scrollCode": "Mã nguồn có thể cuộn",
+    "scrollDiagram": "Sơ đồ có thể cuộn"
+  },
+  "home": {
+    "start": "Bắt đầu đọc",
+    "resume": "Đọc tiếp",
+    "sections": "Các phần",
+    "docCount": "{count} tài liệu",
+    "sectionLanguage": "{language}: có {available} trên {total}{machine, plural, =0 {} other {, # bản dịch máy}}{fallback, plural, =0 {} other {, # chưa dịch}}",
+    "sectionLanguageOriginal": "{language}: bản gốc, {total, plural, other {# tài liệu}}"
   },
   "diagram": {
     "credit": "Vẽ lại từ hình gốc (doocs/advanced-java, CC-BY-SA-4.0)",
