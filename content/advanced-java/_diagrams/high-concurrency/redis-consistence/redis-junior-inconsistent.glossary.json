@@ -1,5 +1,0 @@
-{ "labels": [
-  { "zh": "数据库\n库存1000->999", "en": "Database\nInventory 1000->999", "vi": "Cơ sở dữ liệu\nTồn kho 1000->999" },
-  { "zh": "缓存\n库存1000", "en": "Cache\nInventory 1000", "vi": "Bộ nhớ đệm\nTồn kho 1000" },
-  { "zh": "库存服务", "en": "Inventory service", "vi": "Dịch vụ\ntồn kho" }
-] }

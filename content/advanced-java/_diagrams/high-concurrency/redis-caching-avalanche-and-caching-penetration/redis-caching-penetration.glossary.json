@@ -1,6 +1,0 @@
-{ "labels": [
-  { "zh": "1秒5000个请求，\n4000个是黑客发出的", "en": "5000 requests per second,\n4000 sent by hackers", "vi": "5000 yêu cầu mỗi giây,\n4000 do hacker gửi" },
-  { "zh": "1000 个请求是\n正常用户发出的。", "en": "1000 requests are\nsent by normal users.", "vi": "1000 yêu cầu do\nngười dùng\nbình thường gửi." },
-  { "zh": "4000 个请求", "en": "4000 requests", "vi": "4000 yêu cầu" },
-  { "zh": "缓存穿透，数据库直接\n被打死", "en": "Cache penetration:\nthe database is\nkilled outright", "vi": "Cache penetration:\nđánh sập thẳng\ncơ sở dữ liệu" }
-] }

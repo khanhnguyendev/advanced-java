@@ -1,6 +1,0 @@
-{
-  "labels": [
-    { "zh": "获取分布式锁", "en": "Acquire\ndistributed lock", "vi": "Lấy\nkhóa phân tán" },
-    { "zh": "尝试获取分布式锁\n(获取不到)", "en": "Try to acquire\ndistributed lock\n(not acquired)", "vi": "Thử lấy\nkhóa phân tán\n(không lấy được)" }
-  ]
-}

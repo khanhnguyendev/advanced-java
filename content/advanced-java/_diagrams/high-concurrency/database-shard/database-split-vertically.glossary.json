@@ -1,6 +1,0 @@
-{ "labels": [
-  { "zh": "数据表\ncol1 col2 col3 ... col10", "en": "Table\ncol1 col2 col3 ... col10", "vi": "Bảng\ncol1 col2 col3 ... col10" },
-  { "zh": "数据表\ncol1 col2", "en": "Table\ncol1 col2", "vi": "Bảng\ncol1 col2" },
-  { "zh": "数据表\ncol3... col10", "en": "Table\ncol3... col10", "vi": "Bảng\ncol3... col10" },
-  { "zh": "垂直拆分", "en": "Vertical splitting", "vi": "Tách dọc" }
-] }

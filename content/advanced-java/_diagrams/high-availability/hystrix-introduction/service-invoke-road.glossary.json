@@ -1,8 +1,0 @@
-{ "labels": [
-  { "zh": "服务A", "en": "Service A", "vi": "Dịch vụ A" },
-  { "zh": "服务B", "en": "Service B", "vi": "Dịch vụ B" },
-  { "zh": "服务C", "en": "Service C", "vi": "Dịch vụ C" },
-  { "zh": "服务D", "en": "Service D", "vi": "Dịch vụ D" },
-  { "zh": "服务E", "en": "Service E", "vi": "Dịch vụ E" },
-  { "zh": "X", "en": "X", "vi": "X" }
-] }

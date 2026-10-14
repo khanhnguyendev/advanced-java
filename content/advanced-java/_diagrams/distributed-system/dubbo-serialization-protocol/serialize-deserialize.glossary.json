@@ -1,8 +1,0 @@
-{
-  "labels": [
-    { "zh": "数据结构/ 对象", "en": "Data structure / object", "vi": "Cấu trúc dữ liệu / đối tượng" },
-    { "zh": "二进制串", "en": "Binary string", "vi": "Chuỗi nhị phân" },
-    { "zh": "序列化", "en": "Serialization", "vi": "Tuần tự hóa" },
-    { "zh": "反序列化", "en": "Deserialization", "vi": "Giải tuần tự hóa" }
-  ]
-}

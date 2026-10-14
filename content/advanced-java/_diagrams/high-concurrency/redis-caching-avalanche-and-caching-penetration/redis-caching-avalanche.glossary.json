@@ -1,5 +1,0 @@
-{ "labels": [
-  { "zh": "缓存\n( 机器宕机 )", "en": "Cache\n(machine down)", "vi": "Bộ nhớ đệm\n(máy chủ sập)" },
-  { "zh": "高峰期每秒 5000 请求", "en": "Peak: 5000 requests per second", "vi": "Giờ cao điểm: 5000 yêu cầu mỗi giây" },
-  { "zh": "缓存挂了，每秒 5000 请求\n全部落数据库", "en": "Cache down: 5000 requests per second\nall hit the database", "vi": "Bộ nhớ đệm sập, 5000 yêu cầu mỗi giây\nđổ hết xuống cơ sở dữ liệu" }
-] }

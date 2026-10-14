@@ -461,10 +461,149 @@
   },
   "labels": [
     {
+      "zh": "......",
+      "en": "......",
+      "vi": "......",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "0",
+      "en": "0",
+      "vi": "0",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "0 ms",
+      "en": "0 ms",
+      "vi": "0 ms",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
       "zh": "1",
       "en": "1",
       "vi": "1",
       "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "1. slave 启动，在本地保存\nmaster node 的host 和 ip",
+      "en": "1. slave starts and saves the host\nand ip of master node locally",
+      "vi": "1. slave khởi động, lưu cục bộ host\nvà ip của master node",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
+    },
+    {
+      "zh": "1. 产生 AE_READABLE事件",
+      "en": "1. Generate AE_READABLE event",
+      "vi": "1. Phát sinh sự kiện AE_READABLE",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "1. 创建 socket 01",
+      "en": "1. Create socket 01",
+      "vi": "1. Tạo socket 01",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "1. 发送建立连接的请求",
+      "en": "1. Send a request to\nestablish a connection",
+      "vi": "1. Gửi yêu cầu\nthiết lập kết nối",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "1. 将buffer数据刷到os cache\n2. os cache fsync 强刷到segment file,写\ncommit point\n3. 清空translog，重启一个",
+      "en": "1. Flush the buffer data to the os cache\n2. Force fsync the os cache to the\nsegment file, and write the commit point\n3. Clear the translog and start a new one",
+      "vi": "1. Ghi dữ liệu buffer vào os cache\n2. fsync cưỡng chế os cache xuống\nsegment file, ghi commit point\n3. Xóa sạch translog,\nkhởi động một translog mới",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "1. 拉取数据",
+      "en": "1. Pull data",
+      "vi": "1. Kéo dữ liệu",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
+    },
+    {
+      "zh": "1.消息在传入过程中丢失",
+      "en": "1. The message is lost in transit",
+      "vi": "1. Thông điệp bị mất trong quá trình truyền",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
+    },
+    {
+      "zh": "1000 个请求是\n正常用户发出的。",
+      "en": "1000 requests are\nsent by normal users.",
+      "vi": "1000 yêu cầu do\nngười dùng\nbình thường gửi.",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration"
+    },
+    {
+      "zh": "1000ms",
+      "en": "1000ms",
+      "vi": "1000ms",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "1200ms",
+      "en": "1200ms",
+      "vi": "1200ms",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "1秒5000个请求，\n4000个是黑客发出的",
+      "en": "5000 requests per second,\n4000 sent by hackers",
+      "vi": "5000 yêu cầu mỗi giây,\n4000 do hacker gửi",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration"
+    },
+    {
+      "zh": "2",
+      "en": "2",
+      "vi": "2",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "2. slave 内部有定时任务，每秒会check\n是否有 master 要连接，如果有就跟\nmaster 建立 socket 网络来连接",
+      "en": "2. slave has an internal scheduled task\nthat checks every second whether a\nmaster needs connecting; if so, it sets\nup a socket network connection\nwith master",
+      "vi": "2. slave có tác vụ định kỳ bên trong,\nmỗi giây kiểm tra xem có master\ncần kết nối không, nếu có thì thiết lập\nkết nối mạng socket với master",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
+    },
+    {
+      "zh": "2. 产生 AE_READABLE事件\n3. 产生 AE_WRITABLE事件",
+      "en": "2. Generate AE_READABLE event\n3. Generate AE_WRITABLE event",
+      "vi": "2. Phát sinh sự kiện AE_READABLE\n3. Phát sinh sự kiện AE_WRITABLE",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "2. 从 socket 01 中读出 key value 并在自己内存中完成 key value 的设置\n将 socket 01 的 AE_WRITABLE 事件与命令回复处理器关联",
+      "en": "2. Read key value from socket 01 and complete\nthe setting of key value in its own memory\nAssociate the AE_WRITABLE event of socket 01\nwith the command reply handler",
+      "vi": "2. Đọc key value từ socket 01 và hoàn tất việc\nthiết lập key value trong bộ nhớ của mình\nLiên kết sự kiện AE_WRITABLE của socket 01\nvới bộ xử lý phản hồi lệnh",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "2. 发送\nset key value\n请求",
+      "en": "2. Send a\nset key value\nrequest",
+      "vi": "2. Gửi yêu cầu\nset key value",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "2.RabbitMQ收到消息，\n暂存内存中，还没消费，\n自己挂掉了，内存中的数据搞丢",
+      "en": "2. RabbitMQ receives the message and holds it\ntemporarily in memory; before it is consumed,\nRabbitMQ itself crashes and the data in memory is lost",
+      "vi": "2. RabbitMQ nhận được thông điệp, lưu tạm\ntrong bộ nhớ, chưa kịp tiêu thụ thì\nbản thân bị sập, dữ liệu trong bộ nhớ bị mất",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
+    },
+    {
+      "zh": "200 ms",
+      "en": "200 ms",
+      "vi": "200 ms",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "2^32−1",
+      "en": "2^32−1",
+      "vi": "2^32−1",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
     },
     {
       "zh": "2亿\n用户",
@@ -473,16 +612,493 @@
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "3",
+      "en": "3",
+      "vi": "3",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "3. 向 socket 01 输出本次操作的一个结果: ok\n将 socket 01 的 AE_WRITABLE 事件与命名回复处理器解除关联",
+      "en": "3. Output the result of this operation to socket 01: ok\nRemove the association between the AE_WRITABLE event of\nsocket 01 and the command reply handler",
+      "vi": "3. Xuất kết quả của thao tác lần này ra socket 01: ok\nHủy liên kết giữa sự kiện AE_WRITABLE của\nsocket 01 và bộ xử lý phản hồi lệnh",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "3. 如果 master 配置了\nrequirepass，那么 slave node\n会发送 masterauth 口令过去认证",
+      "en": "3. If master has requirepass configured,\nthe replica node sends the masterauth\npassword over to authenticate",
+      "vi": "3. Nếu master có cấu hình requirepass\nthì slave node sẽ gửi mật khẩu masterauth\nsang để xác thực",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
+    },
+    {
+      "zh": "3. 返回结果 ok",
+      "en": "3. Return\nresult ok",
+      "vi": "3. Trả về\nkết quả ok",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "3.消费者消费到了这个消息，\n但还没来得及处理，就挂了，\nRabbitMQ 以为消息已经被处理",
+      "en": "3. The consumer receives the message but crashes\nbefore it can process it, and RabbitMQ\nthinks the message has already been processed",
+      "vi": "3. Consumer nhận được thông điệp nhưng bị sập\ntrước khi kịp xử lý, và RabbitMQ\ntưởng thông điệp đã được xử lý",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
+    },
+    {
+      "zh": "4",
+      "en": "4",
+      "vi": "4",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "4. master 启动全量复制，\n将自己所有的数据，都发送给\nslave，实现数据的同步",
+      "en": "4. master starts a full replication\nand sends all of its data to\nslave to synchronize the data",
+      "vi": "4. master bắt đầu sao chép toàn bộ,\ngửi tất cả dữ liệu của mình\ncho slave để đồng bộ dữ liệu",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
+    },
+    {
+      "zh": "400 ms",
+      "en": "400 ms",
+      "vi": "400 ms",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "4000 个请求",
+      "en": "4000 requests",
+      "vi": "4000 yêu cầu",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration"
+    },
+    {
+      "zh": "5",
+      "en": "5",
+      "vi": "5",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "5. 每次master 接收到新的\n数据，都异步发送给 slave node",
+      "en": "5. Every time master receives new data,\nit sends it asynchronously to the replica node",
+      "vi": "5. Mỗi khi master nhận được dữ liệu mới,\nđều gửi bất đồng bộ cho slave node",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
+    },
+    {
+      "zh": "6",
+      "en": "6",
+      "vi": "6",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "600 ms",
+      "en": "600 ms",
+      "vi": "600 ms",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "800 ms",
+      "en": "800 ms",
+      "vi": "800 ms",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "A系统",
+      "en": "System A",
+      "vi": "Hệ thống A",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "A系统\n3ms",
+      "en": "System A\n3ms",
+      "vi": "Hệ thống A\n3ms",
+      "source": "high-concurrency/why-mq/mq-3"
+    },
+    {
+      "zh": "A系统从MQ中每秒拉取2k\n个请求",
+      "en": "System A pulls 2k requests\nfrom MQ per second",
+      "vi": "Hệ thống A kéo 2 nghìn yêu cầu\ntừ MQ mỗi giây",
+      "source": "high-concurrency/why-mq/mq-6"
+    },
+    {
+      "zh": "A系统搞一个后台线程\n每隔1秒轮询所有待确认状\n态的消息",
+      "en": "System A runs a background thread\nthat polls every 1 second for all\nmessages awaiting confirmation",
+      "vi": "Hệ thống A chạy một luồng nền,\ncứ mỗi 1 giây quét mọi thông điệp\nở trạng thái chờ xác nhận",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "A系统更新\n消息的状态，成功",
+      "en": "System A updates the\nmessage status: success",
+      "vi": "Hệ thống A cập nhật\ntrạng thái thông điệp:\nthành công",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "A系统的数据库",
+      "en": "System A's\ndatabase",
+      "vi": "Cơ sở dữ liệu\ncủa hệ thống A",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "A系统的消息初始状态：\n都是待确认",
+      "en": "Initial state of System A's messages:\nall awaiting confirmation",
+      "vi": "Trạng thái ban đầu của thông điệp\ntrong hệ thống A:\nđều là chờ xác nhận",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "A系统连续发送3条消息到3\n个MQ队列，总耗时5ms",
+      "en": "System A sends 3 messages\nto 3 MQ queues in succession,\n5ms in total",
+      "vi": "Hệ thống A gửi liên tiếp\n3 thông điệp đến 3 hàng đợi MQ,\ntổng thời gian 5ms",
+      "source": "high-concurrency/why-mq/mq-4"
+    },
+    {
+      "zh": "A系统需要改代码\n将调用D系统的代码删除",
+      "en": "System A needs code changes:\nremove the code that\ncalls system D",
+      "vi": "Hệ thống A cần sửa code:\nxóa code gọi hệ thống D",
+      "source": "high-concurrency/why-mq/mq-1"
+    },
+    {
+      "zh": "A系统需要改代码\n调用E系统接口",
+      "en": "System A needs code changes\nto call system E's API",
+      "vi": "Hệ thống A cần sửa code\nđể gọi API của hệ thống E",
+      "source": "high-concurrency/why-mq/mq-1"
+    },
+    {
+      "zh": "B系统",
+      "en": "System B",
+      "vi": "Hệ thống B",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "B系统\n300ms",
+      "en": "System B\n300ms",
+      "vi": "Hệ thống B\n300ms",
+      "source": "high-concurrency/why-mq/mq-3"
+    },
+    {
+      "zh": "B系统一定要保证自己的幂\n等性",
+      "en": "System B must guarantee\nits own idempotency",
+      "vi": "Hệ thống B phải tự đảm bảo\ntính idempotent của mình",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
+    },
+    {
+      "zh": "B系统的数据库",
+      "en": "System B's\ndatabase",
+      "vi": "Cơ sở dữ liệu\ncủa hệ thống B",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "C1",
+      "en": "C1",
+      "vi": "C1",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "C2",
+      "en": "C2",
+      "vi": "C2",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "C3",
+      "en": "C3",
+      "vi": "C3",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "Closed",
+      "en": "Closed",
+      "vi": "Closed",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "C系统",
+      "en": "System C",
+      "vi": "Hệ thống C",
+      "source": "high-concurrency/why-mq/mq-1"
+    },
+    {
+      "zh": "C系统\n450ms",
+      "en": "System C\n450ms",
+      "vi": "Hệ thống C\n450ms",
+      "source": "high-concurrency/why-mq/mq-3"
+    },
+    {
+      "zh": "D系统",
+      "en": "System D",
+      "vi": "Hệ thống D",
+      "source": "high-concurrency/why-mq/mq-1"
+    },
+    {
+      "zh": "D系统\n200ms",
+      "en": "System D\n200ms",
+      "vi": "Hệ thống D\n200ms",
+      "source": "high-concurrency/why-mq/mq-3"
+    },
+    {
+      "zh": "ES 集群",
+      "en": "es cluster",
+      "vi": "Cụm ES",
+      "ref": "en",
+      "source": "high-concurrency/es-introduction/es-cluster-0"
+    },
+    {
+      "zh": "End",
+      "en": "End",
+      "vi": "End",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "E系统(新增)",
+      "en": "System E\n(new)",
+      "vi": "Hệ thống E\n(mới)",
+      "source": "high-concurrency/why-mq/mq-1"
+    },
+    {
+      "zh": "F",
+      "en": "F",
+      "vi": "F",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "Fail(threshold reached)",
+      "en": "Fail (threshold reached)",
+      "vi": "Thất bại (đạt ngưỡng)",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "Fail(under threshold)",
+      "en": "Fail (under threshold)",
+      "vi": "Thất bại (dưới ngưỡng)",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "Fallback 降级",
+      "en": "Fallback\n(degradation)",
+      "vi": "Fallback\n(suy giảm\ndịch vụ)",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "Half-Open",
+      "en": "Half-Open",
+      "vi": "Half-Open",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "Hash( )",
+      "en": "Hash( )",
+      "vi": "Hash( )",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "Head",
+      "en": "Head",
+      "vi": "Head",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
       "zh": "Hystrix Cache",
       "en": "Hystrix Cache",
       "vi": "Hystrix Cache",
       "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
     },
     {
+      "zh": "Hystrix线程池里的线程",
+      "en": "Threads in the Hystrix\nthread pool",
+      "vi": "Luồng trong thread pool\ncủa Hystrix",
+      "source": "high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool"
+    },
+    {
+      "zh": "IO\n线程",
+      "en": "IO\nthread",
+      "vi": "Luồng\nIO",
+      "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
+      "zh": "IO多路复用程序\n（监听多个socket ）",
+      "en": "IO multiplexing program\n(listens to multiple sockets)",
+      "vi": "Chương trình ghép kênh I/O\n(lắng nghe nhiều socket)",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "Kafka",
+      "en": "Kafka",
+      "vi": "Kafka",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "LRU 缓存",
+      "en": "LRU Cache",
+      "vi": "Bộ nhớ đệm LRU",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru"
+    },
+    {
       "zh": "MQ",
       "en": "MQ",
       "vi": "MQ",
       "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "MQ\n队列1",
+      "en": "MQ\nQueue 1",
+      "vi": "MQ\nHàng đợi 1",
+      "source": "high-concurrency/why-mq/mq-4"
+    },
+    {
+      "zh": "MQ\n队列2",
+      "en": "MQ\nQueue 2",
+      "vi": "MQ\nHàng đợi 2",
+      "source": "high-concurrency/why-mq/mq-4"
+    },
+    {
+      "zh": "MQ\n队列3",
+      "en": "MQ\nQueue 3",
+      "vi": "MQ\nHàng đợi 3",
+      "source": "high-concurrency/why-mq/mq-4"
+    },
+    {
+      "zh": "My'SQL",
+      "en": "MySQL",
+      "vi": "MySQL",
+      "source": "high-concurrency/why-mq/mq-5"
+    },
+    {
+      "zh": "MySQL\n存放所有商品信息",
+      "en": "MySQL\nStores all product info",
+      "vi": "MySQL\nLưu toàn bộ thông tin\nsản phẩm",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1"
+    },
+    {
+      "zh": "Nginx",
+      "en": "Nginx",
+      "vi": "Nginx",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "Open",
+      "en": "Open",
+      "vi": "Open",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "RDB",
+      "en": "RDB",
+      "vi": "RDB",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
+    },
+    {
+      "zh": "RDB持久化",
+      "en": "RDB persistence",
+      "vi": "Lưu trữ bền vững RDB",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
+    },
+    {
+      "zh": "RabbitMQ",
+      "en": "RabbitMQ",
+      "vi": "RabbitMQ",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-01"
+    },
+    {
+      "zh": "RabbitMQ\n节点",
+      "en": "RabbitMQ\nnode",
+      "vi": "Node\nRabbitMQ",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8"
+    },
+    {
+      "zh": "RabbitMQ 消息丢失\n及对应解决方案",
+      "en": "RabbitMQ message loss\nand its solutions",
+      "vi": "Mất thông điệp RabbitMQ\nvà các giải pháp",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution"
+    },
+    {
+      "zh": "RabbitMQ 消息丢失的 3 种情况",
+      "en": "3 cases of RabbitMQ message loss",
+      "vi": "3 trường hợp RabbitMQ mất thông điệp",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
+    },
+    {
+      "zh": "RabbitMQ 进程（实例）\n\n部署在独立的一台机器上",
+      "en": "RabbitMQ process\n(instance)\n\nDeployed on\nits own machine",
+      "vi": "Tiến trình RabbitMQ\n(instance)\n\nTriển khai trên\nmột máy riêng",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
+    },
+    {
+      "zh": "Redis",
+      "en": "Redis",
+      "vi": "Redis",
+      "source": "high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation"
+    },
+    {
+      "zh": "Request Cache\n有缓存？",
+      "en": "Request Cache\nhas a cached result?",
+      "vi": "Request Cache\ncó kết quả trong cache?",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "RocketMQ",
+      "en": "RocketMQ",
+      "vi": "RocketMQ",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
+    },
+    {
+      "zh": "SQL\n线程",
+      "en": "SQL\nthread",
+      "vi": "Luồng\nSQL",
+      "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
+      "zh": "Success",
+      "en": "Success",
+      "vi": "Thành công",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "T",
+      "en": "T",
+      "vi": "T",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "T1",
+      "en": "T1",
+      "vi": "T1",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "T2",
+      "en": "T2",
+      "vi": "T2",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "T3",
+      "en": "T3",
+      "vi": "T3",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "Tn",
+      "en": "Tn",
+      "vi": "Tn",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "Try阶段：冻结银行资金\n\nConfirm阶段\n\n1、在自己的库里插入数据\n2、调用银行B的接口，扣款\n3、调用银行C的接口，转账\n\nCancel阶段：回滚\n\n将银行B的扣的款给他加回去",
+      "en": "Try phase: freeze the\nbank funds\n\nConfirm phase\n\n1. Insert data into\nits own database\n2. Call Bank B's API,\ndeduct funds\n3. Call Bank C's API,\ntransfer funds\n\nCancel phase: roll back\n\nAdd the amount deducted\nfrom Bank B back to it",
+      "vi": "Giai đoạn Try: đóng băng\ntiền ngân hàng\n\nGiai đoạn Confirm\n\n1. Chèn dữ liệu vào\ncơ sở dữ liệu của mình\n2. Gọi API của ngân hàng B,\ntrừ tiền\n3. Gọi API của ngân hàng C,\nchuyển khoản\n\nGiai đoạn Cancel: rollback\n\nCộng lại khoản đã trừ\nở ngân hàng B",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-tcc"
+    },
+    {
+      "zh": "X",
+      "en": "X",
+      "vi": "X",
+      "source": "high-availability/hystrix-introduction/service-invoke-road"
     },
     {
       "zh": "a",
@@ -492,11 +1108,89 @@
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
+      "zh": "active node\nworker1创建的临时节点",
+      "en": "active node\nworker1's ephemeral node",
+      "vi": "active node\nNode tạm do worker1 tạo",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby"
+    },
+    {
+      "zh": "after some time",
+      "en": "after some time",
+      "vi": "sau một khoảng thời gian",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "binlog 日志",
+      "en": "binlog",
+      "vi": "Nhật ký\nbinlog",
+      "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
+      "zh": "broker\n进程",
+      "en": "Broker\nprocess",
+      "vi": "Tiến trình\nbroker",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
       "zh": "c",
       "en": "c",
       "vi": "c",
       "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "circuit breaker\n是否打开断路？",
+      "en": "Is the circuit breaker\nopen?",
+      "vi": "circuit breaker\nđã mở chưa?",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "client",
+      "en": "Client",
+      "vi": "Client",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
+    },
+    {
+      "zh": "client\nsocket 01",
+      "en": "Client\nsocket 01",
+      "vi": "Client\nsocket 01",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "cluster层：provider可以部署在多台机器上的，多个provider就组成了一个集群",
+      "en": "cluster layer: a provider can be deployed on multiple machines, and multiple providers form a cluster",
+      "vi": "Tầng cluster: provider có thể được triển khai trên nhiều máy, nhiều provider tạo thành một cụm (cluster)",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "com.bingo.MyProtocol implements Protocal",
+      "en": "com.bingo.MyProtocol implements Protocal",
+      "vi": "com.bingo.MyProtocol hiện thực Protocal",
+      "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "commit point\n磁盘文件",
+      "en": "commit point\n(disk file)",
+      "vi": "commit point\n(tệp trên đĩa)",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "config层：任何一个框架，都需要提供配置文件，让你可以进行配置",
+      "en": "config layer: every framework needs to provide configuration files so that you can configure it",
+      "vi": "Tầng config: framework nào cũng cần cung cấp tệp cấu hình để bạn có thể cấu hình",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "consumer",
+      "en": "consumer",
+      "vi": "consumer",
+      "source": "distributed-system/dubbo-serialization-protocol/dubbo-keep-connection"
+    },
+    {
+      "zh": "consumer就知道\n服务A部署在3台机器上，以\n及每台机器的ip地址和端口\n号",
+      "en": "The consumer now knows that\nservice A runs on 3 machines,\nalong with each machine's\nIP address and port",
+      "vi": "consumer biết dịch vụ A\nđược triển khai trên 3 máy,\ncùng địa chỉ IP và cổng\ncủa từng máy",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
     },
     {
       "zh": "d",
@@ -506,16 +1200,241 @@
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
+      "zh": "data1",
+      "en": "data1",
+      "vi": "data1",
+      "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
+    },
+    {
+      "zh": "data2",
+      "en": "data2",
+      "vi": "data2",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "data3",
+      "en": "data3",
+      "vi": "data3",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "document",
+      "en": "document",
+      "vi": "document",
+      "ref": "en",
+      "source": "high-concurrency/es-architecture/es-index-type-mapping-document-field"
+    },
+    {
+      "zh": "dubbo注册中心",
+      "en": "dubbo service\nregistry",
+      "vi": "Trung tâm đăng ký\ndịch vụ dubbo",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
+      "zh": "ehcache",
+      "en": "ehcache",
+      "vi": "ehcache",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution"
+    },
+    {
       "zh": "elastics earch",
       "en": "Elasticsearch",
       "vi": "Elasticsearch",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "elasticsearch进程",
+      "en": "elasticsearch process",
+      "vi": "Tiến trình elasticsearch",
+      "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
+    },
+    {
+      "zh": "es客户端",
+      "en": "ES client",
+      "vi": "Client ES",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "es进程01",
+      "en": "ES process 01",
+      "vi": "Tiến trình\nES 01",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "es进程02",
+      "en": "ES process 02",
+      "vi": "Tiến trình\nES 02",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "es进程03",
+      "en": "ES process 03",
+      "vi": "Tiến trình\nES 03",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
       "zh": "es集群",
       "en": "ES cluster",
       "vi": "Cụm ES",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "exchange层：信息交换",
+      "en": "exchange layer: information exchange",
+      "vi": "Tầng exchange: trao đổi thông tin",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "fail again",
+      "en": "fail again",
+      "vi": "lại thất bại",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "field",
+      "en": "field",
+      "vi": "field",
+      "ref": "en",
+      "source": "high-concurrency/es-architecture/es-index-type-mapping-document-field"
+    },
+    {
+      "zh": "filesystem cache",
+      "en": "filesystem cache",
+      "vi": "filesystem cache",
+      "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
+    },
+    {
+      "zh": "follower",
+      "en": "follower",
+      "vi": "follower",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "fsync",
+      "en": "fsync",
+      "vi": "fsync",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "get()",
+      "en": "get()",
+      "vi": "get()",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru"
+    },
+    {
+      "zh": "html",
+      "en": "html",
+      "vi": "html",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1"
+    },
+    {
+      "zh": "hystrix限流",
+      "en": "hystrix\nrate limiting",
+      "vi": "hystrix\ngiới hạn lưu lượng",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution"
+    },
+    {
+      "zh": "index",
+      "en": "index",
+      "vi": "index",
+      "ref": "en",
+      "source": "high-concurrency/es-architecture/es-index-type-mapping-document-field"
+    },
+    {
+      "zh": "init=0,step=8",
+      "en": "init=0,step=8",
+      "vi": "init=0,step=8",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "init=1,step=8",
+      "en": "init=1,step=8",
+      "vi": "init=1,step=8",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "init=2,step=8",
+      "en": "init=2,step=8",
+      "vi": "init=2,step=8",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "init=3,step=8",
+      "en": "init=3,step=8",
+      "vi": "init=3,step=8",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "init=4,step=8",
+      "en": "init=4,step=8",
+      "vi": "init=4,step=8",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "init=5,step=8",
+      "en": "init=5,step=8",
+      "vi": "init=5,step=8",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "init=6,step=8",
+      "en": "init=6,step=8",
+      "vi": "init=6,step=8",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "init=7,step=8",
+      "en": "init=7,step=8",
+      "vi": "init=7,step=8",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "jar 包",
+      "en": "jar package",
+      "vi": "Gói jar",
+      "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "k1",
+      "en": "k1",
+      "vi": "k1",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "k2",
+      "en": "k2",
+      "vi": "k2",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "k3",
+      "en": "k3",
+      "vi": "k3",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "k4",
+      "en": "k4",
+      "vi": "k4",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "k5",
+      "en": "k5",
+      "vi": "k5",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "leader同步数据\n到follower",
+      "en": "leader syncs\ndata to\nfollower",
+      "vi": "leader đồng bộ\ndữ liệu sang\nfollower",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
     },
     {
       "zh": "m",
@@ -525,6 +1444,38 @@
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
+      "zh": "mapping",
+      "en": "mapping",
+      "vi": "mapping",
+      "ref": "en",
+      "source": "high-concurrency/es-architecture/es-index-type-mapping-document-field"
+    },
+    {
+      "zh": "master",
+      "en": "master",
+      "vi": "master",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/hash-slot"
+    },
+    {
+      "zh": "master",
+      "en": "master",
+      "vi": "master",
+      "source": "high-concurrency/redis-cluster/zookeeper-centralized-storage"
+    },
+    {
+      "zh": "master node",
+      "en": "Master node",
+      "vi": "Master node",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave"
+    },
+    {
+      "zh": "monitor层：consumer调用provider，调用了多少次啊？统计信息监控",
+      "en": "monitor layer: how many times has the consumer called the provider? Statistics and monitoring",
+      "vi": "Tầng monitor: consumer gọi provider bao nhiêu lần? Giám sát thông tin thống kê",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
       "zh": "n",
       "en": "n",
       "vi": "n",
@@ -532,11 +1483,100 @@
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
+      "zh": "n1",
+      "en": "n1",
+      "vi": "n1",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "n2",
+      "en": "n2",
+      "vi": "n2",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "n3",
+      "en": "n3",
+      "vi": "n3",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "n4",
+      "en": "n4",
+      "vi": "n4",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "n5",
+      "en": "n5",
+      "vi": "n5",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
       "zh": "o",
       "en": "o",
       "vi": "o",
       "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "offset给Kafka",
+      "en": "offset to Kafka",
+      "vi": "offset gửi cho Kafka",
+      "source": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10"
+    },
+    {
+      "zh": "os cache",
+      "en": "os cache",
+      "vi": "os cache",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "partition1",
+      "en": "partition1",
+      "vi": "partition1",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "partition2",
+      "en": "partition2",
+      "vi": "partition2",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "partition3",
+      "en": "partition3",
+      "vi": "partition3",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "ping",
+      "en": "ping",
+      "vi": "ping",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
+    },
+    {
+      "zh": "pom.xml\n<dependency> 依赖配置的 jar",
+      "en": "pom.xml\n<dependency> the jar configured\nas a dependency",
+      "vi": "pom.xml\n<dependency> jar được cấu hình\nlàm phụ thuộc",
+      "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "primary shard 将数据同步到 replica shard上",
+      "en": "primary shard syncs data\nto the replica shard",
+      "vi": "primary shard đồng bộ dữ liệu\nsang replica shard",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "primary 和 replica 都写完，协调\n节点将结果响应给客户端",
+      "en": "Once primary and replica have both\nfinished writing, the coordinating\nnode returns the result\nto the client",
+      "vi": "Khi primary và replica đều\nđã ghi xong, node điều phối\ntrả kết quả phản hồi\ncho client",
+      "source": "high-concurrency/es-write-query-search/es-write"
     },
     {
       "zh": "productId=1",
@@ -549,6 +1589,121 @@
       "en": "productId=2",
       "vi": "productId=2",
       "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "protocol层：负责具体的provider和consumer之间调用接口的时候的网络通信",
+      "en": "protocol layer: handles the network communication when a concrete provider and consumer call an interface",
+      "vi": "Tầng protocol: chịu trách nhiệm giao tiếp mạng khi provider và consumer cụ thể gọi API của nhau",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "provider",
+      "en": "provider",
+      "vi": "provider",
+      "source": "distributed-system/dubbo-serialization-protocol/dubbo-keep-connection"
+    },
+    {
+      "zh": "provider 工程",
+      "en": "provider project",
+      "vi": "Dự án provider",
+      "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "provider（服务A）\nN个接口\n自定义配置",
+      "en": "provider (service A)\nN interfaces\ncustom configuration",
+      "vi": "provider (dịch vụ A)\nN API\ncấu hình tùy chỉnh",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "proxy层：代理层，无论是consumer，还是provider，dubbo都会给你生成代理，代理之间进行网络通信",
+      "en": "proxy layer: the proxy layer; for both consumer and provider, dubbo generates proxies for you, and the proxies communicate over the network",
+      "vi": "Tầng proxy: tầng proxy, dù là consumer hay provider thì dubbo đều sinh proxy cho bạn, việc giao tiếp mạng được thực hiện giữa các proxy",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "queue",
+      "en": "queue",
+      "vi": "queue",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8"
+    },
+    {
+      "zh": "queue\n只在这台机器上\n（元数据和实际数据）\n\ndata1\ndata2\ndata3",
+      "en": "queue\nOnly on this machine\n(metadata and\nactual data)\n\ndata1\ndata2\ndata3",
+      "vi": "queue\nChỉ nằm trên máy này\n(siêu dữ liệu\nvà dữ liệu thực)\n\ndata1\ndata2\ndata3",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
+    },
+    {
+      "zh": "queue 元数据",
+      "en": "Queue metadata",
+      "vi": "Siêu dữ liệu queue",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
+    },
+    {
+      "zh": "queue1",
+      "en": "queue1",
+      "vi": "queue1",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-02"
+    },
+    {
+      "zh": "queue2",
+      "en": "queue2",
+      "vi": "queue2",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-02"
+    },
+    {
+      "zh": "queue3",
+      "en": "queue3",
+      "vi": "queue3",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/rabbitmq-order-02"
+    },
+    {
+      "zh": "redis\nmaster",
+      "en": "redis\nmaster",
+      "vi": "redis\nmaster",
+      "source": "distributed-system/distributed-lock-redis-vs-zookeeper/redis-redlock"
+    },
+    {
+      "zh": "redis 分布式缓存",
+      "en": "redis distributed cache",
+      "vi": "Bộ nhớ đệm phân tán\nredis",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "redis 进程",
+      "en": "Redis process",
+      "vi": "Tiến trình Redis",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "registry层：provider注册自己作为一个服务，consumer就可以找注册中心去寻找自己要调用的服务",
+      "en": "registry layer: a provider registers itself as a service, so a consumer can ask the service registry for the service it wants to call",
+      "vi": "Tầng registry: provider đăng ký chính nó như một dịch vụ, nhờ đó consumer có thể tìm đến trung tâm đăng ký dịch vụ để tìm dịch vụ cần gọi",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "reject",
+      "en": "reject",
+      "vi": "reject",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "relay 日志",
+      "en": "Relay log",
+      "vi": "Nhật ký\nrelay",
+      "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
+      "zh": "replica",
+      "en": "replica",
+      "vi": "replica",
+      "ref": "en",
+      "source": "high-concurrency/es-introduction/es-cluster-0"
+    },
+    {
+      "zh": "rocketmq自动轮询所有\nprepared消息",
+      "en": "rocketmq automatically polls\nall prepared messages",
+      "vi": "rocketmq tự động thăm dò\ntất cả thông điệp prepared",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
     },
     {
       "zh": "root",
@@ -565,11 +1720,301 @@
       "source": "big-data/topk-problems-and-solutions/topk-trie"
     },
     {
+      "zh": "s1",
+      "en": "s1",
+      "vi": "s1",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "segment file 磁盘文件",
+      "en": "segment file (disk file)",
+      "vi": "segment file (tệp trên đĩa)",
+      "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
+    },
+    {
+      "zh": "sentinel 集群",
+      "en": "Sentinel cluster",
+      "vi": "Cụm Sentinel",
+      "source": "high-concurrency/redis-sentinel/async-replication-data-lose-case"
+    },
+    {
+      "zh": "seq 0",
+      "en": "seq 0",
+      "vi": "seq 0",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "seq 1",
+      "en": "seq 1",
+      "vi": "seq 1",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "seq 2",
+      "en": "seq 2",
+      "vi": "seq 2",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "seq 3",
+      "en": "seq 3",
+      "vi": "seq 3",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "seq 4",
+      "en": "seq 4",
+      "vi": "seq 4",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "seq 5",
+      "en": "seq 5",
+      "vi": "seq 5",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "seq 6",
+      "en": "seq 6",
+      "vi": "seq 6",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "seq 7",
+      "en": "seq 7",
+      "vi": "seq 7",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "serialize层：序列化",
+      "en": "serialize layer: serialization",
+      "vi": "Tầng serialize: tuần tự hóa (serialization)",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "server\nsocket",
+      "en": "Server\nsocket",
+      "vi": "Server\nsocket",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "service层：provider和consumer，接口，留给你来实现的",
+      "en": "service layer: provider and consumer, the interfaces left for you to implement",
+      "vi": "Tầng service: provider và consumer, các API do bạn tự triển khai",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "shard",
+      "en": "shard",
+      "vi": "shard",
+      "ref": "en",
+      "source": "high-concurrency/es-introduction/es-cluster-0"
+    },
+    {
+      "zh": "shard",
+      "en": "shard",
+      "vi": "shard",
+      "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
+    },
+    {
+      "zh": "shard 01\nprimary",
+      "en": "shard 01\nprimary",
+      "vi": "shard 01\nprimary",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "shard 01\nreplica",
+      "en": "shard 01\nreplica",
+      "vi": "shard 01\nreplica",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "shard 02\nprimary",
+      "en": "shard 02\nprimary",
+      "vi": "shard 02\nprimary",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "shard 02\nreplica",
+      "en": "shard 02\nreplica",
+      "vi": "shard 02\nreplica",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "shard 03\nprimary",
+      "en": "shard 03\nprimary",
+      "vi": "shard 03\nprimary",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "shard 03\nreplica",
+      "en": "shard 03\nreplica",
+      "vi": "shard 03\nreplica",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "slave",
+      "en": "slave",
+      "vi": "slave",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
+    },
+    {
+      "zh": "slave node",
+      "en": "Replica node",
+      "vi": "Slave node",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave"
+    },
+    {
+      "zh": "socket 01",
+      "en": "socket 01",
+      "vi": "socket 01",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "socket 网络连接",
+      "en": "Socket network connection",
+      "vi": "Kết nối mạng socket",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
+    },
+    {
+      "zh": "ss",
+      "en": "ss",
+      "vi": "ss",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
       "zh": "t",
       "en": "t",
       "vi": "t",
       "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "thread1",
+      "en": "Thread 1",
+      "vi": "Luồng 1",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "thread2",
+      "en": "Thread 2",
+      "vi": "Luồng 2",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "thread3",
+      "en": "Thread 3",
+      "vi": "Luồng 3",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "tomcat",
+      "en": "tomcat",
+      "vi": "tomcat",
+      "source": "high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool"
+    },
+    {
+      "zh": "tomcat自己的线程",
+      "en": "tomcat's own threads",
+      "vi": "Luồng riêng của tomcat",
+      "source": "high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool"
+    },
+    {
+      "zh": "topic data1",
+      "en": "topic data1",
+      "vi": "topic data1",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "topic data2",
+      "en": "topic data2",
+      "vi": "topic data2",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "topic data3",
+      "en": "topic data3",
+      "vi": "topic data3",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "topic partition1",
+      "en": "topic partition1",
+      "vi": "topic partition1",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "topic partition2",
+      "en": "topic partition2",
+      "vi": "topic partition2",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "topic partition3",
+      "en": "topic partition3",
+      "vi": "topic partition3",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "translog大到一定阈值，\n触发commit(flush)",
+      "en": "When the translog grows\npast a threshold, commit\n(flush) is triggered",
+      "vi": "Khi translog lớn đến\nmột ngưỡng nhất định,\nsẽ kích hoạt commit (flush)",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "translog日志文件",
+      "en": "translog file",
+      "vi": "Tệp nhật ký translog",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "type",
+      "en": "type",
+      "vi": "type",
+      "ref": "en",
+      "source": "high-concurrency/es-architecture/es-index-type-mapping-document-field"
+    },
+    {
+      "zh": "worker1挂掉，临时节点被\n删除",
+      "en": "worker1 goes down,\nephemeral node is deleted",
+      "vi": "worker1 sập,\nnode tạm bị xóa",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby"
+    },
+    {
+      "zh": "worker2什么也不干，给\nactive 临时节点注册监听器",
+      "en": "worker2 does nothing,\nregisters a listener on the\nactive ephemeral node",
+      "vi": "worker2 không làm gì,\nđăng ký listener cho\nnode tạm active",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby"
+    },
+    {
+      "zh": "xml 配置文件\n<dubbo:protocol name=\"my\">",
+      "en": "xml configuration file\n<dubbo:protocol name=\"my\">",
+      "vi": "Tệp cấu hình xml\n<dubbo:protocol name=\"my\">",
+      "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "zookeeper",
+      "en": "zookeeper",
+      "vi": "zookeeper",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "zookeeper 集中式元数据的维护和存储",
+      "en": "zookeeper centralized metadata maintenance and storage",
+      "vi": "zookeeper duy trì và lưu trữ metadata tập trung",
+      "source": "high-concurrency/redis-cluster/zookeeper-centralized-storage"
+    },
+    {
+      "zh": "zookeeper保证只有一个人可以获取到这把锁",
+      "en": "zookeeper guarantees only one party can acquire this lock",
+      "vi": "zookeeper đảm bảo chỉ một bên lấy được khóa này",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo"
+    },
+    {
+      "zh": "一旦A系统发送confirm消息，\nMQ就会让B系统消费到这条消息",
+      "en": "Once system A sends the\nconfirm message, MQ lets\nsystem B consume it",
+      "vi": "Một khi hệ thống A gửi\nthông điệp confirm, MQ sẽ\ncho hệ thống B tiêu thụ\nthông điệp này",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
     },
     {
       "zh": "一次请求上下文",
@@ -578,10 +2023,46 @@
       "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
     },
     {
+      "zh": "不允许访问",
+      "en": "Access not allowed",
+      "vi": "Không cho phép truy cập",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "不存在，直接写入；\n存在，比较数据时间戳，\n确保只能新数据覆盖旧数据",
+      "en": "If absent, write directly;\nif present, compare data timestamps,\nso only newer data overwrites older data",
+      "vi": "Không tồn tại: ghi trực tiếp;\nTồn tại: so sánh dấu thời gian dữ liệu,\nđảm bảo chỉ dữ liệu mới ghi đè dữ liệu cũ",
+      "source": "high-concurrency/database-shard-method/database-shard-method-2"
+    },
+    {
+      "zh": "业务表",
+      "en": "Business\ntable",
+      "vi": "Bảng\nnghiệp vụ",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "主库",
+      "en": "Master",
+      "vi": "Master",
+      "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
       "zh": "主库同步数据到从库",
       "en": "Master syncs data to replica",
       "vi": "Master đồng bộ dữ liệu sang replica",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "也可以在zk中，创建一个node，\n就是代表某个消息自己已经处理过了，\n如果重复消息过来，\n创建zk node，会报错",
+      "en": "It can also create a node in zk\nto mean that it has already\nprocessed a certain message. If a\nduplicate message arrives, creating\nthe zk node reports an error",
+      "vi": "Cũng có thể tạo một node trong zk\nđể biểu thị đã xử lý một thông điệp.\nNếu thông điệp trùng lặp đến,\ntạo zk node sẽ báo lỗi",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
+    },
+    {
+      "zh": "也可以通过在redis里记录一\n个标识，表明说，自己已经\n处理过某个消息了",
+      "en": "It can also record a flag in\nredis to show that it has\nalready processed a message",
+      "vi": "Cũng có thể ghi một dấu hiệu\nvào redis để cho biết mình đã\nxử lý thông điệp đó rồi",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
     },
     {
       "zh": "事务管理器",
@@ -590,10 +2071,191 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
     },
     {
+      "zh": "二进制串",
+      "en": "Binary string",
+      "vi": "Chuỗi nhị phân",
+      "source": "distributed-system/dubbo-serialization-protocol/serialize-deserialize"
+    },
+    {
+      "zh": "产生数据，发送到 MQ",
+      "en": "Produce data and send it to MQ",
+      "vi": "Tạo dữ liệu, gửi vào MQ",
+      "source": "high-concurrency/why-mq/mq-2"
+    },
+    {
+      "zh": "从库",
+      "en": "Replica",
+      "vi": "Replica",
+      "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
+      "zh": "代理",
+      "en": "Proxy",
+      "vi": "Proxy",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "代码执行的时候，对 Protocal 接口，\n会使用 my 对应的 com.bingo.MyProtocal",
+      "en": "At execution time, for the Protocal\ninterface, the com.bingo.MyProtocal\ncorresponding to my is used",
+      "vi": "Khi code thực thi, đối với API Protocal,\nsẽ dùng com.bingo.MyProtocal\ntương ứng với my",
+      "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "信号量",
+      "en": "Semaphore",
+      "vi": "Semaphore",
+      "source": "high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool"
+    },
+    {
+      "zh": "修改orderId=1的node\n的值",
+      "en": "Modify the value of\nthe node orderId=1",
+      "vi": "Sửa giá trị của\nnode orderId=1",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "假如说A系统发行确认消息\n的时候失败了，消息停留在\nprepared状态",
+      "en": "If system A fails while\nsending the confirm message,\nthe message stays in the\nprepared state",
+      "vi": "Nếu hệ thống A gửi\nthông điệp xác nhận\nthất bại, thông điệp\ndừng ở trạng thái prepared",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
+    },
+    {
+      "zh": "允许访问",
+      "en": "Access allowed",
+      "vi": "Cho phép truy cập",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "先获取到zk锁，执行处理后释放锁",
+      "en": "Acquires the zk lock first, processes,\nthen releases the lock",
+      "vi": "Lấy được khóa zk trước, xử lý\nxong thì giải phóng khóa",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo"
+    },
+    {
+      "zh": "公告：\n0点~6点，网站维护，不能访问",
+      "en": "Notice:\n0:00~6:00, website maintenance, no access",
+      "vi": "Thông báo:\n0 giờ~6 giờ, bảo trì website, không thể truy cập",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "内存 buffer",
+      "en": "In-memory buffer",
+      "vi": "Buffer trong bộ nhớ",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "内存Set去重\nid=1",
+      "en": "In-memory Set\ndeduplication\nid=1",
+      "vi": "Loại trùng bằng\nSet trong bộ nhớ\nid=1",
+      "source": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-11"
+    },
+    {
       "zh": "内存队列",
       "en": "In-memory queue",
       "vi": "Hàng đợi trong bộ nhớ",
       "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "内存队列1",
+      "en": "In-memory\nqueue 1",
+      "vi": "Hàng đợi\ntrong bộ nhớ 1",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-02"
+    },
+    {
+      "zh": "内存队列2",
+      "en": "In-memory\nqueue 2",
+      "vi": "Hàng đợi\ntrong bộ nhớ 2",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-02"
+    },
+    {
+      "zh": "内存队列3",
+      "en": "In-memory\nqueue 3",
+      "vi": "Hàng đợi\ntrong bộ nhớ 3",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-02"
+    },
+    {
+      "zh": "再次创建同名节点active，\n值是worker2",
+      "en": "Re-creates the node\nnamed active,\nvalue is worker2",
+      "vi": "Tạo lại node cùng tên\nactive, giá trị là worker2",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby"
+    },
+    {
+      "zh": "写",
+      "en": "Write",
+      "vi": "Ghi",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "写入",
+      "en": "Write",
+      "vi": "Ghi",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "写入内存buffer，\n同时写入os cache",
+      "en": "Write to the in-memory\nbuffer and, at the same\ntime, to the os cache",
+      "vi": "Ghi vào buffer trong\nbộ nhớ, đồng thời\nghi vào os cache",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "写消息",
+      "en": "Write\nmessage",
+      "vi": "Ghi\nthông điệp",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "分库00\n4张表\n(单表50万)",
+      "en": "Shard DB 00\n4 tables\n(500K per table)",
+      "vi": "Shard 00\n4 bảng\n(500K mỗi bảng)",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "分库01\n4张表\n(单表50万)",
+      "en": "Shard DB 01\n4 tables\n(500K per table)",
+      "vi": "Shard 01\n4 bảng\n(500K mỗi bảng)",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "分库02\n4张表\n(单表50万)",
+      "en": "Shard DB 02\n4 tables\n(500K per table)",
+      "vi": "Shard 02\n4 bảng\n(500K mỗi bảng)",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "列表中\n最少使用的项",
+      "en": "Least used\nitems in the list",
+      "vi": "Các mục ít được dùng nhất\ntrong danh sách",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru"
+    },
+    {
+      "zh": "创建 Command",
+      "en": "Create Command",
+      "vi": "Tạo Command",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "初次连接：全量复制",
+      "en": "First connection:\nfull replication",
+      "vi": "Kết nối lần đầu:\nsao chép toàn bộ",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
+    },
+    {
+      "zh": "判断分库分表中\n是否存在某数据",
+      "en": "Check whether the\ndata exists in the\nshards and tables",
+      "vi": "Kiểm tra dữ liệu\ncó trong các shard\nvà bảng hay không",
+      "source": "high-concurrency/database-shard-method/database-shard-method-2"
+    },
+    {
+      "zh": "到了同一个partition",
+      "en": "Reached the same\npartition",
+      "vi": "Đến cùng một partition",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "到同一个内存queue",
+      "en": "To the same\nin-memory queue",
+      "vi": "Đến cùng một hàng đợi\ntrong bộ nhớ",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-02"
     },
     {
       "zh": "削峰",
@@ -602,10 +2264,389 @@
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "副本1",
+      "en": "Replica 1",
+      "vi": "Replica 1",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "副本2",
+      "en": "Replica 2",
+      "vi": "Replica 2",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "加载到内存",
+      "en": "Load into memory",
+      "vi": "Nạp vào bộ nhớ",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
+    },
+    {
+      "zh": "单个服务",
+      "en": "Single service",
+      "vi": "Một dịch vụ đơn",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "反序列化",
+      "en": "Deserialization",
+      "vi": "Giải tuần tự hóa",
+      "source": "distributed-system/dubbo-serialization-protocol/serialize-deserialize"
+    },
+    {
+      "zh": "发送confirm消息",
+      "en": "Send confirm message",
+      "vi": "Gửi thông điệp confirm",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
+    },
+    {
+      "zh": "发送prepared消息",
+      "en": "Send prepared message",
+      "vi": "Gửi thông điệp prepared",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
+    },
+    {
+      "zh": "发送异常事件给断路器统计",
+      "en": "Send exception event to the circuit breaker for statistics",
+      "vi": "Gửi sự kiện ngoại lệ cho circuit breaker để thống kê",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "发送消息",
+      "en": "Send message",
+      "vi": "Gửi thông điệp",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8"
+    },
+    {
+      "zh": "发送给断路器统计",
+      "en": "Send to circuit\nbreaker statistics",
+      "vi": "Gửi cho\ncircuit breaker\nđể thống kê",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "发通知",
+      "en": "Send notification",
+      "vi": "Gửi thông báo",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby"
+    },
+    {
+      "zh": "变更消息",
+      "en": "Change message",
+      "vi": "Thông điệp thay đổi",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "可以从replica/primary shard 读",
+      "en": "Can read from\nreplica/primary shard",
+      "vi": "Có thể đọc từ\nreplica/primary shard",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "同步",
+      "en": "Sync",
+      "vi": "Đồng bộ",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "同步消息",
+      "en": "Sync message",
+      "vi": "Đồng bộ\nthông điệp",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8"
+    },
+    {
+      "zh": "后台临时程序\n部署 3 台机器\n每台机器开20个线程",
+      "en": "Temporary background program\nDeployed on 3 machines\n20 threads per machine",
+      "vi": "Chương trình nền tạm thời\nTriển khai trên 3 máy\nMỗi máy mở 20 luồng",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "后台数据迁移\n临时工具",
+      "en": "Temporary background\ndata migration tool",
+      "vi": "Công cụ tạm thời chạy nền\ndi chuyển dữ liệu",
+      "source": "high-concurrency/database-shard-method/database-shard-method-2"
+    },
+    {
+      "zh": "否",
+      "en": "No",
+      "vi": "Không",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "员工系统",
+      "en": "Employee\nsystem",
+      "vi": "Hệ thống\nnhân viên",
+      "source": "distributed-system/distributed-system-interview/simple-distributed-system-oa"
+    },
+    {
+      "zh": "员工系统+请假系统+权限系统+财务\n系统=分布式OA系统",
+      "en": "Employee system + leave system +\npermission system + finance system\n= distributed OA system",
+      "vi": "Hệ thống nhân viên + hệ thống nghỉ phép\n+ hệ thống phân quyền + hệ thống tài chính\n= hệ thống OA phân tán",
+      "source": "distributed-system/distributed-system-interview/simple-distributed-system-oa"
+    },
+    {
+      "zh": "命令回复\n处理器",
+      "en": "Command\nreply\nhandler",
+      "vi": "Bộ xử lý\nphản hồi lệnh",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "命令请求\n处理器",
+      "en": "Command\nrequest\nhandler",
+      "vi": "Bộ xử lý\nyêu cầu lệnh",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "哪个系统需要，自己去 MQ 消费即可",
+      "en": "Any system that needs the data consumes it from MQ itself",
+      "vi": "Hệ thống nào cần thì tự vào MQ tiêu thụ",
+      "source": "high-concurrency/why-mq/mq-2"
+    },
+    {
       "zh": "商品服务",
       "en": "Product service",
       "vi": "Dịch vụ sản phẩm",
       "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "商品服务信息",
+      "en": "Product service\ninfo",
+      "vi": "Thông tin dịch vụ\nsản phẩm",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "回调A系统的一个接口问你，\n这个消息是回滚？还是重新\n发送一次确认消息？",
+      "en": "Calls back an API of\nsystem A and asks: roll\nthis message back, or\nresend a confirm message?",
+      "vi": "Gọi lại một API của\nhệ thống A để hỏi:\nthông điệp này rollback\nhay gửi lại thông điệp\nxác nhận?",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
+    },
+    {
+      "zh": "在META-INF/services/com.alibaba.rpc.Protocal文件\n中配置my=com.bingo.MyProtocal",
+      "en": "In the file\nMETA-INF/services/com.alibaba.rpc.Protocal,\nconfigure my=com.bingo.MyProtocal",
+      "vi": "Trong tệp\nMETA-INF/services/com.alibaba.rpc.Protocal\ncấu hình my=com.bingo.MyProtocal",
+      "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "在自己本地的事务里\n先插入消息表\n再插入自己的业务表",
+      "en": "In its own local transaction,\nfirst insert into the message table,\nthen insert into its business table",
+      "vi": "Trong giao dịch cục bộ của mình:\nchèn vào bảng thông điệp trước,\nrồi chèn vào bảng nghiệp vụ",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "垂直拆分",
+      "en": "Vertical splitting",
+      "vi": "Tách dọc",
+      "source": "high-concurrency/database-shard/database-split-vertically"
+    },
+    {
+      "zh": "复制数据",
+      "en": "Replicate\ndata",
+      "vi": "Sao chép\ndữ liệu",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave"
+    },
+    {
+      "zh": "多个系统之间的调用，如何\n放在一个事务？",
+      "en": "How can calls across\nmultiple systems be\nplaced in one transaction?",
+      "vi": "Làm sao đặt các lời gọi\ngiữa nhiều hệ thống\ntrong một giao dịch?",
+      "source": "distributed-system/distributed-system-interview/simple-distributed-system-oa"
+    },
+    {
+      "zh": "大量请求同时到达",
+      "en": "many requests coming\nsimultaneously",
+      "vi": "nhiều yêu cầu đến\nđồng thời",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "失败！",
+      "en": "FAILS",
+      "vi": "THẤT BẠI",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "如果key不存在，直接返回",
+      "en": "If the key does not exist,\nreturn directly",
+      "vi": "Nếu key không tồn tại,\ntrả về ngay",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration"
+    },
+    {
+      "zh": "如果本地事务失败，\n就会发送消息回滚刚才的那个\nprepared消息",
+      "en": "If the local transaction\nfails, a message is sent\nto roll back the prepared\nmessage just sent",
+      "vi": "Nếu giao dịch cục bộ\nthất bại, sẽ gửi thông điệp\nđể rollback thông điệp\nprepared vừa gửi",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
+    },
+    {
+      "zh": "如果某个系统不需要数据， 取消对 MQ 消息的消费即 可",
+      "en": "If a system does not need the data, cancel its consumption of MQ messages",
+      "vi": "Nếu hệ thống nào đó không\ncần dữ liệu, hủy việc tiêu thụ\nthông điệp MQ",
+      "source": "high-concurrency/why-mq/mq-2"
+    },
+    {
+      "zh": "完成库存的更新",
+      "en": "Finish updating\ninventory",
+      "vi": "Hoàn tất cập nhật\ntồn kho",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "完成订单的保存\norderId=1",
+      "en": "Finish saving the order\norderId=1",
+      "vi": "Hoàn tất lưu đơn hàng\norderId=1",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "客户端",
+      "en": "Client",
+      "vi": "Client",
+      "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
+    },
+    {
+      "zh": "对orderId=1的node\n注册一个监听",
+      "en": "Register a listener on\nthe node orderId=1",
+      "vi": "Đăng ký một listener\ncho node orderId=1",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "对某项调用 get()，会把它移到缓存顶部",
+      "en": "Calling get() for an item, moves it to the top of the cache",
+      "vi": "Gọi get() cho một mục sẽ chuyển nó lên đầu bộ nhớ đệm",
+      "ref": "en",
+      "source": "high-concurrency/redis-expiration-policies-and-lru/lru"
+    },
+    {
+      "zh": "对订单orderId=1的node\n节点注册一个监听器",
+      "en": "Register a listener on\nthe node of order orderId=1",
+      "vi": "Đăng ký một listener cho\nnode của đơn hàng orderId=1",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "对订单orderId=1的node节点更新\n值:finish_update",
+      "en": "Update the value of the node of\norder orderId=1: finish_update",
+      "vi": "Cập nhật giá trị node của đơn hàng\norderId=1: finish_update",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "对象 A",
+      "en": "Object A",
+      "vi": "Đối tượng A",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "对象 B",
+      "en": "Object B",
+      "vi": "Đối tượng B",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "对象 C",
+      "en": "Object C",
+      "vi": "Đối tượng C",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "对象 D",
+      "en": "Object D",
+      "vi": "Đối tượng D",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "将 socket 01 的\nAE_READABLE 事件与\n命令请求处理器关联",
+      "en": "Associate the AE_READABLE\nevent of socket 01 with\nthe command request handler",
+      "vi": "Liên kết sự kiện\nAE_READABLE của socket 01\nvới bộ xử lý yêu cầu lệnh",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "将数据写入primary shard",
+      "en": "Write data to\nthe primary shard",
+      "vi": "Ghi dữ liệu vào\nprimary shard",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "将数据同步给 replica",
+      "en": "Sync data to the replica",
+      "vi": "Đồng bộ dữ liệu sang replica",
+      "source": "high-concurrency/es-write-query-search/es-write"
+    },
+    {
+      "zh": "将服务A的注册信息保\n存到zk",
+      "en": "Save service A's\nregistration info\nto zk",
+      "vi": "Lưu thông tin\nđăng ký của\ndịch vụ A vào zk",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
+      "zh": "将配置修改为\n只写入数据库中间件",
+      "en": "Change the configuration to\nwrite to database middleware only",
+      "vi": "Sửa cấu hình thành\nchỉ ghi vào middleware cơ sở dữ liệu",
+      "source": "high-concurrency/database-shard-method/database-shard-method-2"
+    },
+    {
+      "zh": "尝试获取 zk锁，如果没获取\n到，对这个锁注册一个监听\n器",
+      "en": "Try to acquire the zk lock;\nif it fails, register a\nlistener on this lock",
+      "vi": "Thử lấy khóa zk; nếu không\nlấy được thì đăng ký một\nlistener cho khóa này",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo"
+    },
+    {
+      "zh": "尝试获取zk锁",
+      "en": "Try to acquire\nzk lock",
+      "vi": "Thử lấy\nkhóa zk",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo"
+    },
+    {
+      "zh": "尝试获取分布式锁\n(获取不到)",
+      "en": "Try to acquire\ndistributed lock\n(not acquired)",
+      "vi": "Thử lấy\nkhóa phân tán\n(không lấy được)",
+      "source": "high-concurrency/redis-cas/zookeeper-distributed-lock"
+    },
+    {
+      "zh": "工作\n线程",
+      "en": "Worker\nthread",
+      "vi": "Luồng\nworker",
+      "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
+      "zh": "布隆过滤器",
+      "en": "Bloom filter",
+      "vi": "Bộ lọc Bloom",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration"
+    },
+    {
+      "zh": "广告服务信息",
+      "en": "Ad service\ninfo",
+      "vi": "Thông tin dịch vụ\nquảng cáo",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "序列化",
+      "en": "Serialization",
+      "vi": "Tuần tự hóa",
+      "source": "distributed-system/dubbo-serialization-protocol/serialize-deserialize"
+    },
+    {
+      "zh": "库存服务",
+      "en": "Inventory service",
+      "vi": "Dịch vụ\ntồn kho",
+      "source": "high-concurrency/redis-consistence/redis-junior-inconsistent"
+    },
+    {
+      "zh": "店铺服务信息",
+      "en": "Shop service\ninfo",
+      "vi": "Thông tin dịch vụ\ncửa hàng",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "建好一个唯一约束\norderId建个唯一键",
+      "en": "Create a unique constraint:\nmake orderId a unique key",
+      "vi": "Tạo ràng buộc duy nhất:\nđặt orderId làm\nkhóa duy nhất",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "建立连接之后保持着，持续发送请求",
+      "en": "The connection stays open once established; requests keep being sent",
+      "vi": "Sau khi thiết lập kết nối thì giữ nguyên kết nối và liên tục gửi yêu cầu",
+      "source": "distributed-system/dubbo-serialization-protocol/dubbo-keep-connection"
     },
     {
       "zh": "异步系统",
@@ -614,16 +2655,136 @@
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "感知到B已经\n成功执行",
+      "en": "Detects that B\nhas succeeded",
+      "vi": "Nhận biết B đã\nthực thi thành công",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "感知到锁被释放后，再次重\n新尝试获取锁",
+      "en": "After sensing the lock\nwas released, try\nto acquire it again",
+      "vi": "Sau khi nhận biết khóa đã\nđược giải phóng, thử lấy\nkhóa lại lần nữa",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo"
+    },
+    {
+      "zh": "成为协调节点",
+      "en": "Becomes the\ncoordinating node",
+      "vi": "Trở thành\nnode điều phối",
+      "source": "high-concurrency/es-write-query-search/es-write"
+    },
+    {
+      "zh": "我希望获取服务A的地址",
+      "en": "I want to get the\naddress of service A",
+      "vi": "Tôi muốn lấy địa chỉ\ncủa dịch vụ A",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
       "zh": "扛读高并发",
       "en": "Absorbs read-heavy\ntraffic",
       "vi": "Chịu tải đọc\nđồng thời cao",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "扛高并发、扩容",
+      "en": "Carry high concurrency, scale capacity",
+      "vi": "Chống đỡ tải đồng thời cao, mở rộng dung lượng",
+      "source": "high-concurrency/database-shard/database-split-horizon"
+    },
+    {
+      "zh": "执行 Command\nrun() 方法",
+      "en": "Execute Command\nrun() method",
+      "vi": "Thực thi Command\nphương thức run()",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "执行 command",
+      "en": "Execute command",
+      "vi": "Thực thi command",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "执行出错或\ntimeout ?",
+      "en": "Execution error\nor timeout?",
+      "vi": "Thực thi lỗi\nhoặc timeout?",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "执行成功，返回结果",
+      "en": "Success,\nreturn result",
+      "vi": "Thực thi\nthành công,\ntrả về kết quả",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "执行成功，返回结果，同时发送给断路器统计",
+      "en": "Execution succeeded: return the result and also send it to the circuit breaker for statistics",
+      "vi": "Thực thi thành công: trả về kết quả, đồng thời gửi cho circuit breaker để thống kê",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "执行是否出错？\n是否 timeout？",
+      "en": "Execution error?\nOr timeout?",
+      "vi": "Thực thi bị lỗi?\nHoặc timeout?",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "挑选一个es节点",
+      "en": "Pick an ES node",
+      "vi": "Chọn một node ES",
+      "source": "high-concurrency/es-write-query-search/es-write"
+    },
+    {
       "zh": "接入服务",
       "en": "Ingress service",
       "vi": "Dịch vụ tiếp nhận",
       "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "提交offset",
+      "en": "Commit offset",
+      "vi": "Commit offset",
+      "source": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10"
+    },
+    {
+      "zh": "提交了订单请求",
+      "en": "Submitted\norder request",
+      "vi": "Đã gửi yêu cầu\nđơn hàng",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "数据",
+      "en": "Data",
+      "vi": "Dữ liệu",
+      "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
+      "zh": "数据 refresh 到os cache后\n就能被搜索到；\n内存buffer 会被清空",
+      "en": "Once data is refreshed to\nthe os cache, it becomes\nsearchable; the in-memory\nbuffer is then cleared",
+      "vi": "Sau khi dữ liệu được\nrefresh vào os cache thì\ncó thể được tìm kiếm;\nbuffer trong bộ nhớ\nsẽ bị xóa sạch",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "数据1, offset=152",
+      "en": "Data 1, offset=152",
+      "vi": "Dữ liệu 1, offset=152",
+      "source": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10"
+    },
+    {
+      "zh": "数据1，id=1",
+      "en": "Data 1, id=1",
+      "vi": "Dữ liệu 1, id=1",
+      "source": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-11"
+    },
+    {
+      "zh": "数据2, offset=153",
+      "en": "Data 2, offset=153",
+      "vi": "Dữ liệu 2, offset=153",
+      "source": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10"
+    },
+    {
+      "zh": "数据3, offset=154",
+      "en": "Data 3, offset=154",
+      "vi": "Dữ liệu 3, offset=154",
+      "source": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10"
     },
     {
       "zh": "数据写入主库",
@@ -650,6 +2811,30 @@
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "数据库\n600万数据",
+      "en": "Database\n6 million rows",
+      "vi": "Cơ sở dữ liệu\n6 triệu dòng dữ liệu",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "数据库\n单表1000w",
+      "en": "Database\n10M per table",
+      "vi": "Cơ sở dữ liệu\n10 triệu mỗi bảng",
+      "source": "high-concurrency/database-shard/database-split-horizon"
+    },
+    {
+      "zh": "数据库\n库存1000->999",
+      "en": "Database\nInventory 1000->999",
+      "vi": "Cơ sở dữ liệu\nTồn kho 1000->999",
+      "source": "high-concurrency/redis-consistence/redis-junior-inconsistent"
+    },
+    {
+      "zh": "数据库\n（单表3000w）",
+      "en": "Database\n(30M per table)",
+      "vi": "Cơ sở dữ liệu\n(30 triệu mỗi bảng)",
+      "source": "high-concurrency/database-shard/database-split-horizon"
+    },
+    {
       "zh": "数据库1",
       "en": "Database 1",
       "vi": "Cơ sở dữ liệu 1",
@@ -668,10 +2853,438 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
     },
     {
+      "zh": "数据库中间件",
+      "en": "Database\nmiddleware",
+      "vi": "Middleware\ncơ sở dữ liệu",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "数据没来的及复制，\nmaster 宕机",
+      "en": "Data not yet replicated,\nmaster crashed",
+      "vi": "Dữ liệu chưa kịp sao chép,\nmaster sập",
+      "source": "high-concurrency/redis-sentinel/async-replication-data-lose-case"
+    },
+    {
+      "zh": "数据结构/ 对象",
+      "en": "Data structure / object",
+      "vi": "Cấu trúc dữ liệu / đối tượng",
+      "source": "distributed-system/dubbo-serialization-protocol/serialize-deserialize"
+    },
+    {
+      "zh": "数据表\ncol1 col2",
+      "en": "Table\ncol1 col2",
+      "vi": "Bảng\ncol1 col2",
+      "source": "high-concurrency/database-shard/database-split-vertically"
+    },
+    {
+      "zh": "数据表\ncol1 col2 col3 ... col10",
+      "en": "Table\ncol1 col2 col3 ... col10",
+      "vi": "Bảng\ncol1 col2 col3 ... col10",
+      "source": "high-concurrency/database-shard/database-split-vertically"
+    },
+    {
+      "zh": "数据表\ncol3... col10",
+      "en": "Table\ncol3... col10",
+      "vi": "Bảng\ncol3... col10",
+      "source": "high-concurrency/database-shard/database-split-vertically"
+    },
+    {
+      "zh": "文件事件\n分派器",
+      "en": "File event\ndispatcher",
+      "vi": "Bộ điều phối\nsự kiện tệp",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "断路器状态是\nopen?",
+      "en": "Circuit breaker\nis open?",
+      "vi": "Circuit breaker\nđang open?",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "新系统要数据，直接从 MQ 消费即可",
+      "en": "New system needs data, consumes directly from MQ",
+      "vi": "Hệ thống mới cần dữ liệu, tiêu thụ trực tiếp từ MQ",
+      "source": "high-concurrency/why-mq/mq-2"
+    },
+    {
+      "zh": "方案1：开启RabbitMQ事务(同步，不推荐)",
+      "en": "Option 1: enable RabbitMQ transactions\n(synchronous, not recommended)",
+      "vi": "Phương án 1: bật giao dịch RabbitMQ\n(đồng bộ, không khuyến nghị)",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution"
+    },
+    {
+      "zh": "方案2：开启confirm模式（异步，推荐）",
+      "en": "Option 2: enable confirm mode\n(asynchronous, recommended)",
+      "vi": "Phương án 2: bật chế độ confirm\n(bất đồng bộ, khuyến nghị)",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution"
+    },
+    {
+      "zh": "方案：关闭RabbitMQ自动ACK",
+      "en": "Option: turn off RabbitMQ auto ACK",
+      "vi": "Phương án: tắt ACK tự động của RabbitMQ",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution"
+    },
+    {
+      "zh": "方案：开启RabbitMQ持久化",
+      "en": "Option: enable RabbitMQ persistence",
+      "vi": "Phương án: bật lưu trữ bền vững RabbitMQ",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution"
+    },
+    {
+      "zh": "时间线",
+      "en": "Timeline",
+      "vi": "Dòng thời gian",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "是",
+      "en": "Yes",
+      "vi": "Có",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "是否命中 Cache",
+      "en": "Cache hit?",
+      "vi": "Có trúng Cache?",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "是否开启\nRequest Cache",
+      "en": "Request Cache\nenabled?",
+      "vi": "Đã bật\nRequest Cache?",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "服务A",
+      "en": "Service A",
+      "vi": "Dịch vụ A",
+      "source": "high-availability/hystrix-introduction/service-invoke-road"
+    },
+    {
+      "zh": "服务A\n192.168.0.1",
+      "en": "Service A\n192.168.0.1",
+      "vi": "Dịch vụ A\n192.168.0.1",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
+      "zh": "服务A\n192.168.0.2",
+      "en": "Service A\n192.168.0.2",
+      "vi": "Dịch vụ A\n192.168.0.2",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
+      "zh": "服务A\n192.168.0.3",
+      "en": "Service A\n192.168.0.3",
+      "vi": "Dịch vụ A\n192.168.0.3",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
+      "zh": "服务A信号量",
+      "en": "Service A semaphore",
+      "vi": "Semaphore của dịch vụ A",
+      "source": "high-availability/hystrix-semphore-isolation/hystrix-semphore"
+    },
+    {
+      "zh": "服务A的代理\n监听网络请求",
+      "en": "Proxy of service A\nlistens for network\nrequests",
+      "vi": "Proxy của dịch vụ A\nlắng nghe\nyêu cầu mạng",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "服务B",
+      "en": "Service B",
+      "vi": "Dịch vụ B",
+      "source": "high-availability/hystrix-introduction/service-invoke-road"
+    },
+    {
+      "zh": "服务C",
+      "en": "Service C",
+      "vi": "Dịch vụ C",
+      "source": "high-availability/hystrix-introduction/service-invoke-road"
+    },
+    {
+      "zh": "服务D",
+      "en": "Service D",
+      "vi": "Dịch vụ D",
+      "source": "high-availability/hystrix-introduction/service-invoke-road"
+    },
+    {
+      "zh": "服务E",
+      "en": "Service E",
+      "vi": "Dịch vụ E",
+      "source": "high-availability/hystrix-introduction/service-invoke-road"
+    },
+    {
+      "zh": "服务F",
+      "en": "Service F",
+      "vi": "Dịch vụ F",
+      "source": "distributed-system/dubbo-service-management/dubbo-service-invoke-road"
+    },
+    {
+      "zh": "服务G",
+      "en": "Service G",
+      "vi": "Dịch vụ G",
+      "source": "distributed-system/dubbo-service-management/dubbo-service-invoke-road"
+    },
+    {
+      "zh": "服务节点0",
+      "en": "Service node 0",
+      "vi": "Node dịch vụ 0",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "服务节点1",
+      "en": "Service node 1",
+      "vi": "Node dịch vụ 1",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "服务节点2",
+      "en": "Service node 2",
+      "vi": "Node dịch vụ 2",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "服务节点3",
+      "en": "Service node 3",
+      "vi": "Node dịch vụ 3",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "服务节点4",
+      "en": "Service node 4",
+      "vi": "Node dịch vụ 4",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "服务节点5",
+      "en": "Service node 5",
+      "vi": "Node dịch vụ 5",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "服务节点6",
+      "en": "Service node 6",
+      "vi": "Node dịch vụ 6",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "服务节点7",
+      "en": "Service node 7",
+      "vi": "Node dịch vụ 7",
+      "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
+    },
+    {
+      "zh": "服务间调用链路",
+      "en": "Call chain between services",
+      "vi": "Chuỗi gọi giữa các dịch vụ",
+      "source": "distributed-system/dubbo-service-management/dubbo-service-invoke-road"
+    },
+    {
+      "zh": "本地\n数据缓存",
+      "en": "Local data\ncache",
+      "vi": "Bộ nhớ đệm\ncục bộ",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "本地html模板",
+      "en": "Local html\ntemplate",
+      "vi": "Mẫu html\ncục bộ",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "机器1",
+      "en": "Machine 1",
+      "vi": "Máy 1",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "机器2",
+      "en": "Machine 2",
+      "vi": "Máy 2",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "机器3",
+      "en": "Machine 3",
+      "vi": "Máy 3",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
+      "zh": "机器4",
+      "en": "Machine 4",
+      "vi": "Máy 4",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "机器5",
+      "en": "Machine 5",
+      "vi": "Máy 5",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "权限系统",
+      "en": "Permission\nsystem",
+      "vi": "Hệ thống\nphân quyền",
+      "source": "distributed-system/distributed-system-interview/simple-distributed-system-oa"
+    },
+    {
+      "zh": "某个消息待确认都超过1分\n钟了",
+      "en": "A message has been awaiting\nconfirmation for over 1 minute",
+      "vi": "Có thông điệp chờ xác nhận\nquá 1 phút",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "正常事务",
+      "en": "Normal transactions",
+      "vi": "Giao dịch bình thường",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "每个MQ 节点都有完整数据",
+      "en": "Every MQ node holds\nthe complete data",
+      "vi": "Mỗi node MQ đều có\nđầy đủ dữ liệu",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-8"
+    },
+    {
+      "zh": "每台机器启动一个进程，作为集群\n中的一个节点",
+      "en": "Each machine starts one process,\nacting as a node in the cluster",
+      "vi": "Mỗi máy khởi động một tiến trình,\nđóng vai trò một node trong cụm",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
+    },
+    {
+      "zh": "每秒5k个请求",
+      "en": "5k requests per second",
+      "vi": "5 nghìn yêu cầu mỗi giây",
+      "source": "high-concurrency/why-mq/mq-6"
+    },
+    {
+      "zh": "每隔1s, refresh到os cache",
+      "en": "Every 1s, refresh to the os cache",
+      "vi": "Mỗi 1s, refresh vào os cache",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "每隔5s，写入translog\n(所以宕机可能会有 5s 的数据丢失)",
+      "en": "Every 5s, write to the translog\n(so a machine crash may lose 5s of data)",
+      "vi": "Mỗi 5s, ghi vào translog\n(vì vậy khi máy sập có thể mất 5s dữ liệu)",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "水平拆分",
+      "en": "Horizontal splitting",
+      "vi": "Tách ngang",
+      "source": "high-concurrency/database-shard/database-split-horizon"
+    },
+    {
+      "zh": "注册一个监听器",
+      "en": "Register a\nlistener",
+      "vi": "Đăng ký một\nlistener",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
+      "zh": "注册中心",
+      "en": "Service registry",
+      "vi": "Trung tâm đăng ký dịch vụ",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "注册中心就知道说，服务A部署了\n3台机器，分别在196.168.0.1，\n192.168.0.2，192.168.0.3，\n这几个ip的机器上",
+      "en": "The service registry knows that service A\nis deployed on 3 machines, at\n196.168.0.1, 192.168.0.2,\n192.168.0.3 respectively",
+      "vi": "Trung tâm đăng ký dịch vụ biết rằng\ndịch vụ A được triển khai trên 3 máy,\nlần lượt tại 196.168.0.1,\n192.168.0.2, 192.168.0.3",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "注册服务信息",
+      "en": "Register\nservice info",
+      "vi": "Đăng ký\nthông tin dịch vụ",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "注意：图中文字前面相同的\n序号表示同一次请求/回复",
+      "en": "Note: identical numbers at the\nstart of text in the diagram\nmean the same request/reply",
+      "vi": "Lưu ý: các số thứ tự giống nhau\nở đầu chữ trong hình biểu thị\ncùng một yêu cầu/phản hồi",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "浏览电商网站",
+      "en": "Browse the e-commerce site",
+      "vi": "Duyệt website thương mại điện tử",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1"
+    },
+    {
+      "zh": "消息1",
+      "en": "Message 1",
+      "vi": "Thông điệp 1",
+      "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
+    },
+    {
+      "zh": "消息表",
+      "en": "Message\ntable",
+      "vi": "Bảng\nthông điệp",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "消费",
+      "en": "Consume",
+      "vi": "Tiêu thụ",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "消费者",
+      "en": "Consumer",
+      "vi": "Consumer",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
+    },
+    {
+      "zh": "消费者从每个节点的\nleader消费数据",
+      "en": "Consumer consumes data from\nthe leader of each node",
+      "vi": "Consumer tiêu thụ dữ liệu\ntừ leader của mỗi node",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "渲染后",
+      "en": "After rendering",
+      "vi": "Sau khi render",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "独立的1个工程\n独立部署在1台机器上",
+      "en": "One independent\nproject, deployed\non 1 machine",
+      "vi": "Một dự án độc lập,\ntriển khai độc lập\ntrên 1 máy",
+      "source": "distributed-system/distributed-system-interview/simple-distributed-system-oa"
+    },
+    {
+      "zh": "生产者",
+      "en": "Producer",
+      "vi": "Producer",
+      "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "生产者将数据写入leader",
+      "en": "Producer writes data\nto the leader",
+      "vi": "Producer ghi dữ liệu\nvào leader",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
       "zh": "用户",
       "en": "User",
       "vi": "Người dùng",
       "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
+    },
+    {
+      "zh": "用户对A系统发起请求",
+      "en": "User sends a\nrequest to\nsystem A",
+      "vi": "Người dùng gửi\nyêu cầu đến\nhệ thống A",
+      "source": "high-concurrency/why-mq/mq-3"
+    },
+    {
+      "zh": "磁盘",
+      "en": "Disk",
+      "vi": "Đĩa",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
     },
     {
       "zh": "第一阶段，询问\n第二阶段，执行",
@@ -686,6 +3299,18 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
     },
     {
+      "zh": "系统\n修改配置\n将数据写入数据库中间件",
+      "en": "System\nUpdate configuration\nWrite data to the database middleware",
+      "vi": "Hệ thống\nSửa cấu hình\nGhi dữ liệu vào\nmiddleware cơ sở dữ liệu",
+      "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "系统\n修改配置\n将数据同时写入数据库中间件\n和老库",
+      "en": "System\nUpdate configuration\nWrite data to database middleware\nand old database at the same time",
+      "vi": "Hệ thống\nSửa cấu hình\nGhi đồng thời dữ liệu vào\nmiddleware cơ sở dữ liệu\nvà cơ sở dữ liệu cũ",
+      "source": "high-concurrency/database-shard-method/database-shard-method-2"
+    },
+    {
       "zh": "系统A",
       "en": "System A",
       "vi": "Hệ thống A",
@@ -698,6 +3323,18 @@
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "系统A（主）",
+      "en": "System A (active)",
+      "vi": "Hệ thống A (chính)",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby"
+    },
+    {
+      "zh": "系统A（备）",
+      "en": "System A (standby)",
+      "vi": "Hệ thống A\n(dự phòng)",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby"
+    },
+    {
       "zh": "系统B",
       "en": "System B",
       "vi": "Hệ thống B",
@@ -708,6 +3345,12 @@
       "en": "System C",
       "vi": "Hệ thống C",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "系统之间如何调用？\n传递json？",
+      "en": "How do the systems\ncall each other?\nPass json?",
+      "vi": "Các hệ thống gọi\nnhau thế nào?\nTruyền json?",
+      "source": "distributed-system/distributed-system-interview/simple-distributed-system-oa"
     },
     {
       "zh": "系统拆分",
@@ -734,10 +3377,173 @@
       "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
     },
     {
+      "zh": "线程池",
+      "en": "Thread pool",
+      "vi": "Thread pool (nhóm luồng)",
+      "source": "high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation"
+    },
+    {
+      "zh": "线程池\n(10个线程)",
+      "en": "Thread pool\n(10 threads)",
+      "vi": "Thread pool\n(10 luồng)",
+      "source": "high-availability/hystrix-execution-isolation/hystrix-thread-pool-queue"
+    },
+    {
+      "zh": "线程池/信号量\n是否已满？",
+      "en": "Thread pool/semaphore\nfull?",
+      "vi": "Thread pool/semaphore\nđã đầy chưa?",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "线程池/信号量\n满了没?",
+      "en": "Thread pool/semaphore\nfull?",
+      "vi": "Thread pool/\nsemaphore\nđã đầy?",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
       "zh": "缓存",
       "en": "Cache",
       "vi": "Bộ nhớ đệm",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "缓存\n( 机器宕机 )",
+      "en": "Cache\n(machine down)",
+      "vi": "Bộ nhớ đệm\n(máy chủ sập)",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche"
+    },
+    {
+      "zh": "缓存\nmaster",
+      "en": "Cache\nmaster",
+      "vi": "Bộ nhớ đệm\nmaster",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution"
+    },
+    {
+      "zh": "缓存\nslave",
+      "en": "Cache\nslave",
+      "vi": "Bộ nhớ đệm\nslave",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution"
+    },
+    {
+      "zh": "缓存\n库存1000",
+      "en": "Cache\nInventory 1000",
+      "vi": "Bộ nhớ đệm\nTồn kho 1000",
+      "source": "high-concurrency/redis-consistence/redis-junior-inconsistent"
+    },
+    {
+      "zh": "缓存挂了，每秒 5000 请求\n全部落数据库",
+      "en": "Cache down: 5000 requests per second\nall hit the database",
+      "vi": "Bộ nhớ đệm sập, 5000 yêu cầu mỗi giây\nđổ hết xuống cơ sở dữ liệu",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche"
+    },
+    {
+      "zh": "缓存服务",
+      "en": "Cache service",
+      "vi": "Dịch vụ\nbộ nhớ đệm",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "缓存穿透，数据库直接\n被打死",
+      "en": "Cache penetration:\nthe database is\nkilled outright",
+      "vi": "Cache penetration:\nđánh sập thẳng\ncơ sở dữ liệu",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration"
+    },
+    {
+      "zh": "缺点：\n\n1. MQ 集群内部可能产生大量的数据传输；\n2. 可用性无保障，queue所在节点宕机，数据就丢了。",
+      "en": "Drawbacks:\n\n1. A large amount of data may be\ntransferred inside the MQ cluster;\n2. No availability guarantee: if the node\nholding the queue goes down, the data is lost.",
+      "vi": "Nhược điểm:\n\n1. Bên trong cụm MQ có thể phát sinh\nlượng lớn dữ liệu truyền qua lại;\n2. Không đảm bảo tính sẵn sàng:\nnode chứa queue bị sập là mất dữ liệu.",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
+    },
+    {
+      "zh": "自己本地的一个事务里\n先插入自己的业务表\n插入自己的一个消息表",
+      "en": "In its local transaction,\ninsert into its business table,\nthen into its message table",
+      "vi": "Trong giao dịch cục bộ:\nchèn vào bảng nghiệp vụ,\nrồi chèn vào bảng thông điệp",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "节点",
+      "en": "Node",
+      "vi": "Node",
+      "ref": "en",
+      "source": "high-concurrency/es-introduction/es-cluster-0"
+    },
+    {
+      "zh": "节点 A",
+      "en": "Node A",
+      "vi": "Node A",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "节点 B",
+      "en": "Node B",
+      "vi": "Node B",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "节点 C",
+      "en": "Node C",
+      "vi": "Node C",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "节点 D",
+      "en": "Node D",
+      "vi": "Node D",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "节点 X",
+      "en": "Node X",
+      "vi": "Node X",
+      "ref": "en",
+      "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
+    },
+    {
+      "zh": "获取分布式锁",
+      "en": "Acquire\ndistributed lock",
+      "vi": "Lấy\nkhóa phân tán",
+      "source": "high-concurrency/redis-cas/zookeeper-distributed-lock"
+    },
+    {
+      "zh": "获取到zk锁，执行处理后释放锁",
+      "en": "Acquires the zk lock, processes,\nthen releases the lock",
+      "vi": "Lấy được khóa zk, xử lý\nxong thì giải phóng khóa",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo"
+    },
+    {
+      "zh": "获取最新的缓存数据",
+      "en": "Fetch the latest cached data",
+      "vi": "Lấy dữ liệu bộ nhớ đệm mới nhất",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "补偿事务",
+      "en": "Compensating transactions",
+      "vi": "Giao dịch bù trừ",
+      "ref": "en",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
+    },
+    {
+      "zh": "订单orderId=1的node节\n点变化了",
+      "en": "The node of order\norderId=1 changed",
+      "vi": "Node của đơn hàng\norderId=1 đã thay đổi",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "请假系统",
+      "en": "Leave\nsystem",
+      "vi": "Hệ thống\nnghỉ phép",
+      "source": "distributed-system/distributed-system-interview/simple-distributed-system-oa"
+    },
+    {
+      "zh": "请求",
+      "en": "Request",
+      "vi": "Yêu cầu",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
     },
     {
       "zh": "请求1",
@@ -776,10 +3582,210 @@
       "source": "distributed-system/distributed-system-request-sequence/distributed-system-request-sequence"
     },
     {
+      "zh": "读",
+      "en": "Read",
+      "vi": "Đọc",
+      "source": "high-concurrency/es-architecture/es-cluster"
+    },
+    {
       "zh": "读写分离",
       "en": "Read/write splitting",
       "vi": "Tách đọc/ghi",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "调用 Command 执行方法",
+      "en": "Call Command's\nexecute method",
+      "vi": "Gọi phương thức\nthực thi Command",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "调用 command执行方法",
+      "en": "Call the command's\nexecute method",
+      "vi": "Gọi phương thức thực thi\ncủa command",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "调用接口",
+      "en": "Call API",
+      "vi": "Gọi API",
+      "source": "high-concurrency/why-mq/mq-1"
+    },
+    {
+      "zh": "调用接口获取\n变更后的数据",
+      "en": "Call API to fetch\nthe changed data",
+      "vi": "Gọi API để lấy\ndữ liệu sau thay đổi",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "调用线程",
+      "en": "Calling thread",
+      "vi": "Luồng gọi",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "调用者",
+      "en": "Caller",
+      "vi": "Bên gọi",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
+      "zh": "负载均衡",
+      "en": "Load balancing",
+      "vi": "Cân bằng tải",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "财务系统",
+      "en": "Finance\nsystem",
+      "vi": "Hệ thống\ntài chính",
+      "source": "distributed-system/distributed-system-interview/simple-distributed-system-oa"
+    },
+    {
+      "zh": "资源已满，发送\nreject给断路器统计",
+      "en": "Resources full, send\nreject to the circuit breaker for statistics",
+      "vi": "Tài nguyên đã đầy, gửi\nreject cho circuit breaker để thống kê",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "路由，转发给对应node",
+      "en": "Route and forward to the corresponding node",
+      "vi": "Định tuyến, chuyển tiếp đến node tương ứng",
+      "source": "high-concurrency/es-write-query-search/es-write"
+    },
+    {
+      "zh": "返回",
+      "en": "Return",
+      "vi": "Trả về",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "返回结果",
+      "en": "Return result",
+      "vi": "Trả về kết quả",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "返回缓存中的结果",
+      "en": "Return result\nfrom cache",
+      "vi": "Trả về kết quả\ntừ bộ nhớ đệm",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "返回降级结果",
+      "en": "Return fallback result",
+      "vi": "Trả về kết quả suy giảm",
+      "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "连接应答\n处理器",
+      "en": "Connection\nacceptance\nhandler",
+      "vi": "Bộ xử lý\ntrả lời\nkết nối",
+      "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "选举为 master",
+      "en": "Elected as master",
+      "vi": "Được bầu làm master",
+      "source": "high-concurrency/redis-sentinel/async-replication-data-lose-case"
+    },
+    {
+      "zh": "选举为leader",
+      "en": "Elected as leader",
+      "vi": "Được bầu làm leader",
+      "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "释放zk锁",
+      "en": "Release\nzk lock",
+      "vi": "Giải phóng\nkhóa zk",
+      "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo"
+    },
+    {
+      "zh": "重新连接：部分数据复制",
+      "en": "Reconnection:\npartial data replication",
+      "vi": "Kết nối lại:\nsao chép một phần dữ liệu",
+      "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
+    },
+    {
+      "zh": "银行B",
+      "en": "Bank B",
+      "vi": "Ngân hàng B",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-tcc"
+    },
+    {
+      "zh": "银行C",
+      "en": "Bank C",
+      "vi": "Ngân hàng C",
+      "source": "distributed-system/distributed-transaction/distributed-transaction-tcc"
+    },
+    {
+      "zh": "问问注册中心\n服务A有没有啊？部署在哪\n些机器上啊？",
+      "en": "Ask the service registry:\nis service A there? Which machines\nis it deployed on?",
+      "vi": "Hỏi trung tâm đăng ký:\ndịch vụ A có không? Được\ntriển khai ở những máy nào?",
+      "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "队\n列",
+      "en": "Queue",
+      "vi": "Hàng đợi",
+      "source": "high-availability/hystrix-execution-isolation/hystrix-thread-pool-queue"
+    },
+    {
+      "zh": "阻断对服务提供方的调用",
+      "en": "Block calls to the service provider",
+      "vi": "Chặn lời gọi tới bên cung cấp dịch vụ",
+      "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "限流组件\n可以设置假设5000个请求，就\n2000个请求能通过该组件",
+      "en": "Rate-limiting component\nCan be set so that of, say, 5000\nrequests, only 2000 pass\nthrough this component",
+      "vi": "Thành phần giới hạn lưu lượng\nCó thể đặt giả sử 5000 yêu cầu,\nthì chỉ 2000 yêu cầu\ncó thể đi qua thành phần này",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution"
+    },
+    {
+      "zh": "静态模板",
+      "en": "Static template",
+      "vi": "Mẫu tĩnh",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1"
+    },
+    {
+      "zh": "页面静态化系统",
+      "en": "Page static-\ngeneration system",
+      "vi": "Hệ thống\ntĩnh hóa trang",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1"
+    },
+    {
+      "zh": "预先静态化好的页面",
+      "en": "Pre-generated static page",
+      "vi": "Trang đã được tĩnh hóa sẵn",
+      "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1"
+    },
+    {
+      "zh": "预期通过时间（排队中）",
+      "en": "Expected pass time (in queue)",
+      "vi": "Thời điểm dự kiến được đi qua\n(trong hàng đợi)",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "预计 12 s\n可能超时，被阻塞",
+      "en": "Estimate: 12 s\nMay exceed the timeout,\nblocked",
+      "vi": "Ước tính: 12 s\nCó thể vượt quá thời gian chờ\n(timeout), bị chặn",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "高峰期每秒 5000 请求",
+      "en": "Peak: 5000 requests per second",
+      "vi": "Giờ cao điểm: 5000 yêu cầu mỗi giây",
+      "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution"
+    },
+    {
+      "zh": "默认每隔30分钟 flush",
+      "en": "By default, flush\nevery 30 minutes",
+      "vi": "Mặc định cứ 30 phút\nflush một lần",
+      "source": "high-concurrency/es-write-query-search/es-write-detail"
     }
   ]
 }
