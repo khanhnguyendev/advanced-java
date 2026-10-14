@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-thread-pool-current-limiting
-  hash: 'sha256:v1:5e79e0eef0346dc9ab2c8c1c90cee06d733c0e90e6795f6af4db4c562ce0ce64'
+  hash: 'sha256:v1:83d02d4cfe82b5d3ce38eacc12af8653ee91d042223debb8eef0033a475d7de6'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -22,7 +22,7 @@ Hystrix áp dụng kỹ thuật cô lập khoang Bulkhead Partition (bulkhead, c
 
 **Cô lập khoang** là chia không gian bên trong thân tàu thành nhiều khoang; một khi có vài khoang bị hư hỏng và nước tràn vào, nước sẽ không chảy qua lại giữa các khoang, nhờ vậy khi tàu bị hư hại, vẫn có đủ lực nổi và độ ổn định, từ đó giảm nguy cơ chìm tàu ngay lập tức.
 
-![bulkhead-partition](asset:high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition.jpg)
+![bulkhead-partition](diagram:high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition)
 
 Hystrix dùng một thread pool riêng cho mỗi phụ thuộc bên ngoài, như vậy nếu việc gọi phụ thuộc bên ngoài đó bị trễ rất nghiêm trọng, thì cùng lắm chỉ là cạn kiệt thread pool của chính phụ thuộc đó mà thôi, không ảnh hưởng tới các lời gọi phụ thuộc khác.
 

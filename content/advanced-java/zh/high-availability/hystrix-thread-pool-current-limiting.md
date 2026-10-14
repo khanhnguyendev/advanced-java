@@ -14,7 +14,7 @@ Hystrix 采用了 Bulkhead Partition 舱壁隔离技术，来将外部依赖进�
 
 **舱壁隔离**，是说将船体内部空间区隔划分成若干个隔舱，一旦某几个隔舱发生破损进水，水流不会在其间相互流动，如此一来船舶在受损时，依然能具有足够的浮力和稳定性，进而减低立即沉船的危险。
 
-![bulkhead-partition](asset:high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition.jpg)
+![bulkhead-partition](diagram:high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition)
 
 Hystrix 对每个外部依赖用一个单独的线程池，这样的话，如果对那个外部依赖调用延迟很严重，最多就是耗尽那个依赖自己的线程池而已，不会影响其他的依赖调用。
 

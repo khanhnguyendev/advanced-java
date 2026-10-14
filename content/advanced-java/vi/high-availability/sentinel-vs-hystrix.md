@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: sentinel-vs-hystrix
-  hash: 'sha256:v1:9843111b7307a38009737c0290d5d43f68730bc350c8940e509119a5045f4ff1'
+  hash: 'sha256:v1:26c3f9c6bf9328f9fcea9eac0263256218bbe4935c5b1e0acc1f27d98d22f321'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -81,7 +81,7 @@ Sentinel hỗ trợ nhiều chiến lược định hình lưu lượng, khi QPS
 
 -   **Chế độ từ chối trực tiếp**: yêu cầu vượt mức bị từ chối ngay.
 -   **Chế độ khởi động chậm có làm nóng**: khi lưu lượng tăng đột biến, kiểm soát tốc độ lưu lượng đi qua, để lưu lượng đi qua tăng chậm, dần dần tăng tới ngưỡng trên trong một khoảng thời gian nhất định, cho hệ thống lạnh một khoảng thời gian làm nóng, tránh để hệ thống lạnh bị đè sập.
-    ![Slow-Start-Preheating-Mode](asset:high-availability/sentinel-vs-hystrix/Slow-Start-Preheating-Mode.jpg)
+    ![Slow-Start-Preheating-Mode](diagram:high-availability/sentinel-vs-hystrix/slow-start-preheating-mode)
 
 -   **Chế độ đều đặn**: chế độ đều đặn hiện thực bằng thuật toán Leaky Bucket, kiểm soát nghiêm ngặt khoảng thời gian giữa các yêu cầu đi qua, đồng thời các yêu cầu tồn đọng sẽ xếp hàng, yêu cầu vượt quá thời gian chờ sẽ bị từ chối ngay. Sentinel còn hỗ trợ giới hạn lưu lượng (rate limiting) dựa trên quan hệ gọi, gồm giới hạn theo bên gọi, giới hạn theo điểm vào chuỗi gọi, giới hạn lưu lượng liên kết, ... Nhờ thông tin thống kê chuỗi gọi mạnh mẽ của Sentinel, có thể cung cấp giới hạn lưu lượng chính xác ở các chiều khác nhau.
     ![Homogenizer-mode](diagram:high-availability/sentinel-vs-hystrix/homogenizer-mode)
@@ -92,7 +92,7 @@ Hiện tại Sentinel hỗ trợ chuỗi gọi bất đồng bộ chưa tốt l�
 
 Sentinel cung cấp bảo vệ ở chiều hệ thống, thuật toán bảo vệ tải mượn ý tưởng của TCP BBR. Khi tải hệ thống khá cao, nếu vẫn tiếp tục cho yêu cầu đi vào thì có thể khiến hệ thống sụp đổ, không thể phản hồi. Trong môi trường cụm (cluster), cân bằng tải mạng sẽ chuyển tiếp lưu lượng vốn do máy này đảm nhận sang các máy khác. Nếu lúc này các máy khác cũng đang ở trạng thái gần ngưỡng thì lưu lượng tăng thêm này sẽ khiến máy đó cũng sụp đổ, cuối cùng làm cả cụm không khả dụng. Với tình huống này, Sentinel cung cấp cơ chế bảo vệ tương ứng, giúp lưu lượng vào của hệ thống và tải hệ thống đạt tới trạng thái cân bằng, bảo đảm hệ thống xử lý được nhiều yêu cầu nhất trong phạm vi năng lực.
 
-![BRP](asset:high-availability/sentinel-vs-hystrix/BRP.jpg)
+![BRP](diagram:high-availability/sentinel-vs-hystrix/brp)
 
 ### 4. Giám sát thời gian thực và bảng điều khiển
 
@@ -100,7 +100,7 @@ Sentinel cung cấp HTTP API để lấy thông tin giám sát thời gian thự
 
 Bảng điều khiển Sentinel (Dashboard) cung cấp các chức năng như phát hiện máy, cấu hình quy tắc, xem giám sát thời gian thực, xem thông tin chuỗi gọi, giúp người dùng xem giám sát và cấu hình rất thuận tiện.
 
-![Sentinel-Dashboard](asset:high-availability/sentinel-vs-hystrix/Sentinel-Dashboard.jpg)
+![Sentinel-Dashboard](diagram:high-availability/sentinel-vs-hystrix/sentinel-dashboard)
 
 ### 5. Hệ sinh thái
 

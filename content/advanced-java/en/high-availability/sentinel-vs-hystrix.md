@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: sentinel-vs-hystrix
-  hash: 'sha256:v1:9843111b7307a38009737c0290d5d43f68730bc350c8940e509119a5045f4ff1'
+  hash: 'sha256:v1:26c3f9c6bf9328f9fcea9eac0263256218bbe4935c5b1e0acc1f27d98d22f321'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -81,7 +81,7 @@ Sentinel supports diversified traffic shaping strategies and can automatically s
 
 -   **Direct rejection mode**: requests beyond the limit are rejected immediately.
 -   **Slow-start warm-up mode**: when traffic surges, the rate at which traffic passes is controlled so that it increases slowly and gradually reaches the threshold upper limit within a certain time. This gives a cold system time to warm up and keeps it from being overwhelmed.
-    ![Slow-Start-Preheating-Mode](asset:high-availability/sentinel-vs-hystrix/Slow-Start-Preheating-Mode.jpg)
+    ![Slow-Start-Preheating-Mode](diagram:high-availability/sentinel-vs-hystrix/slow-start-preheating-mode)
 
 -   **Homogenizer mode**: a constant-rate mode implemented with the Leaky Bucket algorithm, which strictly controls the interval at which requests pass; queued requests wait in line, and requests that exceed the timeout are rejected directly. Sentinel also supports rate limiting based on call relationships, including rate limiting by caller, by call chain entry, and by associated traffic. Relying on Sentinel's powerful call chain statistics, it can provide precise rate limiting along different dimensions.
     ![Homogenizer-mode](diagram:high-availability/sentinel-vs-hystrix/homogenizer-mode)
@@ -92,7 +92,7 @@ Sentinel's support for asynchronous call chains is currently not very good; late
 
 Sentinel provides protection at the level of the whole system, and its load protection algorithm draws on the ideas of TCP BBR. When system load is high, continuing to let requests in may cause the system to collapse and stop responding. In a cluster environment, load balancing at the network level forwards the traffic that this machine should have carried to other machines. If those machines are also near the edge, the added traffic will make this machine collapse too, and eventually the entire cluster becomes unavailable. To address this, Sentinel provides a corresponding protection mechanism that balances the system's inbound traffic against its load, ensuring the system handles as many requests as it can within its capacity.
 
-![BRP](asset:high-availability/sentinel-vs-hystrix/BRP.jpg)
+![BRP](diagram:high-availability/sentinel-vs-hystrix/brp)
 
 ### 4. Real-time monitoring and console
 
@@ -100,7 +100,7 @@ Sentinel provides an HTTP API for obtaining real-time monitoring information, su
 
 The Sentinel console (Dashboard) provides machine discovery, rule configuration, real-time monitoring, call chain viewing and other features, so users can conveniently view monitoring data and configure rules.
 
-![Sentinel-Dashboard](asset:high-availability/sentinel-vs-hystrix/Sentinel-Dashboard.jpg)
+![Sentinel-Dashboard](diagram:high-availability/sentinel-vs-hystrix/sentinel-dashboard)
 
 ### 5. Ecosystem
 

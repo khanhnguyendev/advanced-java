@@ -4,7 +4,7 @@
 
 假设你正准备开发一款与 Uber 和 Hailo 竞争的出租车调度软件，经过初步会议和需求分析，你可能会手动或者使用基于 Rails、Spring Boot、Play 或者 Maven 的生成器开始这个新项目，它的六边形架构是模块化的 ，架构图如下：
 
-![monolithic-application-architecture-diagram](asset:micro-services/advantages-and-disadvantages-of-microservice/monolithic-application-architecture-diagram.png)
+![monolithic-application-architecture-diagram](diagram:micro-services/advantages-and-disadvantages-of-microservice/monolithic-application-architecture-diagram)
 
 应用核心是业务逻辑，由定义服务、域对象和事件的模块完成。围绕着核心的是与外界打交道的适配器。适配器包括数据库访问组件、生产和处理消息的消息组件，以及提供 API 或者 UI 访问支持的 web 模块等。
 
@@ -40,7 +40,7 @@
 
 比如，一个前面描述系统可能的分解如下：
 
-![deal-with-complex things-1](asset:micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1.png)
+![deal-with-complex things-1](diagram:micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1)
 
 每一个应用功能区都使用微服务完成，另外，Web 应用会被拆分成一系列简单的 Web 应用（比如一个对乘客，一个对出租车驾驶员）。这样的拆分对于不同用户、设备和特殊应用场景部署都更容易。
 
@@ -48,19 +48,19 @@
 
 一些 REST API 也对乘客和驾驶员采用的移动应用开放。这些应用并不直接访问后台服务，而是通过 API Gateway 来传递中间消息。API Gateway 负责负载均衡、缓存、访问控制、API 计费监控等等任务，可以通过 NGINX 方便实现，后续文章将会介绍到 API Gateway。
 
-![deal-with-complex-things-2](asset:micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2.png)
+![deal-with-complex-things-2](diagram:micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2)
 
 微服务架构模式在上图中对应于代表可扩展 Scale Cube 的 Y 轴，这是一个在《The Art of Scalability》书中描述过的三维扩展模型。另外两个可扩展轴，X 轴由负载均衡器后端运行的多个应用副本组成，Z 轴是将需求路由到相关服务。
 
 应用基本可以用以上三个维度来表示，Y 轴代表将应用分解为微服务。运行时，X 轴代表运行多个隐藏在负载均衡器之后的实例，提供吞吐能力。一些应用可能还是用 Z 轴将服务分区。下面的图演示行程管理服务如何部署在运行于 AWS EC2 上的 Docker 上。
 
-![deal-with-complex-things-3](asset:micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-3.png)
+![deal-with-complex-things-3](diagram:micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-3)
 
 运行时，行程管理服务由多个服务实例构成。每一个服务实例都是一个 Docker 容器。为了保证高可用，这些容器一般都运行在多个云 VM 上。服务实例前是一层诸如 NGINX 的负载均衡器，他们负责在各个实例间分发请求。负载均衡器也同时处理其它请求，例如缓存、权限控制、API 统计和监控。
 
 这种微服务架构模式深刻影响了应用和数据库之间的关系， **不像传统多个服务共享一个数据库，微服务架构每个服务都有自己的数据库** 。另外，这种思路也影响到了企业级数据模式。同时，这种模式意味着多份数据，但是，如果你想获得微服务带来的好处，每个服务独有一个数据库是必须的，因为这种架构需要这种松耦合。下面的图演示示例应用数据库架构。
 
-![deal-with-complex-things-4](asset:micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4.png)
+![deal-with-complex-things-4](diagram:micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4)
 
 每种服务都有自己的数据库，另外，每种服务可以用更适合自己的数据库类型，也被称作多语言一致性架构。比如，驾驶员管理（发现哪个驾驶员更靠近乘客），必须使用支持地理信息查询的数据库。
 

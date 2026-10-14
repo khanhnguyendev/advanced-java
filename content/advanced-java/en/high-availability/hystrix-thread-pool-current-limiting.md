@@ -2,7 +2,7 @@
 source:
   locale: zh
   slug: hystrix-thread-pool-current-limiting
-  hash: 'sha256:v1:5e79e0eef0346dc9ab2c8c1c90cee06d733c0e90e6795f6af4db4c562ce0ce64'
+  hash: 'sha256:v1:83d02d4cfe82b5d3ce38eacc12af8653ee91d042223debb8eef0033a475d7de6'
 status: machine
 translatedAt: '2026-10-14'
 ---
@@ -22,7 +22,7 @@ Hystrix uses the bulkhead isolation technique (Bulkhead Partition) to isolate th
 
 **Bulkhead isolation** means dividing the interior of a ship's hull into several compartments. If some compartments are damaged and take on water, the water does not flow between them, so a damaged ship still retains enough buoyancy and stability, reducing the danger of sinking immediately.
 
-![bulkhead-partition](asset:high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition.jpg)
+![bulkhead-partition](diagram:high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition)
 
 Hystrix uses a separate thread pool for each external dependency. That way, if calls to an external dependency are severely delayed, the worst that happens is that the dependency's own thread pool is exhausted; calls to other dependencies are not affected.
 
