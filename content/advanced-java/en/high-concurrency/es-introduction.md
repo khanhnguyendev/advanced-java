@@ -69,7 +69,7 @@ Put another way, shards are divided into primary shards and replica shards. A pr
 
 ![es-cluster-0](asset:high-concurrency/es-introduction/es-cluster-0.png)
 
-## ES Core Concepts vs. DB Core Concepts
+## ES core Concepts vs. DB core Concepts
 
 | ES       | DB       |
 | -------- | -------- |

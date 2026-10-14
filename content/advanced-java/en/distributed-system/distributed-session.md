@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Implement a Distributed Session?
 
-## Interview Question
+## Interview question
 
 How do you implement a distributed session when deploying in a cluster?
 
@@ -18,7 +18,7 @@ The interviewer asked you a pile of questions about how Dubbo works. Once you ca
 
 Of course, the problems in distributed systems go far beyond these. There are very many and the complexity is high. Here we only cover a few common ones, which are also the ones frequently asked in interviews.
 
-## Answer Analysis
+## Answer analysis
 
 What is a session? The browser has a cookie that exists for a period of time, and every request carries a special `jsessionid cookie`. Based on it, the server can maintain a corresponding session scope in which some data can be stored.
 
@@ -30,7 +30,7 @@ Using a session this way is fine in a monolithic system, but in a distributed sy
 
 There are many methods, but the common ones are the following:
 
-### Do Not Use a Session at All
+### Do not use a Session at all
 
 Use a JWT token to store the user identity, and then fetch other information from the database or a cache. That way it does not matter which server a request is routed to.
 

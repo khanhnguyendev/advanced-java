@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Principles of Distributed Transactions
 
-## Interview Question
+## Interview question
 
 Do you know distributed transactions? How do you solve the distributed transaction problem?
 
@@ -18,7 +18,7 @@ Once you say you have built a distributed system, distributed transactions are a
 
 In interviews today, distributed systems have become standard, and so have the **distributed transactions** they bring. You will certainly use transactions when building a system, and in a distributed system you will certainly need distributed transactions. Leaving aside whether you have actually done it, you should at least understand which solutions exist and what pitfalls each may have, for example the network problem of TCC and the consistency problem of XA.
 
-## Answer Analysis
+## Answer analysis
 
 There are mainly 6 solutions for implementing distributed transactions:
 
@@ -29,7 +29,7 @@ There are mainly 6 solutions for implementing distributed transactions:
 -   Reliable message eventual consistency
 -   Best-effort notification
 
-### Two-Phase Commit / XA
+### Two-Phase commit / XA
 
 The so-called XA solution is two-phase commit. It has the concept of a **transaction manager**, which coordinates the transactions of multiple databases (resource managers). The transaction manager first asks each database whether it is ready. If every database replies ok, the transaction is formally committed and the operations are executed on each database; if any one database answers not ok, the transaction is rolled back.
 
@@ -65,13 +65,13 @@ But honestly, try to avoid it. Writing rollback or compensation logic by hand is
 
 Core financial businesses may choose TCC in pursuit of strong consistency and higher concurrency, while the many business systems above the core financial level often choose compensating transactions. The Saga theory of compensating transactions was proposed more than 30 years ago, and has gradually drawn attention in recent years with the development of microservices. Saga is currently the generally accepted solution for long transactions in the industry.
 
-#### Basic Principle
+#### Basic principle
 
 Every participant in the business flow commits a local transaction. If one participant fails, the participants that already succeeded are compensated. In the figure below, the left side is the normal transaction flow. When an error occurs at T3, the compensation flow on the right begins, executing the compensation services C3, C2 and C1 in reverse order, to compensate the data already modified by T3, T2 and T1.
 
 ![distributed-transacion-TCC](asset:distributed-system/distributed-transaction/distributed-transaction-saga.png)
 
-#### Use Cases
+#### Use cases
 
 For scenarios that demand high consistency, short flows and high concurrency, such as core financial systems, TCC is the first choice. In other scenarios we do not need such strong consistency and only need to guarantee eventual consistency.
 
@@ -92,7 +92,7 @@ So the use cases for the Saga pattern are:
 
 -   Transaction isolation is not guaranteed.
 
-### Local Message Table
+### Local message table
 
 The local message table is an idea that came from eBay abroad.
 
@@ -109,7 +109,7 @@ Honestly, the biggest problem of this solution is that it **relies heavily on th
 
 ![distributed-transaction-local-message-table](asset:distributed-system/distributed-transaction/distributed-transaction-local-message-table.png)
 
-### Reliable Message Eventual Consistency
+### Reliable message eventual consistency
 
 The idea here is to drop the local message table altogether and implement the transaction directly on top of an MQ. For example, Alibaba's RocketMQ supports message transactions.
 
@@ -124,7 +124,7 @@ Roughly:
 
 ![distributed-transaction-reliable-message](asset:distributed-system/distributed-transaction/distributed-transaction-reliable-message.png)
 
-### Best-Effort Notification
+### Best-Effort notification
 
 Roughly, this solution works as follows:
 
@@ -132,7 +132,7 @@ Roughly, this solution works as follows:
 2. A dedicated **best-effort notification service** consumes the MQ, records the message in a database (or puts it in an in-memory queue), and then calls system B's API;
 3. If system B succeeds, fine. If system B fails, the best-effort notification service periodically retries calling system B, repeating N times, and finally gives up if it still does not work.
 
-### How Does Your Company Handle Distributed Transactions?
+### How does your company handle distributed Transactions?
 
 If you are really asked, you can say something like this: in our particularly strict scenarios we use TCC to guarantee strong consistency, and in some other scenarios we implement distributed transactions based on Alibaba's RocketMQ.
 

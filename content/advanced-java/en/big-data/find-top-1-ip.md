@@ -12,7 +12,7 @@ translatedAt: '2026-10-14'
 
 A large-scale log dataset is stored in one very large file that cannot be read into memory directly. Extract the IP that visited Baidu the most times on a given day.
 
-## Solution Approach
+## Solution approach
 
 This problem only cares about the IP that visited Baidu the most on one particular day. So first traverse the file once and record the relevant information about IPs visiting Baidu on that day into a separate large file. The next steps are the same as in the previous problem: roughly, first hash-map the IPs, then use a HashMap to count the occurrence count of each IP, and finally find the IP with the highest occurrence count.
 

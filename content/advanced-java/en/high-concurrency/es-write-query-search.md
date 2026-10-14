@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Principles of ES Data Writing
 
-## Interview Question
+## Interview question
 
 What is the working principle of ES writing data? What is the working principle of ES querying data? Can you introduce the underlying Lucene? Do you know the inverted index?
 
@@ -18,9 +18,9 @@ By asking this, the interviewer wants to see whether you understand some basic p
 
 If es is basically a black box to you, what can you do? The only thing you can do is read and write data with the es api. If something goes wrong and you know nothing, what can be expected of you?
 
-## Answer Analysis
+## Answer analysis
 
-### The Process of Writing Data in es
+### The process of writing data in es
 
 -   The client picks a node and sends the request to it; this node is the `coordinating node`.
 -   The `coordinating node` **routes** the document and forwards the request to the corresponding node (the one holding the primary shard).
@@ -29,7 +29,7 @@ If es is basically a black box to you, what can you do? The only thing you can d
 
 ![es-write](asset:high-concurrency/es-write-query-search/es-write.png)
 
-### The Process of Reading Data in es
+### The process of reading data in es
 
 You can query by `doc id`. A hash is computed on the `doc id` to determine which shard the `doc id` was assigned to at the time, and the query goes to that shard.
 
@@ -38,7 +38,7 @@ You can query by `doc id`. A hash is computed on the `doc id` to determine which
 -   The node that receives the request returns the document to the `coordinate node`.
 -   The `coordinate node` returns the document to the client.
 
-### The Process of Searching Data in es
+### The process of searching data in es
 
 The most powerful thing es does is full-text search. For example, suppose you have three records:
 
@@ -57,7 +57,7 @@ You search with the keyword `java`, and the `document`s containing `java` are fo
 
 > A write request writes to the primary shard and then synchronizes to all replica shards; a read request can read from the primary shard or a replica shard, using the random polling algorithm.
 
-### The Underlying Principle of Writing Data
+### The underlying principle of writing data
 
 ![es-write-detail](asset:high-concurrency/es-write-query-search/es-write-detail.png)
 
@@ -92,7 +92,7 @@ In fact, here, if the interviewer has not asked you about es losing data, you ca
 
 > After data is written into a segment file, the inverted index is built at the same time.
 
-### The Underlying Principle of Deleting/Updating Data
+### The underlying principle of Deleting/Updating data
 
 For a delete operation, a `.del` file is generated at commit time, in which a doc is marked as `deleted`, so at search time the `.del` file tells you whether the doc has been deleted.
 
@@ -100,13 +100,13 @@ For an update operation, the original doc is marked as `deleted`, and then a new
 
 Every refresh of the buffer produces a `segment file`, so by default there is one `segment file` per second, and over time the `segment file`s become more and more numerous, so a merge is performed periodically. At each merge, multiple `segment file`s are merged into one, and the docs marked as `deleted` are **physically deleted**. Then the new `segment file` is written to disk, a `commit point` is written identifying all the new `segment file`s, the `segment file` is opened for searching, and the old `segment file`s are deleted.
 
-### The Underlying lucene
+### The underlying lucene
 
 Simply put, lucene is a jar package containing the packaged code of various algorithms for building inverted indexes. When developing in Java, we include the lucene jar and develop on top of the lucene api.
 
 Through lucene we can build an index over existing data, and lucene organizes the index data structures for us on local disk.
 
-### Inverted Index
+### Inverted index
 
 In a search engine, every document has a corresponding document ID, and the document content is represented as a set of keywords. For example, after word segmentation, document 1 yields 20 keywords, and each keyword records the number of times it occurs in the document and the positions where it occurs.
 

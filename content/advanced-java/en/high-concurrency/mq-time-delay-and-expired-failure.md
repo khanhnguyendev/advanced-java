@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Handle Message Queue Delay and Expiration Failures?
 
-## Interview Question
+## Interview question
 
 How do you handle message queue delay and expiration failures? What do you do after the message queue is full? Millions of messages have been backlogged for several hours; tell me how you would solve that.
 
@@ -18,11 +18,11 @@ Look at how this is asked. The scenarios it essentially targets are all the same
 
 This is actually quite common online. It usually does not happen, but once it happens it is a big case. A common example: after each consumption the consumer side has to write to MySQL, but MySQL goes down, and the consumer side hangs there and does not move; or something goes wrong on the consumer side and the consumption speed becomes extremely slow.
 
-## Answer Analysis
+## Answer analysis
 
 Let us sort this out one point at a time. First assume a scenario: our consumer side has failed, and a large number of messages are backlogged in the MQ. Now there is an incident, and everyone panics.
 
-### A Large Number of Messages Have Been Backlogged in the MQ for Several Hours Without Being Resolved
+### A large number of messages have been backlogged in the MQ for several hours without being Resolved
 
 Tens of millions of records were backlogged in the MQ for seven or eight hours, from a bit after 4 p.m. to a bit after 11 p.m. This is a scenario we really encountered, a real online failure. At this point, one option is to fix the consumer problem, restore its consumption speed, and then foolishly wait several hours for consumption to finish. You certainly cannot say that in an interview.
 
@@ -36,7 +36,7 @@ Generally, at this point the only option is a temporary emergency scale-out. The
 -   Next, temporarily requisition 10 times the machines to deploy consumers, with each batch of consumers consuming the data of one temporary queue. This approach is equivalent to temporarily scaling the queue resources and the consumer resources up by 10 times, consuming data at 10 times the normal speed.
 -   After the backlogged data has been consumed quickly, **you have to restore the originally deployed architecture** and **go back to** consuming messages with the original consumer machines.
 
-### Messages in the MQ Have Expired
+### Messages in the MQ have expired
 
 Suppose you use RabbitMQ. RabbitMQ lets you set an expiration time, that is, TTL. If a message stays in the queue for longer than a certain time, it is cleaned up by RabbitMQ, and that data is gone. That is the second pitfall. Here the problem is not that a large amount of data is backlogged in the MQ, but that **a large amount of data is simply lost**.
 
@@ -44,7 +44,7 @@ In this case, the fix is not to add consumers to consume the backlogged messages
 
 Suppose 10,000 orders are backlogged in the MQ without being processed, and 1000 of them are lost. You can only write a program by hand to query out those 1000 orders, and manually send them into the MQ to make them up again.
 
-### The MQ Is Nearly Full
+### The MQ is nearly full
 
 If messages are backlogged in the MQ and you have not been able to process them for a long time, so that the MQ is nearly full, what do you do? Is there another way? No. Your first solution was executed too slowly. You write a temporary program that connects to consume the data, **discarding each message as it is consumed, not keeping any of it**, and consume all the messages quickly. Then go with the second solution and make up the data at night.
 
@@ -52,7 +52,7 @@ If messages are backlogged in the MQ and you have not been able to process them 
 
 For RocketMQ, the official documentation provides solutions to the message backlog problem.
 
-### 1. Increase the Consumption Parallelism
+### 1. Increase the consumption parallelism
 
 The vast majority of message consumption is IO-bound, that is, it may operate a database or call an RPC. The consumption speed of this kind of consumption depends on the throughput of the backend database or external system. Increasing the consumption parallelism can raise the total consumption throughput, but once the parallelism is increased beyond a certain point it goes down instead. So the application must set a reasonable parallelism. There are several ways to change the consumption parallelism:
 
@@ -63,7 +63,7 @@ Increase the parallel consumption threads of a single Consumer by modifying the 
 
 If some business processes support batch consumption, consumption throughput can be improved greatly. For example, in an order-deduction application, processing one order at a time takes 1 s, while processing 10 orders at a time may take only 2 s, which greatly improves consumption throughput. This is done by setting the consumer's consumeMessageBatchMaxSize parameter. The default is 1, meaning only one message is consumed at a time; if it is set to N, the number of messages consumed each time is less than or equal to N.
 
-### 3. Skip Unimportant Messages
+### 3. Skip Unimportant messages
 
 When messages pile up, if the consumption speed can never catch up with the sending speed and the business has low requirements for the data, you can choose to discard unimportant messages. For example, when the number of messages piled up in a queue exceeds 100000, try discarding some or all of the messages, so that you can quickly catch up with the speed at which messages are sent. Sample code is as follows:
 
@@ -84,7 +84,7 @@ public ConsumeConcurrentlyStatus consumeMessage(
 }
 ```
 
-### 4. Optimize the Consumption Process of Each Message
+### 4. Optimize the consumption process of each message
 
 For example, the consumption process of a certain message is as follows:
 

@@ -8,11 +8,11 @@ translatedAt: '2026-10-14'
 ---
 # How to Implement Rate Limiting? How Did You Do It at Work? Describe the Implementation
 
-## What Is Rate Limiting
+## What is rate limiting
 
 > Rate limiting can be seen as a kind of service degradation (fallback). Rate limiting restricts the input and output traffic of a system in order to protect it. In general, the throughput of a system can be measured. To keep the system running stably, once a threshold that needs to be limited is reached, traffic must be restricted and some measures taken to achieve that purpose, for example delayed processing, rejected processing, or partially rejected processing.
 
-## Rate Limiting Methods
+## Rate limiting methods
 
 ### Counter
 
@@ -65,7 +65,7 @@ Suppose one request is made at 00:01, no requests are sent between 00:01 and 00:
 
 Suppose the limit is 60 requests per minute, so 1 request can be handled per second. A user sends 60 requests at 00:59 and 60 requests at 01:00. Now there are 120 requests in 2 seconds (60 requests per second), far above the per-second processing threshold.
 
-### Sliding Window
+### Sliding window
 
 #### Implementation
 
@@ -195,7 +195,7 @@ public class TimeWindow {
 
 ```
 
-### Leaky Bucket
+### Leaky bucket
 
 #### Implementation
 
@@ -235,7 +235,7 @@ public class LeakBucket {
 }
 ```
 
-### Token Bucket
+### Token bucket
 
 #### Implementation
 
@@ -277,7 +277,7 @@ public class TokenBucket {
 }
 ```
 
-## Usage at Work
+## Usage at work
 
 ### spring cloud gateway
 

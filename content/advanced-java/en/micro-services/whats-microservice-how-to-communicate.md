@@ -8,14 +8,14 @@ translatedAt: '2026-10-14'
 ---
 # What Is a Microservice? How Do Microservices Communicate Independently?
 
-## What Is a Microservice
+## What is a Microservice
 
 -   A microservices architecture is a distributed system that is divided into separate service units along business lines, solving the performance and other shortcomings of a monolithic system.
 -   Microservices are an architectural style in which a large software application is made up of multiple service units. The service units in the system can be deployed independently, and they are loosely coupled to each other.
 
 > Origin of the microservices concept: [Microservices](https://martinfowler.com/articles/microservices.html)
 
-## How Do Microservices Communicate Independently
+## How do microservices communicate Independently
 
 ### Synchronous
 
@@ -285,6 +285,6 @@ The output is `send message rpc 测试用例` (the test case string).
 
 ### Asynchronous
 
-#### Messaging Middleware
+#### Messaging middleware
 
 Common messaging middleware includes Kafka, ActiveMQ, RabbitMQ and RocketMQ, and common protocols include AMQP, MQTTP, STOMP and XMPP. The message queue is not covered further here; for how to use them, please refer to the official websites.

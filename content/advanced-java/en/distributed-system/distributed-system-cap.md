@@ -8,13 +8,13 @@ translatedAt: '2026-10-14'
 ---
 # The CAP Theorem in Distributed Systems
 
-## What Does P Mean in the CAP Theorem of Distributed Systems
+## What does P mean in the CAP theorem of distributed systems
 
 When I first read about the CAP theorem, I was quite puzzled. The CAP theorem says that a distributed system can satisfy only two of the three properties, which implies that distributed CA systems exist. I read many articles about CAP online. Although they explain P in all sorts of ways, most of them boil down to the view that P is indispensable, meaning a distributed system can only be AP or CP. This conflicts with the theory I had known before (that distributed CA systems exist), and that is where my confusion came from.
 
 > The theorem originated from a conjecture presented by the computer scientist Eric Brewer of the University of California, Berkeley at the 2000 Symposium on Principles of Distributed Computing (PODC). In 2002, Seth Gilbert and Nancy Lynch of the Massachusetts Institute of Technology (MIT) published a proof of Brewer's conjecture, making it a theorem.
 
-### What Is the CAP Theorem
+### What is the CAP theorem
 
 In theoretical computer science, the CAP theorem, also known as Brewer's theorem, states that a distributed computing system cannot satisfy all three of the following at the same time:
 
@@ -22,7 +22,7 @@ In theoretical computer science, the CAP theorem, also known as Brewer's theorem
 -   Availability (every request receives a non-error response, but there is no guarantee that the data returned is the latest)
 -   Partition tolerance (in practical terms, a partition is equivalent to a time limit on communication. If the system cannot reach data consistency within the time limit, a partition has occurred, and a choice must be made between C and A for the current operation.)
 
-### Partition Tolerance
+### Partition tolerance
 
 The simplest way to understand the CAP theory is to imagine two nodes on opposite sides of a partition. Allowing at least one node to update state leads to data inconsistency, which loses property C. If, to guarantee data consistency, the node on one side of the partition is made unavailable, property A is lost instead. Only if the two nodes can communicate with each other can both C and A be guaranteed, but that in turn loses property P.
 
@@ -32,7 +32,7 @@ The simplest way to understand the CAP theory is to imagine two nodes on opposit
 
 > Source: [Wikipedia: CAP theorem](https://zh.wikipedia.org/wiki/CAP%E5%AE%9A%E7%90%86)
 
-## Comparison of Several Common CAP Frameworks
+## Comparison of several common CAP frameworks
 
 | Framework | Category |
 | --------- | -------- |

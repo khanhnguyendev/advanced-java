@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Design a High Concurrency System
 
-## Interview Question
+## Interview question
 
 How do you design a high concurrency system?
 
@@ -28,7 +28,7 @@ The best option is of course to hire a guy who has really worked on high concurr
 
 So at this point you have to put on a personal show and show off everything you know about high concurrency!
 
-## Answer Analysis
+## Answer analysis
 
 To really understand the problem of high concurrency, you have to start from its root. Why does high concurrency exist? Why is high concurrency such a big deal?
 
@@ -51,7 +51,7 @@ It can be divided into the following 6 points:
 
 ![high-concurrency-system-design](asset:high-concurrency/high-concurrency-design/high-concurrency-system-design.png)
 
-### System Splitting
+### System splitting
 
 Split one system into multiple subsystems, using dubbo. Then connect each system to its own database. Originally there was one database, now there are several, so can't that carry high concurrency too?
 
@@ -63,11 +63,11 @@ Cache: you must use a cache. Most high concurrency scenarios are **read-heavy an
 
 MQ: you must use an MQ. You may still face high concurrency write scenarios, for example one business operation that has to hit the database dozens of times with inserts, deletes and updates; that is crazy. High concurrency will certainly make your system go down. Using redis to carry the writes is definitely not feasible: it is a cache, data can be evicted by LRU at any time, its data format is extremely simple, and it has no transaction support. So you still have to use MySQL where MySQL is needed. What do you do then? Use an MQ: pour the large volume of write requests into the MQ, let them queue up and play out slowly, and **have the downstream systems consume and write slowly**, keeping the load within what MySQL can carry. So consider the scenarios in your project that carry complex write business logic, and how to use an MQ to write asynchronously and raise concurrency. A single-node MQ can also carry tens of thousands of concurrent requests; this was covered specifically before.
 
-### Database and Table Sharding
+### Database and table Sharding
 
 Database and table sharding: in the end the database layer may still be unable to avoid the requirement of withstanding high concurrency. Fine, then split one database into multiple databases, so that multiple databases carry higher concurrency; then **split one table into multiple tables**, keeping each table's data volume smaller to improve SQL performance.
 
-### Read/Write Splitting
+### Read/Write splitting
 
 Read/write splitting: most of the time the database is also read-heavy and write-light, so there is no need to concentrate all requests on one database. You can set up a master/replica architecture, with **writes to the master** and **reads from the replicas**, which is read/write splitting. When **read traffic is too high**, you can also **add more replicas**.
 

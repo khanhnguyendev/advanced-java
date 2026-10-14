@@ -18,7 +18,7 @@ This is in fact a question that always comes up whenever caching is discussed, b
 
 ## Answer analysis
 
-### Cache Avalanche
+### Cache avalanche
 
 Take system A. Suppose it receives 5,000 requests per second at the daily peak, and the cache could originally withstand 4,000 requests per second at peak, but the cache machines unexpectedly suffer a complete outage. The cache goes down, and now all 5,000 requests per second fall on the database. The database certainly cannot hold; it raises an alert and then goes down. At this point, if no special scheme is in place to handle the failure, the DBA is anxious and restarts the database, but the database is immediately killed again by the new traffic.
 
@@ -46,7 +46,7 @@ Benefits:
 -   As long as the database does not die, then for users 2/5 of the requests can be handled.
 -   As long as 2/5 of the requests can be handled, your system is not dead. For users it may just mean that after a few clicks the page does not show up, but after a few more clicks it does.
 
-### Cache Penetration
+### Cache penetration
 
 Take system A again, with 5,000 requests per second, of which 4,000 are malicious attacks sent by hackers.
 
@@ -67,7 +67,7 @@ Using a Bloom filter provides a degree of initial screening of incoming requests
 
 ![redis-caching-avoid-penetration](asset:high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration.png)
 
-### Cache Breakdown
+### Cache breakdown
 
 Cache breakdown means that a certain key is very hot and is accessed very frequently, under centralized high concurrency. At the instant this key expires, a large number of requests break through the cache and go directly to the database, like punching a hole through a barrier.
 

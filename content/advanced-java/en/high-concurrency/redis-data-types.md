@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Redis Data Types and Use Cases
 
-## Interview Question
+## Interview question
 
 What data types does Redis have? In which scenarios is each one suitable?
 
@@ -23,7 +23,7 @@ There are two main reasons for asking this question:
 
 If you answer poorly, naming only a few data types and no scenarios, you are done: the interviewer will have a bad impression and think you only do simple set and get.
 
-## Answer Analysis
+## Answer analysis
 
 Redis mainly has the following data types:
 
@@ -131,7 +131,7 @@ sunion yourSet mySet
 sdiff yourSet mySet
 ```
 
-### Sorted Sets
+### Sorted sets
 
 Sorted Sets are sorted sets: they deduplicate but can be ordered. When writing in, you give a score, and the set sorts automatically by score.
 

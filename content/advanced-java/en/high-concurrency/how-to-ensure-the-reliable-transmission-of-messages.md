@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Ensure Reliable Message Transmission?
 
-## Interview Question
+## Interview question
 
 How do you ensure the reliable transmission of messages? Or, put differently, how do you deal with message loss?
 
@@ -18,7 +18,7 @@ This one is certain to come up. A basic principle of using MQ is that **there mu
 
 If you use MQ to deliver very core messages, such as some billing and charging messages, you must ensure that **the billing message is absolutely never lost** during MQ delivery.
 
-## Answer Analysis
+## Answer analysis
 
 Data loss may occur in the producer, in the MQ, or in the consumer. Let us analyze RabbitMQ and Kafka separately.
 
@@ -26,7 +26,7 @@ Data loss may occur in the producer, in the MQ, or in the consumer. Let us analy
 
 ![rabbitmq-message-lose](asset:high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose.png)
 
-#### The Producer Loses Data
+#### The producer loses data
 
 When the producer sends data to RabbitMQ, the data may get lost halfway, because of network problems or anything else.
 
@@ -121,7 +121,7 @@ while (true) {
 }
 ```
 
-#### RabbitMQ Loses Data
+#### RabbitMQ loses data
 
 If RabbitMQ itself loses data, you must **enable RabbitMQ persistence**: after a message is written, it is persisted to disk, so even if RabbitMQ itself goes down, **it automatically reads the previously stored data after recovery**, and generally no data is lost. The one extremely rare exception is that RabbitMQ goes down before it has persisted the message, which **may cause a small amount of data loss**, but this probability is low.
 
@@ -137,7 +137,7 @@ Note that even if you enable the persistence mechanism for RabbitMQ, there is st
 
 So persistence can be combined with the `confirm` mechanism on the producer side: the producer is notified with an `ack` only after the message has been persisted to disk. Therefore, even if RabbitMQ goes down before persisting to disk and the data is lost, the producer will not receive an `ack`, and you can resend by yourself.
 
-#### The Consumer Loses Data
+#### The Consumer loses data
 
 RabbitMQ loses data mainly because, when you consume, **the message has just been received but not yet processed, and the process goes down**, for example by being restarted. That is awkward: RabbitMQ thinks you have consumed it, and the data is lost.
 
@@ -149,7 +149,7 @@ This is where you need the `ack` mechanism provided by RabbitMQ. Simply put, you
 
 ### Kafka
 
-#### The Consumer Loses Data
+#### The Consumer loses data
 
 The only way a consumer can lose data is this: you consume the message, and the consumer **automatically commits the offset**, making Kafka think you have finished consuming the message, but you had only just been about to process it, and before you processed it you went down yourself. Then this message is lost.
 
@@ -157,7 +157,7 @@ Isn't this much the same as RabbitMQ? As everyone knows, Kafka commits offsets a
 
 One problem we hit in production: after our Kafka consumer consumed data, it first wrote it into an in-memory queue as a buffer. Sometimes, right after you wrote the message into the in-memory queue, the consumer automatically committed the offset. Then we restarted the system, and the data in the in-memory queue that had not yet been processed was lost.
 
-#### Kafka Loses Data
+#### Kafka loses data
 
 A fairly common scenario here is that some Kafka broker crashes and the partition leader is re-elected. Think about it: if some followers happen not to have synchronized some data yet, and the leader goes down at this moment, then after a follower is elected as the new leader, wouldn't some data be missing? That is how some data gets lost.
 
@@ -172,13 +172,13 @@ So generally you are required to set at least the following 4 parameters:
 
 Our production environment is configured exactly according to the requirements above. With this configuration, at least on the Kafka broker side, data is not lost when the broker holding the leader fails and a leader switch happens.
 
-#### Can the Producer Lose Data?
+#### Can the producer lose Data?
 
 If you set `acks=all` following the thinking above, it definitely will not be lost. The requirement is that a write is considered successful only after your leader has received the message and all followers have synchronized it. If this condition is not met, the producer automatically retries over and over, without limit.
 
 ### RocketMQ
 
-#### Scenarios of Message Loss
+#### Scenarios of message loss
 
 1. The producer may lose the message when sending it to MQ
 2. The MQ may lose the message when writing it to disk after receiving it
@@ -186,7 +186,7 @@ If you set `acks=all` following the thinking above, it definitely will not be lo
 4. The consumer may also lose the message when consuming from MQ
 5. The whole MQ node goes down and messages are lost
 
-#### How to Ensure Messages Are Not Lost When the Producer Sends Them
+#### How to ensure messages are not lost when the producer sends them
 
 The problem of message loss during sending can be solved with RocketMQ's built-in **transactional message** mechanism.
 
@@ -194,11 +194,11 @@ How transactional messages work: first, the producer sends a **half message** (a
 
 Why send a half message first? Its purpose is to first determine whether the MQ has problems and whether the service is normal.
 
-#### How to Ensure Messages Are Not Lost When the MQ Writes Them to Disk After Receiving Them
+#### How to ensure messages are not lost when the MQ writes them to disk after receiving them
 
 Bypass the cache when storing data and switch to synchronous disk flushing. This step requires modifying the Broker's configuration file and changing flushDiskType to the SYNC_FLUSH synchronous flush policy. The default is ASYNC_FLUSH, asynchronous flushing. Once a synchronous flush returns success, the message is guaranteed to have been persisted to disk.
 
-#### How to Ensure Messages Are Not Lost When the Disk Breaks After They Are Written
+#### How to ensure messages are not lost when the disk Breaks after they are written
 
 To guard against data loss from disk damage, RocketMQ uses a master/replica architecture with cluster deployment: the data in the Leader is backed up on multiple Followers, preventing data loss caused by a single point of failure.
 
@@ -208,11 +208,11 @@ What if the Master node goes down? Once the Master node goes down, DLedger steps
 -   Elect a replica node
 -   Replicate files in uncommited state, which are changed to commited once most replica nodes have received them
 
-#### How to Ensure Messages Are Not Lost When the Consumer Consumes from MQ
+#### How to ensure messages are not lost when the Consumer consumes from MQ
 
 1. If consumption fails because of network problems, a retry mechanism can be applied, with each message retried 16 times by default
 2. When multi-threaded asynchronous consumption fails, MQ considers the consumption successful, but for the business logic the message was actually not persisted. The solution is to follow the official MQ recommendation: execute the local transaction first and then return the success status.
 
-#### How to Ensure Messages Are Not Lost When the Whole MQ Node Goes Down
+#### How to ensure messages are not lost when the whole MQ node goes down
 
 For this extreme case, after message sending fails, first store the message locally, for example in a cache, and start another thread that scans the cached messages and retries sending them.

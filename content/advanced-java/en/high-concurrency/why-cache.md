@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Use a Cache
 
-## Interview Question
+## Interview question
 
 How is the cache used in your project? Why use a cache? What consequences can improper cache use cause?
 
@@ -20,7 +20,7 @@ Whenever caches come up, the first question is always where your project uses a 
 
 This tests whether you have thought about what lies behind the cache. If you simply use it blindly and cannot give the interviewer a reasonable explanation, the interviewer will certainly form a poor impression and conclude that you think too little and just do the work.
 
-## Answer Analysis
+## Answer analysis
 
 ### How is the cache used in your project?
 

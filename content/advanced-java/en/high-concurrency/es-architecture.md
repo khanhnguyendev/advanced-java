@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Principles of ES Distributed Architecture
 
-## Interview Question
+## Interview question
 
 Can you explain the principles of ES's distributed architecture (how does ES achieve being distributed)?
 
@@ -22,7 +22,7 @@ So an internet interview will surely chat with you about distributed search engi
 
 If the interviewer asks you a first question, it will indeed generally be whether you can introduce the distributed architecture design of ES, to see your basic understanding of the architecture of a distributed search engine.
 
-## Answer Analysis
+## Answer analysis
 
 The design philosophy of ElasticSearch is a distributed search engine, built on lucene underneath. The core idea is to start multiple ES process instances on multiple machines, forming an ES cluster.
 

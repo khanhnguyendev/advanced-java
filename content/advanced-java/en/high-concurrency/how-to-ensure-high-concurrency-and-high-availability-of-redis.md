@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Ensure High Concurrency and High Availability of Redis?
 
-## Interview Question
+## Interview question
 
 How do you ensure high concurrency and high availability of Redis? Can you describe the principle of Redis master/replica replication? Can you describe the principle of Redis Sentinel?
 
@@ -18,7 +18,7 @@ This question mainly tests how much high concurrency a single Redis node can car
 
 These are all problems you must consider in a project. If you have never considered them, you clearly think too little about problems in production systems.
 
-## Answer Analysis
+## Answer analysis
 
 If you use Redis as a cache, you must consider how to add more machines to Redis to ensure high concurrency, and how to ensure that Redis does not simply die once it goes down, that is, Redis high availability.
 

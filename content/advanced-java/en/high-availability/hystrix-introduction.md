@@ -10,7 +10,7 @@ translatedAt: '2026-10-14'
 
 See [Hystrix Home](https://github.com/Netflix/Hystrix/wiki#what).
 
-## What Is Hystrix?
+## What is Hystrix?
 
 In a distributed system, each service may call many other services. The services being called are its **dependency services**, and it is quite normal for some dependency services to fail from time to time.
 
@@ -30,7 +30,7 @@ Today, billions of calls between services at Netflix every day are made through 
 
 [In November 2018, Hystrix announced on its GitHub homepage that it would no longer add new features and recommended that developers use other open-source projects that are still active](https://github.com/Netflix/Hystrix/blob/master/README.md#hystrix-status). The shift to maintenance mode by no means implies that Hystrix is no longer valuable. On the contrary, Hystrix inspired many great ideas and projects, and our coverage of high availability will still explain Hystrix.
 
-## Design Principles of Hystrix
+## Design principles of Hystrix
 
 -   **Control and provide fault tolerance protection** for call latency and call failures that occur when calling dependency services.
 -   In a complex distributed system, prevent the failure of one dependency service from spreading across the whole system, for example one service failing and causing other services to fail along with it.
@@ -48,7 +48,7 @@ A call to service C takes only 20ms. Now service C fails, for example through la
 
 Hystrix can apply resource isolation here, for example by limiting service B to 40 threads for calling service C. When those 40 threads hang, the other 60 threads can still call and work normally, which ensures the whole system is not dragged down.
 
-## More Detailed Design Principles of Hystrix
+## More detailed design principles of Hystrix
 
 -   Prevent any single dependency service from exhausting all resources, such as all the thread resources in Tomcat.
 -   Avoid request queuing and backlog, and use rate limiting and `fail fast` to contain failures.

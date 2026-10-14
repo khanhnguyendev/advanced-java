@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # ES Production Cluster Architecture
 
-## Interview Question
+## Interview question
 
 What is the deployment architecture of your production ES cluster? Roughly how much data does each index hold? Roughly how many shards does each index have?
 
@@ -20,7 +20,7 @@ Some candidates may never have worked in production: they have never deployed an
 
 If you have only played with demos and never touched a real ES cluster, you may be stumped at this point. Do not panic. You must answer this question calmly, showing that you really have done it.
 
-## Answer Analysis
+## Answer analysis
 
 This question is really nothing special. If you have actually worked with ES, you certainly know the real situation of your production ES cluster: how many machines were deployed, how many indexes there are, how much data each index holds, and how many shards each index was given. You must know!
 

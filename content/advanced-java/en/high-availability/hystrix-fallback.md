@@ -31,7 +31,7 @@ Take this **scenario**. We have product data that includes a brandId. Suppose th
 
 If the brand service API goes down, we can try to get a slightly stale copy of the data from local memory and make do with it for now.
 
-## Step 1: Get the data from the local cache
+## Step 1: get the data from the local cache
 
 The code for getting a brand name locally looks roughly like this.
 
@@ -59,7 +59,7 @@ public class BrandCache {
     }
 ```
 
-## Step 2: Implement GetBrandNameCommand
+## Step 2: implement GetBrandNameCommand
 
 In GetBrandNameCommand, the normal logic of the run() method is to call the brand service API to get the brand name. If the call fails with an error, the degradation mechanism is invoked.
 

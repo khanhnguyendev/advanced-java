@@ -10,7 +10,7 @@ translatedAt: '2026-10-14'
 
 ## Technology Stack
 
-### Microservice Development
+### Microservice development
 
 Purpose: develop services quickly.
 
@@ -20,7 +20,7 @@ Purpose: develop services quickly.
 
 [Spring](https://spring.io/) is currently an indispensable framework for Java web developers. Spring Boot simplifies the configuration of Spring development and is also the mainstream development framework in the industry today.
 
-### Microservice Registration and Discovery
+### Microservice registration and Discovery
 
 Purpose: discover services, register services, and manage services centrally.
 
@@ -36,7 +36,7 @@ Purpose: discover services, register services, and manage services centrally.
 
 [Zookeeper](https://github.com/apache/zookeeper) is a centralized service used to maintain configuration information, naming, distributed synchronization, and group services.
 
-#### Differences Between Zookeeper and Eureka
+#### Differences between Zookeeper and Eureka
 
 Zookeeper guarantees CP, while Eureka guarantees AP:
 
@@ -44,7 +44,7 @@ Zookeeper guarantees CP, while Eureka guarantees AP:
 -   A: service availability;
 -   P: the service's fault tolerance to network partition failures. These three properties cannot all be satisfied at the same time in any distributed system; at most two can be satisfied together.
 
-### Microservice Configuration Management
+### Microservice configuration management
 
 Purpose: manage the configuration information of one or more services in a unified, centralized way.
 
@@ -68,7 +68,7 @@ Purpose: according to the security rules or security policies set in the system,
 
 > Apache Shiro™ is a powerful and easy-to-use Java security framework that performs authentication, authorization, cryptography, and session management. With Shiro’s easy-to-understand API, you can quickly and easily secure any application – from the smallest mobile applications to the largest web and enterprise applications.
 
-### Batch Processing
+### Batch processing
 
 Purpose: process data or tasks of the same type in bulk
 
@@ -112,7 +112,7 @@ An RPC (remote procedure call) framework is in effect a mechanism that lets appl
 
 The microservices of Spring Cloud Netflix are all exposed as HTTP APIs, so they can be called with Apache's HttpClient or Spring's RestTemplate. Feign is an HTTP client that is more convenient to use: calling a remote method feels just like calling a method in your own project.
 
-### Circuit Breaking
+### Circuit breaking
 
 > Purpose: stop further requests once the number of requests reaches a certain threshold.
 
@@ -124,7 +124,7 @@ The microservices of Spring Cloud Netflix are all exposed as HTTP APIs, so they 
 
 > A lightweight powerful flow control component enabling reliability and monitoring for microservices. (A lightweight Java library for flow control, circuit breaking and degradation (fallback))
 
-### Service Load Balancing
+### Service load balancing
 
 > Purpose: reduce the load on services and increase throughput
 
@@ -136,11 +136,11 @@ The microservices of Spring Cloud Netflix are all exposed as HTTP APIs, so they 
 
 Nginx (engine x) is a high-performance HTTP and reverse proxy web server that also provides IMAP/POP3/SMTP services
 
-#### Differences Between Nginx and Ribbon
+#### Differences between Nginx and Ribbon
 
 Nginx is server-side load balancing, while Ribbon is client-side load balancing. Nginx acts on Tomcat, while Ribbon acts on calls between services (RPC).
 
-### Message Queue
+### Message queue
 
 > Purpose: decouple business logic and process data asynchronously
 
@@ -152,7 +152,7 @@ Nginx is server-side load balancing, while Ribbon is client-side load balancing.
 
 #### [activeMQ](http://activemq.apache.org/)
 
-### Log Collection (elk)
+### Log collection (elk)
 
 > Purpose: collect the logs of each service to support log analysis, user profiling and so on
 
@@ -162,7 +162,7 @@ Nginx is server-side load balancing, while Ribbon is client-side load balancing.
 
 #### [Kibana](https://github.com/elastic/kibana)
 
-### API Gateway
+### API gateway
 
 > Purpose: external requests are intercepted and processed by the API gateway, then forwarded to the actual services
 
@@ -170,7 +170,7 @@ Nginx is server-side load balancing, while Ribbon is client-side load balancing.
 
 > Zuul is a gateway service that provides dynamic routing, monitoring, resiliency, security, and more.
 
-### Service Monitoring
+### Service monitoring
 
 > Purpose: show the running status of each service (CPU, memory, traffic and so on) in a visual or non-visual form
 
@@ -188,11 +188,11 @@ Nginx is server-side load balancing, while Ribbon is client-side load balancing.
 
 #### [Brave](https://github.com/openzipkin/brave)
 
-### Data Storage
+### Data storage
 
 > Purpose: store data
 
-#### Relational Databases
+#### Relational databases
 
 ##### [MySql](https://www.mysql.com/)
 
@@ -202,7 +202,7 @@ Nginx is server-side load balancing, while Ribbon is client-side load balancing.
 
 ##### [PostgreSql](https://www.postgresql.org/)
 
-#### Non-Relational Databases
+#### Non-Relational databases
 
 ##### [Mongodb](https://www.mongodb.com/)
 
@@ -214,7 +214,7 @@ Nginx is server-side load balancing, while Ribbon is client-side load balancing.
 
 #### [redis](https://redis.io/)
 
-### Database and Table Sharding
+### Database and table Sharding
 
 > Purpose: solutions for database and table sharding.
 
@@ -222,7 +222,7 @@ Nginx is server-side load balancing, while Ribbon is client-side load balancing.
 
 #### [Mycat](http://www.mycat.io/)
 
-### Service Deployment
+### Service deployment
 
 > Purpose: deploy projects quickly, take them online, and support continuous integration.
 

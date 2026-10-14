@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # ES Query Performance Optimization
 
-## Interview Question
+## Interview question
 
 How do you improve query efficiency in ES when the data volume is very large (billions of documents)?
 
@@ -18,11 +18,11 @@ This question is guaranteed to come up. Put bluntly, the interviewer wants to kn
 
 You are confused: is every user's first visit slow and sluggish? So if you have never really used ES, or have only played with a demo, this question easily leaves you stumped and shows that your ES experience is thin.
 
-## Answer Analysis
+## Answer analysis
 
 Honestly, there is no silver bullet for ES performance optimization. What does that mean? **Do not expect that tweaking one parameter will handle every slow-performance scenario.** In some scenarios, changing a parameter or adjusting the query syntax is enough, but that is definitely not true for all scenarios.
 
-### The Killer Technique for Performance Optimization: filesystem cache
+### The Killer technique for performance Optimization: filesystem cache
 
 The data you write into ES is actually written to disk files. **At query time**, the operating system automatically caches the data in those disk files into the `filesystem cache`.
 
@@ -62,7 +62,7 @@ ES can do something similar to horizontal splitting in MySQL: write the large am
 
 For example, suppose you have 6 machines and 2 indexes, one for cold data and one for hot data, each with 3 shards. 3 machines hold the hot data index and the other 3 hold the cold data index. Most of the time you are accessing the hot data index, and the hot data may be only 10% of the total, so it is small and almost entirely stays in the `filesystem cache`, which ensures high access performance for hot data. The cold data lives in a different index, on different machines from the hot data index, so the two have nothing to do with each other. If someone accesses cold data, much of it may be on disk and performance is a bit worse, but only 10% of people access cold data while 90% access hot data, so it does not matter.
 
-### Document Model Design
+### Document model design
 
 With MySQL, we often have complex join queries. What about in ES? Avoid complex join queries in ES as much as possible; once you use them, performance is generally poor.
 
@@ -70,7 +70,7 @@ It is best to complete the joins in the Java system first and write the already-
 
 Document model design is very important. For many operations, do not wait until search time to run all kinds of complicated, messy operations. ES supports only so many operations, so do not try to use ES for things it is not good at. If there really is such an operation, do it as far as possible during document model design, at write time. In addition, avoid overly complex operations such as join/nested/parent-child searches, whose performance is poor.
 
-### Pagination Performance Optimization
+### Pagination performance optimization
 
 ES pagination is rather nasty. Why? Take an example: suppose each page has 10 records and you want to query page 100. ES actually fetches the first 1000 records stored on each shard to a coordinating node. If you have 5 shards, that is 5000 records, and the coordinating node then merges and processes those 5000 records to obtain the final 10 records of page 100.
 

@@ -22,7 +22,7 @@ Here is the flow chart of the whole 8-step process; I will explain each step in 
 
 ![hystrix-process](asset:high-availability/hystrix-process/new-hystrix-process.jpg)
 
-## Step 1: Create the command
+## Step 1: create the command
 
 A HystrixCommand or HystrixObservableCommand object represents one request or call to a dependency service. When creating it, you can pass any required parameters to the constructor.
 
@@ -37,7 +37,7 @@ HystrixCommand hystrixCommand = new HystrixCommand(arg1, arg2);
 HystrixObservableCommand hystrixObservableCommand = new HystrixObservableCommand(arg1, arg2);
 ```
 
-## Step 2: Call a command execution method
+## Step 2: call a command execution method
 
 Executing the command issues one call to the dependency service.
 
@@ -77,21 +77,21 @@ final Future<R> delegate = toObservable().toBlocking().toFuture();
 
 That is, a Future object is first obtained through toObservable(), and then the Future's get() method is called. So no matter how the command is executed, it ultimately relies on toObservable() to execute.
 
-## Step 3: Check whether the cache is enabled (rarely used)
+## Step 3: check whether the cache is enabled (rarely used)
 
 From this step on we enter the underlying runtime principles of Hystrix and look at some of its more advanced features.
 
 If the command has the request cache (Request Cache) enabled and the result of this call exists in the cache, the result is returned directly from the cache. Otherwise, continue with the following steps.
 
-## Step 4: Check whether the circuit breaker is open
+## Step 4: check whether the circuit breaker is open
 
 Check whether the circuit breaker is enabled for the dependency service this command corresponds to. If the circuit breaker is open, Hystrix will not execute the command but will go straight to the degradation (fallback) mechanism and return the degraded result.
 
-## Step 5: Check whether the thread pool/queue/semaphore is full
+## Step 5: check whether the thread pool/queue/semaphore is full
 
 If the command's thread pool and queue are full, or its semaphore is full, the command is not executed either; the degradation mechanism is invoked directly, and a reject event is sent to the circuit breaker's statistics.
 
-## Step 6: Execute the command
+## Step 6: execute the command
 
 The construct() method of the HystrixObservableCommand object, or the run() method of the HystrixCommand, is called to actually execute the command.
 
@@ -137,7 +137,7 @@ With the thread pool approach, if the execution time of HystrixCommand.run() or 
 
 If there is no timeout and execution is normal, the calling thread gets the result obtained from the dependency service, and Hystrix also does some logging and metric statistics.
 
-## Step 7: Circuit health check
+## Step 7: circuit health check
 
 Hystrix sends every success, failure, reject and timeout event of calls to a dependency service to the circuit breaker. The circuit breaker counts these events and, based on the ratio of abnormal events, decides whether to break the circuit (circuit breaking). If the circuit breaker is open, then for the following period of time it breaks the circuit directly and returns the degraded result.
 

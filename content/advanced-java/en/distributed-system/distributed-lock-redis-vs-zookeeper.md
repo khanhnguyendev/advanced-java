@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Redis vs Zookeeper for Distributed Locks
 
-## Interview Question
+## Interview question
 
 What are the common ways to implement a distributed lock? How do you design a distributed lock with Redis? Can you design one with ZooKeeper (zk)? Which of the two implementations is more efficient?
 
@@ -16,9 +16,9 @@ What are the common ways to implement a distributed lock? How do you design a di
 
 This is how such questions are usually asked: the interviewer first asks about zk, and then moves on to zk-related questions such as distributed locks. In distributed system development, distributed locks are a very common scenario.
 
-## Answer Analysis
+## Answer analysis
 
-### Redis Distributed Lock
+### Redis distributed lock
 
 The official name is the `RedLock` algorithm, the distributed lock algorithm officially supported by Redis.
 
@@ -28,7 +28,7 @@ This distributed lock has three important considerations:
 -   No deadlock
 -   Fault tolerance (the lock is valid as long as most Redis nodes have created it)
 
-#### The Simplest Redis Distributed Lock
+#### The simplest Redis distributed lock
 
 The simplest implementation is to create a key in Redis with `SET key value [EX seconds] [PX milliseconds] NX`; that counts as acquiring the lock. Where:
 
@@ -57,7 +57,7 @@ Why use a `random_value`? Suppose a client acquires the lock but is blocked for 
 
 But this is definitely not enough. With a plain single Redis instance, it is a single point of failure. With a plain Redis master/replica setup, replication is asynchronous: if the master goes down (and the key is gone) before the key has been synchronized to the replica, the replica is promoted to master and someone else can set the key and obtain the lock.
 
-#### RedLock Algorithm
+#### RedLock algorithm
 
 Assume a Redis cluster with 5 Redis master instances. The steps to acquire a lock are:
 
@@ -72,7 +72,7 @@ Assume a Redis cluster with 5 Redis master instances. The steps to acquire a loc
 
 [Redis official](https://redis.io/) gives the two Redis-based distributed lock methods above. For details, see https://redis.io/topics/distlock .
 
-### zk Distributed Lock
+### zk distributed lock
 
 A zk distributed lock can be quite simple: a node tries to create an ephemeral znode. If the creation succeeds, it has acquired the lock. Other clients that try to create the lock fail and can only **register a listener** on the lock. Releasing the lock means deleting the znode; once it is released, the clients are notified, and one waiting client can try to acquire the lock again.
 
@@ -340,7 +340,7 @@ However, using zk ephemeral nodes has another problem. zk keeps a client alive t
 
 In this case, you can use JVM tuning to avoid long GC pauses as much as possible.
 
-### Redis Distributed Lock vs zk Distributed Lock
+### Redis distributed lock vs zk distributed lock
 
 -   With a Redis distributed lock, **you have to keep trying to acquire the lock yourself**, which costs performance.
 -   With a zk distributed lock, if you cannot get the lock, you just register a listener and do not need to keep actively trying, so the performance overhead is small.

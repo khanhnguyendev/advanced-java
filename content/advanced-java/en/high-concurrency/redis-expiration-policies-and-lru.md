@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Redis Expiration Policies and the LRU Algorithm
 
-## Interview Question
+## Interview question
 
 What are the expiration policies of Redis? What are the memory eviction mechanisms? Write an LRU implementation by hand.
 
@@ -30,7 +30,7 @@ Since memory is limited, say Redis can use only 10G, what happens if you write 2
 
 This is determined by the expiration policy of Redis.
 
-## Answer Analysis
+## Answer analysis
 
 ### Redis expiration policy
 

@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Redis Persistence Mechanisms
 
-## Interview Question
+## Interview question
 
 What persistence methods does Redis have? What are the advantages and disadvantages of the different persistence mechanisms? How are the persistence mechanisms implemented underneath?
 
@@ -20,7 +20,7 @@ If Redis crashes and restarts, it can simply load the previously persisted data 
 
 This is really the same kind of question, aimed at problems you may encounter in a Redis production environment: if Redis goes down and restarts, isn't all the data in memory lost? Can the data be recovered on restart?
 
-## Answer Analysis
+## Answer analysis
 
 Persistence is mainly for disaster recovery and data recovery, and can also be classified as one part of high availability. For example, if your whole Redis goes down, Redis becomes unavailable, and what you need to do is make Redis available again, as soon as possible.
 

@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Ensure Message Ordering?
 
-## Interview Question
+## Interview question
 
 How do you ensure the ordering of messages?
 
@@ -16,7 +16,7 @@ How do you ensure the ordering of messages?
 
 This is also a topic that is certain to come up when MQ is used. First, they want to see whether you understand the issue of ordering. Second, they want to see whether you have a way to ensure messages are in order. This is a common problem in production systems.
 
-## Answer Analysis
+## Answer analysis
 
 Let me give an example. We once built a system that synchronized MySQL `binlog`, and the pressure was very high: the daily synchronized data had to reach over 100 million records, meaning data was synchronized unchanged from one MySQL database into another (mysql -> mysql). A common case is, for example, a big data team that needs a MySQL database synchronized over so that it can perform all kinds of complex operations on the data of the company's business systems.
 

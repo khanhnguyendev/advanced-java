@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Zookeeper Use Cases
 
-## Interview Question
+## Interview question
 
 What are the use cases of ZooKeeper?
 
@@ -20,7 +20,7 @@ Distributed locks are very commonly used. When you develop Java systems, especia
 
 Honestly, this question is usually just a check on whether you know ZooKeeper, because ZooKeeper is a very common foundation system in distributed systems. The usual question is simply what its use cases are, to see whether you know some basic ones. Of course, if the interviewer digs into ZooKeeper, they can go very, very deep.
 
-## Answer Analysis
+## Answer analysis
 
 Roughly speaking, the use cases of ZooKeeper are as follows. I will give a few simple ones; being able to name a few is enough:
 
@@ -35,19 +35,19 @@ This is a classic use of ZooKeeper. Put simply, suppose system A sends a request
 
 ![zookeeper-distributed-coordination](asset:distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination.png)
 
-### Distributed Lock
+### Distributed lock
 
 Here is an example. Two modification operations are issued in a row against the same piece of data, and two machines receive the requests at the same time, but only one machine may finish first before the other runs. A ZooKeeper distributed lock fits this case. After a machine receives a request, it first acquires a distributed lock on ZooKeeper, which means creating a znode, and then performs the operation. The other machine then **tries to create** the same znode, finds that it cannot because someone else has already created it, and has to wait until the first machine is done before running its own operation.
 
 ![zookeeper-distributed-lock-demo](asset:distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo.png)
 
-### Metadata and Configuration Management
+### Metadata and configuration management
 
 ZooKeeper can be used to manage configuration for many systems. For example, Kafka, Storm and many other distributed systems use ZooKeeper to manage metadata and configuration. Doesn't the Dubbo service registry support ZooKeeper too?
 
 ![zookeeper-meta-data-manage](asset:distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage.png)
 
-### High Availability
+### High availability
 
 This is very common. Many big data systems such as Hadoop, HDFS and YARN build their HA mechanism on ZooKeeper. An **important process usually runs as an active/standby pair**: when the active process goes down, ZooKeeper detects it immediately and switches over to the standby process.
 

@@ -22,7 +22,7 @@ Generally speaking, if the cache is allowed to be occasionally slightly inconsis
 
 Serialization guarantees that no inconsistency will occur, but it also greatly reduces the throughput of the system, and you would need several times more machines than normal to support the online requests.
 
-### Cache Aside Pattern
+### Cache Aside pattern
 
 The most classic pattern for reading and writing cache + database is the Cache Aside Pattern.
 

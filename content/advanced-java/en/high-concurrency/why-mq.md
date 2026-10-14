@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Why Use a Message Queue?
 
-## Interview Question
+## Interview question
 
 -   Why use a message queue?
 -   What are the advantages and disadvantages of a message queue?
@@ -34,9 +34,9 @@ What the interviewer mainly wants to see is:
 
     If a candidate who ignores technology selection joins the team, and the leader gives them a task to design some system, they will use some technologies in it without ever thinking about selection, and the technologies finally chosen may not be suitable, which again leaves a hole behind.
 
-## Answer Analysis
+## Answer analysis
 
-### Why Use a Message Queue
+### Why use a message queue
 
 This is really asking what use cases a message queue has, what the specific scenario is in your project, and what role the message queue plays in that scenario.
 
@@ -60,7 +60,7 @@ With an MQ, system A produces a piece of data and sends it to the MQ, and whiche
 
 **Interview tip**: Think about whether your own system has a similar scenario: a system or module calls several other systems or modules, the calls between them are complicated, and maintenance is troublesome. But those calls do not actually need to be direct synchronous API calls, and using an MQ to decouple them asynchronously would work. You need to consider whether you can use an MQ in your project to decouple systems. Show this on your resume: using an MQ for decoupling.
 
-#### Asynchronous Processing
+#### Asynchronous processing
 
 Now consider another scenario. System A receives a request, and needs to write to its own local database and also to the databases of systems B, C, and D. Writing locally takes 3ms, and writing to B, C, and D takes 300ms, 450ms, and 200ms respectively. The total request latency is 3 + 300 + 450 + 200 = 953ms, close to 1s, and the user feels it is painfully slow. The user sends a request from the browser and waits about 1s, which is nearly unacceptable.
 
@@ -72,7 +72,7 @@ If you **use an MQ**, system A sends 3 messages to the MQ queue in succession, s
 
 ![mq-4](asset:high-concurrency/why-mq/mq-4.png)
 
-#### Peak Shaving
+#### Peak shaving
 
 From 0:00 to 12:00 every day, system A is calm, with only 50 concurrent requests per second. But every day from 12:00 to 13:00, the concurrent requests per second suddenly surge to 5k+. The system is built directly on MySQL, so a large number of requests pour into MySQL, executing about 5k SQL statements per second.
 
@@ -88,7 +88,7 @@ With an MQ, 5k requests per second are written into the MQ, while system A handl
 
 This brief peak backlog is fine, because after the peak only 50 requests per second enter the MQ, while system A continues to process at 2k requests per second. So once the peak passes, system A quickly clears the backlogged messages.
 
-### Advantages and Disadvantages of a Message Queue
+### Advantages and disadvantages of a message queue
 
 The advantages were covered above: **specific benefits in special scenarios**, namely **decoupling**, **asynchronous** processing, and **peak shaving**.
 
@@ -108,7 +108,7 @@ The disadvantages are as follows:
 
     So a message queue is in fact a very complex architecture. Introducing it brings many benefits, but you also have to build various additional technical solutions and architecture to avoid the problems it brings. After you do that, you will find, goodness, the system complexity has gone up by an order of magnitude, perhaps 10 times. But at critical moments, you still have to use it.
 
-### What Are the Advantages and Disadvantages of Kafka, ActiveMQ, RabbitMQ, and RocketMQ?
+### What are the advantages and disadvantages of Kafka, ActiveMQ, RabbitMQ, and RocketMQ?
 
 | Feature                                | ActiveMQ                                                          | RabbitMQ                                                                              | RocketMQ                                                                                                                                                                                                         | Kafka                                                                                                                                                                                                                                                             |
 | -------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

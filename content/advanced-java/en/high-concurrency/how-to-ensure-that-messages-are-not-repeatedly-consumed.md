@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Ensure Messages Are Not Consumed Repeatedly?
 
-## Interview Question
+## Interview question
 
 How do you ensure messages are not consumed repeatedly? Or, put differently, how do you ensure the idempotency of message consumption?
 
@@ -16,7 +16,7 @@ How do you ensure messages are not consumed repeatedly? Or, put differently, how
 
 This is actually a very common question, and the two questions can basically be asked together. Since you consume messages, you surely have to consider whether duplicate consumption can happen, whether it can be avoided, and whether it is acceptable that duplicate consumption causes no system anomaly. This is a basic problem in the MQ field. In essence it is asking **how you ensure idempotency when using a message queue**, which is a problem you have to consider in your architecture.
 
-## Answer Analysis
+## Answer analysis
 
 To answer this question, first do not hear about duplicate messages and go completely blank. **First, say roughly what duplicate consumption problems there may be.**
 

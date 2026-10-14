@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Design a Message Queue?
 
-## Interview Question
+## Interview question
 
 If you were asked to write a message queue, how would you design its architecture? Tell me your thinking.
 
@@ -21,7 +21,7 @@ When this question comes up, the interviewer generally wants to examine two thin
 
 Honestly, when asked a question like this, most people basically draw a blank, because they have never thought about such questions before. **Most people just bury themselves in using things day to day and never think about what is behind them.** Similar questions include: how would you design a Spring framework? How would you design a Dubbo framework? How would you design a MyBatis framework?
 
-## Answer Analysis
+## Answer analysis
 
 In fact, to answer questions like this, frankly, you are not expected to have read the source code of that technology. At the very least you should roughly know its basic principles, core components and basic architecture, and then, referring to some open-source technologies, describe your thinking on how to design such a system.
 

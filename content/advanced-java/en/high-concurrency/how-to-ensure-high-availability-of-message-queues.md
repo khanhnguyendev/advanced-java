@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Ensure High Availability of a Message Queue?
 
-## Interview Question
+## Interview question
 
 How do you ensure the high availability of a message queue?
 
@@ -18,23 +18,23 @@ If someone asks you about MQ, **high availability is a must-ask**. The [previous
 
 If you blindly use an MQ and never consider the various problems, you are in trouble. The interviewer will feel that you only know how to use some technology in a simple way and do no thinking, and their impression of you immediately turns bad. Hiring such a person as an ordinary junior developer earning under 20k is tolerable, but as a senior engineer earning 20k+ it would be a disaster: asked to design a system, you would surely leave a pile of pitfalls in it, and when an incident happens the company suffers losses and the whole team takes the blame.
 
-## Answer Analysis
+## Answer analysis
 
 This is a good way to ask the question, because the interviewer cannot ask you how to ensure the high availability of Kafka, or how to ensure the high availability of ActiveMQ. An interviewer who asks that way looks unskilled: the candidate may use RabbitMQ and never have used Kafka, so why ask about Kafka right away? That is plainly making things difficult for people.
 
 So a skilled interviewer asks how to ensure the high availability of MQ. Then whichever MQ you have used, you describe your understanding of that MQ's high availability.
 
-### High Availability of RabbitMQ
+### High availability of RabbitMQ
 
 RabbitMQ is fairly representative, because it achieves high availability **based on master/replica** (not distributed). We use RabbitMQ as the example to explain the first way an MQ can implement high availability.
 
 RabbitMQ has three modes: single-node mode, normal cluster mode, and mirrored cluster mode.
 
-#### Single-Node Mode
+#### Single-Node mode
 
 Single-node mode is demo-grade. It is generally something you start locally to play around with, and nobody uses single-node mode in production.
 
-#### Normal Cluster Mode (No High Availability)
+#### Normal Cluster mode (No high Availability)
 
 Normal cluster mode means starting multiple RabbitMQ instances on multiple machines, one per machine. The **queue you create is placed on only one RabbitMQ instance**, but every instance synchronizes the queue's metadata (metadata can be seen as some configuration information of the queue, through which the instance holding the queue can be found). When you consume, if you actually connect to another instance, that instance pulls the data over from the instance where the queue lives.
 
@@ -46,7 +46,7 @@ Moreover, if the instance holding the queue crashes, the other instances can no 
 
 So this is rather awkward: there is **no so-called high availability**, and **this scheme mainly improves throughput**, that is, it lets multiple nodes in the cluster serve the read and write operations of a queue.
 
-#### Mirrored Cluster Mode (⚠️ Deprecated, Not Recommended)
+#### Mirrored Cluster mode (⚠️ Deprecated, not Recommended)
 
 > **⚠️ Important update**: Since RabbitMQ 4.0, mirrored cluster mode has been officially deprecated, and adding new mirroring policies is no longer supported. Existing users are advised to migrate to Quorum Queues as soon as possible.
 
@@ -88,7 +88,7 @@ rabbitmqctl set_policy ha-quorum "^quorum\." '{"ha-mode":" quorum"}'
 
 **Migration advice**: For queues that currently use mirrored clusters, it is recommended to migrate to Quorum Queues gradually. During migration, pay attention to the message persistence configuration and consumer compatibility.
 
-### High Availability of Kafka
+### High availability of Kafka
 
 The most basic architectural picture of Kafka: it consists of multiple brokers, and each broker is a node. When you create a topic, this topic can be divided into multiple partitions, each partition can live on a different broker, and each partition holds a part of the data.
 

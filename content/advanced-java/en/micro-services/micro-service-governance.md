@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Microservices Governance Strategies
 
-## Service Registration and Discovery
+## Service registration and Discovery
 
 Problem solved: manage services centrally
 
@@ -17,7 +17,7 @@ Solutions:
 -   Eureka
 -   Zookeeper
 
-## Load Balancing
+## Load balancing
 
 Problem solved: reduce the pressure on server hardware
 
@@ -36,7 +36,7 @@ Solutions:
 -   RPC (synchronous)
 -   MQ (asynchronous)
 
-## Configuration Management
+## Configuration management
 
 Problem solved: as the number of services grows, so does the amount of configuration; how to manage the configuration of each service.
 
@@ -46,7 +46,7 @@ Solutions:
 -   Spring Cloud Config
 -   Apollo
 
-## Fault Tolerance and Service Degradation
+## Fault tolerance and service degradation
 
 Problem solved: in microservices, a single request often involves calling several services. If one of them is unavailable and no service fault tolerance has been put in place, it is very likely to cause a chain of services to become unavailable. This is the avalanche effect.
 
@@ -54,13 +54,13 @@ Solutions:
 
 -   Hystrix
 
-## Service Dependencies
+## Service dependencies
 
 Problem solved: services depend on each other back and forth, and the startup order is unclear.
 
 Solution: layer the applications.
 
-## Service Documentation
+## Service documentation
 
 Problem solved: reduce communication cost
 
@@ -69,7 +69,7 @@ Solutions:
 -   Swagger
 -   Java doc
 
-## Service Security
+## Service security
 
 Problem solved: the security of sensitive data
 
@@ -79,7 +79,7 @@ Solutions:
 -   Shiro
 -   Spring Security
 
-## Traffic Control
+## Traffic control
 
 Problem solved: prevent excessive traffic on one service from dragging down the whole service system
 
@@ -87,7 +87,7 @@ Solutions:
 
 -   Hystrix
 
-## Automated Testing
+## Automated testing
 
 Problem solved: anticipate exceptions in advance and determine whether a service is available
 
@@ -95,7 +95,7 @@ Solutions:
 
 -   junit
 
-## Process for Bringing Services Online and Offline
+## Process for Bringing services online and offline
 
 Problem solved: prevent services from being brought online or offline arbitrarily
 

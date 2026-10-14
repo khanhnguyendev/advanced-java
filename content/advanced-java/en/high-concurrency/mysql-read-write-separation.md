@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # How to Implement Read/Write Splitting?
 
-## Interview Question
+## Interview question
 
 Have you done MySQL read/write splitting? How do you implement it? How does MySQL master/replica replication work? How do you deal with the replication delay between master and replica?
 
@@ -16,7 +16,7 @@ Have you done MySQL read/write splitting? How do you implement it? How does MySQ
 
 At the high concurrency stage you will certainly need read/write splitting. What does that mean? Most internet companies, websites and apps are read-heavy and write-light. So you write to one master and attach multiple replicas to it, then serve reads from those replicas. Doesn't that let you support a higher read concurrency load?
 
-## Answer Analysis
+## Answer analysis
 
 ### How do you implement MySQL read/write splitting?
 

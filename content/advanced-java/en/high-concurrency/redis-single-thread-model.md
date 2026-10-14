@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Differences Between Redis and Memcached
 
-## Interview Question
+## Interview question
 
 What are the differences between Redis and Memcached? What is the threading model of Redis? Why can single-threaded Redis support high concurrency?
 
@@ -18,7 +18,7 @@ This is about the most basic question when asking about Redis. One of the most b
 
 The interviewer may also ask about the differences between Redis and Memcached. Memcached was the cache solution commonly used by major internet companies in earlier years, but in recent years it has basically all been Redis, and hardly any company uses Memcached now.
 
-## Answer Analysis
+## Answer analysis
 
 ### What are the differences between Redis and Memcached?
 
