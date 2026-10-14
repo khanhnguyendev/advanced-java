@@ -14,7 +14,7 @@ Kiến trúc triển khai của cụm ES trên môi trường production là gì
 
 ## Tâm lý người phỏng vấn
 
-Câu hỏi này, cũng như các câu về redis phía sau, khi nói đến ES, redis, sharding (phân mảnh CSDL và bảng) của mysql và các công nghệ tương tự thì phỏng vấn nhất định sẽ hỏi! Tức là môi trường production của bạn triển khai như thế nào? Nói thẳng ra, câu hỏi này không có hàm lượng kỹ thuật gì, chỉ là xem bạn có thực sự làm việc này trên môi trường production hay chưa!
+Câu hỏi này, cũng như các câu về redis phía sau, khi nói đến ES, redis, sharding (phân mảnh cơ sở dữ liệu và bảng) của mysql và các công nghệ tương tự thì phỏng vấn nhất định sẽ hỏi! Tức là môi trường production của bạn triển khai như thế nào? Nói thẳng ra, câu hỏi này không có hàm lượng kỹ thuật gì, chỉ là xem bạn có thực sự làm việc này trên môi trường production hay chưa!
 
 Một số bạn có thể chưa từng làm trên môi trường production, chưa thực sự dùng máy chủ online để triển khai cụm ES, cũng chưa thực sự nghịch qua, chưa từng nhập vào cụm ES lượng dữ liệu vài chục triệu thậm chí vài trăm triệu bản ghi, nên có thể bạn không rõ lắm một số chi tiết trong các dự án production.
 

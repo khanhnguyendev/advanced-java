@@ -54,7 +54,7 @@ This is what is called **database and table sharding**. Why use database and tab
 | Disk usage        | The disk capacity of the single-node MySQL is almost full          | Split into multiple databases, so the disk usage of the database servers drops greatly |
 | SQL performance   | The single table has too much data, and SQL runs slower and slower | The single-table data volume shrinks, and SQL execution efficiency improves noticeably |
 
-### Which database and table sharding middleware have you used? what are the advantages and disadvantages of the different middleware?
+### Which database and table sharding middleware have you used? What are the advantages and disadvantages of the different middleware?
 
 This is really about seeing which database and table sharding middleware you know, what the advantages and disadvantages of each are, and which you have used.
 

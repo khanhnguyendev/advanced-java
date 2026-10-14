@@ -16,7 +16,7 @@
   "缓存": "bộ nhớ đệm (cache)",
   "缓存雪崩": "cache avalanche (tuyết lở bộ nhớ đệm)",
   "缓存穿透": "cache penetration (xuyên thủng bộ nhớ đệm)",
-  "分库分表": "sharding (phân mảnh CSDL và bảng)",
+  "分库分表": "sharding (phân mảnh cơ sở dữ liệu và bảng)",
   "读写分离": "tách đọc/ghi",
   "搜索引擎": "công cụ tìm kiếm",
   "倒排索引": "chỉ mục đảo ngược (inverted index)",

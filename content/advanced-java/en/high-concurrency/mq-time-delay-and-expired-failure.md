@@ -59,7 +59,7 @@ The vast majority of message consumption is IO-bound, that is, it may operate a 
 Within the same ConsumerGroup, increase parallelism by increasing the number of Consumer instances (note that Consumer instances beyond the number of subscribed queues are useless). You can add machines, or start multiple processes on existing machines.
 Increase the parallel consumption threads of a single Consumer by modifying the parameters consumeThreadMin and consumeThreadMax.
 
-### 2. Consume in Batches
+### 2. Consume in batches
 
 If some business processes support batch consumption, consumption throughput can be improved greatly. For example, in an order-deduction application, processing one order at a time takes 1 s, while processing 10 orders at a time may take only 2 s, which greatly improves consumption throughput. This is done by setting the consumer's consumeMessageBatchMaxSize parameter. The default is 1, meaning only one message is consumed at a time; if it is set to N, the number of messages consumed each time is less than or equal to N.
 

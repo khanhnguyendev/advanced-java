@@ -18,7 +18,7 @@ ElasticSearch is built on Lucene. It hides the complexity of lucene and provides
 -   A distributed search engine and analytics engine
 -   Distributed, supporting PB-scale data
 
-## Core Concepts of ES
+## Core concepts of ES
 
 ### Near Realtime
 
@@ -69,7 +69,7 @@ Put another way, shards are divided into primary shards and replica shards. A pr
 
 ![es-cluster-0](asset:high-concurrency/es-introduction/es-cluster-0.png)
 
-## ES core Concepts vs. DB core Concepts
+## ES core concepts vs. DB core concepts
 
 | ES       | DB       |
 | -------- | -------- |

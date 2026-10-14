@@ -29,7 +29,7 @@ There are mainly 6 solutions for implementing distributed transactions:
 -   Reliable message eventual consistency
 -   Best-effort notification
 
-### Two-Phase commit / XA
+### Two-phase commit / XA
 
 The so-called XA solution is two-phase commit. It has the concept of a **transaction manager**, which coordinates the transactions of multiple databases (resource managers). The transaction manager first asks each database whether it is ready. If every database replies ok, the transaction is formally committed and the operations are executed on each database; if any one database answers not ok, the transaction is rolled back.
 
@@ -124,7 +124,7 @@ Roughly:
 
 ![distributed-transaction-reliable-message](asset:distributed-system/distributed-transaction/distributed-transaction-reliable-message.png)
 
-### Best-Effort notification
+### Best-effort notification
 
 Roughly, this solution works as follows:
 
@@ -132,7 +132,7 @@ Roughly, this solution works as follows:
 2. A dedicated **best-effort notification service** consumes the MQ, records the message in a database (or puts it in an in-memory queue), and then calls system B's API;
 3. If system B succeeds, fine. If system B fails, the best-effort notification service periodically retries calling system B, repeating N times, and finally gives up if it still does not work.
 
-### How does your company handle distributed Transactions?
+### How does your company handle distributed transactions?
 
 If you are really asked, you can say something like this: in our particularly strict scenarios we use TCC to guarantee strong consistency, and in some other scenarios we implement distributed transactions based on Alibaba's RocketMQ.
 

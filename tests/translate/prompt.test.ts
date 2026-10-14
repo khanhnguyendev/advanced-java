@@ -70,6 +70,7 @@ describe('buildPrompt', () => {
     expect(p).toContain('Never put the parenthetical in a heading: headings use A only; give B at the first use in body prose.');
     expect(p).toContain('降级 has exactly one rendering per language (see glossary)');
     expect(p).toContain('Do not write a second term.');
+    expect(p).toContain('An English word fallback that already appears in the Chinese source stays fallback.');
   });
   it('requireTitle returns the title or throws a clear error', () => {
     expect(requireTitle({ docs: { a: { title: 'T' } } }, 'a', 'en')).toBe('T');

@@ -74,7 +74,7 @@ Purpose: process data or tasks of the same type in bulk
 
 #### [Spring Batch](https://spring.io/projects/spring-batch)
 
-### Scheduled Tasks
+### Scheduled tasks
 
 > Purpose: do something on a schedule.
 

@@ -45,13 +45,13 @@ Ngay từ đầu là 32 cơ sở dữ liệu, mỗi cơ sở dữ liệu 32 bả
 
 Tôi có thể nói với các bạn, cách chia này, thứ nhất, về cơ bản các công ty internet trong nước chắc chắn đều đủ dùng, thứ hai, dù là chống đỡ mức đồng thời hay chống đỡ lượng dữ liệu đều không vấn đề.
 
-Mức đồng thời ghi bình thường mà mỗi cơ sở dữ liệu chịu tải là 1000, vậy 32 cơ sở dữ liệu có thể chịu tải lượng ghi đồng thời $32 \times 1000 = 32000$, nếu mỗi cơ sở dữ liệu chịu tải lượng ghi đồng thời 1500, tổng cộng là $32 \times 1500 = 48000$ lượng ghi đồng thời, gần 50 nghìn lượng ghi đồng thời mỗi giây, phía trước thêm một MQ, san phẳng đỉnh tải (peak shaving), mỗi giây ghi vào MQ 80 nghìn bản ghi, mỗi giây tiêu thụ 50 nghìn bản ghi.
+Lượng ghi đồng thời bình thường mà mỗi cơ sở dữ liệu chịu tải là 1000, vậy 32 cơ sở dữ liệu có thể chịu tải lượng ghi đồng thời $32 \times 1000 = 32000$, nếu mỗi cơ sở dữ liệu chịu tải lượng ghi đồng thời 1500, tổng cộng là $32 \times 1500 = 48000$ lượng ghi đồng thời, gần 50 nghìn lượng ghi đồng thời mỗi giây, phía trước thêm một MQ, san phẳng đỉnh tải (peak shaving), mỗi giây ghi vào MQ 80 nghìn bản ghi, mỗi giây tiêu thụ 50 nghìn bản ghi.
 
 Một số công ty, trừ phi là những công ty xếp hạng rất đầu trong nước, cơ sở dữ liệu của hệ thống cốt lõi nhất của họ có thể có quy mô hàng trăm cơ sở dữ liệu như vậy, 128 cơ sở dữ liệu, 256 cơ sở dữ liệu, 512 cơ sở dữ liệu.
 
 1024 bảng, giả sử mỗi bảng đặt 5 triệu bản ghi, trong MySQL có thể đặt 5 tỷ bản ghi.
 
-Mức đồng thời ghi 50 nghìn mỗi giây, tổng cộng 5 tỷ bản ghi, đối với phần lớn các công ty internet trong nước, thực ra nói chung đều đủ.
+Lượng ghi đồng thời 50 nghìn mỗi giây, tổng cộng 5 tỷ bản ghi, đối với phần lớn các công ty internet trong nước, thực ra nói chung đều đủ.
 
 Nói về mở rộng sharding, **lần sharding đầu tiên, hãy chia một lần cho đủ**, 32 cơ sở dữ liệu, 1024 bảng, đối với phần lớn các công ty internet vừa và nhỏ có thể đã chống đỡ được vài năm.
 

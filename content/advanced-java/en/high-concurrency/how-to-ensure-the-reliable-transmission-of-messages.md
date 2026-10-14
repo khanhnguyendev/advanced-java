@@ -198,7 +198,7 @@ Why send a half message first? Its purpose is to first determine whether the MQ 
 
 Bypass the cache when storing data and switch to synchronous disk flushing. This step requires modifying the Broker's configuration file and changing flushDiskType to the SYNC_FLUSH synchronous flush policy. The default is ASYNC_FLUSH, asynchronous flushing. Once a synchronous flush returns success, the message is guaranteed to have been persisted to disk.
 
-#### How to ensure messages are not lost when the disk Breaks after they are written
+#### How to ensure messages are not lost when the disk breaks after they are written
 
 To guard against data loss from disk damage, RocketMQ uses a master/replica architecture with cluster deployment: the data in the Leader is backed up on multiple Followers, preventing data loss caused by a single point of failure.
 

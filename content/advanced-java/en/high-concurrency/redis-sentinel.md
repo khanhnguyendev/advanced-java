@@ -108,8 +108,8 @@ If a master suffers split brain and loses its connection to the other slaves, th
 
 ## The sdown and odown transition mechanism
 
--   sdown is subjectively down: if a single Sentinel itself thinks a master has crashed, that is subjectively down (sdown)
--   odown is objectively down: if a quorum number of Sentinels all think a master has crashed, that is objectively down (odown)
+-   sdown is subjectively down: if a single Sentinel itself thinks a master has crashed, that is subjectively down
+-   odown is objectively down: if a quorum number of Sentinels all think a master has crashed, that is objectively down
 
 The condition for sdown is simple: if a Sentinel pings a master and gets no reply for more than the number of milliseconds specified by `is-master-down-after-milliseconds`, it subjectively considers the master crashed. If a Sentinel receives, within the specified time, notices from a quorum number of other Sentinels that they also consider that master sdown, it considers it odown.
 

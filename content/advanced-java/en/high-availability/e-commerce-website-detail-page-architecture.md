@@ -8,7 +8,7 @@ translatedAt: '2026-10-14'
 ---
 # Product Detail Page System Architecture of an E-Commerce Website
 
-## Product detail page system architecture of a small E-Commerce website
+## Product detail page system architecture of a small e-commerce website
 
 A small e-commerce website displays its pages by fully statically generating every page. The database holds all product information; a page static-generation system fills the data into static templates to produce static pages and pushes them to an Nginx server. When a user browses a page, the site simply returns a ready-made static html page, with no business logic involved at all.
 
@@ -32,7 +32,7 @@ For a small site with few pages, this is very practical and simple. In Java you 
 
 The **disadvantage** is that it only suits small sites, with page counts ranging from a few dozen to a few tens of thousands. For a large e-commerce site with hundreds of millions of pages, can you really statically regenerate that many pages every time a page template changes? If each render takes several days, the whole site is ruined.
 
-## Product detail page system architecture of a large E-Commerce website
+## Product detail page system architecture of a large e-commerce website
 
 In the system design of a large e-commerce website's product detail page, when product data changes, a change message is pushed into a message queue (MQ). When the **cache service** consumes this message from the queue, it learns that data has changed, calls the data service API to fetch the updated data, and then pushes the assembled data into Redis. The data cached locally in Nginx has a time limit, say 10 minutes; once the data expires, Nginx fetches the latest cached data from Redis and caches it locally again.
 
