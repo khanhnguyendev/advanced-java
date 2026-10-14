@@ -36,6 +36,39 @@ describe('loadPolicy / isHeld', () => {
     expect(isHeld(p, 's', 'c')).toBe(false);
     expect(isHeld(p, 's', 'zzz')).toBe(false);
   });
+  it('excludeLocales blocks only the listed locale and keeps decision translate', () => {
+    const p = loadPolicy(
+      tmp({
+        'c/translation-policy.json': JSON.stringify({
+          hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: ['en'] } },
+        }),
+      }),
+      'c',
+    );
+    expect(isHeld(p, 's', 'a', 'en')).toBe(true);
+    expect(isHeld(p, 's', 'a', 'vi')).toBe(false);
+    expect(isHeld(p, 's', 'a')).toBe(false);
+  });
+  it('rejects a malformed excludeLocales', () => {
+    const root = tmp({ 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: 'en' } } }) });
+    expect(() => loadPolicy(root, 'c')).toThrow(/excludeLocales/);
+  });
+  it('rejects an unknown excludeLocales value', () => {
+    const root = tmp({ 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: ['fr'] } } }) });
+    expect(() => loadPolicy(root, 'c')).toThrow(/excludeLocales: unknown locale "fr" \(expected one of en, vi\)/);
+  });
+  it('rejects a wrong-case excludeLocales value', () => {
+    const root = tmp({ 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: ['EN'] } } }) });
+    expect(() => loadPolicy(root, 'c')).toThrow(/excludeLocales: unknown locale "EN" \(expected one of en, vi\)/);
+  });
+  it('rejects the source locale in excludeLocales', () => {
+    const root = tmp({ 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: ['zh'] } } }) });
+    expect(() => loadPolicy(root, 'c')).toThrow(/excludeLocales must not include the source locale zh/);
+  });
+  it('rejects excludeLocales with a decision other than translate', () => {
+    const root = tmp({ 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'pending', excludeLocales: ['en'] } } }) });
+    expect(() => loadPolicy(root, 'c')).toThrow(/excludeLocales is only valid with decision "translate"/);
+  });
   it('throws a clear message on an unknown decision', () => {
     const root = tmp({ 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'maybe' } } }) });
     expect(() => loadPolicy(root, 'c')).toThrow(/decision must be one of pending, exclude, translate/);
@@ -59,9 +92,17 @@ describe('loadCredits / creditFor', () => {
     const cr = loadCredits(tmp({ 'c/source-credits.json': JSON.stringify({ 's/a': ad }) }), 'c');
     expect(creditFor(cr, 's', 'a')).toEqual(ad);
   });
+  it('accepts a derived credit without a year and without a license', () => {
+    const d = { kind: 'derived', title: 'T', author: 'A', publisher: 'P', url: 'https://example.com/x' };
+    const cr = loadCredits(tmp({ 'c/source-credits.json': JSON.stringify({ 's/a': d }) }), 'c');
+    expect(creditFor(cr, 's', 'a')).toEqual(d);
+  });
   it('rejects a bad kind, a bad license, a non-integer year and a translation without a year', () => {
     const run = (v: object) => () => loadCredits(tmp({ 'c/source-credits.json': JSON.stringify({ 's/a': v }) }), 'c');
     expect(run({ ...good, kind: 'copy' })).toThrow(/kind/);
+    expect(run({ ...good, kind: 'derived', year: 'x' })).toThrow(/year/);
+    expect(run({ ...good, kind: 'derived', year: 2014 })).toThrow(/derived credit must not/);
+    expect(run({ ...good, kind: 'derived', year: undefined, license: { name: 'MIT', url: 'https://x.org' } })).toThrow(/derived credit must not/);
     expect(run({ ...good, license: { name: '', url: 'https://x.org' } })).toThrow(/license\.name/);
     expect(run({ ...good, license: { name: 'MIT', url: 'ftp://x.org' } })).toThrow(/license\.url/);
     expect(run({ ...good, year: 2014.5 })).toThrow(/year/);
@@ -78,8 +119,22 @@ describe('real content policy and credits files', () => {
     const root = path.resolve(__dirname, '../../content');
     const p = loadPolicy(root, 'advanced-java');
     expect(Object.keys(p.hold)).toHaveLength(10);
-    expect(isHeld(p, 'micro-services', 'microservices-introduction')).toBe(true);
+    for (const slug of [
+      'microservices-introduction',
+      'advantages-and-disadvantages-of-microservice',
+      'choose-microservice-deployment-strategy',
+      'event-driven-data-management-for-microservices',
+      'migrating-from-a-monolithic-architecture-to-a-microservices-architecture',
+    ]) {
+      expect(isHeld(p, 'micro-services', slug), slug).toBe(false);
+      expect(p.hold[`micro-services/${slug}`].decision, slug).toBe('translate');
+    }
+    expect(isHeld(p, 'micro-services', 'how-eureka-enable-service-discovery-and-service-registration')).toBe(false);
+    expect(p.hold['micro-services/how-eureka-enable-service-discovery-and-service-registration'].decision).toBe('translate');
+    expect(p.hold['micro-services/how-eureka-enable-service-discovery-and-service-registration'].excludeLocales).toBeUndefined();
+    expect(Object.values(p.hold).filter((h) => h.decision !== 'translate')).toHaveLength(0);
     expect(p.hold['high-availability/sentinel-vs-hystrix'].decision).toBe('translate');
-    expect(Object.keys(loadCredits(root, 'advanced-java'))).toHaveLength(6);
+    expect(Object.keys(loadCredits(root, 'advanced-java'))).toHaveLength(7);
+    expect(creditFor(loadCredits(root, 'advanced-java'), 'micro-services', 'how-eureka-enable-service-discovery-and-service-registration')?.kind).toBe('derived');
   });
 });

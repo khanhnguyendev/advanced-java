@@ -9,28 +9,28 @@
   "micro-services/advantages-and-disadvantages-of-microservice": {
     "title": "Introduction to Microservices",
     "author": "Chris Richardson",
-    "publisher": "NGINX blog (now hosted by F5); series: Microservices: From Design to Deployment",
+    "publisher": "NGINX blog (now hosted by F5)",
     "url": "https://www.f5.com/company/blog/nginx/introduction-to-microservices",
     "year": 2015
   },
   "micro-services/choose-microservice-deployment-strategy": {
     "title": "Choosing a Microservices Deployment Strategy",
     "author": "Chris Richardson",
-    "publisher": "NGINX blog (now hosted by F5); series: Microservices: From Design to Deployment",
+    "publisher": "NGINX blog (now hosted by F5)",
     "url": "https://www.f5.com/company/blog/nginx/deploying-microservices",
     "year": 2016
   },
   "micro-services/event-driven-data-management-for-microservices": {
     "title": "Event-Driven Data Management for Microservices",
     "author": "Chris Richardson",
-    "publisher": "NGINX blog (now hosted by F5); series: Microservices: From Design to Deployment",
+    "publisher": "NGINX blog (now hosted by F5)",
     "url": "https://www.f5.com/company/blog/nginx/event-driven-data-management-microservices",
     "year": 2015
   },
   "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture": {
     "title": "Refactoring a Monolith into Microservices",
     "author": "Chris Richardson",
-    "publisher": "NGINX blog (now hosted by F5); series: Microservices: From Design to Deployment",
+    "publisher": "NGINX blog (now hosted by F5)",
     "url": "https://www.f5.com/company/blog/nginx/refactoring-a-monolith-into-microservices",
     "year": 2016
   },
@@ -44,5 +44,12 @@
       "name": "Apache-2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     }
+  },
+  "micro-services/how-eureka-enable-service-discovery-and-service-registration": {
+    "kind": "derived",
+    "title": "Service Discovery in a Microservices Architecture",
+    "author": "Chris Richardson",
+    "publisher": "NGINX blog (now hosted by F5)",
+    "url": "https://www.f5.com/company/blog/nginx/service-discovery-in-a-microservices-architecture"
   }
 }

@@ -22,7 +22,7 @@ export function stampTranslation(i: {
   }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(i.today)) throw new Error(`today must be YYYY-MM-DD (got "${i.today}")`);
   const c = loadCollection(i.root, i.collection);
-  const held = heldMessage(loadPolicy(i.root, i.collection), i.section, i.slug);
+  const held = heldMessage(loadPolicy(i.root, i.collection), i.section, i.slug, i.locale);
   if (held) {
     const f = docFile(i.root, i.collection, i.locale, i.section, i.slug);
     return { written: false, file: f, issues: [{ level: 'error', code: 'held-doc', message: held }], waived: [] };

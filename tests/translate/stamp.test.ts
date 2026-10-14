@@ -130,5 +130,17 @@ describe('stampTranslation hold policy', () => {
   it('translate lifts the block', () => {
     expect(stamp(held('translate')).written).toBe(true);
   });
+  it('excludeLocales holds only the listed locale', () => {
+    const r = root();
+    writeFileSync(
+      path.join(r, 'c/translation-policy.json'),
+      JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: ['vi'] } } }),
+    );
+    const vi = stamp(r);
+    expect(vi.written).toBe(false);
+    expect(vi.issues).toEqual([expect.objectContaining({ level: 'error', code: 'held-doc', message: expect.stringMatching(/held for locale vi/) })]);
+    const en = stampTranslation({ root: r, collection: 'c', locale: 'en', section: 's', slug: 'a', today: '2026-10-13', translatedBody: body });
+    expect(en.written).toBe(true);
+  });
 });
 

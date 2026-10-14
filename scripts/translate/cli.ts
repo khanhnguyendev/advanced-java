@@ -50,7 +50,7 @@ if (cmd === 'prompt') {
   const slug = need('slug');
   const l = needLocale();
   const { c, d } = findDoc(slug);
-  const held = heldMessage(loadPolicy(root, collection), d.section, slug);
+  const held = heldMessage(loadPolicy(root, collection), d.section, slug, l);
   if (held) throw new Error(held);
   const zhBody = parse(readFileSync(docFile(root, collection, c.sourceLocale, d.section, slug), 'utf8')).content;
   const title = requireTitle(loadMeta(root, collection, l), slug, l);

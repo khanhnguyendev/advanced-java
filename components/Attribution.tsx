@@ -25,7 +25,10 @@ export function Attribution({
   const stop = t('stop');
   const adapted = credit?.kind === 'adaptation';
   const translatedServed = served === 'en' || served === 'vi';
-  const key = adapted
+  const derived = credit?.kind === 'derived';
+  const key = derived
+    ? translatedServed ? 'sourceCreditDerivedTranslated' : 'sourceCreditDerived'
+    : adapted
     ? translatedServed ? 'sourceCreditAdaptedTranslated' : 'sourceCreditAdapted'
     : translatedServed ? 'sourceCreditTranslated' : 'sourceCredit';
   return (
@@ -53,7 +56,7 @@ export function Attribution({
       ) : null}
       <p>
         {credit ? (
-          t('licenseCredited')
+          t(credit.kind === 'derived' ? 'licenseDerived' : 'licenseCredited')
         ) : (
           <>
             <a href="https://creativecommons.org/licenses/by-sa/4.0/">{t('license')}</a>

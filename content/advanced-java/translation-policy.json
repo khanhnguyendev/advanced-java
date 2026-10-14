@@ -1,11 +1,11 @@
 {
   "hold": {
-    "micro-services/microservices-introduction": { "reason": "Owner decision 2026-10-14: excluded from translation; Translation of Martin Fowler and James Lewis's article; rights unclear", "decision": "exclude" },
-    "micro-services/advantages-and-disadvantages-of-microservice": { "reason": "Owner decision 2026-10-14: excluded from translation; Translation of Chris Richardson's NGINX series part 1; no credit upstream", "decision": "exclude" },
-    "micro-services/choose-microservice-deployment-strategy": { "reason": "Owner decision 2026-10-14: excluded from translation; Translation of Chris Richardson's NGINX series part 6; no credit upstream", "decision": "exclude" },
-    "micro-services/event-driven-data-management-for-microservices": { "reason": "Owner decision 2026-10-14: excluded from translation; Translation of Chris Richardson's NGINX series part 5; no credit upstream", "decision": "exclude" },
-    "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture": { "reason": "Owner decision 2026-10-14: excluded from translation; Translation of Chris Richardson's NGINX series part 7; no credit upstream", "decision": "exclude" },
-    "micro-services/how-eureka-enable-service-discovery-and-service-registration": { "reason": "Chinese article of unknown author; intro derived from Richardson series part 4", "decision": "pending" },
+    "micro-services/microservices-introduction": { "reason": "Owner decision 2026-10-14: translate; en not shipped (en draft reproduced the English original verbatim; rights)", "decision": "translate", "excludeLocales": ["en"] },
+    "micro-services/advantages-and-disadvantages-of-microservice": { "reason": "Owner decision 2026-10-14 (second pass): translate with source credit rendered", "decision": "translate" },
+    "micro-services/choose-microservice-deployment-strategy": { "reason": "Owner decision 2026-10-14 (second pass): translate with source credit rendered", "decision": "translate" },
+    "micro-services/event-driven-data-management-for-microservices": { "reason": "Owner decision 2026-10-14 (second pass): translate with source credit rendered", "decision": "translate" },
+    "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture": { "reason": "Owner decision 2026-10-14 (second pass): translate with source credit rendered", "decision": "translate" },
+    "micro-services/how-eureka-enable-service-discovery-and-service-registration": { "reason": "Owner decision 2026-10-14 (third pass): translate; credit marks unknown authorship and the Richardson-derived introduction", "decision": "translate" },
     "micro-services/whats-microservice-how-to-communicate": { "reason": "Owner decision 2026-10-14: translate in the full run", "decision": "translate" },
     "micro-services/micro-service-governance": { "reason": "Owner decision 2026-10-14: translate in the full run", "decision": "translate" },
     "micro-services/micro-services-technology-stack": { "reason": "Owner decision 2026-10-14: translate in the full run", "decision": "translate" },

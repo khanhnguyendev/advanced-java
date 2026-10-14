@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { cjkFontUrls, cjkFontUrlsByWeight, firstZhOnly, PILOT, sectionOf } from './helpers';
+import { cjkFontUrls, cjkFontUrlsByWeight, firstUntranslated, PILOT, sectionOf } from './helpers';
 
 test('vi page with a real translation downloads zero CJK font bytes', async ({ page }) => {
   const cjk = new Set(cjkFontUrls());
@@ -17,9 +17,10 @@ test('vi page with a real translation downloads zero CJK font bytes', async ({ p
   expect(loaded).toBe(0);
 });
 
-test('zh-only page requests some, but not all, CJK slices per weight', async ({ page }) => {
-  const slug = firstZhOnly();
-  test.skip(!slug, 'every doc has a vi or en translation');
+// No doc is zh-only under /vi any more; the zh-served page is the /en fallback of a doc excluded from en.
+test('zh-served page requests some, but not all, CJK slices per weight', async ({ page }) => {
+  const slug = firstUntranslated('en');
+  test.skip(!slug, 'every doc has an en translation');
   const byWeight = cjkFontUrlsByWeight();
   expect(byWeight.size).toBeGreaterThan(0);
   const cjk = new Set(cjkFontUrls());
@@ -28,7 +29,7 @@ test('zh-only page requests some, but not all, CJK slices per weight', async ({ 
     const name = r.url().split('/').pop() ?? '';
     if (cjk.has(name)) requested.add(name);
   });
-  await page.goto(`/vi/advanced-java/${sectionOf(slug!)}/${slug}`, { waitUntil: 'networkidle' });
+  await page.goto(`/en/advanced-java/${sectionOf(slug!)}/${slug}`, { waitUntil: 'networkidle' });
   expect(requested.size).toBeGreaterThan(0);
   for (const [weight, files] of byWeight) {
     const got = new Set(files.filter((f) => requested.has(f))).size;

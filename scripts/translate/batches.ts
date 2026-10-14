@@ -13,7 +13,7 @@ export function pendingBatches(
   const policy = loadPolicy(root, collection);
   const bySection = new Map<string, string[]>();
   for (const d of listDocs(c)) {
-    if (isHeld(policy, d.section, d.slug)) continue;
+    if (isHeld(policy, d.section, d.slug, locale)) continue;
     if (existsSync(docFile(root, collection, locale, d.section, d.slug))) continue;
     bySection.set(d.section, [...(bySection.get(d.section) ?? []), d.slug]);
   }

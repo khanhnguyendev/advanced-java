@@ -53,10 +53,13 @@
     "changesTranslated": "译自并改编自中文原文",
     "sourceFile": "上游文件",
     "licenseCredited": "中文译文由 Doocs 贡献者在上游以 CC-BY-SA-4.0 许可发布；原作品不由本站授权。",
+    "licenseDerived": "中文文章由 Doocs 贡献者在上游以 CC-BY-SA-4.0 许可发布；所引作品不由本站授权。",
     "sourceCredit": "原文出处：<cite>《{title}》</cite>，作者 {author}，{publisher}，{year} 年。本文是该作品的中文译文，转载自上游仓库；原作品的权利归其作者所有。<link>阅读原文</link>",
     "sourceCreditTranslated": "原文出处：<cite>《{title}》</cite>，作者 {author}，{publisher}，{year} 年。本页是该作品中文译文的机器翻译，中文译文转载自上游仓库；原作品的权利归其作者所有。<link>阅读原文</link>",
     "sourceCreditAdapted": "改编自 <cite>《{title}》</cite>，作者 {author}，{publisher}。本文是对该页面的中文改编，并非原文。<link>阅读原文</link>",
     "sourceCreditAdaptedTranslated": "改编自 <cite>《{title}》</cite>，作者 {author}，{publisher}。本页是该页面中文改编版的机器翻译，并非原文。<link>阅读原文</link>",
+    "sourceCreditDerived": "本文作者不详。其引言部分参考了 <cite>《{title}》</cite>（作者 {author}，{publisher}），其余内容不属于该作品。<link>阅读该文</link>",
+    "sourceCreditDerivedTranslated": "本页是一篇作者不详的中文文章的机器翻译。其引言部分参考了 <cite>《{title}》</cite>（作者 {author}，{publisher}），其余内容不属于该作品。<link>阅读该文</link>",
     "sourceCreditLicense": "原文采用 <licenseLink>{license}</licenseLink> 许可。",
     "aboutLink": "关于与许可"
   },

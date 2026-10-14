@@ -273,6 +273,8 @@ export function checkCollection(root: string, id: string): CheckReport {
       report.checked += 1;
       if (isHeld(policy, d.section, d.slug)) {
         report.errors.push(`${tag}: [held-doc-translated] translation exists for a doc held by translation-policy.json`);
+      } else if (isHeld(policy, d.section, d.slug, locale)) {
+        report.errors.push(`${tag}: [held-doc-translated] translation exists for locale ${locale}, which translation-policy.json excludes for this doc (excludeLocales)`);
       }
       try {
         const parsed = parse(readFileSync(file, 'utf8'));

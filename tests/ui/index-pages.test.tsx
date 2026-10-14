@@ -107,6 +107,32 @@ describe('Attribution on index pages', () => {
     expect(noLic.container.querySelector('.source-credit')!.textContent).not.toContain('licensed under');
     expect(noLic.container.querySelectorAll('.source-credit a')).toHaveLength(1);
   });
+  it('renders the derived credit (unknown authorship, introduction only) for served zh and served en/vi, with no license line', () => {
+    const credit = {
+      kind: 'derived' as const, title: 'Service Discovery in a Microservices Architecture', author: 'Chris Richardson',
+      publisher: 'NGINX blog (now hosted by F5)', url: 'https://www.f5.com/company/blog/nginx/service-discovery-in-a-microservices-architecture',
+    };
+    const zh = render(wrap(<Attribution aboutHref="/en/about" credit={credit} served="zh" />));
+    const block = zh.container.querySelector('.source-credit')!;
+    expect(block.textContent).toContain('This Chinese article is of unknown authorship. Its introduction draws on “Service Discovery in a Microservices Architecture” by Chris Richardson, NGINX blog (now hosted by F5); the rest is not part of that work.');
+    expect(block.textContent).not.toContain('Original source');
+    expect(block.textContent).not.toContain('licensed under');
+    expect(zh.container.textContent).not.toContain('Chinese translation published upstream');
+    expect(zh.container.textContent).toContain(en.attribution.licenseDerived);
+    expect([...block.querySelectorAll('a')].map((a) => a.getAttribute('href'))).toEqual([credit.url]);
+    expect(block.querySelector('cite')!.getAttribute('lang')).toBe('en');
+    zh.unmount();
+    for (const served of ['en', 'vi'] as const) {
+      const r = render(wrap(<Attribution aboutHref="/en/about" credit={credit} served={served} />));
+      const b = r.container.querySelector('.source-credit')!;
+      expect(b.textContent).toContain('This page is a machine translation of a Chinese article of unknown authorship.');
+      expect(b.textContent).not.toContain('licensed under');
+      expect(b.querySelectorAll('a')).toHaveLength(1);
+      r.unmount();
+    }
+    const noYear = render(wrap(<Attribution aboutHref="/en/about" credit={{ ...credit, license: undefined }} served="zh" />));
+    expect(noYear.container.textContent).not.toMatch(/undefined|NaN/);
+  });
   it('carries the UI locale on the credit block', () => {
     const credit = { title: 'T', author: 'A', publisher: 'P', url: 'https://example.com', year: 2015 };
     const { container } = render(wrap(<Attribution aboutHref="/zh/about" credit={credit} creditLang="zh-Hans" />));

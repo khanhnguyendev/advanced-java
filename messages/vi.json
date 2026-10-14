@@ -53,10 +53,13 @@
     "changesTranslated": "Được dịch và chuyển thể từ bản gốc tiếng Trung",
     "sourceFile": "Tệp gốc",
     "licenseCredited": "Bản dịch tiếng Trung do những người đóng góp của Doocs xuất bản ở thượng nguồn theo giấy phép CC-BY-SA-4.0; tác phẩm gốc không được trang này cấp phép.",
+    "licenseDerived": "Bài viết tiếng Trung do những người đóng góp của Doocs xuất bản ở thượng nguồn theo giấy phép CC-BY-SA-4.0; tác phẩm được ghi nguồn không được trang này cấp phép.",
     "sourceCredit": "Nguồn gốc: <cite>“{title}”</cite> của {author}, {publisher}, {year}. Văn bản này là bản dịch tiếng Trung của tác phẩm đó, được sao lại ở đây từ kho thượng nguồn (upstream); quyền đối với bản gốc thuộc về các tác giả của nó. <link>Đọc bản gốc</link>",
     "sourceCreditTranslated": "Nguồn gốc: <cite>“{title}”</cite> của {author}, {publisher}, {year}. Trang này là bản dịch máy của một bản dịch tiếng Trung của tác phẩm đó, được sao lại từ kho thượng nguồn (upstream); quyền đối với bản gốc thuộc về các tác giả của nó. <link>Đọc bản gốc</link>",
     "sourceCreditAdapted": "Phỏng theo <cite>“{title}”</cite> của {author}, {publisher}. Văn bản tiếng Trung ở đây là một bản chuyển thể từ trang đó; đây không phải bản gốc. <link>Đọc bản gốc</link>",
     "sourceCreditAdaptedTranslated": "Phỏng theo <cite>“{title}”</cite> của {author}, {publisher}. Trang này là bản dịch máy của một bản chuyển thể tiếng Trung từ trang đó; đây không phải bản gốc. <link>Đọc bản gốc</link>",
+    "sourceCreditDerived": "Bài viết tiếng Trung này không rõ tác giả. Phần giới thiệu của nó dựa trên <cite>“{title}”</cite> của {author}, {publisher}; phần còn lại không thuộc tác phẩm đó. <link>Đọc bài viết đó</link>",
+    "sourceCreditDerivedTranslated": "Trang này là bản dịch máy của một bài viết tiếng Trung không rõ tác giả. Phần giới thiệu của bài dựa trên <cite>“{title}”</cite> của {author}, {publisher}; phần còn lại không thuộc tác phẩm đó. <link>Đọc bài viết đó</link>",
     "sourceCreditLicense": "Bản gốc được cấp phép theo <licenseLink>{license}</licenseLink>.",
     "aboutLink": "Giới thiệu và giấy phép"
   },

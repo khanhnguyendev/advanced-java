@@ -42,4 +42,4 @@ Translation rules:
 - Titles first: the meta tier runs before documents. A translated document's H1 equals its meta `title`; `navTitle` is the short upstream sidebar label (a noun phrase, never a question).
 - For glossary values written `A (B)`, use A everywhere and write B in parentheses only on first use in a document.
 - Vietnamese numbers use Vietnamese units (nghìn, triệu, tỷ), never 万, w or vạn.
-- Held docs are not translated (see `content/advanced-java/translation-policy.json`).
+- Held docs are not translated (see `content/advanced-java/translation-policy.json`). An entry with `decision: "translate"` may carry `excludeLocales: ["en"]` to block translation (batches, prompt, stamp) and shipping (check) for those locales only.

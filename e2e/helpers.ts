@@ -26,11 +26,6 @@ export function firstUntranslated(locale: 'en' | 'vi'): string | undefined {
   return allSlugs().find((s) => !hasLocale(locale, s));
 }
 
-/** First slug with neither a vi nor an en file: the vi chain (vi -> en -> zh) renders zh for it. */
-export function firstZhOnly(): string | undefined {
-  return allSlugs().find((s) => !hasLocale('vi', s) && !hasLocale('en', s));
-}
-
 export const PILOT = 'why-mq';
 
 /** CJK font file names grouped by font-weight (each weight has its own set of unicode-range slices). */

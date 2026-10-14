@@ -46,6 +46,29 @@ describe('pendingBatches', () => {
   });
 });
 
+describe('pendingBatches with excludeLocales', () => {
+  it('skips the real microservices-introduction slug for en', () => {
+    const contentRoot = path.resolve(__dirname, '../../content');
+    const slugs = pendingBatches(contentRoot, 'advanced-java', 'en', 100).flatMap((b) => b.slugs);
+    expect(slugs).not.toContain('microservices-introduction');
+  });
+  it('skips an excluded locale only', () => {
+    const r = mkdtempSync(path.join(os.tmpdir(), 'batch-excl-'));
+    mkdirSync(path.join(r, 'c'), { recursive: true });
+    writeFileSync(
+      path.join(r, 'c/collection.json'),
+      JSON.stringify({
+        id: 'c', sourceLocale: 'zh', tabColor: '#000000', fallback: { vi: ['zh'], en: ['zh'], zh: ['zh'] },
+        sections: [{ id: 's', prefix: 'A', groups: [{ id: 'g', docs: ['a', 'b'] }] }],
+        ids: { a: 'A-1', b: 'A-2' }, upstream: { repo: 'r', commit: 'c' }, upstreamFiles: {},
+      }),
+    );
+    writeFileSync(path.join(r, 'c/translation-policy.json'), JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: ['en'] } } }));
+    expect(pendingBatches(r, 'c', 'en', 10)).toEqual([{ section: 's', slugs: ['b'] }]);
+    expect(pendingBatches(r, 'c', 'vi', 10)).toEqual([{ section: 's', slugs: ['a', 'b'] }]);
+  });
+});
+
 describe('pendingBatches with a translation policy', () => {
   function held(decision: string) {
     const r = mkdtempSync(path.join(os.tmpdir(), 'batch-pol-'));

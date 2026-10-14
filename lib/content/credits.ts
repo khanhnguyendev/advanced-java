@@ -6,10 +6,14 @@ export interface SourceCredit {
   author: string;
   publisher: string;
   url: string;
-  /** required for kind 'translation'; optional for an adaptation */
+  /** required for kind 'translation'; optional for an adaptation or a derived credit */
   year?: number;
-  /** 'translation' (default): the zh text is a translation of the original; 'adaptation': an adaptation of it */
-  kind?: 'translation' | 'adaptation';
+  /**
+   * 'translation' (default): the zh text is a translation of the original; 'adaptation': an adaptation of it;
+   * 'derived': the zh text is an article of unknown authorship whose introduction draws on the credited work
+   * (title/author/publisher/url are that work's; the rest of the article is not part of it)
+   */
+  kind?: 'translation' | 'adaptation' | 'derived';
   license?: { name: string; url: string };
 }
 export type SourceCredits = Record<string, SourceCredit>;
@@ -34,8 +38,9 @@ export function loadCredits(root: string, collection: string): SourceCredits {
       if (typeof r[f] !== 'string' || (r[f] as string).trim() === '') throw bad(`"${key}".${f} must be a non-empty string`);
     }
     if (!/^https?:\/\//i.test(r.url as string)) throw bad(`"${key}".url must be an http(s) URL`);
-    if (r.kind !== undefined && r.kind !== 'translation' && r.kind !== 'adaptation') throw bad(`"${key}".kind must be "translation" or "adaptation"`);
-    const kind = (r.kind as 'translation' | 'adaptation' | undefined) ?? 'translation';
+    if (r.kind !== undefined && r.kind !== 'translation' && r.kind !== 'adaptation' && r.kind !== 'derived') throw bad(`"${key}".kind must be "translation", "adaptation" or "derived"`);
+    const kind = (r.kind as 'translation' | 'adaptation' | 'derived' | undefined) ?? 'translation';
+    if (kind === 'derived' && (r.license !== undefined || r.year !== undefined)) throw bad(`"${key}": a derived credit must not have a license or a year`);
     if (r.year !== undefined) {
       if (typeof r.year !== 'number' || !Number.isInteger(r.year)) throw bad(`"${key}".year must be an integer`);
     } else if (kind === 'translation') throw bad(`"${key}".year must be an integer`);

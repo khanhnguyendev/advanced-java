@@ -53,10 +53,13 @@
     "changesTranslated": "Translated and adapted from the Chinese original",
     "sourceFile": "Upstream file",
     "licenseCredited": "Chinese translation published upstream by Doocs contributors under CC-BY-SA-4.0; the original work is not licensed by this site.",
+    "licenseDerived": "Chinese article published upstream by Doocs contributors under CC-BY-SA-4.0; the credited work is not licensed by this site.",
     "sourceCredit": "Original source: <cite>“{title}”</cite> by {author}, {publisher}, {year}. This text is a Chinese translation of that work, reproduced here from the upstream repository; rights in the original remain with its authors. <link>Read the original</link>",
     "sourceCreditTranslated": "Original source: <cite>“{title}”</cite> by {author}, {publisher}, {year}. This page is a machine translation of a Chinese translation of that work, which is reproduced from the upstream repository; rights in the original remain with its authors. <link>Read the original</link>",
     "sourceCreditAdapted": "Adapted from <cite>“{title}”</cite> by {author}, {publisher}. The Chinese text here is an adaptation of that page; it is not the original. <link>Read the original</link>",
     "sourceCreditAdaptedTranslated": "Adapted from <cite>“{title}”</cite> by {author}, {publisher}. This page is a machine translation of a Chinese adaptation of that page; it is not the original. <link>Read the original</link>",
+    "sourceCreditDerived": "This Chinese article is of unknown authorship. Its introduction draws on <cite>“{title}”</cite> by {author}, {publisher}; the rest is not part of that work. <link>Read that article</link>",
+    "sourceCreditDerivedTranslated": "This page is a machine translation of a Chinese article of unknown authorship. Its introduction draws on <cite>“{title}”</cite> by {author}, {publisher}; the rest is not part of that work. <link>Read that article</link>",
     "sourceCreditLicense": "The original is licensed under <licenseLink>{license}</licenseLink>.",
     "aboutLink": "About and licenses"
   },

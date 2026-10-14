@@ -181,6 +181,12 @@ describe('policy, credits and title gates', () => {
     expect(checkCollection(build(fm, undefined, hold('exclude')).root, 'c').errors.join('\n')).toMatch(/held-doc-translated/);
     expect(checkCollection(build(fm, undefined, hold('translate')).root, 'c').errors).toEqual([]);
   });
+  it('errors when a translation exists for a locale in excludeLocales, naming the locale', () => {
+    const files = { ...ok, 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: ['vi'] } } }) };
+    expect(checkCollection(build(fm, undefined, files).root, 'c').errors.join('\n')).toMatch(/vi\/s\/a: \[held-doc-translated\].*locale vi/);
+    const other = { ...ok, 'c/translation-policy.json': JSON.stringify({ hold: { 's/a': { reason: 'r', decision: 'translate', excludeLocales: ['en'] } } }) };
+    expect(checkCollection(build(fm, undefined, other).root, 'c').errors).toEqual([]);
+  });
   it('errors on policy and credit keys that match no doc', () => {
     const credit = { title: 'T', author: 'A', publisher: 'P', url: 'https://example.com', year: 2014 };
     const { root } = build(fm, undefined, {
