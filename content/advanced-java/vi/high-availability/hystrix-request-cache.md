@@ -8,11 +8,11 @@ translatedAt: '2026-10-14'
 ---
 # Tối ưu API truy vấn dữ liệu sản phẩm hàng loạt bằng kỹ thuật request cache
 
-Bước thứ ba trong 8 bước lớn khi Hystrix command thực thi là kiểm tra Request cache có bộ nhớ đệm hay không.
+Bước thứ ba trong 8 bước lớn khi Hystrix command thực thi là kiểm tra Request cache có bộ nhớ đệm (cache) hay không.
 
 Trước hết có một khái niệm gọi là Request Context (ngữ cảnh yêu cầu). Nói chung, trong một ứng dụng web, nếu chúng ta dùng Hystrix, thì trong một filter, chúng ta sẽ áp một ngữ cảnh yêu cầu cho mỗi yêu cầu. Nghĩa là mỗi yêu cầu là một ngữ cảnh yêu cầu. Sau đó trong ngữ cảnh yêu cầu này, chúng ta sẽ thực thi rất nhiều đoạn code, gọi rất nhiều dịch vụ phụ thuộc, có dịch vụ phụ thuộc thậm chí còn bị gọi nhiều lần.
 
-Trong một ngữ cảnh yêu cầu, nếu có nhiều command có tham số giống nhau, API được gọi cũng giống nhau, thì có thể coi kết quả cũng giống nhau. Khi đó, chúng ta có thể để kết quả trả về từ lần thực thi command đầu tiên được lưu vào bộ nhớ (cache), rồi tất cả các lời gọi tiếp theo trong ngữ cảnh yêu cầu này tới dịch vụ phụ thuộc đó chỉ cần lấy kết quả từ bộ nhớ đệm ra.
+Trong một ngữ cảnh yêu cầu, nếu có nhiều command có tham số giống nhau, API được gọi cũng giống nhau, thì có thể coi kết quả cũng giống nhau. Khi đó, chúng ta có thể để kết quả trả về từ lần thực thi command đầu tiên được lưu vào bộ nhớ, rồi tất cả các lời gọi tiếp theo trong ngữ cảnh yêu cầu này tới dịch vụ phụ thuộc đó chỉ cần lấy kết quả từ bộ nhớ đệm ra.
 
 Như vậy, lợi ích là không phải thực thi lặp đi lặp lại nhiều lần cùng một command trong một ngữ cảnh yêu cầu, **tránh thực thi lặp yêu cầu mạng, nâng cao hiệu năng của toàn bộ yêu cầu**.
 
@@ -30,7 +30,7 @@ Với API truy vấn dữ liệu sản phẩm hàng loạt, chúng ta có thể 
 
 ## Cài đặt filter ngữ cảnh yêu cầu của Hystrix và đăng ký
 
-Định nghĩa lớp HystrixRequestContextFilter, cài đặt API Filter.
+Định nghĩa lớp HystrixRequestContextFilter, cài đặt interface Filter.
 
 ```java
 /**

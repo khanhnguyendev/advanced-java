@@ -10,7 +10,7 @@ translatedAt: '2026-10-14'
 
 ## Giới thiệu về Sentinel
 
-sentinel, tên tiếng Việt là "lính gác". Sentinel là một thành phần rất quan trọng trong kiến trúc cụm (cluster) Redis, chủ yếu có các chức năng sau:
+sentinel, tên tiếng Trung là 哨兵. Sentinel là một thành phần rất quan trọng trong kiến trúc cụm (cluster) Redis, chủ yếu có các chức năng sau:
 
 -   Giám sát cụm: chịu trách nhiệm giám sát tiến trình master và slave của Redis có hoạt động bình thường hay không.
 -   Thông báo: nếu một instance Redis nào đó gặp sự cố, Sentinel chịu trách nhiệm gửi thông điệp làm cảnh báo thông báo cho quản trị viên.

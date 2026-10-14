@@ -93,7 +93,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Máy chủ RPC dùng để đăng ký API và lớp triển khai của các phương thức từ xa
+ * Máy chủ RPC dùng để đăng ký interface và lớp triển khai của các phương thức từ xa
  */
 public class RPCServer {
     private static ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
