@@ -5,6 +5,7 @@ import { compareTranslationDetailed, loadExceptions, type Issue } from '../../li
 import { docFile, loadCollection } from '../../lib/content/collection';
 import { parse } from '../../lib/content/fallback';
 import { canonicalHash } from '../../lib/content/hash';
+import { heldMessage, loadPolicy } from '../../lib/content/policy';
 
 export function stampTranslation(i: {
   root: string;
@@ -21,6 +22,11 @@ export function stampTranslation(i: {
   }
   if (!/^\d{4}-\d{2}-\d{2}$/.test(i.today)) throw new Error(`today must be YYYY-MM-DD (got "${i.today}")`);
   const c = loadCollection(i.root, i.collection);
+  const held = heldMessage(loadPolicy(i.root, i.collection), i.section, i.slug);
+  if (held) {
+    const f = docFile(i.root, i.collection, i.locale, i.section, i.slug);
+    return { written: false, file: f, issues: [{ level: 'error', code: 'held-doc', message: held }], waived: [] };
+  }
   const zhFile = docFile(i.root, i.collection, c.sourceLocale, i.section, i.slug);
   const zhBody = parse(readFileSync(zhFile, 'utf8')).content;
   // drop any frontmatter the model added; the stamp is the only source of frontmatter

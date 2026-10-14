@@ -106,3 +106,29 @@ describe('stampTranslation', () => {
     expect(res.waived).toEqual([expect.objectContaining({ code: 'inline-code', reason: 'test waiver' })]);
   });
 });
+
+describe('stampTranslation hold policy', () => {
+  const body = '# Tiêu đề\n\n## Chương\n\nDùng `Kafka`.\n';
+  const held = (decision: string) => {
+    const r = root();
+    writeFileSync(path.join(r, 'c/translation-policy.json'), JSON.stringify({ hold: { 's/a': { reason: 'r', decision } } }));
+    return r;
+  };
+  const stamp = (r: string) =>
+    stampTranslation({ root: r, collection: 'c', locale: 'vi', section: 's', slug: 'a', today: '2026-10-13', translatedBody: body });
+  it('refuses pending and exclude docs and writes nothing', () => {
+    for (const d of ['pending', 'exclude']) {
+      const r = held(d);
+      const res = stamp(r);
+      expect(res.written).toBe(false);
+      expect(res.issues).toEqual([
+        { level: 'error', code: 'held-doc', message: `doc is held by translation-policy.json (decision: ${d})` },
+      ]);
+      expect(existsSync(res.file)).toBe(false);
+    }
+  });
+  it('translate lifts the block', () => {
+    expect(stamp(held('translate')).written).toBe(true);
+  });
+});
+

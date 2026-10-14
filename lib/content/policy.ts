@@ -38,3 +38,9 @@ export function isHeld(policy: TranslationPolicy, section: string, slug: string)
   const e = policy.hold[`${section}/${slug}`];
   return e !== undefined && e.decision !== 'translate';
 }
+
+/** Error text for a blocked doc, or undefined when the doc is not blocked. */
+export function heldMessage(policy: TranslationPolicy, section: string, slug: string): string | undefined {
+  if (!isHeld(policy, section, slug)) return undefined;
+  return `doc is held by translation-policy.json (decision: ${policy.hold[`${section}/${slug}`].decision})`;
+}
