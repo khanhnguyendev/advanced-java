@@ -89,5 +89,19 @@
   "大数据": "big data",
   "大量数据": "large amounts of data",
   "重复次数": "occurrence count",
-  "频数": "frequency"
+  "频数": "frequency",
+  "主观宕机": "subjectively down (sdown)",
+  "客观宕机": "objectively down (odown)",
+  "主备切换": "failover",
+  "主备": "master/standby",
+  "从节点": "replica node",
+  "水平拆分": "horizontal splitting",
+  "垂直拆分": "vertical splitting",
+  "横向扩容": "horizontal scaling (scale-out)",
+  "调用链路": "call chain",
+  "预热": "warm-up",
+  "线上": "in production",
+  "协调节点": "coordinating node",
+  "热点": "hotspot",
+  "Java接口": "interface (Java interface)"
 }

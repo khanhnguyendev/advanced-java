@@ -46,15 +46,22 @@ describe('buildPrompt', () => {
   });
   it('includes Vietnamese number rules for vi only', () => {
     expect(p).toMatch(/13\. Vietnamese only: write numbers in Vietnamese units/);
-    expect(p).toMatch(/14\. Vietnamese only: write 接口 as API/);
+    expect(p).toMatch(/14\. Vietnamese only: write 临时耦合 as the glossary says/);
     const en = buildPrompt({ locale: 'en', slug: 's', title: 'T', zhBody: 'x', glossary: { 接口: 'API/interface' }, keep: [] });
     expect(en).not.toMatch(/Vietnamese only/);
     expect(en).toContain('接口 → API/interface');
   });
   it('states the guidance rule range per locale', () => {
-    expect(p).toContain('Rules 8-14 are guidance');
+    expect(p).toContain('Rules 8-15 are guidance');
     const en = buildPrompt({ locale: 'en', slug: 's', title: 'T', zhBody: 'x', glossary: {}, keep: [] });
-    expect(en).toContain('Rules 8-12 are guidance');
+    expect(en).toContain('Rules 8-15 are guidance');
+  });
+  it('carries the 接口 API vs interface rule in both locales', () => {
+    const en = buildPrompt({ locale: 'en', slug: 's', title: 'T', zhBody: 'x', glossary: {}, keep: [] });
+    for (const t of [p, en]) {
+      expect(t).toMatch(/15\. 接口: when it means an API \(HTTP\/RPC\/service endpoint\) write API/);
+      expect(t).toContain("Never 'giao diện' / 'user interface' for 接口.");
+    }
   });
   it('pins the H1 to the meta title', () => {
     expect(p).toContain('The document\'s first heading `# …` MUST be exactly: Why use a message queue?');
