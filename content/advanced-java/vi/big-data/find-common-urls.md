@@ -68,6 +68,8 @@ Vì vậy trong buổi phỏng vấn có thể nhắc đến phương án trie; 
 
 - Nếu CPU không dư dả, ví dụ đơn nhân, có thể cân nhắc tăng kích thước tệp khi chia: từ 1000 tệp ban đầu giảm xuống 200 tệp, tức kích thước tệp được mở rộng gấp đôi, trước là 300MB, giờ là 300\*5 = 1.5G, trên máy 4G có thể lấp đầy bộ nhớ, giảm số lần IO, giảm việc sao chép từ kernel mode sang user mode, cũng có thể nhắc thêm DMA.
 
+> Ghi chú của người dịch: bản gốc viết "hai lần"; theo phép tính ngay sau đó thì đáp án thông thường là năm lần.
+
 ## Tổng kết phương pháp
 
 ### Chiến lược chia để trị

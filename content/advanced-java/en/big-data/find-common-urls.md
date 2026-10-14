@@ -68,6 +68,8 @@ So in an interview you can mention the trie approach. In this scenario, parsing 
 
 - If the CPU is not plentiful, for example a single core, you can consider increasing the size of the split files. The original 1000 files drop to 200, so the file size is enlarged two times, from 300MB to 300\*5 = 1.5G, which fills the memory of a 4G machine, reduces the number of IO operations and the copying from kernel mode to user mode. You could also mention DMA.
 
+> Translator's note: the original says "two times"; the usual answer, by the arithmetic that follows, is five.
+
 ## Summary
 
 ### Divide and conquer
