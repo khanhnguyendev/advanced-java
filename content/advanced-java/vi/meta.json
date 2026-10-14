@@ -28,44 +28,44 @@
   },
   "docs": {
     "mq-interview": {
-      "title": "Các tình huống phỏng vấn về hàng đợi thông điệp",
+      "title": "Tình huống phỏng vấn về hàng đợi thông điệp",
       "navTitle": "Hàng đợi thông điệp"
     },
     "why-mq": {
-      "title": "Tại sao phải sử dụng hàng đợi thông điệp?",
-      "navTitle": "Tại sao dùng hàng đợi thông điệp?"
+      "title": "Tại sao sử dụng hàng đợi thông điệp?",
+      "navTitle": "Tại sao sử dụng hàng đợi thông điệp?"
     },
     "how-to-ensure-high-availability-of-message-queues": {
       "title": "Làm thế nào để đảm bảo tính sẵn sàng cao của hàng đợi thông điệp?",
-      "navTitle": "Đảm bảo tính sẵn sàng cao của hàng đợi thông điệp"
+      "navTitle": "Làm thế nào để đảm bảo tính sẵn sàng cao của hàng đợi thông điệp?"
     },
     "how-to-ensure-that-messages-are-not-repeatedly-consumed": {
       "title": "Làm thế nào để đảm bảo thông điệp không bị tiêu thụ trùng lặp?",
-      "navTitle": "Tránh tiêu thụ trùng lặp thông điệp"
+      "navTitle": "Làm thế nào để đảm bảo thông điệp không bị tiêu thụ trùng lặp?"
     },
     "how-to-ensure-the-reliable-transmission-of-messages": {
-      "title": "Làm thế nào để đảm bảo độ tin cậy khi truyền thông điệp?",
-      "navTitle": "Độ tin cậy khi truyền thông điệp"
+      "title": "Làm thế nào để đảm bảo truyền thông điệp với độ tin cậy cao?",
+      "navTitle": "Làm thế nào để đảm bảo truyền thông điệp với độ tin cậy cao?"
     },
     "how-to-ensure-the-order-of-messages": {
       "title": "Làm thế nào để đảm bảo tính thứ tự của thông điệp?",
-      "navTitle": "Tính thứ tự của thông điệp"
+      "navTitle": "Làm thế nào để đảm bảo tính thứ tự của thông điệp?"
     },
     "mq-time-delay-and-expired-failure": {
-      "title": "Làm thế nào để xử lý vấn đề độ trễ và thông điệp hết hạn trong hàng đợi thông điệp?",
-      "navTitle": "Độ trễ và thông điệp hết hạn"
+      "title": "Làm thế nào để giải quyết vấn đề độ trễ và hết hạn của hàng đợi thông điệp?",
+      "navTitle": "Làm thế nào để giải quyết vấn đề độ trễ và hết hạn của hàng đợi thông điệp?"
     },
     "mq-design": {
       "title": "Làm thế nào để thiết kế một hàng đợi thông điệp?",
-      "navTitle": "Thiết kế hàng đợi thông điệp"
+      "navTitle": "Làm thế nào để thiết kế một hàng đợi thông điệp?"
     },
     "es-introduction": {
-      "title": "Giới thiệu về công cụ tìm kiếm",
+      "title": "Giới thiệu công cụ tìm kiếm",
       "navTitle": "Công cụ tìm kiếm"
     },
     "es-architecture": {
       "title": "Nguyên lý kiến trúc phân tán của ES",
-      "navTitle": "Kiến trúc phân tán của ES"
+      "navTitle": "Nguyên lý kiến trúc phân tán của ES"
     },
     "es-write-query-search": {
       "title": "Nguyên lý ghi dữ liệu của ES",
@@ -77,26 +77,26 @@
     },
     "es-production-cluster": {
       "title": "Kiến trúc cụm ES trên môi trường production",
-      "navTitle": "Kiến trúc cụm ES production"
+      "navTitle": "Kiến trúc cụm ES trên môi trường production"
     },
     "why-cache": {
-      "title": "Các cách sử dụng bộ nhớ đệm",
+      "title": "Cách sử dụng bộ nhớ đệm",
       "navTitle": "Cách sử dụng bộ nhớ đệm"
     },
     "redis-single-thread-model": {
       "title": "Sự khác biệt giữa Redis và Memcached",
-      "navTitle": "Redis và Memcached khác nhau thế nào"
+      "navTitle": "Khác biệt giữa Redis và Memcached"
     },
     "redis-data-types": {
       "title": "Các kiểu dữ liệu của Redis và tình huống sử dụng",
-      "navTitle": "Kiểu dữ liệu Redis và tình huống sử dụng"
+      "navTitle": "Kiểu dữ liệu và tình huống của Redis"
     },
     "redis-expiration-policies-and-lru": {
-      "title": "Chính sách hết hạn và thuật toán LRU của Redis",
-      "navTitle": "Chính sách hết hạn của Redis"
+      "title": "Chiến lược hết hạn và thuật toán LRU của Redis",
+      "navTitle": "Chiến lược hết hạn của Redis"
     },
     "how-to-ensure-high-concurrency-and-high-availability-of-redis": {
-      "title": "Làm thế nào để đảm bảo tải đồng thời cao và tính sẵn sàng cao cho Redis?",
+      "title": "Làm thế nào để đảm bảo tải đồng thời cao và tính sẵn sàng cao của Redis?",
       "navTitle": "Tải đồng thời cao và tính sẵn sàng cao của Redis"
     },
     "redis-master-slave": {
@@ -105,11 +105,11 @@
     },
     "redis-persistence": {
       "title": "Cơ chế lưu trữ bền vững của Redis",
-      "navTitle": "Lưu trữ bền vững của Redis"
+      "navTitle": "Cơ chế lưu trữ bền vững của Redis"
     },
     "redis-sentinel": {
-      "title": "Đạt tính sẵn sàng cao bằng cụm Sentinel của Redis",
-      "navTitle": "Cụm Sentinel và tính sẵn sàng cao"
+      "title": "Cụm Sentinel của Redis đạt tính sẵn sàng cao",
+      "navTitle": "Cụm Sentinel đạt tính sẵn sàng cao"
     },
     "redis-cluster": {
       "title": "Nguyên lý chế độ cụm của Redis",
@@ -124,44 +124,44 @@
       "navTitle": "Tính nhất quán giữa bộ nhớ đệm và cơ sở dữ liệu"
     },
     "redis-cas": {
-      "title": "Vấn đề tranh chấp đồng thời trong Redis",
-      "navTitle": "Tranh chấp đồng thời trong Redis"
+      "title": "Vấn đề tranh chấp đồng thời của Redis",
+      "navTitle": "Vấn đề tranh chấp đồng thời của Redis"
     },
     "redis-production-environment": {
       "title": "Phương án triển khai Redis trên môi trường production",
-      "navTitle": "Triển khai Redis production"
+      "navTitle": "Phương án triển khai Redis trên môi trường production"
     },
     "database-shard": {
-      "title": "Tại sao phải dùng sharding?",
-      "navTitle": "Tại sao dùng sharding?"
+      "title": "Tại sao cần sharding?",
+      "navTitle": "Tại sao cần sharding?"
     },
     "database-shard-method": {
-      "title": "Làm thế nào để chuyển sang sharding một cách mượt mà?",
-      "navTitle": "Chuyển sang sharding mượt mà"
+      "title": "Làm thế nào để chuyển đổi sang sharding một cách mượt mà?",
+      "navTitle": "Làm thế nào để chuyển đổi sang sharding một cách mượt mà?"
     },
     "database-shard-dynamic-expand": {
       "title": "Phương án mở rộng và thu hẹp động",
-      "navTitle": "Mở rộng và thu hẹp động"
+      "navTitle": "Phương án mở rộng và thu hẹp động"
     },
     "database-shard-global-id-generate": {
-      "title": "Xử lý khóa chính ID như thế nào?",
-      "navTitle": "Xử lý khóa chính ID"
+      "title": "Xử lý ID khóa chính như thế nào?",
+      "navTitle": "Xử lý ID khóa chính như thế nào?"
     },
     "mysql-read-write-separation": {
-      "title": "Làm thế nào để triển khai tách đọc/ghi?",
-      "navTitle": "Triển khai tách đọc/ghi"
+      "title": "Làm thế nào để thực hiện tách đọc/ghi?",
+      "navTitle": "Làm thế nào để thực hiện tách đọc/ghi?"
     },
     "high-concurrency-design": {
-      "title": "Làm thế nào để thiết kế một hệ thống tải đồng thời cao?",
-      "navTitle": "Thiết kế hệ thống tải đồng thời cao"
+      "title": "Làm thế nào để thiết kế một hệ thống tải đồng thời cao",
+      "navTitle": "Làm thế nào để thiết kế một hệ thống tải đồng thời cao?"
     },
     "how-to-limit-current": {
-      "title": "Làm thế nào để giới hạn lưu lượng? Bạn đã làm trong công việc ra sao? Hãy nói về cách triển khai cụ thể.",
+      "title": "Làm thế nào để giới hạn lưu lượng? Trong công việc bạn làm như thế nào? Hãy nói về cách triển khai cụ thể?",
       "navTitle": "Cách triển khai giới hạn lưu lượng"
     },
     "distributed-system-interview": {
-      "title": "Chuỗi câu hỏi phỏng vấn liên hoàn về hệ thống phân tán",
-      "navTitle": "Chuỗi câu hỏi phỏng vấn liên hoàn"
+      "title": "Chuỗi câu hỏi phỏng vấn dồn dập về hệ thống phân tán",
+      "navTitle": "Chuỗi câu hỏi phỏng vấn dồn dập"
     },
     "why-dubbo": {
       "title": "Tại sao phải tách hệ thống?",
@@ -177,23 +177,23 @@
     },
     "dubbo-load-balancing": {
       "title": "Chiến lược cân bằng tải và chiến lược chịu lỗi cụm của Dubbo",
-      "navTitle": "Cân bằng tải và chịu lỗi cụm của Dubbo"
+      "navTitle": "Chiến lược cân bằng tải và chịu lỗi của Dubbo"
     },
     "dubbo-spi": {
       "title": "Cơ chế SPI của Dubbo",
-      "navTitle": "Cơ chế SPI của Dubbo"
+      "navTitle": "Tư tưởng SPI của Dubbo"
     },
     "dubbo-service-management": {
-      "title": "Làm thế nào để quản trị dịch vụ dựa trên Dubbo?",
-      "navTitle": "Quản trị dịch vụ với Dubbo"
+      "title": "Làm thế nào để quản trị dịch vụ dựa trên Dubbo",
+      "navTitle": "Phương án quản trị dịch vụ"
     },
     "distributed-system-idempotency": {
-      "title": "Làm thế nào để thiết kế tính idempotent cho API của dịch vụ phân tán?",
-      "navTitle": "Thiết kế tính idempotent cho API"
+      "title": "Thiết kế tính idempotent của API dịch vụ phân tán như thế nào?",
+      "navTitle": "Thiết kế tính idempotent của API"
     },
     "distributed-system-request-sequence": {
-      "title": "Làm thế nào để đảm bảo tính thứ tự của các yêu cầu tới API của dịch vụ phân tán?",
-      "navTitle": "Đảm bảo tính thứ tự của yêu cầu tới API"
+      "title": "Làm thế nào để đảm bảo tính thứ tự của các yêu cầu API dịch vụ phân tán?",
+      "navTitle": "Thiết kế tính thứ tự của API"
     },
     "dubbo-rpc-design": {
       "title": "Thiết kế một framework RPC tương tự Dubbo",
@@ -201,15 +201,15 @@
     },
     "distributed-system-cap": {
       "title": "Định lý CAP trong hệ thống phân tán",
-      "navTitle": "Định lý CAP"
+      "navTitle": "P trong định lý CAP là gì?"
     },
     "zookeeper-application-scenarios": {
       "title": "Các tình huống sử dụng Zookeeper",
-      "navTitle": "Tình huống sử dụng Zookeeper"
+      "navTitle": "Tình huống ứng dụng Zookeeper"
     },
     "distributed-lock-redis-vs-zookeeper": {
-      "title": "Triển khai khóa phân tán: Redis và Zookeeper",
-      "navTitle": "Khóa phân tán: Redis và Zookeeper"
+      "title": "Redis vs Zookeeper khi triển khai khóa phân tán",
+      "navTitle": "Redis vs Zookeeper khi triển khai khóa phân tán"
     },
     "distributed-transaction": {
       "title": "Nguyên lý giao dịch phân tán",
@@ -217,22 +217,22 @@
     },
     "distributed-session": {
       "title": "Làm thế nào để triển khai Session phân tán?",
-      "navTitle": "Triển khai Session phân tán"
+      "navTitle": "Làm thế nào để triển khai Session phân tán?"
     },
     "hystrix-introduction": {
-      "title": "Xây dựng kiến trúc dịch vụ có tính sẵn sàng cao với Hystrix",
+      "title": "Xây dựng kiến trúc dịch vụ có tính sẵn sàng cao bằng Hystrix",
       "navTitle": "Giới thiệu Hystrix"
     },
     "e-commerce-website-detail-page-architecture": {
       "title": "Kiến trúc hệ thống trang chi tiết sản phẩm của website thương mại điện tử",
-      "navTitle": "Kiến trúc trang chi tiết sản phẩm"
+      "navTitle": "Thiết kế kiến trúc trang chi tiết"
     },
     "hystrix-thread-pool-isolation": {
-      "title": "Cô lập tài nguyên bằng thread pool của Hystrix",
+      "title": "Cô lập tài nguyên dựa trên kỹ thuật thread pool của Hystrix",
       "navTitle": "Cô lập bằng thread pool"
     },
     "hystrix-semphore-isolation": {
-      "title": "Cô lập tài nguyên bằng cơ chế semaphore của Hystrix",
+      "title": "Cô lập tài nguyên dựa trên cơ chế semaphore của Hystrix",
       "navTitle": "Cô lập bằng semaphore"
     },
     "hystrix-execution-isolation": {
@@ -240,32 +240,32 @@
       "navTitle": "Chiến lược cô lập chi tiết"
     },
     "hystrix-process": {
-      "title": "Tìm hiểu sâu nguyên lý bên trong khi Hystrix thực thi",
-      "navTitle": "Nguyên lý thực thi của Hystrix"
+      "title": "Tìm hiểu sâu nguyên lý nội bộ khi Hystrix thực thi",
+      "navTitle": "Nguyên lý thực thi"
     },
     "hystrix-request-cache": {
-      "title": "Tối ưu API truy vấn dữ liệu sản phẩm hàng loạt bằng request cache",
-      "navTitle": "Tối ưu bằng request cache"
+      "title": "Tối ưu API truy vấn dữ liệu sản phẩm hàng loạt bằng kỹ thuật request cache",
+      "navTitle": "Request cache"
     },
     "hystrix-fallback": {
-      "title": "Cơ chế fallback dựa trên bộ nhớ đệm cục bộ",
-      "navTitle": "Fallback bằng bộ nhớ đệm cục bộ"
+      "title": "Cơ chế suy giảm dịch vụ fallback dựa trên bộ nhớ đệm cục bộ",
+      "navTitle": "Bộ nhớ đệm suy giảm dịch vụ cục bộ"
     },
     "hystrix-circuit-breaker": {
-      "title": "Tìm hiểu sâu nguyên lý thực thi của circuit breaker trong Hystrix",
-      "navTitle": "Nguyên lý của circuit breaker"
+      "title": "Tìm hiểu sâu nguyên lý thực thi circuit breaker của Hystrix",
+      "navTitle": "Nguyên lý circuit breaker"
     },
     "hystrix-thread-pool-current-limiting": {
-      "title": "Tìm hiểu sâu cô lập bằng thread pool và giới hạn lưu lượng API trong Hystrix",
-      "navTitle": "Giới hạn lưu lượng và cô lập bằng thread pool"
+      "title": "Tìm hiểu sâu cô lập thread pool và giới hạn lưu lượng API của Hystrix",
+      "navTitle": "Giới hạn lưu lượng và cô lập thread pool"
     },
     "hystrix-timeout": {
-      "title": "Bảo vệ việc gọi API dịch vụ khỏi hết thời gian chờ bằng cơ chế timeout",
+      "title": "Bảo vệ an toàn cho việc gọi API dịch vụ bị hết thời gian chờ dựa trên cơ chế timeout",
       "navTitle": "Cơ chế bảo vệ timeout"
     },
     "sentinel-vs-hystrix": {
-      "title": "Chọn công nghệ thế nào? Sentinel hay Hystrix?",
-      "navTitle": "Sentinel và Hystrix"
+      "title": "Lựa chọn công nghệ như thế nào? Sentinel hay Hystrix?",
+      "navTitle": "Sentinel vs Hystrix"
     },
     "microservices-introduction": {
       "title": "Mô tả về kiến trúc microservices",
@@ -273,19 +273,19 @@
     },
     "migrating-from-a-monolithic-architecture-to-a-microservices-architecture": {
       "title": "Tổng quan về việc chuyển sang microservices",
-      "navTitle": "Chuyển từ monolith sang microservices"
+      "navTitle": "Từ monolith sang microservices"
     },
     "event-driven-data-management-for-microservices": {
-      "title": "Quản lý dữ liệu hướng sự kiện trong microservices",
+      "title": "Quản lý dữ liệu hướng sự kiện của microservices",
       "navTitle": "Quản lý dữ liệu hướng sự kiện"
     },
     "choose-microservice-deployment-strategy": {
-      "title": "Chọn chiến lược triển khai microservices",
-      "navTitle": "Chọn chiến lược triển khai"
+      "title": "Lựa chọn chiến lược triển khai microservices",
+      "navTitle": "Lựa chọn chiến lược triển khai"
     },
     "whats-microservice-how-to-communicate": {
-      "title": "Microservices là gì? Các microservice giao tiếp độc lập với nhau như thế nào?",
-      "navTitle": "Cách các microservice giao tiếp"
+      "title": "Microservices là gì? Các microservices giao tiếp độc lập với nhau như thế nào?",
+      "navTitle": "Cơ chế giao tiếp giữa các microservices"
     },
     "micro-services-technology-stack": {
       "title": "Technology stack của microservices",
@@ -293,19 +293,19 @@
     },
     "micro-service-governance": {
       "title": "Chiến lược quản trị microservices",
-      "navTitle": "Quản trị microservices"
+      "navTitle": "Chiến lược quản trị microservices"
     },
     "how-eureka-enable-service-discovery-and-service-registration": {
-      "title": "Các quy trình gọi chính của thành phần khám phá dịch vụ Eureka",
+      "title": "Một số quy trình gọi chính của thành phần service discovery Eureka",
       "navTitle": "Đăng ký và khám phá dịch vụ của Eureka"
     },
     "find-common-urls": {
-      "title": "Làm thế nào để tìm các URL trùng nhau trong lượng lớn URL?",
-      "navTitle": "Tìm các URL trùng nhau"
+      "title": "Làm thế nào để tìm các URL giống nhau trong lượng dữ liệu lớn các URL?",
+      "navTitle": "Tìm URL giống nhau"
     },
     "find-top-100-words": {
-      "title": "Làm thế nào để tìm các từ xuất hiện nhiều nhất trong lượng dữ liệu lớn?",
-      "navTitle": "Tìm các từ xuất hiện nhiều nhất"
+      "title": "Làm thế nào để tìm các từ có tần suất cao từ lượng dữ liệu lớn?",
+      "navTitle": "Tìm từ có tần suất cao"
     },
     "find-top-1-ip": {
       "title": "Làm thế nào để tìm IP truy cập website Baidu nhiều nhất trong một ngày?",
@@ -316,40 +316,40 @@
       "navTitle": "Tìm số nguyên không trùng lặp"
     },
     "find-a-number-if-exists": {
-      "title": "Làm thế nào để kiểm tra một số có tồn tại trong lượng dữ liệu lớn hay không?",
-      "navTitle": "Kiểm tra một số có tồn tại không"
+      "title": "Làm thế nào để xác định một số có tồn tại trong lượng dữ liệu lớn hay không?",
+      "navTitle": "Xác định số có tồn tại hay không"
     },
     "find-hotest-query-string": {
-      "title": "Làm thế nào để truy vấn các chuỗi truy vấn phổ biến nhất?",
+      "title": "Làm thế nào để truy vấn chuỗi truy vấn phổ biến nhất?",
       "navTitle": "Truy vấn chuỗi truy vấn phổ biến nhất"
     },
     "count-different-phone-numbers": {
-      "title": "Làm thế nào để đếm số lượng số điện thoại khác nhau?",
-      "navTitle": "Đếm số điện thoại khác nhau"
+      "title": "Làm thế nào để thống kê số lượng số điện thoại khác nhau?",
+      "navTitle": "Thống kê số điện thoại khác nhau"
     },
     "find-mid-value-in-500-millions": {
-      "title": "Làm thế nào để tìm số trung vị trong 500 triệu số?",
+      "title": "Làm thế nào để tìm số trung vị trong 5 trăm triệu số?",
       "navTitle": "Tìm số trung vị"
     },
     "sort-the-query-strings-by-counts": {
-      "title": "Làm thế nào để sắp xếp query theo tần suất?",
-      "navTitle": "Sắp xếp query theo tần suất"
+      "title": "Làm thế nào để sắp xếp theo tần suất của query?",
+      "navTitle": "Sắp xếp chuỗi truy vấn theo tần suất"
     },
     "find-rank-top-500-numbers": {
       "title": "Làm thế nào để tìm 500 số đứng đầu?",
       "navTitle": "Tìm 500 số đứng đầu"
     },
     "topk-problems-and-solutions": {
-      "title": "Các hướng giải thường dùng cho bài toán TopK trong dữ liệu lớn",
-      "navTitle": "Hướng giải bài toán TopK"
+      "title": "Các cách tiếp cận thường dùng cho bài toán TopK trong dữ liệu lớn",
+      "navTitle": "Nói về các cách tiếp cận thường dùng cho bài toán TopK trong dữ liệu lớn?"
     },
     "redis-rehash": {
       "title": "Quá trình rehash của Redis",
-      "navTitle": "Quá trình rehash của Redis"
+      "navTitle": "Bạn có hiểu quá trình rehash của Redis không?"
     },
     "advantages-and-disadvantages-of-microservice": {
-      "title": "Ưu điểm và nhược điểm của kiến trúc microservices",
-      "navTitle": "Ưu và nhược điểm của microservices"
+      "title": "Ưu điểm và hạn chế của kiến trúc microservices",
+      "navTitle": "Ưu điểm và hạn chế của kiến trúc microservices"
     }
   }
 }
