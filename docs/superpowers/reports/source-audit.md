@@ -46,3 +46,21 @@ The scan is heuristic: a doc that was translated without any marker and in a nat
 
 For rows 1–5: exclude (current default), or ask for permission/replace with a link, or translate anyway with a stated rationale.
 For rows 6–10: translate, rewrite the derived part, or exclude. Row 10 first needs a source check; I can do that when you say so.
+
+## Addendum 2026-10-14: verification run (owner decisions on pilot-report-2)
+
+Credit URLs, fetched live:
+
+| Credit | URL given | Result | Final URL used | Page title | Author / date |
+|---|---|---|---|---|---|
+| Fowler and Lewis | https://martinfowler.com/articles/microservices.html | 200, same URL | same | "Microservices" | James Lewis and Martin Fowler, 25 March 2014; footer "© Martin Fowler" |
+| Richardson part 1 | https://www.nginx.com/blog/introduction-to-microservices/ | 301 to the generic https://www.f5.com/products/nginx page (not the article) | https://www.f5.com/company/blog/nginx/introduction-to-microservices | "Introduction to Microservices \| F5" | Chris Richardson, May 19, 2015; "©2026 F5, Inc. All Rights Reserved" |
+| Richardson part 5 | https://www.nginx.com/blog/event-driven-data-management-microservices/ | 301 to the generic product page | https://www.f5.com/company/blog/nginx/event-driven-data-management-microservices | "Event-Driven Data Management for Microservices \| F5" | Chris Richardson, December 04, 2015; © F5 |
+| Richardson part 6 | https://www.nginx.com/blog/deploying-microservices/ | 301 to the generic product page | https://www.f5.com/company/blog/nginx/deploying-microservices | "Choosing a Microservices Deployment Strategy" | Chris Richardson, February 10, 2016; © F5 |
+| Richardson part 7 | https://www.nginx.com/blog/refactoring-a-monolith-into-microservices/ | 301 to the generic product page | https://www.f5.com/company/blog/nginx/refactoring-a-monolith-into-microservices | "Refactoring a Monolith into Microservices \| F5" | Chris Richardson, March 08, 2016; © F5 |
+
+The four NGINX URLs from recollection are dead (they redirect to a product page); the f5.com URLs above are verified and are what `source-credits.json` now carries. All four Richardson pages are "©2026 F5, Inc. All Rights Reserved": no open license.
+
+Row 6 (`how-eureka-enable-service-discovery-and-service-registration`): searched again with the doc's title and a distinctive sentence; no source found. **Unresolved, stays held.** Note that most Chinese Eureka tutorials share this structure, so the text may be a rewrite or a repost.
+
+Row 10 (`high-availability/sentinel-vs-hystrix`): verified. It is adapted from the Sentinel wiki page "Sentinel 与 Hystrix 的对比" (github.com/alibaba/Sentinel/wiki/Sentinel-与-Hystrix-的对比): the opening paragraph and the 11-row comparison table match the wiki's. The doc adds a title, a project link and some sections. License: the repository alibaba/Sentinel declares Apache-2.0 and the wiki declares no separate license (GitHub footer only). Apache-2.0 attaches to the repository; whether it covers wiki pages is not stated, so the position is unclear. **Stays held**, as instructed.
