@@ -48,6 +48,9 @@
     "licenseCredited": "Chinese translation published upstream by Doocs contributors under CC-BY-SA-4.0; the original work is not licensed by this site.",
     "sourceCredit": "Original source: <cite>“{title}”</cite> by {author}, {publisher}, {year}. This text is a Chinese translation of that work, reproduced here from the upstream repository; rights in the original remain with its authors. <link>Read the original</link>",
     "sourceCreditTranslated": "Original source: <cite>“{title}”</cite> by {author}, {publisher}, {year}. This page is a machine translation of a Chinese translation of that work, which is reproduced from the upstream repository; rights in the original remain with its authors. <link>Read the original</link>",
+    "sourceCreditAdapted": "Adapted from <cite>“{title}”</cite> by {author}, {publisher}. The Chinese text here is an adaptation of that page; it is not the original. <link>Read the original</link>",
+    "sourceCreditAdaptedTranslated": "Adapted from <cite>“{title}”</cite> by {author}, {publisher}. This page is a machine translation of a Chinese adaptation of that page; it is not the original. <link>Read the original</link>",
+    "sourceCreditLicense": "The original is licensed under <licenseLink>{license}</licenseLink>.",
     "aboutLink": "About and licenses"
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },
@@ -56,7 +59,7 @@
     "title": "About and licenses",
     "codeLicense": "The site code is MIT licensed.",
     "contentLicense": "The content (text and translations) is licensed CC-BY-SA-4.0.",
-    "images": "Images are included only where we have the right to license them; others are credited to the upstream repository and are not relicensed.",
+    "images": "All 126 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.",
     "imageCredits": "Image credits"
   }
 }

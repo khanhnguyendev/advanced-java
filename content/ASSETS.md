@@ -1,10 +1,7 @@
 # Image provenance
 
-Images under `advanced-java/_assets` come from the upstream repository
-https://github.com/doocs/advanced-java (commit recorded in `collection.json`).
-Upstream does not record per-image provenance; some diagrams may be third-party.
-They are listed in `advanced-java/import-report.md`. Images whose origin is not
-established are credited to the upstream repository on `/about` and are not
-relicensed by this project.
-
-`content/*/_assets/` is excluded from content/LICENSE; images remain under their original terms.
+All 126 images come from the upstream repository doocs/advanced-java
+(https://github.com/doocs/advanced-java) at commit 1a35221 and are included under
+that repository's license, CC-BY-SA-4.0. Their original authorship is not
+documented upstream. They are listed in `advanced-java/import-report.md` and on
+`/about`.

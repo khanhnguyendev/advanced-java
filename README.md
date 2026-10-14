@@ -8,8 +8,7 @@ Multilingual (vi / en / zh) reading site for the doocs/advanced-java corpus.
 - **Content** (`content/` text and translations): CC-BY-SA-4.0, see `content/LICENSE`.
   Original content by Doocs and 中华石杉, upstream: https://github.com/doocs/advanced-java .
   vi and en pages are translated and adapted from the Chinese original; zh pages are reformatted from it.
-  Images are included only where we have the right to license them; see `content/ASSETS.md`.
-  `content/*/_assets/` is excluded from content/LICENSE; images remain under their original terms.
+  All 126 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream; see `content/ASSETS.md`.
 
 ## Development
 
@@ -18,15 +17,10 @@ Multilingual (vi / en / zh) reading site for the doocs/advanced-java corpus.
 - `pnpm e2e`: run the Playwright end-to-end tests.
 - `pnpm check:translations`: verify translation files, hashes and coverage.
 
-## Deploying (Vercel Git integration, no token on disk)
+## Deploying
 
-1. Create the GitHub repository and push this project (owner action).
-2. Install the Vercel GitHub app and import the repository in the Vercel dashboard (Framework: Next.js; Node 22).
-3. Project Settings → Environments → Production → Branch Tracking: turn **off** "Auto-assign Custom Production Domains".
-4. Every push to a non-production branch gets a preview deployment. A push to `main` creates a *staged* production deployment.
-5. Promote a staged deployment to production from the Deployments page ("Promote"). Nothing is served from production until you do.
-
-Optional: set `NEXT_PUBLIC_SITE_URL` (no trailing slash) for canonical/hreflang/sitemap URLs; otherwise `VERCEL_PROJECT_PRODUCTION_URL` is used.
+Deploys use Vercel's Git integration. A push to `main` deploys to production; other branches get preview deployments.
+Optionally set `NEXT_PUBLIC_SITE_URL` (no trailing slash) for canonical/hreflang/sitemap URLs; otherwise `VERCEL_PROJECT_PRODUCTION_URL` is used.
 
 ## Translation workflow (machine translation, direct from zh)
 

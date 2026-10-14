@@ -33,5 +33,16 @@
     "publisher": "NGINX blog (now hosted by F5); series: Microservices: From Design to Deployment",
     "url": "https://www.f5.com/company/blog/nginx/refactoring-a-monolith-into-microservices",
     "year": 2016
+  },
+  "high-availability/sentinel-vs-hystrix": {
+    "kind": "adaptation",
+    "title": "Sentinel 与 Hystrix 的对比",
+    "author": "Alibaba Sentinel project contributors",
+    "publisher": "alibaba/Sentinel wiki (GitHub)",
+    "url": "https://github.com/alibaba/Sentinel/wiki/Sentinel-%E4%B8%8E-Hystrix-%E7%9A%84%E5%AF%B9%E6%AF%94",
+    "license": {
+      "name": "Apache-2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
   }
 }

@@ -88,6 +88,28 @@ describe('Attribution on index pages', () => {
     const enServed = render(wrap(<Attribution aboutHref="/en/about" credit={credit} served="en" />));
     expect(enServed.container.textContent).toContain('machine translation of a Chinese translation');
   });
+  it('renders the adaptation credit with a license link, in each served variant and locale', () => {
+    const credit = {
+      kind: 'adaptation' as const, title: 'Sentinel 与 Hystrix 的对比', author: 'Sentinel contributors', publisher: 'alibaba/Sentinel wiki',
+      url: 'https://github.com/alibaba/Sentinel/wiki/x', license: { name: 'Apache-2.0', url: 'https://www.apache.org/licenses/LICENSE-2.0' },
+    };
+    const zh = render(wrap(<Attribution aboutHref="/en/about" credit={credit} served="zh" />));
+    const block = zh.container.querySelector('.source-credit')!;
+    expect(block.textContent).toContain('Adapted from “Sentinel 与 Hystrix 的对比” by Sentinel contributors, alibaba/Sentinel wiki.');
+    expect(block.textContent).toContain('it is not the original');
+    expect(block.textContent).toContain('The original is licensed under Apache-2.0.');
+    expect(block.querySelector('cite')!.getAttribute('lang')).toBe('en');
+    const links = [...block.querySelectorAll('a')];
+    expect(links.map((a) => a.getAttribute('href'))).toEqual([credit.url, credit.license.url]);
+    expect(links[1].textContent).toBe('Apache-2.0');
+    zh.unmount();
+    const en = render(wrap(<Attribution aboutHref="/en/about" credit={credit} served="en" />));
+    expect(en.container.querySelector('.source-credit')!.textContent).toContain('machine translation of a Chinese adaptation');
+    en.unmount();
+    const noLic = render(wrap(<Attribution aboutHref="/en/about" credit={{ ...credit, license: undefined }} served="zh" />));
+    expect(noLic.container.querySelector('.source-credit')!.textContent).not.toContain('licensed under');
+    expect(noLic.container.querySelectorAll('.source-credit a')).toHaveLength(1);
+  });
   it('carries the UI locale on the credit block', () => {
     const credit = { title: 'T', author: 'A', publisher: 'P', url: 'https://example.com', year: 2015 };
     const { container } = render(wrap(<Attribution aboutHref="/zh/about" credit={credit} creditLang="zh-Hans" />));
@@ -134,6 +156,13 @@ describe('About', () => {
     expect(screen.getByText('CC-BY-SA-4.0')).toBeTruthy();
     expect(container.querySelector(`a[href$="/tree/${commit}"]`)).toBeTruthy();
     expect(container.querySelectorAll('main').length).toBe(1);
+  });
+
+  it('states the image provenance and no longer disclaims relicensing', () => {
+    const { container } = render(wrap(<AboutContent collections={collections} />));
+    const text = container.textContent!;
+    expect(text).toContain("All 126 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.");
+    expect(text).not.toMatch(/relicensed|original terms|third-party/);
   });
 
   it('lists one link per image, each pointing at the commit', () => {

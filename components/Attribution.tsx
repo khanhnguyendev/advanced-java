@@ -23,18 +23,32 @@ export function Attribution({
 }) {
   const t = useTranslations('attribution');
   const stop = t('stop');
+  const adapted = credit?.kind === 'adaptation';
+  const translatedServed = served === 'en' || served === 'vi';
+  const key = adapted
+    ? translatedServed ? 'sourceCreditAdaptedTranslated' : 'sourceCreditAdapted'
+    : translatedServed ? 'sourceCreditTranslated' : 'sourceCredit';
   return (
     <footer className="attribution ui">
       {credit ? (
         <p className="source-credit" lang={creditLang}>
-          {t.rich(served === 'en' || served === 'vi' ? 'sourceCreditTranslated' : 'sourceCredit', {
+          {t.rich(key, {
             title: credit.title,
             author: credit.author,
             publisher: credit.publisher,
-            year: credit.year,
+            year: credit.year ?? '',
             cite: (chunks) => <cite lang="en">{chunks}</cite>,
             link: (chunks) => <a href={credit.url}>{chunks}</a>,
           })}
+          {adapted && credit.license ? (
+            <>
+              {' '}
+              {t.rich('sourceCreditLicense', {
+                license: credit.license.name,
+                licenseLink: (chunks) => <a href={credit.license!.url}>{chunks}</a>,
+              })}
+            </>
+          ) : null}
         </p>
       ) : null}
       <p>

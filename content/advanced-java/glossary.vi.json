@@ -91,5 +91,21 @@
   "大数据": "dữ liệu lớn",
   "大量数据": "lượng dữ liệu lớn",
   "重复次数": "số lần xuất hiện",
-  "频数": "tần suất"
+  "频数": "tần suất",
+  "脑裂": "split-brain",
+  "故障转移": "chuyển đổi dự phòng (failover)",
+  "主备切换": "chuyển đổi master/replica",
+  "镜像集群": "cụm phản chiếu",
+  "冷备": "sao lưu lạnh",
+  "协调节点": "node điều phối",
+  "中间件": "middleware",
+  "消息中间件": "message middleware",
+  "写并发": "lượng ghi đồng thời",
+  "库": "cơ sở dữ liệu",
+  "节点": "node",
+  "单体": "hệ thống nguyên khối (monolith)",
+  "前缀树": "cây tiền tố (trie)",
+  "请求上下文": "ngữ cảnh yêu cầu (request context)",
+  "生产环境": "production",
+  "Java接口": "interface"
 }
