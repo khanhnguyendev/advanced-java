@@ -63,4 +63,14 @@ describe('renderDiagram', () => {
     expect(svg).not.toMatch(/ on[a-z]+="/);
     expect(svg).not.toContain('<script');
   });
+
+  it('reads only own string label values and omits data-label for blank text', () => {
+    const s = JSON.parse(JSON.stringify(d.scene)) as typeof d.scene;
+    s.nodes[0]!.label.key = 'constructor';
+    const svg = renderDiagram(s, d.labels.en!.labels, 'en');
+    expect(svg).not.toContain('function');
+    expect(svg).not.toContain('data-label="constructor"');
+    expect(svg).toContain(`<g data-node="${s.nodes[0]!.id}">`);
+    expect(svg).toContain('data-label="n2"');
+  });
 });

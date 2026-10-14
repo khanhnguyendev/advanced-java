@@ -3,8 +3,10 @@ import { expect, test } from '@playwright/test';
 test.skip(process.env.DIAGRAM_REVIEW !== '1', 'set DIAGRAM_REVIEW=1 (build-time) to run');
 
 const URL = '/en/review/diagrams';
-// 5 diagrams x 3 locales x 2 widths
-const MIN_NODE_GROUPS = 30;
+// Exact floors: 5 diagrams x 3 locales x 2 widths = 30 svgs; the 5 diagrams hold 50 nodes in total, so 50 x 6 = 300
+// node groups. If the diagram set changes, update these two numbers in the same commit.
+const EXPECTED_SVGS = 5 * 3 * 2;
+const EXPECTED_NODE_GROUPS = 300;
 
 for (const width of [1280, 360]) {
   for (const scheme of ['light', 'dark'] as const) {
@@ -17,8 +19,14 @@ for (const width of [1280, 360]) {
       await page.waitForLoadState('networkidle');
       await page.evaluate(() => document.fonts.ready);
 
+      const svgCount = await page.locator('[data-diagram] svg[role=img]').count();
+      expect(svgCount, `found ${svgCount} diagram svgs`).toBe(EXPECTED_SVGS);
       const count = await page.locator('g[data-node]').count();
-      expect(count, `only ${count} g[data-node] groups found`).toBeGreaterThanOrEqual(MIN_NODE_GROUPS);
+      expect(count, `found ${count} g[data-node] groups`).toBe(EXPECTED_NODE_GROUPS);
+      await expect(page.getByText(/No rendering for/)).toHaveCount(0);
+      const statuses = await page.getByTestId('gate-status').allTextContents();
+      expect(statuses.length, 'one gate-status per diagram').toBe(EXPECTED_SVGS / 6);
+      for (const st of statuses) expect(st).toContain('0 errors');
 
       const m = await page.evaluate(() => ({
         sw: document.documentElement.scrollWidth,
@@ -35,7 +43,8 @@ for (const width of [1280, 360]) {
           const name = `${diagram}#${g.getAttribute('data-node')}`;
           const shape = g.querySelector('rect, circle, ellipse');
           const texts = Array.from(g.querySelectorAll('text'));
-          const hasLabel = (g.getAttribute('data-label') ?? '') !== '';
+          // the renderer emits data-label only when the resolved text is non-blank
+          const hasLabel = g.hasAttribute('data-label');
           if (!shape) {
             out.push(`${name} (no shape)`);
             continue;

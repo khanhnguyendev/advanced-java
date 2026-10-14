@@ -10,6 +10,12 @@ export interface Line {
 export const FONT_SIZE = 13;
 export const LINE_HEIGHT = 1.3;
 export const SAFETY = 1.08;
+export const NODE_PAD = 8;
+
+/** Max text line width inside a node. A circle's safe area is its inscribed square. Used by gate and renderer alike. */
+export function textMaxWidth(node: { shape: string; w: number }): number {
+  return node.shape === 'circle' ? node.w * Math.SQRT1_2 : node.w - 2 * NODE_PAD;
+}
 
 const HAN = /[⺀-⿟　-〿぀-ヿ㐀-䶿一-鿿豈-﫿＀-￯\u{20000}-\u{3134F}]/u;
 

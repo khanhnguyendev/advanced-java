@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
+import * as gateMod from '@/lib/diagrams/gate';
 import * as render from '@/lib/diagrams/render';
 import { buildReviewData, CREDIT_LINE } from '@/lib/diagrams/review-data';
 
@@ -18,7 +19,7 @@ describe('buildReviewData', () => {
     const e = a.entries[0]!;
     expect(e.imageUrl).toBe(`/_content/${e.collection}/${e.upstream}`);
     expect(e.license).toBe('derived');
-    for (const loc of ['zh', 'en', 'vi'] as const) expect(e.svgs[loc]).toMatch(/^<svg[\s>]/);
+    for (const loc of ['zh', 'en', 'vi'] as const) expect(e.svgsByWidth[loc]![720]).toMatch(/^<svg[\s>]/);
     expect(e.errors).toEqual([]);
   });
 
@@ -36,7 +37,21 @@ describe('buildReviewData', () => {
     vi.restoreAllMocks();
     const err = bad.entries[0]!.errors.find((x) => x.code === 'META_INVALID');
     expect(err?.message).toContain('boom');
-    expect(bad.entries[0]!.svgs.en).toBeNull();
+    expect(bad.entries[0]!.svgsByWidth.en).toBeNull();
+    expect('svgs' in bad.entries[0]!).toBe(false);
+  });
+
+  it('reports META_INVALID when the gate throws for a diagram', () => {
+    const spy = vi.spyOn(gateMod, 'checkDiagram').mockImplementation(() => {
+      throw new Error('gate boom');
+    });
+    let r: ReturnType<typeof buildReviewData>;
+    try {
+      r = buildReviewData(root, '2026-10-14');
+    } finally {
+      spy.mockRestore();
+    }
+    expect(r.entries[0]!.errors.some((x) => x.code === 'META_INVALID' && x.message.includes('gate boom'))).toBe(true);
   });
 
   it('is deterministic', () => {

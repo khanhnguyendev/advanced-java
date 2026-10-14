@@ -6,7 +6,7 @@ import type {
   LabelsByLocale,
 } from './types';
 import { DIAGRAM_LOCALES } from './types';
-import { FONT_SIZE, LINE_HEIGHT, stripLiterals, hasHan, wrapText, splitSegments, textWidth } from './measure';
+import { FONT_SIZE, LINE_HEIGHT, stripLiterals, hasHan, wrapText, splitSegments, textWidth, textMaxWidth } from './measure';
 
 export interface GateOptions {
   /** Whether `source.upstream` exists as a file under the collection's `_assets`. Omit to skip SOURCE_MISSING. */
@@ -27,7 +27,7 @@ const ARROWS = ['end', 'both', 'none'];
 const STYLES = ['solid', 'dashed', 'accent'];
 const ANCHORS = ['start', 'middle', 'end'];
 
-function validateScene(scene: DiagramScene, bad: (msg: string) => void): void {
+function validateScene(scene: DiagramScene, labelsByLocale: LabelsByLocale, bad: (msg: string) => void): void {
   const fin = (v: unknown, name: string, positive = false) => {
     if (typeof v !== 'number' || !Number.isFinite(v)) bad(`${name} is not a finite number`);
     else if (positive && v <= 0) bad(`${name} must be > 0`);
@@ -38,8 +38,35 @@ function validateScene(scene: DiagramScene, bad: (msg: string) => void): void {
   };
   fin(scene.size?.w, 'size.w', true);
   fin(scene.size?.h, 'size.h', true);
-  for (const n of scene.nodes ?? []) {
-    const p = `node ${n.id}`;
+  for (const k of ['nodes', 'edges', 'texts'] as const) {
+    if (!Array.isArray(scene[k])) bad(`${k} is not an array`);
+  }
+  if (typeof scene.title_key !== 'string' || scene.title_key === '') bad('title_key is not a non-empty string');
+  if (typeof scene.desc_key !== 'string' || scene.desc_key === '') bad('desc_key is not a non-empty string');
+  if (typeof scene.source?.upstream !== 'string') bad('source.upstream is not a string');
+  const keyOk = (r: unknown, p: string) => {
+    const k = (r as { key?: unknown } | null | undefined)?.key;
+    if (typeof k !== 'string' || k === '') bad(`${p} label.key is not a non-empty string`);
+    const lits = (r as { literals?: unknown } | null | undefined)?.literals;
+    if (lits !== undefined && (!Array.isArray(lits) || lits.some((l) => typeof l !== 'string'))) {
+      bad(`${p} literals is not a string array`);
+    }
+  };
+  for (const loc of DIAGRAM_LOCALES) {
+    const f = labelsByLocale[loc];
+    if (!f) continue;
+    if (typeof f.labels !== 'object' || f.labels === null || Array.isArray(f.labels) || typeof f.meta !== 'object' || f.meta === null) {
+      bad(`${loc} labels file is malformed`);
+      continue;
+    }
+    for (const [k, v] of Object.entries(f.labels)) {
+      if (typeof v !== 'string') bad(`${loc} label "${k}" is not a string`);
+    }
+  }
+  for (const n of Array.isArray(scene.nodes) ? scene.nodes : []) {
+    const p = `node ${n?.id}`;
+    keyOk(n?.label, p);
+    if (!n || typeof n !== 'object') continue;
     fin(n.x, `${p} x`);
     fin(n.y, `${p} y`);
     fin(n.w, `${p} w`, true);
@@ -47,12 +74,16 @@ function validateScene(scene: DiagramScene, bad: (msg: string) => void): void {
     oneOf(n.shape, SHAPES, `${p} shape`);
     oneOf(n.role, ROLES, `${p} role`, true);
   }
-  (scene.edges ?? []).forEach((e, i) => {
+  (Array.isArray(scene.edges) ? scene.edges : []).forEach((e, i) => {
     const p = `edge ${i}`;
+    if (!e || typeof e !== 'object') {
+      bad(`${p} is not an object`);
+      return;
+    }
     if (!Array.isArray(e.points)) bad(`${p} points is not an array`);
     else {
       e.points.forEach((pt, j) => {
-        if (!Array.isArray(pt)) bad(`${p} points[${j}] is not a pair`);
+        if (!Array.isArray(pt) || pt.length !== 2) bad(`${p} points[${j}] is not a pair`);
         else {
           fin(pt[0], `${p} points[${j}] x`);
           fin(pt[1], `${p} points[${j}] y`);
@@ -62,13 +93,17 @@ function validateScene(scene: DiagramScene, bad: (msg: string) => void): void {
     oneOf(e.arrow, ARROWS, `${p} arrow`);
     oneOf(e.style, STYLES, `${p} style`);
     if (e.label) {
+      keyOk(e.label, `${p}`);
+      if (!Array.isArray(e.label.at) || e.label.at.length !== 2) bad(`${p} label.at is not a pair`);
       fin(e.label.at?.[0], `${p} label x`);
       fin(e.label.at?.[1], `${p} label y`);
       oneOf(e.label.anchor, ANCHORS, `${p} label anchor`);
     }
   });
-  for (const t of scene.texts ?? []) {
-    const p = `text ${t.key}`;
+  for (const t of Array.isArray(scene.texts) ? scene.texts : []) {
+    const p = `text ${t?.key}`;
+    keyOk(t, p);
+    if (!t || typeof t !== 'object') continue;
     fin(t.x, `${p} x`);
     fin(t.y, `${p} y`);
     oneOf(t.anchor, ANCHORS, `${p} anchor`);
@@ -106,9 +141,9 @@ export function checkDiagram(
   const errors: GateError[] = [];
   const add = (code: GateError['code'], message: string, locale?: DiagramLocale) =>
     errors.push(locale ? { code, message, locale } : { code, message });
+  validateScene(scene, labelsByLocale, (m) => add('META_INVALID', m));
+  if (errors.length > 0) return { errors };
   const refs = collectRefs(scene);
-
-  validateScene(scene, (m) => add('META_INVALID', m));
 
   // 8. license / source
   const license = scene.license ?? 'derived';
@@ -162,7 +197,9 @@ export function checkDiagram(
     if (!f) continue;
     for (const k of used) {
       if (!Object.hasOwn(f.labels, k)) add('KEY_MISSING', `key "${k}" missing`, loc);
-      else if (isBlank(f.labels[k]) && ref && Object.hasOwn(ref.labels, k) && !isBlank(ref.labels[k])) {
+      else if (isBlank(f.labels[k]) && (k === scene.title_key || k === scene.desc_key)) {
+        add('KEY_MISSING', `key "${k}" is empty`, loc);
+      } else if (isBlank(f.labels[k]) && ref && Object.hasOwn(ref.labels, k) && !isBlank(ref.labels[k])) {
         add('KEY_MISSING', `key "${k}" is empty`, loc);
       }
     }
@@ -198,8 +235,7 @@ export function checkDiagram(
       if (v === undefined) continue;
       const lits = r.ref.literals ?? [];
       if (r.node) {
-        // circle: the inscribed square is the safe area, so its edge is the margin (no extra padding)
-        const maxW = r.circle ? r.node.w * Math.SQRT1_2 : r.node.w - 2 * PAD;
+        const maxW = textMaxWidth({ shape: r.circle ? 'circle' : 'box', w: r.node.w });
         const lines = wrapText(v, lits, maxW);
         const widest = Math.max(...lines.map((l) => l.width));
         if (widest > maxW) add('OVERFLOW', `${r.where}: line width ${widest.toFixed(1)} > ${maxW.toFixed(1)}`, loc);

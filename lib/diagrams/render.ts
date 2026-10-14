@@ -1,9 +1,9 @@
 import { createHash } from 'node:crypto';
 import type { Anchor, DiagramEdge, DiagramLocale, DiagramNode, DiagramScene } from './types';
-import { FONT_SIZE, LINE_HEIGHT, wrapText } from './measure';
+import { FONT_SIZE, LINE_HEIGHT, NODE_PAD, textMaxWidth, wrapText } from './measure';
 import type { Line } from './measure';
 
-export const NODE_PAD = 8;
+export { NODE_PAD };
 const SW = 1.25;
 const UI_FONT = `var(--font-ui, system-ui), system-ui, 'PingFang SC', 'Noto Sans SC', sans-serif`;
 const MONO_FONT = `var(--font-mono, ui-monospace), ui-monospace, Menlo, monospace`;
@@ -26,7 +26,7 @@ const num = (v: unknown): number => {
 };
 
 function labelText(labels: Record<string, string>, key: string): string {
-  return labels[key] ?? '';
+  return Object.hasOwn(labels, key) && typeof labels[key] === 'string' ? labels[key] : '';
 }
 
 function lineMarkup(line: Line): string {
@@ -68,14 +68,18 @@ function nodeColors(role: DiagramNode['role']): { stroke: string; fill: string; 
   return { stroke: C.ink, fill: C.paper, text: C.ink };
 }
 
+function dataLabel(n: DiagramNode, text: string): string {
+  return text.trim() === '' ? '' : ` data-label="${esc(String(n.label.key))}"`;
+}
+
 function renderNode(n0: DiagramNode, text: string): string {
   const n = { ...n0, x: num(n0.x), y: num(n0.y), w: num(n0.w), h: num(n0.h) };
   const col = nodeColors(n.role);
   const lits = n.label.literals ?? [];
   if (n.shape === 'group') {
-    const lines = wrapText(text, lits, Math.max(n.w - 2 * NODE_PAD, 1));
+    const lines = wrapText(text, lits, Math.max(textMaxWidth(n), 1));
     return (
-      `<g data-node="${esc(String(n.id))}" data-label="${esc(String(n.label.key))}">` +
+      `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>` +
       `<rect x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="2" fill="none" stroke="${C.rule}" ` +
       `stroke-width="${SW}" stroke-dasharray="1.5 4" stroke-linecap="round"/>` +
       textBlock(lines, n.x + NODE_PAD, n.y + NODE_PAD + FONT_SIZE / 2, 'start', C.muted) +
@@ -90,10 +94,10 @@ function renderNode(n0: DiagramNode, text: string): string {
     shape = `<rect x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="${rx}"`;
   }
   shape += ` fill="${col.fill}" stroke="${col.stroke}" stroke-width="${SW}"/>`;
-  const lines = wrapText(text, lits, Math.max(n.w - 2 * NODE_PAD, 1));
+  const lines = wrapText(text, lits, Math.max(textMaxWidth(n), 1));
   const lh = FONT_SIZE * LINE_HEIGHT;
   const top = n.y + n.h / 2 - ((lines.length - 1) * lh) / 2;
-  return `<g data-node="${esc(String(n.id))}" data-label="${esc(String(n.label.key))}">${shape}${textBlock(lines, n.x + n.w / 2, top, 'middle', col.text)}</g>`;
+  return `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>${shape}${textBlock(lines, n.x + n.w / 2, top, 'middle', col.text)}</g>`;
 }
 
 function markerId(h: string, style: DiagramEdge['style'], end: 'e' | 's'): string {

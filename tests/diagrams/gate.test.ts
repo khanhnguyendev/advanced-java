@@ -2,6 +2,8 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { checkDiagram } from '@/lib/diagrams/gate';
+import { renderDiagram } from '@/lib/diagrams/render';
+import { textMaxWidth, wrapText } from '@/lib/diagrams/measure';
 import { listDiagrams } from '@/lib/diagrams/load';
 import { runGate } from '@/scripts/check-diagrams';
 import type { DiagramScene, GateCode, LabelsByLocale } from '@/lib/diagrams/types';
@@ -224,6 +226,67 @@ describe('checkDiagram hardening', () => {
     expect(withCode('OVERFLOW', s, l)).toBe(false);
     n.shape = 'circle';
     expect(withCode('OVERFLOW', s, l)).toBe(true);
+  });
+});
+
+describe('gate robustness and wrap parity', () => {
+  const metaCodes = (scene: DiagramScene, labels: LabelsByLocale) => {
+    const r = checkDiagram(scene, labels).errors;
+    return r.filter((e) => e.code === 'META_INVALID');
+  };
+
+  it('circle: gate and renderer wrap at the same width and the gate reports OVERFLOW', () => {
+    const s = clone(good.scene);
+    const n = s.nodes[1]!;
+    n.shape = 'circle';
+    n.w = 120;
+    n.h = 120;
+    const l = clone(good.labels);
+    const text = '数'.repeat(40);
+    l.zh!.labels[n.label.key] = text;
+    const svg = renderDiagram(s, l.zh!.labels, 'zh');
+    const g = svg.split(`<g data-node="${n.id}"`)[1]!.split('</g>')[0]!;
+    const drawn = [...g.matchAll(/<text [^>]*>(.*?)<\/text>/g)].map((m) => m[1]!.replace(/<[^>]+>/g, ''));
+    const gateLines = wrapText(text, [], textMaxWidth(n)).map((ln) => ln.segs.map((x) => x.text).join(''));
+    expect(textMaxWidth(n)).toBeCloseTo(120 * Math.SQRT1_2);
+    expect(drawn).toEqual(gateLines);
+    expect(withCode('OVERFLOW', s, l)).toBe(true);
+  });
+
+  it('textMaxWidth for non-circles is w - 16', () => {
+    expect(textMaxWidth({ shape: 'box', w: 100 })).toBe(84);
+  });
+
+  it('returns META_INVALID without throwing for malformed scenes', () => {
+    const a = clone(good.scene);
+    (a.edges[0] as { points: unknown }).points = 'nope';
+    expect(metaCodes(a, good.labels).length).toBeGreaterThan(0);
+
+    const b = clone(good.scene);
+    (b.edges[0] as { label: unknown }).label = { key: 'n1', anchor: 'start' };
+    expect(metaCodes(b, good.labels).length).toBeGreaterThan(0);
+
+    const c = clone(good.labels);
+    (c.en!.labels as Record<string, unknown>).n1 = 5;
+    expect(metaCodes(good.scene, c).length).toBeGreaterThan(0);
+
+    const d = clone(good.scene);
+    delete (d.nodes[0] as { label?: unknown }).label;
+    expect(metaCodes(d, good.labels).length).toBeGreaterThan(0);
+
+    const e = clone(good.scene);
+    (e as { nodes: unknown }).nodes = 'x';
+    expect(metaCodes(e, good.labels).length).toBeGreaterThan(0);
+  });
+
+  it('flags a blank title or desc in every locale, including the reference', () => {
+    const l = clone(good.labels);
+    l.zh!.labels._title = '  ';
+    const errs = checkDiagram(good.scene, l).errors;
+    expect(errs.some((e) => e.code === 'KEY_MISSING' && e.locale === 'zh' && e.message.includes('_title'))).toBe(true);
+    const l2 = clone(good.labels);
+    l2.vi!.labels._desc = '';
+    expect(checkDiagram(good.scene, l2).errors.some((e) => e.locale === 'vi' && e.message.includes('_desc'))).toBe(true);
   });
 });
 
