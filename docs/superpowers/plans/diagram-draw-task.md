@@ -47,3 +47,11 @@ Only create files for your own diagram in its output directory (`<name>.diagram.
 - Reuse sibling diagrams' sidecar entries (`**/*.glossary.json`) for shared labels; keep the same line-break-insensitive text. Do not reword an existing entry.
 - Re-rasterize after your LAST edit and Read the final vi PNG (longest locale) before reporting; say which PNGs you actually read.
 - Arrow labels: put them 4px clear of the edge (the gate checks text against edges).
+
+## Further lessons (from the B01 review and the stricter gate)
+- zh text must be EXACT: keep every character and punctuation mark of the upstream, including typos; you may move hard line breaks but not drop or add words. Re-read your zh file against the image once before running the gate.
+- Group nodes support `"border": "solid"` (default dotted). Use `solid` where upstream draws a solid container box.
+- Text must be wholly inside or wholly outside a group (group borders and arrowheads are obstacles for the collision gate).
+- `literals` are matched as whole tokens only. Use them for identifiers, code, numbers with units and URLs, not for prose words (`config`, `cluster`, `monitor`, `OA` are not literals).
+- Vietnamese line breaks go between phrases, never inside a compound word or term ("thất bại", "hệ thống", "thông điệp", "cơ sở dữ liệu", "dịch vụ"). 接口 is "API" in vi. Do not copy a parenthetical gloss such as "(service registry)" from the prose glossary into a label.
+- Every glossary entry's text must equal the label text (modulo whitespace); keep zh keys exact.
