@@ -31,4 +31,4 @@ Redis achieves **high concurrency** mainly through a **master/replica architectu
 
 If you want to hold a large amount of data while also achieving high concurrency, you need a Redis cluster. With a Redis cluster, you can provide hundreds of thousands of concurrent reads and writes per second.
 
-For Redis high availability, if you deploy a master/replica architecture, adding Sentinel is enough: if any instance crashes, a master/standby switchover can take place.
+For Redis high availability, if you deploy a master/replica architecture, adding Sentinel is enough: if any instance crashes, a failover can take place.

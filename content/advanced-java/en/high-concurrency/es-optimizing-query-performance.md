@@ -58,7 +58,7 @@ For data you consider hot and frequently accessed, it is best to **build a dedic
 
 ### Hot/Cold Separation
 
-ES can do something similar to horizontal sharding in MySQL: write the large amount of rarely and infrequently accessed data into one index, and write the frequently accessed hot data into a separate index. It is best to **write cold data into one index and hot data into another**, so that after the hot data has been warmed up, it stays in the `filesystem os cache` as much as possible and **is not flushed out by cold data**.
+ES can do something similar to horizontal splitting in MySQL: write the large amount of rarely and infrequently accessed data into one index, and write the frequently accessed hot data into a separate index. It is best to **write cold data into one index and hot data into another**, so that after the hot data has been warmed up, it stays in the `filesystem os cache` as much as possible and **is not flushed out by cold data**.
 
 For example, suppose you have 6 machines and 2 indexes, one for cold data and one for hot data, each with 3 shards. 3 machines hold the hot data index and the other 3 hold the cold data index. Most of the time you are accessing the hot data index, and the hot data may be only 10% of the total, so it is small and almost entirely stays in the `filesystem cache`, which ensures high access performance for hot data. The cold data lives in a different index, on different machines from the hot data index, so the two have nothing to do with each other. If someone accesses cold data, much of it may be on disk and performance is a bit worse, but only 10% of people access cold data while 90% access hot data, so it does not matter.
 

@@ -36,13 +36,13 @@ Vì vậy, thực tế MySQL có hai cơ chế cho phần này: một là **sao 
 
 **Sao chép bán đồng bộ** (còn gọi là sao chép `semi-sync`) nghĩa là sau khi master ghi nhật ký binlog, nó sẽ **bắt buộc** đồng bộ dữ liệu sang replica ngay lập tức; replica ghi nhật ký vào relay log cục bộ của mình rồi trả về một ack cho master; master nhận được ack từ **ít nhất một replica** thì mới coi thao tác ghi là hoàn tất.
 
-**Sao chép song song** nghĩa là replica mở nhiều luồng, đọc song song nhật ký của các CSDL khác nhau trong relay log, rồi **phát lại song song nhật ký của các CSDL khác nhau**; đây là song song ở mức CSDL.
+**Sao chép song song** nghĩa là replica mở nhiều luồng, đọc song song nhật ký của các cơ sở dữ liệu khác nhau trong relay log, rồi **phát lại song song nhật ký của các cơ sở dữ liệu khác nhau**; đây là song song ở mức cơ sở dữ liệu.
 
 ### Vấn đề độ trễ đồng bộ master/replica của MySQL (phần tinh túy)
 
 Trước đây trên môi trường production, chúng tôi đã xử lý một lỗi thực sự do độ trễ đồng bộ master/replica gây ra, thuộc loại sự cố production nhỏ.
 
-Kịch bản như sau. Có một bạn viết logic code theo cách: chèn một bản ghi, truy vấn nó ra, rồi cập nhật bản ghi đó. Vào giờ cao điểm trên production, số lần ghi đồng thời đạt 2000/s, lúc này độ trễ sao chép master/replica khoảng vài chục mili giây. Trên production sẽ thấy mỗi ngày luôn có một số dữ liệu mà chúng ta mong muốn cập nhật trạng thái quan trọng nhưng vào giờ cao điểm lại không được cập nhật. Người dùng phản hồi với bộ phận chăm sóc khách hàng, và bộ phận này sẽ phản hồi lại cho chúng tôi.
+Kịch bản như sau. Có một bạn viết logic code theo cách: chèn một bản ghi, truy vấn nó ra, rồi cập nhật bản ghi đó. Vào giờ cao điểm trên production, lượng ghi đồng thời đạt 2000/s, lúc này độ trễ sao chép master/replica khoảng vài chục mili giây. Trên production sẽ thấy mỗi ngày luôn có một số dữ liệu mà chúng ta mong muốn cập nhật trạng thái quan trọng nhưng vào giờ cao điểm lại không được cập nhật. Người dùng phản hồi với bộ phận chăm sóc khách hàng, và bộ phận này sẽ phản hồi lại cho chúng tôi.
 
 Chúng tôi dùng lệnh MySQL:
 
@@ -54,7 +54,7 @@ show slave status
 
 Nói chung, nếu độ trễ master/replica khá nghiêm trọng thì có các giải pháp sau:
 
--   Phân CSDL (sharding), tách một master thành nhiều master, mỗi master có số lần ghi đồng thời giảm đi vài lần, khi đó độ trễ master/replica có thể bỏ qua.
--   Bật sao chép song song mà MySQL hỗ trợ, sao chép song song nhiều CSDL. Nếu số lần ghi đồng thời của một CSDL vốn đã đặc biệt cao, ví dụ đạt 2000/s trên một CSDL, thì sao chép song song vẫn vô nghĩa.
+-   Phân cơ sở dữ liệu (sharding), tách một master thành nhiều master, mỗi master có lượng ghi đồng thời giảm đi vài lần, khi đó độ trễ master/replica có thể bỏ qua.
+-   Bật sao chép song song mà MySQL hỗ trợ, sao chép song song nhiều cơ sở dữ liệu. Nếu lượng ghi đồng thời của một cơ sở dữ liệu vốn đã đặc biệt cao, ví dụ đạt 2000/s trên một cơ sở dữ liệu, thì sao chép song song vẫn vô nghĩa.
 -   Viết lại code: người viết code cần cẩn trọng, vì chèn dữ liệu xong truy vấn ngay có thể không tìm thấy.
 -   Nếu thực sự có trường hợp bắt buộc phải chèn trước rồi truy vấn thấy ngay, sau đó lập tức làm ngược lại một số thao tác, thì với truy vấn này hãy **đặt kết nối thẳng đến master**. **Không khuyến nghị** cách này, vì nếu làm vậy thì ý nghĩa của tách đọc/ghi sẽ mất.

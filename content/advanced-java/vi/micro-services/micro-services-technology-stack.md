@@ -26,7 +26,7 @@ Vai trò: khám phá dịch vụ, đăng ký dịch vụ, quản lý tập trung
 
 #### Eureka
 
--   Eureka Server : cung cấp dịch vụ đăng ký dịch vụ; sau khi khởi động, các nút sẽ đăng ký trong Eureka Server.
+-   Eureka Server : cung cấp dịch vụ đăng ký dịch vụ; sau khi khởi động, các node sẽ đăng ký trong Eureka Server.
 -   Eureka Client : đơn giản hóa các thao tác tương tác với Eureka Server.
 -   Spring Cloud Netflix : [GitHub](https://github.com/spring-cloud/spring-cloud-netflix), [Tài liệu](https://cloud.spring.io/spring-cloud-netflix/reference/html/)
 
@@ -192,7 +192,7 @@ Nginx thuộc loại cân bằng tải phía server, Ribbon thuộc loại cân 
 
 > Vai trò: lưu trữ dữ liệu
 
-#### CSDL quan hệ
+#### Cơ sở dữ liệu quan hệ
 
 ##### [MySql](https://www.mysql.com/)
 
@@ -202,7 +202,7 @@ Nginx thuộc loại cân bằng tải phía server, Ribbon thuộc loại cân 
 
 ##### [PostgreSql](https://www.postgresql.org/)
 
-#### CSDL phi quan hệ
+#### Cơ sở dữ liệu phi quan hệ
 
 ##### [Mongodb](https://www.mongodb.com/)
 
@@ -216,7 +216,7 @@ Nginx thuộc loại cân bằng tải phía server, Ribbon thuộc loại cân 
 
 ### Sharding
 
-> Vai trò: giải pháp phân mảnh CSDL và bảng.
+> Vai trò: giải pháp phân mảnh cơ sở dữ liệu và bảng.
 
 #### [ShardingSphere](http://shardingsphere.apache.org/)
 

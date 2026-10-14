@@ -55,7 +55,7 @@ Tất nhiên, ngoài số lần hoạt động ít nhất, `LeastActiveLoadBalan
 
 #### ConsistentHashLoadBalance
 
-Thuật toán Hash nhất quán: các yêu cầu có cùng tham số nhất định được phân phối tới cùng một provider; khi provider sập, lưu lượng còn lại sẽ được phân phối đều dựa trên các nút ảo, dao động sẽ không quá lớn. **Nếu thứ bạn cần không phải là cân bằng tải ngẫu nhiên** mà là muốn một loại yêu cầu đều đến cùng một nút, thì dùng chiến lược Hash nhất quán này.
+Thuật toán Hash nhất quán: các yêu cầu có cùng tham số nhất định được phân phối tới cùng một provider; khi provider sập, lưu lượng còn lại sẽ được phân phối đều dựa trên các node ảo, dao động sẽ không quá lớn. **Nếu thứ bạn cần không phải là cân bằng tải ngẫu nhiên** mà là muốn một loại yêu cầu đều đến cùng một node, thì dùng chiến lược Hash nhất quán này.
 
 > Về mô tả chi tiết hơn của chiến lược cân bằng tải Dubbo, có thể xem trang chính thức https://dubbo.apache.org/zh/docs/advanced/loadbalance .
 

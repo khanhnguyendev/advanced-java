@@ -33,7 +33,7 @@ Cụm (cluster) gồm nhiều node, mỗi node thuộc cụm nào được quy�
 
 ### Node
 
-Node là một nút trong cụm, node cũng có một tên, mặc định được cấp ngẫu nhiên. Mặc định node sẽ gia nhập một cụm có tên là `elasticsearch`. Nếu khởi động trực tiếp một loạt node thì chúng sẽ tự động tạo thành một cụm elasticsearch, tất nhiên một node cũng có thể tạo thành cụm elasticsearch.
+Node là một node trong cụm, node cũng có một tên, mặc định được cấp ngẫu nhiên. Mặc định node sẽ gia nhập một cụm có tên là `elasticsearch`. Nếu khởi động trực tiếp một loạt node thì chúng sẽ tự động tạo thành một cụm elasticsearch, tất nhiên một node cũng có thể tạo thành cụm elasticsearch.
 
 ### Document & field
 

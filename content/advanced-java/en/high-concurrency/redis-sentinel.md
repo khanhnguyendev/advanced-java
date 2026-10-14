@@ -14,7 +14,7 @@ Sentinel is a very important component in the Redis cluster architecture, and it
 
 -   Cluster monitoring: monitors whether the Redis master and slave processes are working normally.
 -   Message notification: if a Redis instance fails, Sentinel sends a message to the administrator as an alert.
--   Failover: if the master node goes down, it automatically fails over to a slave node.
+-   Failover: if the master node goes down, it automatically fails over to a replica node.
 -   Configuration center: if a failover occurs, it notifies clients of the address of the new master.
 
 Sentinel is used to achieve high availability of a Redis cluster. It is itself distributed, running as a Sentinel cluster whose members work together.
@@ -65,11 +65,11 @@ The classic 3-node Sentinel cluster looks like this:
 
 With `quorum=2` configured, if the machine hosting M1 crashes, 2 of the three Sentinels remain, and S2 and S3 can agree that the master has crashed and then elect one of them to perform the failover. Meanwhile, the majority of 3 Sentinels is 2, so the 2 remaining running Sentinels are enough to allow the failover to be performed.
 
-## The data loss problem of Redis Sentinel master/standby switchover
+## The data loss problem of Redis Sentinel failover
 
 ### Two cases that cause data loss
 
-The master/standby switchover process may cause data loss:
+The failover process may cause data loss:
 
 -   Data loss caused by asynchronous replication
 
@@ -108,8 +108,8 @@ If a master suffers split brain and loses its connection to the other slaves, th
 
 ## The sdown and odown transition mechanism
 
--   sdown is a subjective outage: if a single Sentinel itself thinks a master has crashed, that is a subjective outage
--   odown is an objective outage: if a quorum number of Sentinels all think a master has crashed, that is an objective outage
+-   sdown is subjectively down: if a single Sentinel itself thinks a master has crashed, that is subjectively down (sdown)
+-   odown is objectively down: if a quorum number of Sentinels all think a master has crashed, that is objectively down (odown)
 
 The condition for sdown is simple: if a Sentinel pings a master and gets no reply for more than the number of milliseconds specified by `is-master-down-after-milliseconds`, it subjectively considers the master crashed. If a Sentinel receives, within the specified time, notices from a quorum number of other Sentinels that they also consider that master sdown, it considers it odown.
 
@@ -129,7 +129,7 @@ Sentinel is responsible for automatically correcting some slave configuration. F
 
 ## The slave->master election algorithm
 
-If a master is considered odown and a majority number of Sentinels allow a master/standby switchover, one Sentinel performs the switchover. It first has to elect a slave, and it considers some information about the slaves:
+If a master is considered odown and a majority number of Sentinels allow a failover, one Sentinel performs the switchover. It first has to elect a slave, and it considers some information about the slaves:
 
 -   how long the slave has been disconnected from the master
 -   slave priority
@@ -150,7 +150,7 @@ Next, the slaves are sorted:
 
 ## quorum and majority
 
-Each time a Sentinel wants to perform a master/standby switchover, a quorum number of Sentinels must first consider the master odown, then one Sentinel is elected to perform the switchover, and this Sentinel must also obtain authorization from a majority of Sentinels before it can formally perform the switchover.
+Each time a Sentinel wants to perform a failover, a quorum number of Sentinels must first consider the master odown, then one Sentinel is elected to perform the switchover, and this Sentinel must also obtain authorization from a majority of Sentinels before it can formally perform the switchover.
 
 If quorum < majority, for example with 5 Sentinels the majority is 3 and the quorum is set to 2, then authorization from 3 Sentinels allows the switchover to be performed.
 

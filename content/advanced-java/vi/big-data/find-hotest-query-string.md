@@ -40,11 +40,11 @@ Sau khi duyệt xong, 10 chuỗi trong heap chính là các chuỗi xuất hiệ
 
 ### Phương pháp ba: cây tiền tố
 
-Phương pháp hai dùng HashMap để thống kê số lần, khi các chuỗi này có nhiều tiền tố giống nhau thì có thể cân nhắc dùng cây tiền tố để thống kê số lần xuất hiện của chuỗi: nút của cây lưu số lần xuất hiện của chuỗi, 0 nghĩa là chưa xuất hiện.
+Phương pháp hai dùng HashMap để thống kê số lần, khi các chuỗi này có nhiều tiền tố giống nhau thì có thể cân nhắc dùng cây tiền tố để thống kê số lần xuất hiện của chuỗi: node của cây lưu số lần xuất hiện của chuỗi, 0 nghĩa là chưa xuất hiện.
 
 **Ý tưởng như sau**:
 
-Khi duyệt các chuỗi, tìm trong cây tiền tố; nếu tìm thấy thì tăng số lần của chuỗi lưu trong nút thêm 1, ngược lại tạo nút mới cho chuỗi này, sau khi tạo xong thì đặt số lần xuất hiện của chuỗi tại nút lá là 1.
+Khi duyệt các chuỗi, tìm trong cây tiền tố; nếu tìm thấy thì tăng số lần của chuỗi lưu trong node thêm 1, ngược lại tạo node mới cho chuỗi này, sau khi tạo xong thì đặt số lần xuất hiện của chuỗi tại node lá là 1.
 
 Cuối cùng vẫn dùng min-heap để sắp xếp theo số lần xuất hiện của các chuỗi.
 

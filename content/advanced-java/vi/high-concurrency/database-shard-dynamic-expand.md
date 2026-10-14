@@ -25,7 +25,7 @@ Thiết kế phương án sharding có thể mở rộng và thu hẹp động n
 
 Đây là việc bạn buộc phải đối mặt, tức là bạn đã làm xong phương án sharding, rồi một đống cơ sở dữ liệu và bảng đã được tạo, phát triển mã dựa trên middleware sharding đều xong, kiểm thử đều ok, dữ liệu có thể phân bố đều vào các cơ sở dữ liệu và các bảng, hơn nữa tiếp đó bạn còn dùng phương án ghi kép đưa hệ thống lên một cái rụp, đã trực tiếp chạy dựa trên phương án sharding.
 
-Vậy bây giờ vấn đề đến rồi, các cơ sở dữ liệu và bảng này của bạn lại không chống đỡ nổi, phải tiếp tục mở rộng thì làm sao? Có thể là dung lượng mỗi cơ sở dữ liệu của bạn lại sắp đầy, hoặc lượng dữ liệu bảng của bạn lại quá lớn, cũng có thể là mức đồng thời ghi của mỗi cơ sở dữ liệu quá cao, bạn phải tiếp tục mở rộng.
+Vậy bây giờ vấn đề đến rồi, các cơ sở dữ liệu và bảng này của bạn lại không chống đỡ nổi, phải tiếp tục mở rộng thì làm sao? Có thể là dung lượng mỗi cơ sở dữ liệu của bạn lại sắp đầy, hoặc lượng dữ liệu bảng của bạn lại quá lớn, cũng có thể là lượng ghi đồng thời của mỗi cơ sở dữ liệu quá cao, bạn phải tiếp tục mở rộng.
 
 Đây đều là những việc làm sharding trực tuyến buộc phải trải qua.
 
@@ -45,7 +45,7 @@ Ngay từ đầu là 32 cơ sở dữ liệu, mỗi cơ sở dữ liệu 32 bả
 
 Tôi có thể nói với các bạn, cách chia này, thứ nhất, về cơ bản các công ty internet trong nước chắc chắn đều đủ dùng, thứ hai, dù là chống đỡ mức đồng thời hay chống đỡ lượng dữ liệu đều không vấn đề.
 
-Mức đồng thời ghi bình thường mà mỗi cơ sở dữ liệu chịu tải là 1000, vậy 32 cơ sở dữ liệu có thể chịu tải mức đồng thời ghi $32 \times 1000 = 32000$, nếu mỗi cơ sở dữ liệu chịu tải mức đồng thời ghi 1500, tổng cộng là $32 \times 1500 = 48000$ mức đồng thời ghi, gần 50 nghìn mức đồng thời ghi mỗi giây, phía trước thêm một MQ, san phẳng đỉnh tải (peak shaving), mỗi giây ghi vào MQ 80 nghìn bản ghi, mỗi giây tiêu thụ 50 nghìn bản ghi.
+Mức đồng thời ghi bình thường mà mỗi cơ sở dữ liệu chịu tải là 1000, vậy 32 cơ sở dữ liệu có thể chịu tải lượng ghi đồng thời $32 \times 1000 = 32000$, nếu mỗi cơ sở dữ liệu chịu tải lượng ghi đồng thời 1500, tổng cộng là $32 \times 1500 = 48000$ lượng ghi đồng thời, gần 50 nghìn lượng ghi đồng thời mỗi giây, phía trước thêm một MQ, san phẳng đỉnh tải (peak shaving), mỗi giây ghi vào MQ 80 nghìn bản ghi, mỗi giây tiêu thụ 50 nghìn bản ghi.
 
 Một số công ty, trừ phi là những công ty xếp hạng rất đầu trong nước, cơ sở dữ liệu của hệ thống cốt lõi nhất của họ có thể có quy mô hàng trăm cơ sở dữ liệu như vậy, 128 cơ sở dữ liệu, 256 cơ sở dữ liệu, 512 cơ sở dữ liệu.
 

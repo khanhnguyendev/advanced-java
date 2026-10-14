@@ -22,7 +22,7 @@ With the newer Redis versions, everyone uses Redis cluster, the cluster mode tha
 
 If your data volume is small and the main goal is to serve high concurrency and high performance, for example your cache is only a few GB, a single node is enough. You can use replication with one master and multiple slaves (the number of slaves depends on the read throughput you need), and then build a sentinel cluster yourself to guarantee the high availability of the Redis master/replica architecture.
 
-Redis cluster is mainly aimed at scenarios with **large-scale data + high concurrency + high availability**. Redis cluster supports N Redis master nodes, and each master node can have multiple slave nodes attached. In this way the whole Redis deployment can scale horizontally. If you need to cache an even larger amount of data, scale out horizontally with more master nodes, and each master node can then hold more data.
+Redis cluster is mainly aimed at scenarios with **large-scale data + high concurrency + high availability**. Redis cluster supports N Redis master nodes, and each master node can have multiple replica nodes attached. In this way the whole Redis deployment can scale horizontally. If you need to cache an even larger amount of data, scale out horizontally with more master nodes, and each master node can then hold more data.
 
 ## Answer analysis
 
@@ -121,7 +121,7 @@ The high availability principle of Redis cluster is almost the same as that of S
 
 #### Detecting a node crash
 
-If one node considers another node crashed, that is `pfail`, a **subjective crash**. If multiple nodes all consider that node crashed, that is `fail`, an **objective crash**. This is almost the same as the Sentinel principle: sdown and odown.
+If one node considers another node crashed, that is `pfail`, **subjectively down (sdown)**. If multiple nodes all consider that node crashed, that is `fail`, **objectively down (odown)**. This is almost the same as the Sentinel principle: sdown and odown.
 
 If a node returns no `pong` within `cluster-node-timeout`, it is considered `pfail`.
 
@@ -129,9 +129,9 @@ If a node considers some node `pfail`, it passes this on to other nodes through 
 
 #### Replica filtering
 
-For a crashed master node, one of its slave nodes is chosen to be switched to master.
+For a crashed master node, one of its replica nodes is chosen to be switched to master.
 
-Check how long each slave node has been disconnected from the master node. If it exceeds `cluster-node-timeout * cluster-slave-validity-factor`, it is **not eligible** to be switched to `master`.
+Check how long each replica node has been disconnected from the master node. If it exceeds `cluster-node-timeout * cluster-slave-validity-factor`, it is **not eligible** to be switched to `master`.
 
 #### Replica election
 

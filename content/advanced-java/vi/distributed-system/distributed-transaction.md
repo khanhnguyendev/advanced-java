@@ -33,13 +33,13 @@ Việc triển khai giao dịch phân tán chủ yếu có 6 phương án sau:
 
 Phương án XA, tức là commit hai pha, có khái niệm **bộ quản lý giao dịch** (transaction manager), chịu trách nhiệm điều phối giao dịch của nhiều cơ sở dữ liệu (bộ quản lý tài nguyên). Bộ quản lý giao dịch trước tiên hỏi từng cơ sở dữ liệu xem đã sẵn sàng chưa. Nếu mọi cơ sở dữ liệu đều trả lời ok thì chính thức commit giao dịch, thực hiện thao tác trên từng cơ sở dữ liệu; nếu bất kỳ một cơ sở dữ liệu nào trả lời không ok thì rollback giao dịch.
 
-Phương án giao dịch phân tán này khá phù hợp với giao dịch phân tán xuyên nhiều CSDL bên trong một ứng dụng nguyên khối, và vì phụ thuộc nặng vào tầng cơ sở dữ liệu để xử lý giao dịch phức tạp nên hiệu suất rất thấp, tuyệt đối không phù hợp với tình huống tải đồng thời cao (high concurrency). Nếu muốn thử thì có thể dùng `Spring + JTA`, bạn tự tìm một demo bất kỳ xem là hiểu.
+Phương án giao dịch phân tán này khá phù hợp với giao dịch phân tán xuyên nhiều cơ sở dữ liệu bên trong một ứng dụng nguyên khối, và vì phụ thuộc nặng vào tầng cơ sở dữ liệu để xử lý giao dịch phức tạp nên hiệu suất rất thấp, tuyệt đối không phù hợp với tình huống tải đồng thời cao (high concurrency). Nếu muốn thử thì có thể dùng `Spring + JTA`, bạn tự tìm một demo bất kỳ xem là hiểu.
 
-Phương án này chúng tôi rất ít dùng. Nhìn chung, **bên trong một hệ thống mà xuất hiện thao tác xuyên nhiều CSDL** là **không hợp quy chuẩn**. Tôi có thể giới thiệu một chút: hiện nay với microservices, một hệ thống lớn được chia thành hàng chục thậm chí hàng trăm dịch vụ. Quy định và quy chuẩn của chúng tôi yêu cầu **mỗi dịch vụ chỉ được thao tác trên một CSDL tương ứng của chính nó**.
+Phương án này chúng tôi rất ít dùng. Nhìn chung, **bên trong một hệ thống mà xuất hiện thao tác xuyên nhiều cơ sở dữ liệu** là **không hợp quy chuẩn**. Tôi có thể giới thiệu một chút: hiện nay với microservices, một hệ thống lớn được chia thành hàng chục thậm chí hàng trăm dịch vụ. Quy định và quy chuẩn của chúng tôi yêu cầu **mỗi dịch vụ chỉ được thao tác trên một cơ sở dữ liệu tương ứng của chính nó**.
 
-Nếu bạn muốn thao tác trên CSDL của dịch vụ khác thì không được kết nối thẳng vào CSDL của dịch vụ đó, vì vi phạm quy chuẩn kiến trúc microservices. Nếu truy cập chéo lung tung thì với hàng trăm dịch vụ, toàn bộ sẽ rối tung, một bộ dịch vụ như vậy không thể quản lý, không thể quản trị được, có thể xảy ra tình huống dữ liệu bị người khác sửa sai, CSDL của mình bị người khác ghi làm sập, v.v.
+Nếu bạn muốn thao tác trên cơ sở dữ liệu của dịch vụ khác thì không được kết nối thẳng vào cơ sở dữ liệu của dịch vụ đó, vì vi phạm quy chuẩn kiến trúc microservices. Nếu truy cập chéo lung tung thì với hàng trăm dịch vụ, toàn bộ sẽ rối tung, một bộ dịch vụ như vậy không thể quản lý, không thể quản trị được, có thể xảy ra tình huống dữ liệu bị người khác sửa sai, cơ sở dữ liệu của mình bị người khác ghi làm sập, v.v.
 
-Nếu bạn muốn thao tác trên CSDL của dịch vụ khác thì phải thực hiện bằng cách **gọi API của dịch vụ đó**, tuyệt đối không cho phép truy cập chéo vào CSDL của người khác.
+Nếu bạn muốn thao tác trên cơ sở dữ liệu của dịch vụ khác thì phải thực hiện bằng cách **gọi API của dịch vụ đó**, tuyệt đối không cho phép truy cập chéo vào cơ sở dữ liệu của người khác.
 
 ![distributed-transacion-XA](asset:distributed-system/distributed-transaction/distributed-transaction-XA.png)
 

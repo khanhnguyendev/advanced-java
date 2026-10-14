@@ -53,7 +53,7 @@ Có thể chia làm 6 điểm sau:
 
 ### Tách hệ thống
 
-Tách một hệ thống thành nhiều hệ thống con, dùng Dubbo để làm. Sau đó mỗi hệ thống kết nối một cơ sở dữ liệu, như vậy vốn chỉ có một CSDL, giờ có nhiều cơ sở dữ liệu, chẳng phải cũng có thể chịu được tải đồng thời cao sao.
+Tách một hệ thống thành nhiều hệ thống con, dùng Dubbo để làm. Sau đó mỗi hệ thống kết nối một cơ sở dữ liệu, như vậy vốn chỉ có một cơ sở dữ liệu, giờ có nhiều cơ sở dữ liệu, chẳng phải cũng có thể chịu được tải đồng thời cao sao.
 
 ### Bộ nhớ đệm
 
@@ -65,11 +65,11 @@ MQ, bắt buộc phải dùng MQ. Có thể bạn vẫn gặp kịch bản ghi �
 
 ### Sharding
 
-Sharding: có thể đến cuối cùng, ở tầng cơ sở dữ liệu vẫn không tránh khỏi yêu cầu chống tải đồng thời cao, được thôi, vậy thì tách một cơ sở dữ liệu thành nhiều CSDL, nhiều CSDL cùng chịu lượng đồng thời cao hơn; rồi **tách một bảng thành nhiều bảng**, mỗi bảng giữ lượng dữ liệu ít hơn một chút để tăng hiệu năng chạy SQL.
+Sharding: có thể đến cuối cùng, ở tầng cơ sở dữ liệu vẫn không tránh khỏi yêu cầu chống tải đồng thời cao, được thôi, vậy thì tách một cơ sở dữ liệu thành nhiều cơ sở dữ liệu, nhiều cơ sở dữ liệu cùng chịu lượng đồng thời cao hơn; rồi **tách một bảng thành nhiều bảng**, mỗi bảng giữ lượng dữ liệu ít hơn một chút để tăng hiệu năng chạy SQL.
 
 ### Tách đọc/ghi
 
-Tách đọc/ghi: nghĩa là phần lớn thời gian cơ sở dữ liệu cũng là đọc nhiều ghi ít, không cần thiết dồn mọi request vào một CSDL, có thể dựng kiến trúc master/replica (master-slave), **master ghi**, **replica đọc**, làm tách đọc/ghi. Khi **lưu lượng đọc quá nhiều**, còn có thể **thêm nhiều replica hơn**.
+Tách đọc/ghi: nghĩa là phần lớn thời gian cơ sở dữ liệu cũng là đọc nhiều ghi ít, không cần thiết dồn mọi request vào một cơ sở dữ liệu, có thể dựng kiến trúc master/replica (master-slave), **master ghi**, **replica đọc**, làm tách đọc/ghi. Khi **lưu lượng đọc quá nhiều**, còn có thể **thêm nhiều replica hơn**.
 
 ### ElasticSearch
 
@@ -77,6 +77,6 @@ Elasticsearch, gọi tắt là ES. ES là hệ thống phân tán, có thể m�
 
 6 điểm trên về cơ bản là những việc mà một hệ thống tải đồng thời cao chắc chắn phải làm. Mọi người có thể kết hợp kỹ lưỡng với kiến thức đã học trước đó để suy nghĩ, đến lúc đó bạn có thể trình bày một cách hệ thống phần này, rồi mỗi phần cần chú ý những vấn đề gì, trước đây đều đã nói rồi, bạn có thể trình bày thêm, cho thấy bạn có chút tích lũy ở mảng này.
 
-Nói thật, điểm thực sự giỏi của bạn không nằm ở việc hiểu rõ một số kỹ thuật, hay biết đại khái một hệ thống tải đồng thời cao trông như thế nào. Thực tế, trong hệ thống nghiệp vụ phức tạp thật sự, làm tải đồng thời cao phức tạp hơn các điểm nêu trên rất nhiều, từ hàng chục lần đến hàng trăm lần. Bạn cần cân nhắc: cái nào cần sharding, cái nào không cần; bảng đơn trên CSDL đơn và sharding thì join với nhau thế nào; dữ liệu nào cần đưa vào bộ nhớ đệm, đưa dữ liệu nào vào mới chịu được request đồng thời cao. Bạn cần phân tích xong một hệ thống nghiệp vụ phức tạp, rồi từng bước từng bước thêm vào việc cải tạo kiến trúc hệ thống tải đồng thời cao; quá trình này vô cùng phức tạp, một khi đã làm qua một lần và làm tốt, bạn sẽ rất được săn đón trên thị trường này.
+Nói thật, điểm thực sự giỏi của bạn không nằm ở việc hiểu rõ một số kỹ thuật, hay biết đại khái một hệ thống tải đồng thời cao trông như thế nào. Thực tế, trong hệ thống nghiệp vụ phức tạp thật sự, làm tải đồng thời cao phức tạp hơn các điểm nêu trên rất nhiều, từ hàng chục lần đến hàng trăm lần. Bạn cần cân nhắc: cái nào cần sharding, cái nào không cần; bảng đơn trên cơ sở dữ liệu đơn và sharding thì join với nhau thế nào; dữ liệu nào cần đưa vào bộ nhớ đệm, đưa dữ liệu nào vào mới chịu được request đồng thời cao. Bạn cần phân tích xong một hệ thống nghiệp vụ phức tạp, rồi từng bước từng bước thêm vào việc cải tạo kiến trúc hệ thống tải đồng thời cao; quá trình này vô cùng phức tạp, một khi đã làm qua một lần và làm tốt, bạn sẽ rất được săn đón trên thị trường này.
 
 Thực ra phần lớn các công ty thực sự coi trọng không phải việc bạn nắm một số kiến thức kiến trúc cơ bản liên quan đến tải đồng thời cao, hay một số kỹ thuật trong kiến trúc như RocketMQ, Kafka, Redis, Elasticsearch; mảng tải đồng thời cao này, bạn hiểu rồi thì cũng chỉ là nhân tài hạng hai. Đối với một hệ thống phân tán phức tạp có vài trăm nghìn dòng code, người đã từng từng bước thiết kế kiến trúc và thực tiễn kiến trúc tải đồng thời cao thì kinh nghiệm đó là vô cùng quý giá.

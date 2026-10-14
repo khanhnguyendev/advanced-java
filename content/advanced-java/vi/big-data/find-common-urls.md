@@ -42,13 +42,13 @@ Trước hết đề bài nói 64B; nếu tính một ký tự một byte thì l
 
 - **Chiều cao cây**: độ dài URL chính là chiều cao tối đa mà cây có thể đạt tới, tức cây cao nhất là 64 tầng.
 
-- **Số nút con dưới mỗi nút**: vì là URL nên ngoài chữ số và chữ cái còn có `%`, `/`, `:` v.v. Ở đây để đơn giản hóa tính toán và dễ hiểu, chỉ dùng ký tự tiếng Anh + chữ số, tổng cộng 62+10=72. Nghĩa là một nút có tối đa 72 nút con, tức chiếm 72B.
+- **Số node con dưới mỗi node**: vì là URL nên ngoài chữ số và chữ cái còn có `%`, `/`, `:` v.v. Ở đây để đơn giản hóa tính toán và dễ hiểu, chỉ dùng ký tự tiếng Anh + chữ số, tổng cộng 62+10=72. Nghĩa là một node có tối đa 72 node con, tức chiếm 72B.
 
-- **Tổng kích thước nút**: vì mẫu 320G đủ lớn, ta xét trường hợp xấu nhất là cây cuối cùng là cây 72 nhánh đầy đủ cao 64 tầng. Dung lượng bộ nhớ cuối cùng bằng số nút nhân với kích thước nút:
+- **Tổng kích thước node**: vì mẫu 320G đủ lớn, ta xét trường hợp xấu nhất là cây cuối cùng là cây 72 nhánh đầy đủ cao 64 tầng. Dung lượng bộ nhớ cuối cùng bằng số node nhân với kích thước node:
 
-  - Số nút: với N = 64 tầng, K = 72 nhánh, công thức tính số nút của cây (tổng cấp số nhân) là: `1 * (1-72^64)/ (1 - 72) = (72^64 - 1)/ (71)`, ước lượng khoảng `71^63` nút.
+  - Số node: với N = 64 tầng, K = 72 nhánh, công thức tính số node của cây (tổng cấp số nhân) là: `1 * (1-72^64)/ (1 - 72) = (72^64 - 1)/ (71)`, ước lượng khoảng `71^63` node.
 
-  - Kích thước nút: mỗi nút chiếm 1B
+  - Kích thước node: mỗi node chiếm 1B
     - ký tự hiện tại 1B
     - vị trí hiện tại có giá trị hay không là 1b (kích thước Bool thường gặp), ở đây tính theo kích thước nhỏ nhất.
 
@@ -58,7 +58,7 @@ Vậy tổng kích thước là: `71^63 * 1B/ 1000 ≈ 71^60 KB ≈ 71 ^ 63 GB`,
 
 Viết đến đây có thể một số bạn đọc đã bị dọa, sao lại ra nhiều dữ liệu như vậy, chẳng phải cây trie có tác dụng nén sao?
 
-Kết quả thu được ở đây là không chính xác, vì với 320G dữ liệu, số nút sinh ra cùng lắm cũng chỉ là 320G (đường đi hoàn toàn không trùng lặp), do không thể tạo thành cây N nhánh đầy đủ như đã bàn ở trên, mới chỉ lấp đầy một phần nhỏ. Nhưng đối với một máy đơn thì phần dữ liệu này đã không thể xử lý nổi, và phương án không có tính mở rộng và ổn định. Vì vậy cây trie thuần túy phụ thuộc quá nhiều vào phân bố dữ liệu: nếu phần lớn URL của bạn giống nhau thì độ nén rất cao, một máy 4G xử lý 320G là có thể, nhưng với kịch bản ứng dụng mà người phỏng vấn muốn nghe thì xác suất này quá nhỏ. Vì vậy vẫn phải nhờ phương pháp chia để trị để giảm bộ nhớ.
+Kết quả thu được ở đây là không chính xác, vì với 320G dữ liệu, số node sinh ra cùng lắm cũng chỉ là 320G (đường đi hoàn toàn không trùng lặp), do không thể tạo thành cây N nhánh đầy đủ như đã bàn ở trên, mới chỉ lấp đầy một phần nhỏ. Nhưng đối với một máy đơn thì phần dữ liệu này đã không thể xử lý nổi, và phương án không có tính mở rộng và ổn định. Vì vậy cây trie thuần túy phụ thuộc quá nhiều vào phân bố dữ liệu: nếu phần lớn URL của bạn giống nhau thì độ nén rất cao, một máy 4G xử lý 320G là có thể, nhưng với kịch bản ứng dụng mà người phỏng vấn muốn nghe thì xác suất này quá nhỏ. Vì vậy vẫn phải nhờ phương pháp chia để trị để giảm bộ nhớ.
 
 Tối ưu trên phương án một: ở phương pháp trước dùng HashSet để kiểm tra trùng, hiệu suất hash cao hơn hiệu suất truy cập cây trie, còn trie có thể giảm bộ nhớ.
 
