@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "mysqlx": "MYSQL",
+    "passenger": "PASSENGER",
+    "driver": "DRIVER",
+    "blank": "",
+    "mysqla": "MYSQL\nADAPTER",
+    "rest": "REST\nAPI",
+    "web": "WEB\nUI",
+    "twilio": "TWILIO\nADAPTER",
+    "sendgrid": "SENDGRID\nADAPTER",
+    "stripe": "STRIPE\nADAPTER",
+    "pm": "PASSENGER\nMANAGEMENT",
+    "bill": "BILLING",
+    "noti": "NOTIFICATION",
+    "pay": "PAYMENTS",
+    "trip": "TRIP\nMANAGEMENT",
+    "dm": "DRIVER\nMANAGEMENT",
+    "title": "Monolithic\nArchitecture",
+    "_title": "Monolithic application architecture (hexagonal)",
+    "_desc": "A hexagon of business modules (passenger management, billing, notification, payments, trip management, driver management) is surrounded by adapters: a MySQL adapter to a MySQL database, a REST API for passenger and driver apps, a web UI, and Twilio, SendGrid and Stripe adapters."
+  }
+}

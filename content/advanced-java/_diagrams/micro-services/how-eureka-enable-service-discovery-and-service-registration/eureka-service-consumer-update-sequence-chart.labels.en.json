@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "d79df253daa6adb06fd00c2d9fcfe1c388e98a6a25bd3b3e8248024291246c43"
+  },
+  "labels": {
+    "p1": "DiscoveryClient",
+    "q1": "DiscoveryClient",
+    "p2": "CacheRefreshThread",
+    "q2": "CacheRefreshThread",
+    "p3": "EurekaHttpClientDecorator",
+    "q3": "EurekaHttpClientDecorator",
+    "p4": "AbstractJerseyEurekaHttpClient",
+    "q4": "AbstractJerseyEurekaHttpClient",
+    "blank": "",
+    "m1": "initScheduledTasks",
+    "m2": "run",
+    "m3": "refreshRegistry",
+    "m4": "fetchRegistry",
+    "m5": "getAndUpdateDelta",
+    "m6": "getDelta",
+    "m7": "getDelta",
+    "m8": "getApplicationsInternal",
+    "title": "Eureka service consumer updating the service list (Update) sequence diagram",
+    "_title": "Eureka service consumer updating the service list (Update) sequence diagram",
+    "_desc": "Sequence diagram: DiscoveryClient calls initScheduledTasks and run starts CacheRefreshThread, which calls refreshRegistry on DiscoveryClient, which calls fetchRegistry and getAndUpdateDelta on itself, then getDelta through EurekaHttpClientDecorator to AbstractJerseyEurekaHttpClient, which calls getDelta and getApplicationsInternal."
+  }
+}

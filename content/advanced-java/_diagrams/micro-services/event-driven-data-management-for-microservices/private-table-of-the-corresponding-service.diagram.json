@@ -1,0 +1,368 @@
+{
+  "id": "micro-services/event-driven-data-management-for-microservices/private-table-of-the-corresponding-service",
+  "source": {
+    "upstream": "micro-services/event-driven-data-management-for-microservices/Private-table-of-the-corresponding-service.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 900,
+    "h": 510
+  },
+  "nodes": [
+    {
+      "id": "gOrder",
+      "shape": "group",
+      "x": 24,
+      "y": 30,
+      "w": 431,
+      "h": 474,
+      "border": "dotted",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "gCust",
+      "shape": "group",
+      "x": 513,
+      "y": 30,
+      "w": 375,
+      "h": 471,
+      "border": "dotted",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "orderSvc",
+      "shape": "round",
+      "x": 175,
+      "y": 80,
+      "w": 134,
+      "h": 151,
+      "label": {
+        "key": "orderSvc",
+        "literals": []
+      }
+    },
+    {
+      "id": "custSvc",
+      "shape": "round",
+      "x": 632,
+      "y": 80,
+      "w": 134,
+      "h": 151,
+      "label": {
+        "key": "custSvc"
+      }
+    },
+    {
+      "id": "tOrder",
+      "shape": "group",
+      "x": 73,
+      "y": 379,
+      "w": 328,
+      "h": 100,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "tCust",
+      "shape": "group",
+      "x": 583,
+      "y": 382,
+      "w": 234,
+      "h": 97,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          242,
+          231
+        ],
+        [
+          242,
+          366
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          309,
+          194
+        ],
+        [
+          570,
+          367
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          700,
+          231
+        ],
+        [
+          700,
+          343
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          422,
+          258
+        ],
+        [
+          486,
+          323
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          486,
+          259
+        ],
+        [
+          424,
+          322
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          73,
+          417
+        ],
+        [
+          401,
+          417
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          73,
+          447
+        ],
+        [
+          401,
+          447
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          120,
+          379
+        ],
+        [
+          120,
+          479
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          244,
+          379
+        ],
+        [
+          244,
+          479
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          328,
+          379
+        ],
+        [
+          328,
+          479
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          583,
+          418
+        ],
+        [
+          817,
+          418
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          583,
+          448
+        ],
+        [
+          817,
+          448
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          629,
+          382
+        ],
+        [
+          629,
+          479
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          753,
+          382
+        ],
+        [
+          753,
+          479
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "orderTbl",
+      "x": 78,
+      "y": 361,
+      "anchor": "start",
+      "literals": [
+        "ORDER"
+      ]
+    },
+    {
+      "key": "custTbl",
+      "x": 585,
+      "y": 364,
+      "anchor": "start",
+      "literals": [
+        "CUSTOMER"
+      ]
+    },
+    {
+      "key": "oID",
+      "x": 97,
+      "y": 398,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "oCID",
+      "x": 182,
+      "y": 398,
+      "anchor": "middle",
+      "literals": [
+        "CUSTOMER_ID"
+      ]
+    },
+    {
+      "key": "oSt",
+      "x": 286,
+      "y": 398,
+      "anchor": "middle",
+      "literals": [
+        "STATUS"
+      ]
+    },
+    {
+      "key": "oTot",
+      "x": 364,
+      "y": 398,
+      "anchor": "middle",
+      "literals": [
+        "TOTAL"
+      ]
+    },
+    {
+      "key": "cID",
+      "x": 606,
+      "y": 399,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "cLim",
+      "x": 691,
+      "y": 399,
+      "anchor": "middle",
+      "literals": [
+        "CREDIT_LIMIT"
+      ]
+    },
+    {
+      "key": "cDots",
+      "x": 785,
+      "y": 399,
+      "anchor": "middle",
+      "literals": [
+        "..."
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

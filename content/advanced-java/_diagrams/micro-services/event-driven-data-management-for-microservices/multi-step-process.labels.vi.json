@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "a33f2ddb52dddb7205b0eb4894d2511b9a5e0a985e91b1d309ec7308ebe6d589",
+    "source_lang": "en"
+  },
+  "labels": {
+    "order": "DỊCH VỤ\nĐƠN HÀNG",
+    "pub": "BỘ PHÁT HÀNH\nSỰ KIỆN",
+    "b_lt": "",
+    "b_br": "",
+    "b_to": "",
+    "b_te": "",
+    "publish": "Phát hành",
+    "t_lt": "Giao dịch cục bộ",
+    "t_ins1": "INSERT",
+    "t_ins2": "INSERT",
+    "t_qry": "TRUY VẤN",
+    "t_ordtab": "Bảng ORDER",
+    "t_evtab": "Bảng EVENT",
+    "t_broker": "MESSAGE\nBROKER",
+    "oh0": "ID",
+    "or0": "909",
+    "oh1": "CUSTOMER_ID",
+    "or1": "101",
+    "oh2": "STATUS",
+    "or2": "NEW",
+    "oh3": "TOTAL",
+    "or3": "1234",
+    "eh0": "ID",
+    "er0": "84784",
+    "eh1": "TYPE",
+    "er1": "Đơn hàng đã tạo",
+    "eh2": "DATA",
+    "er2": "{...}",
+    "eh3": "STATE",
+    "er3": "NEW",
+    "_title": "Dịch vụ đơn hàng ghi vào bảng ORDER và EVENT trong một giao dịch cục bộ, sau đó bộ phát hành sự kiện truy vấn bảng EVENT và phát hành lên message broker",
+    "_desc": "Dịch vụ đơn hàng dùng hai lệnh INSERT trong cùng một giao dịch cục bộ để thêm một dòng vào bảng ORDER (909, 101, NEW, 1234) và một dòng vào bảng EVENT (84784, Order Created, {...}, NEW). Bộ phát hành sự kiện truy vấn bảng EVENT và phát hành sự kiện lên message broker ở bên phải."
+  }
+}

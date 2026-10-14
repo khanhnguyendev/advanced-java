@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "ec951bf0af731e788dc91598936984867f06afea45c8e44606d242b185f35d46",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "os_l": "订单服务",
+    "os_r": "订单服务",
+    "cs": "客户服务",
+    "tbl_t": "ORDER 表",
+    "h_id": "ID",
+    "h_status": "STATUS",
+    "h_total": "TOTAL",
+    "h_dots": "...",
+    "r_id": "4567",
+    "r_status": "ACCEPTED",
+    "r_total": "8404.30",
+    "r_dots": "...",
+    "add_find": "添加事件\n查找事件",
+    "subscribe": "订阅事件",
+    "es_t": "事件存储",
+    "o_t": "订单 2345",
+    "ev1": "订单已创建",
+    "ev2": "订单已批准",
+    "ev3": "...",
+    "ev4": "订单已发货",
+    "_title": "事件源",
+    "_desc": "订单服务更新 ORDER 表中的一行（ID、STATUS、TOTAL），改为订单服务向事件存储添加和查找事件，订单 2345 以订单已创建、订单已批准、订单已发货等事件保存，客户服务订阅事件。"
+  }
+}

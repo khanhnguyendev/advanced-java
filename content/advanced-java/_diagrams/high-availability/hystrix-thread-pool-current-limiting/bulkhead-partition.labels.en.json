@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "thwart": "THWARTSHIP\nBULKHEADS",
+    "fore": "FORE AND AFT\nBULKHEADS",
+    "_title": "Bulkhead partition of a ship hull",
+    "_desc": "Schematic of a ship hull divided into six watertight compartments by two thwartship bulkheads (cross walls) and one fore-and-aft bulkhead (lengthwise wall). If one compartment floods, the water cannot flow into the others."
+  }
+}

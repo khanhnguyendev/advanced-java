@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Monolith versus microservices deployment",
+    "_desc": "Two side-by-side views of the same users. On the left, three monolith servers, each containing several modules in one process, are used directly by the users. On the right, four microservice servers, each containing one module in its own process, are reached through a single user interface document that the users call.",
+    "blank": "",
+    "t1": "monolith - multiple modules\nin the same process",
+    "t2": "microservices - modules\nrunning in different processes"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "b4786b3b871769f34dd10b762673afab2c91a8fb0451f0ebc3198d7de6076f6c",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Phân rã ứng dụng gọi xe thành các microservice",
+    "_desc": "Các microservice hình lục giác (Quản lý hành khách, Tính phí, Thanh toán, Quản lý tài xế, Quản lý chuyến đi, Thông báo, Web UI hành khách, Web UI tài xế) đều cung cấp REST API. API Gateway nối các client di động và web với chúng; Tính phí và Thông báo dùng các bộ điều hợp Stripe, Twilio, SendGrid.",
+    "blank": "",
+    "gw": "API\nGATEWAY",
+    "pm": "QUẢN LÝ\nHÀNH KHÁCH",
+    "bill": "TÍNH PHÍ",
+    "pwui": "WEB UI\nHÀNH KHÁCH",
+    "dm": "QUẢN LÝ\nTÀI XẾ",
+    "pay": "THANH TOÁN",
+    "dwui": "WEB UI\nTÀI XẾ",
+    "trip": "QUẢN LÝ\nCHUYẾN ĐI",
+    "notif": "THÔNG BÁO",
+    "stripe": "BỘ ĐIỀU HỢP\nSTRIPE",
+    "twilio": "BỘ ĐIỀU HỢP\nTWILIO",
+    "sendgrid": "BỘ ĐIỀU HỢP\nSENDGRID",
+    "rest1": "REST\nAPI",
+    "rest2": "REST\nAPI",
+    "rest3": "REST\nAPI",
+    "rest4": "REST\nAPI",
+    "rest5": "REST\nAPI",
+    "rest6": "REST\nAPI"
+  }
+}

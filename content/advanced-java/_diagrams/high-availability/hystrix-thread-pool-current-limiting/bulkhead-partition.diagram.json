@@ -1,0 +1,175 @@
+{
+  "id": "high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition",
+  "source": {
+    "upstream": "high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition.jpg",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 800,
+    "h": 400
+  },
+  "nodes": [],
+  "edges": [
+    {
+      "points": [
+        [
+          40,
+          110
+        ],
+        [
+          640,
+          110
+        ],
+        [
+          740,
+          215
+        ],
+        [
+          640,
+          320
+        ],
+        [
+          40,
+          320
+        ],
+        [
+          40,
+          110
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          240,
+          110
+        ],
+        [
+          240,
+          320
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          500,
+          110
+        ],
+        [
+          500,
+          320
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          40,
+          215
+        ],
+        [
+          720,
+          215
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          570,
+          64
+        ],
+        [
+          500,
+          112
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          620,
+          64
+        ],
+        [
+          620,
+          98
+        ],
+        [
+          250,
+          98
+        ],
+        [
+          240,
+          130
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          80,
+          340
+        ],
+        [
+          80,
+          225
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          200,
+          355
+        ],
+        [
+          770,
+          355
+        ],
+        [
+          770,
+          215
+        ],
+        [
+          725,
+          215
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "thwart",
+      "x": 620,
+      "y": 34,
+      "anchor": "middle"
+    },
+    {
+      "key": "fore",
+      "x": 140,
+      "y": 362,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

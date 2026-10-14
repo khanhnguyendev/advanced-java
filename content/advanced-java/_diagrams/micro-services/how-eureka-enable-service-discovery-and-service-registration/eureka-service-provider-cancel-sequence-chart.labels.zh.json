@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "p0": "服务停止",
+    "q0": "服务停止",
+    "p1": "DiscoveryClient",
+    "q1": "DiscoveryClient",
+    "p2": "EurekaHttpClientDecorator",
+    "q2": "EurekaHttpClientDecorator",
+    "p3": "AbstractJerseyEurekaHttpClient",
+    "q3": "AbstractJerseyEurekaHttpClient",
+    "blank": "",
+    "m1": "带 @PreDestroy 的 shutdown()",
+    "m2": "unregister",
+    "m3": "cancel",
+    "m4": "cancel",
+    "title": "Eureka 服务提供者服务下线（Cancel）时序图",
+    "_title": "Eureka 服务提供者服务下线（Cancel）时序图",
+    "_desc": "时序图：服务停止时调用带 @PreDestroy 的 shutdown()，DiscoveryClient 执行 unregister，再经 EurekaHttpClientDecorator 的 cancel 调用 AbstractJerseyEurekaHttpClient 的 cancel。"
+  }
+}

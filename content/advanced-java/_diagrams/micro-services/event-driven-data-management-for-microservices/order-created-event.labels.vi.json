@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "989f2ad00bde839b58f841905b974a6c6f5eb5391da33c41b4b1d70fdd7c463a",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "orderSvc": "DỊCH VỤ\nĐƠN HÀNG",
+    "custSvc": "DỊCH VỤ\nKHÁCH HÀNG",
+    "broker": "MESSAGE\nBROKER",
+    "place": "Đặt\nđơn hàng",
+    "evt": "Sự kiện\nđơn hàng\nđã tạo",
+    "orderTbl": "Bảng ORDER",
+    "custTbl": "Bảng CUSTOMER",
+    "resTbl": "Bảng RESERVED_CREDIT",
+    "oh0": "ID",
+    "oh1": "CUSTOMER_ID",
+    "oh2": "STATUS",
+    "oh3": "TOTAL",
+    "ov0": "909",
+    "ov1": "101",
+    "ov2": "NEW",
+    "ov3": "1234",
+    "ch0": "ID",
+    "ch1": "CREDIT_LIMIT",
+    "ch2": "...",
+    "cv0": "202",
+    "cv1": "5000",
+    "rh0": "CUST_ID",
+    "rh1": "ORDER_ID",
+    "rh2": "AMOUNT",
+    "_title": "Sự kiện đơn hàng đã tạo, phát qua message broker",
+    "_desc": "Yêu cầu đặt đơn hàng đến dịch vụ đơn hàng, dịch vụ này ghi một dòng vào bảng ORDER (ID, CUSTOMER_ID, STATUS, TOTAL) và phát sự kiện đơn hàng đã tạo tới message broker. Dịch vụ khách hàng ở bên phải sở hữu bảng CUSTOMER (ID, CREDIT_LIMIT) và bảng RESERVED_CREDIT (CUST_ID, ORDER_ID, AMOUNT)."
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "order": "ORDER\nSERVICE",
+    "pub": "EVENT\nPUBLISHER",
+    "b_lt": "",
+    "b_br": "",
+    "b_to": "",
+    "b_te": "",
+    "publish": "Publish",
+    "t_lt": "Local Transaction",
+    "t_ins1": "INSERT",
+    "t_ins2": "INSERT",
+    "t_qry": "QUERY",
+    "t_ordtab": "ORDER table",
+    "t_evtab": "EVENT table",
+    "t_broker": "MESSAGE\nBROKER",
+    "oh0": "ID",
+    "or0": "909",
+    "oh1": "CUSTOMER_ID",
+    "or1": "101",
+    "oh2": "STATUS",
+    "or2": "NEW",
+    "oh3": "TOTAL",
+    "or3": "1234",
+    "eh0": "ID",
+    "er0": "84784",
+    "eh1": "TYPE",
+    "er1": "Order Created",
+    "eh2": "DATA",
+    "er2": "{...}",
+    "eh3": "STATE",
+    "er3": "NEW",
+    "_title": "The order service writes the ORDER and EVENT tables in one local transaction, then the event publisher queries the EVENT table and publishes to the message broker",
+    "_desc": "The order service inserts one row into the ORDER table (909, 101, NEW, 1234) and one into the EVENT table (84784, Order Created, {...}, NEW) with two INSERTs in a single local transaction. The event publisher queries the EVENT table and publishes the event to the message broker on the right."
+  }
+}

@@ -1,0 +1,403 @@
+{
+  "id": "micro-services/event-driven-data-management-for-microservices/event-sourcing",
+  "source": {
+    "upstream": "micro-services/event-driven-data-management-for-microservices/Event-sourcing.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 1200,
+    "h": 500
+  },
+  "nodes": [
+    {
+      "id": "os_l",
+      "shape": "round",
+      "x": 118,
+      "y": 14,
+      "w": 112,
+      "h": 123,
+      "label": {
+        "key": "os_l"
+      }
+    },
+    {
+      "id": "tbl",
+      "shape": "group",
+      "x": 34,
+      "y": 263,
+      "w": 272,
+      "h": 91,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "os_r",
+      "shape": "round",
+      "x": 716,
+      "y": 22,
+      "w": 112,
+      "h": 126,
+      "label": {
+        "key": "os_r"
+      }
+    },
+    {
+      "id": "cs",
+      "shape": "round",
+      "x": 1018,
+      "y": 28,
+      "w": 110,
+      "h": 126,
+      "label": {
+        "key": "cs"
+      }
+    },
+    {
+      "id": "es",
+      "shape": "group",
+      "x": 726,
+      "y": 206,
+      "w": 410,
+      "h": 274,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "o2345",
+      "shape": "group",
+      "x": 823,
+      "y": 254,
+      "w": 212,
+      "h": 194,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "evs",
+      "shape": "group",
+      "x": 835,
+      "y": 310,
+      "w": 180,
+      "h": 107,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          174,
+          137
+        ],
+        [
+          174,
+          263
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          396,
+          306
+        ],
+        [
+          576,
+          306
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          800,
+          148
+        ],
+        [
+          846,
+          206
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          1040,
+          154
+        ],
+        [
+          1006,
+          206
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          72,
+          263
+        ],
+        [
+          72,
+          354
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          175,
+          263
+        ],
+        [
+          175,
+          354
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          246,
+          263
+        ],
+        [
+          246,
+          354
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          34,
+          294
+        ],
+        [
+          306,
+          294
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          34,
+          324
+        ],
+        [
+          306,
+          324
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          835,
+          338
+        ],
+        [
+          1015,
+          338
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          835,
+          366
+        ],
+        [
+          1015,
+          366
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          835,
+          392
+        ],
+        [
+          1015,
+          392
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "tbl_t",
+      "x": 38,
+      "y": 247,
+      "anchor": "start",
+      "literals": [
+        "ORDER"
+      ]
+    },
+    {
+      "key": "h_id",
+      "x": 53,
+      "y": 279,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "h_status",
+      "x": 124,
+      "y": 279,
+      "anchor": "middle",
+      "literals": [
+        "STATUS"
+      ]
+    },
+    {
+      "key": "h_total",
+      "x": 210,
+      "y": 279,
+      "anchor": "middle",
+      "literals": [
+        "TOTAL"
+      ]
+    },
+    {
+      "key": "h_dots",
+      "x": 276,
+      "y": 279,
+      "anchor": "middle",
+      "literals": [
+        "..."
+      ]
+    },
+    {
+      "key": "r_id",
+      "x": 53,
+      "y": 309,
+      "anchor": "middle",
+      "literals": [
+        "4567"
+      ]
+    },
+    {
+      "key": "r_status",
+      "x": 124,
+      "y": 309,
+      "anchor": "middle",
+      "literals": [
+        "ACCEPTED"
+      ]
+    },
+    {
+      "key": "r_total",
+      "x": 210,
+      "y": 309,
+      "anchor": "middle",
+      "literals": [
+        "8404.30"
+      ]
+    },
+    {
+      "key": "r_dots",
+      "x": 276,
+      "y": 309,
+      "anchor": "middle",
+      "literals": [
+        "..."
+      ]
+    },
+    {
+      "key": "add_find",
+      "x": 720,
+      "y": 172,
+      "anchor": "start"
+    },
+    {
+      "key": "subscribe",
+      "x": 1050,
+      "y": 172,
+      "anchor": "start"
+    },
+    {
+      "key": "es_t",
+      "x": 740,
+      "y": 223,
+      "anchor": "start"
+    },
+    {
+      "key": "o_t",
+      "x": 853,
+      "y": 276,
+      "anchor": "start",
+      "literals": [
+        "2345"
+      ]
+    },
+    {
+      "key": "ev1",
+      "x": 925,
+      "y": 324,
+      "anchor": "middle"
+    },
+    {
+      "key": "ev2",
+      "x": 925,
+      "y": 352,
+      "anchor": "middle"
+    },
+    {
+      "key": "ev3",
+      "x": 925,
+      "y": 379,
+      "anchor": "middle",
+      "literals": [
+        "..."
+      ]
+    },
+    {
+      "key": "ev4",
+      "x": 925,
+      "y": 405,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

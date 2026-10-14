@@ -1,0 +1,515 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-update-sequence-chart",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-update-sequence-chart.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1010,
+    "h": 490
+  },
+  "nodes": [
+    {
+      "id": "p1",
+      "shape": "round",
+      "x": 103,
+      "y": 50,
+      "w": 150,
+      "h": 40,
+      "label": {
+        "key": "p1",
+        "literals": [
+          "DiscoveryClient"
+        ]
+      }
+    },
+    {
+      "id": "q1",
+      "shape": "round",
+      "x": 103,
+      "y": 430,
+      "w": 150,
+      "h": 40,
+      "label": {
+        "key": "q1",
+        "literals": [
+          "DiscoveryClient"
+        ]
+      }
+    },
+    {
+      "id": "p2",
+      "shape": "round",
+      "x": 270,
+      "y": 50,
+      "w": 180,
+      "h": 40,
+      "label": {
+        "key": "p2",
+        "literals": [
+          "CacheRefreshThread"
+        ]
+      }
+    },
+    {
+      "id": "q2",
+      "shape": "round",
+      "x": 270,
+      "y": 430,
+      "w": 180,
+      "h": 40,
+      "label": {
+        "key": "q2",
+        "literals": [
+          "CacheRefreshThread"
+        ]
+      }
+    },
+    {
+      "id": "p3",
+      "shape": "round",
+      "x": 460,
+      "y": 50,
+      "w": 240,
+      "h": 40,
+      "label": {
+        "key": "p3",
+        "literals": [
+          "EurekaHttpClientDecorator"
+        ]
+      }
+    },
+    {
+      "id": "q3",
+      "shape": "round",
+      "x": 460,
+      "y": 430,
+      "w": 240,
+      "h": 40,
+      "label": {
+        "key": "q3",
+        "literals": [
+          "EurekaHttpClientDecorator"
+        ]
+      }
+    },
+    {
+      "id": "p4",
+      "shape": "round",
+      "x": 715,
+      "y": 50,
+      "w": 270,
+      "h": 40,
+      "label": {
+        "key": "p4",
+        "literals": [
+          "AbstractJerseyEurekaHttpClient"
+        ]
+      }
+    },
+    {
+      "id": "q4",
+      "shape": "round",
+      "x": 715,
+      "y": 430,
+      "w": 270,
+      "h": 40,
+      "label": {
+        "key": "q4",
+        "literals": [
+          "AbstractJerseyEurekaHttpClient"
+        ]
+      }
+    },
+    {
+      "id": "b1",
+      "shape": "box",
+      "x": 168,
+      "y": 139,
+      "w": 20,
+      "h": 277,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b2",
+      "shape": "box",
+      "x": 189,
+      "y": 205,
+      "w": 20,
+      "h": 211,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b3",
+      "shape": "box",
+      "x": 210,
+      "y": 249,
+      "w": 20,
+      "h": 167,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b4",
+      "shape": "box",
+      "x": 231,
+      "y": 292,
+      "w": 20,
+      "h": 124,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b5",
+      "shape": "box",
+      "x": 350,
+      "y": 173,
+      "w": 20,
+      "h": 243,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b6",
+      "shape": "box",
+      "x": 570,
+      "y": 325,
+      "w": 20,
+      "h": 91,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b7",
+      "shape": "box",
+      "x": 840,
+      "y": 358,
+      "w": 20,
+      "h": 58,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b8",
+      "shape": "box",
+      "x": 861,
+      "y": 385,
+      "w": 20,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          178,
+          90
+        ],
+        [
+          178,
+          430
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          360,
+          90
+        ],
+        [
+          360,
+          430
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          580,
+          90
+        ],
+        [
+          580,
+          430
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          850,
+          90
+        ],
+        [
+          850,
+          430
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          178,
+          121
+        ],
+        [
+          270,
+          121
+        ],
+        [
+          270,
+          141
+        ],
+        [
+          188,
+          141
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m1",
+        "at": [
+          162,
+          121
+        ],
+        "anchor": "end",
+        "literals": [
+          "initScheduledTasks"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          188,
+          175
+        ],
+        [
+          350,
+          175
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m2",
+        "at": [
+          270,
+          163
+        ],
+        "anchor": "middle",
+        "literals": [
+          "run"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          350,
+          207
+        ],
+        [
+          209,
+          207
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m3",
+        "at": [
+          280,
+          195
+        ],
+        "anchor": "middle",
+        "literals": [
+          "refreshRegistry"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          209,
+          232
+        ],
+        [
+          290,
+          232
+        ],
+        [
+          290,
+          251
+        ],
+        [
+          230,
+          251
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m4",
+        "at": [
+          162,
+          232
+        ],
+        "anchor": "end",
+        "literals": [
+          "fetchRegistry"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          230,
+          275
+        ],
+        [
+          300,
+          275
+        ],
+        [
+          300,
+          294
+        ],
+        [
+          251,
+          294
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m5",
+        "at": [
+          162,
+          275
+        ],
+        "anchor": "end",
+        "literals": [
+          "getAndUpdateDelta"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          251,
+          327
+        ],
+        [
+          570,
+          327
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m6",
+        "at": [
+          470,
+          315
+        ],
+        "anchor": "middle",
+        "literals": [
+          "getDelta"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          590,
+          360
+        ],
+        [
+          840,
+          360
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m7",
+        "at": [
+          712,
+          348
+        ],
+        "anchor": "middle",
+        "literals": [
+          "getDelta"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          860,
+          382
+        ],
+        [
+          900,
+          382
+        ],
+        [
+          900,
+          404
+        ],
+        [
+          881,
+          404
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m8",
+        "at": [
+          836,
+          382
+        ],
+        "anchor": "end",
+        "literals": [
+          "getApplicationsInternal"
+        ]
+      }
+    }
+  ],
+  "texts": [
+    {
+      "key": "title",
+      "x": 505,
+      "y": 24,
+      "anchor": "middle",
+      "literals": []
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

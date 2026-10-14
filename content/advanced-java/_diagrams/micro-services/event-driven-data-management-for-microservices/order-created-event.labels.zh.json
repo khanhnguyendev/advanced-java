@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "989f2ad00bde839b58f841905b974a6c6f5eb5391da33c41b4b1d70fdd7c463a",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "orderSvc": "订单服务",
+    "custSvc": "客户服务",
+    "broker": "消息代理",
+    "place": "下订单",
+    "evt": "创建订单事件",
+    "orderTbl": "ORDER 表",
+    "custTbl": "CUSTOMER 表",
+    "resTbl": "RESERVED_CREDIT 表",
+    "oh0": "ID",
+    "oh1": "CUSTOMER_ID",
+    "oh2": "STATUS",
+    "oh3": "TOTAL",
+    "ov0": "909",
+    "ov1": "101",
+    "ov2": "NEW",
+    "ov3": "1234",
+    "ch0": "ID",
+    "ch1": "CREDIT_LIMIT",
+    "ch2": "...",
+    "cv0": "202",
+    "cv1": "5000",
+    "rh0": "CUST_ID",
+    "rh1": "ORDER_ID",
+    "rh2": "AMOUNT",
+    "_title": "订单服务通过消息代理发布创建订单事件",
+    "_desc": "下订单请求到达订单服务，订单服务向 ORDER 表（ID、CUSTOMER_ID、STATUS、TOTAL）写入一行，并向消息代理发布创建订单事件。右侧的客户服务拥有 CUSTOMER 表（ID、CREDIT_LIMIT）和 RESERVED_CREDIT 表（CUST_ID、ORDER_ID、AMOUNT）。"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "f7f504303bc3a472d99ece2cef460b39173efd99442ff6fdd37d559817cf4bfa",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "So sánh triển khai nguyên khối và microservices",
+    "_desc": "Hai hình cạnh nhau cho cùng nhóm người dùng. Bên trái là ba máy chủ nguyên khối, mỗi máy chứa nhiều mô-đun trong cùng một tiến trình, người dùng truy cập trực tiếp. Bên phải là bốn máy chủ microservices, mỗi máy chứa một mô-đun trong tiến trình riêng, người dùng truy cập qua một tài liệu giao diện người dùng chung.",
+    "blank": "",
+    "t1": "Hệ thống nguyên khối - nhiều mô-đun\ntrong cùng một tiến trình",
+    "t2": "Microservices - các mô-đun chạy\ntrong các tiến trình khác nhau"
+  }
+}

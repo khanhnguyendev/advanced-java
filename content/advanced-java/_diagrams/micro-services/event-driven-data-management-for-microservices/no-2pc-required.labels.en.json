@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "order": "ORDER\nSERVICE",
+    "datastore": "Datastore",
+    "ordertable": "ORDER table",
+    "txlog": "Transaction log",
+    "miner": "TRANSACTION\nLOG MINER",
+    "blank": "",
+    "update": "Update",
+    "changes": "Changes",
+    "publish": "Publish",
+    "broker": "MESSAGE\nBROKER",
+    "_title": "Publishing events by mining the transaction log",
+    "_desc": "The order service updates a datastore holding an ORDER table and a transaction log. The transaction log miner reads the changes from the transaction log and publishes them to the message broker, so no two-phase commit is required."
+  }
+}

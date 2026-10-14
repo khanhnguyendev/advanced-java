@@ -1,0 +1,394 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-renew-sequence-chart",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-renew-sequence-chart.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1150,
+    "h": 590
+  },
+  "nodes": [
+    {
+      "id": "reg_t",
+      "shape": "round",
+      "x": 15,
+      "y": 50,
+      "w": 150,
+      "h": 44,
+      "label": {
+        "key": "reg_t"
+      }
+    },
+    {
+      "id": "reg_b",
+      "shape": "round",
+      "x": 15,
+      "y": 530,
+      "w": 150,
+      "h": 44,
+      "label": {
+        "key": "reg_b"
+      }
+    },
+    {
+      "id": "ir_t",
+      "shape": "round",
+      "x": 315,
+      "y": 50,
+      "w": 170,
+      "h": 44,
+      "label": {
+        "key": "ir_t",
+        "literals": [
+          "InstanceResource"
+        ]
+      }
+    },
+    {
+      "id": "ir_b",
+      "shape": "round",
+      "x": 315,
+      "y": 530,
+      "w": 170,
+      "h": 44,
+      "label": {
+        "key": "ir_b",
+        "literals": [
+          "InstanceResource"
+        ]
+      }
+    },
+    {
+      "id": "pa_t",
+      "shape": "round",
+      "x": 570,
+      "y": 50,
+      "w": 260,
+      "h": 44,
+      "label": {
+        "key": "pa_t",
+        "literals": [
+          "PeerAwareInstanceRegistryImpl"
+        ]
+      }
+    },
+    {
+      "id": "pa_b",
+      "shape": "round",
+      "x": 570,
+      "y": 530,
+      "w": 260,
+      "h": 44,
+      "label": {
+        "key": "pa_b",
+        "literals": [
+          "PeerAwareInstanceRegistryImpl"
+        ]
+      }
+    },
+    {
+      "id": "pn_t",
+      "shape": "round",
+      "x": 975,
+      "y": 50,
+      "w": 150,
+      "h": 44,
+      "label": {
+        "key": "pn_t",
+        "literals": [
+          "PeerEurekaNode"
+        ]
+      }
+    },
+    {
+      "id": "pn_b",
+      "shape": "round",
+      "x": 975,
+      "y": 530,
+      "w": 150,
+      "h": 44,
+      "label": {
+        "key": "pn_b",
+        "literals": [
+          "PeerEurekaNode"
+        ]
+      }
+    },
+    {
+      "id": "a_ir",
+      "shape": "box",
+      "x": 390,
+      "y": 135,
+      "w": 20,
+      "h": 355,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "a_pa1",
+      "shape": "box",
+      "x": 690,
+      "y": 185,
+      "w": 20,
+      "h": 305,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "a_pa2",
+      "shape": "box",
+      "x": 712,
+      "y": 255,
+      "w": 20,
+      "h": 235,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "a_pa3",
+      "shape": "box",
+      "x": 734,
+      "y": 315,
+      "w": 20,
+      "h": 175,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "loop",
+      "shape": "group",
+      "x": 758,
+      "y": 345,
+      "w": 332,
+      "h": 130,
+      "border": "solid",
+      "label": {
+        "key": "loop"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          90,
+          94
+        ],
+        [
+          90,
+          530
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          400,
+          94
+        ],
+        [
+          400,
+          530
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          700,
+          94
+        ],
+        [
+          700,
+          530
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          1050,
+          94
+        ],
+        [
+          1050,
+          530
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          90,
+          135
+        ],
+        [
+          390,
+          135
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m1",
+        "at": [
+          240,
+          122
+        ],
+        "anchor": "middle",
+        "literals": [
+          "Instance"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          410,
+          185
+        ],
+        [
+          690,
+          185
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m2",
+        "at": [
+          550,
+          172
+        ],
+        "anchor": "middle",
+        "literals": [
+          "renew"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          710,
+          225
+        ],
+        [
+          760,
+          225
+        ],
+        [
+          760,
+          255
+        ],
+        [
+          732,
+          255
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m3",
+        "at": [
+          684,
+          225
+        ],
+        "anchor": "end",
+        "literals": [
+          "super.register"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          732,
+          285
+        ],
+        [
+          782,
+          285
+        ],
+        [
+          782,
+          315
+        ],
+        [
+          754,
+          315
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m4",
+        "at": [
+          684,
+          285
+        ],
+        "anchor": "end",
+        "literals": [
+          "replicateToPeers"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          754,
+          455
+        ],
+        [
+          1050,
+          455
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m5",
+        "at": [
+          902,
+          442
+        ],
+        "anchor": "middle",
+        "literals": [
+          "replicationClient.register"
+        ]
+      }
+    }
+  ],
+  "texts": [
+    {
+      "key": "ttl",
+      "x": 575,
+      "y": 22,
+      "anchor": "middle"
+    },
+    {
+      "key": "note1",
+      "x": 800,
+      "y": 375,
+      "anchor": "start",
+      "literals": [
+        "InstanceReplicationTask"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

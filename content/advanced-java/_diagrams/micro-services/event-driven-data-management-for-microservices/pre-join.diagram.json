@@ -1,0 +1,210 @@
+{
+  "id": "micro-services/event-driven-data-management-for-microservices/pre-join",
+  "source": {
+    "upstream": "micro-services/event-driven-data-management-for-microservices/pre-join.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 1030,
+    "h": 620
+  },
+  "nodes": [
+    {
+      "id": "order",
+      "shape": "round",
+      "x": 90,
+      "y": 200,
+      "w": 140,
+      "h": 120,
+      "label": {
+        "key": "order"
+      }
+    },
+    {
+      "id": "customer",
+      "shape": "round",
+      "x": 250,
+      "y": 200,
+      "w": 140,
+      "h": 120,
+      "label": {
+        "key": "customer"
+      }
+    },
+    {
+      "id": "updater",
+      "shape": "round",
+      "x": 400,
+      "y": 200,
+      "w": 180,
+      "h": 120,
+      "label": {
+        "key": "updater"
+      }
+    },
+    {
+      "id": "view",
+      "shape": "box",
+      "x": 660,
+      "y": 215,
+      "w": 100,
+      "h": 90,
+      "label": {
+        "key": "view"
+      }
+    },
+    {
+      "id": "query",
+      "shape": "round",
+      "x": 840,
+      "y": 200,
+      "w": 170,
+      "h": 120,
+      "label": {
+        "key": "query"
+      }
+    },
+    {
+      "id": "brokerbox",
+      "shape": "group",
+      "x": 23,
+      "y": 492,
+      "w": 560,
+      "h": 105,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          160,
+          320
+        ],
+        [
+          160,
+          492
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          320,
+          320
+        ],
+        [
+          320,
+          492
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          490,
+          492
+        ],
+        [
+          490,
+          320
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          580,
+          260
+        ],
+        [
+          660,
+          260
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "update",
+        "at": [
+          620,
+          246
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          840,
+          260
+        ],
+        [
+          760,
+          260
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "queryl",
+        "at": [
+          800,
+          246
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          925,
+          15
+        ],
+        [
+          925,
+          200
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "find",
+      "x": 915,
+      "y": 95,
+      "anchor": "end"
+    },
+    {
+      "key": "orderev",
+      "x": 20,
+      "y": 376,
+      "anchor": "start"
+    },
+    {
+      "key": "custev",
+      "x": 172,
+      "y": 376,
+      "anchor": "start"
+    },
+    {
+      "key": "broker",
+      "x": 303,
+      "y": 545,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

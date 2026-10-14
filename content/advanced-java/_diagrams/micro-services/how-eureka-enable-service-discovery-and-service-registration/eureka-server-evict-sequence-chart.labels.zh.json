@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "eb_t": "EurekaBootStrap",
+    "eb_b": "EurekaBootStrap",
+    "pa_t": "PeerAwareInstanceRegistryImpl",
+    "pa_b": "PeerAwareInstanceRegistryImpl",
+    "ab_t": "AbstractInstanceRegistry",
+    "ab_b": "AbstractInstanceRegistry",
+    "et_t": "EvictionTask",
+    "et_b": "EvictionTask",
+    "le_t": "Lease",
+    "le_b": "Lease",
+    "loop": "loop",
+    "blank": "",
+    "m1": "openForTraffic",
+    "m2": "super.postInit",
+    "m3": "run",
+    "m4": "evict",
+    "m5": "internalCancel",
+    "m6": "cancel",
+    "title": "Eureka 服务剔除（Eviction）时序图",
+    "guard": "[evictionTimer 后台定时调用]",
+    "_title": "Eureka 服务剔除（Eviction）时序图",
+    "_desc": "EurekaBootStrap 调用 PeerAwareInstanceRegistryImpl 的 openForTraffic，经 super.postInit 进入 AbstractInstanceRegistry，由 evictionTimer 触发 EvictionTask 的 run，再 evict 并 internalCancel，最后循环调用 Lease 的 cancel。"
+  }
+}

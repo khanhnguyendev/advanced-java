@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Microservice decomposition of a taxi-hailing application",
+    "_desc": "Hexagonal microservices (Passenger Management, Billing, Payments, Driver Management, Trip Management, Notification, Passenger Web UI, Driver Web UI) each expose a REST API. An API Gateway connects mobile and web clients to them; Billing, Notification use Stripe, Twilio and SendGrid adapters.",
+    "blank": "",
+    "gw": "API\nGATEWAY",
+    "pm": "PASSENGER\nMANAGEMENT",
+    "bill": "BILLING",
+    "pwui": "PASSENGER\nWEB UI",
+    "dm": "DRIVER\nMANAGEMENT",
+    "pay": "PAYMENTS",
+    "dwui": "DRIVER\nWEB UI",
+    "trip": "TRIP\nMANAGEMENT",
+    "notif": "NOTIFICATION",
+    "stripe": "STRIPE\nADAPTER",
+    "twilio": "TWILIO\nADAPTER",
+    "sendgrid": "SENDGRID\nADAPTER",
+    "rest1": "REST\nAPI",
+    "rest2": "REST\nAPI",
+    "rest3": "REST\nAPI",
+    "rest4": "REST\nAPI",
+    "rest5": "REST\nAPI",
+    "rest6": "REST\nAPI"
+  }
+}

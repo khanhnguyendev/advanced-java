@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "broker": "MESSAGE\nBROKER",
+    "os": "ORDER\nSERVICE",
+    "cs": "CUSTOMER\nSERVICE",
+    "ev1": "Order\nCreated Event",
+    "ev2": "Credit\nReserved",
+    "ot_t": "ORDER table",
+    "ot_h0": "ID",
+    "ot_h1": "CUSTOMER_ID",
+    "ot_h2": "STATUS",
+    "ot_h3": "TOTAL",
+    "ot_v0": "909",
+    "ot_v1": "101",
+    "ot_v2": "NEW",
+    "ot_v3": "1234",
+    "ct_t": "CUSTOMER table",
+    "ct_h0": "ID",
+    "ct_h1": "CREDIT_LIMIT",
+    "ct_h2": "...",
+    "ct_v0": "202",
+    "ct_v1": "5000",
+    "rt_t": "RESERVED_CREDIT table",
+    "rt_h0": "CUST_ID",
+    "rt_h1": "ORDER_ID",
+    "rt_h2": "AMOUNT",
+    "rt_v0": "202",
+    "rt_v1": "909",
+    "rt_v2": "1234",
+    "_title": "Order Service and Customer Service exchange Order Created and Credit Reserved events through a message broker",
+    "_desc": "On the left the Order Service writes to the ORDER table and sends an Order Created Event through the Message Broker in the middle to the Customer Service on the right. The Customer Service writes to its CUSTOMER and RESERVED_CREDIT tables and sends a Credit Reserved event back through the broker."
+  }
+}

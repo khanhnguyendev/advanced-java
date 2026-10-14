@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "ac941540caca104f0bb7975e73bc76a4521a3bea4974cdb68b60d5fc53d130bd",
+    "source_lang": "en"
+  },
+  "labels": {
+    "thwart": "Vách ngăn\nngang tàu",
+    "fore": "Vách ngăn dọc\n(mũi và lái)",
+    "_title": "Cô lập khoang trên thân tàu",
+    "_desc": "Sơ đồ thân tàu được chia thành sáu khoang kín nước bởi hai vách ngăn ngang tàu và một vách ngăn dọc (mũi và lái). Khi một khoang bị vỡ và tràn nước, nước không chảy sang các khoang khác."
+  }
+}

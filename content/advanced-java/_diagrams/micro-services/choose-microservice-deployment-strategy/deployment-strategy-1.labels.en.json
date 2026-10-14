@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "host": "Host (Physical or VM)",
+    "svcA1": "SERVICE-A\nINSTANCE-1",
+    "svcB1": "SERVICE-B\nINSTANCE-1",
+    "svcC1": "SERVICE-C\nINSTANCE-1",
+    "svcA2": "SERVICE-A\nINSTANCE-2",
+    "svcB2": "SERVICE-B\nINSTANCE-2",
+    "svcC2": "SERVICE-C\nINSTANCE-2",
+    "_title": "Two hosts each running one instance of services A, B and C",
+    "_desc": "Two host boxes (physical machine or VM), one above the other. Each host contains three hexagonal service instances side by side: SERVICE-A, SERVICE-B and SERVICE-C. The upper host runs INSTANCE-1 of each service and the lower host runs INSTANCE-2."
+  }
+}

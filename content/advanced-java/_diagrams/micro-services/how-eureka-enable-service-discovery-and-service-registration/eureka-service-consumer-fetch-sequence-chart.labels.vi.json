@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "a17162127a02108e0122b174f91703f9919b3430ec68acdf33c78b4b52531e88"
+  },
+  "labels": {
+    "p1": "DiscoveryClient",
+    "q1": "DiscoveryClient",
+    "p2": "EurekaHttpClientDecorator",
+    "q2": "EurekaHttpClientDecorator",
+    "p3": "AbstractJerseyEurekaHttpClient",
+    "q3": "AbstractJerseyEurekaHttpClient",
+    "blank": "",
+    "m1": "fetchRegistry",
+    "m2": "getAndStoreFullRegistry",
+    "m3": "getApplications",
+    "m4": "getApplications",
+    "m5": "getApplicationsInternal",
+    "title": "Sơ đồ tuần tự lấy danh sách dịch vụ (Fetch) của bên sử dụng dịch vụ Eureka",
+    "_title": "Sơ đồ tuần tự lấy danh sách dịch vụ (Fetch) của bên sử dụng dịch vụ Eureka",
+    "_desc": "Sơ đồ tuần tự: DiscoveryClient gọi fetchRegistry và getAndStoreFullRegistry, rồi gọi getApplications qua EurekaHttpClientDecorator, lớp này gọi getApplications và getApplicationsInternal trên AbstractJerseyEurekaHttpClient."
+  }
+}

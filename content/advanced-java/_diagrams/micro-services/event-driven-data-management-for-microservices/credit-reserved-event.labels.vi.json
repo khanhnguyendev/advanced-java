@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "e7aa03d8ea7eedc1d0cd8f1ee44cb20e271f35aa1cc7a36f41184abf0bb1a66b",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "broker": "MESSAGE\nBROKER",
+    "os": "DỊCH VỤ\nĐƠN HÀNG",
+    "cs": "DỊCH VỤ\nKHÁCH HÀNG",
+    "ev1": "Sự kiện\nđơn hàng đã tạo",
+    "ev2": "Tín dụng\nđã giữ chỗ",
+    "ot_t": "Bảng ORDER",
+    "ot_h0": "ID",
+    "ot_h1": "CUSTOMER_ID",
+    "ot_h2": "STATUS",
+    "ot_h3": "TOTAL",
+    "ot_v0": "909",
+    "ot_v1": "101",
+    "ot_v2": "NEW",
+    "ot_v3": "1234",
+    "ct_t": "Bảng CUSTOMER",
+    "ct_h0": "ID",
+    "ct_h1": "CREDIT_LIMIT",
+    "ct_h2": "...",
+    "ct_v0": "202",
+    "ct_v1": "5000",
+    "rt_t": "Bảng RESERVED_CREDIT",
+    "rt_h0": "CUST_ID",
+    "rt_h1": "ORDER_ID",
+    "rt_h2": "AMOUNT",
+    "rt_v0": "202",
+    "rt_v1": "909",
+    "rt_v2": "1234",
+    "_title": "Dịch vụ đơn hàng và dịch vụ khách hàng trao đổi sự kiện đơn hàng đã tạo và sự kiện tín dụng đã giữ chỗ qua message broker",
+    "_desc": "Bên trái, dịch vụ đơn hàng ghi vào bảng ORDER và gửi sự kiện đơn hàng đã tạo qua message broker ở giữa tới dịch vụ khách hàng bên phải. Dịch vụ khách hàng ghi vào bảng CUSTOMER và RESERVED_CREDIT rồi gửi lại sự kiện tín dụng đã giữ chỗ qua message broker."
+  }
+}

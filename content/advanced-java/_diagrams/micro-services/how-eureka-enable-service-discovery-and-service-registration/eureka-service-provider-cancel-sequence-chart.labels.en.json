@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "e32576378f7da516a2f2ee1f60abdffe9b1ad230271a3e7539d8628509f05063"
+  },
+  "labels": {
+    "p0": "Service stopped",
+    "q0": "Service stopped",
+    "p1": "DiscoveryClient",
+    "q1": "DiscoveryClient",
+    "p2": "EurekaHttpClientDecorator",
+    "q2": "EurekaHttpClientDecorator",
+    "p3": "AbstractJerseyEurekaHttpClient",
+    "q3": "AbstractJerseyEurekaHttpClient",
+    "blank": "",
+    "m1": "shutdown() with @PreDestroy",
+    "m2": "unregister",
+    "m3": "cancel",
+    "m4": "cancel",
+    "title": "Eureka service provider deregistration (Cancel) sequence diagram",
+    "_title": "Eureka service provider deregistration (Cancel) sequence diagram",
+    "_desc": "Sequence diagram: when the service stops it calls shutdown() annotated with @PreDestroy, DiscoveryClient runs unregister, then cancel through EurekaHttpClientDecorator, which calls cancel on AbstractJerseyEurekaHttpClient."
+  }
+}

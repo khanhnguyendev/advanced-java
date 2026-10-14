@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "e32576378f7da516a2f2ee1f60abdffe9b1ad230271a3e7539d8628509f05063"
+  },
+  "labels": {
+    "p0": "Dịch vụ dừng",
+    "q0": "Dịch vụ dừng",
+    "p1": "DiscoveryClient",
+    "q1": "DiscoveryClient",
+    "p2": "EurekaHttpClientDecorator",
+    "q2": "EurekaHttpClientDecorator",
+    "p3": "AbstractJerseyEurekaHttpClient",
+    "q3": "AbstractJerseyEurekaHttpClient",
+    "blank": "",
+    "m1": "Gọi shutdown() có @PreDestroy",
+    "m2": "unregister",
+    "m3": "cancel",
+    "m4": "cancel",
+    "title": "Sơ đồ tuần tự hủy đăng ký dịch vụ (Cancel) của bên cung cấp dịch vụ Eureka",
+    "_title": "Sơ đồ tuần tự hủy đăng ký dịch vụ (Cancel) của bên cung cấp dịch vụ Eureka",
+    "_desc": "Sơ đồ tuần tự: khi dịch vụ dừng, gọi shutdown() có @PreDestroy, DiscoveryClient thực hiện unregister, rồi gọi cancel qua EurekaHttpClientDecorator, lớp này gọi cancel trên AbstractJerseyEurekaHttpClient."
+  }
+}

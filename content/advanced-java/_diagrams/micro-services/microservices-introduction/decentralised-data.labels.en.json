@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "A monolith with one shared database versus microservices with their own databases",
+    "_desc": "Two side-by-side views. On the left, users reach one monolithic application that sits on a single shared database holding all tables. On the right, several services feed one user interface document that the users see, and each service uses its own database.",
+    "blank": "",
+    "t1": "monolith - single database",
+    "t2": "microservices - application databases"
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "id": "micro-services/microservices-introduction/conways-law",
+  "source": {
+    "upstream": "micro-services/microservices-introduction/conways-law.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 580,
+    "h": 484
+  },
+  "nodes": [
+    {
+      "id": "ui",
+      "shape": "group",
+      "x": 105,
+      "y": 12,
+      "w": 110,
+      "h": 86,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "mw",
+      "shape": "group",
+      "x": 100,
+      "y": 172,
+      "w": 110,
+      "h": 90,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "db",
+      "shape": "group",
+      "x": 100,
+      "y": 316,
+      "w": 110,
+      "h": 88,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ui_t",
+      "shape": "box",
+      "x": 125,
+      "y": 38,
+      "w": 70,
+      "h": 40,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "mw_t",
+      "shape": "box",
+      "x": 120,
+      "y": 200,
+      "w": 70,
+      "h": 40,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "db_t",
+      "shape": "box",
+      "x": 120,
+      "y": 342,
+      "w": 70,
+      "h": 40,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "doc",
+      "shape": "box",
+      "x": 403,
+      "y": 10,
+      "w": 46,
+      "h": 62,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "app",
+      "shape": "group",
+      "x": 315,
+      "y": 175,
+      "w": 235,
+      "h": 72,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c1",
+      "shape": "box",
+      "x": 330,
+      "y": 192,
+      "w": 58,
+      "h": 38,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c2",
+      "shape": "box",
+      "x": 396,
+      "y": 192,
+      "w": 58,
+      "h": 38,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c3",
+      "shape": "box",
+      "x": 462,
+      "y": 192,
+      "w": 58,
+      "h": 38,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "store",
+      "shape": "box",
+      "x": 390,
+      "y": 330,
+      "w": 70,
+      "h": 60,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          278,
+          40
+        ],
+        [
+          278,
+          390
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          425,
+          330
+        ],
+        [
+          425,
+          247
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          426,
+          175
+        ],
+        [
+          426,
+          72
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "ui_l",
+      "x": 50,
+      "y": 50,
+      "anchor": "middle"
+    },
+    {
+      "key": "mw_l",
+      "x": 50,
+      "y": 216,
+      "anchor": "middle"
+    },
+    {
+      "key": "db_l",
+      "x": 50,
+      "y": 360,
+      "anchor": "middle"
+    },
+    {
+      "key": "t1",
+      "x": 78,
+      "y": 438,
+      "anchor": "start"
+    },
+    {
+      "key": "t2",
+      "x": 300,
+      "y": 436,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

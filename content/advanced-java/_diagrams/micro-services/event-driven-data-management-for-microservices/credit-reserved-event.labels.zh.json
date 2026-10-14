@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "e7aa03d8ea7eedc1d0cd8f1ee44cb20e271f35aa1cc7a36f41184abf0bb1a66b",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "broker": "消息代理",
+    "os": "订单服务",
+    "cs": "客户服务",
+    "ev1": "创建订单事件",
+    "ev2": "信用\n预留",
+    "ot_t": "ORDER 表",
+    "ot_h0": "ID",
+    "ot_h1": "CUSTOMER_ID",
+    "ot_h2": "STATUS",
+    "ot_h3": "TOTAL",
+    "ot_v0": "909",
+    "ot_v1": "101",
+    "ot_v2": "NEW",
+    "ot_v3": "1234",
+    "ct_t": "CUSTOMER 表",
+    "ct_h0": "ID",
+    "ct_h1": "CREDIT_LIMIT",
+    "ct_h2": "...",
+    "ct_v0": "202",
+    "ct_v1": "5000",
+    "rt_t": "RESERVED_CREDIT 表",
+    "rt_h0": "CUST_ID",
+    "rt_h1": "ORDER_ID",
+    "rt_h2": "AMOUNT",
+    "rt_v0": "202",
+    "rt_v1": "909",
+    "rt_v2": "1234",
+    "_title": "订单服务通过消息代理与客户服务交换创建订单事件与信用预留事件",
+    "_desc": "左侧订单服务写入 ORDER 表，并通过消息代理向右侧客户服务发送创建订单事件；客户服务写入 CUSTOMER 表和 RESERVED_CREDIT 表，再通过消息代理回送信用预留事件。"
+  }
+}

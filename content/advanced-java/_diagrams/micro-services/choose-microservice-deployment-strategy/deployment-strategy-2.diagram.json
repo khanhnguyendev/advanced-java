@@ -1,0 +1,189 @@
+{
+  "id": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-2",
+  "source": {
+    "upstream": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-2.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 880,
+    "h": 740
+  },
+  "nodes": [
+    {
+      "id": "svc",
+      "shape": "round",
+      "x": 26,
+      "y": 292,
+      "w": 150,
+      "h": 150,
+      "label": {
+        "key": "svc"
+      }
+    },
+    {
+      "id": "img",
+      "shape": "group",
+      "x": 317,
+      "y": 321,
+      "w": 149,
+      "h": 91,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "vm0",
+      "shape": "group",
+      "x": 614,
+      "y": 30,
+      "w": 230,
+      "h": 210,
+      "border": "solid",
+      "label": {
+        "key": "vm"
+      }
+    },
+    {
+      "id": "inst0",
+      "shape": "round",
+      "x": 672,
+      "y": 58,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "inst"
+      }
+    },
+    {
+      "id": "vm1",
+      "shape": "group",
+      "x": 614,
+      "y": 262,
+      "w": 230,
+      "h": 210,
+      "border": "solid",
+      "label": {
+        "key": "vm"
+      }
+    },
+    {
+      "id": "inst1",
+      "shape": "round",
+      "x": 672,
+      "y": 290,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "inst"
+      }
+    },
+    {
+      "id": "vm2",
+      "shape": "group",
+      "x": 614,
+      "y": 495,
+      "w": 230,
+      "h": 210,
+      "border": "solid",
+      "label": {
+        "key": "vm"
+      }
+    },
+    {
+      "id": "inst2",
+      "shape": "round",
+      "x": 672,
+      "y": 523,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "inst"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          176,
+          367
+        ],
+        [
+          317,
+          367
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "pkg",
+        "at": [
+          246,
+          349
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          466,
+          350
+        ],
+        [
+          614,
+          150
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "dep",
+        "at": [
+          515,
+          250
+        ],
+        "anchor": "end"
+      }
+    },
+    {
+      "points": [
+        [
+          466,
+          367
+        ],
+        [
+          614,
+          367
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          466,
+          384
+        ],
+        [
+          614,
+          585
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "img",
+      "x": 391,
+      "y": 367,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

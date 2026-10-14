@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "a33f2ddb52dddb7205b0eb4894d2511b9a5e0a985e91b1d309ec7308ebe6d589",
+    "source_lang": "en"
+  },
+  "labels": {
+    "order": "订单服务",
+    "pub": "事件\n发布者",
+    "b_lt": "",
+    "b_br": "",
+    "b_to": "",
+    "b_te": "",
+    "publish": "发布",
+    "t_lt": "本地事务",
+    "t_ins1": "INSERT",
+    "t_ins2": "INSERT",
+    "t_qry": "查询",
+    "t_ordtab": "ORDER 表",
+    "t_evtab": "EVENT 表",
+    "t_broker": "消息代理",
+    "oh0": "ID",
+    "or0": "909",
+    "oh1": "CUSTOMER_ID",
+    "or1": "101",
+    "oh2": "STATUS",
+    "or2": "NEW",
+    "oh3": "TOTAL",
+    "or3": "1234",
+    "eh0": "ID",
+    "er0": "84784",
+    "eh1": "TYPE",
+    "er1": "订单已创建",
+    "eh2": "DATA",
+    "er2": "{...}",
+    "eh3": "STATE",
+    "er3": "NEW",
+    "_title": "订单服务在一次本地事务中写入 ORDER 表和 EVENT 表，事件发布者再查询 EVENT 表并发布到消息代理",
+    "_desc": "订单服务通过两次 INSERT 在同一次本地事务中向 ORDER 表（909、101、NEW、1234）和 EVENT 表（84784、Order Created、{...}、NEW）各插入一行；事件发布者查询 EVENT 表，并把事件发布到右侧的消息代理。"
+  }
+}

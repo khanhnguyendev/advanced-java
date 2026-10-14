@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "17a78d73afd08cbeefe2ae275334255b8fd60297d0d7d3a130e95a5760a144be"
+  },
+  "labels": {
+    "eb_t": "EurekaBootStrap",
+    "eb_b": "EurekaBootStrap",
+    "pa_t": "PeerAwareInstanceRegistryImpl",
+    "pa_b": "PeerAwareInstanceRegistryImpl",
+    "ab_t": "AbstractInstanceRegistry",
+    "ab_b": "AbstractInstanceRegistry",
+    "et_t": "EvictionTask",
+    "et_b": "EvictionTask",
+    "le_t": "Lease",
+    "le_b": "Lease",
+    "loop": "loop",
+    "blank": "",
+    "m1": "openForTraffic",
+    "m2": "super.postInit",
+    "m3": "run",
+    "m4": "evict",
+    "m5": "internalCancel",
+    "m6": "cancel",
+    "title": "Sơ đồ tuần tự loại bỏ dịch vụ (Eviction) của Eureka",
+    "guard": "[evictionTimer được gọi định kỳ\ntrong nền]",
+    "_title": "Sơ đồ tuần tự loại bỏ dịch vụ của Eureka",
+    "_desc": "EurekaBootStrap gọi openForTraffic của PeerAwareInstanceRegistryImpl, chạy super.postInit trong AbstractInstanceRegistry; run của EvictionTask do evictionTimer kích hoạt gọi evict và internalCancel, rồi lặp lại gọi cancel của Lease."
+  }
+}

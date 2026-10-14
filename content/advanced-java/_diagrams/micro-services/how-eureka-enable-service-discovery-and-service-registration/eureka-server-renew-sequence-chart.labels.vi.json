@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "c55d89c6684e4f916c1ff9c60da248dd18e54e9410ec1fc6923cb9b63fea4c0a"
+  },
+  "labels": {
+    "ttl": "Sơ đồ tuần tự gia hạn dịch vụ (Renew) của Eureka",
+    "blank": "",
+    "loop": "loop",
+    "m1": "Gửi yêu cầu kèm thông tin Instance",
+    "m2": "renew",
+    "m3": "super.register",
+    "m4": "replicateToPeers",
+    "m5": "replicationClient.register",
+    "note1": "[InstanceReplicationTask\nđược gọi định kỳ\ntrong nền]",
+    "_title": "Sơ đồ tuần tự gia hạn dịch vụ của Eureka",
+    "_desc": "Dịch vụ đã đăng ký gửi yêu cầu gia hạn tới InstanceResource, nơi gọi renew trên PeerAwareInstanceRegistryImpl; lớp này gọi super.register và replicateToPeers, rồi tác vụ nền sao chép sang PeerEurekaNode qua replicationClient.register.",
+    "reg_t": "Dịch vụ đã đăng ký",
+    "reg_b": "Dịch vụ đã đăng ký",
+    "ir_t": "InstanceResource",
+    "ir_b": "InstanceResource",
+    "pa_t": "PeerAwareInstanceRegistryImpl",
+    "pa_b": "PeerAwareInstanceRegistryImpl",
+    "pn_t": "PeerEurekaNode",
+    "pn_b": "PeerEurekaNode"
+  }
+}

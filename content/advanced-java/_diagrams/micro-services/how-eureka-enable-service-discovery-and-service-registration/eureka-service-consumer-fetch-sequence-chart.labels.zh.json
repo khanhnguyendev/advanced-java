@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "p1": "DiscoveryClient",
+    "q1": "DiscoveryClient",
+    "p2": "EurekaHttpClientDecorator",
+    "q2": "EurekaHttpClientDecorator",
+    "p3": "AbstractJerseyEurekaHttpClient",
+    "q3": "AbstractJerseyEurekaHttpClient",
+    "blank": "",
+    "m1": "fetchRegistry",
+    "m2": "getAndStoreFullRegistry",
+    "m3": "getApplications",
+    "m4": "getApplications",
+    "m5": "getApplicationsInternal",
+    "title": "Eureka 服务消费者获取服务列表（Fetch）时序图",
+    "_title": "Eureka 服务消费者获取服务列表（Fetch）时序图",
+    "_desc": "时序图：DiscoveryClient 调用 fetchRegistry 和 getAndStoreFullRegistry，再经 EurekaHttpClientDecorator 的 getApplications 调用 AbstractJerseyEurekaHttpClient 的 getApplications 与 getApplicationsInternal。"
+  }
+}

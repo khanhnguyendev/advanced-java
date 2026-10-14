@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "8c128766f82e30d00c70fae1aa1934a24a145820b23ebda5e0ab56e777ea8182",
+    "source_lang": "en"
+  },
+  "labels": {
+    "order": "DỊCH VỤ\nĐƠN HÀNG",
+    "customer": "DỊCH VỤ\nKHÁCH HÀNG",
+    "updater": "DỊCH VỤ CẬP NHẬT\nCHẾ ĐỘ XEM\nĐƠN HÀNG\nKHÁCH HÀNG",
+    "query": "DỊCH VỤ TRUY VẤN\nCHẾ ĐỘ XEM\nĐƠN HÀNG\nKHÁCH HÀNG",
+    "view": "Chế độ xem\nđơn hàng\nkhách hàng",
+    "update": "Cập nhật",
+    "queryl": "Truy vấn",
+    "find": "Tìm khách hàng\nvà đơn hàng",
+    "orderev": "Đơn hàng đã tạo\nĐơn hàng đã hủy\nĐơn hàng đã giao\n...",
+    "custev": "Khách hàng đã tạo\nKhách hàng đã hủy\nKhách hàng đã giao\n...",
+    "broker": "MESSAGE BROKER",
+    "blank": "",
+    "_title": "Duy trì chế độ xem đơn hàng khách hàng được nối sẵn từ các sự kiện",
+    "_desc": "Dịch vụ đơn hàng và dịch vụ khách hàng phát hành sự kiện lên message broker; dịch vụ cập nhật chế độ xem đơn hàng khách hàng tiêu thụ các sự kiện và cập nhật chế độ xem; dịch vụ truy vấn đọc chế độ xem để trả lời yêu cầu tìm khách hàng và đơn hàng."
+  }
+}

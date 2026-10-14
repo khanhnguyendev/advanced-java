@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "t1": "compile, unit\nand\nfunctional test",
+    "t2": "acceptance\ntest",
+    "t3": "integration\ntest",
+    "t4": "user acceptance\ntest",
+    "t5": "performance\ntest",
+    "tprod": "deploy to\nproduction",
+    "b1": "run on build\nmachine",
+    "b2": "deployed on\nbuild\nmachine",
+    "b3": "deployed to\nintegration\nenvironment",
+    "b4": "deployed to\nUAT\nenvironment",
+    "b5": "deployed to\nperformance\nenvironment",
+    "_title": "Basic build pipeline",
+    "_desc": "A line of pipeline stages from compile, unit and functional test through acceptance, integration, user acceptance and performance tests to deploy to production; below each stage a box names the environment it runs on."
+  }
+}

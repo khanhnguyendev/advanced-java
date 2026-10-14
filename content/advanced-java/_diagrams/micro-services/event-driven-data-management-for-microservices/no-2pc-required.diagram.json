@@ -1,0 +1,162 @@
+{
+  "id": "micro-services/event-driven-data-management-for-microservices/no-2pc-required",
+  "source": {
+    "upstream": "micro-services/event-driven-data-management-for-microservices/No-2PC-required.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 800,
+    "h": 570
+  },
+  "nodes": [
+    {
+      "id": "order",
+      "shape": "round",
+      "x": 100,
+      "y": 10,
+      "w": 134,
+      "h": 112,
+      "label": {
+        "key": "order"
+      }
+    },
+    {
+      "id": "datastore",
+      "shape": "group",
+      "x": 19,
+      "y": 233,
+      "w": 307,
+      "h": 148,
+      "border": "solid",
+      "label": {
+        "key": "datastore"
+      }
+    },
+    {
+      "id": "ordertable",
+      "shape": "box",
+      "x": 59,
+      "y": 262,
+      "w": 156,
+      "h": 44,
+      "label": {
+        "key": "ordertable",
+        "literals": [
+          "ORDER"
+        ]
+      }
+    },
+    {
+      "id": "txlog",
+      "shape": "box",
+      "x": 60,
+      "y": 320,
+      "w": 211,
+      "h": 54,
+      "label": {
+        "key": "txlog"
+      }
+    },
+    {
+      "id": "miner",
+      "shape": "round",
+      "x": 420,
+      "y": 291,
+      "w": 180,
+      "h": 112,
+      "label": {
+        "key": "miner"
+      }
+    },
+    {
+      "id": "broker",
+      "shape": "group",
+      "x": 710,
+      "y": 68,
+      "w": 90,
+      "h": 484,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          167,
+          122
+        ],
+        [
+          167,
+          226
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "update",
+        "at": [
+          158,
+          174
+        ],
+        "anchor": "end"
+      }
+    },
+    {
+      "points": [
+        [
+          271,
+          347
+        ],
+        [
+          420,
+          347
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "changes",
+        "at": [
+          373,
+          334
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          600,
+          347
+        ],
+        [
+          710,
+          347
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "publish",
+        "at": [
+          655,
+          334
+        ],
+        "anchor": "middle"
+      }
+    }
+  ],
+  "texts": [
+    {
+      "key": "broker",
+      "x": 755,
+      "y": 310,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

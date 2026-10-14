@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "669995eec39bc36f8af685e1665b3f851925928b0214c7a0221d18f4ce95d1a2"
+  },
+  "labels": {
+    "title": "Eureka service deregistration (Cancel) sequence diagram",
+    "p0t": "Stopped service",
+    "p0b": "Stopped service",
+    "m1": "Send request,\npassing Instance info",
+    "m2": "cancelLease",
+    "sc": "super.cancel",
+    "rp": "replicateToPeers",
+    "rc": "replicationClient.cancel",
+    "loop": "loop",
+    "note": "[InstanceReplicationTask\ncalled periodically\nin the background]",
+    "blank": "",
+    "_title": "Eureka service deregistration (Cancel) call sequence",
+    "_desc": "A stopped service sends a cancel request to InstanceResource, which calls cancelLease, super.cancel and replicateToPeers on PeerAwareInstanceRegistryImpl; in a loop, replicationClient.cancel then propagates the cancellation to PeerEurekaNode.",
+    "p1t": "InstanceResource",
+    "p1b": "InstanceResource",
+    "p2t": "PeerAwareInstanceRegistryImpl",
+    "p2b": "PeerAwareInstanceRegistryImpl",
+    "p3t": "PeerEurekaNode",
+    "p3b": "PeerEurekaNode"
+  }
+}

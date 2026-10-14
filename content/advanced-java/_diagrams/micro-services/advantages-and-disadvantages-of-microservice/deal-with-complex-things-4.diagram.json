@@ -1,0 +1,235 @@
+{
+  "id": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4",
+  "source": {
+    "upstream": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 880,
+    "h": 620
+  },
+  "nodes": [
+    {
+      "id": "hex_p",
+      "shape": "round",
+      "x": 80,
+      "y": 40,
+      "w": 160,
+      "h": 150,
+      "label": {
+        "key": "m_p"
+      }
+    },
+    {
+      "id": "rest_p",
+      "shape": "box",
+      "x": 10,
+      "y": 20,
+      "w": 64,
+      "h": 56,
+      "label": {
+        "key": "rest"
+      }
+    },
+    {
+      "id": "ad_p",
+      "shape": "box",
+      "x": 90,
+      "y": 260,
+      "w": 140,
+      "h": 100,
+      "label": {
+        "key": "adapter"
+      }
+    },
+    {
+      "id": "db_p",
+      "shape": "circle",
+      "x": 75,
+      "y": 430,
+      "w": 170,
+      "h": 170,
+      "label": {
+        "key": "db_p"
+      }
+    },
+    {
+      "id": "hex_d",
+      "shape": "round",
+      "x": 380,
+      "y": 40,
+      "w": 160,
+      "h": 150,
+      "label": {
+        "key": "m_d"
+      }
+    },
+    {
+      "id": "rest_d",
+      "shape": "box",
+      "x": 310,
+      "y": 20,
+      "w": 64,
+      "h": 56,
+      "label": {
+        "key": "rest"
+      }
+    },
+    {
+      "id": "ad_d",
+      "shape": "box",
+      "x": 390,
+      "y": 260,
+      "w": 140,
+      "h": 100,
+      "label": {
+        "key": "adapter"
+      }
+    },
+    {
+      "id": "db_d",
+      "shape": "circle",
+      "x": 375,
+      "y": 430,
+      "w": 170,
+      "h": 170,
+      "label": {
+        "key": "db_d"
+      }
+    },
+    {
+      "id": "hex_t",
+      "shape": "round",
+      "x": 680,
+      "y": 40,
+      "w": 160,
+      "h": 150,
+      "label": {
+        "key": "m_t"
+      }
+    },
+    {
+      "id": "rest_t",
+      "shape": "box",
+      "x": 610,
+      "y": 20,
+      "w": 64,
+      "h": 56,
+      "label": {
+        "key": "rest"
+      }
+    },
+    {
+      "id": "ad_t",
+      "shape": "box",
+      "x": 690,
+      "y": 260,
+      "w": 140,
+      "h": 100,
+      "label": {
+        "key": "adapter"
+      }
+    },
+    {
+      "id": "db_t",
+      "shape": "circle",
+      "x": 675,
+      "y": 430,
+      "w": 170,
+      "h": 170,
+      "label": {
+        "key": "db_t"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          160,
+          190
+        ],
+        [
+          160,
+          260
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          160,
+          360
+        ],
+        [
+          160,
+          430
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          460,
+          190
+        ],
+        [
+          460,
+          260
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          460,
+          360
+        ],
+        [
+          460,
+          430
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          760,
+          190
+        ],
+        [
+          760,
+          260
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          760,
+          360
+        ],
+        [
+          760,
+          430
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "2c8927d799c94d71f51fe0ae4f8e5864e828fe4f90ea76727b4586d195bdd18c"
+  },
+  "labels": {
+    "t0": "Instances currently registered with Eureka",
+    "h1": "Application",
+    "h2": "AMIs",
+    "h3": "Availability Zones",
+    "h4": "Status",
+    "r1a": "SERVICE-CONSUMER",
+    "r1b": "n/a (1)",
+    "r1c": "(1)",
+    "r1d": "UP (1) - mghio-mbp:service-consumer:8888",
+    "r2a": "SERVICE-PROVIDER",
+    "r2b": "n/a (1)",
+    "r2c": "(1)",
+    "r2d": "UP (1) - mghio-mbp:service-provider:9999",
+    "blank": "",
+    "_title": "Bảng điều khiển Eureka liệt kê các instance đang đăng ký",
+    "_desc": "Bảng gồm các cột Application, AMIs, Availability Zones và Status; SERVICE-CONSUMER ở trạng thái UP tại mghio-mbp:service-consumer:8888 và SERVICE-PROVIDER ở trạng thái UP tại mghio-mbp:service-provider:9999."
+  }
+}

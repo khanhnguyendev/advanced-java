@@ -1,0 +1,442 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1250,
+    "h": 810
+  },
+  "nodes": [
+    {
+      "id": "tree",
+      "shape": "group",
+      "x": 10,
+      "y": 20,
+      "w": 470,
+      "h": 770,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "panel",
+      "shape": "group",
+      "x": 490,
+      "y": 20,
+      "w": 740,
+      "h": 770,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "h1",
+      "shape": "group",
+      "x": 498,
+      "y": 307,
+      "w": 716,
+      "h": 34,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "h2",
+      "shape": "group",
+      "x": 498,
+      "y": 392,
+      "w": 716,
+      "h": 60,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "ht1",
+      "shape": "group",
+      "x": 14,
+      "y": 63,
+      "w": 394,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ht15",
+      "shape": "group",
+      "x": 102,
+      "y": 567,
+      "w": 151,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [],
+  "texts": [
+    {
+      "key": "t01",
+      "x": 20,
+      "y": 44,
+      "anchor": "start",
+      "literals": [
+        "Maven: com.netflix.eureka:eureka-client:1.9.17"
+      ]
+    },
+    {
+      "key": "t02",
+      "x": 20,
+      "y": 80,
+      "anchor": "start",
+      "literals": [
+        "Maven: com.netflix.eureka:eureka-core:1.9.17"
+      ]
+    },
+    {
+      "key": "t03",
+      "x": 42,
+      "y": 116,
+      "anchor": "start",
+      "literals": [
+        "eureka-core-1.9.17.jar library root"
+      ]
+    },
+    {
+      "key": "t04",
+      "x": 64,
+      "y": 152,
+      "anchor": "start",
+      "literals": [
+        "com.netflix.eureka"
+      ]
+    },
+    {
+      "key": "t05",
+      "x": 86,
+      "y": 188,
+      "anchor": "start",
+      "literals": [
+        "aws"
+      ]
+    },
+    {
+      "key": "t06",
+      "x": 86,
+      "y": 224,
+      "anchor": "start",
+      "literals": [
+        "cluster"
+      ]
+    },
+    {
+      "key": "t07",
+      "x": 86,
+      "y": 260,
+      "anchor": "start",
+      "literals": [
+        "lease"
+      ]
+    },
+    {
+      "key": "t08",
+      "x": 86,
+      "y": 296,
+      "anchor": "start",
+      "literals": [
+        "registry"
+      ]
+    },
+    {
+      "key": "t09",
+      "x": 86,
+      "y": 332,
+      "anchor": "start",
+      "literals": [
+        "resources"
+      ]
+    },
+    {
+      "key": "t10",
+      "x": 108,
+      "y": 368,
+      "anchor": "start",
+      "literals": [
+        "AbstractVIPResource"
+      ]
+    },
+    {
+      "key": "t11",
+      "x": 108,
+      "y": 404,
+      "anchor": "start",
+      "literals": [
+        "ApplicationResource"
+      ]
+    },
+    {
+      "key": "t12",
+      "x": 108,
+      "y": 440,
+      "anchor": "start",
+      "literals": [
+        "ApplicationsResource"
+      ]
+    },
+    {
+      "key": "t13",
+      "x": 108,
+      "y": 476,
+      "anchor": "start",
+      "literals": [
+        "ASGResource"
+      ]
+    },
+    {
+      "key": "t14",
+      "x": 108,
+      "y": 512,
+      "anchor": "start",
+      "literals": [
+        "CurrentRequestVersion"
+      ]
+    },
+    {
+      "key": "t15",
+      "x": 108,
+      "y": 548,
+      "anchor": "start",
+      "literals": [
+        "DefaultServerCodecs"
+      ]
+    },
+    {
+      "key": "t16",
+      "x": 108,
+      "y": 584,
+      "anchor": "start",
+      "literals": [
+        "InstanceResource"
+      ]
+    },
+    {
+      "key": "t17",
+      "x": 108,
+      "y": 620,
+      "anchor": "start",
+      "literals": [
+        "InstancesResource"
+      ]
+    },
+    {
+      "key": "t18",
+      "x": 108,
+      "y": 656,
+      "anchor": "start",
+      "literals": [
+        "PeerReplicationResource"
+      ]
+    },
+    {
+      "key": "t19",
+      "x": 108,
+      "y": 692,
+      "anchor": "start",
+      "literals": [
+        "SecureVIPResource"
+      ]
+    },
+    {
+      "key": "t20",
+      "x": 108,
+      "y": 728,
+      "anchor": "start",
+      "literals": [
+        "ServerCodecs"
+      ]
+    },
+    {
+      "key": "t21",
+      "x": 108,
+      "y": 764,
+      "anchor": "start",
+      "literals": [
+        "ServerInfoResource"
+      ]
+    },
+    {
+      "key": "l1",
+      "x": 510,
+      "y": 44,
+      "anchor": "start",
+      "literals": [
+        "/**"
+      ]
+    },
+    {
+      "key": "l2",
+      "x": 510,
+      "y": 72,
+      "anchor": "start",
+      "literals": [
+        " * Handles cancellation of leases for this particular instance."
+      ]
+    },
+    {
+      "key": "l3",
+      "x": 510,
+      "y": 100,
+      "anchor": "start",
+      "literals": [
+        " *"
+      ]
+    },
+    {
+      "key": "l4",
+      "x": 510,
+      "y": 128,
+      "anchor": "start",
+      "literals": [
+        " * @param isReplication"
+      ]
+    },
+    {
+      "key": "l5",
+      "x": 510,
+      "y": 156,
+      "anchor": "start",
+      "literals": [
+        " *            a header parameter containing information whether this is"
+      ]
+    },
+    {
+      "key": "l6",
+      "x": 510,
+      "y": 184,
+      "anchor": "start",
+      "literals": [
+        " *            replicated from other nodes."
+      ]
+    },
+    {
+      "key": "l7",
+      "x": 510,
+      "y": 212,
+      "anchor": "start",
+      "literals": [
+        " * @return response indicating whether the operation was a success or"
+      ]
+    },
+    {
+      "key": "l8",
+      "x": 510,
+      "y": 240,
+      "anchor": "start",
+      "literals": [
+        " *         failure."
+      ]
+    },
+    {
+      "key": "l9",
+      "x": 510,
+      "y": 268,
+      "anchor": "start",
+      "literals": [
+        " */"
+      ]
+    },
+    {
+      "key": "l10",
+      "x": 510,
+      "y": 296,
+      "anchor": "start",
+      "literals": [
+        "@DELETE"
+      ]
+    },
+    {
+      "key": "l11",
+      "x": 510,
+      "y": 324,
+      "anchor": "start",
+      "literals": [
+        "public Response cancelLease("
+      ]
+    },
+    {
+      "key": "l12",
+      "x": 510,
+      "y": 352,
+      "anchor": "start",
+      "literals": [
+        "        @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {"
+      ]
+    },
+    {
+      "key": "l13",
+      "x": 510,
+      "y": 380,
+      "anchor": "start",
+      "literals": [
+        "    try {"
+      ]
+    },
+    {
+      "key": "l14",
+      "x": 510,
+      "y": 408,
+      "anchor": "start",
+      "literals": [
+        "        boolean isSuccess = registry.cancel(app.getName(), id,"
+      ]
+    },
+    {
+      "key": "l15",
+      "x": 510,
+      "y": 436,
+      "anchor": "start",
+      "literals": [
+        "            \"true\".equals(isReplication));"
+      ]
+    },
+    {
+      "key": "l16",
+      "x": 510,
+      "y": 492,
+      "anchor": "start",
+      "literals": [
+        "        if (isSuccess) {"
+      ]
+    },
+    {
+      "key": "l17",
+      "x": 510,
+      "y": 520,
+      "anchor": "start",
+      "literals": [
+        "            logger.debug(\"Found (Cancel): {} - {}\", app.getName(), id);"
+      ]
+    },
+    {
+      "key": "l18",
+      "x": 510,
+      "y": 548,
+      "anchor": "start",
+      "literals": [
+        "            return Response.ok().build();"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

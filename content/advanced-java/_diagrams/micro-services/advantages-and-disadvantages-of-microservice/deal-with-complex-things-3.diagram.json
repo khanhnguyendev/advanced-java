@@ -1,0 +1,218 @@
+{
+  "id": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-3",
+  "source": {
+    "upstream": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-3.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 670,
+    "h": 930
+  },
+  "nodes": [
+    {
+      "id": "ec2a",
+      "shape": "group",
+      "x": 408,
+      "y": 7,
+      "w": 250,
+      "h": 443,
+      "label": {
+        "key": "ec2"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "ec2b",
+      "shape": "group",
+      "x": 408,
+      "y": 470,
+      "w": 250,
+      "h": 443,
+      "label": {
+        "key": "ec2"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "c1",
+      "shape": "group",
+      "x": 420,
+      "y": 48,
+      "w": 226,
+      "h": 180,
+      "label": {
+        "key": "docker"
+      }
+    },
+    {
+      "id": "tripc1",
+      "shape": "round",
+      "x": 498,
+      "y": 82,
+      "w": 130,
+      "h": 123,
+      "label": {
+        "key": "trip"
+      }
+    },
+    {
+      "id": "restc1",
+      "shape": "box",
+      "x": 428,
+      "y": 150,
+      "w": 58,
+      "h": 55,
+      "label": {
+        "key": "rest"
+      }
+    },
+    {
+      "id": "c2",
+      "shape": "group",
+      "x": 420,
+      "y": 250,
+      "w": 226,
+      "h": 180,
+      "label": {
+        "key": "docker"
+      }
+    },
+    {
+      "id": "tripc2",
+      "shape": "round",
+      "x": 498,
+      "y": 281,
+      "w": 130,
+      "h": 123,
+      "label": {
+        "key": "trip"
+      }
+    },
+    {
+      "id": "restc2",
+      "shape": "box",
+      "x": 428,
+      "y": 315,
+      "w": 58,
+      "h": 55,
+      "label": {
+        "key": "rest"
+      }
+    },
+    {
+      "id": "c3",
+      "shape": "group",
+      "x": 420,
+      "y": 511,
+      "w": 226,
+      "h": 180,
+      "label": {
+        "key": "docker"
+      }
+    },
+    {
+      "id": "tripc3",
+      "shape": "round",
+      "x": 498,
+      "y": 545,
+      "w": 130,
+      "h": 123,
+      "label": {
+        "key": "trip"
+      }
+    },
+    {
+      "id": "restc3",
+      "shape": "box",
+      "x": 428,
+      "y": 582,
+      "w": 58,
+      "h": 55,
+      "label": {
+        "key": "rest"
+      }
+    },
+    {
+      "id": "c4",
+      "shape": "group",
+      "x": 420,
+      "y": 714,
+      "w": 226,
+      "h": 180,
+      "label": {
+        "key": "docker"
+      }
+    },
+    {
+      "id": "ghost",
+      "shape": "round",
+      "x": 498,
+      "y": 750,
+      "w": 130,
+      "h": 125,
+      "label": {
+        "key": "blank"
+      },
+      "role": "muted"
+    },
+    {
+      "id": "lb",
+      "shape": "circle",
+      "x": 5,
+      "y": 387,
+      "w": 170,
+      "h": 170,
+      "label": {
+        "key": "lb"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          175,
+          472
+        ],
+        [
+          428,
+          177
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          175,
+          472
+        ],
+        [
+          428,
+          342
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          175,
+          472
+        ],
+        [
+          428,
+          609
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

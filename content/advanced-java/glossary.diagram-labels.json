@@ -461,11 +461,445 @@
   },
   "labels": [
     {
+      "zh": "                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {",
+      "en": "                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {",
+      "vi": "                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "            \"true\".equals(isReplication));",
+      "en": "            \"true\".equals(isReplication));",
+      "vi": "            \"true\".equals(isReplication));",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "            = new ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>>();",
+      "en": "            = new ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>>();",
+      "vi": "            = new ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>>();",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure"
+    },
+    {
+      "zh": "            logger.debug(\"Found (Cancel): {} - {}\", app.getName(), id);",
+      "en": "            logger.debug(\"Found (Cancel): {} - {}\", app.getName(), id);",
+      "vi": "            logger.debug(\"Found (Cancel): {} - {}\", app.getName(), id);",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "            return Response.ok().build();",
+      "en": "            return Response.ok().build();",
+      "vi": "            return Response.ok().build();",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");",
+      "en": "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");",
+      "vi": "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "        @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication,",
+      "en": "        @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication,",
+      "vi": "        @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication,",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "        @QueryParam(\"lastDirtyTimestamp\") String lastDirtyTimestamp) {",
+      "en": "        @QueryParam(\"lastDirtyTimestamp\") String lastDirtyTimestamp) {",
+      "vi": "        @QueryParam(\"lastDirtyTimestamp\") String lastDirtyTimestamp) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "        @QueryParam(\"overriddenstatus\") String overriddenStatus,",
+      "en": "        @QueryParam(\"overriddenstatus\") String overriddenStatus,",
+      "vi": "        @QueryParam(\"overriddenstatus\") String overriddenStatus,",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "        @QueryParam(\"status\") String status,",
+      "en": "        @QueryParam(\"status\") String status,",
+      "vi": "        @QueryParam(\"status\") String status,",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "        boolean isSuccess = registry.cancel(app.getName(), id,",
+      "en": "        boolean isSuccess = registry.cancel(app.getName(), id,",
+      "vi": "        boolean isSuccess = registry.cancel(app.getName(), id,",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "        if (!register() ) {",
+      "en": "        if (!register() ) {",
+      "vi": "        if (!register() ) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "        if (isSuccess) {",
+      "en": "        if (isSuccess) {",
+      "vi": "        if (isSuccess) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "        logger.error(\"Registration error at startup: {}\", th.getMessage());",
+      "en": "        logger.error(\"Registration error at startup: {}\", th.getMessage());",
+      "vi": "        logger.error(\"Registration error at startup: {}\", th.getMessage());",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "        logger.warn(\"Not Found (Renew): {} - {}\", app.getName(), id);",
+      "en": "        logger.warn(\"Not Found (Renew): {} - {}\", app.getName(), id);",
+      "vi": "        logger.warn(\"Not Found (Renew): {} - {}\", app.getName(), id);",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "        return Response.status(Status.NOT_FOUND).build();",
+      "en": "        return Response.status(Status.NOT_FOUND).build();",
+      "vi": "        return Response.status(Status.NOT_FOUND).build();",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "        throw new IllegalStateException(th);",
+      "en": "        throw new IllegalStateException(th);",
+      "vi": "        throw new IllegalStateException(th);",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "    // Not found in the registry, immediately ask for a register",
+      "en": "    // Not found in the registry, immediately ask for a register",
+      "vi": "    // Not found in the registry, immediately ask for a register",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "    // handle cases where clients may be registering with bad DataCenterInfo with missing data",
+      "en": "    // handle cases where clients may be registering with bad DataCenterInfo with missing data",
+      "vi": "    // handle cases where clients may be registering with bad DataCenterInfo with missing data",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "    // validate that the instanceinfo contains all the necessary required fields",
+      "en": "    // validate that the instanceinfo contains all the necessary required fields",
+      "vi": "    // validate that the instanceinfo contains all the necessary required fields",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "    DataCenterInfo dataCenterInfo = info.getDataCenterInfo();",
+      "en": "    DataCenterInfo dataCenterInfo = info.getDataCenterInfo();",
+      "vi": "    DataCenterInfo dataCenterInfo = info.getDataCenterInfo();",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "    boolean isFromReplicaNode = \"true\".equals(isReplication);",
+      "en": "    boolean isFromReplicaNode = \"true\".equals(isReplication);",
+      "vi": "    boolean isFromReplicaNode = \"true\".equals(isReplication);",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "    boolean isSuccess = registry.renew(app.getName(), id, isFromReplicaNode);",
+      "en": "    boolean isSuccess = registry.renew(app.getName(), id, isFromReplicaNode);",
+      "vi": "    boolean isSuccess = registry.renew(app.getName(), id, isFromReplicaNode);",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "    fetchRegistryFromBackup();",
+      "en": "    fetchRegistryFromBackup();",
+      "vi": "    fetchRegistryFromBackup();",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "    if (!isSuccess) {",
+      "en": "    if (!isSuccess) {",
+      "vi": "    if (!isSuccess) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "    if (dataCenterInfo instanceof UniqueIdentifier) {...}",
+      "en": "    if (dataCenterInfo instanceof UniqueIdentifier) {...}",
+      "vi": "    if (dataCenterInfo instanceof UniqueIdentifier) {...}",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "    if (isBlank(info.getId())) {...} else if (isBlank(info.getHostName())) {...}",
+      "en": "    if (isBlank(info.getId())) {...} else if (isBlank(info.getHostName())) {...}",
+      "vi": "    if (isBlank(info.getId())) {...} else if (isBlank(info.getHostName())) {...}",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "    logger.debug(\"Registering instance {} (replication={})\", info.getId(), isReplication);",
+      "en": "    logger.debug(\"Registering instance {} (replication={})\", info.getId(), isReplication);",
+      "vi": "    logger.debug(\"Registering instance {} (replication={})\", info.getId(), isReplication);",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "    private final ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> registry",
+      "en": "    private final ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> registry",
+      "vi": "    private final ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> registry",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure"
+    },
+    {
+      "zh": "    private static final Logger logger = LoggerFactory.getLogger(AbstractInstanceRegistry.class);",
+      "en": "    private static final Logger logger = LoggerFactory.getLogger(AbstractInstanceRegistry.class);",
+      "vi": "    private static final Logger logger = LoggerFactory.getLogger(AbstractInstanceRegistry.class);",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure"
+    },
+    {
+      "zh": "    private static final String[] EMPTY_STR_ARRAY = new String[0];",
+      "en": "    private static final String[] EMPTY_STR_ARRAY = new String[0];",
+      "vi": "    private static final String[] EMPTY_STR_ARRAY = new String[0];",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure"
+    },
+    {
+      "zh": "    protected Map<String, RemoteRegionRegistry> regionNameVSRemoteRegistry = new HashMap<~>();",
+      "en": "    protected Map<String, RemoteRegionRegistry> regionNameVSRemoteRegistry = new HashMap<~>();",
+      "vi": "    protected Map<String, RemoteRegionRegistry> regionNameVSRemoteRegistry = new HashMap<~>();",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure"
+    },
+    {
+      "zh": "    registry.register(info, \"true\".equals(isReplication));",
+      "en": "    registry.register(info, \"true\".equals(isReplication));",
+      "vi": "    registry.register(info, \"true\".equals(isReplication));",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "    return Response.status(204).build();  // 204 to be backwards compatible",
+      "en": "    return Response.status(204).build();  // 204 to be backwards compatible",
+      "vi": "    return Response.status(204).build();  // 204 to be backwards compatible",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "    this.preRegistrationHandler.beforeRegistration();",
+      "en": "    this.preRegistrationHandler.beforeRegistration();",
+      "vi": "    this.preRegistrationHandler.beforeRegistration();",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "    throw new RuntimeException(\"Failed to initialize DiscoveryClient!\", e);",
+      "en": "    throw new RuntimeException(\"Failed to initialize DiscoveryClient!\", e);",
+      "vi": "    throw new RuntimeException(\"Failed to initialize DiscoveryClient!\", e);",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "    try {",
+      "en": "    try {",
+      "vi": "    try {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "    } catch (Throwable th) {",
+      "en": "    } catch (Throwable th) {",
+      "vi": "    } catch (Throwable th) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": " *",
+      "en": " *",
+      "vi": " *",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": " *            a header parameter containing information whether this is",
+      "en": " *            a header parameter containing information whether this is",
+      "vi": " *            a header parameter containing information whether this is",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": " *            last timestamp when this instance information was updated.",
+      "en": " *            last timestamp when this instance information was updated.",
+      "vi": " *            last timestamp when this instance information was updated.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": " *            overridden status if any.",
+      "en": " *            overridden status if any.",
+      "vi": " *            overridden status if any.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": " *            replicated from other nodes.",
+      "en": " *            replicated from other nodes.",
+      "vi": " *            replicated from other nodes.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": " *            the {@link InstanceStatus} of the instance.",
+      "en": " *            the {@link InstanceStatus} of the instance.",
+      "vi": " *            the {@link InstanceStatus} of the instance.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": " *            {@link InstanceInfo} information of the instance.",
+      "en": " *            {@link InstanceInfo} information of the instance.",
+      "vi": " *            {@link InstanceInfo} information of the instance.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": " *         failure.",
+      "en": " *         failure.",
+      "vi": " *         failure.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": " * @param info",
+      "en": " * @param info",
+      "vi": " * @param info",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": " * @param isReplication",
+      "en": " * @param isReplication",
+      "vi": " * @param isReplication",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": " * @param lastDirtyTimestamp",
+      "en": " * @param lastDirtyTimestamp",
+      "vi": " * @param lastDirtyTimestamp",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": " * @param overriddenStatus",
+      "en": " * @param overriddenStatus",
+      "vi": " * @param overriddenStatus",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": " * @param status",
+      "en": " * @param status",
+      "vi": " * @param status",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": " * @return response indicating whether the operation was a success or",
+      "en": " * @return response indicating whether the operation was a success or",
+      "vi": " * @return response indicating whether the operation was a success or",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": " * A put request for renewing lease from a client instance.",
+      "en": " * A put request for renewing lease from a client instance.",
+      "vi": " * A put request for renewing lease from a client instance.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": " * Handles cancellation of leases for this particular instance.",
+      "en": " * Handles cancellation of leases for this particular instance.",
+      "vi": " * Handles cancellation of leases for this particular instance.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": " * Registers information about a particular instance for an",
+      "en": " * Registers information about a particular instance for an",
+      "vi": " * Registers information about a particular instance for an",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": " * {@link com.netflix.discovery.shared.Application}.",
+      "en": " * {@link com.netflix.discovery.shared.Application}.",
+      "vi": " * {@link com.netflix.discovery.shared.Application}.",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": " */",
+      "en": " */",
+      "vi": " */",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "(1)",
+      "en": "(1)",
+      "vi": "(1)",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
+      "zh": "...",
+      "en": "...",
+      "vi": "...",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
       "zh": "......",
       "en": "......",
       "vi": "......",
       "ref": "en",
       "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "/**",
+      "en": "/**",
+      "vi": "/**",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "// call and execute the pre registration handler before all background tasks (inc registration) is started",
+      "en": "// call and execute the pre registration handler before all background tasks (inc registration) is started",
+      "vi": "// call and execute the pre registration handler before all background tasks (inc registration) is started",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "/flow/rules.json",
+      "en": "/flow/rules.json",
+      "vi": "/flow/rules.json",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "/resource/machineResource.json",
+      "en": "/resource/machineResource.json",
+      "vi": "/resource/machineResource.json",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "0",
@@ -475,11 +909,37 @@
       "source": "high-concurrency/redis-cluster/consistent-hashing-algorithm"
     },
     {
+      "zh": "0",
+      "en": "0",
+      "vi": "0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
       "zh": "0 ms",
       "en": "0 ms",
       "vi": "0 ms",
       "ref": "en",
       "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "0.0",
+      "en": "0.0",
+      "vi": "0.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "00:00",
+      "en": "00:00",
+      "vi": "00:00",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "1",
+      "en": "1",
+      "vi": "1",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
     },
     {
       "zh": "1",
@@ -524,10 +984,23 @@
       "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
     },
     {
+      "zh": "1. 系统已经空闲了一段时间，\n大量请求已经到达",
+      "en": "1. The sysem has been idle for a while, and a large number of requests have\narrived",
+      "vi": "1. Hệ thống đã nhàn rỗi một thời gian và\nmột lượng lớn yêu cầu vừa đến",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/slow-start-preheating-mode"
+    },
+    {
       "zh": "1.消息在传入过程中丢失",
       "en": "1. The message is lost in transit",
       "vi": "1. Thông điệp bị mất trong quá trình truyền",
       "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
+    },
+    {
+      "zh": "10",
+      "en": "10",
+      "vi": "10",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "1000 个请求是\n正常用户发出的。",
@@ -543,11 +1016,115 @@
       "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
     },
     {
+      "zh": "101",
+      "en": "101",
+      "vi": "101",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
       "zh": "1200ms",
       "en": "1200ms",
       "vi": "1200ms",
       "ref": "en",
       "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "1234",
+      "en": "1234",
+      "vi": "1234",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "13:43",
+      "en": "13:43",
+      "vi": "13:43",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:44",
+      "en": "13:44",
+      "vi": "13:44",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:45",
+      "en": "13:45",
+      "vi": "13:45",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:46",
+      "en": "13:46",
+      "vi": "13:46",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:47",
+      "en": "13:47",
+      "vi": "13:47",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:09",
+      "en": "13:48:09",
+      "vi": "13:48:09",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:10",
+      "en": "13:48:10",
+      "vi": "13:48:10",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:11",
+      "en": "13:48:11",
+      "vi": "13:48:11",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:12",
+      "en": "13:48:12",
+      "vi": "13:48:12",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:13",
+      "en": "13:48:13",
+      "vi": "13:48:13",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:14",
+      "en": "13:48:14",
+      "vi": "13:48:14",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:15",
+      "en": "13:48:15",
+      "vi": "13:48:15",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:16",
+      "en": "13:48:16",
+      "vi": "13:48:16",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "13:48:17",
+      "en": "13:48:17",
+      "vi": "13:48:17",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "17.0",
+      "en": "17.0",
+      "vi": "17.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "1秒5000个请求，\n4000个是黑客发出的",
@@ -586,10 +1163,23 @@
       "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
     },
     {
+      "zh": "2. 预热期结束后，系统开始按规则定义的\n相同数量处理请求",
+      "en": "2. After the warm-up period, the system\nbegins to process the same number of\nrequests as defined by the rules",
+      "vi": "2. Sau giai đoạn làm nóng, hệ thống bắt đầu\nxử lý cùng số lượng yêu cầu như đã\nđịnh nghĩa trong các quy tắc",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/slow-start-preheating-mode"
+    },
+    {
       "zh": "2.RabbitMQ收到消息，\n暂存内存中，还没消费，\n自己挂掉了，内存中的数据搞丢",
       "en": "2. RabbitMQ receives the message and holds it\ntemporarily in memory; before it is consumed,\nRabbitMQ itself crashes and the data in memory is lost",
       "vi": "2. RabbitMQ nhận được thông điệp, lưu tạm\ntrong bộ nhớ, chưa kịp tiêu thụ thì\nbản thân bị sập, dữ liệu trong bộ nhớ bị mất",
       "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
+    },
+    {
+      "zh": "20",
+      "en": "20",
+      "vi": "20",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "200 ms",
@@ -597,6 +1187,33 @@
       "vi": "200 ms",
       "ref": "en",
       "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "2018-04-19 14:03:46",
+      "en": "2018-04-19 14:03:46",
+      "vi": "2018-04-19 14:03:46",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/slow-start-preheating-mode"
+    },
+    {
+      "zh": "2018-07-24 13:46:24",
+      "en": "2018-07-24 13:46:24",
+      "vi": "2018-07-24 13:46:24",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "202",
+      "en": "202",
+      "vi": "202",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "2020-03-15T09:18:44 +0800",
+      "en": "2020-03-15T09:18:44 +0800",
+      "vi": "2020-03-15T09:18:44 +0800",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
     },
     {
       "zh": "2^32−1",
@@ -642,6 +1259,12 @@
       "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
     },
     {
+      "zh": "30",
+      "en": "30",
+      "vi": "30",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
       "zh": "4",
       "en": "4",
       "vi": "4",
@@ -652,6 +1275,12 @@
       "en": "4. master starts a full replication\nand sends all of its data to\nslave to synchronize the data",
       "vi": "4. master bắt đầu sao chép toàn bộ,\ngửi tất cả dữ liệu của mình\ncho slave để đồng bộ dữ liệu",
       "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
+    },
+    {
+      "zh": "40",
+      "en": "40",
+      "vi": "40",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "400 ms",
@@ -667,6 +1296,19 @@
       "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration"
     },
     {
+      "zh": "44.0",
+      "en": "44.0",
+      "vi": "44.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "4567",
+      "en": "4567",
+      "vi": "4567",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
+    },
+    {
       "zh": "5",
       "en": "5",
       "vi": "5",
@@ -679,10 +1321,42 @@
       "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
     },
     {
+      "zh": "50",
+      "en": "50",
+      "vi": "50",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "5000",
+      "en": "5000",
+      "vi": "5000",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "591mb",
+      "en": "591mb",
+      "vi": "591mb",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
       "zh": "6",
       "en": "6",
       "vi": "6",
       "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "60",
+      "en": "60",
+      "vi": "60",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "60.0",
+      "en": "60.0",
+      "vi": "60.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "600 ms",
@@ -692,11 +1366,211 @@
       "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
     },
     {
+      "zh": "65.0",
+      "en": "65.0",
+      "vi": "65.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "68.0",
+      "en": "68.0",
+      "vi": "68.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "7.0",
+      "en": "7.0",
+      "vi": "7.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "70",
+      "en": "70",
+      "vi": "70",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "70.0",
+      "en": "70.0",
+      "vi": "70.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "8.0",
+      "en": "8.0",
+      "vi": "8.0",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "80",
+      "en": "80",
+      "vi": "80",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
       "zh": "800 ms",
       "en": "800 ms",
       "vi": "800 ms",
       "ref": "en",
       "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "8404.30",
+      "en": "8404.30",
+      "vi": "8404.30",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
+    },
+    {
+      "zh": "84784",
+      "en": "84784",
+      "vi": "84784",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
+      "zh": "909",
+      "en": "909",
+      "vi": "909",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "@Consumes({\"application/json\", \"application/xml\"})",
+      "en": "@Consumes({\"application/json\", \"application/xml\"})",
+      "vi": "@Consumes({\"application/json\", \"application/xml\"})",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "@DELETE",
+      "en": "@DELETE",
+      "vi": "@DELETE",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "@POST",
+      "en": "@POST",
+      "vi": "@POST",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "@PUT",
+      "en": "@PUT",
+      "vi": "@PUT",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "ACCEPTED",
+      "en": "ACCEPTED",
+      "vi": "ACCEPTED",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
+    },
+    {
+      "zh": "AMIs",
+      "en": "AMIs",
+      "vi": "AMIs",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
+      "zh": "AMOUNT",
+      "en": "AMOUNT",
+      "vi": "AMOUNT",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "API\nGATEWAY",
+      "en": "API\nGATEWAY",
+      "vi": "API\nGATEWAY",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "ASGResource",
+      "en": "ASGResource",
+      "vi": "ASGResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "AbstractAzToRegionMapper",
+      "en": "AbstractAzToRegionMapper",
+      "vi": "AbstractAzToRegionMapper",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "AbstractDiscoveryClientOptionalArgs",
+      "en": "AbstractDiscoveryClientOptionalArgs",
+      "vi": "AbstractDiscoveryClientOptionalArgs",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "AbstractInstanceRegistry",
+      "en": "AbstractInstanceRegistry",
+      "vi": "AbstractInstanceRegistry",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
+      "zh": "AbstractJerseyEurekaHttpClient",
+      "en": "AbstractJerseyEurekaHttpClient",
+      "vi": "AbstractJerseyEurekaHttpClient",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart"
+    },
+    {
+      "zh": "AbstractVIPResource",
+      "en": "AbstractVIPResource",
+      "vi": "AbstractVIPResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "Application",
+      "en": "Application",
+      "vi": "Application",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
+      "zh": "ApplicationResource",
+      "en": "ApplicationResource",
+      "vi": "ApplicationResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "ApplicationResource",
+      "en": "ApplicationResource",
+      "vi": "ApplicationResource",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
+      "zh": "ApplicationsResource",
+      "en": "ApplicationsResource",
+      "vi": "ApplicationsResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "Availability Zones",
+      "en": "Availability Zones",
+      "vi": "Availability Zones",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
+      "zh": "AzToRegionMapper",
+      "en": "AzToRegionMapper",
+      "vi": "AzToRegionMapper",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
     },
     {
       "zh": "A系统",
@@ -759,6 +1633,13 @@
       "source": "high-concurrency/why-mq/mq-1"
     },
     {
+      "zh": "BackupRegistry",
+      "en": "BackupRegistry",
+      "vi": "BackupRegistry",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
       "zh": "B系统",
       "en": "System B",
       "vi": "Hệ thống B",
@@ -804,10 +1685,72 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
     },
     {
+      "zh": "CREDIT_LIMIT",
+      "en": "CREDIT_LIMIT",
+      "vi": "CREDIT_LIMIT",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "CUSTOMER 表",
+      "en": "CUSTOMER table",
+      "vi": "Bảng CUSTOMER",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "CUSTOMER_ID",
+      "en": "CUSTOMER_ID",
+      "vi": "CUSTOMER_ID",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "CUST_ID",
+      "en": "CUST_ID",
+      "vi": "CUST_ID",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "CacheRefreshThread",
+      "en": "CacheRefreshThread",
+      "vi": "CacheRefreshThread",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-update-sequence-chart"
+    },
+    {
+      "zh": "CacheRefreshedEvent",
+      "en": "CacheRefreshedEvent",
+      "vi": "CacheRefreshedEvent",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
       "zh": "Closed",
       "en": "Closed",
       "vi": "Closed",
       "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "CommonConstants",
+      "en": "CommonConstants",
+      "vi": "CommonConstants",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "Current time",
+      "en": "Current time",
+      "vi": "Current time",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "CurrentRequestVersion",
+      "en": "CurrentRequestVersion",
+      "vi": "CurrentRequestVersion",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
     },
     {
       "zh": "C系统",
@@ -822,6 +1765,109 @@
       "source": "high-concurrency/why-mq/mq-3"
     },
     {
+      "zh": "DATA",
+      "en": "DATA",
+      "vi": "DATA",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
+      "zh": "DBA",
+      "en": "DBAs",
+      "vi": "DBA",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/conways-law"
+    },
+    {
+      "zh": "DNSBasedAzToRegionMapper",
+      "en": "DNSBasedAzToRegionMapper",
+      "vi": "DNSBasedAzToRegionMapper",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "DOCKER 容器",
+      "en": "DOCKER CONTAINER",
+      "vi": "CONTAINER DOCKER",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-3"
+    },
+    {
+      "zh": "DS Replicas",
+      "en": "DS Replicas",
+      "vi": "DS Replicas",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "Data center",
+      "en": "Data center",
+      "vi": "Data center",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "DefaultEurekaClientConfig",
+      "en": "DefaultEurekaClientConfig",
+      "vi": "DefaultEurekaClientConfig",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "DefaultEurekaServerConfig",
+      "en": "DefaultEurekaServerConfig",
+      "vi": "DefaultEurekaServerConfig",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "DefaultEurekaServerContext",
+      "en": "DefaultEurekaServerContext",
+      "vi": "DefaultEurekaServerContext",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "DefaultServerCodecs",
+      "en": "DefaultServerCodecs",
+      "vi": "DefaultServerCodecs",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "DiscoveryClient",
+      "en": "DiscoveryClient",
+      "vi": "DiscoveryClient",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "DiscoveryClient",
+      "en": "DiscoveryClient",
+      "vi": "DiscoveryClient",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart"
+    },
+    {
+      "zh": "DiscoveryClient.HeartbeatThread",
+      "en": "DiscoveryClient.HeartbeatThread",
+      "vi": "DiscoveryClient.HeartbeatThread",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-renew-sequence-chart"
+    },
+    {
+      "zh": "DiscoveryEvent",
+      "en": "DiscoveryEvent",
+      "vi": "DiscoveryEvent",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "DiscoveryManager",
+      "en": "DiscoveryManager",
+      "vi": "DiscoveryManager",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
       "zh": "D系统",
       "en": "System D",
       "vi": "Hệ thống D",
@@ -834,6 +1880,13 @@
       "source": "high-concurrency/why-mq/mq-3"
     },
     {
+      "zh": "EC2 实例",
+      "en": "EC2 INSTANCE",
+      "vi": "INSTANCE EC2",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-3"
+    },
+    {
       "zh": "ES 集群",
       "en": "es cluster",
       "vi": "Cụm ES",
@@ -841,11 +1894,125 @@
       "source": "high-concurrency/es-introduction/es-cluster-0"
     },
     {
+      "zh": "EVENT 表",
+      "en": "EVENT table",
+      "vi": "Bảng EVENT",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
       "zh": "End",
       "en": "End",
       "vi": "End",
       "ref": "en",
       "source": "high-concurrency/redis-expiration-policies-and-lru/lru-cache"
+    },
+    {
+      "zh": "Environment",
+      "en": "Environment",
+      "vi": "Environment",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "Eureka Server 注册表的数据结构代码",
+      "en": "Code of the Eureka Server registry data structure",
+      "vi": "Mã nguồn cấu trúc dữ liệu sổ đăng ký của Eureka Server",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure"
+    },
+    {
+      "zh": "Eureka 服务下线（Cancel）时序图",
+      "en": "Eureka service deregistration (Cancel) sequence diagram",
+      "vi": "Sơ đồ tuần tự hủy đăng ký dịch vụ (Cancel) của Eureka",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-cancellease-sequence-chart"
+    },
+    {
+      "zh": "Eureka 服务剔除（Eviction）时序图",
+      "en": "Eureka service eviction (Eviction) sequence diagram",
+      "vi": "Sơ đồ tuần tự loại bỏ dịch vụ (Eviction) của Eureka",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
+      "zh": "Eureka 服务提供者服务下线（Cancel）时序图",
+      "en": "Eureka service provider deregistration (Cancel) sequence diagram",
+      "vi": "Sơ đồ tuần tự hủy đăng ký dịch vụ (Cancel) của bên cung cấp dịch vụ Eureka",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-cancel-sequence-chart"
+    },
+    {
+      "zh": "Eureka 服务提供者服务续约（Renew）时序图",
+      "en": "Eureka service provider renewal (Renew) sequence diagram",
+      "vi": "Sơ đồ tuần tự gia hạn dịch vụ (Renew) của bên cung cấp dịch vụ Eureka",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-renew-sequence-chart"
+    },
+    {
+      "zh": "Eureka 服务注册（Register）时序图",
+      "en": "Eureka service registration (Register) sequence diagram",
+      "vi": "Sơ đồ tuần tự đăng ký dịch vụ (Register) của Eureka",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
+      "zh": "Eureka 服务消费者更新服务列表（Update）时序图",
+      "en": "Eureka service consumer updating the service list (Update) sequence diagram",
+      "vi": "Sơ đồ tuần tự cập nhật danh sách dịch vụ (Update) của bên sử dụng dịch vụ Eureka",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-update-sequence-chart"
+    },
+    {
+      "zh": "Eureka 服务消费者获取服务列表（Fetch）时序图",
+      "en": "Eureka service consumer fetching the service list (Fetch) sequence diagram",
+      "vi": "Sơ đồ tuần tự lấy danh sách dịch vụ (Fetch) của bên sử dụng dịch vụ Eureka",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart"
+    },
+    {
+      "zh": "Eureka 服务续约（Renew）时序图",
+      "en": "Eureka service renewal (Renew) sequence diagram",
+      "vi": "Sơ đồ tuần tự gia hạn dịch vụ (Renew) của Eureka",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-renew-sequence-chart"
+    },
+    {
+      "zh": "EurekaBootStrap",
+      "en": "EurekaBootStrap",
+      "vi": "EurekaBootStrap",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "EurekaBootStrap",
+      "en": "EurekaBootStrap",
+      "vi": "EurekaBootStrap",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
+      "zh": "EurekaHttpClientDecorator",
+      "en": "EurekaHttpClientDecorator",
+      "vi": "EurekaHttpClientDecorator",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart"
+    },
+    {
+      "zh": "EurekaServerConfig",
+      "en": "EurekaServerConfig",
+      "vi": "EurekaServerConfig",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "EurekaServerContext",
+      "en": "EurekaServerContext",
+      "vi": "EurekaServerContext",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "EurekaServerContextHolder",
+      "en": "EurekaServerContextHolder",
+      "vi": "EurekaServerContextHolder",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "EvictionTask",
+      "en": "EvictionTask",
+      "vi": "EvictionTask",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
     },
     {
       "zh": "E系统(新增)",
@@ -876,6 +2043,27 @@
       "en": "Fallback\n(degradation)",
       "vi": "Fallback\n(suy giảm\ndịch vụ)",
       "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "General Info",
+      "en": "General Info",
+      "vi": "General Info",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "HOME",
+      "en": "HOME",
+      "vi": "HOME",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "HTTP 请求",
+      "en": "HTTP REQUEST",
+      "vi": "YÊU CẦU HTTP",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/law-of-holes"
     },
     {
       "zh": "Half-Open",
@@ -910,6 +2098,20 @@
       "source": "high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool"
     },
     {
+      "zh": "ID",
+      "en": "ID",
+      "vi": "ID",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "INSERT",
+      "en": "INSERT",
+      "vi": "INSERT",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
       "zh": "IO\n线程",
       "en": "IO\nthread",
       "vi": "Luồng\nIO",
@@ -922,10 +2124,44 @@
       "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
     },
     {
+      "zh": "InstanceResource",
+      "en": "InstanceResource",
+      "vi": "InstanceResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "InstanceResource",
+      "en": "InstanceResource",
+      "vi": "InstanceResource",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-renew-sequence-chart"
+    },
+    {
+      "zh": "Instances currently registered with Eureka",
+      "en": "Instances currently registered with Eureka",
+      "vi": "Instances currently registered with Eureka",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
+      "zh": "InstancesResource",
+      "en": "InstancesResource",
+      "vi": "InstancesResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
       "zh": "Kafka",
       "en": "Kafka",
       "vi": "Kafka",
       "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "LAST 1000 SINCE STARTUP",
+      "en": "LAST 1000 SINCE STARTUP",
+      "vi": "LAST 1000 SINCE STARTUP",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
     },
     {
       "zh": "LRU 缓存",
@@ -933,6 +2169,19 @@
       "vi": "Bộ nhớ đệm LRU",
       "ref": "en",
       "source": "high-concurrency/redis-expiration-policies-and-lru/lru"
+    },
+    {
+      "zh": "Lease",
+      "en": "Lease",
+      "vi": "Lease",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
+      "zh": "Lease expiration enabled",
+      "en": "Lease expiration enabled",
+      "vi": "Lease expiration enabled",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
     },
     {
       "zh": "MQ",
@@ -959,6 +2208,34 @@
       "source": "high-concurrency/why-mq/mq-4"
     },
     {
+      "zh": "MYSQL",
+      "en": "MYSQL",
+      "vi": "MYSQL",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/monolithic-application-architecture-diagram"
+    },
+    {
+      "zh": "MYSQL\n适配器",
+      "en": "MYSQL\nADAPTER",
+      "vi": "BỘ ĐIỀU HỢP\nMYSQL",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/monolithic-application-architecture-diagram"
+    },
+    {
+      "zh": "Maven: com.netflix.eureka:eureka-client:1.9.17",
+      "en": "Maven: com.netflix.eureka:eureka-client:1.9.17",
+      "vi": "Maven: com.netflix.eureka:eureka-client:1.9.17",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "Maven: com.netflix.eureka:eureka-core:1.9.17",
+      "en": "Maven: com.netflix.eureka:eureka-core:1.9.17",
+      "vi": "Maven: com.netflix.eureka:eureka-core:1.9.17",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
       "zh": "My'SQL",
       "en": "MySQL",
       "vi": "MySQL",
@@ -971,16 +2248,77 @@
       "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1"
     },
     {
+      "zh": "NEW",
+      "en": "NEW",
+      "vi": "NEW",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "Name",
+      "en": "Name",
+      "vi": "Name",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
       "zh": "Nginx",
       "en": "Nginx",
       "vi": "Nginx",
       "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
     },
     {
+      "zh": "No instances available",
+      "en": "No instances available",
+      "vi": "No instances available",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "OPEN",
+      "en": "OPEN",
+      "vi": "OPEN",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/status-is-open"
+    },
+    {
+      "zh": "ORDER 表",
+      "en": "ORDER table",
+      "vi": "Bảng ORDER",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "ORDER_ID",
+      "en": "ORDER_ID",
+      "vi": "ORDER_ID",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
       "zh": "Open",
       "en": "Open",
       "vi": "Open",
       "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "PeerAwareInstanceRegistryImpl",
+      "en": "PeerAwareInstanceRegistryImpl",
+      "vi": "PeerAwareInstanceRegistryImpl",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
+      "zh": "PeerEurekaNode",
+      "en": "PeerEurekaNode",
+      "vi": "PeerEurekaNode",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
+      "zh": "PeerReplicationResource",
+      "en": "PeerReplicationResource",
+      "vi": "PeerReplicationResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
     },
     {
       "zh": "RDB",
@@ -993,6 +2331,27 @@
       "en": "RDB persistence",
       "vi": "Lưu trữ bền vững RDB",
       "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
+    },
+    {
+      "zh": "RESERVED_CREDIT 表",
+      "en": "RESERVED_CREDIT table",
+      "vi": "Bảng RESERVED_CREDIT",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "REST\nAPI",
+      "en": "REST\nAPI",
+      "vi": "REST\nAPI",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "REST\n客户端",
+      "en": "REST\nCLIENT",
+      "vi": "REST\nCLIENT",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_zccm"
     },
     {
       "zh": "RabbitMQ",
@@ -1031,6 +2390,20 @@
       "source": "high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation"
     },
     {
+      "zh": "Renews (last min)",
+      "en": "Renews (last min)",
+      "vi": "Renews (last min)",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "Renews threshold",
+      "en": "Renews threshold",
+      "vi": "Renews threshold",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
       "zh": "Request Cache\n有缓存？",
       "en": "Request Cache\nhas a cached result?",
       "vi": "Request Cache\ncó kết quả trong cache?",
@@ -1043,16 +2416,99 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
     },
     {
+      "zh": "SENDGRID\n适配器",
+      "en": "SENDGRID\nADAPTER",
+      "vi": "BỘ ĐIỀU HỢP\nSENDGRID",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "SERVICE-CONSUMER",
+      "en": "SERVICE-CONSUMER",
+      "vi": "SERVICE-CONSUMER",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
+      "zh": "SERVICE-PROVIDER",
+      "en": "SERVICE-PROVIDER",
+      "vi": "SERVICE-PROVIDER",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
       "zh": "SQL\n线程",
       "en": "SQL\nthread",
       "vi": "Luồng\nSQL",
       "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
     },
     {
+      "zh": "STATE",
+      "en": "STATE",
+      "vi": "STATE",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
+      "zh": "STATUS",
+      "en": "STATUS",
+      "vi": "STATUS",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "STRIPE\n适配器",
+      "en": "STRIPE\nADAPTER",
+      "vi": "BỘ ĐIỀU HỢP\nSTRIPE",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "SecureVIPResource",
+      "en": "SecureVIPResource",
+      "vi": "SecureVIPResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "Sentinel 控制台",
+      "en": "Sentinel 控制台",
+      "vi": "Sentinel 控制台",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "ServerCodecs",
+      "en": "ServerCodecs",
+      "vi": "ServerCodecs",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "ServerInfoResource",
+      "en": "ServerInfoResource",
+      "vi": "ServerInfoResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "StatusResource",
+      "en": "StatusResource",
+      "vi": "StatusResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
       "zh": "Success",
       "en": "Success",
       "vi": "Thành công",
       "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "System Status",
+      "en": "System Status",
+      "vi": "System Status",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
     },
     {
       "zh": "T",
@@ -1082,6 +2538,20 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
     },
     {
+      "zh": "TOTAL",
+      "en": "TOTAL",
+      "vi": "TOTAL",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "TWILIO\n适配器",
+      "en": "TWILIO\nADAPTER",
+      "vi": "BỘ ĐIỀU HỢP\nTWILIO",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
       "zh": "Tn",
       "en": "Tn",
       "vi": "Tn",
@@ -1095,10 +2565,106 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-tcc"
     },
     {
+      "zh": "UI\n专家",
+      "en": "UI\nspecialists",
+      "vi": "Chuyên gia\nUI",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/conways-law"
+    },
+    {
+      "zh": "UP (1) - mghio-mbp:service-consumer:8888",
+      "en": "UP (1) - mghio-mbp:service-consumer:8888",
+      "vi": "UP (1) - mghio-mbp:service-consumer:8888",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
+      "zh": "UP (1) - mghio-mbp:service-provider:9999",
+      "en": "UP (1) - mghio-mbp:service-provider:9999",
+      "vi": "UP (1) - mghio-mbp:service-provider:9999",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
+    },
+    {
+      "zh": "Uptime",
+      "en": "Uptime",
+      "vi": "Uptime",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "VIPResource",
+      "en": "VIPResource",
+      "vi": "VIPResource",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "Value",
+      "en": "Value",
+      "vi": "Value",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "WEB\nAPI",
+      "en": "WEB\nAPI",
+      "vi": "WEB\nAPI",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/law-of-holes"
+    },
+    {
+      "zh": "WEB\nUI",
+      "en": "WEB\nUI",
+      "vi": "WEB\nUI",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/monolithic-application-architecture-diagram"
+    },
+    {
+      "zh": "Web 应用",
+      "en": "WEB\nAPPLICATION",
+      "vi": "ỨNG DỤNG\nWEB",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/before-and-after-migration"
+    },
+    {
       "zh": "X",
       "en": "X",
       "vi": "X",
       "source": "high-availability/hystrix-introduction/service-invoke-road"
+    },
+    {
+      "zh": "X 轴 - 水平复制",
+      "en": "X axis - horizontal duplication",
+      "vi": "Trục X - nhân bản theo chiều ngang",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2"
+    },
+    {
+      "zh": "Y 轴 -\n功能分解",
+      "en": "Y axis -\nfunctional\ndecomposition",
+      "vi": "Trục Y -\nphân rã\nchức năng",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2"
+    },
+    {
+      "zh": "Z 轴 -\n数据分区",
+      "en": "Z axis -\ndata partitioning",
+      "vi": "Trục Z -\nphân vùng dữ liệu",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2"
+    },
+    {
+      "zh": "[InstanceReplicationTask\n后台定时调用]",
+      "en": "[InstanceReplicationTask called periodically in the background]",
+      "vi": "[InstanceReplicationTask được gọi định kỳ trong nền]",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
+      "zh": "[evictionTimer 后台定时调用]",
+      "en": "[evictionTimer called periodically in the background]",
+      "vi": "[evictionTimer được gọi định kỳ trong nền]",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
     },
     {
       "zh": "a",
@@ -1120,10 +2686,43 @@
       "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
     },
     {
+      "zh": "appinfo",
+      "en": "appinfo",
+      "vi": "appinfo",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "aws",
+      "en": "aws",
+      "vi": "aws",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "b_qps",
+      "en": "b_qps",
+      "vi": "b_qps",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "b_qps: 9",
+      "en": "b_qps: 9",
+      "vi": "b_qps: 9",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
       "zh": "binlog 日志",
       "en": "binlog",
       "vi": "Nhật ký\nbinlog",
       "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
+    },
+    {
+      "zh": "block qps",
+      "en": "block qps",
+      "vi": "block qps",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/slow-start-preheating-mode"
     },
     {
       "zh": "broker\n进程",
@@ -1137,6 +2736,18 @@
       "vi": "c",
       "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "cancel",
+      "en": "cancel",
+      "vi": "cancel",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
+      "zh": "cancelLease",
+      "en": "cancelLease",
+      "vi": "cancelLease",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-cancellease-sequence-chart"
     },
     {
       "zh": "circuit breaker\n是否打开断路？",
@@ -1157,6 +2768,13 @@
       "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
     },
     {
+      "zh": "cluster",
+      "en": "cluster",
+      "vi": "cluster",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
       "zh": "cluster层：provider可以部署在多台机器上的，多个provider就组成了一个集群",
       "en": "cluster layer: a provider can be deployed on multiple machines, and multiple providers form a cluster",
       "vi": "Tầng cluster: provider có thể được triển khai trên nhiều máy, nhiều provider tạo thành một cụm (cluster)",
@@ -1167,6 +2785,20 @@
       "en": "com.bingo.MyProtocol implements Protocal",
       "vi": "com.bingo.MyProtocol hiện thực Protocal",
       "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "com.netflix",
+      "en": "com.netflix",
+      "vi": "com.netflix",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "com.netflix.eureka",
+      "en": "com.netflix.eureka",
+      "vi": "com.netflix.eureka",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
     },
     {
       "zh": "commit point\n磁盘文件",
@@ -1193,6 +2825,13 @@
       "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
     },
     {
+      "zh": "converters",
+      "en": "converters",
+      "vi": "converters",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
       "zh": "d",
       "en": "d",
       "vi": "d",
@@ -1216,6 +2855,20 @@
       "en": "data3",
       "vi": "data3",
       "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "default",
+      "en": "default",
+      "vi": "default",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "discovery",
+      "en": "discovery",
+      "vi": "discovery",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
     },
     {
       "zh": "document",
@@ -1249,6 +2902,13 @@
       "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
     },
     {
+      "zh": "endpoint",
+      "en": "endpoint",
+      "vi": "endpoint",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
       "zh": "es客户端",
       "en": "ES client",
       "vi": "Client ES",
@@ -1279,6 +2939,33 @@
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "eureka-client-1.9.17.jar library root",
+      "en": "eureka-client-1.9.17.jar library root",
+      "vi": "eureka-client-1.9.17.jar library root",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "eureka-core 1.9.17 中 InstanceResource.cancelLease 的源码",
+      "en": "InstanceResource.cancelLease source in eureka-core 1.9.17",
+      "vi": "Mã nguồn InstanceResource.cancelLease trong eureka-core 1.9.17",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "eureka-core-1.9.17.jar library root",
+      "en": "eureka-core-1.9.17.jar library root",
+      "vi": "eureka-core-1.9.17.jar library root",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "evict",
+      "en": "evict",
+      "vi": "evict",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
       "zh": "exchange层：信息交换",
       "en": "exchange layer: information exchange",
       "vi": "Tầng exchange: trao đổi thông tin",
@@ -1289,6 +2976,19 @@
       "en": "fail again",
       "vi": "lại thất bại",
       "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
+    },
+    {
+      "zh": "false",
+      "en": "false",
+      "vi": "false",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "fetchRegistry",
+      "en": "fetchRegistry",
+      "vi": "fetchRegistry",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart"
     },
     {
       "zh": "field",
@@ -1323,6 +3023,43 @@
       "source": "high-concurrency/redis-expiration-policies-and-lru/lru"
     },
     {
+      "zh": "getAndStoreFullRegistry",
+      "en": "getAndStoreFullRegistry",
+      "vi": "getAndStoreFullRegistry",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart"
+    },
+    {
+      "zh": "getAndUpdateDelta",
+      "en": "getAndUpdateDelta",
+      "vi": "getAndUpdateDelta",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-update-sequence-chart"
+    },
+    {
+      "zh": "getApplications",
+      "en": "getApplications",
+      "vi": "getApplications",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart"
+    },
+    {
+      "zh": "getApplicationsInternal",
+      "en": "getApplicationsInternal",
+      "vi": "getApplicationsInternal",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart"
+    },
+    {
+      "zh": "getDelta",
+      "en": "getDelta",
+      "vi": "getDelta",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-update-sequence-chart"
+    },
+    {
+      "zh": "guice",
+      "en": "guice",
+      "vi": "guice",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
       "zh": "html",
       "en": "html",
       "vi": "html",
@@ -1333,6 +3070,27 @@
       "en": "hystrix\nrate limiting",
       "vi": "hystrix\ngiới hạn lưu lượng",
       "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution"
+    },
+    {
+      "zh": "if (clientConfig.shouldFetchRegistry() && !fetchRegistry(false)) {",
+      "en": "if (clientConfig.shouldFetchRegistry() && !fetchRegistry(false)) {",
+      "vi": "if (clientConfig.shouldFetchRegistry() && !fetchRegistry(false)) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {",
+      "en": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {",
+      "vi": "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "if (this.preRegistrationHandler != null) {",
+      "en": "if (this.preRegistrationHandler != null) {",
+      "vi": "if (this.preRegistrationHandler != null) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
     },
     {
       "zh": "index",
@@ -1390,6 +3148,25 @@
       "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
     },
     {
+      "zh": "initScheduledTasks",
+      "en": "initScheduledTasks",
+      "vi": "initScheduledTasks",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-update-sequence-chart"
+    },
+    {
+      "zh": "internal.util",
+      "en": "internal.util",
+      "vi": "internal.util",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "internalCancel",
+      "en": "internalCancel",
+      "vi": "internalCancel",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
       "zh": "jar 包",
       "en": "jar package",
       "vi": "Gói jar",
@@ -1437,6 +3214,26 @@
       "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
     },
     {
+      "zh": "lease",
+      "en": "lease",
+      "vi": "lease",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "localhost",
+      "en": "localhost",
+      "vi": "localhost",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
+      "zh": "loop",
+      "en": "loop",
+      "vi": "loop",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
       "zh": "m",
       "en": "m",
       "vi": "m",
@@ -1481,6 +3278,13 @@
       "vi": "n",
       "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "n/a (1)",
+      "en": "n/a (1)",
+      "vi": "n/a (1)",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently"
     },
     {
       "zh": "n1",
@@ -1531,10 +3335,28 @@
       "source": "high-concurrency/how-to-ensure-that-messages-are-not-repeatedly-consumed/mq-10"
     },
     {
+      "zh": "openForTraffic",
+      "en": "openForTraffic",
+      "vi": "openForTraffic",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
       "zh": "os cache",
       "en": "os cache",
       "vi": "os cache",
       "source": "high-concurrency/es-write-query-search/es-write-detail"
+    },
+    {
+      "zh": "p_qps",
+      "en": "p_qps",
+      "vi": "p_qps",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "p_qps: 60",
+      "en": "p_qps: 60",
+      "vi": "p_qps: 60",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "partition1",
@@ -1553,6 +3375,20 @@
       "en": "partition3",
       "vi": "partition3",
       "source": "high-concurrency/how-to-ensure-the-order-of-messages/kafka-order-01"
+    },
+    {
+      "zh": "pass qps",
+      "en": "pass qps",
+      "vi": "pass qps",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/slow-start-preheating-mode"
+    },
+    {
+      "zh": "pass qps : 480.0",
+      "en": "pass qps : 480.0",
+      "vi": "pass qps : 480.0",
+      "ref": "en",
+      "source": "high-availability/sentinel-vs-hystrix/slow-start-preheating-mode"
     },
     {
       "zh": "ping",
@@ -1600,6 +3436,13 @@
       "zh": "provider",
       "en": "provider",
       "vi": "provider",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "provider",
+      "en": "provider",
+      "vi": "provider",
       "source": "distributed-system/dubbo-serialization-protocol/dubbo-keep-connection"
     },
     {
@@ -1607,6 +3450,13 @@
       "en": "provider project",
       "vi": "Dự án provider",
       "source": "distributed-system/dubbo-spi/dubbo-spi"
+    },
+    {
+      "zh": "providers",
+      "en": "providers",
+      "vi": "providers",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
     },
     {
       "zh": "provider（服务A）\nN个接口\n自定义配置",
@@ -1619,6 +3469,33 @@
       "en": "proxy layer: the proxy layer; for both consumer and provider, dubbo generates proxies for you, and the proxies communicate over the network",
       "vi": "Tầng proxy: tầng proxy, dù là consumer hay provider thì dubbo đều sinh proxy cho bạn, việc giao tiếp mạng được thực hiện giữa các proxy",
       "source": "distributed-system/dubbo-operating-principle/dubbo-operating-principle"
+    },
+    {
+      "zh": "public Response addInstance(InstanceInfo info,",
+      "en": "public Response addInstance(InstanceInfo info,",
+      "vi": "public Response addInstance(InstanceInfo info,",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "public Response cancelLease(",
+      "en": "public Response cancelLease(",
+      "vi": "public Response cancelLease(",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-cancellease"
+    },
+    {
+      "zh": "public Response renewLease(",
+      "en": "public Response renewLease(",
+      "vi": "public Response renewLease(",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew"
+    },
+    {
+      "zh": "public abstract class AbstractInstanceRegistry implements InstanceRegistry {",
+      "en": "public abstract class AbstractInstanceRegistry implements InstanceRegistry {",
+      "vi": "public abstract class AbstractInstanceRegistry implements InstanceRegistry {",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure"
     },
     {
       "zh": "queue",
@@ -1675,6 +3552,25 @@
       "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
     },
     {
+      "zh": "refreshRegistry",
+      "en": "refreshRegistry",
+      "vi": "refreshRegistry",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-update-sequence-chart"
+    },
+    {
+      "zh": "register",
+      "en": "register",
+      "vi": "register",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
+      "zh": "registry",
+      "en": "registry",
+      "vi": "registry",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
       "zh": "registry层：provider注册自己作为一个服务，consumer就可以找注册中心去寻找自己要调用的服务",
       "en": "registry layer: a provider registers itself as a service, so a consumer can ask the service registry for the service it wants to call",
       "vi": "Tầng registry: provider đăng ký chính nó như một dịch vụ, nhờ đó consumer có thể tìm đến trung tâm đăng ký dịch vụ để tìm dịch vụ cần gọi",
@@ -1693,11 +3589,42 @@
       "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
     },
     {
+      "zh": "renew",
+      "en": "renew",
+      "vi": "renew",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-renew-sequence-chart"
+    },
+    {
       "zh": "replica",
       "en": "replica",
       "vi": "replica",
       "ref": "en",
       "source": "high-concurrency/es-introduction/es-cluster-0"
+    },
+    {
+      "zh": "replicateToPeers",
+      "en": "replicateToPeers",
+      "vi": "replicateToPeers",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
+      "zh": "replicationClient.cancel",
+      "en": "replicationClient.cancel",
+      "vi": "replicationClient.cancel",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-cancellease-sequence-chart"
+    },
+    {
+      "zh": "replicationClient.register",
+      "en": "replicationClient.register",
+      "vi": "replicationClient.register",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
+      "zh": "resources",
+      "en": "resources",
+      "vi": "resources",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
     },
     {
       "zh": "rocketmq自动轮询所有\nprepared消息",
@@ -1711,6 +3638,18 @@
       "vi": "root",
       "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "rt(ms)",
+      "en": "rt(ms)",
+      "vi": "rt(ms)",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "run",
+      "en": "run",
+      "vi": "run",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
     },
     {
       "zh": "s",
@@ -1732,10 +3671,22 @@
       "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
     },
     {
+      "zh": "sendHeartBeat",
+      "en": "sendHeartBeat",
+      "vi": "sendHeartBeat",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-renew-sequence-chart"
+    },
+    {
       "zh": "sentinel 集群",
       "en": "Sentinel cluster",
       "vi": "Cụm Sentinel",
       "source": "high-concurrency/redis-sentinel/async-replication-data-lose-case"
+    },
+    {
+      "zh": "sentinel-dashboard",
+      "en": "sentinel-dashboard",
+      "vi": "sentinel-dashboard",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "seq 0",
@@ -1853,6 +3804,13 @@
       "source": "high-concurrency/es-architecture/es-cluster"
     },
     {
+      "zh": "shared",
+      "en": "shared",
+      "vi": "shared",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
       "zh": "slave",
       "en": "slave",
       "vi": "slave",
@@ -1877,10 +3835,35 @@
       "source": "high-concurrency/redis-master-slave/redis-master-slave-replication-detail"
     },
     {
+      "zh": "spring Eureka",
+      "en": "spring Eureka",
+      "vi": "spring Eureka",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
       "zh": "ss",
       "en": "ss",
       "vi": "ss",
       "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
+    },
+    {
+      "zh": "super.cancel",
+      "en": "super.cancel",
+      "vi": "super.cancel",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-cancellease-sequence-chart"
+    },
+    {
+      "zh": "super.postInit",
+      "en": "super.postInit",
+      "vi": "super.postInit",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart"
+    },
+    {
+      "zh": "super.register",
+      "en": "super.register",
+      "vi": "super.register",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
     },
     {
       "zh": "t",
@@ -1888,6 +3871,13 @@
       "vi": "t",
       "ref": "en",
       "source": "big-data/topk-problems-and-solutions/topk-trie"
+    },
+    {
+      "zh": "test",
+      "en": "test",
+      "vi": "test",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
     },
     {
       "zh": "thread1",
@@ -1956,6 +3946,13 @@
       "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
     },
     {
+      "zh": "total-avail-memory",
+      "en": "total-avail-memory",
+      "vi": "total-avail-memory",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage"
+    },
+    {
       "zh": "translog大到一定阈值，\n触发commit(flush)",
       "en": "When the translog grows\npast a threshold, commit\n(flush) is triggered",
       "vi": "Khi translog lớn đến\nmột ngưỡng nhất định,\nsẽ kích hoạt commit (flush)",
@@ -1968,11 +3965,31 @@
       "source": "high-concurrency/es-write-query-search/es-write-detail"
     },
     {
+      "zh": "transport",
+      "en": "transport",
+      "vi": "transport",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
       "zh": "type",
       "en": "type",
       "vi": "type",
       "ref": "en",
       "source": "high-concurrency/es-architecture/es-index-type-mapping-document-field"
+    },
+    {
+      "zh": "unregister",
+      "en": "unregister",
+      "vi": "unregister",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-cancel-sequence-chart"
+    },
+    {
+      "zh": "util",
+      "en": "util",
+      "vi": "util",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
     },
     {
       "zh": "worker1挂掉，临时节点被\n删除",
@@ -2011,6 +4028,55 @@
       "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-lock-demo"
     },
     {
+      "zh": "{...}",
+      "en": "{...}",
+      "vi": "{...}",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
+      "zh": "}",
+      "en": "}",
+      "vi": "}",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance"
+    },
+    {
+      "zh": "} catch (Throwable e) {",
+      "en": "} catch (Throwable e) {",
+      "vi": "} catch (Throwable e) {",
+      "ref": "en",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry"
+    },
+    {
+      "zh": "……围绕业务能力组织\n因为康威定律",
+      "en": "... organised around capabilities\nBecause Conway's Law",
+      "vi": "... được tổ chức quanh năng lực\nVì định luật Conway",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/preferfunctionalstafforganization"
+    },
+    {
+      "zh": "……导致孤立的应用程序架构。\n因为康威定律",
+      "en": "... lead to silod application architectures.\nBecause Conway's Law",
+      "vi": "... dẫn đến kiến trúc ứng dụng bị cô lập.\nVì định luật Conway",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/conways-law"
+    },
+    {
+      "zh": "……并通过在多台服务器上\n复制整个单体来扩展",
+      "en": "... and scales by replicating the\nmonolith on multiple servers",
+      "vi": "... và mở rộng bằng cách nhân bản\nhệ thống nguyên khối trên\nnhiều máy chủ",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
+      "zh": "……并通过把这些服务分布到\n多台服务器上、按需复制来扩展。",
+      "en": "... and scales by distributing these services\nacross servers, replicating as needed.",
+      "vi": "... và mở rộng bằng cách phân bố\ncác dịch vụ này trên các máy chủ,\nnhân bản khi cần.",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
       "zh": "一旦A系统发送confirm消息，\nMQ就会让B系统消费到这条消息",
       "en": "Once system A sends the\nconfirm message, MQ lets\nsystem B consume it",
       "vi": "Một khi hệ thống A gửi\nthông điệp confirm, MQ sẽ\ncho hệ thống B tiêu thụ\nthông điệp này",
@@ -2021,6 +4087,13 @@
       "en": "One request context",
       "vi": "Một ngữ cảnh yêu cầu",
       "source": "high-availability/hystrix-request-cache/hystrix-request-cache"
+    },
+    {
+      "zh": "下订单",
+      "en": "Place\nOrder",
+      "vi": "Đặt\nđơn hàng",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/order-created-event"
     },
     {
       "zh": "不允许访问",
@@ -2041,6 +4114,20 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
     },
     {
+      "zh": "业务逻辑",
+      "en": "BUSINESS LOGIC",
+      "vi": "LOGIC NGHIỆP VỤ",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_zccm"
+    },
+    {
+      "zh": "中间件\n专家",
+      "en": "middleware\nspecialists",
+      "vi": "Chuyên gia\nmiddleware",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/conways-law"
+    },
+    {
       "zh": "主库",
       "en": "Master",
       "vi": "Master",
@@ -2051,6 +4138,41 @@
       "en": "Master syncs data to replica",
       "vi": "Master đồng bộ dữ liệu sang replica",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "主机（物理机或虚拟机）",
+      "en": "Host (Physical or VM)",
+      "vi": "Máy chủ (vật lý hoặc VM)",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1"
+    },
+    {
+      "zh": "乘客",
+      "en": "PASSENGER",
+      "vi": "HÀNH KHÁCH",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/monolithic-application-architecture-diagram"
+    },
+    {
+      "zh": "乘客\nWEB UI",
+      "en": "PASSENGER\nWEB UI",
+      "vi": "WEB UI\nHÀNH KHÁCH",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "乘客\n管理",
+      "en": "PASSENGER\nMANAGEMENT",
+      "vi": "QUẢN LÝ\nHÀNH KHÁCH",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "乘客管理\n数据库",
+      "en": "PASSENGER\nMANAGEMENT\nDATABASE",
+      "vi": "CƠ SỞ DỮ LIỆU\nQUẢN LÝ\nHÀNH KHÁCH",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4"
     },
     {
       "zh": "也可以在zk中，创建一个node，\n就是代表某个消息自己已经处理过了，\n如果重复消息过来，\n创建zk node，会报错",
@@ -2065,6 +4187,20 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-reliable-message"
     },
     {
+      "zh": "事件\n发布者",
+      "en": "EVENT\nPUBLISHER",
+      "vi": "BỘ PHÁT HÀNH\nSỰ KIỆN",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
+      "zh": "事件存储",
+      "en": "Event Store",
+      "vi": "Kho sự kiện",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
+    },
+    {
       "zh": "事务管理器",
       "en": "Transaction manager",
       "vi": "Bộ quản lý giao dịch",
@@ -2075,6 +4211,20 @@
       "en": "Binary string",
       "vi": "Chuỗi nhị phân",
       "source": "distributed-system/dubbo-serialization-protocol/serialize-deserialize"
+    },
+    {
+      "zh": "交易日志",
+      "en": "Transaction log",
+      "vi": "Nhật ký giao dịch",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/no-2pc-required"
+    },
+    {
+      "zh": "交易日志\n挖掘进程",
+      "en": "TRANSACTION\nLOG MINER",
+      "vi": "TRÌNH KHAI THÁC\nNHẬT KÝ GIAO DỊCH",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/no-2pc-required"
     },
     {
       "zh": "产生数据，发送到 MQ",
@@ -2107,6 +4257,13 @@
       "source": "high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool"
     },
     {
+      "zh": "信用\n预留",
+      "en": "Credit\nReserved",
+      "vi": "Tín dụng\nđã giữ chỗ",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
       "zh": "修改orderId=1的node\n的值",
       "en": "Modify the value of\nthe node orderId=1",
       "vi": "Sửa giá trị của\nnode orderId=1",
@@ -2135,6 +4292,12 @@
       "en": "Notice:\n0:00~6:00, website maintenance, no access",
       "vi": "Thông báo:\n0 giờ~6 giờ, bảo trì website, không thể truy cập",
       "source": "high-concurrency/database-shard-method/database-shard-method-1"
+    },
+    {
+      "zh": "关键字",
+      "en": "关键字",
+      "vi": "关键字",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "内存 buffer",
@@ -2234,6 +4397,13 @@
       "source": "high-availability/hystrix-process/new-hystrix-process"
     },
     {
+      "zh": "创建订单事件",
+      "en": "Order\nCreated Event",
+      "vi": "Sự kiện\nđơn hàng đã tạo",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
       "zh": "初次连接：全量复制",
       "en": "First connection:\nfull replication",
       "vi": "Kết nối lần đầu:\nsao chép toàn bộ",
@@ -2282,16 +4452,64 @@
       "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
     },
     {
+      "zh": "升序",
+      "en": "升序",
+      "vi": "升序",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
       "zh": "单个服务",
       "en": "Single service",
       "vi": "Một dịch vụ đơn",
       "source": "high-concurrency/database-shard-global-id-generate/database-id-sequence-step"
     },
     {
+      "zh": "单体 - 单一数据库",
+      "en": "monolith - single database",
+      "vi": "Hệ thống nguyên khối - một cơ sở dữ liệu duy nhất",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/decentralised-data"
+    },
+    {
+      "zh": "单体 - 同一进程中的\n多个模块",
+      "en": "monolith - multiple modules\nin the same process",
+      "vi": "Hệ thống nguyên khối - nhiều mô-đun\ntrong cùng một tiến trình",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/micro-deployment"
+    },
+    {
+      "zh": "单体应用",
+      "en": "MONOLITH",
+      "vi": "HỆ THỐNG\nNGUYÊN KHỐI",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/law-of-holes"
+    },
+    {
+      "zh": "单体应用程序把所有功能\n放进一个单一进程……",
+      "en": "A monolithic application puts all its\nfunctionality into a single process...",
+      "vi": "Ứng dụng nguyên khối đặt toàn bộ\nchức năng vào một tiến trình\nduy nhất...",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
+      "zh": "单体式\n架构",
+      "en": "Monolithic\nArchitecture",
+      "vi": "Kiến trúc\nnguyên khối",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/monolithic-application-architecture-diagram"
+    },
+    {
       "zh": "反序列化",
       "en": "Deserialization",
       "vi": "Giải tuần tự hóa",
       "source": "distributed-system/dubbo-serialization-protocol/serialize-deserialize"
+    },
+    {
+      "zh": "发布",
+      "en": "Publish",
+      "vi": "Phát hành",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
     },
     {
       "zh": "发送confirm消息",
@@ -2324,10 +4542,23 @@
       "source": "high-availability/hystrix-process/new-hystrix-process"
     },
     {
+      "zh": "发送请求，传入 Instance 信息",
+      "en": "Send request, passing Instance info",
+      "vi": "Gửi yêu cầu kèm thông tin Instance",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
       "zh": "发通知",
       "en": "Send notification",
       "vi": "Gửi thông báo",
       "source": "distributed-system/zookeeper-application-scenarios/zookeeper-active-standby"
+    },
+    {
+      "zh": "变更",
+      "en": "Changes",
+      "vi": "Thay đổi",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/no-2pc-required"
     },
     {
       "zh": "变更消息",
@@ -2426,6 +4657,13 @@
       "source": "distributed-system/dubbo-spi/dubbo-spi"
     },
     {
+      "zh": "在构建机器上\n运行",
+      "en": "run on build\nmachine",
+      "vi": "Chạy trên\nmáy build",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
       "zh": "在自己本地的事务里\n先插入消息表\n再插入自己的业务表",
       "en": "In its own local transaction,\nfirst insert into the message table,\nthen insert into its business table",
       "vi": "Trong giao dịch cục bộ của mình:\nchèn vào bảng thông điệp trước,\nrồi chèn vào bảng nghiệp vụ",
@@ -2482,6 +4720,13 @@
       "source": "high-concurrency/why-mq/mq-2"
     },
     {
+      "zh": "孤立的职能团队……",
+      "en": "Siloed functional teams...",
+      "vi": "Các nhóm chức năng bị cô lập...",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/conways-law"
+    },
+    {
       "zh": "完成库存的更新",
       "en": "Finish updating\ninventory",
       "vi": "Hoàn tất cập nhật\ntồn kho",
@@ -2494,10 +4739,65 @@
       "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
     },
     {
+      "zh": "实时监控",
+      "en": "实时监控",
+      "vi": "实时监控",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "客户已创建\n客户已取消\n客户已发货\n...",
+      "en": "Customer Created\nCustomer Cancelled\nCustomer Shipped\n...",
+      "vi": "Khách hàng đã tạo\nKhách hàng đã hủy\nKhách hàng đã giao\n...",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/pre-join"
+    },
+    {
+      "zh": "客户服务",
+      "en": "CUSTOMER\nSERVICE",
+      "vi": "DỊCH VỤ\nKHÁCH HÀNG",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
       "zh": "客户端",
       "en": "Client",
       "vi": "Client",
       "source": "high-concurrency/es-optimizing-query-performance/es-search-process"
+    },
+    {
+      "zh": "客户订单\n视图",
+      "en": "Customer\nOrder\nView",
+      "vi": "Chế độ xem\nđơn hàng\nkhách hàng",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/pre-join"
+    },
+    {
+      "zh": "客户订单视图\n更新服务",
+      "en": "CUSTOMER\nORDER VIEW\nUPDATER",
+      "vi": "DỊCH VỤ CẬP NHẬT\nCHẾ ĐỘ XEM\nĐƠN HÀNG\nKHÁCH HÀNG",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/pre-join"
+    },
+    {
+      "zh": "客户订单视图\n查询服务",
+      "en": "CUSTOMER ORDER\nVIEW QUERY\nSERVICE",
+      "vi": "DỊCH VỤ TRUY VẤN\nCHẾ ĐỘ XEM\nĐƠN HÀNG\nKHÁCH HÀNG",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/pre-join"
+    },
+    {
+      "zh": "容器",
+      "en": "Container",
+      "vi": "Container",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-3"
+    },
+    {
+      "zh": "容器映像",
+      "en": "Container\nImage",
+      "vi": "Container\nimage",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-3"
     },
     {
       "zh": "对orderId=1的node\n注册一个监听",
@@ -2607,10 +4907,28 @@
       "source": "high-concurrency/mysql-read-write-separation/mysql-master-slave"
     },
     {
+      "zh": "已停止服务",
+      "en": "Stopped service",
+      "vi": "Dịch vụ\nđã dừng",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-cancellease-sequence-chart"
+    },
+    {
+      "zh": "已注册服务",
+      "en": "Registered service",
+      "vi": "Dịch vụ đã đăng ký",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-renew-sequence-chart"
+    },
+    {
       "zh": "布隆过滤器",
       "en": "Bloom filter",
       "vi": "Bộ lọc Bloom",
       "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avoid-penetration"
+    },
+    {
+      "zh": "带 @PreDestroy 的 shutdown()",
+      "en": "shutdown() with @PreDestroy",
+      "vi": "Gọi shutdown() có @PreDestroy",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-cancel-sequence-chart"
     },
     {
       "zh": "广告服务信息",
@@ -2629,6 +4947,12 @@
       "en": "Inventory service",
       "vi": "Dịch vụ\ntồn kho",
       "source": "high-concurrency/redis-consistence/redis-junior-inconsistent"
+    },
+    {
+      "zh": "应用名",
+      "en": "应用名",
+      "vi": "应用名",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "店铺服务信息",
@@ -2655,6 +4979,40 @@
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "待注册服务",
+      "en": "Service to register",
+      "vi": "Dịch vụ\ncần đăng ký",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-register-sequence-chart"
+    },
+    {
+      "zh": "微服务 - 应用数据库",
+      "en": "microservices - application databases",
+      "vi": "Microservices - cơ sở dữ liệu riêng của ứng dụng",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/decentralised-data"
+    },
+    {
+      "zh": "微服务 - 运行在不同\n进程中的模块",
+      "en": "microservices - modules\nrunning in different processes",
+      "vi": "Microservices - các mô-đun chạy\ntrong các tiến trình khác nhau",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/micro-deployment"
+    },
+    {
+      "zh": "微服务架构把每个功能元素\n放进一个独立的服务……",
+      "en": "A microservices architecture puts\neach element of functionality into a\nseparate service...",
+      "vi": "Kiến trúc microservices đặt từng\nthành phần chức năng vào một\ndịch vụ riêng biệt...",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/sketch"
+    },
+    {
+      "zh": "性能测试",
+      "en": "performance\ntest",
+      "vi": "Kiểm thử\nhiệu năng",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
       "zh": "感知到B已经\n成功执行",
       "en": "Detects that B\nhas succeeded",
       "vi": "Nhận biết B đã\nthực thi thành công",
@@ -2677,6 +5035,13 @@
       "en": "I want to get the\naddress of service A",
       "vi": "Tôi muốn lấy địa chỉ\ncủa dịch vụ A",
       "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
+    },
+    {
+      "zh": "打包为",
+      "en": "Packaged As",
+      "vi": "Đóng gói thành",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-3"
     },
     {
       "zh": "扛读高并发",
@@ -2751,6 +5116,19 @@
       "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
     },
     {
+      "zh": "搜索",
+      "en": "搜索",
+      "vi": "搜索",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "支付",
+      "en": "PAYMENTS",
+      "vi": "THANH TOÁN",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
       "zh": "数据",
       "en": "Data",
       "vi": "Dữ liệu",
@@ -2793,6 +5171,13 @@
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
     },
     {
+      "zh": "数据存储",
+      "en": "Datastore",
+      "vi": "Kho dữ liệu",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/no-2pc-required"
+    },
+    {
       "zh": "数据库",
       "en": "Database",
       "vi": "Cơ sở dữ liệu",
@@ -2827,6 +5212,13 @@
       "en": "Database\nInventory 1000->999",
       "vi": "Cơ sở dữ liệu\nTồn kho 1000->999",
       "source": "high-concurrency/redis-consistence/redis-junior-inconsistent"
+    },
+    {
+      "zh": "数据库\n适配器",
+      "en": "DATABASE\nADAPTER",
+      "vi": "BỘ ĐIỀU HỢP\nCƠ SỞ DỮ LIỆU",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4"
     },
     {
       "zh": "数据库\n（单表3000w）",
@@ -2901,6 +5293,13 @@
       "source": "high-availability/hystrix-process/new-hystrix-process"
     },
     {
+      "zh": "新 HTTP\n请求",
+      "en": "New HTTP\nrequests",
+      "vi": "Yêu cầu\nHTTP mới",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/law-of-holes"
+    },
+    {
       "zh": "新系统要数据，直接从 MQ 消费即可",
       "en": "New system needs data, consumes directly from MQ",
       "vi": "Hệ thống mới cần dữ liệu, tiêu thụ trực tiếp từ MQ",
@@ -2931,6 +5330,19 @@
       "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose-solution"
     },
     {
+      "zh": "旧 HTTP\n请求",
+      "en": "Old HTTP\nrequests",
+      "vi": "Yêu cầu\nHTTP cũ",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/law-of-holes"
+    },
+    {
+      "zh": "时间",
+      "en": "时间",
+      "vi": "时间",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
       "zh": "时间线",
       "en": "Timeline",
       "vi": "Dòng thời gian",
@@ -2954,6 +5366,62 @@
       "en": "Request Cache\nenabled?",
       "vi": "Đã bật\nRequest Cache?",
       "source": "high-availability/hystrix-process/new-hystrix-process"
+    },
+    {
+      "zh": "更新",
+      "en": "Update",
+      "vi": "Cập nhật",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/no-2pc-required"
+    },
+    {
+      "zh": "服务",
+      "en": "SERVICE",
+      "vi": "DỊCH VỤ",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-2"
+    },
+    {
+      "zh": "服务-A\n实例-1",
+      "en": "SERVICE-A\nINSTANCE-1",
+      "vi": "DỊCH VỤ-A\nINSTANCE-1",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1"
+    },
+    {
+      "zh": "服务-A\n实例-2",
+      "en": "SERVICE-A\nINSTANCE-2",
+      "vi": "DỊCH VỤ-A\nINSTANCE-2",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1"
+    },
+    {
+      "zh": "服务-B\n实例-1",
+      "en": "SERVICE-B\nINSTANCE-1",
+      "vi": "DỊCH VỤ-B\nINSTANCE-1",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1"
+    },
+    {
+      "zh": "服务-B\n实例-2",
+      "en": "SERVICE-B\nINSTANCE-2",
+      "vi": "DỊCH VỤ-B\nINSTANCE-2",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1"
+    },
+    {
+      "zh": "服务-C\n实例-1",
+      "en": "SERVICE-C\nINSTANCE-1",
+      "vi": "DỊCH VỤ-C\nINSTANCE-1",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1"
+    },
+    {
+      "zh": "服务-C\n实例-2",
+      "en": "SERVICE-C\nINSTANCE-2",
+      "vi": "DỊCH VỤ-C\nINSTANCE-2",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1"
     },
     {
       "zh": "服务A",
@@ -3028,6 +5496,19 @@
       "source": "distributed-system/dubbo-service-management/dubbo-service-invoke-road"
     },
     {
+      "zh": "服务停止",
+      "en": "Service stopped",
+      "vi": "Dịch vụ dừng",
+      "source": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-cancel-sequence-chart"
+    },
+    {
+      "zh": "服务实例",
+      "en": "SERVICE\nINSTANCE",
+      "vi": "INSTANCE\nDỊCH VỤ",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-3"
+    },
+    {
       "zh": "服务节点0",
       "en": "Service node 0",
       "vi": "Node dịch vụ 0",
@@ -3094,6 +5575,13 @@
       "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
     },
     {
+      "zh": "本地事务",
+      "en": "Local Transaction",
+      "vi": "Giao dịch cục bộ",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
       "zh": "机器1",
       "en": "Machine 1",
       "vi": "Máy 1",
@@ -3124,6 +5612,12 @@
       "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
     },
     {
+      "zh": "机器列表",
+      "en": "机器列表",
+      "vi": "机器列表",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
       "zh": "权限系统",
       "en": "Permission\nsystem",
       "vi": "Hệ thống\nphân quyền",
@@ -3134,6 +5628,48 @@
       "en": "A message has been awaiting\nconfirmation for over 1 minute",
       "vi": "Có thông điệp chờ xác nhận\nquá 1 phút",
       "source": "distributed-system/distributed-transaction/distributed-transaction-local-message-table"
+    },
+    {
+      "zh": "查找客户\n和订单",
+      "en": "Find Customer\nand Orders",
+      "vi": "Tìm khách hàng\nvà đơn hàng",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/pre-join"
+    },
+    {
+      "zh": "查询",
+      "en": "QUERY",
+      "vi": "TRUY VẤN",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/multi-step-process"
+    },
+    {
+      "zh": "模块\nX",
+      "en": "MODULE\nX",
+      "vi": "MÔ-ĐUN\nX",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_zccm"
+    },
+    {
+      "zh": "模块\nY",
+      "en": "MODULE\nY",
+      "vi": "MÔ-ĐUN\nY",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_zccm"
+    },
+    {
+      "zh": "模块\nZ",
+      "en": "MODULE\nZ",
+      "vi": "MÔ-ĐUN\nZ",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_zccm"
+    },
+    {
+      "zh": "横向舱壁",
+      "en": "THWARTSHIP BULKHEADS",
+      "vi": "Vách ngăn ngang tàu",
+      "ref": "en",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition"
     },
     {
       "zh": "正常事务",
@@ -3209,6 +5745,19 @@
       "source": "high-concurrency/redis-single-thread-model/redis-single-thread-model"
     },
     {
+      "zh": "流控规则",
+      "en": "流控规则",
+      "vi": "流控规则",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "浏览器",
+      "en": "BROWSER",
+      "vi": "TRÌNH DUYỆT",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/before-and-after-migration"
+    },
+    {
       "zh": "浏览电商网站",
       "en": "Browse the e-commerce site",
       "vi": "Duyệt website thương mại điện tử",
@@ -3219,6 +5768,13 @@
       "en": "Message 1",
       "vi": "Thông điệp 1",
       "source": "high-concurrency/how-to-ensure-the-reliable-transmission-of-messages/rabbitmq-message-lose"
+    },
+    {
+      "zh": "消息代理",
+      "en": "MESSAGE\nBROKER",
+      "vi": "MESSAGE\nBROKER",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
     },
     {
       "zh": "消息表",
@@ -3243,6 +5799,13 @@
       "en": "Consumer consumes data from\nthe leader of each node",
       "vi": "Consumer tiêu thụ dữ liệu\ntừ leader của mỗi node",
       "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
+    },
+    {
+      "zh": "添加事件\n查找事件",
+      "en": "Add Events\nFind Events",
+      "vi": "Thêm sự kiện\nTìm sự kiện",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
     },
     {
       "zh": "渲染后",
@@ -3281,16 +5844,43 @@
       "source": "high-concurrency/why-mq/mq-3"
     },
     {
+      "zh": "用户验收测试",
+      "en": "user acceptance\ntest",
+      "vi": "Kiểm thử chấp nhận\ncủa người dùng",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
       "zh": "磁盘",
       "en": "Disk",
       "vi": "Đĩa",
       "source": "high-concurrency/redis-master-slave/redis-master-slave-replication"
     },
     {
+      "zh": "第一步",
+      "en": "Step 1",
+      "vi": "Bước 1",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_zccm"
+    },
+    {
       "zh": "第一阶段，询问\n第二阶段，执行",
       "en": "Phase 1: ask\nPhase 2: execute",
       "vi": "Giai đoạn một: hỏi\nGiai đoạn hai: thực thi",
       "source": "distributed-system/distributed-transaction/distributed-transaction-xa"
+    },
+    {
+      "zh": "第二步",
+      "en": "Step 2",
+      "vi": "Bước 2",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_zccm"
+    },
+    {
+      "zh": "簇点链路",
+      "en": "簇点链路",
+      "vi": "簇点链路",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
     },
     {
       "zh": "系统",
@@ -3357,6 +5947,19 @@
       "en": "System split",
       "vi": "Tách hệ thống",
       "source": "high-concurrency/high-concurrency-design/high-concurrency-system-design"
+    },
+    {
+      "zh": "系统规则",
+      "en": "系统规则",
+      "vi": "系统规则",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "纵向舱壁",
+      "en": "FORE AND AFT BULKHEADS",
+      "vi": "Vách ngăn dọc (mũi và lái)",
+      "ref": "en",
+      "source": "high-availability/hystrix-thread-pool-current-limiting/bulkhead-partition"
     },
     {
       "zh": "线程1",
@@ -3449,10 +6052,24 @@
       "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-penetration"
     },
     {
+      "zh": "编译、单元\n和功能测试",
+      "en": "compile, unit\nand\nfunctional test",
+      "vi": "Biên dịch,\nkiểm thử đơn vị\nvà chức năng",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
       "zh": "缺点：\n\n1. MQ 集群内部可能产生大量的数据传输；\n2. 可用性无保障，queue所在节点宕机，数据就丢了。",
       "en": "Drawbacks:\n\n1. A large amount of data may be\ntransferred inside the MQ cluster;\n2. No availability guarantee: if the node\nholding the queue goes down, the data is lost.",
       "vi": "Nhược điểm:\n\n1. Bên trong cụm MQ có thể phát sinh\nlượng lớn dữ liệu truyền qua lại;\n2. Không đảm bảo tính sẵn sàng:\nnode chứa queue bị sập là mất dữ liệu.",
       "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/mq-7"
+    },
+    {
+      "zh": "胶水\n代码",
+      "en": "GLUE\nCODE",
+      "vi": "MÃ\nKẾT DÍNH",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/law-of-holes"
     },
     {
       "zh": "自己本地的一个事务里\n先插入自己的业务表\n插入自己的一个消息表",
@@ -3521,6 +6138,34 @@
       "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
     },
     {
+      "zh": "虚拟机",
+      "en": "VM",
+      "vi": "VM",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-2"
+    },
+    {
+      "zh": "虚拟机映像",
+      "en": "VM Image",
+      "vi": "Image VM",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-2"
+    },
+    {
+      "zh": "行程\n管理",
+      "en": "TRIP\nMANAGEMENT",
+      "vi": "QUẢN LÝ\nCHUYẾN ĐI",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "行程管理\n数据库",
+      "en": "TRIP\nMANAGEMENT\nDATABASE",
+      "vi": "CƠ SỞ DỮ LIỆU\nQUẢN LÝ\nCHUYẾN ĐI",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4"
+    },
+    {
       "zh": "补偿事务",
       "en": "Compensating transactions",
       "vi": "Giao dịch bù trừ",
@@ -3528,10 +6173,66 @@
       "source": "distributed-system/distributed-transaction/distributed-transaction-saga"
     },
     {
+      "zh": "计费",
+      "en": "BILLING",
+      "vi": "TÍNH PHÍ",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "订单 2345",
+      "en": "Order 2345",
+      "vi": "Đơn hàng 2345",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
+    },
+    {
       "zh": "订单orderId=1的node节\n点变化了",
       "en": "The node of order\norderId=1 changed",
       "vi": "Node của đơn hàng\norderId=1 đã thay đổi",
       "source": "distributed-system/zookeeper-application-scenarios/zookeeper-distributed-coordination"
+    },
+    {
+      "zh": "订单已创建",
+      "en": "Order Created",
+      "vi": "Đơn hàng đã tạo",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
+    },
+    {
+      "zh": "订单已创建\n订单已取消\n订单已发货\n...",
+      "en": "Order Created\nOrder Cancelled\nOrder Shipped\n...",
+      "vi": "Đơn hàng đã tạo\nĐơn hàng đã hủy\nĐơn hàng đã giao\n...",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/pre-join"
+    },
+    {
+      "zh": "订单已发货",
+      "en": "Order Shipped",
+      "vi": "Đơn hàng đã giao",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
+    },
+    {
+      "zh": "订单已批准",
+      "en": "Order Approved",
+      "vi": "Đơn hàng đã duyệt",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
+    },
+    {
+      "zh": "订单服务",
+      "en": "ORDER\nSERVICE",
+      "vi": "DỊCH VỤ\nĐƠN HÀNG",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event"
+    },
+    {
+      "zh": "订阅事件",
+      "en": "Subscribe to Events",
+      "vi": "Đăng ký sự kiện",
+      "ref": "en",
+      "source": "micro-services/event-driven-data-management-for-microservices/event-sourcing"
     },
     {
       "zh": "请假系统",
@@ -3544,6 +6245,13 @@
       "en": "Request",
       "vi": "Yêu cầu",
       "source": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2"
+    },
+    {
+      "zh": "请求\n路由器",
+      "en": "REQUEST\nROUTER",
+      "vi": "BỘ ĐỊNH TUYẾN\nYÊU CẦU",
+      "ref": "en",
+      "source": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/law-of-holes"
     },
     {
       "zh": "请求1",
@@ -3630,6 +6338,13 @@
       "source": "distributed-system/zookeeper-application-scenarios/zookeeper-meta-data-manage"
     },
     {
+      "zh": "负载\n均衡器",
+      "en": "LOAD\nBALANCER",
+      "vi": "BỘ\nCÂN BẰNG TẢI",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-3"
+    },
+    {
       "zh": "负载均衡",
       "en": "Load balancing",
       "vi": "Cân bằng tải",
@@ -3646,6 +6361,13 @@
       "en": "Resources full, send\nreject to the circuit breaker for statistics",
       "vi": "Tài nguyên đã đầy, gửi\nreject cho circuit breaker để thống kê",
       "source": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process"
+    },
+    {
+      "zh": "跨职能团队……",
+      "en": "Cross-functional teams...",
+      "vi": "Các nhóm đa chức năng...",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/preferfunctionalstafforganization"
     },
     {
       "zh": "路由，转发给对应node",
@@ -3696,6 +6418,76 @@
       "source": "high-concurrency/how-to-ensure-high-availability-of-message-queues/kafka-after"
     },
     {
+      "zh": "通知",
+      "en": "NOTIFICATION",
+      "vi": "THÔNG BÁO",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "通过克隆来扩展",
+      "en": "Scale by cloning",
+      "vi": "Mở rộng bằng cách nhân bản",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2"
+    },
+    {
+      "zh": "通过拆分\n不同的事物来扩展",
+      "en": "Scale by splitting\ndifferent things",
+      "vi": "Mở rộng bằng cách\ntách các thứ\nkhác nhau",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2"
+    },
+    {
+      "zh": "通过拆分\n相似的事物来扩展",
+      "en": "Scale by splitting\nsimilar things",
+      "vi": "Mở rộng bằng cách\ntách các thứ\ntương tự",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2"
+    },
+    {
+      "zh": "部署为",
+      "en": "Deployed As",
+      "vi": "Triển khai thành",
+      "ref": "en",
+      "source": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-3"
+    },
+    {
+      "zh": "部署到\nUAT 环境",
+      "en": "deployed to\nUAT\nenvironment",
+      "vi": "Triển khai lên\nmôi trường\nUAT",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
+      "zh": "部署到\n性能环境",
+      "en": "deployed to\nperformance\nenvironment",
+      "vi": "Triển khai lên\nmôi trường\nhiệu năng",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
+      "zh": "部署到\n生产环境",
+      "en": "deploy to\nproduction",
+      "vi": "Triển khai lên\nmôi trường\nproduction",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
+      "zh": "部署到\n集成环境",
+      "en": "deployed to\nintegration\nenvironment",
+      "vi": "Triển khai lên\nmôi trường\ntích hợp",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
+      "zh": "部署在\n构建机器上",
+      "en": "deployed on\nbuild\nmachine",
+      "vi": "Triển khai\ntrên\nmáy build",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
+    },
+    {
       "zh": "释放zk锁",
       "en": "Release\nzk lock",
       "vi": "Giải phóng\nkhóa zk",
@@ -3738,10 +6530,29 @@
       "source": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine"
     },
     {
+      "zh": "阿里巴巴中间件",
+      "en": "阿里巴巴中间件",
+      "vi": "阿里巴巴中间件",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "降级规则",
+      "en": "降级规则",
+      "vi": "降级规则",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
       "zh": "限流组件\n可以设置假设5000个请求，就\n2000个请求能通过该组件",
       "en": "Rate-limiting component\nCan be set so that of, say, 5000\nrequests, only 2000 pass\nthrough this component",
       "vi": "Thành phần giới hạn lưu lượng\nCó thể đặt giả sử 5000 yêu cầu,\nthì chỉ 2000 yêu cầu\ncó thể đi qua thành phần này",
       "source": "high-concurrency/redis-caching-avalanche-and-caching-penetration/redis-caching-avalanche-solution"
+    },
+    {
+      "zh": "集成测试",
+      "en": "integration\ntest",
+      "vi": "Kiểm thử\ntích hợp",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
     },
     {
       "zh": "静态模板",
@@ -3774,6 +6585,47 @@
       "vi": "Ước tính: 12 s\nCó thể vượt quá thời gian chờ\n(timeout), bị chặn",
       "ref": "en",
       "source": "high-availability/sentinel-vs-hystrix/homogenizer-mode"
+    },
+    {
+      "zh": "首页",
+      "en": "首页",
+      "vi": "首页",
+      "source": "high-availability/sentinel-vs-hystrix/sentinel-dashboard"
+    },
+    {
+      "zh": "驾驶员",
+      "en": "DRIVER",
+      "vi": "TÀI XẾ",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/monolithic-application-architecture-diagram"
+    },
+    {
+      "zh": "驾驶员\nWEB UI",
+      "en": "DRIVER\nWEB UI",
+      "vi": "WEB UI\nTÀI XẾ",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "驾驶员\n管理",
+      "en": "DRIVER\nMANAGEMENT",
+      "vi": "QUẢN LÝ\nTÀI XẾ",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1"
+    },
+    {
+      "zh": "驾驶员管理\n数据库",
+      "en": "DRIVER\nMANAGEMENT\nDATABASE",
+      "vi": "CƠ SỞ DỮ LIỆU\nQUẢN LÝ\nTÀI XẾ",
+      "ref": "en",
+      "source": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4"
+    },
+    {
+      "zh": "验收测试",
+      "en": "acceptance\ntest",
+      "vi": "Kiểm thử\nchấp nhận",
+      "ref": "en",
+      "source": "micro-services/microservices-introduction/basic-pipeline"
     },
     {
       "zh": "高峰期每秒 5000 请求",

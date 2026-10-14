@@ -1,0 +1,622 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-instanceresource-renew.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1290,
+    "h": 1176
+  },
+  "nodes": [
+    {
+      "id": "tree",
+      "shape": "group",
+      "x": 10,
+      "y": 20,
+      "w": 470,
+      "h": 1140,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "code",
+      "shape": "group",
+      "x": 490,
+      "y": 20,
+      "w": 780,
+      "h": 1056,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ht1",
+      "shape": "group",
+      "x": 14,
+      "y": 63,
+      "w": 394,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ht15",
+      "shape": "group",
+      "x": 102,
+      "y": 567,
+      "w": 151,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "hc16",
+      "shape": "group",
+      "x": 500,
+      "y": 603,
+      "w": 250,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "hc22",
+      "shape": "group",
+      "x": 500,
+      "y": 819,
+      "w": 716,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [],
+  "texts": [
+    {
+      "key": "t01",
+      "x": 20,
+      "y": 44,
+      "anchor": "start",
+      "literals": [
+        "Maven: com.netflix.eureka:eureka-client:1.9.17"
+      ]
+    },
+    {
+      "key": "t02",
+      "x": 20,
+      "y": 80,
+      "anchor": "start",
+      "literals": [
+        "Maven: com.netflix.eureka:eureka-core:1.9.17"
+      ]
+    },
+    {
+      "key": "t03",
+      "x": 42,
+      "y": 116,
+      "anchor": "start",
+      "literals": [
+        "eureka-core-1.9.17.jar library root"
+      ]
+    },
+    {
+      "key": "t04",
+      "x": 64,
+      "y": 152,
+      "anchor": "start",
+      "literals": [
+        "com.netflix.eureka"
+      ]
+    },
+    {
+      "key": "t05",
+      "x": 86,
+      "y": 188,
+      "anchor": "start",
+      "literals": [
+        "aws"
+      ]
+    },
+    {
+      "key": "t06",
+      "x": 86,
+      "y": 224,
+      "anchor": "start",
+      "literals": [
+        "cluster"
+      ]
+    },
+    {
+      "key": "t07",
+      "x": 86,
+      "y": 260,
+      "anchor": "start",
+      "literals": [
+        "lease"
+      ]
+    },
+    {
+      "key": "t08",
+      "x": 86,
+      "y": 296,
+      "anchor": "start",
+      "literals": [
+        "registry"
+      ]
+    },
+    {
+      "key": "t09",
+      "x": 86,
+      "y": 332,
+      "anchor": "start",
+      "literals": [
+        "resources"
+      ]
+    },
+    {
+      "key": "t10",
+      "x": 108,
+      "y": 368,
+      "anchor": "start",
+      "literals": [
+        "AbstractVIPResource"
+      ]
+    },
+    {
+      "key": "t11",
+      "x": 108,
+      "y": 404,
+      "anchor": "start",
+      "literals": [
+        "ApplicationResource"
+      ]
+    },
+    {
+      "key": "t12",
+      "x": 108,
+      "y": 440,
+      "anchor": "start",
+      "literals": [
+        "ApplicationsResource"
+      ]
+    },
+    {
+      "key": "t13",
+      "x": 108,
+      "y": 476,
+      "anchor": "start",
+      "literals": [
+        "ASGResource"
+      ]
+    },
+    {
+      "key": "t14",
+      "x": 108,
+      "y": 512,
+      "anchor": "start",
+      "literals": [
+        "CurrentRequestVersion"
+      ]
+    },
+    {
+      "key": "t15",
+      "x": 108,
+      "y": 548,
+      "anchor": "start",
+      "literals": [
+        "DefaultServerCodecs"
+      ]
+    },
+    {
+      "key": "t16",
+      "x": 108,
+      "y": 584,
+      "anchor": "start",
+      "literals": [
+        "InstanceResource"
+      ]
+    },
+    {
+      "key": "t17",
+      "x": 108,
+      "y": 620,
+      "anchor": "start",
+      "literals": [
+        "InstancesResource"
+      ]
+    },
+    {
+      "key": "t18",
+      "x": 108,
+      "y": 656,
+      "anchor": "start",
+      "literals": [
+        "PeerReplicationResource"
+      ]
+    },
+    {
+      "key": "t19",
+      "x": 108,
+      "y": 692,
+      "anchor": "start",
+      "literals": [
+        "SecureVIPResource"
+      ]
+    },
+    {
+      "key": "t20",
+      "x": 108,
+      "y": 728,
+      "anchor": "start",
+      "literals": [
+        "ServerCodecs"
+      ]
+    },
+    {
+      "key": "t21",
+      "x": 108,
+      "y": 764,
+      "anchor": "start",
+      "literals": [
+        "ServerInfoResource"
+      ]
+    },
+    {
+      "key": "t22",
+      "x": 108,
+      "y": 800,
+      "anchor": "start",
+      "literals": [
+        "StatusResource"
+      ]
+    },
+    {
+      "key": "t23",
+      "x": 108,
+      "y": 836,
+      "anchor": "start",
+      "literals": [
+        "VIPResource"
+      ]
+    },
+    {
+      "key": "t24",
+      "x": 86,
+      "y": 872,
+      "anchor": "start",
+      "literals": [
+        "transport"
+      ]
+    },
+    {
+      "key": "t25",
+      "x": 86,
+      "y": 908,
+      "anchor": "start",
+      "literals": [
+        "util"
+      ]
+    },
+    {
+      "key": "t26",
+      "x": 86,
+      "y": 944,
+      "anchor": "start",
+      "literals": [
+        "DefaultEurekaServerConfig"
+      ]
+    },
+    {
+      "key": "t27",
+      "x": 86,
+      "y": 980,
+      "anchor": "start",
+      "literals": [
+        "DefaultEurekaServerContext"
+      ]
+    },
+    {
+      "key": "t28",
+      "x": 86,
+      "y": 1016,
+      "anchor": "start",
+      "literals": [
+        "EurekaBootStrap"
+      ]
+    },
+    {
+      "key": "t29",
+      "x": 86,
+      "y": 1052,
+      "anchor": "start",
+      "literals": [
+        "EurekaServerConfig"
+      ]
+    },
+    {
+      "key": "t30",
+      "x": 86,
+      "y": 1088,
+      "anchor": "start",
+      "literals": [
+        "EurekaServerContext"
+      ]
+    },
+    {
+      "key": "t31",
+      "x": 86,
+      "y": 1124,
+      "anchor": "start",
+      "literals": [
+        "EurekaServerContextHolder"
+      ]
+    },
+    {
+      "key": "c01",
+      "x": 506,
+      "y": 44,
+      "anchor": "start",
+      "literals": [
+        "/**"
+      ]
+    },
+    {
+      "key": "c02",
+      "x": 506,
+      "y": 80,
+      "anchor": "start",
+      "literals": [
+        " * A put request for renewing lease from a client instance."
+      ]
+    },
+    {
+      "key": "c03",
+      "x": 506,
+      "y": 116,
+      "anchor": "start",
+      "literals": [
+        " *"
+      ]
+    },
+    {
+      "key": "c04",
+      "x": 506,
+      "y": 152,
+      "anchor": "start",
+      "literals": [
+        " * @param isReplication"
+      ]
+    },
+    {
+      "key": "c05",
+      "x": 506,
+      "y": 188,
+      "anchor": "start",
+      "literals": [
+        " *            a header parameter containing information whether this is"
+      ]
+    },
+    {
+      "key": "c06",
+      "x": 506,
+      "y": 224,
+      "anchor": "start",
+      "literals": [
+        " *            replicated from other nodes."
+      ]
+    },
+    {
+      "key": "c07",
+      "x": 506,
+      "y": 260,
+      "anchor": "start",
+      "literals": [
+        " * @param overriddenStatus"
+      ]
+    },
+    {
+      "key": "c08",
+      "x": 506,
+      "y": 296,
+      "anchor": "start",
+      "literals": [
+        " *            overridden status if any."
+      ]
+    },
+    {
+      "key": "c09",
+      "x": 506,
+      "y": 332,
+      "anchor": "start",
+      "literals": [
+        " * @param status"
+      ]
+    },
+    {
+      "key": "c10",
+      "x": 506,
+      "y": 368,
+      "anchor": "start",
+      "literals": [
+        " *            the {@link InstanceStatus} of the instance."
+      ]
+    },
+    {
+      "key": "c11",
+      "x": 506,
+      "y": 404,
+      "anchor": "start",
+      "literals": [
+        " * @param lastDirtyTimestamp"
+      ]
+    },
+    {
+      "key": "c12",
+      "x": 506,
+      "y": 440,
+      "anchor": "start",
+      "literals": [
+        " *            last timestamp when this instance information was updated."
+      ]
+    },
+    {
+      "key": "c13",
+      "x": 506,
+      "y": 476,
+      "anchor": "start",
+      "literals": [
+        " * @return response indicating whether the operation was a success or"
+      ]
+    },
+    {
+      "key": "c14",
+      "x": 506,
+      "y": 512,
+      "anchor": "start",
+      "literals": [
+        " *         failure."
+      ]
+    },
+    {
+      "key": "c15",
+      "x": 506,
+      "y": 548,
+      "anchor": "start",
+      "literals": [
+        " */"
+      ]
+    },
+    {
+      "key": "c16",
+      "x": 506,
+      "y": 584,
+      "anchor": "start",
+      "literals": [
+        "@PUT"
+      ]
+    },
+    {
+      "key": "c17",
+      "x": 506,
+      "y": 620,
+      "anchor": "start",
+      "literals": [
+        "public Response renewLease("
+      ]
+    },
+    {
+      "key": "c18",
+      "x": 506,
+      "y": 656,
+      "anchor": "start",
+      "literals": [
+        "        @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication,"
+      ]
+    },
+    {
+      "key": "c19",
+      "x": 506,
+      "y": 692,
+      "anchor": "start",
+      "literals": [
+        "        @QueryParam(\"overriddenstatus\") String overriddenStatus,"
+      ]
+    },
+    {
+      "key": "c20",
+      "x": 506,
+      "y": 728,
+      "anchor": "start",
+      "literals": [
+        "        @QueryParam(\"status\") String status,"
+      ]
+    },
+    {
+      "key": "c21",
+      "x": 506,
+      "y": 764,
+      "anchor": "start",
+      "literals": [
+        "        @QueryParam(\"lastDirtyTimestamp\") String lastDirtyTimestamp) {"
+      ]
+    },
+    {
+      "key": "c22",
+      "x": 506,
+      "y": 800,
+      "anchor": "start",
+      "literals": [
+        "    boolean isFromReplicaNode = \"true\".equals(isReplication);"
+      ]
+    },
+    {
+      "key": "c23",
+      "x": 506,
+      "y": 836,
+      "anchor": "start",
+      "literals": [
+        "    boolean isSuccess = registry.renew(app.getName(), id, isFromReplicaNode);"
+      ]
+    },
+    {
+      "key": "c25",
+      "x": 506,
+      "y": 908,
+      "anchor": "start",
+      "literals": [
+        "    // Not found in the registry, immediately ask for a register"
+      ]
+    },
+    {
+      "key": "c26",
+      "x": 506,
+      "y": 944,
+      "anchor": "start",
+      "literals": [
+        "    if (!isSuccess) {"
+      ]
+    },
+    {
+      "key": "c27",
+      "x": 506,
+      "y": 980,
+      "anchor": "start",
+      "literals": [
+        "        logger.warn(\"Not Found (Renew): {} - {}\", app.getName(), id);"
+      ]
+    },
+    {
+      "key": "c28",
+      "x": 506,
+      "y": 1016,
+      "anchor": "start",
+      "literals": [
+        "        return Response.status(Status.NOT_FOUND).build();"
+      ]
+    },
+    {
+      "key": "c29",
+      "x": 506,
+      "y": 1052,
+      "anchor": "start",
+      "literals": [
+        "    }"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

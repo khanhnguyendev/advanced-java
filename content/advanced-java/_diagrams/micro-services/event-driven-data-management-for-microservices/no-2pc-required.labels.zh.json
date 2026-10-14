@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "28320ee8cf6e73bf0239197aa91d817c80e587ea1e28aa57fd234c9581cadb45",
+    "source_lang": "en"
+  },
+  "labels": {
+    "order": "订单服务",
+    "datastore": "数据存储",
+    "ordertable": "ORDER 表",
+    "txlog": "交易日志",
+    "miner": "交易日志\n挖掘进程",
+    "blank": "",
+    "update": "更新",
+    "changes": "变更",
+    "publish": "发布",
+    "broker": "消息代理",
+    "_title": "通过挖掘交易日志发布事件",
+    "_desc": "订单服务更新包含 ORDER 表和交易日志的数据存储。交易日志挖掘进程从交易日志中读取变更并发布给消息代理，因此不需要两阶段提交。"
+  }
+}

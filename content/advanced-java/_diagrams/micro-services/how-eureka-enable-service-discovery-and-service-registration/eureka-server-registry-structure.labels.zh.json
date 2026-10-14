@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "panel": "",
+    "hl": "",
+    "c1": "public abstract class AbstractInstanceRegistry implements InstanceRegistry {",
+    "c2": "    private static final Logger logger = LoggerFactory.getLogger(AbstractInstanceRegistry.class);",
+    "c3": "    private static final String[] EMPTY_STR_ARRAY = new String[0];",
+    "c4": "    private final ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> registry",
+    "c5": "            = new ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>>();",
+    "c6": "    protected Map<String, RemoteRegionRegistry> regionNameVSRemoteRegistry = new HashMap<~>();",
+    "_title": "Eureka Server 注册表的数据结构代码",
+    "_desc": "IDE 代码截图：AbstractInstanceRegistry 类中的 registry 字段是一个嵌套的 ConcurrentHashMap，并以框线突出显示。注：HashMap<~>() 是 IntelliJ 折叠显示的菱形运算符 <>。"
+  }
+}

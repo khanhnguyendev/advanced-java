@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "23e359cdbf1f0d1c8f7e17e6905f8eec295d8ef6f1e4d00759ebe390f66964d1",
+    "source_lang": "en"
+  },
+  "labels": {
+    "rest": "REST\nAPI",
+    "adapter": "数据库\n适配器",
+    "m_p": "乘客\n管理",
+    "db_p": "乘客管理\n数据库",
+    "m_d": "驾驶员\n管理",
+    "db_d": "驾驶员管理\n数据库",
+    "m_t": "行程\n管理",
+    "db_t": "行程管理\n数据库",
+    "_title": "三个微服务各自拥有 REST API、数据库适配器和独立的数据库",
+    "_desc": "并排的三个六角形微服务：乘客管理、驾驶员管理和行程管理；每个服务提供 REST API，并通过数据库适配器连接各自独立的数据库。"
+  }
+}

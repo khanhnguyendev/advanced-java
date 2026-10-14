@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "75e038df700d23c0e1f1d0d55acee7094b4b5b54948e30bf5ee30b86a51ea913",
+    "source_lang": "en"
+  },
+  "labels": {
+    "mysqlx": "MYSQL",
+    "passenger": "乘客",
+    "driver": "驾驶员",
+    "blank": "",
+    "mysqla": "MYSQL\n适配器",
+    "rest": "REST\nAPI",
+    "web": "WEB\nUI",
+    "twilio": "TWILIO\n适配器",
+    "sendgrid": "SENDGRID\n适配器",
+    "stripe": "STRIPE\n适配器",
+    "pm": "乘客\n管理",
+    "bill": "计费",
+    "noti": "通知",
+    "pay": "支付",
+    "trip": "行程\n管理",
+    "dm": "驾驶员\n管理",
+    "title": "单体式\n架构",
+    "_title": "单体式应用架构（六角形）",
+    "_desc": "六角形中间是业务模块（乘客管理、计费、通知、支付、行程管理、驾驶员管理），周围是适配器：连接 MySQL 数据库的 MySQL 适配器、面向乘客和驾驶员应用的 REST API、Web UI，以及 Twilio、SendGrid 和 Stripe 适配器。"
+  }
+}

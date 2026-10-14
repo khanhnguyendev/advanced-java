@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "5cfa67512ad26cd5976cbed7d77ebaa5796b34afa9120ccbb328f9d47c1245f2",
+    "source_lang": "en"
+  },
+  "labels": {
+    "orderSvc": "订单服务",
+    "custSvc": "客户服务",
+    "orderTbl": "ORDER 表",
+    "custTbl": "CUSTOMER 表",
+    "oID": "ID",
+    "oCID": "CUSTOMER_ID",
+    "oSt": "STATUS",
+    "oTot": "TOTAL",
+    "cID": "ID",
+    "cLim": "CREDIT_LIMIT",
+    "cDots": "...",
+    "blank": "",
+    "_title": "每个服务拥有自己的私有表",
+    "_desc": "左右两个虚线区域。左侧订单服务框向下指向 ORDER 表（列为 ID、CUSTOMER_ID、STATUS、TOTAL）；右侧客户服务框向下指向 CUSTOMER 表（列为 ID、CREDIT_LIMIT 和省略号）。从订单服务指向 CUSTOMER 表的箭头被叉号划掉，表示不能跨服务直接访问。"
+  }
+}

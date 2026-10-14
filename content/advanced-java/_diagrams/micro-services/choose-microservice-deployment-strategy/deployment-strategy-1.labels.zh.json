@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "956fc726e09953cca572dc535788b2c8d3a73bae7339cf4ebaa15737b03a52e8",
+    "source_lang": "en"
+  },
+  "labels": {
+    "host": "主机（物理机或虚拟机）",
+    "svcA1": "服务-A\n实例-1",
+    "svcB1": "服务-B\n实例-1",
+    "svcC1": "服务-C\n实例-1",
+    "svcA2": "服务-A\n实例-2",
+    "svcB2": "服务-B\n实例-2",
+    "svcC2": "服务-C\n实例-2",
+    "_title": "两台主机各运行服务 A、B、C 的一个实例",
+    "_desc": "上下两个主机框（物理机或虚拟机）。每个主机内并排放着三个六边形的服务实例：SERVICE-A、SERVICE-B 和 SERVICE-C。上方主机运行各服务的实例 1，下方主机运行实例 2。"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "732b99b665605f38a242550419af357a493e55f90b3c6ce2dd73ff1561ec4595",
+    "source_lang": "en"
+  },
+  "labels": {
+    "ts": "2018-04-19 14:03:46",
+    "readout": "pass qps : 480.0",
+    "blank": "",
+    "c2": "2. 预热期结束后，系统开始按规则定义的\n相同数量处理请求",
+    "c1": "1. 系统已经空闲了一段时间，\n大量请求已经到达",
+    "pass": "pass qps",
+    "block": "block qps",
+    "_title": "慢启动预热模式：通过 QPS 随时间的变化",
+    "_desc": "一张 QPS 曲线图：系统空闲时 pass qps 保持平稳，大量请求到达后骤升，预热期内逐级上升，最终稳定在 480.0。图例中还有 block qps。"
+  }
+}

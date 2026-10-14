@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Cross-functional teams organised around capabilities",
+    "_desc": "Two side-by-side views. On the left, three cross-functional teams, each shown as a group, with two teams pointing to the third. On the right, the same three groups as services organised around capabilities, with the same arrows.",
+    "blank": "",
+    "t1": "Cross-functional teams...",
+    "t2": "... organised around capabilities\nBecause Conway's Law"
+  }
+}

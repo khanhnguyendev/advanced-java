@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "d3c81b68b390a50f2dcb261a6413c54012057238fa783659c6b6508053585dbe",
+    "source_lang": "en"
+  },
+  "labels": {
+    "ec2": "INSTANCE EC2",
+    "docker": "CONTAINER DOCKER",
+    "trip": "QUẢN LÝ\nCHUYẾN ĐI",
+    "rest": "REST\nAPI",
+    "lb": "BỘ\nCÂN BẰNG TẢI",
+    "blank": "",
+    "_title": "Dịch vụ quản lý chuyến đi triển khai trong container Docker trên các instance EC2, sau bộ cân bằng tải",
+    "_desc": "Bộ cân bằng tải bên trái phân phối yêu cầu tới ba instance của dịch vụ quản lý chuyến đi. Mỗi instance chạy trong một container Docker riêng và mở một REST API. Các container nằm trong hai instance EC2; container cuối của instance EC2 thứ hai để trống."
+  }
+}

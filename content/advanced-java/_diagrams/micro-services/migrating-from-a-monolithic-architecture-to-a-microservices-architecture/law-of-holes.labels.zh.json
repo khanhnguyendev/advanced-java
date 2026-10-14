@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "d506c626274a1b83146aa15400d2130c2e36cb80cbca7903b73259ddd60d5ff5",
+    "source_lang": "en"
+  },
+  "labels": {
+    "router": "请求\n路由器",
+    "monolith": "单体应用",
+    "webapi": "WEB\nAPI",
+    "glue": "胶水\n代码",
+    "service": "服务",
+    "old": "旧 HTTP\n请求",
+    "new": "新 HTTP\n请求",
+    "httpreq": "HTTP 请求",
+    "_title": "Law of Holes：把新功能做成单体应用旁的服务",
+    "_desc": "HTTP 请求先到达请求路由器，路由器把旧 HTTP 请求发给单体应用的 Web API，把新 HTTP 请求发给新服务的 Web API；单体应用与服务通过胶水代码双向连接。"
+  }
+}

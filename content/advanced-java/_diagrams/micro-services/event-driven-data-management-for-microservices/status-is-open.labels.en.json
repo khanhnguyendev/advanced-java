@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Order status becomes OPEN after the credit is reserved",
+    "_desc": "The Order service receives a Credit Reserved event from the message broker and sets the order's STATUS to OPEN in its ORDER table, while the Customer service keeps its own CUSTOMER and RESERVED_CREDIT tables.",
+    "order_svc": "ORDER\nSERVICE",
+    "cust_svc": "CUSTOMER\nSERVICE",
+    "broker": "MESSAGE\nBROKER",
+    "credit": "Credit\nReserved",
+    "tbl_order": "ORDER table",
+    "tbl_cust": "CUSTOMER table",
+    "tbl_res": "RESERVED_CREDIT table",
+    "blank": "",
+    "dots": "...",
+    "ID": "ID",
+    "CUSTOMER_ID": "CUSTOMER_ID",
+    "STATUS": "STATUS",
+    "TOTAL": "TOTAL",
+    "909": "909",
+    "101": "101",
+    "OPEN": "OPEN",
+    "1234": "1234",
+    "CREDIT_LIMIT": "CREDIT_LIMIT",
+    "202": "202",
+    "5000": "5000",
+    "CUST_ID": "CUST_ID",
+    "ORDER_ID": "ORDER_ID",
+    "AMOUNT": "AMOUNT"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-registry-structure.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1000,
+    "h": 260
+  },
+  "nodes": [
+    {
+      "id": "panel",
+      "shape": "group",
+      "x": 8,
+      "y": 8,
+      "w": 984,
+      "h": 244,
+      "label": {
+        "key": "panel"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "hl",
+      "shape": "group",
+      "x": 16,
+      "y": 144,
+      "w": 968,
+      "h": 62,
+      "label": {
+        "key": "hl"
+      },
+      "border": "solid"
+    }
+  ],
+  "edges": [],
+  "texts": [
+    {
+      "key": "c1",
+      "x": 24,
+      "y": 40,
+      "anchor": "start",
+      "literals": [
+        "public abstract class AbstractInstanceRegistry implements InstanceRegistry {"
+      ]
+    },
+    {
+      "key": "c2",
+      "x": 24,
+      "y": 70,
+      "anchor": "start",
+      "literals": [
+        "    private static final Logger logger = LoggerFactory.getLogger(AbstractInstanceRegistry.class);"
+      ]
+    },
+    {
+      "key": "c3",
+      "x": 24,
+      "y": 130,
+      "anchor": "start",
+      "literals": [
+        "    private static final String[] EMPTY_STR_ARRAY = new String[0];"
+      ]
+    },
+    {
+      "key": "c4",
+      "x": 24,
+      "y": 160,
+      "anchor": "start",
+      "literals": [
+        "    private final ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> registry"
+      ]
+    },
+    {
+      "key": "c5",
+      "x": 24,
+      "y": 190,
+      "anchor": "start",
+      "literals": [
+        "            = new ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>>();"
+      ]
+    },
+    {
+      "key": "c6",
+      "x": 24,
+      "y": 220,
+      "anchor": "start",
+      "literals": [
+        "    protected Map<String, RemoteRegionRegistry> regionNameVSRemoteRegistry = new HashMap<~>();"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

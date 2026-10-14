@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "ec2": "EC2 INSTANCE",
+    "docker": "DOCKER CONTAINER",
+    "trip": "TRIP\nMANAGEMENT",
+    "rest": "REST\nAPI",
+    "lb": "LOAD\nBALANCER",
+    "blank": "",
+    "_title": "Trip Management service deployed in Docker containers on EC2 instances behind a load balancer",
+    "_desc": "A load balancer on the left distributes requests to three Trip Management service instances. Each instance runs in its own Docker container and exposes a REST API. The containers are grouped in two EC2 instances; the last container in the second EC2 instance is empty."
+  }
+}

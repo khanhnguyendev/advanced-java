@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "os_l": "ORDER\nSERVICE",
+    "os_r": "ORDER\nSERVICE",
+    "cs": "CUSTOMER\nSERVICE",
+    "tbl_t": "ORDER table",
+    "h_id": "ID",
+    "h_status": "STATUS",
+    "h_total": "TOTAL",
+    "h_dots": "...",
+    "r_id": "4567",
+    "r_status": "ACCEPTED",
+    "r_total": "8404.30",
+    "r_dots": "...",
+    "add_find": "Add Events\nFind Events",
+    "subscribe": "Subscribe to Events",
+    "es_t": "Event Store",
+    "o_t": "Order 2345",
+    "ev1": "Order Created",
+    "ev2": "Order Approved",
+    "ev3": "...",
+    "ev4": "Order Shipped",
+    "_title": "Event sourcing",
+    "_desc": "An order service that updates an ORDER table row (ID, STATUS, TOTAL) is replaced by an order service that adds and finds events in an event store, where order 2345 is kept as the events Order Created, Order Approved and Order Shipped, while a customer service subscribes to events."
+  }
+}

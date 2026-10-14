@@ -1,0 +1,12 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "_title": "Funnel: many requests squeezed through a narrow neck",
+    "_desc": "Many requests enter from the left and are squeezed through a narrow neck in the middle; only a few pass through to the right. Five requests on the left, three in the neck, one on the right."
+  }
+}

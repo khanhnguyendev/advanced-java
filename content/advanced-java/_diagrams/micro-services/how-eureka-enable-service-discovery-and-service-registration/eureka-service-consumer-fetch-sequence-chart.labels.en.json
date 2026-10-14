@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "a17162127a02108e0122b174f91703f9919b3430ec68acdf33c78b4b52531e88"
+  },
+  "labels": {
+    "p1": "DiscoveryClient",
+    "q1": "DiscoveryClient",
+    "p2": "EurekaHttpClientDecorator",
+    "q2": "EurekaHttpClientDecorator",
+    "p3": "AbstractJerseyEurekaHttpClient",
+    "q3": "AbstractJerseyEurekaHttpClient",
+    "blank": "",
+    "m1": "fetchRegistry",
+    "m2": "getAndStoreFullRegistry",
+    "m3": "getApplications",
+    "m4": "getApplications",
+    "m5": "getApplicationsInternal",
+    "title": "Eureka service consumer fetching the service list (Fetch) sequence diagram",
+    "_title": "Eureka service consumer fetching the service list (Fetch) sequence diagram",
+    "_desc": "Sequence diagram: DiscoveryClient calls fetchRegistry and getAndStoreFullRegistry, then getApplications through EurekaHttpClientDecorator, which calls getApplications and getApplicationsInternal on AbstractJerseyEurekaHttpClient."
+  }
+}

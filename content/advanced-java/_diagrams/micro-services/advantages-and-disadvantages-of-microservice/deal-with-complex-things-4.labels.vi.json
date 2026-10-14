@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "23e359cdbf1f0d1c8f7e17e6905f8eec295d8ef6f1e4d00759ebe390f66964d1",
+    "source_lang": "en"
+  },
+  "labels": {
+    "rest": "REST\nAPI",
+    "adapter": "BỘ ĐIỀU HỢP\nCƠ SỞ DỮ LIỆU",
+    "m_p": "QUẢN LÝ\nHÀNH KHÁCH",
+    "db_p": "CƠ SỞ DỮ LIỆU\nQUẢN LÝ\nHÀNH KHÁCH",
+    "m_d": "QUẢN LÝ\nTÀI XẾ",
+    "db_d": "CƠ SỞ DỮ LIỆU\nQUẢN LÝ\nTÀI XẾ",
+    "m_t": "QUẢN LÝ\nCHUYẾN ĐI",
+    "db_t": "CƠ SỞ DỮ LIỆU\nQUẢN LÝ\nCHUYẾN ĐI",
+    "_title": "Ba microservice, mỗi microservice có REST API, bộ điều hợp cơ sở dữ liệu và cơ sở dữ liệu riêng",
+    "_desc": "Ba microservice dạng lục giác đặt cạnh nhau: quản lý hành khách, quản lý tài xế và quản lý chuyến đi; mỗi dịch vụ cung cấp REST API và kết nối qua bộ điều hợp cơ sở dữ liệu tới cơ sở dữ liệu riêng."
+  }
+}

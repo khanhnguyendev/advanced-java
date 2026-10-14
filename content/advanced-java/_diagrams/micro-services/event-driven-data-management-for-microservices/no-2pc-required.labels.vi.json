@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "28320ee8cf6e73bf0239197aa91d817c80e587ea1e28aa57fd234c9581cadb45",
+    "source_lang": "en"
+  },
+  "labels": {
+    "order": "DỊCH VỤ\nĐƠN HÀNG",
+    "datastore": "Kho dữ liệu",
+    "ordertable": "Bảng ORDER",
+    "txlog": "Nhật ký giao dịch",
+    "miner": "TRÌNH KHAI THÁC\nNHẬT KÝ GIAO DỊCH",
+    "blank": "",
+    "update": "Cập nhật",
+    "changes": "Thay đổi",
+    "publish": "Phát hành",
+    "broker": "MESSAGE\nBROKER",
+    "_title": "Phát hành sự kiện bằng cách khai thác nhật ký giao dịch",
+    "_desc": "Dịch vụ đơn hàng cập nhật một kho dữ liệu chứa bảng ORDER và nhật ký giao dịch. Trình khai thác nhật ký giao dịch đọc các thay đổi từ nhật ký giao dịch và phát hành chúng tới message broker, nên không cần cam kết hai pha."
+  }
+}

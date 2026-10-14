@@ -1,0 +1,541 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-applicationresource-addinstance.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1420,
+    "h": 800
+  },
+  "nodes": [
+    {
+      "id": "tree",
+      "shape": "group",
+      "x": 10,
+      "y": 10,
+      "w": 440,
+      "h": 780,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "code",
+      "shape": "group",
+      "x": 470,
+      "y": 10,
+      "w": 930,
+      "h": 724,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "hl_core",
+      "shape": "group",
+      "x": 20,
+      "y": 47,
+      "w": 420,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "hl_app",
+      "shape": "group",
+      "x": 112,
+      "y": 299,
+      "w": 190,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "hl_add",
+      "shape": "group",
+      "x": 484,
+      "y": 355,
+      "w": 420,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "hl_reg",
+      "shape": "group",
+      "x": 484,
+      "y": 635,
+      "w": 520,
+      "h": 34,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [],
+  "texts": [
+    {
+      "key": "t00",
+      "x": 30,
+      "y": 36,
+      "anchor": "start",
+      "literals": [
+        "Maven: com.netflix.eureka:eureka-client:1.9.17"
+      ]
+    },
+    {
+      "key": "t01",
+      "x": 30,
+      "y": 64,
+      "anchor": "start",
+      "literals": [
+        "Maven: com.netflix.eureka:eureka-core:1.9.17"
+      ]
+    },
+    {
+      "key": "t02",
+      "x": 60,
+      "y": 92,
+      "anchor": "start",
+      "literals": [
+        "eureka-core-1.9.17.jar library root"
+      ]
+    },
+    {
+      "key": "t03",
+      "x": 80,
+      "y": 120,
+      "anchor": "start",
+      "literals": [
+        "com.netflix.eureka"
+      ]
+    },
+    {
+      "key": "t04",
+      "x": 100,
+      "y": 148,
+      "anchor": "start",
+      "literals": [
+        "aws"
+      ]
+    },
+    {
+      "key": "t05",
+      "x": 100,
+      "y": 176,
+      "anchor": "start",
+      "literals": [
+        "cluster"
+      ]
+    },
+    {
+      "key": "t06",
+      "x": 100,
+      "y": 204,
+      "anchor": "start",
+      "literals": [
+        "lease"
+      ]
+    },
+    {
+      "key": "t07",
+      "x": 100,
+      "y": 232,
+      "anchor": "start",
+      "literals": [
+        "registry"
+      ]
+    },
+    {
+      "key": "t08",
+      "x": 100,
+      "y": 260,
+      "anchor": "start",
+      "literals": [
+        "resources"
+      ]
+    },
+    {
+      "key": "t09",
+      "x": 120,
+      "y": 288,
+      "anchor": "start",
+      "literals": [
+        "AbstractVIPResource"
+      ]
+    },
+    {
+      "key": "t10",
+      "x": 120,
+      "y": 316,
+      "anchor": "start",
+      "literals": [
+        "ApplicationResource"
+      ]
+    },
+    {
+      "key": "t11",
+      "x": 120,
+      "y": 344,
+      "anchor": "start",
+      "literals": [
+        "ApplicationsResource"
+      ]
+    },
+    {
+      "key": "t12",
+      "x": 120,
+      "y": 372,
+      "anchor": "start",
+      "literals": [
+        "ASGResource"
+      ]
+    },
+    {
+      "key": "t13",
+      "x": 120,
+      "y": 400,
+      "anchor": "start",
+      "literals": [
+        "CurrentRequestVersion"
+      ]
+    },
+    {
+      "key": "t14",
+      "x": 120,
+      "y": 428,
+      "anchor": "start",
+      "literals": [
+        "DefaultServerCodecs"
+      ]
+    },
+    {
+      "key": "t15",
+      "x": 120,
+      "y": 456,
+      "anchor": "start",
+      "literals": [
+        "InstanceResource"
+      ]
+    },
+    {
+      "key": "t16",
+      "x": 120,
+      "y": 484,
+      "anchor": "start",
+      "literals": [
+        "InstancesResource"
+      ]
+    },
+    {
+      "key": "t17",
+      "x": 120,
+      "y": 512,
+      "anchor": "start",
+      "literals": [
+        "PeerReplicationResource"
+      ]
+    },
+    {
+      "key": "t18",
+      "x": 120,
+      "y": 540,
+      "anchor": "start",
+      "literals": [
+        "SecureVIPResource"
+      ]
+    },
+    {
+      "key": "t19",
+      "x": 120,
+      "y": 568,
+      "anchor": "start",
+      "literals": [
+        "ServerCodecs"
+      ]
+    },
+    {
+      "key": "t20",
+      "x": 120,
+      "y": 596,
+      "anchor": "start",
+      "literals": [
+        "ServerInfoResource"
+      ]
+    },
+    {
+      "key": "t21",
+      "x": 120,
+      "y": 624,
+      "anchor": "start",
+      "literals": [
+        "StatusResource"
+      ]
+    },
+    {
+      "key": "t22",
+      "x": 120,
+      "y": 652,
+      "anchor": "start",
+      "literals": [
+        "VIPResource"
+      ]
+    },
+    {
+      "key": "t23",
+      "x": 100,
+      "y": 680,
+      "anchor": "start",
+      "literals": [
+        "transport"
+      ]
+    },
+    {
+      "key": "t24",
+      "x": 100,
+      "y": 708,
+      "anchor": "start",
+      "literals": [
+        "util"
+      ]
+    },
+    {
+      "key": "t25",
+      "x": 80,
+      "y": 736,
+      "anchor": "start",
+      "literals": [
+        "DefaultEurekaServerConfig"
+      ]
+    },
+    {
+      "key": "t26",
+      "x": 80,
+      "y": 764,
+      "anchor": "start",
+      "literals": [
+        "DefaultEurekaServerContext"
+      ]
+    },
+    {
+      "key": "c00",
+      "x": 490,
+      "y": 36,
+      "anchor": "start",
+      "literals": [
+        "/**"
+      ]
+    },
+    {
+      "key": "c01",
+      "x": 490,
+      "y": 64,
+      "anchor": "start",
+      "literals": [
+        " * Registers information about a particular instance for an"
+      ]
+    },
+    {
+      "key": "c02",
+      "x": 490,
+      "y": 92,
+      "anchor": "start",
+      "literals": [
+        " * {@link com.netflix.discovery.shared.Application}."
+      ]
+    },
+    {
+      "key": "c03",
+      "x": 490,
+      "y": 120,
+      "anchor": "start",
+      "literals": [
+        " *"
+      ]
+    },
+    {
+      "key": "c04",
+      "x": 490,
+      "y": 148,
+      "anchor": "start",
+      "literals": [
+        " * @param info"
+      ]
+    },
+    {
+      "key": "c05",
+      "x": 490,
+      "y": 176,
+      "anchor": "start",
+      "literals": [
+        " *            {@link InstanceInfo} information of the instance."
+      ]
+    },
+    {
+      "key": "c06",
+      "x": 490,
+      "y": 204,
+      "anchor": "start",
+      "literals": [
+        " * @param isReplication"
+      ]
+    },
+    {
+      "key": "c07",
+      "x": 490,
+      "y": 232,
+      "anchor": "start",
+      "literals": [
+        " *            a header parameter containing information whether this is"
+      ]
+    },
+    {
+      "key": "c08",
+      "x": 490,
+      "y": 260,
+      "anchor": "start",
+      "literals": [
+        " *            replicated from other nodes."
+      ]
+    },
+    {
+      "key": "c09",
+      "x": 490,
+      "y": 288,
+      "anchor": "start",
+      "literals": [
+        " */"
+      ]
+    },
+    {
+      "key": "c10",
+      "x": 490,
+      "y": 316,
+      "anchor": "start",
+      "literals": [
+        "@POST"
+      ]
+    },
+    {
+      "key": "c11",
+      "x": 490,
+      "y": 344,
+      "anchor": "start",
+      "literals": [
+        "@Consumes({\"application/json\", \"application/xml\"})"
+      ]
+    },
+    {
+      "key": "c12",
+      "x": 490,
+      "y": 428,
+      "anchor": "start",
+      "literals": [
+        "    logger.debug(\"Registering instance {} (replication={})\", info.getId(), isReplication);"
+      ]
+    },
+    {
+      "key": "c13",
+      "x": 490,
+      "y": 456,
+      "anchor": "start",
+      "literals": [
+        "    // validate that the instanceinfo contains all the necessary required fields"
+      ]
+    },
+    {
+      "key": "c14",
+      "x": 490,
+      "y": 484,
+      "anchor": "start",
+      "literals": [
+        "    if (isBlank(info.getId())) {...} else if (isBlank(info.getHostName())) {...}"
+      ]
+    },
+    {
+      "key": "c15",
+      "x": 490,
+      "y": 540,
+      "anchor": "start",
+      "literals": [
+        "    // handle cases where clients may be registering with bad DataCenterInfo with missing data"
+      ]
+    },
+    {
+      "key": "c16",
+      "x": 490,
+      "y": 568,
+      "anchor": "start",
+      "literals": [
+        "    DataCenterInfo dataCenterInfo = info.getDataCenterInfo();"
+      ]
+    },
+    {
+      "key": "c17",
+      "x": 490,
+      "y": 596,
+      "anchor": "start",
+      "literals": [
+        "    if (dataCenterInfo instanceof UniqueIdentifier) {...}"
+      ]
+    },
+    {
+      "key": "c18",
+      "x": 490,
+      "y": 652,
+      "anchor": "start",
+      "literals": [
+        "    registry.register(info, \"true\".equals(isReplication));"
+      ]
+    },
+    {
+      "key": "c19",
+      "x": 490,
+      "y": 680,
+      "anchor": "start",
+      "literals": [
+        "    return Response.status(204).build();  // 204 to be backwards compatible"
+      ]
+    },
+    {
+      "key": "c20",
+      "x": 490,
+      "y": 708,
+      "anchor": "start",
+      "literals": [
+        "}"
+      ]
+    },
+    {
+      "key": "c21",
+      "x": 490,
+      "y": 372,
+      "anchor": "start",
+      "literals": [
+        "public Response addInstance(InstanceInfo info,"
+      ]
+    },
+    {
+      "key": "c24",
+      "x": 490,
+      "y": 400,
+      "anchor": "start",
+      "literals": [
+        "                            @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

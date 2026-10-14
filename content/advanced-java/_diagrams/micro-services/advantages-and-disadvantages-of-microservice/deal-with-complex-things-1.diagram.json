@@ -1,0 +1,512 @@
+{
+  "id": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1",
+  "source": {
+    "upstream": "micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-1.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 890,
+    "h": 850
+  },
+  "nodes": [
+    {
+      "id": "phone",
+      "shape": "circle",
+      "x": 192,
+      "y": 10,
+      "w": 100,
+      "h": 100,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "user",
+      "shape": "circle",
+      "x": 17,
+      "y": 210,
+      "w": 96,
+      "h": 96,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "monitor",
+      "shape": "circle",
+      "x": 15,
+      "y": 415,
+      "w": 96,
+      "h": 96,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "gw",
+      "shape": "circle",
+      "x": 182,
+      "y": 198,
+      "w": 120,
+      "h": 120,
+      "label": {
+        "key": "gw"
+      }
+    },
+    {
+      "id": "pm",
+      "shape": "round",
+      "x": 397,
+      "y": 180,
+      "w": 130,
+      "h": 140,
+      "label": {
+        "key": "pm"
+      }
+    },
+    {
+      "id": "bill",
+      "shape": "round",
+      "x": 624,
+      "y": 185,
+      "w": 130,
+      "h": 140,
+      "label": {
+        "key": "bill"
+      }
+    },
+    {
+      "id": "pwui",
+      "shape": "round",
+      "x": 172,
+      "y": 400,
+      "w": 130,
+      "h": 140,
+      "label": {
+        "key": "pwui"
+      }
+    },
+    {
+      "id": "dm",
+      "shape": "round",
+      "x": 397,
+      "y": 420,
+      "w": 130,
+      "h": 140,
+      "label": {
+        "key": "dm"
+      }
+    },
+    {
+      "id": "pay",
+      "shape": "round",
+      "x": 622,
+      "y": 405,
+      "w": 130,
+      "h": 140,
+      "label": {
+        "key": "pay"
+      }
+    },
+    {
+      "id": "dwui",
+      "shape": "round",
+      "x": 180,
+      "y": 630,
+      "w": 130,
+      "h": 140,
+      "label": {
+        "key": "dwui"
+      }
+    },
+    {
+      "id": "trip",
+      "shape": "round",
+      "x": 397,
+      "y": 630,
+      "w": 130,
+      "h": 140,
+      "label": {
+        "key": "trip"
+      }
+    },
+    {
+      "id": "notif",
+      "shape": "round",
+      "x": 622,
+      "y": 635,
+      "w": 130,
+      "h": 140,
+      "label": {
+        "key": "notif"
+      }
+    },
+    {
+      "id": "r1",
+      "shape": "box",
+      "x": 340,
+      "y": 227,
+      "w": 54,
+      "h": 46,
+      "label": {
+        "key": "rest1"
+      }
+    },
+    {
+      "id": "r2",
+      "shape": "box",
+      "x": 560,
+      "y": 219,
+      "w": 54,
+      "h": 46,
+      "label": {
+        "key": "rest2"
+      }
+    },
+    {
+      "id": "r3",
+      "shape": "box",
+      "x": 342,
+      "y": 442,
+      "w": 54,
+      "h": 46,
+      "label": {
+        "key": "rest3"
+      }
+    },
+    {
+      "id": "r4",
+      "shape": "box",
+      "x": 566,
+      "y": 440,
+      "w": 54,
+      "h": 46,
+      "label": {
+        "key": "rest4"
+      }
+    },
+    {
+      "id": "r5",
+      "shape": "box",
+      "x": 340,
+      "y": 669,
+      "w": 54,
+      "h": 46,
+      "label": {
+        "key": "rest5"
+      }
+    },
+    {
+      "id": "r6",
+      "shape": "box",
+      "x": 560,
+      "y": 669,
+      "w": 54,
+      "h": 46,
+      "label": {
+        "key": "rest6"
+      }
+    },
+    {
+      "id": "p1",
+      "shape": "box",
+      "x": 223,
+      "y": 368,
+      "w": 28,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "p2",
+      "shape": "box",
+      "x": 302,
+      "y": 451,
+      "w": 28,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "p3",
+      "shape": "box",
+      "x": 529,
+      "y": 406,
+      "w": 28,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "p4",
+      "shape": "box",
+      "x": 529,
+      "y": 481,
+      "w": 28,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "p5",
+      "shape": "box",
+      "x": 529,
+      "y": 641,
+      "w": 28,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "p6",
+      "shape": "box",
+      "x": 312,
+      "y": 643,
+      "w": 28,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "stripe",
+      "shape": "box",
+      "x": 758,
+      "y": 178,
+      "w": 120,
+      "h": 56,
+      "label": {
+        "key": "stripe"
+      }
+    },
+    {
+      "id": "twilio",
+      "shape": "box",
+      "x": 758,
+      "y": 598,
+      "w": 120,
+      "h": 56,
+      "label": {
+        "key": "twilio"
+      }
+    },
+    {
+      "id": "sendgrid",
+      "shape": "box",
+      "x": 640,
+      "y": 780,
+      "w": 120,
+      "h": 56,
+      "label": {
+        "key": "sendgrid"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          242,
+          110
+        ],
+        [
+          242,
+          198
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          113,
+          258
+        ],
+        [
+          182,
+          258
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          301,
+          250
+        ],
+        [
+          340,
+          250
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          281,
+          304
+        ],
+        [
+          369,
+          442
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          281,
+          304
+        ],
+        [
+          367,
+          669
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          355,
+          273
+        ],
+        [
+          237,
+          368
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          517,
+          320
+        ],
+        [
+          575,
+          440
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          587,
+          265
+        ],
+        [
+          538,
+          641
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          111,
+          465
+        ],
+        [
+          172,
+          465
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          97,
+          497
+        ],
+        [
+          180,
+          660
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          557,
+          420
+        ],
+        [
+          566,
+          463
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          557,
+          495
+        ],
+        [
+          575,
+          669
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          340,
+          657
+        ],
+        [
+          430,
+          560
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          330,
+          465
+        ],
+        [
+          342,
+          465
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

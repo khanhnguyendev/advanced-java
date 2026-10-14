@@ -1,0 +1,357 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetch-sequence-chart.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 970,
+    "h": 440
+  },
+  "nodes": [
+    {
+      "id": "p1",
+      "shape": "round",
+      "x": 145,
+      "y": 50,
+      "w": 150,
+      "h": 40,
+      "label": {
+        "key": "p1",
+        "literals": [
+          "DiscoveryClient"
+        ]
+      }
+    },
+    {
+      "id": "q1",
+      "shape": "round",
+      "x": 145,
+      "y": 380,
+      "w": 150,
+      "h": 40,
+      "label": {
+        "key": "q1",
+        "literals": [
+          "DiscoveryClient"
+        ]
+      }
+    },
+    {
+      "id": "p2",
+      "shape": "round",
+      "x": 345,
+      "y": 50,
+      "w": 250,
+      "h": 40,
+      "label": {
+        "key": "p2",
+        "literals": [
+          "EurekaHttpClientDecorator"
+        ]
+      }
+    },
+    {
+      "id": "q2",
+      "shape": "round",
+      "x": 345,
+      "y": 380,
+      "w": 250,
+      "h": 40,
+      "label": {
+        "key": "q2",
+        "literals": [
+          "EurekaHttpClientDecorator"
+        ]
+      }
+    },
+    {
+      "id": "p3",
+      "shape": "round",
+      "x": 605,
+      "y": 50,
+      "w": 290,
+      "h": 40,
+      "label": {
+        "key": "p3",
+        "literals": [
+          "AbstractJerseyEurekaHttpClient"
+        ]
+      }
+    },
+    {
+      "id": "q3",
+      "shape": "round",
+      "x": 605,
+      "y": 380,
+      "w": 290,
+      "h": 40,
+      "label": {
+        "key": "q3",
+        "literals": [
+          "AbstractJerseyEurekaHttpClient"
+        ]
+      }
+    },
+    {
+      "id": "b1",
+      "shape": "box",
+      "x": 210,
+      "y": 144,
+      "w": 20,
+      "h": 222,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b2",
+      "shape": "box",
+      "x": 231,
+      "y": 204,
+      "w": 20,
+      "h": 162,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b3",
+      "shape": "box",
+      "x": 460,
+      "y": 244,
+      "w": 20,
+      "h": 122,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b4",
+      "shape": "box",
+      "x": 740,
+      "y": 280,
+      "w": 20,
+      "h": 86,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b5",
+      "shape": "box",
+      "x": 761,
+      "y": 334,
+      "w": 20,
+      "h": 32,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          220,
+          90
+        ],
+        [
+          220,
+          380
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          470,
+          90
+        ],
+        [
+          470,
+          380
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          750,
+          90
+        ],
+        [
+          750,
+          380
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          220,
+          122
+        ],
+        [
+          270,
+          122
+        ],
+        [
+          270,
+          144
+        ],
+        [
+          230,
+          144
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m1",
+        "at": [
+          204,
+          122
+        ],
+        "anchor": "end",
+        "literals": [
+          "fetchRegistry"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          230,
+          182
+        ],
+        [
+          280,
+          182
+        ],
+        [
+          280,
+          204
+        ],
+        [
+          251,
+          204
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m2",
+        "at": [
+          204,
+          182
+        ],
+        "anchor": "end",
+        "literals": [
+          "getAndStoreFullRegistry"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          251,
+          244
+        ],
+        [
+          460,
+          244
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m3",
+        "at": [
+          355,
+          230
+        ],
+        "anchor": "middle",
+        "literals": [
+          "getApplications"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          480,
+          280
+        ],
+        [
+          740,
+          280
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m4",
+        "at": [
+          610,
+          266
+        ],
+        "anchor": "middle",
+        "literals": [
+          "getApplications"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          760,
+          312
+        ],
+        [
+          810,
+          312
+        ],
+        [
+          810,
+          340
+        ],
+        [
+          781,
+          340
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m5",
+        "at": [
+          734,
+          312
+        ],
+        "anchor": "end",
+        "literals": [
+          "getApplicationsInternal"
+        ]
+      }
+    }
+  ],
+  "texts": [
+    {
+      "key": "title",
+      "x": 540,
+      "y": 24,
+      "anchor": "middle",
+      "literals": []
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

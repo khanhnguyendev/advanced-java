@@ -1,0 +1,1154 @@
+{
+  "id": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_zccm",
+  "source": {
+    "upstream": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/30103116_ZCcM.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 1229,
+    "h": 1628
+  },
+  "nodes": [
+    {
+      "id": "a_cell",
+      "shape": "group",
+      "x": 6,
+      "y": 125,
+      "w": 524,
+      "h": 468,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "a_api",
+      "shape": "round",
+      "x": 216,
+      "y": 38,
+      "w": 106,
+      "h": 118,
+      "label": {
+        "key": "a_api"
+      }
+    },
+    {
+      "id": "a_db",
+      "shape": "box",
+      "x": 198,
+      "y": 506,
+      "w": 142,
+      "h": 106,
+      "label": {
+        "key": "a_db"
+      }
+    },
+    {
+      "id": "a_mysql",
+      "shape": "circle",
+      "x": 215,
+      "y": 650,
+      "w": 108,
+      "h": 108,
+      "label": {
+        "key": "a_mysql",
+        "literals": [
+          "MYSQL"
+        ]
+      }
+    },
+    {
+      "id": "a_cTop",
+      "shape": "circle",
+      "x": 253,
+      "y": 178,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "a_bl",
+      "shape": "group",
+      "x": 114,
+      "y": 194,
+      "w": 310,
+      "h": 273,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "a_mx",
+      "shape": "box",
+      "x": 162,
+      "y": 288,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "a_mx",
+        "literals": [
+          "X"
+        ]
+      }
+    },
+    {
+      "id": "a_my",
+      "shape": "box",
+      "x": 291,
+      "y": 288,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "a_my",
+        "literals": [
+          "Y"
+        ]
+      }
+    },
+    {
+      "id": "a_mz",
+      "shape": "box",
+      "x": 228,
+      "y": 372,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "a_mz",
+        "literals": [
+          "Z"
+        ]
+      }
+    },
+    {
+      "id": "a_cDb",
+      "shape": "circle",
+      "x": 253,
+      "y": 447,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b_cell",
+      "shape": "group",
+      "x": 697,
+      "y": 125,
+      "w": 525,
+      "h": 468,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b_api",
+      "shape": "round",
+      "x": 907,
+      "y": 38,
+      "w": 106,
+      "h": 118,
+      "label": {
+        "key": "b_api"
+      }
+    },
+    {
+      "id": "b_db",
+      "shape": "box",
+      "x": 889,
+      "y": 506,
+      "w": 142,
+      "h": 106,
+      "label": {
+        "key": "b_db"
+      }
+    },
+    {
+      "id": "b_mysql",
+      "shape": "circle",
+      "x": 906,
+      "y": 650,
+      "w": 108,
+      "h": 108,
+      "label": {
+        "key": "b_mysql",
+        "literals": [
+          "MYSQL"
+        ]
+      }
+    },
+    {
+      "id": "b_cTop",
+      "shape": "circle",
+      "x": 944,
+      "y": 178,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b_bl",
+      "shape": "group",
+      "x": 805,
+      "y": 194,
+      "w": 310,
+      "h": 273,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "b_mx",
+      "shape": "box",
+      "x": 855,
+      "y": 266,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "b_mx",
+        "literals": [
+          "X"
+        ]
+      }
+    },
+    {
+      "id": "b_my",
+      "shape": "box",
+      "x": 984,
+      "y": 266,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "b_my",
+        "literals": [
+          "Y"
+        ]
+      }
+    },
+    {
+      "id": "b_mz",
+      "shape": "box",
+      "x": 919,
+      "y": 379,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "b_mz",
+        "literals": [
+          "Z"
+        ]
+      }
+    },
+    {
+      "id": "b_glue",
+      "shape": "group",
+      "x": 898,
+      "y": 344,
+      "w": 124,
+      "h": 129,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b_c1",
+      "shape": "circle",
+      "x": 906,
+      "y": 330,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b_c2",
+      "shape": "circle",
+      "x": 981,
+      "y": 330,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "b_cDb",
+      "shape": "circle",
+      "x": 944,
+      "y": 453,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c_cell",
+      "shape": "group",
+      "x": 6,
+      "y": 989,
+      "w": 524,
+      "h": 468,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c_api",
+      "shape": "round",
+      "x": 216,
+      "y": 902,
+      "w": 106,
+      "h": 118,
+      "label": {
+        "key": "c_api"
+      }
+    },
+    {
+      "id": "c_db",
+      "shape": "box",
+      "x": 198,
+      "y": 1370,
+      "w": 142,
+      "h": 106,
+      "label": {
+        "key": "c_db"
+      }
+    },
+    {
+      "id": "c_mysql",
+      "shape": "circle",
+      "x": 215,
+      "y": 1514,
+      "w": 108,
+      "h": 108,
+      "label": {
+        "key": "c_mysql",
+        "literals": [
+          "MYSQL"
+        ]
+      }
+    },
+    {
+      "id": "c_cTop",
+      "shape": "circle",
+      "x": 253,
+      "y": 1042,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c_bl",
+      "shape": "group",
+      "x": 114,
+      "y": 1058,
+      "w": 310,
+      "h": 273,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "c_mx",
+      "shape": "box",
+      "x": 228,
+      "y": 1130,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "c_mx",
+        "literals": [
+          "X"
+        ]
+      }
+    },
+    {
+      "id": "c_my",
+      "shape": "box",
+      "x": 228,
+      "y": 1208,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "c_my",
+        "literals": [
+          "Y"
+        ]
+      }
+    },
+    {
+      "id": "c_c1",
+      "shape": "circle",
+      "x": 385,
+      "y": 1137,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c_c2",
+      "shape": "circle",
+      "x": 385,
+      "y": 1215,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c_cDb",
+      "shape": "circle",
+      "x": 253,
+      "y": 1311,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "c_rcl",
+      "shape": "circle",
+      "x": 419,
+      "y": 1028,
+      "w": 108,
+      "h": 108,
+      "label": {
+        "key": "c_rcl"
+      }
+    },
+    {
+      "id": "c_rapi",
+      "shape": "circle",
+      "x": 419,
+      "y": 1247,
+      "w": 108,
+      "h": 108,
+      "label": {
+        "key": "c_rapi"
+      }
+    },
+    {
+      "id": "d_cell",
+      "shape": "group",
+      "x": 697,
+      "y": 989,
+      "w": 525,
+      "h": 468,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "d_api",
+      "shape": "round",
+      "x": 907,
+      "y": 902,
+      "w": 106,
+      "h": 118,
+      "label": {
+        "key": "d_api"
+      }
+    },
+    {
+      "id": "d_db",
+      "shape": "box",
+      "x": 889,
+      "y": 1370,
+      "w": 142,
+      "h": 106,
+      "label": {
+        "key": "d_db"
+      }
+    },
+    {
+      "id": "d_mysql",
+      "shape": "circle",
+      "x": 906,
+      "y": 1514,
+      "w": 108,
+      "h": 108,
+      "label": {
+        "key": "d_mysql",
+        "literals": [
+          "MYSQL"
+        ]
+      }
+    },
+    {
+      "id": "d_cTop",
+      "shape": "circle",
+      "x": 944,
+      "y": 1042,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "d_bl",
+      "shape": "group",
+      "x": 804,
+      "y": 1058,
+      "w": 312,
+      "h": 273,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "d_mz",
+      "shape": "box",
+      "x": 919,
+      "y": 1169,
+      "w": 82,
+      "h": 46,
+      "label": {
+        "key": "d_mz",
+        "literals": [
+          "Z"
+        ]
+      },
+      "role": "accent"
+    },
+    {
+      "id": "d_c1",
+      "shape": "circle",
+      "x": 811,
+      "y": 1137,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "d_c2",
+      "shape": "circle",
+      "x": 811,
+      "y": 1215,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "d_cDb",
+      "shape": "circle",
+      "x": 944,
+      "y": 1311,
+      "w": 31,
+      "h": 31,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "d_rapi",
+      "shape": "circle",
+      "x": 701,
+      "y": 1028,
+      "w": 108,
+      "h": 108,
+      "label": {
+        "key": "d_rapi"
+      }
+    },
+    {
+      "id": "d_rcl",
+      "shape": "circle",
+      "x": 700,
+      "y": 1247,
+      "w": 108,
+      "h": 108,
+      "label": {
+        "key": "d_rcl"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          269,
+          7
+        ],
+        [
+          269,
+          38
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          269,
+          612
+        ],
+        [
+          269,
+          650
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          269,
+          156
+        ],
+        [
+          269,
+          182
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          216,
+          335
+        ],
+        [
+          246,
+          367
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          288,
+          370
+        ],
+        [
+          319,
+          340
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          269,
+          418
+        ],
+        [
+          269,
+          451
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          269,
+          475
+        ],
+        [
+          269,
+          506
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          7
+        ],
+        [
+          960,
+          38
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          612
+        ],
+        [
+          960,
+          650
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          156
+        ],
+        [
+          960,
+          182
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          910,
+          312
+        ],
+        [
+          917,
+          334
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          931,
+          355
+        ],
+        [
+          948,
+          380
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          972,
+          380
+        ],
+        [
+          989,
+          358
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          1006,
+          336
+        ],
+        [
+          1018,
+          312
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          425
+        ],
+        [
+          960,
+          457
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          481
+        ],
+        [
+          960,
+          506
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          269,
+          871
+        ],
+        [
+          269,
+          902
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          269,
+          1476
+        ],
+        [
+          269,
+          1514
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          269,
+          1020
+        ],
+        [
+          269,
+          1046
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          306,
+          1153
+        ],
+        [
+          386,
+          1153
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          410,
+          1142
+        ],
+        [
+          432,
+          1124
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          386,
+          1231
+        ],
+        [
+          306,
+          1231
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          432,
+          1265
+        ],
+        [
+          412,
+          1242
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          871
+        ],
+        [
+          960,
+          902
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          1476
+        ],
+        [
+          960,
+          1514
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          1020
+        ],
+        [
+          960,
+          1046
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          842,
+          1153
+        ],
+        [
+          870,
+          1181
+        ],
+        [
+          919,
+          1181
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          842,
+          1231
+        ],
+        [
+          870,
+          1200
+        ],
+        [
+          919,
+          1200
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          794,
+          1122
+        ],
+        [
+          817,
+          1144
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          814,
+          1242
+        ],
+        [
+          796,
+          1262
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          1214
+        ],
+        [
+          960,
+          1315
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          556,
+          329
+        ],
+        [
+          672,
+          329
+        ]
+      ],
+      "arrow": "end",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          814,
+          578
+        ],
+        [
+          672,
+          821
+        ]
+      ],
+      "arrow": "end",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          269,
+          1339
+        ],
+        [
+          269,
+          1370
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          960,
+          1339
+        ],
+        [
+          960,
+          1370
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          527,
+          1082
+        ],
+        [
+          701,
+          1082
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          700,
+          1301
+        ],
+        [
+          527,
+          1301
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "a_blt",
+      "x": 269,
+      "y": 241,
+      "anchor": "middle"
+    },
+    {
+      "key": "b_blt",
+      "x": 960,
+      "y": 232,
+      "anchor": "middle"
+    },
+    {
+      "key": "c_blt",
+      "x": 269,
+      "y": 1100,
+      "anchor": "middle"
+    },
+    {
+      "key": "d_blt",
+      "x": 960,
+      "y": 1096,
+      "anchor": "middle"
+    },
+    {
+      "key": "step1",
+      "x": 592,
+      "y": 304,
+      "anchor": "middle"
+    },
+    {
+      "key": "step2",
+      "x": 704,
+      "y": 682,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "title": "Eureka 服务下线（Cancel）时序图",
+    "p0t": "已停止服务",
+    "p0b": "已停止服务",
+    "m1": "发送请求，传入\nInstance 信息",
+    "m2": "cancelLease",
+    "sc": "super.cancel",
+    "rp": "replicateToPeers",
+    "rc": "replicationClient.cancel",
+    "loop": "loop",
+    "note": "[InstanceReplicationTask\n后台定时调用]",
+    "blank": "",
+    "_title": "Eureka 服务下线（Cancel）调用时序图",
+    "_desc": "已停止的服务向 InstanceResource 发送下线请求，依次经 PeerAwareInstanceRegistryImpl 的 cancelLease、super.cancel、replicateToPeers，最后在循环中由 PeerEurekaNode 的 replicationClient.cancel 同步给其它节点。",
+    "p1t": "InstanceResource",
+    "p1b": "InstanceResource",
+    "p2t": "PeerAwareInstanceRegistryImpl",
+    "p2b": "PeerAwareInstanceRegistryImpl",
+    "p3t": "PeerEurekaNode",
+    "p3b": "PeerEurekaNode"
+  }
+}

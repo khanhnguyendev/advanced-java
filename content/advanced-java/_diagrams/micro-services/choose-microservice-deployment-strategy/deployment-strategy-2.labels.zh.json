@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "840bbf980137f92daa23fa3ba69ea88de8260e687517b44aba4c50c97b1687e7",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "将服务部署为虚拟机映像",
+    "_desc": "服务被打包成一个虚拟机映像，再部署为三个虚拟机，每个虚拟机运行一个服务实例。",
+    "blank": "",
+    "svc": "服务",
+    "pkg": "打包为",
+    "img": "虚拟机映像",
+    "dep": "部署为",
+    "vm": "虚拟机",
+    "inst": "服务实例"
+  }
+}

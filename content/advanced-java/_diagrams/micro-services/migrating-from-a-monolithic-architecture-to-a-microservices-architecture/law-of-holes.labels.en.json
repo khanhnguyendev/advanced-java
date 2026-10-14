@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "router": "REQUEST\nROUTER",
+    "monolith": "MONOLITH",
+    "webapi": "WEB\nAPI",
+    "glue": "GLUE\nCODE",
+    "service": "SERVICE",
+    "old": "Old HTTP\nrequests",
+    "new": "New HTTP\nrequests",
+    "httpreq": "HTTP REQUEST",
+    "_title": "Law of Holes: new features as a service beside the monolith",
+    "_desc": "An HTTP request reaches a request router, which sends old HTTP requests to the monolith's web API and new HTTP requests to the new service's web API. The monolith and the service are linked in both directions through glue code."
+  }
+}

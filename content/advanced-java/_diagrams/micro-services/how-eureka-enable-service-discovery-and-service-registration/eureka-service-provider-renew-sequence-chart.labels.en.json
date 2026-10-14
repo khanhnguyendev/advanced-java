@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "fa59e4f93c142fe5deb5c68310bedadbf98e03f7886a76b492f3e8b4f00354b5"
+  },
+  "labels": {
+    "p1": "DiscoveryClient.HeartbeatThread",
+    "q1": "DiscoveryClient.HeartbeatThread",
+    "p2": "DiscoveryClient",
+    "q2": "DiscoveryClient",
+    "p3": "EurekaHttpClientDecorator",
+    "q3": "EurekaHttpClientDecorator",
+    "p4": "AbstractJerseyEurekaHttpClient",
+    "q4": "AbstractJerseyEurekaHttpClient",
+    "m1": "run",
+    "m2": "sendHeartBeat",
+    "m3": "sendHeartBeat",
+    "ttl": "Eureka service provider renewal (Renew) sequence diagram",
+    "blank": "",
+    "_title": "Eureka service provider renewal sequence diagram",
+    "_desc": "Sequence diagram: DiscoveryClient.HeartbeatThread calls run on DiscoveryClient, which calls sendHeartBeat on EurekaHttpClientDecorator, which in turn calls sendHeartBeat on AbstractJerseyEurekaHttpClient."
+  }
+}

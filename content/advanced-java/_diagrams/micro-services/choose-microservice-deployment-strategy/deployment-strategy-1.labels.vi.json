@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "956fc726e09953cca572dc535788b2c8d3a73bae7339cf4ebaa15737b03a52e8",
+    "source_lang": "en"
+  },
+  "labels": {
+    "host": "Máy chủ (vật lý hoặc VM)",
+    "svcA1": "DỊCH VỤ-A\nINSTANCE-1",
+    "svcB1": "DỊCH VỤ-B\nINSTANCE-1",
+    "svcC1": "DỊCH VỤ-C\nINSTANCE-1",
+    "svcA2": "DỊCH VỤ-A\nINSTANCE-2",
+    "svcB2": "DỊCH VỤ-B\nINSTANCE-2",
+    "svcC2": "DỊCH VỤ-C\nINSTANCE-2",
+    "_title": "Hai máy chủ, mỗi máy chạy một instance của dịch vụ A, B và C",
+    "_desc": "Hai khung máy chủ (máy vật lý hoặc VM) xếp trên dưới. Mỗi máy chủ chứa ba instance dịch vụ hình lục giác xếp ngang: SERVICE-A, SERVICE-B và SERVICE-C. Máy chủ phía trên chạy INSTANCE-1 của từng dịch vụ, máy chủ phía dưới chạy INSTANCE-2."
+  }
+}

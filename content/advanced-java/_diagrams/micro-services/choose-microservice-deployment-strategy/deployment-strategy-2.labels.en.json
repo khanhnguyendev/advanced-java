@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Deploying a service as VM images",
+    "_desc": "A service is packaged as a VM image. The VM image is then deployed as three VMs, each of which runs one service instance.",
+    "blank": "",
+    "svc": "SERVICE",
+    "pkg": "Packaged As",
+    "img": "VM Image",
+    "dep": "Deployed As",
+    "vm": "VM",
+    "inst": "SERVICE\nINSTANCE"
+  }
+}

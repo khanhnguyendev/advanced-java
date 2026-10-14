@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "11d4f4362326ee45923af2e860da3405c2c128fad8dec74869243258d8bb43b5"
+  },
+  "labels": {
+    "t1": "spring Eureka",
+    "t2": "HOME",
+    "t3": "LAST 1000 SINCE STARTUP",
+    "t4": "System Status",
+    "t5": "Environment",
+    "t6": "test",
+    "t7": "Data center",
+    "t8": "default",
+    "t9": "Current time",
+    "t10": "2020-03-15T09:18:44 +0800",
+    "t11": "Uptime",
+    "t12": "00:00",
+    "t13": "Lease expiration enabled",
+    "t14": "false",
+    "t15": "Renews threshold",
+    "t16": "1",
+    "t17": "Renews (last min)",
+    "t18": "0",
+    "t19": "DS Replicas",
+    "t20": "localhost",
+    "t21": "Instances currently registered with Eureka",
+    "t22": "Application",
+    "t23": "AMIs",
+    "t24": "Availability Zones",
+    "t25": "Status",
+    "t26": "No instances available",
+    "t27": "General Info",
+    "t28": "Name",
+    "t29": "Value",
+    "t30": "total-avail-memory",
+    "t31": "591mb",
+    "blank": "",
+    "_title": "Trang chủ máy chủ Eureka",
+    "_desc": "Sơ đồ trang chủ máy chủ Spring Eureka: thanh tiêu đề với HOME và LAST 1000 SINCE STARTUP, các bảng System Status, DS Replicas, bảng các instance đã đăng ký với Eureka (đang trống) và bảng General Info."
+  }
+}

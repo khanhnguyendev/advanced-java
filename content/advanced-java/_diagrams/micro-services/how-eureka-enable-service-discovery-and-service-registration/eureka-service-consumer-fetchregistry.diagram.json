@@ -1,0 +1,466 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-consumer-fetchregistry.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1510,
+    "h": 1040
+  },
+  "nodes": [
+    {
+      "id": "tp",
+      "shape": "group",
+      "x": 10,
+      "y": 10,
+      "w": 520,
+      "h": 1020,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "cp",
+      "shape": "group",
+      "x": 550,
+      "y": 10,
+      "w": 940,
+      "h": 1020,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "h1",
+      "shape": "group",
+      "x": 20,
+      "y": 52,
+      "w": 500,
+      "h": 36,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "h2",
+      "shape": "group",
+      "x": 106,
+      "y": 852,
+      "w": 250,
+      "h": 36,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "h3",
+      "shape": "group",
+      "x": 560,
+      "y": 212,
+      "w": 920,
+      "h": 116,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [],
+  "texts": [
+    {
+      "key": "c3",
+      "x": 36,
+      "y": 70,
+      "anchor": "start",
+      "literals": [
+        "Maven: com.netflix.eureka:eureka-client:1.9.17"
+      ]
+    },
+    {
+      "key": "c4",
+      "x": 56,
+      "y": 110,
+      "anchor": "start",
+      "literals": [
+        "eureka-client-1.9.17.jar library root"
+      ]
+    },
+    {
+      "key": "c5",
+      "x": 76,
+      "y": 150,
+      "anchor": "start",
+      "literals": [
+        "com.netflix"
+      ]
+    },
+    {
+      "key": "c6",
+      "x": 96,
+      "y": 190,
+      "anchor": "start",
+      "literals": [
+        "appinfo"
+      ]
+    },
+    {
+      "key": "c7",
+      "x": 96,
+      "y": 230,
+      "anchor": "start",
+      "literals": [
+        "discovery"
+      ]
+    },
+    {
+      "key": "c8",
+      "x": 116,
+      "y": 270,
+      "anchor": "start",
+      "literals": [
+        "converters"
+      ]
+    },
+    {
+      "key": "c9",
+      "x": 116,
+      "y": 310,
+      "anchor": "start",
+      "literals": [
+        "endpoint"
+      ]
+    },
+    {
+      "key": "c10",
+      "x": 116,
+      "y": 350,
+      "anchor": "start",
+      "literals": [
+        "guice"
+      ]
+    },
+    {
+      "key": "c11",
+      "x": 116,
+      "y": 390,
+      "anchor": "start",
+      "literals": [
+        "internal.util"
+      ]
+    },
+    {
+      "key": "c12",
+      "x": 116,
+      "y": 430,
+      "anchor": "start",
+      "literals": [
+        "provider"
+      ]
+    },
+    {
+      "key": "c13",
+      "x": 116,
+      "y": 470,
+      "anchor": "start",
+      "literals": [
+        "providers"
+      ]
+    },
+    {
+      "key": "c14",
+      "x": 116,
+      "y": 510,
+      "anchor": "start",
+      "literals": [
+        "shared"
+      ]
+    },
+    {
+      "key": "c15",
+      "x": 116,
+      "y": 550,
+      "anchor": "start",
+      "literals": [
+        "util"
+      ]
+    },
+    {
+      "key": "c16",
+      "x": 116,
+      "y": 590,
+      "anchor": "start",
+      "literals": [
+        "AbstractAzToRegionMapper"
+      ]
+    },
+    {
+      "key": "c17",
+      "x": 116,
+      "y": 630,
+      "anchor": "start",
+      "literals": [
+        "AbstractDiscoveryClientOptionalArgs"
+      ]
+    },
+    {
+      "key": "c18",
+      "x": 116,
+      "y": 670,
+      "anchor": "start",
+      "literals": [
+        "AzToRegionMapper"
+      ]
+    },
+    {
+      "key": "c19",
+      "x": 116,
+      "y": 710,
+      "anchor": "start",
+      "literals": [
+        "BackupRegistry"
+      ]
+    },
+    {
+      "key": "c20",
+      "x": 116,
+      "y": 750,
+      "anchor": "start",
+      "literals": [
+        "CacheRefreshedEvent"
+      ]
+    },
+    {
+      "key": "c21",
+      "x": 116,
+      "y": 790,
+      "anchor": "start",
+      "literals": [
+        "CommonConstants"
+      ]
+    },
+    {
+      "key": "c22",
+      "x": 116,
+      "y": 830,
+      "anchor": "start",
+      "literals": [
+        "DefaultEurekaClientConfig"
+      ]
+    },
+    {
+      "key": "c23",
+      "x": 116,
+      "y": 870,
+      "anchor": "start",
+      "literals": [
+        "DiscoveryClient"
+      ]
+    },
+    {
+      "key": "c24",
+      "x": 116,
+      "y": 910,
+      "anchor": "start",
+      "literals": [
+        "DiscoveryEvent"
+      ]
+    },
+    {
+      "key": "c25",
+      "x": 116,
+      "y": 950,
+      "anchor": "start",
+      "literals": [
+        "DiscoveryManager"
+      ]
+    },
+    {
+      "key": "c26",
+      "x": 116,
+      "y": 990,
+      "anchor": "start",
+      "literals": [
+        "DNSBasedAzToRegionMapper"
+      ]
+    },
+    {
+      "key": "c27",
+      "x": 574,
+      "y": 70,
+      "anchor": "start",
+      "literals": [
+        "} catch (Throwable e) {"
+      ]
+    },
+    {
+      "key": "c28",
+      "x": 574,
+      "y": 110,
+      "anchor": "start",
+      "literals": [
+        "    throw new RuntimeException(\"Failed to initialize DiscoveryClient!\", e);"
+      ]
+    },
+    {
+      "key": "c29",
+      "x": 574,
+      "y": 150,
+      "anchor": "start",
+      "literals": [
+        "}"
+      ]
+    },
+    {
+      "key": "c30",
+      "x": 574,
+      "y": 230,
+      "anchor": "start",
+      "literals": [
+        "if (clientConfig.shouldFetchRegistry() && !fetchRegistry(false)) {"
+      ]
+    },
+    {
+      "key": "c31",
+      "x": 574,
+      "y": 270,
+      "anchor": "start",
+      "literals": [
+        "    fetchRegistryFromBackup();"
+      ]
+    },
+    {
+      "key": "c32",
+      "x": 574,
+      "y": 310,
+      "anchor": "start",
+      "literals": [
+        "}"
+      ]
+    },
+    {
+      "key": "c33",
+      "x": 574,
+      "y": 390,
+      "anchor": "start",
+      "literals": [
+        "// call and execute the pre registration handler before all background tasks (inc registration) is started"
+      ]
+    },
+    {
+      "key": "c34",
+      "x": 574,
+      "y": 430,
+      "anchor": "start",
+      "literals": [
+        "if (this.preRegistrationHandler != null) {"
+      ]
+    },
+    {
+      "key": "c35",
+      "x": 574,
+      "y": 470,
+      "anchor": "start",
+      "literals": [
+        "    this.preRegistrationHandler.beforeRegistration();"
+      ]
+    },
+    {
+      "key": "c36",
+      "x": 574,
+      "y": 510,
+      "anchor": "start",
+      "literals": [
+        "}"
+      ]
+    },
+    {
+      "key": "c37",
+      "x": 574,
+      "y": 590,
+      "anchor": "start",
+      "literals": [
+        "if (clientConfig.shouldRegisterWithEureka() && clientConfig.shouldEnforceRegistrationAtInit()) {"
+      ]
+    },
+    {
+      "key": "c38",
+      "x": 574,
+      "y": 630,
+      "anchor": "start",
+      "literals": [
+        "    try {"
+      ]
+    },
+    {
+      "key": "c39",
+      "x": 574,
+      "y": 670,
+      "anchor": "start",
+      "literals": [
+        "        if (!register() ) {"
+      ]
+    },
+    {
+      "key": "c40",
+      "x": 574,
+      "y": 710,
+      "anchor": "start",
+      "literals": [
+        "            throw new IllegalStateException(\"Registration error at startup. Invalid server response.\");"
+      ]
+    },
+    {
+      "key": "c41",
+      "x": 574,
+      "y": 750,
+      "anchor": "start",
+      "literals": [
+        "        }"
+      ]
+    },
+    {
+      "key": "c42",
+      "x": 574,
+      "y": 790,
+      "anchor": "start",
+      "literals": [
+        "    } catch (Throwable th) {"
+      ]
+    },
+    {
+      "key": "c43",
+      "x": 574,
+      "y": 830,
+      "anchor": "start",
+      "literals": [
+        "        logger.error(\"Registration error at startup: {}\", th.getMessage());"
+      ]
+    },
+    {
+      "key": "c44",
+      "x": 574,
+      "y": 870,
+      "anchor": "start",
+      "literals": [
+        "        throw new IllegalStateException(th);"
+      ]
+    },
+    {
+      "key": "c45",
+      "x": 574,
+      "y": 910,
+      "anchor": "start",
+      "literals": [
+        "    }"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

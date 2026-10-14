@@ -1,0 +1,234 @@
+{
+  "id": "micro-services/microservices-introduction/preferfunctionalstafforganization",
+  "source": {
+    "upstream": "micro-services/microservices-introduction/PreferFunctionalStaffOrganization.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 750,
+    "h": 450
+  },
+  "nodes": [
+    {
+      "id": "lt",
+      "shape": "group",
+      "x": 66,
+      "y": 22,
+      "w": 100,
+      "h": 126,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "lbl",
+      "shape": "group",
+      "x": 15,
+      "y": 190,
+      "w": 117,
+      "h": 128,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "lbr",
+      "shape": "group",
+      "x": 198,
+      "y": 170,
+      "w": 118,
+      "h": 120,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "lt_t",
+      "shape": "box",
+      "x": 82,
+      "y": 48,
+      "w": 68,
+      "h": 70,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "lbl_t",
+      "shape": "box",
+      "x": 31,
+      "y": 218,
+      "w": 86,
+      "h": 70,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "lbr_t",
+      "shape": "box",
+      "x": 214,
+      "y": 196,
+      "w": 86,
+      "h": 70,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "rt",
+      "shape": "group",
+      "x": 484,
+      "y": 22,
+      "w": 116,
+      "h": 126,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "rbl",
+      "shape": "group",
+      "x": 432,
+      "y": 190,
+      "w": 98,
+      "h": 130,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "rbr",
+      "shape": "group",
+      "x": 614,
+      "y": 150,
+      "w": 116,
+      "h": 130,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "rt_c",
+      "shape": "box",
+      "x": 500,
+      "y": 66,
+      "w": 84,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "rbl_c",
+      "shape": "box",
+      "x": 446,
+      "y": 236,
+      "w": 70,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "rbr_c",
+      "shape": "box",
+      "x": 630,
+      "y": 198,
+      "w": 84,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          90,
+          190
+        ],
+        [
+          100,
+          148
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          215,
+          170
+        ],
+        [
+          166,
+          130
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          520,
+          190
+        ],
+        [
+          522,
+          148
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          630,
+          150
+        ],
+        [
+          600,
+          130
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          375,
+          10
+        ],
+        [
+          375,
+          350
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t1",
+      "x": 175,
+      "y": 397,
+      "anchor": "start"
+    },
+    {
+      "key": "t2",
+      "x": 455,
+      "y": 404,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

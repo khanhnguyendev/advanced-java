@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "l_br": "BROWSER",
+    "l_wa": "WEB\nAPPLICATION",
+    "l_bl": "BUSINESS LOGIC",
+    "l_da": "DATABASE\nADAPTER",
+    "l_my": "MYSQL",
+    "m_br": "BROWSER",
+    "m_wa": "WEB\nAPPLICATION",
+    "m_ra": "REST\nAPI",
+    "r_ra": "REST\nAPI",
+    "r_bl": "BUSINESS LOGIC",
+    "r_da": "DATABASE\nADAPTER",
+    "r_my": "MYSQL",
+    "_title": "Architecture before and after migration",
+    "_desc": "Architecture before and after the split: a browser reaches business logic through a web application, then the business logic becomes a separate application called over a REST API."
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "ec951bf0af731e788dc91598936984867f06afea45c8e44606d242b185f35d46",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "os_l": "DỊCH VỤ\nĐƠN HÀNG",
+    "os_r": "DỊCH VỤ\nĐƠN HÀNG",
+    "cs": "DỊCH VỤ\nKHÁCH HÀNG",
+    "tbl_t": "Bảng ORDER",
+    "h_id": "ID",
+    "h_status": "STATUS",
+    "h_total": "TOTAL",
+    "h_dots": "...",
+    "r_id": "4567",
+    "r_status": "ACCEPTED",
+    "r_total": "8404.30",
+    "r_dots": "...",
+    "add_find": "Thêm sự kiện\nTìm sự kiện",
+    "subscribe": "Đăng ký sự kiện",
+    "es_t": "Kho sự kiện",
+    "o_t": "Đơn hàng 2345",
+    "ev1": "Đơn hàng đã tạo",
+    "ev2": "Đơn hàng đã duyệt",
+    "ev3": "...",
+    "ev4": "Đơn hàng đã giao",
+    "_title": "Nguồn sự kiện (event sourcing)",
+    "_desc": "Dịch vụ đơn hàng cập nhật một dòng của bảng ORDER (ID, STATUS, TOTAL) được thay bằng dịch vụ đơn hàng thêm và tìm sự kiện trong kho sự kiện, nơi đơn hàng 2345 được lưu thành các sự kiện đã tạo, đã duyệt và đã giao, còn dịch vụ khách hàng đăng ký nhận sự kiện."
+  }
+}

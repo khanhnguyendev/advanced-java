@@ -1,0 +1,545 @@
+{
+  "id": "micro-services/event-driven-data-management-for-microservices/order-created-event",
+  "source": {
+    "upstream": "micro-services/event-driven-data-management-for-microservices/Order-Created-Event.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 780,
+    "h": 530
+  },
+  "nodes": [
+    {
+      "id": "gl",
+      "shape": "group",
+      "x": 14,
+      "y": 86,
+      "w": 336,
+      "h": 334,
+      "border": "dotted",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "gb",
+      "shape": "group",
+      "x": 372,
+      "y": 83,
+      "w": 110,
+      "h": 433,
+      "border": "dotted",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "gr",
+      "shape": "group",
+      "x": 506,
+      "y": 86,
+      "w": 252,
+      "h": 430,
+      "border": "dotted",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "osvc",
+      "shape": "round",
+      "x": 118,
+      "y": 117,
+      "w": 112,
+      "h": 100,
+      "label": {
+        "key": "orderSvc"
+      }
+    },
+    {
+      "id": "csvc",
+      "shape": "round",
+      "x": 576,
+      "y": 117,
+      "w": 112,
+      "h": 100,
+      "label": {
+        "key": "custSvc"
+      }
+    },
+    {
+      "id": "t1",
+      "shape": "group",
+      "x": 30,
+      "y": 306,
+      "w": 280,
+      "h": 78,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "t2",
+      "shape": "group",
+      "x": 525,
+      "y": 314,
+      "w": 214,
+      "h": 78,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "t3",
+      "shape": "group",
+      "x": 525,
+      "y": 432,
+      "w": 214,
+      "h": 78,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          174,
+          22
+        ],
+        [
+          174,
+          117
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          230,
+          167
+        ],
+        [
+          372,
+          167
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "evt",
+        "at": [
+          288,
+          116
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          174,
+          217
+        ],
+        [
+          174,
+          306
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          632,
+          217
+        ],
+        [
+          632,
+          283
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          70,
+          306
+        ],
+        [
+          70,
+          384
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          182,
+          306
+        ],
+        [
+          182,
+          384
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          250,
+          306
+        ],
+        [
+          250,
+          384
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          30,
+          332
+        ],
+        [
+          310,
+          332
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          30,
+          358
+        ],
+        [
+          310,
+          358
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          565,
+          314
+        ],
+        [
+          565,
+          392
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          677,
+          314
+        ],
+        [
+          677,
+          392
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          525,
+          340
+        ],
+        [
+          739,
+          340
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          525,
+          366
+        ],
+        [
+          739,
+          366
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          595,
+          432
+        ],
+        [
+          595,
+          510
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          675,
+          432
+        ],
+        [
+          675,
+          510
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          525,
+          458
+        ],
+        [
+          739,
+          458
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          525,
+          484
+        ],
+        [
+          739,
+          484
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "broker",
+      "x": 427,
+      "y": 280,
+      "anchor": "middle",
+      "literals": []
+    },
+    {
+      "key": "place",
+      "x": 188,
+      "y": 24,
+      "anchor": "start",
+      "literals": []
+    },
+    {
+      "key": "orderTbl",
+      "x": 30,
+      "y": 292,
+      "anchor": "start",
+      "literals": [
+        "ORDER"
+      ]
+    },
+    {
+      "key": "custTbl",
+      "x": 525,
+      "y": 300,
+      "anchor": "start",
+      "literals": [
+        "CUSTOMER"
+      ]
+    },
+    {
+      "key": "resTbl",
+      "x": 525,
+      "y": 416,
+      "anchor": "start",
+      "literals": [
+        "RESERVED_CREDIT"
+      ]
+    },
+    {
+      "key": "oh0",
+      "x": 50.0,
+      "y": 319,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "oh1",
+      "x": 126.0,
+      "y": 319,
+      "anchor": "middle",
+      "literals": [
+        "CUSTOMER_ID"
+      ]
+    },
+    {
+      "key": "oh2",
+      "x": 216.0,
+      "y": 319,
+      "anchor": "middle",
+      "literals": [
+        "STATUS"
+      ]
+    },
+    {
+      "key": "oh3",
+      "x": 280.0,
+      "y": 319,
+      "anchor": "middle",
+      "literals": [
+        "TOTAL"
+      ]
+    },
+    {
+      "key": "ov0",
+      "x": 50.0,
+      "y": 345,
+      "anchor": "middle",
+      "literals": [
+        "909"
+      ]
+    },
+    {
+      "key": "ov1",
+      "x": 126.0,
+      "y": 345,
+      "anchor": "middle",
+      "literals": [
+        "101"
+      ]
+    },
+    {
+      "key": "ov2",
+      "x": 216.0,
+      "y": 345,
+      "anchor": "middle",
+      "literals": [
+        "NEW"
+      ]
+    },
+    {
+      "key": "ov3",
+      "x": 280.0,
+      "y": 345,
+      "anchor": "middle",
+      "literals": [
+        "1234"
+      ]
+    },
+    {
+      "key": "ch0",
+      "x": 545,
+      "y": 327,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "ch1",
+      "x": 621,
+      "y": 327,
+      "anchor": "middle",
+      "literals": [
+        "CREDIT_LIMIT"
+      ]
+    },
+    {
+      "key": "ch2",
+      "x": 697,
+      "y": 327,
+      "anchor": "middle",
+      "literals": [
+        "..."
+      ]
+    },
+    {
+      "key": "cv0",
+      "x": 545,
+      "y": 353,
+      "anchor": "middle",
+      "literals": [
+        "202"
+      ]
+    },
+    {
+      "key": "cv1",
+      "x": 621,
+      "y": 353,
+      "anchor": "middle",
+      "literals": [
+        "5000"
+      ]
+    },
+    {
+      "key": "rh0",
+      "x": 560,
+      "y": 445,
+      "anchor": "middle",
+      "literals": [
+        "CUST_ID"
+      ]
+    },
+    {
+      "key": "rh1",
+      "x": 635,
+      "y": 445,
+      "anchor": "middle",
+      "literals": [
+        "ORDER_ID"
+      ]
+    },
+    {
+      "key": "rh2",
+      "x": 707,
+      "y": 445,
+      "anchor": "middle",
+      "literals": [
+        "AMOUNT"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

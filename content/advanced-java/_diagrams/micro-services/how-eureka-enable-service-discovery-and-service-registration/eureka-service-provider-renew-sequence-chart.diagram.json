@@ -1,0 +1,302 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-renew-sequence-chart",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-service-provider-renew-sequence-chart.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1150,
+    "h": 340
+  },
+  "nodes": [
+    {
+      "id": "p1",
+      "shape": "round",
+      "x": 10,
+      "y": 50,
+      "w": 300,
+      "h": 44,
+      "label": {
+        "key": "p1",
+        "literals": [
+          "DiscoveryClient.HeartbeatThread"
+        ]
+      }
+    },
+    {
+      "id": "q1",
+      "shape": "round",
+      "x": 10,
+      "y": 285,
+      "w": 300,
+      "h": 44,
+      "label": {
+        "key": "q1",
+        "literals": [
+          "DiscoveryClient.HeartbeatThread"
+        ]
+      }
+    },
+    {
+      "id": "p2",
+      "shape": "round",
+      "x": 350,
+      "y": 50,
+      "w": 170,
+      "h": 44,
+      "label": {
+        "key": "p2",
+        "literals": [
+          "DiscoveryClient"
+        ]
+      }
+    },
+    {
+      "id": "q2",
+      "shape": "round",
+      "x": 350,
+      "y": 285,
+      "w": 170,
+      "h": 44,
+      "label": {
+        "key": "q2",
+        "literals": [
+          "DiscoveryClient"
+        ]
+      }
+    },
+    {
+      "id": "p3",
+      "shape": "round",
+      "x": 530,
+      "y": 50,
+      "w": 270,
+      "h": 44,
+      "label": {
+        "key": "p3",
+        "literals": [
+          "EurekaHttpClientDecorator"
+        ]
+      }
+    },
+    {
+      "id": "q3",
+      "shape": "round",
+      "x": 530,
+      "y": 285,
+      "w": 270,
+      "h": 44,
+      "label": {
+        "key": "q3",
+        "literals": [
+          "EurekaHttpClientDecorator"
+        ]
+      }
+    },
+    {
+      "id": "p4",
+      "shape": "round",
+      "x": 816,
+      "y": 50,
+      "w": 300,
+      "h": 44,
+      "label": {
+        "key": "p4",
+        "literals": [
+          "AbstractJerseyEurekaHttpClient"
+        ]
+      }
+    },
+    {
+      "id": "q4",
+      "shape": "round",
+      "x": 816,
+      "y": 285,
+      "w": 300,
+      "h": 44,
+      "label": {
+        "key": "q4",
+        "literals": [
+          "AbstractJerseyEurekaHttpClient"
+        ]
+      }
+    },
+    {
+      "id": "a2",
+      "shape": "box",
+      "x": 425,
+      "y": 135,
+      "w": 20,
+      "h": 110,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "a3",
+      "shape": "box",
+      "x": 655,
+      "y": 175,
+      "w": 20,
+      "h": 70,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "a4",
+      "shape": "box",
+      "x": 956,
+      "y": 215,
+      "w": 20,
+      "h": 30,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          160,
+          94
+        ],
+        [
+          160,
+          285
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          435,
+          94
+        ],
+        [
+          435,
+          285
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          665,
+          94
+        ],
+        [
+          665,
+          285
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          966,
+          94
+        ],
+        [
+          966,
+          285
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          160,
+          135
+        ],
+        [
+          425,
+          135
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m1",
+        "at": [
+          292,
+          122
+        ],
+        "anchor": "middle",
+        "literals": [
+          "run"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          445,
+          175
+        ],
+        [
+          655,
+          175
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m2",
+        "at": [
+          550,
+          162
+        ],
+        "anchor": "middle",
+        "literals": [
+          "sendHeartBeat"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          675,
+          215
+        ],
+        [
+          956,
+          215
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m3",
+        "at": [
+          815,
+          202
+        ],
+        "anchor": "middle",
+        "literals": [
+          "sendHeartBeat"
+        ]
+      }
+    }
+  ],
+  "texts": [
+    {
+      "key": "ttl",
+      "x": 575,
+      "y": 22,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

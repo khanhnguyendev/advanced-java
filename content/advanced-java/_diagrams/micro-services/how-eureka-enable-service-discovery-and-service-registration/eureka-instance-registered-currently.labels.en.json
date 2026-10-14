@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "t0": "Instances currently registered with Eureka",
+    "h1": "Application",
+    "h2": "AMIs",
+    "h3": "Availability Zones",
+    "h4": "Status",
+    "r1a": "SERVICE-CONSUMER",
+    "r1b": "n/a (1)",
+    "r1c": "(1)",
+    "r1d": "UP (1) - mghio-mbp:service-consumer:8888",
+    "r2a": "SERVICE-PROVIDER",
+    "r2b": "n/a (1)",
+    "r2c": "(1)",
+    "r2d": "UP (1) - mghio-mbp:service-provider:9999",
+    "blank": "",
+    "_title": "Eureka dashboard table of instances currently registered",
+    "_desc": "Table with columns Application, AMIs, Availability Zones and Status; SERVICE-CONSUMER is UP on mghio-mbp:service-consumer:8888 and SERVICE-PROVIDER is UP on mghio-mbp:service-provider:9999."
+  }
+}

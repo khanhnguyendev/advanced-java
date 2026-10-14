@@ -1,0 +1,353 @@
+{
+  "id": "high-availability/sentinel-vs-hystrix/slow-start-preheating-mode",
+  "source": {
+    "upstream": "high-availability/sentinel-vs-hystrix/Slow-Start-Preheating-Mode.jpg",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 740,
+    "h": 500
+  },
+  "nodes": [
+    {
+      "id": "tip",
+      "shape": "group",
+      "x": 323,
+      "y": 10,
+      "w": 200,
+      "h": 62,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          0,
+          77
+        ],
+        [
+          740,
+          77
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          0,
+          143
+        ],
+        [
+          740,
+          143
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          0,
+          210
+        ],
+        [
+          740,
+          210
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          0,
+          275
+        ],
+        [
+          740,
+          275
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          0,
+          342
+        ],
+        [
+          740,
+          342
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          0,
+          408
+        ],
+        [
+          740,
+          408
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          418,
+          112
+        ],
+        [
+          418,
+          408
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          0,
+          387
+        ],
+        [
+          120,
+          387
+        ],
+        [
+          123,
+          300
+        ],
+        [
+          180,
+          300
+        ],
+        [
+          185,
+          291
+        ],
+        [
+          225,
+          290
+        ],
+        [
+          228,
+          281
+        ],
+        [
+          265,
+          280
+        ],
+        [
+          270,
+          270
+        ],
+        [
+          290,
+          269
+        ],
+        [
+          305,
+          248
+        ],
+        [
+          330,
+          247
+        ],
+        [
+          350,
+          230
+        ],
+        [
+          362,
+          203
+        ],
+        [
+          385,
+          190
+        ],
+        [
+          398,
+          150
+        ],
+        [
+          410,
+          100
+        ],
+        [
+          418,
+          90
+        ],
+        [
+          440,
+          89
+        ],
+        [
+          490,
+          90
+        ],
+        [
+          560,
+          89
+        ],
+        [
+          740,
+          89
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          97,
+          478
+        ],
+        [
+          117,
+          478
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          218,
+          478
+        ],
+        [
+          238,
+          478
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          103,
+          365
+        ],
+        [
+          135,
+          365
+        ],
+        [
+          135,
+          400
+        ],
+        [
+          103,
+          400
+        ],
+        [
+          103,
+          365
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          373,
+          78
+        ],
+        [
+          445,
+          78
+        ],
+        [
+          445,
+          112
+        ],
+        [
+          373,
+          112
+        ],
+        [
+          373,
+          78
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    }
+  ],
+  "texts": [
+    {
+      "key": "ts",
+      "x": 333,
+      "y": 32,
+      "anchor": "start",
+      "literals": [
+        "2018-04-19 14:03:46"
+      ]
+    },
+    {
+      "key": "readout",
+      "x": 333,
+      "y": 54,
+      "anchor": "start",
+      "literals": [
+        "pass qps : 480.0"
+      ]
+    },
+    {
+      "key": "c2",
+      "x": 50,
+      "y": 165,
+      "anchor": "start"
+    },
+    {
+      "key": "c1",
+      "x": 140,
+      "y": 436,
+      "anchor": "start"
+    },
+    {
+      "key": "pass",
+      "x": 124,
+      "y": 478,
+      "anchor": "start",
+      "literals": [
+        "pass qps"
+      ]
+    },
+    {
+      "key": "block",
+      "x": 245,
+      "y": 478,
+      "anchor": "start",
+      "literals": [
+        "block qps"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

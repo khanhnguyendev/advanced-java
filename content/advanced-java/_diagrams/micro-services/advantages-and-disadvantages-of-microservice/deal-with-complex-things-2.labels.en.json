@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "ytitle": "Y axis -\nfunctional\ndecomposition",
+    "ysub": "Scale by splitting\ndifferent things",
+    "xtitle": "X axis - horizontal duplication",
+    "xsub": "Scale by cloning",
+    "ztitle": "Z axis -\ndata partitioning",
+    "zsub": "Scale by splitting\nsimilar things",
+    "_title": "Scale cube",
+    "_desc": "A three-dimensional cube whose three axes are scaling dimensions: X axis horizontal duplication (scale by cloning), Y axis functional decomposition (scale by splitting different things) and Z axis data partitioning (scale by splitting similar things)."
+  }
+}

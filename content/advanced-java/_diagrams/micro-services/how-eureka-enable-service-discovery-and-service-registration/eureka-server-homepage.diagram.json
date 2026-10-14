@@ -1,0 +1,445 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-homepage.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1100,
+    "h": 840
+  },
+  "nodes": [
+    {
+      "id": "hdr",
+      "shape": "group",
+      "x": 0,
+      "y": 0,
+      "w": 1100,
+      "h": 90,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "rep",
+      "shape": "group",
+      "x": 18,
+      "y": 456,
+      "w": 1064,
+      "h": 48,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ih",
+      "shape": "group",
+      "x": 18,
+      "y": 582,
+      "w": 1064,
+      "h": 46,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "gh",
+      "shape": "group",
+      "x": 18,
+      "y": 748,
+      "w": 1064,
+      "h": 46,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          18,
+          192
+        ],
+        [
+          540,
+          192
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          18,
+          230
+        ],
+        [
+          540,
+          230
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          560,
+          192
+        ],
+        [
+          1090,
+          192
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          560,
+          230
+        ],
+        [
+          1090,
+          230
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          560,
+          266
+        ],
+        [
+          1090,
+          266
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          560,
+          304
+        ],
+        [
+          1090,
+          304
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          560,
+          340
+        ],
+        [
+          1090,
+          340
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t1",
+      "x": 165,
+      "y": 44,
+      "anchor": "start",
+      "literals": [
+        "spring Eureka"
+      ]
+    },
+    {
+      "key": "t2",
+      "x": 744,
+      "y": 46,
+      "anchor": "start",
+      "literals": [
+        "HOME"
+      ]
+    },
+    {
+      "key": "t3",
+      "x": 784,
+      "y": 46,
+      "anchor": "start",
+      "literals": [
+        "LAST 1000 SINCE STARTUP"
+      ]
+    },
+    {
+      "key": "t4",
+      "x": 18,
+      "y": 156,
+      "anchor": "start",
+      "literals": [
+        "System Status"
+      ]
+    },
+    {
+      "key": "t5",
+      "x": 24,
+      "y": 210,
+      "anchor": "start",
+      "literals": [
+        "Environment"
+      ]
+    },
+    {
+      "key": "t6",
+      "x": 343,
+      "y": 210,
+      "anchor": "start",
+      "literals": [
+        "test"
+      ]
+    },
+    {
+      "key": "t7",
+      "x": 24,
+      "y": 248,
+      "anchor": "start",
+      "literals": [
+        "Data center"
+      ]
+    },
+    {
+      "key": "t8",
+      "x": 343,
+      "y": 248,
+      "anchor": "start",
+      "literals": [
+        "default"
+      ]
+    },
+    {
+      "key": "t9",
+      "x": 563,
+      "y": 210,
+      "anchor": "start",
+      "literals": [
+        "Current time"
+      ]
+    },
+    {
+      "key": "t10",
+      "x": 807,
+      "y": 210,
+      "anchor": "start",
+      "literals": [
+        "2020-03-15T09:18:44 +0800"
+      ]
+    },
+    {
+      "key": "t11",
+      "x": 563,
+      "y": 248,
+      "anchor": "start",
+      "literals": [
+        "Uptime"
+      ]
+    },
+    {
+      "key": "t12",
+      "x": 807,
+      "y": 248,
+      "anchor": "start",
+      "literals": [
+        "00:00"
+      ]
+    },
+    {
+      "key": "t13",
+      "x": 563,
+      "y": 284,
+      "anchor": "start",
+      "literals": [
+        "Lease expiration enabled"
+      ]
+    },
+    {
+      "key": "t14",
+      "x": 807,
+      "y": 284,
+      "anchor": "start",
+      "literals": [
+        "false"
+      ]
+    },
+    {
+      "key": "t15",
+      "x": 563,
+      "y": 320,
+      "anchor": "start",
+      "literals": [
+        "Renews threshold"
+      ]
+    },
+    {
+      "key": "t16",
+      "x": 807,
+      "y": 320,
+      "anchor": "start",
+      "literals": [
+        "1"
+      ]
+    },
+    {
+      "key": "t17",
+      "x": 563,
+      "y": 358,
+      "anchor": "start",
+      "literals": [
+        "Renews (last min)"
+      ]
+    },
+    {
+      "key": "t18",
+      "x": 807,
+      "y": 358,
+      "anchor": "start",
+      "literals": [
+        "0"
+      ]
+    },
+    {
+      "key": "t19",
+      "x": 18,
+      "y": 418,
+      "anchor": "start",
+      "literals": [
+        "DS Replicas"
+      ]
+    },
+    {
+      "key": "t20",
+      "x": 36,
+      "y": 478,
+      "anchor": "start",
+      "literals": [
+        "localhost"
+      ]
+    },
+    {
+      "key": "t21",
+      "x": 18,
+      "y": 546,
+      "anchor": "start",
+      "literals": [
+        "Instances currently registered with Eureka"
+      ]
+    },
+    {
+      "key": "t22",
+      "x": 28,
+      "y": 602,
+      "anchor": "start",
+      "literals": [
+        "Application"
+      ]
+    },
+    {
+      "key": "t23",
+      "x": 312,
+      "y": 602,
+      "anchor": "start",
+      "literals": [
+        "AMIs"
+      ]
+    },
+    {
+      "key": "t24",
+      "x": 474,
+      "y": 602,
+      "anchor": "start",
+      "literals": [
+        "Availability Zones"
+      ]
+    },
+    {
+      "key": "t25",
+      "x": 904,
+      "y": 602,
+      "anchor": "start",
+      "literals": [
+        "Status"
+      ]
+    },
+    {
+      "key": "t26",
+      "x": 28,
+      "y": 648,
+      "anchor": "start",
+      "literals": [
+        "No instances available"
+      ]
+    },
+    {
+      "key": "t27",
+      "x": 18,
+      "y": 712,
+      "anchor": "start",
+      "literals": [
+        "General Info"
+      ]
+    },
+    {
+      "key": "t28",
+      "x": 28,
+      "y": 768,
+      "anchor": "start",
+      "literals": [
+        "Name"
+      ]
+    },
+    {
+      "key": "t29",
+      "x": 490,
+      "y": 768,
+      "anchor": "start",
+      "literals": [
+        "Value"
+      ]
+    },
+    {
+      "key": "t30",
+      "x": 28,
+      "y": 814,
+      "anchor": "start",
+      "literals": [
+        "total-avail-memory"
+      ]
+    },
+    {
+      "key": "t31",
+      "x": 490,
+      "y": 814,
+      "anchor": "start",
+      "literals": [
+        "591mb"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

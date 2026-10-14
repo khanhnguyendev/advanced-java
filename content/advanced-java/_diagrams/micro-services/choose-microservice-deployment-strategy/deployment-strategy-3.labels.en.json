@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Deploying a service as a container image on virtual machines",
+    "_desc": "A service is packaged as a container image, which is deployed as three service instances. Each service instance runs inside its own container, and each container runs inside its own VM.",
+    "blank": "",
+    "svc": "SERVICE",
+    "e1": "Packaged As",
+    "e2": "Deployed As",
+    "timg": "Container\nImage",
+    "vm1": "VM",
+    "ct1": "Container",
+    "si1": "SERVICE\nINSTANCE",
+    "vm2": "VM",
+    "ct2": "Container",
+    "si2": "SERVICE\nINSTANCE",
+    "vm3": "VM",
+    "ct3": "Container",
+    "si3": "SERVICE\nINSTANCE"
+  }
+}

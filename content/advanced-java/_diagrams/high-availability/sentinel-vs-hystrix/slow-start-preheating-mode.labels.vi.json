@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "732b99b665605f38a242550419af357a493e55f90b3c6ce2dd73ff1561ec4595",
+    "source_lang": "en"
+  },
+  "labels": {
+    "ts": "2018-04-19 14:03:46",
+    "readout": "pass qps : 480.0",
+    "blank": "",
+    "c2": "2. Sau giai đoạn làm nóng, hệ thống bắt đầu\nxử lý cùng số lượng yêu cầu như đã\nđịnh nghĩa trong các quy tắc",
+    "c1": "1. Hệ thống đã nhàn rỗi một thời gian và\nmột lượng lớn yêu cầu vừa đến",
+    "pass": "pass qps",
+    "block": "block qps",
+    "_title": "Chế độ khởi động chậm có làm nóng: QPS đi qua theo thời gian",
+    "_desc": "Biểu đồ QPS: đường pass qps đi ngang khi hệ thống nhàn rỗi, tăng vọt khi nhiều yêu cầu đến, tăng dần từng bậc trong giai đoạn làm nóng rồi ổn định ở 480.0; block qps nằm trong chú giải."
+  }
+}

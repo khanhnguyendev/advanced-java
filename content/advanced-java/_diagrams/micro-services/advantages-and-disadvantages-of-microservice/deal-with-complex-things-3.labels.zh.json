@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "d3c81b68b390a50f2dcb261a6413c54012057238fa783659c6b6508053585dbe",
+    "source_lang": "en"
+  },
+  "labels": {
+    "ec2": "EC2 实例",
+    "docker": "DOCKER 容器",
+    "trip": "行程\n管理",
+    "rest": "REST\nAPI",
+    "lb": "负载\n均衡器",
+    "blank": "",
+    "_title": "行程管理服务部署在 EC2 实例上的 Docker 容器中，由负载均衡器分发请求",
+    "_desc": "左侧的负载均衡器把请求分发给三个行程管理服务实例。每个实例运行在各自的 Docker 容器中并开放 REST API。这些容器分布在两个 EC2 实例上，第二个 EC2 实例中的最后一个容器为空。"
+  }
+}

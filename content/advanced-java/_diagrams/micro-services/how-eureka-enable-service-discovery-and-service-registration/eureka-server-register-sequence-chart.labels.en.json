@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "6319dd558bdb5d25386520ce6dc6d3a82d84b3b0dbdcd5137fc807e6d460f68b"
+  },
+  "labels": {
+    "p1": "Service to register",
+    "b1": "Service to register",
+    "p2": "ApplicationResource",
+    "b2": "ApplicationResource",
+    "p3": "PeerAwareInstanceRegistryImpl",
+    "b3": "PeerAwareInstanceRegistryImpl",
+    "p4": "PeerEurekaNode",
+    "b4": "PeerEurekaNode",
+    "title": "Eureka service registration (Register) sequence diagram",
+    "m1": "Send request,\npassing Instance info",
+    "m2": "register",
+    "m3": "super.register",
+    "m4": "replicateToPeers",
+    "m5": "replicationClient.register",
+    "loopl": "loop",
+    "note": "[InstanceReplicationTask\ncalled periodically\nin the background]",
+    "blank": "",
+    "_title": "Eureka service registration (Register) sequence diagram",
+    "_desc": "The service to register sends a request carrying its Instance information to ApplicationResource, which calls register, super.register and replicateToPeers; in a loop, InstanceReplicationTask periodically calls replicationClient.register in the background to replicate to PeerEurekaNode."
+  }
+}

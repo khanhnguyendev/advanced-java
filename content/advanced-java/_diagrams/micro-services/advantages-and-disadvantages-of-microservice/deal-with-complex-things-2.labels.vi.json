@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "1ec64da25102016306041f338cf56e7fc0a1a6680d060671021200a007681860",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "ytitle": "Trục Y -\nphân rã\nchức năng",
+    "ysub": "Mở rộng bằng cách\ntách các thứ\nkhác nhau",
+    "xtitle": "Trục X - nhân bản theo chiều ngang",
+    "xsub": "Mở rộng bằng cách nhân bản",
+    "ztitle": "Trục Z -\nphân vùng dữ liệu",
+    "zsub": "Mở rộng bằng cách\ntách các thứ\ntương tự",
+    "_title": "Khối lập phương mở rộng",
+    "_desc": "Một khối lập phương ba chiều có ba trục là ba chiều mở rộng: trục X nhân bản theo chiều ngang (mở rộng bằng cách nhân bản), trục Y phân rã chức năng (mở rộng bằng cách tách các thứ khác nhau) và trục Z phân vùng dữ liệu (mở rộng bằng cách tách các thứ tương tự)."
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "t1": "spring Eureka",
+    "t2": "HOME",
+    "t3": "LAST 1000 SINCE STARTUP",
+    "t4": "System Status",
+    "t5": "Environment",
+    "t6": "test",
+    "t7": "Data center",
+    "t8": "default",
+    "t9": "Current time",
+    "t10": "2020-03-15T09:18:44 +0800",
+    "t11": "Uptime",
+    "t12": "00:00",
+    "t13": "Lease expiration enabled",
+    "t14": "false",
+    "t15": "Renews threshold",
+    "t16": "1",
+    "t17": "Renews (last min)",
+    "t18": "0",
+    "t19": "DS Replicas",
+    "t20": "localhost",
+    "t21": "Instances currently registered with Eureka",
+    "t22": "Application",
+    "t23": "AMIs",
+    "t24": "Availability Zones",
+    "t25": "Status",
+    "t26": "No instances available",
+    "t27": "General Info",
+    "t28": "Name",
+    "t29": "Value",
+    "t30": "total-avail-memory",
+    "t31": "591mb",
+    "blank": "",
+    "_title": "Eureka server homepage",
+    "_desc": "Schematic of the Spring Eureka server homepage: a header with HOME and LAST 1000 SINCE STARTUP, the System Status tables, DS Replicas, the empty table of instances registered with Eureka and the General Info table."
+  }
+}

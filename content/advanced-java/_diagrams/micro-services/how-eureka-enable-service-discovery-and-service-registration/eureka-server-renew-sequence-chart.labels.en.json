@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "c55d89c6684e4f916c1ff9c60da248dd18e54e9410ec1fc6923cb9b63fea4c0a"
+  },
+  "labels": {
+    "ttl": "Eureka service renewal (Renew) sequence diagram",
+    "blank": "",
+    "loop": "loop",
+    "m1": "Send request, passing Instance info",
+    "m2": "renew",
+    "m3": "super.register",
+    "m4": "replicateToPeers",
+    "m5": "replicationClient.register",
+    "note1": "[InstanceReplicationTask\ncalled periodically\nin the background]",
+    "_title": "Eureka service renewal sequence diagram",
+    "_desc": "A registered service sends a renewal request to InstanceResource, which calls renew on PeerAwareInstanceRegistryImpl; that calls super.register and replicateToPeers, and a background task replicates to PeerEurekaNode through replicationClient.register.",
+    "reg_t": "Registered service",
+    "reg_b": "Registered service",
+    "ir_t": "InstanceResource",
+    "ir_b": "InstanceResource",
+    "pa_t": "PeerAwareInstanceRegistryImpl",
+    "pa_b": "PeerAwareInstanceRegistryImpl",
+    "pn_t": "PeerEurekaNode",
+    "pn_b": "PeerEurekaNode"
+  }
+}

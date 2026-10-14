@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "2468f42a129a3a0414ded6a539b0d920631d4deef55f63fc50af3bb13186ea04",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "l_br": "TRÌNH DUYỆT",
+    "l_wa": "ỨNG DỤNG\nWEB",
+    "l_bl": "LOGIC NGHIỆP VỤ",
+    "l_da": "BỘ ĐIỀU HỢP\nCƠ SỞ DỮ LIỆU",
+    "l_my": "MYSQL",
+    "m_br": "TRÌNH DUYỆT",
+    "m_wa": "ỨNG DỤNG\nWEB",
+    "m_ra": "REST\nAPI",
+    "r_ra": "REST\nAPI",
+    "r_bl": "LOGIC NGHIỆP VỤ",
+    "r_da": "BỘ ĐIỀU HỢP\nCƠ SỞ DỮ LIỆU",
+    "r_my": "MYSQL",
+    "_title": "Kiến trúc trước và sau khi di chuyển",
+    "_desc": "Kiến trúc trước và sau khi tách: trình duyệt truy cập logic nghiệp vụ qua ứng dụng web, sau đó logic nghiệp vụ trở thành ứng dụng riêng được gọi qua REST API."
+  }
+}

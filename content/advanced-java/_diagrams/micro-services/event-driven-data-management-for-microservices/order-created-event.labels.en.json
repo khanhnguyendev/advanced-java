@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "orderSvc": "ORDER\nSERVICE",
+    "custSvc": "CUSTOMER\nSERVICE",
+    "broker": "MESSAGE\nBROKER",
+    "place": "Place\nOrder",
+    "evt": "Order\nCreated Event",
+    "orderTbl": "ORDER table",
+    "custTbl": "CUSTOMER table",
+    "resTbl": "RESERVED_CREDIT table",
+    "oh0": "ID",
+    "oh1": "CUSTOMER_ID",
+    "oh2": "STATUS",
+    "oh3": "TOTAL",
+    "ov0": "909",
+    "ov1": "101",
+    "ov2": "NEW",
+    "ov3": "1234",
+    "ch0": "ID",
+    "ch1": "CREDIT_LIMIT",
+    "ch2": "...",
+    "cv0": "202",
+    "cv1": "5000",
+    "rh0": "CUST_ID",
+    "rh1": "ORDER_ID",
+    "rh2": "AMOUNT",
+    "_title": "Order Created Event published through the message broker",
+    "_desc": "Placing an order reaches the ORDER SERVICE, which writes a row to the ORDER table (ID, CUSTOMER_ID, STATUS, TOTAL) and publishes an Order Created Event to the MESSAGE BROKER. The CUSTOMER SERVICE on the right owns the CUSTOMER table (ID, CREDIT_LIMIT) and the RESERVED_CREDIT table (CUST_ID, ORDER_ID, AMOUNT)."
+  }
+}

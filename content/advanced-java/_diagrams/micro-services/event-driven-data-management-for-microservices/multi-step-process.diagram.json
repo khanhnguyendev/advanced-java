@@ -1,0 +1,487 @@
+{
+  "id": "micro-services/event-driven-data-management-for-microservices/multi-step-process",
+  "source": {
+    "upstream": "micro-services/event-driven-data-management-for-microservices/multi-step-process.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 1050,
+    "h": 660
+  },
+  "nodes": [
+    {
+      "id": "order",
+      "shape": "round",
+      "x": 316,
+      "y": 49,
+      "w": 140,
+      "h": 147,
+      "label": {
+        "key": "order"
+      }
+    },
+    {
+      "id": "pub",
+      "shape": "round",
+      "x": 617,
+      "y": 57,
+      "w": 140,
+      "h": 147,
+      "label": {
+        "key": "pub"
+      }
+    },
+    {
+      "id": "lt",
+      "shape": "group",
+      "x": 189,
+      "y": 222,
+      "w": 387,
+      "h": 63,
+      "label": {
+        "key": "b_lt"
+      }
+    },
+    {
+      "id": "broker",
+      "shape": "group",
+      "x": 895,
+      "y": 10,
+      "w": 131,
+      "h": 627,
+      "label": {
+        "key": "b_br"
+      }
+    },
+    {
+      "id": "tord",
+      "shape": "group",
+      "x": 38,
+      "y": 341,
+      "w": 317,
+      "h": 105,
+      "label": {
+        "key": "b_to"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "tev",
+      "shape": "group",
+      "x": 391,
+      "y": 341,
+      "w": 329,
+      "h": 105,
+      "label": {
+        "key": "b_te"
+      },
+      "border": "solid"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          331,
+          196
+        ],
+        [
+          252,
+          321
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          435,
+          196
+        ],
+        [
+          517,
+          321
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          653,
+          204
+        ],
+        [
+          581,
+          322
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          757,
+          132
+        ],
+        [
+          895,
+          132
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "publish",
+        "at": [
+          826,
+          117
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          38,
+          378
+        ],
+        [
+          355,
+          378
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          38,
+          413
+        ],
+        [
+          355,
+          413
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          84,
+          341
+        ],
+        [
+          84,
+          446
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          202,
+          341
+        ],
+        [
+          202,
+          446
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          285,
+          341
+        ],
+        [
+          285,
+          446
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          378
+        ],
+        [
+          720,
+          378
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          413
+        ],
+        [
+          720,
+          413
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          440,
+          341
+        ],
+        [
+          440,
+          446
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          572,
+          341
+        ],
+        [
+          572,
+          446
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          650,
+          341
+        ],
+        [
+          650,
+          446
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_lt",
+      "x": 191,
+      "y": 206,
+      "anchor": "start"
+    },
+    {
+      "key": "t_ins1",
+      "x": 242,
+      "y": 255,
+      "anchor": "middle",
+      "literals": [
+        "INSERT"
+      ]
+    },
+    {
+      "key": "t_ins2",
+      "x": 416,
+      "y": 255,
+      "anchor": "middle",
+      "literals": [
+        "INSERT"
+      ]
+    },
+    {
+      "key": "t_qry",
+      "x": 673,
+      "y": 255,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_ordtab",
+      "x": 42,
+      "y": 322,
+      "anchor": "start",
+      "literals": [
+        "ORDER"
+      ]
+    },
+    {
+      "key": "t_evtab",
+      "x": 396,
+      "y": 322,
+      "anchor": "start",
+      "literals": [
+        "EVENT"
+      ]
+    },
+    {
+      "key": "t_broker",
+      "x": 961,
+      "y": 320,
+      "anchor": "middle"
+    },
+    {
+      "key": "oh0",
+      "x": 61,
+      "y": 360,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "or0",
+      "x": 61,
+      "y": 396,
+      "anchor": "middle",
+      "literals": [
+        "909"
+      ]
+    },
+    {
+      "key": "oh1",
+      "x": 143,
+      "y": 360,
+      "anchor": "middle",
+      "literals": [
+        "CUSTOMER_ID"
+      ]
+    },
+    {
+      "key": "or1",
+      "x": 143,
+      "y": 396,
+      "anchor": "middle",
+      "literals": [
+        "101"
+      ]
+    },
+    {
+      "key": "oh2",
+      "x": 244,
+      "y": 360,
+      "anchor": "middle",
+      "literals": [
+        "STATUS"
+      ]
+    },
+    {
+      "key": "or2",
+      "x": 244,
+      "y": 396,
+      "anchor": "middle",
+      "literals": [
+        "NEW"
+      ]
+    },
+    {
+      "key": "oh3",
+      "x": 320,
+      "y": 360,
+      "anchor": "middle",
+      "literals": [
+        "TOTAL"
+      ]
+    },
+    {
+      "key": "or3",
+      "x": 320,
+      "y": 396,
+      "anchor": "middle",
+      "literals": [
+        "1234"
+      ]
+    },
+    {
+      "key": "eh0",
+      "x": 416,
+      "y": 360,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "er0",
+      "x": 416,
+      "y": 396,
+      "anchor": "middle",
+      "literals": [
+        "84784"
+      ]
+    },
+    {
+      "key": "eh1",
+      "x": 506,
+      "y": 360,
+      "anchor": "middle",
+      "literals": [
+        "TYPE"
+      ]
+    },
+    {
+      "key": "er1",
+      "x": 506,
+      "y": 396,
+      "anchor": "middle"
+    },
+    {
+      "key": "eh2",
+      "x": 611,
+      "y": 360,
+      "anchor": "middle",
+      "literals": [
+        "DATA"
+      ]
+    },
+    {
+      "key": "er2",
+      "x": 611,
+      "y": 396,
+      "anchor": "middle",
+      "literals": [
+        "{...}"
+      ]
+    },
+    {
+      "key": "eh3",
+      "x": 685,
+      "y": 360,
+      "anchor": "middle",
+      "literals": [
+        "STATE"
+      ]
+    },
+    {
+      "key": "er3",
+      "x": 685,
+      "y": 396,
+      "anchor": "middle",
+      "literals": [
+        "NEW"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

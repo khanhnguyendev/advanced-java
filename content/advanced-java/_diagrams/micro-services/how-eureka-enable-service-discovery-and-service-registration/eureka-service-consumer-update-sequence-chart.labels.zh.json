@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "p1": "DiscoveryClient",
+    "q1": "DiscoveryClient",
+    "p2": "CacheRefreshThread",
+    "q2": "CacheRefreshThread",
+    "p3": "EurekaHttpClientDecorator",
+    "q3": "EurekaHttpClientDecorator",
+    "p4": "AbstractJerseyEurekaHttpClient",
+    "q4": "AbstractJerseyEurekaHttpClient",
+    "blank": "",
+    "m1": "initScheduledTasks",
+    "m2": "run",
+    "m3": "refreshRegistry",
+    "m4": "fetchRegistry",
+    "m5": "getAndUpdateDelta",
+    "m6": "getDelta",
+    "m7": "getDelta",
+    "m8": "getApplicationsInternal",
+    "title": "Eureka 服务消费者更新服务列表（Update）时序图",
+    "_title": "Eureka 服务消费者更新服务列表（Update）时序图",
+    "_desc": "时序图：DiscoveryClient 调用 initScheduledTasks，通过 run 触发 CacheRefreshThread，再由 refreshRegistry、fetchRegistry、getAndUpdateDelta 逐层调用，经 EurekaHttpClientDecorator 的 getDelta 调用 AbstractJerseyEurekaHttpClient 的 getDelta 与 getApplicationsInternal。"
+  }
+}

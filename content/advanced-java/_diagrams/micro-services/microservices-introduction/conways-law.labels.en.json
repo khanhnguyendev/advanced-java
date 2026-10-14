@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "en", "status": "source", "source_lang": "en" },
+  "labels": {
+    "_title": "Conway's Law: siloed teams lead to siloed architectures",
+    "_desc": "On the left, three siloed functional teams stacked vertically: UI specialists, middleware specialists and DBAs. On the right, a database feeds an application made of three components, which in turn feeds a user interface document. A dashed line separates the teams from the architecture.",
+    "blank": "",
+    "ui_l": "UI\nspecialists",
+    "mw_l": "middleware\nspecialists",
+    "db_l": "DBAs",
+    "t1": "Siloed functional teams...",
+    "t2": "... lead to silod application architectures.\nBecause Conway's Law"
+  }
+}

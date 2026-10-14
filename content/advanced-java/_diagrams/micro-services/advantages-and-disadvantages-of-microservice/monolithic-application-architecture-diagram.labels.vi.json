@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "75e038df700d23c0e1f1d0d55acee7094b4b5b54948e30bf5ee30b86a51ea913",
+    "source_lang": "en"
+  },
+  "labels": {
+    "mysqlx": "MYSQL",
+    "passenger": "HÀNH KHÁCH",
+    "driver": "TÀI XẾ",
+    "blank": "",
+    "mysqla": "BỘ ĐIỀU HỢP\nMYSQL",
+    "rest": "REST\nAPI",
+    "web": "WEB\nUI",
+    "twilio": "BỘ ĐIỀU HỢP\nTWILIO",
+    "sendgrid": "BỘ ĐIỀU HỢP\nSENDGRID",
+    "stripe": "BỘ ĐIỀU HỢP\nSTRIPE",
+    "pm": "QUẢN LÝ\nHÀNH KHÁCH",
+    "bill": "TÍNH PHÍ",
+    "noti": "THÔNG BÁO",
+    "pay": "THANH TOÁN",
+    "trip": "QUẢN LÝ\nCHUYẾN ĐI",
+    "dm": "QUẢN LÝ\nTÀI XẾ",
+    "title": "Kiến trúc\nnguyên khối",
+    "_title": "Kiến trúc ứng dụng nguyên khối (lục giác)",
+    "_desc": "Một hình lục giác chứa các module nghiệp vụ (quản lý hành khách, tính phí, thông báo, thanh toán, quản lý chuyến đi, quản lý tài xế) được bao quanh bởi các bộ điều hợp: bộ điều hợp MySQL tới cơ sở dữ liệu MySQL, REST API cho ứng dụng hành khách và tài xế, giao diện web, cùng các bộ điều hợp Twilio, SendGrid và Stripe."
+  }
+}

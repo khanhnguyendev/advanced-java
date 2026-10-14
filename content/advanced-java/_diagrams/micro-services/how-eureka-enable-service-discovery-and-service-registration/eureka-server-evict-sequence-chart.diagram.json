@@ -1,0 +1,482 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-server-evict-sequence-chart.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1340,
+    "h": 580
+  },
+  "nodes": [
+    {
+      "id": "eb_t",
+      "shape": "round",
+      "x": 19,
+      "y": 68,
+      "w": 188,
+      "h": 59,
+      "label": {
+        "key": "eb_t",
+        "literals": [
+          "EurekaBootStrap"
+        ]
+      }
+    },
+    {
+      "id": "eb_b",
+      "shape": "round",
+      "x": 19,
+      "y": 497,
+      "w": 188,
+      "h": 59,
+      "label": {
+        "key": "eb_b",
+        "literals": [
+          "EurekaBootStrap"
+        ]
+      }
+    },
+    {
+      "id": "pa_t",
+      "shape": "round",
+      "x": 222,
+      "y": 68,
+      "w": 325,
+      "h": 59,
+      "label": {
+        "key": "pa_t",
+        "literals": [
+          "PeerAwareInstanceRegistryImpl"
+        ]
+      }
+    },
+    {
+      "id": "pa_b",
+      "shape": "round",
+      "x": 222,
+      "y": 497,
+      "w": 325,
+      "h": 59,
+      "label": {
+        "key": "pa_b",
+        "literals": [
+          "PeerAwareInstanceRegistryImpl"
+        ]
+      }
+    },
+    {
+      "id": "ab_t",
+      "shape": "round",
+      "x": 561,
+      "y": 68,
+      "w": 261,
+      "h": 59,
+      "label": {
+        "key": "ab_t",
+        "literals": [
+          "AbstractInstanceRegistry"
+        ]
+      }
+    },
+    {
+      "id": "ab_b",
+      "shape": "round",
+      "x": 561,
+      "y": 497,
+      "w": 261,
+      "h": 59,
+      "label": {
+        "key": "ab_b",
+        "literals": [
+          "AbstractInstanceRegistry"
+        ]
+      }
+    },
+    {
+      "id": "et_t",
+      "shape": "round",
+      "x": 1076,
+      "y": 68,
+      "w": 148,
+      "h": 59,
+      "label": {
+        "key": "et_t",
+        "literals": [
+          "EvictionTask"
+        ]
+      }
+    },
+    {
+      "id": "et_b",
+      "shape": "round",
+      "x": 1076,
+      "y": 497,
+      "w": 148,
+      "h": 59,
+      "label": {
+        "key": "et_b",
+        "literals": [
+          "EvictionTask"
+        ]
+      }
+    },
+    {
+      "id": "le_t",
+      "shape": "round",
+      "x": 1238,
+      "y": 68,
+      "w": 86,
+      "h": 59,
+      "label": {
+        "key": "le_t",
+        "literals": [
+          "Lease"
+        ]
+      }
+    },
+    {
+      "id": "le_b",
+      "shape": "round",
+      "x": 1238,
+      "y": 497,
+      "w": 86,
+      "h": 59,
+      "label": {
+        "key": "le_b",
+        "literals": [
+          "Lease"
+        ]
+      }
+    },
+    {
+      "id": "loop",
+      "shape": "group",
+      "border": "solid",
+      "x": 760,
+      "y": 374,
+      "w": 534,
+      "h": 87,
+      "label": {
+        "key": "loop"
+      }
+    },
+    {
+      "id": "pa_bar",
+      "shape": "box",
+      "x": 371,
+      "y": 171,
+      "w": 26,
+      "h": 308,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ab_bar1",
+      "shape": "box",
+      "x": 680,
+      "y": 214,
+      "w": 22,
+      "h": 265,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ab_bar2",
+      "shape": "box",
+      "x": 706,
+      "y": 301,
+      "w": 22,
+      "h": 178,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ab_bar3",
+      "shape": "box",
+      "x": 732,
+      "y": 357,
+      "w": 22,
+      "h": 122,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "et_bar",
+      "shape": "box",
+      "x": 1137,
+      "y": 258,
+      "w": 26,
+      "h": 221,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "le_bar",
+      "shape": "box",
+      "x": 1268,
+      "y": 444,
+      "w": 26,
+      "h": 35,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          113,
+          127
+        ],
+        [
+          113,
+          497
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          384,
+          127
+        ],
+        [
+          384,
+          497
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          691,
+          127
+        ],
+        [
+          691,
+          497
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          1150,
+          127
+        ],
+        [
+          1150,
+          497
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          1281,
+          127
+        ],
+        [
+          1281,
+          497
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    },
+    {
+      "points": [
+        [
+          113,
+          171
+        ],
+        [
+          371,
+          171
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m1",
+        "at": [
+          241,
+          160
+        ],
+        "anchor": "middle",
+        "literals": [
+          "openForTraffic"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          397,
+          215
+        ],
+        [
+          680,
+          215
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m2",
+        "at": [
+          538,
+          204
+        ],
+        "anchor": "middle",
+        "literals": [
+          "super.postInit"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          702,
+          258
+        ],
+        [
+          1137,
+          258
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m3",
+        "at": [
+          920,
+          247
+        ],
+        "anchor": "middle",
+        "literals": [
+          "run"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          1137,
+          301
+        ],
+        [
+          728,
+          301
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m4",
+        "at": [
+          927,
+          290
+        ],
+        "anchor": "middle",
+        "literals": [
+          "evict"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          728,
+          331
+        ],
+        [
+          830,
+          331
+        ],
+        [
+          830,
+          357
+        ],
+        [
+          754,
+          357
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m5",
+        "at": [
+          668,
+          332
+        ],
+        "anchor": "end",
+        "literals": [
+          "internalCancel"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          754,
+          444
+        ],
+        [
+          1268,
+          444
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "m6",
+        "at": [
+          1011,
+          433
+        ],
+        "anchor": "middle",
+        "literals": [
+          "cancel"
+        ]
+      }
+    }
+  ],
+  "texts": [
+    {
+      "key": "title",
+      "x": 660,
+      "y": 27,
+      "anchor": "middle",
+      "literals": []
+    },
+    {
+      "key": "guard",
+      "x": 826,
+      "y": 395,
+      "anchor": "start",
+      "literals": [
+        "evictionTimer"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

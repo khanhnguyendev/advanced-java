@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "840bbf980137f92daa23fa3ba69ea88de8260e687517b44aba4c50c97b1687e7",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Triển khai dịch vụ dưới dạng image VM",
+    "_desc": "Dịch vụ được đóng gói thành một image VM, sau đó được triển khai thành ba VM, mỗi VM chạy một instance dịch vụ.",
+    "blank": "",
+    "svc": "DỊCH VỤ",
+    "pkg": "Đóng gói thành",
+    "img": "Image VM",
+    "dep": "Triển khai thành",
+    "vm": "VM",
+    "inst": "INSTANCE\nDỊCH VỤ"
+  }
+}

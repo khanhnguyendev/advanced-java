@@ -1,0 +1,225 @@
+{
+  "id": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-3",
+  "source": {
+    "upstream": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-3.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 780,
+    "h": 740
+  },
+  "nodes": [
+    {
+      "id": "svc",
+      "shape": "round",
+      "x": 20,
+      "y": 303,
+      "w": 120,
+      "h": 126,
+      "label": {
+        "key": "svc"
+      }
+    },
+    {
+      "id": "img",
+      "shape": "group",
+      "x": 262,
+      "y": 330,
+      "w": 124,
+      "h": 74,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "vm1",
+      "shape": "group",
+      "border": "solid",
+      "x": 511,
+      "y": 12,
+      "w": 250,
+      "h": 225,
+      "label": {
+        "key": "vm1"
+      }
+    },
+    {
+      "id": "ct1",
+      "shape": "group",
+      "border": "solid",
+      "x": 532,
+      "y": 51,
+      "w": 208,
+      "h": 169,
+      "label": {
+        "key": "ct1"
+      }
+    },
+    {
+      "id": "si1",
+      "shape": "round",
+      "x": 576,
+      "y": 89,
+      "w": 120,
+      "h": 118,
+      "label": {
+        "key": "si1"
+      }
+    },
+    {
+      "id": "vm2",
+      "shape": "group",
+      "border": "solid",
+      "x": 511,
+      "y": 256,
+      "w": 250,
+      "h": 225,
+      "label": {
+        "key": "vm2"
+      }
+    },
+    {
+      "id": "ct2",
+      "shape": "group",
+      "border": "solid",
+      "x": 532,
+      "y": 295,
+      "w": 208,
+      "h": 169,
+      "label": {
+        "key": "ct2"
+      }
+    },
+    {
+      "id": "si2",
+      "shape": "round",
+      "x": 576,
+      "y": 333,
+      "w": 120,
+      "h": 118,
+      "label": {
+        "key": "si2"
+      }
+    },
+    {
+      "id": "vm3",
+      "shape": "group",
+      "border": "solid",
+      "x": 511,
+      "y": 499,
+      "w": 250,
+      "h": 225,
+      "label": {
+        "key": "vm3"
+      }
+    },
+    {
+      "id": "ct3",
+      "shape": "group",
+      "border": "solid",
+      "x": 532,
+      "y": 538,
+      "w": 208,
+      "h": 169,
+      "label": {
+        "key": "ct3"
+      }
+    },
+    {
+      "id": "si3",
+      "shape": "round",
+      "x": 576,
+      "y": 576,
+      "w": 120,
+      "h": 118,
+      "label": {
+        "key": "si3"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          140,
+          367
+        ],
+        [
+          262,
+          367
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e1",
+        "at": [
+          201,
+          347
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          386,
+          349
+        ],
+        [
+          511,
+          225
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e2",
+        "at": [
+          395,
+          262
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          386,
+          367
+        ],
+        [
+          511,
+          367
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          386,
+          385
+        ],
+        [
+          511,
+          506
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "timg",
+      "x": 324,
+      "y": 367,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

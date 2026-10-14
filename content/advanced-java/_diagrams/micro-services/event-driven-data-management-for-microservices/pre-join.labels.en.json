@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "order": "ORDER\nSERVICE",
+    "customer": "CUSTOMER\nSERVICE",
+    "updater": "CUSTOMER\nORDER VIEW\nUPDATER",
+    "query": "CUSTOMER ORDER\nVIEW QUERY\nSERVICE",
+    "view": "Customer\nOrder\nView",
+    "update": "Update",
+    "queryl": "Query",
+    "find": "Find Customer\nand Orders",
+    "orderev": "Order Created\nOrder Cancelled\nOrder Shipped\n...",
+    "custev": "Customer Created\nCustomer Cancelled\nCustomer Shipped\n...",
+    "broker": "MESSAGE BROKER",
+    "blank": "",
+    "_title": "Maintaining a pre-joined Customer Order View from events",
+    "_desc": "The order and customer services publish events to a message broker; the Customer Order View updater consumes them and updates the Customer Order View; the query service reads the view to answer Find Customer and Orders."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "b4786b3b871769f34dd10b762673afab2c91a8fb0451f0ebc3198d7de6076f6c",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "打车应用的微服务拆分",
+    "_desc": "六角形微服务（乘客管理、计费、支付、驾驶员管理、行程管理、通知、乘客 Web UI、驾驶员 Web UI）各自开放 REST API。API Gateway 把移动端和 Web 客户端连接到这些服务；计费和通知使用 Stripe、Twilio、SendGrid 适配器。",
+    "blank": "",
+    "gw": "API\nGATEWAY",
+    "pm": "乘客\n管理",
+    "bill": "计费",
+    "pwui": "乘客\nWEB UI",
+    "dm": "驾驶员\n管理",
+    "pay": "支付",
+    "dwui": "驾驶员\nWEB UI",
+    "trip": "行程\n管理",
+    "notif": "通知",
+    "stripe": "STRIPE\n适配器",
+    "twilio": "TWILIO\n适配器",
+    "sendgrid": "SENDGRID\n适配器",
+    "rest1": "REST\nAPI",
+    "rest2": "REST\nAPI",
+    "rest3": "REST\nAPI",
+    "rest4": "REST\nAPI",
+    "rest5": "REST\nAPI",
+    "rest6": "REST\nAPI"
+  }
+}

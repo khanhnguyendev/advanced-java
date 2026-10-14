@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "2468f42a129a3a0414ded6a539b0d920631d4deef55f63fc50af3bb13186ea04",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "l_br": "浏览器",
+    "l_wa": "Web 应用",
+    "l_bl": "业务逻辑",
+    "l_da": "数据库\n适配器",
+    "l_my": "MYSQL",
+    "m_br": "浏览器",
+    "m_wa": "Web 应用",
+    "m_ra": "REST\nAPI",
+    "r_ra": "REST\nAPI",
+    "r_bl": "业务逻辑",
+    "r_da": "数据库\n适配器",
+    "r_my": "MYSQL",
+    "_title": "迁移前后的架构",
+    "_desc": "迁移前后的架构对比：浏览器经 Web 应用访问业务逻辑，迁移后业务逻辑被拆为经 REST API 调用的独立应用"
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "id": "high-availability/sentinel-vs-hystrix/brp",
+  "source": {
+    "upstream": "high-availability/sentinel-vs-hystrix/BRP.jpg",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 866,
+    "h": 136
+  },
+  "nodes": [
+    {
+      "id": "in0",
+      "shape": "box",
+      "x": 50,
+      "y": 18,
+      "w": 16,
+      "h": 100,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "in1",
+      "shape": "box",
+      "x": 110,
+      "y": 18,
+      "w": 16,
+      "h": 100,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "in2",
+      "shape": "box",
+      "x": 162,
+      "y": 18,
+      "w": 16,
+      "h": 100,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "in3",
+      "shape": "box",
+      "x": 184,
+      "y": 18,
+      "w": 16,
+      "h": 100,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "in4",
+      "shape": "box",
+      "x": 206,
+      "y": 18,
+      "w": 16,
+      "h": 100,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "neck0",
+      "shape": "box",
+      "x": 346,
+      "y": 62,
+      "w": 60,
+      "h": 30,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "neck1",
+      "shape": "box",
+      "x": 406,
+      "y": 62,
+      "w": 60,
+      "h": 30,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "neck2",
+      "shape": "box",
+      "x": 466,
+      "y": 62,
+      "w": 58,
+      "h": 30,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "out0",
+      "shape": "box",
+      "x": 680,
+      "y": 18,
+      "w": 16,
+      "h": 100,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          228,
+          18
+        ],
+        [
+          260,
+          18
+        ],
+        [
+          346,
+          62
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          346,
+          92
+        ],
+        [
+          260,
+          118
+        ],
+        [
+          228,
+          118
+        ],
+        [
+          228,
+          18
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          524,
+          62
+        ],
+        [
+          612,
+          18
+        ],
+        [
+          644,
+          18
+        ],
+        [
+          644,
+          118
+        ],
+        [
+          612,
+          118
+        ],
+        [
+          524,
+          92
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          228,
+          18
+        ],
+        [
+          4,
+          18
+        ],
+        [
+          4,
+          118
+        ],
+        [
+          228,
+          118
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          644,
+          18
+        ],
+        [
+          862,
+          18
+        ],
+        [
+          862,
+          118
+        ],
+        [
+          644,
+          118
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          376,
+          15
+        ],
+        [
+          481,
+          15
+        ],
+        [
+          481,
+          2
+        ],
+        [
+          496,
+          30
+        ],
+        [
+          481,
+          58
+        ],
+        [
+          481,
+          45
+        ],
+        [
+          376,
+          45
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

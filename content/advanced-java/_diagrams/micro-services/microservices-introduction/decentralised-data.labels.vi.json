@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "503b7ed69b6d24b09350cf2bcc67546e86a461239a0cbd4b25436ea756ad1467",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Hệ thống nguyên khối dùng chung một cơ sở dữ liệu so với microservices có cơ sở dữ liệu riêng",
+    "_desc": "Hai góc nhìn đặt cạnh nhau. Bên trái, người dùng truy cập một ứng dụng nguyên khối dựa trên một cơ sở dữ liệu dùng chung chứa mọi bảng. Bên phải, nhiều dịch vụ cùng cung cấp một tài liệu giao diện người dùng cho người dùng xem, mỗi dịch vụ dùng cơ sở dữ liệu riêng.",
+    "blank": "",
+    "t1": "Hệ thống nguyên khối -\nmột cơ sở dữ liệu duy nhất",
+    "t2": "Microservices -\ncơ sở dữ liệu riêng của ứng dụng"
+  }
+}

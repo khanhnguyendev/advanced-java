@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "abdb8cf089d4b4e9280be639d7c23a5975ea01d37f5c8c045f72bef25aa47916",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Trạng thái đơn hàng chuyển thành OPEN sau khi tín dụng đã giữ chỗ",
+    "_desc": "Dịch vụ đơn hàng nhận sự kiện tín dụng đã giữ chỗ từ message broker và đặt STATUS của đơn hàng thành OPEN trong bảng ORDER của mình, còn dịch vụ khách hàng giữ bảng CUSTOMER và bảng RESERVED_CREDIT riêng.",
+    "order_svc": "DỊCH VỤ\nĐƠN HÀNG",
+    "cust_svc": "DỊCH VỤ\nKHÁCH HÀNG",
+    "broker": "MESSAGE\nBROKER",
+    "credit": "Tín dụng\nđã giữ chỗ",
+    "tbl_order": "Bảng ORDER",
+    "tbl_cust": "Bảng CUSTOMER",
+    "tbl_res": "Bảng RESERVED_CREDIT",
+    "blank": "",
+    "dots": "...",
+    "ID": "ID",
+    "CUSTOMER_ID": "CUSTOMER_ID",
+    "STATUS": "STATUS",
+    "TOTAL": "TOTAL",
+    "909": "909",
+    "101": "101",
+    "OPEN": "OPEN",
+    "1234": "1234",
+    "CREDIT_LIMIT": "CREDIT_LIMIT",
+    "202": "202",
+    "5000": "5000",
+    "CUST_ID": "CUST_ID",
+    "ORDER_ID": "ORDER_ID",
+    "AMOUNT": "AMOUNT"
+  }
+}

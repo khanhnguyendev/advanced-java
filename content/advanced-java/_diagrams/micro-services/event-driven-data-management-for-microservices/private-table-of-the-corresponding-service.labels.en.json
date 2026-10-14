@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "orderSvc": "ORDER\nSERVICE",
+    "custSvc": "CUSTOMER\nSERVICE",
+    "orderTbl": "ORDER table",
+    "custTbl": "CUSTOMER table",
+    "oID": "ID",
+    "oCID": "CUSTOMER_ID",
+    "oSt": "STATUS",
+    "oTot": "TOTAL",
+    "cID": "ID",
+    "cLim": "CREDIT_LIMIT",
+    "cDots": "...",
+    "blank": "",
+    "_title": "Each service owns a private table",
+    "_desc": "Two dotted regions side by side. On the left the ORDER SERVICE box points down to the ORDER table with columns ID, CUSTOMER_ID, STATUS and TOTAL. On the right the CUSTOMER SERVICE box points down to the CUSTOMER table with columns ID, CREDIT_LIMIT and an ellipsis. A crossed-out arrow from ORDER SERVICE to the CUSTOMER table shows direct access across services is not allowed."
+  }
+}

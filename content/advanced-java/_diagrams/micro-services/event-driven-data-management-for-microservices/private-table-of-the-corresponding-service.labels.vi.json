@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "5cfa67512ad26cd5976cbed7d77ebaa5796b34afa9120ccbb328f9d47c1245f2",
+    "source_lang": "en"
+  },
+  "labels": {
+    "orderSvc": "DỊCH VỤ\nĐƠN HÀNG",
+    "custSvc": "DỊCH VỤ\nKHÁCH HÀNG",
+    "orderTbl": "Bảng ORDER",
+    "custTbl": "Bảng CUSTOMER",
+    "oID": "ID",
+    "oCID": "CUSTOMER_ID",
+    "oSt": "STATUS",
+    "oTot": "TOTAL",
+    "cID": "ID",
+    "cLim": "CREDIT_LIMIT",
+    "cDots": "...",
+    "blank": "",
+    "_title": "Mỗi dịch vụ sở hữu một bảng riêng",
+    "_desc": "Hai vùng nét chấm cạnh nhau. Bên trái, khối dịch vụ đơn hàng trỏ xuống bảng ORDER với các cột ID, CUSTOMER_ID, STATUS và TOTAL. Bên phải, khối dịch vụ khách hàng trỏ xuống bảng CUSTOMER với các cột ID, CREDIT_LIMIT và dấu ba chấm. Mũi tên từ dịch vụ đơn hàng tới bảng CUSTOMER bị gạch chéo, nghĩa là không được truy cập trực tiếp giữa các dịch vụ."
+  }
+}

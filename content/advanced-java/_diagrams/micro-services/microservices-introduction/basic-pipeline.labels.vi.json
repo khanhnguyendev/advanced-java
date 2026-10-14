@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "8ab75ea48b6773e419071855aaa7fad49a6c8ced034a7e51473bfa24aff72b2f",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "t1": "Biên dịch,\nkiểm thử đơn vị\nvà chức năng",
+    "t2": "Kiểm thử\nchấp nhận",
+    "t3": "Kiểm thử\ntích hợp",
+    "t4": "Kiểm thử chấp nhận\ncủa người dùng",
+    "t5": "Kiểm thử\nhiệu năng",
+    "tprod": "Triển khai lên\nmôi trường\nproduction",
+    "b1": "Chạy trên\nmáy build",
+    "b2": "Triển khai\ntrên\nmáy build",
+    "b3": "Triển khai lên\nmôi trường\ntích hợp",
+    "b4": "Triển khai lên\nmôi trường\nUAT",
+    "b5": "Triển khai lên\nmôi trường\nhiệu năng",
+    "_title": "Đường ống build cơ bản",
+    "_desc": "Một đường ống gồm các giai đoạn: biên dịch, kiểm thử đơn vị và chức năng, kiểm thử chấp nhận, tích hợp, chấp nhận của người dùng và hiệu năng, rồi triển khai lên môi trường production; dưới mỗi giai đoạn là hộp nêu môi trường chạy."
+  }
+}

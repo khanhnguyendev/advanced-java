@@ -1,0 +1,177 @@
+{
+  "id": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently",
+  "source": {
+    "upstream": "micro-services/how-eureka-enable-service-discovery-and-service-registration/eureka-instance-registered-currently.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 1000,
+    "h": 125
+  },
+  "nodes": [
+    {
+      "id": "panel",
+      "shape": "group",
+      "border": "solid",
+      "x": 5,
+      "y": 32,
+      "w": 990,
+      "h": 88,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          5,
+          60
+        ],
+        [
+          995,
+          60
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          5,
+          89
+        ],
+        [
+          995,
+          89
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t0",
+      "x": 10,
+      "y": 16,
+      "anchor": "start",
+      "literals": [
+        "Instances currently registered with Eureka"
+      ]
+    },
+    {
+      "key": "h1",
+      "x": 20,
+      "y": 46,
+      "anchor": "start",
+      "literals": [
+        "Application"
+      ]
+    },
+    {
+      "key": "h2",
+      "x": 270,
+      "y": 46,
+      "anchor": "start",
+      "literals": [
+        "AMIs"
+      ]
+    },
+    {
+      "key": "h3",
+      "x": 360,
+      "y": 46,
+      "anchor": "start",
+      "literals": [
+        "Availability Zones"
+      ]
+    },
+    {
+      "key": "h4",
+      "x": 560,
+      "y": 46,
+      "anchor": "start",
+      "literals": [
+        "Status"
+      ]
+    },
+    {
+      "key": "r1a",
+      "x": 20,
+      "y": 74,
+      "anchor": "start",
+      "literals": [
+        "SERVICE-CONSUMER"
+      ]
+    },
+    {
+      "key": "r1b",
+      "x": 270,
+      "y": 74,
+      "anchor": "start",
+      "literals": [
+        "n/a (1)"
+      ]
+    },
+    {
+      "key": "r1c",
+      "x": 360,
+      "y": 74,
+      "anchor": "start",
+      "literals": [
+        "(1)"
+      ]
+    },
+    {
+      "key": "r1d",
+      "x": 560,
+      "y": 74,
+      "anchor": "start",
+      "literals": [
+        "UP (1) - mghio-mbp:service-consumer:8888"
+      ]
+    },
+    {
+      "key": "r2a",
+      "x": 20,
+      "y": 104,
+      "anchor": "start",
+      "literals": [
+        "SERVICE-PROVIDER"
+      ]
+    },
+    {
+      "key": "r2b",
+      "x": 270,
+      "y": 104,
+      "anchor": "start",
+      "literals": [
+        "n/a (1)"
+      ]
+    },
+    {
+      "key": "r2c",
+      "x": 360,
+      "y": 104,
+      "anchor": "start",
+      "literals": [
+        "(1)"
+      ]
+    },
+    {
+      "key": "r2d",
+      "x": 560,
+      "y": 104,
+      "anchor": "start",
+      "literals": [
+        "UP (1) - mghio-mbp:service-provider:9999"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

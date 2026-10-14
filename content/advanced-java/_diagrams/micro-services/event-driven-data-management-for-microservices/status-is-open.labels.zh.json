@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "abdb8cf089d4b4e9280be639d7c23a5975ea01d37f5c8c045f72bef25aa47916",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "预留信用后订单状态变为 OPEN",
+    "_desc": "订单服务从消息代理收到 Credit Reserved 事件，并在自己的 ORDER 表中把订单的 STATUS 改为 OPEN；客户服务则维护自己的 CUSTOMER 表和 RESERVED_CREDIT 表。",
+    "order_svc": "订单服务",
+    "cust_svc": "客户服务",
+    "broker": "消息代理",
+    "credit": "信用\n预留",
+    "tbl_order": "ORDER 表",
+    "tbl_cust": "CUSTOMER 表",
+    "tbl_res": "RESERVED_CREDIT 表",
+    "blank": "",
+    "dots": "...",
+    "ID": "ID",
+    "CUSTOMER_ID": "CUSTOMER_ID",
+    "STATUS": "STATUS",
+    "TOTAL": "TOTAL",
+    "909": "909",
+    "101": "101",
+    "OPEN": "OPEN",
+    "1234": "1234",
+    "CREDIT_LIMIT": "CREDIT_LIMIT",
+    "202": "202",
+    "5000": "5000",
+    "CUST_ID": "CUST_ID",
+    "ORDER_ID": "ORDER_ID",
+    "AMOUNT": "AMOUNT"
+  }
+}

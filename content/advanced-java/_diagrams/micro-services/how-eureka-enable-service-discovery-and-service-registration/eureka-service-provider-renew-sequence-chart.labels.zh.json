@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "p1": "DiscoveryClient.HeartbeatThread",
+    "q1": "DiscoveryClient.HeartbeatThread",
+    "p2": "DiscoveryClient",
+    "q2": "DiscoveryClient",
+    "p3": "EurekaHttpClientDecorator",
+    "q3": "EurekaHttpClientDecorator",
+    "p4": "AbstractJerseyEurekaHttpClient",
+    "q4": "AbstractJerseyEurekaHttpClient",
+    "m1": "run",
+    "m2": "sendHeartBeat",
+    "m3": "sendHeartBeat",
+    "ttl": "Eureka 服务提供者服务续约（Renew）时序图",
+    "blank": "",
+    "_title": "Eureka 服务提供者服务续约时序图",
+    "_desc": "时序图：DiscoveryClient.HeartbeatThread 调用 DiscoveryClient 的 run，DiscoveryClient 调用 EurekaHttpClientDecorator 的 sendHeartBeat，再调用 AbstractJerseyEurekaHttpClient 的 sendHeartBeat。"
+  }
+}

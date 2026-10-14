@@ -1,0 +1,267 @@
+{
+  "id": "micro-services/microservices-introduction/basic-pipeline",
+  "source": {
+    "upstream": "micro-services/microservices-introduction/basic-pipeline.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 860,
+    "h": 260
+  },
+  "nodes": [
+    {
+      "id": "start",
+      "shape": "box",
+      "x": 58,
+      "y": 98,
+      "w": 24,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "gate1",
+      "shape": "circle",
+      "x": 175,
+      "y": 95,
+      "w": 30,
+      "h": 30,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "gate2",
+      "shape": "circle",
+      "x": 295,
+      "y": 95,
+      "w": 30,
+      "h": 30,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "gate3",
+      "shape": "circle",
+      "x": 415,
+      "y": 95,
+      "w": 30,
+      "h": 30,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "gate4",
+      "shape": "circle",
+      "x": 535,
+      "y": 95,
+      "w": 30,
+      "h": 30,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "prod",
+      "shape": "circle",
+      "x": 652,
+      "y": 92,
+      "w": 36,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "b1",
+      "shape": "round",
+      "x": 14,
+      "y": 160,
+      "w": 112,
+      "h": 70,
+      "label": {
+        "key": "b1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "b2",
+      "shape": "round",
+      "x": 134,
+      "y": 160,
+      "w": 112,
+      "h": 70,
+      "label": {
+        "key": "b2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "b3",
+      "shape": "round",
+      "x": 254,
+      "y": 160,
+      "w": 112,
+      "h": 70,
+      "label": {
+        "key": "b3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "b4",
+      "shape": "round",
+      "x": 374,
+      "y": 160,
+      "w": 112,
+      "h": 70,
+      "label": {
+        "key": "b4",
+        "literals": [
+          "UAT"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "b5",
+      "shape": "round",
+      "x": 494,
+      "y": 160,
+      "w": 112,
+      "h": 70,
+      "label": {
+        "key": "b5"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          82,
+          110
+        ],
+        [
+          175,
+          110
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          205,
+          110
+        ],
+        [
+          295,
+          110
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          325,
+          110
+        ],
+        [
+          415,
+          110
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          445,
+          110
+        ],
+        [
+          535,
+          110
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          565,
+          110
+        ],
+        [
+          652,
+          110
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t1",
+      "x": 80,
+      "y": 52,
+      "anchor": "middle",
+      "literals": []
+    },
+    {
+      "key": "t2",
+      "x": 190,
+      "y": 52,
+      "anchor": "middle",
+      "literals": []
+    },
+    {
+      "key": "t3",
+      "x": 310,
+      "y": 52,
+      "anchor": "middle",
+      "literals": []
+    },
+    {
+      "key": "t4",
+      "x": 430,
+      "y": 52,
+      "anchor": "middle",
+      "literals": []
+    },
+    {
+      "key": "t5",
+      "x": 550,
+      "y": 52,
+      "anchor": "middle",
+      "literals": []
+    },
+    {
+      "key": "tprod",
+      "x": 745,
+      "y": 110,
+      "anchor": "middle",
+      "literals": []
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

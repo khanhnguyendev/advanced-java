@@ -1,0 +1,572 @@
+{
+  "id": "micro-services/event-driven-data-management-for-microservices/credit-reserved-event",
+  "source": {
+    "upstream": "micro-services/event-driven-data-management-for-microservices/Credit-Reserved-Event.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 1200,
+    "h": 704
+  },
+  "nodes": [
+    {
+      "id": "gl",
+      "shape": "group",
+      "x": 32,
+      "y": 16,
+      "w": 456,
+      "h": 538,
+      "label": {
+        "key": "blank"
+      },
+      "border": "dotted"
+    },
+    {
+      "id": "gr",
+      "shape": "group",
+      "x": 712,
+      "y": 16,
+      "w": 464,
+      "h": 678,
+      "label": {
+        "key": "blank"
+      },
+      "border": "dotted"
+    },
+    {
+      "id": "gb",
+      "shape": "group",
+      "x": 566,
+      "y": 12,
+      "w": 134,
+      "h": 681,
+      "label": {
+        "key": "blank"
+      },
+      "border": "dotted"
+    },
+    {
+      "id": "os",
+      "shape": "round",
+      "x": 192,
+      "y": 68,
+      "w": 142,
+      "h": 156,
+      "label": {
+        "key": "os"
+      }
+    },
+    {
+      "id": "cs",
+      "shape": "round",
+      "x": 906,
+      "y": 68,
+      "w": 142,
+      "h": 156,
+      "label": {
+        "key": "cs"
+      }
+    },
+    {
+      "id": "ot",
+      "shape": "group",
+      "x": 86,
+      "y": 382,
+      "w": 344,
+      "h": 114,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "ct",
+      "shape": "group",
+      "x": 856,
+      "y": 386,
+      "w": 245,
+      "h": 108,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "rt",
+      "shape": "group",
+      "x": 856,
+      "y": 554,
+      "w": 245,
+      "h": 107,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          700,
+          108
+        ],
+        [
+          906,
+          108
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "ev1",
+        "at": [
+          803,
+          70
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          906,
+          182
+        ],
+        [
+          700,
+          182
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "ev2",
+        "at": [
+          803,
+          148
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          263,
+          224
+        ],
+        [
+          263,
+          368
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          978,
+          224
+        ],
+        [
+          978,
+          344
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          86,
+          422
+        ],
+        [
+          430,
+          422
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          86,
+          458
+        ],
+        [
+          430,
+          458
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          134,
+          382
+        ],
+        [
+          134,
+          496
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          265,
+          382
+        ],
+        [
+          265,
+          496
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          354,
+          382
+        ],
+        [
+          354,
+          496
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          856,
+          421
+        ],
+        [
+          1101,
+          421
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          856,
+          457
+        ],
+        [
+          1101,
+          457
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          904,
+          386
+        ],
+        [
+          904,
+          494
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          1034,
+          386
+        ],
+        [
+          1034,
+          494
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          856,
+          590
+        ],
+        [
+          1101,
+          590
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          856,
+          625
+        ],
+        [
+          1101,
+          625
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          934,
+          554
+        ],
+        [
+          934,
+          661
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          1022,
+          554
+        ],
+        [
+          1022,
+          661
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "broker",
+      "x": 633,
+      "y": 350,
+      "anchor": "middle"
+    },
+    {
+      "key": "ot_t",
+      "x": 90,
+      "y": 362,
+      "anchor": "start",
+      "literals": [
+        "ORDER"
+      ]
+    },
+    {
+      "key": "ot_h0",
+      "x": 110,
+      "y": 401,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "ot_h1",
+      "x": 200,
+      "y": 401,
+      "anchor": "middle",
+      "literals": [
+        "CUSTOMER_ID"
+      ]
+    },
+    {
+      "key": "ot_h2",
+      "x": 310,
+      "y": 401,
+      "anchor": "middle",
+      "literals": [
+        "STATUS"
+      ]
+    },
+    {
+      "key": "ot_h3",
+      "x": 392,
+      "y": 401,
+      "anchor": "middle",
+      "literals": [
+        "TOTAL"
+      ]
+    },
+    {
+      "key": "ot_v0",
+      "x": 110,
+      "y": 440,
+      "anchor": "middle",
+      "literals": [
+        "909"
+      ]
+    },
+    {
+      "key": "ot_v1",
+      "x": 200,
+      "y": 440,
+      "anchor": "middle",
+      "literals": [
+        "101"
+      ]
+    },
+    {
+      "key": "ot_v2",
+      "x": 310,
+      "y": 440,
+      "anchor": "middle",
+      "literals": [
+        "NEW"
+      ]
+    },
+    {
+      "key": "ot_v3",
+      "x": 392,
+      "y": 440,
+      "anchor": "middle",
+      "literals": [
+        "1234"
+      ]
+    },
+    {
+      "key": "ct_t",
+      "x": 857,
+      "y": 366,
+      "anchor": "start",
+      "literals": [
+        "CUSTOMER"
+      ]
+    },
+    {
+      "key": "ct_h0",
+      "x": 880,
+      "y": 403,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "ct_h1",
+      "x": 969,
+      "y": 403,
+      "anchor": "middle",
+      "literals": [
+        "CREDIT_LIMIT"
+      ]
+    },
+    {
+      "key": "ct_h2",
+      "x": 1068,
+      "y": 403,
+      "anchor": "middle",
+      "literals": [
+        "..."
+      ]
+    },
+    {
+      "key": "ct_v0",
+      "x": 880,
+      "y": 439,
+      "anchor": "middle",
+      "literals": [
+        "202"
+      ]
+    },
+    {
+      "key": "ct_v1",
+      "x": 969,
+      "y": 439,
+      "anchor": "middle",
+      "literals": [
+        "5000"
+      ]
+    },
+    {
+      "key": "rt_t",
+      "x": 857,
+      "y": 534,
+      "anchor": "start",
+      "literals": [
+        "RESERVED_CREDIT"
+      ]
+    },
+    {
+      "key": "rt_h0",
+      "x": 895,
+      "y": 572,
+      "anchor": "middle",
+      "literals": [
+        "CUST_ID"
+      ]
+    },
+    {
+      "key": "rt_h1",
+      "x": 978,
+      "y": 572,
+      "anchor": "middle",
+      "literals": [
+        "ORDER_ID"
+      ]
+    },
+    {
+      "key": "rt_h2",
+      "x": 1062,
+      "y": 572,
+      "anchor": "middle",
+      "literals": [
+        "AMOUNT"
+      ]
+    },
+    {
+      "key": "rt_v0",
+      "x": 895,
+      "y": 608,
+      "anchor": "middle",
+      "literals": [
+        "202"
+      ]
+    },
+    {
+      "key": "rt_v1",
+      "x": 978,
+      "y": 608,
+      "anchor": "middle",
+      "literals": [
+        "909"
+      ]
+    },
+    {
+      "key": "rt_v2",
+      "x": 1062,
+      "y": 608,
+      "anchor": "middle",
+      "literals": [
+        "1234"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

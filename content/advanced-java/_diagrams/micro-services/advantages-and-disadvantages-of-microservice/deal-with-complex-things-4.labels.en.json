@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "rest": "REST\nAPI",
+    "adapter": "DATABASE\nADAPTER",
+    "m_p": "PASSENGER\nMANAGEMENT",
+    "db_p": "PASSENGER\nMANAGEMENT\nDATABASE",
+    "m_d": "DRIVER\nMANAGEMENT",
+    "db_d": "DRIVER\nMANAGEMENT\nDATABASE",
+    "m_t": "TRIP\nMANAGEMENT",
+    "db_t": "TRIP\nMANAGEMENT\nDATABASE",
+    "_title": "Three microservices, each with a REST API, a database adapter and its own database",
+    "_desc": "Three hexagonal microservices side by side, Passenger Management, Driver Management and Trip Management; each exposes a REST API and connects through a database adapter to its own database."
+  }
+}

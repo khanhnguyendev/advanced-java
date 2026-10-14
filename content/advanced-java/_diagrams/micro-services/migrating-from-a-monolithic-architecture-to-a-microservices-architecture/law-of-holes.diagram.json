@@ -1,0 +1,182 @@
+{
+  "id": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/law-of-holes",
+  "source": {
+    "upstream": "micro-services/migrating-from-a-monolithic-architecture-to-a-microservices-architecture/Law-of-Holes.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 900,
+    "h": 770
+  },
+  "nodes": [
+    {
+      "id": "router",
+      "shape": "round",
+      "x": 385,
+      "y": 104,
+      "w": 170,
+      "h": 150,
+      "label": {
+        "key": "router"
+      },
+      "role": "accent"
+    },
+    {
+      "id": "monolith",
+      "shape": "round",
+      "x": 95,
+      "y": 392,
+      "w": 395,
+      "h": 346,
+      "label": {
+        "key": "monolith"
+      },
+      "role": "default"
+    },
+    {
+      "id": "webm",
+      "shape": "round",
+      "x": 262,
+      "y": 328,
+      "w": 70,
+      "h": 58,
+      "label": {
+        "key": "webapi"
+      },
+      "role": "default"
+    },
+    {
+      "id": "gluem",
+      "shape": "round",
+      "x": 490,
+      "y": 472,
+      "w": 88,
+      "h": 58,
+      "label": {
+        "key": "glue"
+      },
+      "role": "default"
+    },
+    {
+      "id": "service",
+      "shape": "round",
+      "x": 700,
+      "y": 481,
+      "w": 140,
+      "h": 140,
+      "label": {
+        "key": "service"
+      },
+      "role": "accent"
+    },
+    {
+      "id": "webs",
+      "shape": "round",
+      "x": 760,
+      "y": 419,
+      "w": 70,
+      "h": 58,
+      "label": {
+        "key": "webapi"
+      },
+      "role": "default"
+    },
+    {
+      "id": "glues",
+      "shape": "round",
+      "x": 604,
+      "y": 472,
+      "w": 88,
+      "h": 58,
+      "label": {
+        "key": "glue"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          470,
+          46
+        ],
+        [
+          470,
+          104
+        ]
+      ],
+      "arrow": "end",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          385,
+          236
+        ],
+        [
+          300,
+          328
+        ]
+      ],
+      "arrow": "end",
+      "style": "accent",
+      "label": {
+        "key": "old",
+        "at": [
+          268,
+          285
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          555,
+          236
+        ],
+        [
+          795,
+          419
+        ]
+      ],
+      "arrow": "end",
+      "style": "accent",
+      "label": {
+        "key": "new",
+        "at": [
+          595,
+          320
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          578,
+          501
+        ],
+        [
+          604,
+          501
+        ]
+      ],
+      "arrow": "both",
+      "style": "accent"
+    }
+  ],
+  "texts": [
+    {
+      "key": "httpreq",
+      "x": 470,
+      "y": 27,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

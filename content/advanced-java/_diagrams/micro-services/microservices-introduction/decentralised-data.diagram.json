@@ -1,0 +1,538 @@
+{
+  "id": "micro-services/microservices-introduction/decentralised-data",
+  "source": {
+    "upstream": "micro-services/microservices-introduction/decentralised-data.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 760,
+    "h": 460
+  },
+  "nodes": [
+    {
+      "id": "lu0",
+      "shape": "circle",
+      "x": 90,
+      "y": 18,
+      "w": 30,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "lu1",
+      "shape": "circle",
+      "x": 122,
+      "y": 18,
+      "w": 30,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "lu2",
+      "shape": "circle",
+      "x": 154,
+      "y": 18,
+      "w": 30,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "l_app",
+      "shape": "group",
+      "x": 95,
+      "y": 92,
+      "w": 86,
+      "h": 140,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "l_c1",
+      "shape": "box",
+      "x": 107,
+      "y": 108,
+      "w": 62,
+      "h": 32,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "l_c2",
+      "shape": "box",
+      "x": 107,
+      "y": 148,
+      "w": 62,
+      "h": 32,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "l_c3",
+      "shape": "box",
+      "x": 107,
+      "y": 188,
+      "w": 62,
+      "h": 32,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "l_dbg",
+      "shape": "group",
+      "x": 15,
+      "y": 260,
+      "w": 246,
+      "h": 140,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "l_db",
+      "shape": "group",
+      "x": 35,
+      "y": 282,
+      "w": 206,
+      "h": 104,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "l_t0",
+      "shape": "box",
+      "x": 55,
+      "y": 320,
+      "w": 50,
+      "h": 50,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "l_t1",
+      "shape": "box",
+      "x": 110,
+      "y": 320,
+      "w": 50,
+      "h": 50,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "l_t2",
+      "shape": "box",
+      "x": 165,
+      "y": 320,
+      "w": 50,
+      "h": 50,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ru0",
+      "shape": "circle",
+      "x": 500,
+      "y": 18,
+      "w": 30,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ru1",
+      "shape": "circle",
+      "x": 532,
+      "y": 18,
+      "w": 30,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "ru2",
+      "shape": "circle",
+      "x": 564,
+      "y": 18,
+      "w": 30,
+      "h": 36,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "doc",
+      "shape": "box",
+      "x": 525,
+      "y": 80,
+      "w": 56,
+      "h": 60,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s1",
+      "shape": "group",
+      "x": 358,
+      "y": 230,
+      "w": 86,
+      "h": 138,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s1_c",
+      "shape": "box",
+      "x": 370,
+      "y": 245,
+      "w": 62,
+      "h": 50,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s1_d",
+      "shape": "group",
+      "x": 368,
+      "y": 312,
+      "w": 66,
+      "h": 48,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "s1_t",
+      "shape": "box",
+      "x": 385,
+      "y": 322,
+      "w": 32,
+      "h": 32,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s2",
+      "shape": "group",
+      "x": 456,
+      "y": 230,
+      "w": 86,
+      "h": 138,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s2_c",
+      "shape": "box",
+      "x": 468,
+      "y": 245,
+      "w": 62,
+      "h": 50,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s2_d",
+      "shape": "group",
+      "x": 466,
+      "y": 312,
+      "w": 66,
+      "h": 48,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "s2_t",
+      "shape": "box",
+      "x": 483,
+      "y": 322,
+      "w": 32,
+      "h": 32,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s3",
+      "shape": "group",
+      "x": 556,
+      "y": 230,
+      "w": 86,
+      "h": 78,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s3_c",
+      "shape": "box",
+      "x": 568,
+      "y": 245,
+      "w": 62,
+      "h": 50,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s4",
+      "shape": "group",
+      "x": 656,
+      "y": 230,
+      "w": 86,
+      "h": 78,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "s4_c",
+      "shape": "box",
+      "x": 668,
+      "y": 245,
+      "w": 62,
+      "h": 50,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "sdg",
+      "shape": "group",
+      "x": 592,
+      "y": 322,
+      "w": 100,
+      "h": 80,
+      "border": "solid",
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "sdb",
+      "shape": "group",
+      "x": 602,
+      "y": 332,
+      "w": 80,
+      "h": 60,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "sdt",
+      "shape": "box",
+      "x": 625,
+      "y": 345,
+      "w": 34,
+      "h": 34,
+      "label": {
+        "key": "blank"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          136,
+          92
+        ],
+        [
+          136,
+          56
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          138,
+          260
+        ],
+        [
+          138,
+          232
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          400,
+          230
+        ],
+        [
+          530,
+          140
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          499,
+          230
+        ],
+        [
+          545,
+          140
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          598,
+          230
+        ],
+        [
+          560,
+          140
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          699,
+          230
+        ],
+        [
+          575,
+          140
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          401,
+          312
+        ],
+        [
+          401,
+          295
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          499,
+          312
+        ],
+        [
+          499,
+          295
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          625,
+          322
+        ],
+        [
+          610,
+          308
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          660,
+          322
+        ],
+        [
+          690,
+          308
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          327,
+          10
+        ],
+        [
+          327,
+          350
+        ]
+      ],
+      "arrow": "none",
+      "style": "dashed"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t1",
+      "x": 133,
+      "y": 422,
+      "anchor": "middle"
+    },
+    {
+      "key": "t2",
+      "x": 545,
+      "y": 422,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

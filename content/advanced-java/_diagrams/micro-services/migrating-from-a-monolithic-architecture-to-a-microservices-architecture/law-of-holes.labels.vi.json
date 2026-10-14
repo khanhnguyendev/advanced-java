@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "d506c626274a1b83146aa15400d2130c2e36cb80cbca7903b73259ddd60d5ff5",
+    "source_lang": "en"
+  },
+  "labels": {
+    "router": "BỘ ĐỊNH TUYẾN\nYÊU CẦU",
+    "monolith": "HỆ THỐNG\nNGUYÊN KHỐI",
+    "webapi": "WEB\nAPI",
+    "glue": "MÃ\nKẾT DÍNH",
+    "service": "DỊCH VỤ",
+    "old": "Yêu cầu\nHTTP cũ",
+    "new": "Yêu cầu\nHTTP mới",
+    "httpreq": "YÊU CẦU HTTP",
+    "_title": "Law of Holes: đưa tính năng mới thành dịch vụ cạnh hệ thống nguyên khối",
+    "_desc": "Yêu cầu HTTP đến bộ định tuyến yêu cầu; bộ định tuyến gửi yêu cầu HTTP cũ tới web API của hệ thống nguyên khối và yêu cầu HTTP mới tới web API của dịch vụ mới; hai bên liên kết hai chiều qua mã kết dính."
+  }
+}

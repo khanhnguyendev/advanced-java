@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "a_api": "REST\nAPI",
+    "a_db": "DATABASE\nADAPTER",
+    "a_mysql": "MYSQL",
+    "a_blt": "BUSINESS LOGIC",
+    "a_mx": "MODULE\nX",
+    "a_my": "MODULE\nY",
+    "a_mz": "MODULE\nZ",
+    "b_api": "REST\nAPI",
+    "b_db": "DATABASE\nADAPTER",
+    "b_mysql": "MYSQL",
+    "b_blt": "BUSINESS LOGIC",
+    "b_mx": "MODULE\nX",
+    "b_my": "MODULE\nY",
+    "b_mz": "MODULE\nZ",
+    "c_api": "REST\nAPI",
+    "c_db": "DATABASE\nADAPTER",
+    "c_mysql": "MYSQL",
+    "c_blt": "BUSINESS LOGIC",
+    "c_mx": "MODULE\nX",
+    "c_my": "MODULE\nY",
+    "c_rcl": "REST\nCLIENT",
+    "c_rapi": "REST\nAPI",
+    "d_api": "REST\nAPI",
+    "d_db": "DATABASE\nADAPTER",
+    "d_mysql": "MYSQL",
+    "d_blt": "BUSINESS LOGIC",
+    "d_mz": "MODULE\nZ",
+    "d_rapi": "REST\nAPI",
+    "d_rcl": "REST\nCLIENT",
+    "step1": "Step 1",
+    "step2": "Step 2",
+    "blank": "",
+    "_title": "Moving a module out of a monolith: from a hexagonal monolith to two services that talk through REST adapters",
+    "_desc": "Four hexagonal-architecture panels. Top left: a monolith whose business logic holds modules X, Y and Z behind a REST API adapter and a database adapter on MySQL. Step 1 (top right): modules X, Y and Z are decoupled through connector ports. Step 2 (bottom): module Z moves into its own service; the original monolith keeps X and Y and the two sides exchange calls through REST client and REST API adapters, each service keeping its database adapter."
+  }
+}

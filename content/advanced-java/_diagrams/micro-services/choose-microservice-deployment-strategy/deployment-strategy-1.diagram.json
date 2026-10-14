@@ -1,0 +1,108 @@
+{
+  "id": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1",
+  "source": {
+    "upstream": "micro-services/choose-microservice-deployment-strategy/deployment-strategy-1.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 642,
+    "h": 650
+  },
+  "nodes": [
+    {
+      "id": "host1",
+      "shape": "group",
+      "x": 25,
+      "y": 25,
+      "w": 592,
+      "h": 280,
+      "border": "solid",
+      "label": {
+        "key": "host"
+      }
+    },
+    {
+      "id": "svcA1",
+      "shape": "round",
+      "x": 63,
+      "y": 110,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "svcA1"
+      }
+    },
+    {
+      "id": "svcB1",
+      "shape": "round",
+      "x": 251,
+      "y": 110,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "svcB1"
+      }
+    },
+    {
+      "id": "svcC1",
+      "shape": "round",
+      "x": 439,
+      "y": 110,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "svcC1"
+      }
+    },
+    {
+      "id": "host2",
+      "shape": "group",
+      "x": 25,
+      "y": 345,
+      "w": 592,
+      "h": 280,
+      "border": "solid",
+      "label": {
+        "key": "host"
+      }
+    },
+    {
+      "id": "svcA2",
+      "shape": "round",
+      "x": 63,
+      "y": 430,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "svcA2"
+      }
+    },
+    {
+      "id": "svcB2",
+      "shape": "round",
+      "x": 251,
+      "y": 430,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "svcB2"
+      }
+    },
+    {
+      "id": "svcC2",
+      "shape": "round",
+      "x": 439,
+      "y": 430,
+      "w": 140,
+      "h": 160,
+      "label": {
+        "key": "svcC2"
+      }
+    }
+  ],
+  "edges": [],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

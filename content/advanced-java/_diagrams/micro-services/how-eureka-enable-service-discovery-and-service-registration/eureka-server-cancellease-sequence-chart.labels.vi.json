@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "669995eec39bc36f8af685e1665b3f851925928b0214c7a0221d18f4ce95d1a2"
+  },
+  "labels": {
+    "title": "Sơ đồ tuần tự hủy đăng ký dịch vụ (Cancel) của Eureka",
+    "p0t": "Dịch vụ\nđã dừng",
+    "p0b": "Dịch vụ\nđã dừng",
+    "m1": "Gửi yêu cầu kèm\nthông tin Instance",
+    "m2": "cancelLease",
+    "sc": "super.cancel",
+    "rp": "replicateToPeers",
+    "rc": "replicationClient.cancel",
+    "loop": "loop",
+    "note": "[InstanceReplicationTask\nđược gọi định kỳ\ntrong nền]",
+    "blank": "",
+    "_title": "Trình tự gọi hủy đăng ký dịch vụ (Cancel) của Eureka",
+    "_desc": "Dịch vụ đã dừng gửi yêu cầu hủy đến InstanceResource, InstanceResource gọi cancelLease của PeerAwareInstanceRegistryImpl, lớp này tự gọi super.cancel và replicateToPeers; trong vòng lặp, replicationClient.cancel đồng bộ việc hủy tới PeerEurekaNode.",
+    "p1t": "InstanceResource",
+    "p1b": "InstanceResource",
+    "p2t": "PeerAwareInstanceRegistryImpl",
+    "p2b": "PeerAwareInstanceRegistryImpl",
+    "p3t": "PeerEurekaNode",
+    "p3b": "PeerEurekaNode"
+  }
+}

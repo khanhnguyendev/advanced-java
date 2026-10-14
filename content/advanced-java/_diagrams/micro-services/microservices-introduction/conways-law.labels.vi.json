@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "21615be46285c38f83d88454eb48381ba5d72cf45122d59d88854d8bc039938a", "source_lang": "en" },
+  "labels": {
+    "_title": "Định luật Conway: các nhóm bị cô lập dẫn đến kiến trúc bị cô lập",
+    "_desc": "Bên trái là ba nhóm chức năng bị cô lập xếp theo chiều dọc: chuyên gia UI, chuyên gia middleware và DBA. Bên phải, cơ sở dữ liệu cấp cho một ứng dụng gồm ba thành phần, rồi tới tài liệu giao diện người dùng. Đường nét đứt ngăn cách các nhóm với kiến trúc.",
+    "blank": "",
+    "ui_l": "Chuyên gia\nUI",
+    "mw_l": "Chuyên gia\nmiddleware",
+    "db_l": "DBA",
+    "t1": "Các nhóm chức năng\nbị cô lập...",
+    "t2": "... dẫn đến kiến trúc ứng dụng\nbị cô lập.\nVì định luật Conway"
+  }
+}

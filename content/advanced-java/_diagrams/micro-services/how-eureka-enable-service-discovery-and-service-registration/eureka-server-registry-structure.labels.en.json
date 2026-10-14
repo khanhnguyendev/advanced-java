@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "383a274f84e66127bd48af8dd07d5b0ef2134ac82ba97274648a53d3472a6c2d",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "panel": "",
+    "hl": "",
+    "c1": "public abstract class AbstractInstanceRegistry implements InstanceRegistry {",
+    "c2": "    private static final Logger logger = LoggerFactory.getLogger(AbstractInstanceRegistry.class);",
+    "c3": "    private static final String[] EMPTY_STR_ARRAY = new String[0];",
+    "c4": "    private final ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> registry",
+    "c5": "            = new ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>>();",
+    "c6": "    protected Map<String, RemoteRegionRegistry> regionNameVSRemoteRegistry = new HashMap<~>();",
+    "_title": "Code of the Eureka Server registry data structure",
+    "_desc": "IDE code screenshot: in the AbstractInstanceRegistry class the registry field is a nested ConcurrentHashMap, outlined. Note: HashMap<~>() is IntelliJ's folded diamond (<>)."
+  }
+}

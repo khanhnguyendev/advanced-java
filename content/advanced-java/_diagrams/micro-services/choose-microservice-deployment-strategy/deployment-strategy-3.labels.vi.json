@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "42bf878b855442e2a43b0be5afec70cb0e7eec48e3bd4b80cb1c99f1fbe8403c",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Triển khai một dịch vụ dưới dạng container image trên các máy ảo",
+    "_desc": "Một dịch vụ được đóng gói thành container image, sau đó được triển khai thành ba instance dịch vụ. Mỗi instance dịch vụ chạy trong container riêng, và mỗi container chạy trong một máy ảo riêng.",
+    "blank": "",
+    "svc": "DỊCH VỤ",
+    "e1": "Đóng gói thành",
+    "e2": "Triển khai thành",
+    "timg": "Container\nimage",
+    "vm1": "VM",
+    "ct1": "Container",
+    "si1": "INSTANCE\nDỊCH VỤ",
+    "vm2": "VM",
+    "ct2": "Container",
+    "si2": "INSTANCE\nDỊCH VỤ",
+    "vm3": "VM",
+    "ct3": "Container",
+    "si3": "INSTANCE\nDỊCH VỤ"
+  }
+}

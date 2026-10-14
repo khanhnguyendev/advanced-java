@@ -1,0 +1,520 @@
+{
+  "id": "micro-services/event-driven-data-management-for-microservices/status-is-open",
+  "source": {
+    "upstream": "micro-services/event-driven-data-management-for-microservices/Status-is-OPEN.png",
+    "commit": "1a35221"
+  },
+  "license": "third-party",
+  "size": {
+    "w": 1200,
+    "h": 752
+  },
+  "nodes": [
+    {
+      "id": "g_order",
+      "shape": "group",
+      "x": 16,
+      "y": 34,
+      "w": 464,
+      "h": 548,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "g_broker",
+      "shape": "group",
+      "x": 558,
+      "y": 32,
+      "w": 146,
+      "h": 688,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "g_cust",
+      "shape": "group",
+      "x": 774,
+      "y": 35,
+      "w": 402,
+      "h": 690,
+      "label": {
+        "key": "blank"
+      }
+    },
+    {
+      "id": "svc_order",
+      "shape": "round",
+      "x": 179,
+      "y": 86,
+      "w": 144,
+      "h": 160,
+      "label": {
+        "key": "order_svc"
+      }
+    },
+    {
+      "id": "svc_cust",
+      "shape": "round",
+      "x": 904,
+      "y": 86,
+      "w": 144,
+      "h": 160,
+      "label": {
+        "key": "cust_svc"
+      }
+    },
+    {
+      "id": "t_order",
+      "shape": "group",
+      "x": 72,
+      "y": 406,
+      "w": 349,
+      "h": 117,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "t_cust",
+      "shape": "group",
+      "x": 850,
+      "y": 410,
+      "w": 249,
+      "h": 110,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    },
+    {
+      "id": "t_res",
+      "shape": "group",
+      "x": 853,
+      "y": 587,
+      "w": 248,
+      "h": 107,
+      "label": {
+        "key": "blank"
+      },
+      "border": "solid"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          251,
+          246
+        ],
+        [
+          251,
+          392
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          975,
+          246
+        ],
+        [
+          975,
+          368
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          558,
+          171
+        ],
+        [
+          323,
+          171
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "credit",
+        "at": [
+          417,
+          122
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          120,
+          406
+        ],
+        [
+          120,
+          523
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          252,
+          406
+        ],
+        [
+          252,
+          523
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          342,
+          406
+        ],
+        [
+          342,
+          523
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          72,
+          446
+        ],
+        [
+          421,
+          446
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          72,
+          486
+        ],
+        [
+          421,
+          486
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          900,
+          410
+        ],
+        [
+          900,
+          520
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          1031,
+          410
+        ],
+        [
+          1031,
+          520
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          850,
+          446
+        ],
+        [
+          1099,
+          446
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          850,
+          482
+        ],
+        [
+          1099,
+          482
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          933,
+          587
+        ],
+        [
+          933,
+          694
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          1021,
+          587
+        ],
+        [
+          1021,
+          694
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          853,
+          623
+        ],
+        [
+          1101,
+          623
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          853,
+          658
+        ],
+        [
+          1101,
+          658
+        ]
+      ],
+      "arrow": "none",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "broker",
+      "x": 630,
+      "y": 370,
+      "anchor": "middle"
+    },
+    {
+      "key": "tbl_order",
+      "x": 76,
+      "y": 386,
+      "anchor": "start",
+      "literals": [
+        "ORDER"
+      ]
+    },
+    {
+      "key": "tbl_cust",
+      "x": 853,
+      "y": 390,
+      "anchor": "start",
+      "literals": [
+        "CUSTOMER"
+      ]
+    },
+    {
+      "key": "tbl_res",
+      "x": 854,
+      "y": 566,
+      "anchor": "start",
+      "literals": [
+        "RESERVED_CREDIT"
+      ]
+    },
+    {
+      "key": "ID",
+      "x": 96,
+      "y": 426,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "CUSTOMER_ID",
+      "x": 183,
+      "y": 426,
+      "anchor": "middle",
+      "literals": [
+        "CUSTOMER_ID"
+      ]
+    },
+    {
+      "key": "STATUS",
+      "x": 296,
+      "y": 426,
+      "anchor": "middle",
+      "literals": [
+        "STATUS"
+      ]
+    },
+    {
+      "key": "TOTAL",
+      "x": 381,
+      "y": 426,
+      "anchor": "middle",
+      "literals": [
+        "TOTAL"
+      ]
+    },
+    {
+      "key": "909",
+      "x": 96,
+      "y": 465,
+      "anchor": "middle",
+      "literals": [
+        "909"
+      ]
+    },
+    {
+      "key": "101",
+      "x": 183,
+      "y": 465,
+      "anchor": "middle",
+      "literals": [
+        "101"
+      ]
+    },
+    {
+      "key": "OPEN",
+      "x": 296,
+      "y": 465,
+      "anchor": "middle",
+      "literals": [
+        "OPEN"
+      ]
+    },
+    {
+      "key": "1234",
+      "x": 381,
+      "y": 465,
+      "anchor": "middle",
+      "literals": [
+        "1234"
+      ]
+    },
+    {
+      "key": "ID",
+      "x": 875,
+      "y": 428,
+      "anchor": "middle",
+      "literals": [
+        "ID"
+      ]
+    },
+    {
+      "key": "CREDIT_LIMIT",
+      "x": 965,
+      "y": 428,
+      "anchor": "middle",
+      "literals": [
+        "CREDIT_LIMIT"
+      ]
+    },
+    {
+      "key": "dots",
+      "x": 1065,
+      "y": 428,
+      "anchor": "middle",
+      "literals": [
+        "..."
+      ]
+    },
+    {
+      "key": "202",
+      "x": 875,
+      "y": 464,
+      "anchor": "middle",
+      "literals": [
+        "202"
+      ]
+    },
+    {
+      "key": "5000",
+      "x": 965,
+      "y": 464,
+      "anchor": "middle",
+      "literals": [
+        "5000"
+      ]
+    },
+    {
+      "key": "CUST_ID",
+      "x": 890,
+      "y": 605,
+      "anchor": "middle",
+      "literals": [
+        "CUST_ID"
+      ]
+    },
+    {
+      "key": "ORDER_ID",
+      "x": 977,
+      "y": 605,
+      "anchor": "middle",
+      "literals": [
+        "ORDER_ID"
+      ]
+    },
+    {
+      "key": "AMOUNT",
+      "x": 1061,
+      "y": 605,
+      "anchor": "middle",
+      "literals": [
+        "AMOUNT"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

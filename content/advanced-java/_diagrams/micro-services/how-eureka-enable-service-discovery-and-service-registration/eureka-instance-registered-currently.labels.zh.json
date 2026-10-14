@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "2c8927d799c94d71f51fe0ae4f8e5864e828fe4f90ea76727b4586d195bdd18c"
+  },
+  "labels": {
+    "t0": "Instances currently registered with Eureka",
+    "h1": "Application",
+    "h2": "AMIs",
+    "h3": "Availability Zones",
+    "h4": "Status",
+    "r1a": "SERVICE-CONSUMER",
+    "r1b": "n/a (1)",
+    "r1c": "(1)",
+    "r1d": "UP (1) - mghio-mbp:service-consumer:8888",
+    "r2a": "SERVICE-PROVIDER",
+    "r2b": "n/a (1)",
+    "r2c": "(1)",
+    "r2d": "UP (1) - mghio-mbp:service-provider:9999",
+    "blank": "",
+    "_title": "Eureka 控制台当前已注册实例表",
+    "_desc": "表格列为 Application、AMIs、Availability Zones 和 Status；SERVICE-CONSUMER 在 mghio-mbp:service-consumer:8888 上为 UP，SERVICE-PROVIDER 在 mghio-mbp:service-provider:9999 上为 UP。"
+  }
+}

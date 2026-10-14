@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "3198949c5d377792133333d5be31048ca0cbdfda098181f9b5db445144e270de",
+    "source_lang": "en"
+  },
+  "labels": {
+    "_title": "Các nhóm đa chức năng được tổ chức quanh năng lực",
+    "_desc": "Hai góc nhìn đặt cạnh nhau. Bên trái là ba nhóm đa chức năng, mỗi nhóm là một khối, hai nhóm trỏ tới nhóm thứ ba. Bên phải là ba khối tương tự, đại diện cho các dịch vụ được tổ chức quanh năng lực, với các mũi tên giống nhau.",
+    "blank": "",
+    "t1": "Các nhóm đa chức năng...",
+    "t2": "... được tổ chức quanh năng lực\nVì định luật Conway"
+  }
+}
