@@ -1,0 +1,12 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "nginx": "Nginx",
+    "redis": "Redis",
+    "cache": "缓存服务",
+    "pool": "线程池",
+    "product": "商品服务",
+    "_title": "Hystrix 线程池隔离的调用链",
+    "_desc": "Nginx 调用缓存服务，缓存服务通过线程池调用商品服务，Redis 位于缓存层。"
+  }
+}

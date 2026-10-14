@@ -1,0 +1,23 @@
+{
+  "id": "high-availability/hystrix-introduction/service-invoke-road",
+  "source": { "upstream": "high-availability/hystrix-introduction/service-invoke-road.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 560, "h": 410 },
+  "nodes": [
+    { "id": "a", "shape": "box", "x": 231, "y": 47, "w": 100, "h": 71, "label": { "key": "a" } },
+    { "id": "b", "shape": "box", "x": 231, "y": 170, "w": 100, "h": 70, "label": { "key": "b" } },
+    { "id": "c", "shape": "box", "x": 48, "y": 303, "w": 100, "h": 70, "label": { "key": "c" } },
+    { "id": "d", "shape": "box", "x": 231, "y": 303, "w": 100, "h": 70, "label": { "key": "d" } },
+    { "id": "e", "shape": "box", "x": 414, "y": 303, "w": 100, "h": 70, "label": { "key": "e" } }
+  ],
+  "edges": [
+    { "points": [[281,118],[281,170]], "arrow": "end", "style": "solid" },
+    { "points": [[255,240],[255,271],[98,271],[98,303]], "arrow": "end", "style": "solid",
+      "label": { "key": "x", "at": [177,259], "anchor": "middle" } },
+    { "points": [[281,240],[281,303]], "arrow": "end", "style": "solid" },
+    { "points": [[307,240],[307,271],[464,271],[464,303]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

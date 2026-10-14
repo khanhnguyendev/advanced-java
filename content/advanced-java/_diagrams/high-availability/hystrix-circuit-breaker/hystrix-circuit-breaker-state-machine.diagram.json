@@ -1,0 +1,250 @@
+{
+  "id": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine",
+  "source": {
+    "upstream": "high-availability/hystrix-circuit-breaker/hystrix-circuit-breaker-state-machine.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 984,
+    "h": 520
+  },
+  "nodes": [
+    {
+      "id": "closed",
+      "shape": "round",
+      "x": 396,
+      "y": 114,
+      "w": 192,
+      "h": 96,
+      "label": {
+        "key": "closed",
+        "literals": [
+          "Closed"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "open",
+      "shape": "round",
+      "x": 44,
+      "y": 300,
+      "w": 192,
+      "h": 96,
+      "label": {
+        "key": "open",
+        "literals": [
+          "Open"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "half",
+      "shape": "round",
+      "x": 748,
+      "y": 300,
+      "w": 192,
+      "h": 96,
+      "label": {
+        "key": "half",
+        "literals": [
+          "Half-Open"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          444,
+          114
+        ],
+        [
+          444,
+          80
+        ],
+        [
+          492,
+          80
+        ],
+        [
+          492,
+          114
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_ok_loop",
+        "at": [
+          404,
+          62
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          540,
+          114
+        ],
+        [
+          540,
+          80
+        ],
+        [
+          492,
+          80
+        ],
+        [
+          492,
+          114
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_fail_loop",
+        "at": [
+          624,
+          62
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          396,
+          161
+        ],
+        [
+          140,
+          161
+        ],
+        [
+          140,
+          300
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_trip",
+        "at": [
+          168,
+          145
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          844,
+          300
+        ],
+        [
+          844,
+          161
+        ],
+        [
+          588,
+          161
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_recover",
+        "at": [
+          856,
+          149
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          236,
+          332
+        ],
+        [
+          748,
+          332
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_probe",
+        "at": [
+          490,
+          315
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          748,
+          364
+        ],
+        [
+          236,
+          364
+        ]
+      ],
+      "arrow": "end",
+      "style": "accent",
+      "label": {
+        "key": "e_fail_again",
+        "at": [
+          490,
+          381
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          92,
+          396
+        ],
+        [
+          92,
+          448
+        ],
+        [
+          188,
+          448
+        ],
+        [
+          188,
+          396
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_block",
+        "at": [
+          140,
+          484
+        ],
+        "anchor": "middle"
+      }
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

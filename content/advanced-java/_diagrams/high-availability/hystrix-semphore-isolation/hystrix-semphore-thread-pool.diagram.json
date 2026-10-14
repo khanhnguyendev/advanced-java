@@ -1,0 +1,202 @@
+{
+  "id": "high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool",
+  "source": {
+    "upstream": "high-availability/hystrix-semphore-isolation/hystrix-semphore-thread-pool.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 410,
+    "h": 270
+  },
+  "nodes": [
+    {
+      "id": "tomcat",
+      "shape": "group", "border": "solid",
+      "x": 47,
+      "y": 50,
+      "w": 330,
+      "h": 210,
+      "label": {
+        "key": "tomcat",
+        "literals": [
+          "tomcat"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "pool",
+      "shape": "group", "border": "solid",
+      "x": 52,
+      "y": 145,
+      "w": 190,
+      "h": 85,
+      "label": {
+        "key": "pooltxt",
+        "literals": [
+          "Hystrix"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "sem",
+      "shape": "box",
+      "x": 262,
+      "y": 150,
+      "w": 96,
+      "h": 40,
+      "label": {
+        "key": "sem"
+      },
+      "role": "default"
+    },
+    {
+      "id": "t1",
+      "shape": "pill",
+      "x": 64,
+      "y": 196,
+      "w": 32,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "t2",
+      "shape": "pill",
+      "x": 112,
+      "y": 196,
+      "w": 32,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "t3",
+      "shape": "pill",
+      "x": 160,
+      "y": 196,
+      "w": 32,
+      "h": 28,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          125,
+          112
+        ],
+        [
+          137,
+          145
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          167,
+          112
+        ],
+        [
+          167,
+          145
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          274,
+          108
+        ],
+        [
+          282,
+          150
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          310,
+          108
+        ],
+        [
+          310,
+          150
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          342,
+          108
+        ],
+        [
+          338,
+          150
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [ 176, 224 ],
+        [
+          170,
+          252
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          310,
+          190
+        ],
+        [
+          310,
+          252
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "own",
+      "x": 135,
+      "y": 92,
+      "anchor": "middle",
+      "literals": [
+        "tomcat"
+      ]
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

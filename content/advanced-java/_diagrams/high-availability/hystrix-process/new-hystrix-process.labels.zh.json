@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "thread": "调用线程",
+    "create": "创建 Command",
+    "invoke": "调用 Command 执行方法",
+    "d_rc": "是否开启\nRequest Cache",
+    "d_hit": "是否命中 Cache",
+    "d_open": "断路器状态是\nopen?",
+    "d_full": "线程池/信号量\n满了没?",
+    "run": "执行 Command\nrun() 方法",
+    "d_err": "执行出错或\ntimeout ?",
+    "fallback": "Fallback 降级",
+    "e_fb": "返回降级结果",
+    "e_cache": "返回缓存中的结果",
+    "e_ok": "执行成功，返回结果",
+    "stat1": "发送给断路器统计",
+    "stat2": "发送给断路器统计",
+    "stat3": "发送给断路器统计",
+    "t1": "T",
+    "f1": "F",
+    "f2": "F",
+    "t3": "T",
+    "f3": "F",
+    "t4": "T",
+    "f4": "F",
+    "t5": "T",
+    "_title": "Hystrix 执行流程图",
+    "_desc": "该流程图展示 Hystrix 命令的执行流程：创建 Command、检查缓存、检查断路器与线程池，最后执行或降级。"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "d749e5d63d12865c9e9dbef839c05a9ccbbdaaa49bec1dd5cd37b7bd215f2cee", "source_lang": "zh" },
+  "labels": {
+    "queue": "Hàng đợi",
+    "pool": "Thread pool\n(10 luồng)",
+    "_title": "Hàng đợi yêu cầu phía trước thread pool của Hystrix",
+    "_desc": "Yêu cầu vào hàng đợi trước, rồi được thread pool 10 luồng xử lý."
+  }
+}

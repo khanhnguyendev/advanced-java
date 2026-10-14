@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "t0": "0 ms",
+    "t1": "200 ms",
+    "t2": "400 ms",
+    "t3": "600 ms",
+    "t4": "800 ms",
+    "t5": "1000ms",
+    "t6": "1200ms",
+    "dot": "",
+    "dots": "......",
+    "est": "Estimate: 12 s\nMay exceed the timeout,\nblocked",
+    "timeline": "Timeline",
+    "expected": "Expected pass time (in queue)",
+    "many": "many requests coming\nsimultaneously",
+    "_title": "Homogenizer mode: queued requests pass at fixed intervals",
+    "_desc": "Requests that arrive at once are queued on a timeline and let through every 200 ms; a request whose estimated wait of 12 s exceeds the timeout is blocked."
+  }
+}

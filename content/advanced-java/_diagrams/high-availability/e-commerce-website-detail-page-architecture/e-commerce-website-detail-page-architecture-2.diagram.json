@@ -1,0 +1,349 @@
+{
+  "id": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2",
+  "source": {
+    "upstream": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-2.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 760,
+    "h": 650
+  },
+  "nodes": [
+    {
+      "id": "nginx",
+      "shape": "group", "border": "solid",
+      "x": 330,
+      "y": 112,
+      "w": 272,
+      "h": 88,
+      "label": {
+        "key": "ngx",
+        "literals": [
+          "Nginx"
+        ]
+      }
+    },
+    {
+      "id": "rendered",
+      "shape": "pill",
+      "x": 400,
+      "y": 66,
+      "w": 120,
+      "h": 34,
+      "label": {
+        "key": "rendered"
+      },
+      "role": "default"
+    },
+    {
+      "id": "localcache",
+      "shape": "pill",
+      "x": 343,
+      "y": 138,
+      "w": 104,
+      "h": 46,
+      "label": {
+        "key": "localcache"
+      },
+      "role": "default"
+    },
+    {
+      "id": "template",
+      "shape": "box",
+      "x": 465,
+      "y": 138,
+      "w": 125,
+      "h": 46,
+      "label": {
+        "key": "template",
+        "literals": [
+          "html"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "redis",
+      "shape": "box",
+      "x": 355,
+      "y": 289,
+      "w": 210,
+      "h": 46,
+      "label": {
+        "key": "redis",
+        "literals": [
+          "redis"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "cachesvc",
+      "shape": "box",
+      "x": 385,
+      "y": 367,
+      "w": 150,
+      "h": 44,
+      "label": {
+        "key": "cachesvc"
+      },
+      "role": "default"
+    },
+    {
+      "id": "mq",
+      "shape": "round",
+      "x": 435,
+      "y": 445,
+      "w": 52,
+      "h": 73,
+      "label": {
+        "key": "mq"
+      },
+      "role": "default"
+    },
+    {
+      "id": "product",
+      "shape": "box",
+      "x": 198,
+      "y": 572,
+      "w": 152,
+      "h": 52,
+      "label": {
+        "key": "product"
+      },
+      "role": "default"
+    },
+    {
+      "id": "shop",
+      "shape": "box",
+      "x": 385,
+      "y": 572,
+      "w": 152,
+      "h": 52,
+      "label": {
+        "key": "shop"
+      },
+      "role": "default"
+    },
+    {
+      "id": "ad",
+      "shape": "box",
+      "x": 574,
+      "y": 572,
+      "w": 152,
+      "h": 52,
+      "label": {
+        "key": "ad"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [ 410, 138 ], [ 410, 100 ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          555,
+          138
+        ],
+        [
+          555,
+          83
+        ],
+        [
+          520,
+          83
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          400,
+          83
+        ],
+        [
+          205,
+          83
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          190,
+          158
+        ],
+        [
+          330,
+          158
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          460,
+          289
+        ],
+        [
+          460,
+          237
+        ],
+        [
+          387,
+          237
+        ],
+        [
+          387,
+          200
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          460,
+          367
+        ],
+        [
+          460,
+          335
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          460,
+          445
+        ],
+        [
+          460,
+          411
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          385,
+          389
+        ],
+        [
+          220,
+          389
+        ],
+        [
+          220,
+          572
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          274,
+          572
+        ],
+        [
+          274,
+          483
+        ],
+        [
+          435,
+          483
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          460,
+          572
+        ],
+        [
+          460,
+          518
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          650,
+          572
+        ],
+        [
+          650,
+          483
+        ],
+        [
+          487,
+          483
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "back",
+      "x": 273,
+      "y": 69,
+      "anchor": "middle"
+    },
+    {
+      "key": "req",
+      "x": 273,
+      "y": 140,
+      "anchor": "middle"
+    },
+    {
+      "key": "fetch",
+      "x": 452,
+      "y": 260,
+      "anchor": "end"
+    },
+    {
+      "key": "callapi",
+      "x": 212,
+      "y": 430,
+      "anchor": "end"
+    },
+    {
+      "key": "chg",
+      "x": 354,
+      "y": 466,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

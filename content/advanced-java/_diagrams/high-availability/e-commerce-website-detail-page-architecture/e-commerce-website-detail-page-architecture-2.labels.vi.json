@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "22c610141f452c7d5c22aee769fa940bf9e5c8c5561a3760af491a59679b01c8",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "back": "Trả về",
+    "req": "Yêu cầu",
+    "ngx": "Nginx",
+    "fetch": "Lấy dữ liệu bộ nhớ đệm mới nhất",
+    "callapi": "Gọi API để lấy\ndữ liệu sau thay đổi",
+    "chg": "Thông điệp thay đổi",
+    "rendered": "Sau khi render",
+    "localcache": "Bộ nhớ đệm\ncục bộ",
+    "template": "Mẫu html\ncục bộ",
+    "redis": "Bộ nhớ đệm phân tán\nredis",
+    "cachesvc": "Dịch vụ\nbộ nhớ đệm",
+    "mq": "MQ",
+    "product": "Thông tin dịch vụ\nsản phẩm",
+    "shop": "Thông tin dịch vụ\ncửa hàng",
+    "ad": "Thông tin dịch vụ\nquảng cáo",
+    "_title": "Kiến trúc bộ nhớ đệm của trang chi tiết thương mại điện tử",
+    "_desc": "Thay đổi từ dịch vụ sản phẩm, cửa hàng và quảng cáo đến dịch vụ bộ nhớ đệm qua MQ, dữ liệu ghi vào redis, rồi bộ nhớ đệm cục bộ của Nginx lấy về và render vào mẫu html cục bộ trước khi trả về."
+  }
+}

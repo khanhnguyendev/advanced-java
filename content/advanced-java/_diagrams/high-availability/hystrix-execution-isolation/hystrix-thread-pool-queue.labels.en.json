@@ -1,0 +1,9 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "d749e5d63d12865c9e9dbef839c05a9ccbbdaaa49bec1dd5cd37b7bd215f2cee", "source_lang": "zh" },
+  "labels": {
+    "queue": "Queue",
+    "pool": "Thread pool\n(10 threads)",
+    "_title": "Request queue in front of a Hystrix thread pool",
+    "_desc": "Requests enter a queue first and are then handled by a thread pool of 10 threads."
+  }
+}

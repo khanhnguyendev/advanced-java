@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "closed": "Closed",
+    "open": "Open",
+    "half": "Half-Open",
+    "e_ok_loop": "Success",
+    "e_fail_loop": "Fail(under threshold)",
+    "e_trip": "Fail(threshold reached)",
+    "e_recover": "Success",
+    "e_probe": "after some time",
+    "e_fail_again": "fail again",
+    "e_block": "阻断对服务提供方的调用",
+    "_title": "Hystrix 断路器状态机",
+    "_desc": "断路器在 Closed、Open、Half-Open 三个状态之间转换：失败达到阈值后进入 Open，一段时间后进入 Half-Open，再根据调用成功或失败回到 Closed 或 Open。"
+  }
+}

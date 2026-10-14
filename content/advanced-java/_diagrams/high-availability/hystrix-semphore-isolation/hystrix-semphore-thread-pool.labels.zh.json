@@ -1,0 +1,15 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source", "source_lang": "zh"
+  },
+  "labels": {
+    "own": "tomcat自己的线程",
+    "pooltxt": "Hystrix线程池里的线程",
+    "sem": "信号量",
+    "_title": "tomcat 内的 Hystrix 线程池与信号量",
+    "_desc": "tomcat 自己的线程既可经 Hystrix 线程池里的线程调用，也可直接通过信号量。",
+    "tomcat": "tomcat",
+    "blank": ""
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "sem": "服务A信号量",
+    "_title": "Hystrix 信号量隔离",
+    "_desc": "多个请求进入服务A的信号量，信号量限制并发后放行少量请求。"
+  }
+}

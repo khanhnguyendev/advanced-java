@@ -1,0 +1,64 @@
+{
+  "labels": [
+    {
+      "en": "Timeline",
+      "zh": "时间线",
+      "vi": "Dòng thời gian"
+    },
+    {
+      "en": "Expected pass time (in queue)",
+      "zh": "预期通过时间（排队中）",
+      "vi": "Thời điểm dự kiến được đi qua\n(trong hàng đợi)"
+    },
+    {
+      "en": "many requests coming\nsimultaneously",
+      "zh": "大量请求同时到达",
+      "vi": "nhiều yêu cầu đến\nđồng thời"
+    },
+    {
+      "en": "Estimate: 12 s\nMay exceed the timeout,\nblocked",
+      "zh": "预计 12 s\n可能超时，被阻塞",
+      "vi": "Ước tính: 12 s\nCó thể vượt quá thời gian chờ\n(timeout), bị chặn"
+    },
+    {
+      "en": "0 ms",
+      "zh": "0 ms",
+      "vi": "0 ms"
+    },
+    {
+      "en": "200 ms",
+      "zh": "200 ms",
+      "vi": "200 ms"
+    },
+    {
+      "en": "400 ms",
+      "zh": "400 ms",
+      "vi": "400 ms"
+    },
+    {
+      "en": "600 ms",
+      "zh": "600 ms",
+      "vi": "600 ms"
+    },
+    {
+      "en": "800 ms",
+      "zh": "800 ms",
+      "vi": "800 ms"
+    },
+    {
+      "en": "1000ms",
+      "zh": "1000ms",
+      "vi": "1000ms"
+    },
+    {
+      "en": "1200ms",
+      "zh": "1200ms",
+      "vi": "1200ms"
+    },
+    {
+      "en": "......",
+      "zh": "......",
+      "vi": "......"
+    }
+  ]
+}

@@ -1,0 +1,494 @@
+{
+  "id": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process",
+  "source": {
+    "upstream": "high-availability/hystrix-thread-pool-current-limiting/hystrix-process.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 980,
+    "h": 1140
+  },
+  "nodes": [
+    {
+      "id": "call",
+      "shape": "box",
+      "x": 308,
+      "y": 86,
+      "w": 190,
+      "h": 48,
+      "label": {
+        "key": "call"
+      },
+      "role": "default"
+    },
+    {
+      "id": "create",
+      "shape": "box",
+      "x": 286,
+      "y": 184,
+      "w": 210,
+      "h": 50,
+      "label": {
+        "key": "create",
+        "literals": [
+          "command"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "invoke",
+      "shape": "box",
+      "x": 231,
+      "y": 288,
+      "w": 320,
+      "h": 50,
+      "label": {
+        "key": "invoke",
+        "literals": [
+          "command"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "fallback",
+      "shape": "box",
+      "x": 555,
+      "y": 342,
+      "w": 190,
+      "h": 72,
+      "label": {
+        "key": "fallback"
+      },
+      "role": "default"
+    },
+    {
+      "id": "cache",
+      "shape": "pill",
+      "x": 241,
+      "y": 388,
+      "w": 300,
+      "h": 80,
+      "label": {
+        "key": "cache",
+        "literals": [
+          "Request Cache"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "breaker",
+      "shape": "pill",
+      "x": 241,
+      "y": 514,
+      "w": 300,
+      "h": 80,
+      "label": {
+        "key": "breaker"
+      },
+      "role": "default"
+    },
+    {
+      "id": "pool",
+      "shape": "pill",
+      "x": 241,
+      "y": 674,
+      "w": 300,
+      "h": 80,
+      "label": {
+        "key": "pool"
+      },
+      "role": "default"
+    },
+    {
+      "id": "exec",
+      "shape": "box",
+      "x": 281,
+      "y": 815,
+      "w": 220,
+      "h": 50,
+      "label": {
+        "key": "exec",
+        "literals": [
+          "command"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "err",
+      "shape": "pill",
+      "x": 241,
+      "y": 922,
+      "w": 300,
+      "h": 80,
+      "label": {
+        "key": "err"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          391,
+          134
+        ],
+        [
+          391,
+          184
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          234
+        ],
+        [
+          391,
+          288
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          338
+        ],
+        [
+          391,
+          388
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          468
+        ],
+        [
+          391,
+          514
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          594
+        ],
+        [
+          391,
+          674
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          754
+        ],
+        [
+          391,
+          815
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          865
+        ],
+        [
+          391,
+          922
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          241,
+          428
+        ],
+        [
+          191,
+          428
+        ],
+        [
+          191,
+          124
+        ],
+        [
+          308,
+          124
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          1002
+        ],
+        [
+          391,
+          1054
+        ],
+        [
+          170,
+          1054
+        ],
+        [
+          170,
+          96
+        ],
+        [
+          308,
+          96
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          391,
+          1010
+        ],
+        [
+          191,
+          1010
+        ],
+        [
+          191,
+          554
+        ],
+        [
+          241,
+          554
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          541,
+          554
+        ],
+        [
+          573,
+          554
+        ],
+        [
+          573,
+          414
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          541,
+          714
+        ],
+        [
+          612,
+          714
+        ],
+        [
+          612,
+          414
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          541,
+          962
+        ],
+        [
+          649,
+          962
+        ],
+        [
+          649,
+          414
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          583,
+          962
+        ],
+        [
+          583,
+          636
+        ],
+        [
+          496,
+          636
+        ],
+        [
+          496,
+          594
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "t_reject",
+        "at": [
+          577,
+          616
+        ],
+        "anchor": "end",
+        "literals": [
+          "reject"
+        ]
+      }
+    },
+    {
+      "points": [
+        [
+          650,
+          342
+        ],
+        [
+          650,
+          105
+        ],
+        [
+          498,
+          105
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_yes_cache",
+      "x": 218,
+      "y": 413,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_no_cache",
+      "x": 399,
+      "y": 491,
+      "anchor": "start"
+    },
+    {
+      "key": "t_yes_breaker",
+      "x": 556,
+      "y": 540,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_no_breaker",
+      "x": 399,
+      "y": 637,
+      "anchor": "start"
+    },
+    {
+      "key": "t_yes_pool",
+      "x": 558,
+      "y": 697,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_no_pool",
+      "x": 399,
+      "y": 788,
+      "anchor": "start"
+    },
+    {
+      "key": "t_yes_err",
+      "x": 559,
+      "y": 945,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_no_err",
+      "x": 383,
+      "y": 1034,
+      "anchor": "end"
+    },
+    {
+      "key": "t_return",
+      "x": 250,
+      "y": 148,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_return_fb",
+      "x": 642,
+      "y": 152,
+      "anchor": "end"
+    },
+    {
+      "key": "t_full",
+      "x": 662,
+      "y": 765,
+      "anchor": "start",
+      "literals": [
+        "reject"
+      ]
+    },
+    {
+      "key": "t_exc",
+      "x": 560,
+      "y": 995,
+      "anchor": "start"
+    },
+    {
+      "key": "t_ok",
+      "x": 178,
+      "y": 1090,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

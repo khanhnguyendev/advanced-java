@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "call": "调用线程",
+    "create": "创建 command",
+    "invoke": "调用 command执行方法",
+    "fallback": "fallback 降级",
+    "cache": "Request Cache\n有缓存？",
+    "breaker": "circuit breaker\n是否打开断路？",
+    "pool": "线程池/信号量\n是否已满？",
+    "exec": "执行 command",
+    "err": "执行是否出错？\n是否 timeout？",
+    "t_yes_cache": "是",
+    "t_no_cache": "否",
+    "t_yes_breaker": "是",
+    "t_no_breaker": "否",
+    "t_yes_pool": "是",
+    "t_no_pool": "否",
+    "t_yes_err": "是",
+    "t_no_err": "否",
+    "t_return": "返回结果",
+    "t_return_fb": "返回降级结果",
+    "t_reject": "reject",
+    "t_full": "资源已满，发送\nreject给断路器统计",
+    "t_exc": "发送异常事件给断路器统计",
+    "t_ok": "执行成功，返回结果，同时发送给断路器统计",
+    "_title": "Hystrix 命令执行流程",
+    "_desc": "一次 Hystrix 命令调用依次检查请求缓存、断路器、线程池或信号量，出错或被拒绝时走 fallback 降级，成功则返回结果并向断路器上报统计。"
+  }
+}

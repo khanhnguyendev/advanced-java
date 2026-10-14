@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "9d4524b0b7a033b7f3d96ae33aa64ccfaf7b12fecbbb2cfdfc78f52649ef212b",
+    "source_lang": "en"
+  },
+  "labels": {
+    "t0": "0 ms",
+    "t1": "200 ms",
+    "t2": "400 ms",
+    "t3": "600 ms",
+    "t4": "800 ms",
+    "t5": "1000ms",
+    "t6": "1200ms",
+    "dot": "",
+    "dots": "......",
+    "est": "Ước tính: 12 s\nCó thể vượt quá thời gian chờ\n(timeout), bị chặn",
+    "timeline": "Dòng thời gian",
+    "expected": "Thời điểm dự kiến được đi qua\n(trong hàng đợi)",
+    "many": "nhiều yêu cầu đến\nđồng thời",
+    "_title": "Chế độ đều đặn: các yêu cầu xếp hàng đi qua theo khoảng cách cố định",
+    "_desc": "Các yêu cầu đến cùng lúc được xếp hàng trên dòng thời gian và cho đi qua mỗi 200 ms; yêu cầu ước tính phải chờ 12 s vượt quá thời gian chờ sẽ bị chặn."
+  }
+}

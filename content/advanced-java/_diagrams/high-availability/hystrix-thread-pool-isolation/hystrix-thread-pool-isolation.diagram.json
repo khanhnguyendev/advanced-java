@@ -1,0 +1,21 @@
+{
+  "id": "high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation",
+  "source": { "upstream": "high-availability/hystrix-thread-pool-isolation/hystrix-thread-pool-isolation.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 520, "h": 460 },
+  "nodes": [
+    { "id": "nginx", "shape": "box", "x": 183, "y": 103, "w": 109, "h": 34, "label": { "key": "nginx", "literals": ["Nginx"] }, "role": "default" },
+    { "id": "redis", "shape": "box", "x": 184, "y": 172, "w": 108, "h": 44, "label": { "key": "redis", "literals": ["Redis"] }, "role": "default" },
+    { "id": "cache", "shape": "box", "x": 188, "y": 255, "w": 100, "h": 70, "label": { "key": "cache" }, "role": "default" },
+    { "id": "pool", "shape": "pill", "x": 300, "y": 282, "w": 200, "h": 30, "label": { "key": "pool" }, "role": "default" },
+    { "id": "product", "shape": "box", "x": 188, "y": 369, "w": 100, "h": 70, "label": { "key": "product" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[183, 120], [153, 120], [153, 290], [188, 290]], "arrow": "end", "style": "solid" },
+    { "points": [[238, 325], [238, 369]], "arrow": "end", "style": "solid" },
+    { "points": [[300, 297], [288, 297]], "arrow": "none", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

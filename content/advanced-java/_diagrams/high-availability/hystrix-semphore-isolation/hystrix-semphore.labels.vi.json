@@ -1,0 +1,8 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "0fe7dfc7938b16ba0fcc58b78645e2bb417f03f7b22e7686d26bbdf94aaa03bd", "source_lang": "zh" },
+  "labels": {
+    "sem": "Semaphore của\ndịch vụ A",
+    "_title": "Cô lập tài nguyên bằng semaphore của Hystrix",
+    "_desc": "Nhiều yêu cầu đến semaphore của dịch vụ A, semaphore giới hạn đồng thời và chỉ cho một số ít yêu cầu đi qua."
+  }
+}

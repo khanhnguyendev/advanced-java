@@ -1,0 +1,12 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "39a9aa331d99cd221137dfc088a966858996a4b158905dc0b100abe1f4dd23dd", "source_lang": "zh" },
+  "labels": {
+    "nginx": "Nginx",
+    "redis": "Redis",
+    "cache": "Dịch vụ\nbộ nhớ đệm",
+    "pool": "Thread pool (nhóm luồng)",
+    "product": "Dịch vụ\nsản phẩm",
+    "_title": "Chuỗi gọi của cô lập thread pool Hystrix",
+    "_desc": "Nginx gọi dịch vụ bộ nhớ đệm, dịch vụ này gọi dịch vụ sản phẩm qua thread pool; Redis nằm ở tầng bộ nhớ đệm."
+  }
+}

@@ -1,0 +1,3 @@
+{"meta":{"locale":"vi","status":"machine","from":"959eec7429000b58c9516e896d0475c39cbc896c137024195598990991b9dfa0","source_lang":"zh"},"labels":{
+"browse":"Duyệt website thương mại điện tử","ngx":"Nginx","html":"html","page":"Trang đã được tĩnh hóa sẵn","mysql":"MySQL\nLưu toàn bộ thông tin\nsản phẩm","sys":"Hệ thống\ntĩnh hóa trang","tpl":"Mẫu tĩnh",
+"_title":"Kiến trúc tĩnh hóa trang của website thương mại điện tử","_desc":"Hệ thống tĩnh hóa trang điền thông tin sản phẩm từ MySQL vào mẫu tĩnh rồi đẩy trang tĩnh lên Nginx, nơi trả về html khi người dùng duyệt website."}}

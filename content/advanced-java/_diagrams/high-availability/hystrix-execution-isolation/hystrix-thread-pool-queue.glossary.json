@@ -1,0 +1,4 @@
+{ "labels": [
+  { "zh": "队\n列", "en": "Queue", "vi": "Hàng đợi" },
+  { "zh": "线程池\n(10个线程)", "en": "Thread pool\n(10 threads)", "vi": "Thread pool\n(10 luồng)" }
+] }

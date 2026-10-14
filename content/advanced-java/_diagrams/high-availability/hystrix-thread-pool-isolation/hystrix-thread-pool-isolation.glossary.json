@@ -1,0 +1,6 @@
+{ "labels": [
+  { "zh": "Nginx", "en": "Nginx", "vi": "Nginx" },
+  { "zh": "Redis", "en": "Redis", "vi": "Redis" },
+  { "zh": "缓存服务", "en": "Cache service", "vi": "Dịch vụ bộ nhớ đệm" },
+  { "zh": "线程池", "en": "Thread pool", "vi": "Thread pool (nhóm luồng)" }
+] }

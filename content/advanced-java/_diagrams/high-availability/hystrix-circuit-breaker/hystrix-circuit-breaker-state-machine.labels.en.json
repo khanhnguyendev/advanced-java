@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "75ebde21c562e75c82618410990d43715924460997aad602b7aa6bad75e2c60a",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "closed": "Closed",
+    "open": "Open",
+    "half": "Half-Open",
+    "e_ok_loop": "Success",
+    "e_fail_loop": "Fail (under threshold)",
+    "e_trip": "Fail (threshold reached)",
+    "e_recover": "Success",
+    "e_probe": "after some time",
+    "e_fail_again": "fail again",
+    "e_block": "Block calls to the service provider",
+    "_title": "Hystrix circuit breaker state machine",
+    "_desc": "The circuit breaker moves between Closed, Open and Half-Open: it opens when failures reach the threshold, becomes Half-Open after some time, then returns to Closed on success or to Open on failure."
+  }
+}

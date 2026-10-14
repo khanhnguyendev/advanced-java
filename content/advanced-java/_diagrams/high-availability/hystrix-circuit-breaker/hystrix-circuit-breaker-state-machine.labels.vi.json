@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "75ebde21c562e75c82618410990d43715924460997aad602b7aa6bad75e2c60a",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "closed": "Closed",
+    "open": "Open",
+    "half": "Half-Open",
+    "e_ok_loop": "Thành công",
+    "e_fail_loop": "Thất bại (dưới ngưỡng)",
+    "e_trip": "Thất bại (đạt ngưỡng)",
+    "e_recover": "Thành công",
+    "e_probe": "sau một khoảng thời gian",
+    "e_fail_again": "lại thất bại",
+    "e_block": "Chặn lời gọi tới bên cung cấp dịch vụ",
+    "_title": "Máy trạng thái của circuit breaker Hystrix",
+    "_desc": "Circuit breaker chuyển giữa Closed, Open và Half-Open: mở khi số lần thất bại đạt ngưỡng, sau một khoảng thời gian chuyển sang Half-Open, rồi quay về Closed nếu thành công hoặc về Open nếu thất bại."
+  }
+}

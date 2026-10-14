@@ -1,0 +1,22 @@
+{
+  "id": "high-availability/hystrix-semphore-isolation/hystrix-semphore",
+  "source": { "upstream": "high-availability/hystrix-semphore-isolation/hystrix-semphore.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 290, "h": 360 },
+  "nodes": [
+    { "id": "sem", "shape": "pill", "x": 62, "y": 175, "w": 166, "h": 60, "label": { "key": "sem" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[62, 70], [100, 175]], "arrow": "end", "style": "solid" },
+    { "points": [[88, 55], [120, 175]], "arrow": "end", "style": "solid" },
+    { "points": [[130, 55], [145, 175]], "arrow": "end", "style": "solid" },
+    { "points": [[182, 55], [168, 175]], "arrow": "end", "style": "solid" },
+    { "points": [[230, 65], [190, 175]], "arrow": "end", "style": "solid" },
+    { "points": [[110, 235], [95, 330]], "arrow": "end", "style": "solid" },
+    { "points": [[145, 235], [145, 330]], "arrow": "end", "style": "solid" },
+    { "points": [[180, 235], [195, 330]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

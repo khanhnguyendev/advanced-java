@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "back": "返回",
+    "req": "请求",
+    "ngx": "Nginx",
+    "fetch": "获取最新的缓存数据",
+    "callapi": "调用接口获取\n变更后的数据",
+    "chg": "变更消息",
+    "rendered": "渲染后",
+    "localcache": "本地\n数据缓存",
+    "template": "本地html模板",
+    "redis": "redis 分布式缓存",
+    "cachesvc": "缓存服务",
+    "mq": "MQ",
+    "product": "商品服务信息",
+    "shop": "店铺服务信息",
+    "ad": "广告服务信息",
+    "_title": "电商详情页的缓存架构",
+    "_desc": "商品、店铺、广告服务的变更经 MQ 通知缓存服务，数据写入 redis，再由 Nginx 本地缓存获取并渲染到本地 html 模板后返回。"
+  }
+}

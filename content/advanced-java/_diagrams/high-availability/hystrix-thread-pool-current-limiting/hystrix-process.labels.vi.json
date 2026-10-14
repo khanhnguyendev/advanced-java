@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "cf82625229c0f7e3477a53eb9e042916e5d363c1e29ac69f9663f6df72934f0b",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "call": "Luồng gọi",
+    "create": "Tạo command",
+    "invoke": "Gọi phương thức thực thi\ncủa command",
+    "fallback": "Fallback\n(suy giảm\ndịch vụ)",
+    "cache": "Request Cache\ncó kết quả trong cache?",
+    "breaker": "circuit breaker\nđã mở chưa?",
+    "pool": "Thread pool/semaphore\nđã đầy chưa?",
+    "exec": "Thực thi command",
+    "err": "Thực thi bị lỗi?\nHoặc timeout?",
+    "t_yes_cache": "Có",
+    "t_no_cache": "Không",
+    "t_yes_breaker": "Có",
+    "t_no_breaker": "Không",
+    "t_yes_pool": "Có",
+    "t_no_pool": "Không",
+    "t_yes_err": "Có",
+    "t_no_err": "Không",
+    "t_return": "Trả về kết quả",
+    "t_return_fb": "Trả về kết quả suy giảm",
+    "t_reject": "reject",
+    "t_full": "Tài nguyên đã đầy, gửi\nreject cho circuit breaker để thống kê",
+    "t_exc": "Gửi sự kiện ngoại lệ cho circuit breaker để thống kê",
+    "t_ok": "Thực thi thành công: trả về kết quả, đồng thời gửi cho circuit breaker để thống kê",
+    "_title": "Luồng thực thi command của Hystrix",
+    "_desc": "Một lời gọi command của Hystrix lần lượt kiểm tra request cache, circuit breaker và thread pool hoặc semaphore, rơi vào fallback khi bị từ chối hoặc lỗi, và báo thống kê cho circuit breaker."
+  }
+}

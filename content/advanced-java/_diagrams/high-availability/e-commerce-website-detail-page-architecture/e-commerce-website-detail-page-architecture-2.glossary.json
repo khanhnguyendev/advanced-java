@@ -1,0 +1,79 @@
+{
+  "labels": [
+    {
+      "zh": "返回",
+      "en": "Return",
+      "vi": "Trả về"
+    },
+    {
+      "zh": "请求",
+      "en": "Request",
+      "vi": "Yêu cầu"
+    },
+    {
+      "zh": "Nginx",
+      "en": "Nginx",
+      "vi": "Nginx"
+    },
+    {
+      "zh": "获取最新的缓存数据",
+      "en": "Fetch the latest cached data",
+      "vi": "Lấy dữ liệu bộ nhớ đệm mới nhất"
+    },
+    {
+      "zh": "调用接口获取\n变更后的数据",
+      "en": "Call API to fetch\nthe changed data",
+      "vi": "Gọi API để lấy\ndữ liệu sau thay đổi"
+    },
+    {
+      "zh": "变更消息",
+      "en": "Change message",
+      "vi": "Thông điệp thay đổi"
+    },
+    {
+      "zh": "渲染后",
+      "en": "After rendering",
+      "vi": "Sau khi render"
+    },
+    {
+      "zh": "本地\n数据缓存",
+      "en": "Local data\ncache",
+      "vi": "Bộ nhớ đệm\ncục bộ"
+    },
+    {
+      "zh": "本地html模板",
+      "en": "Local html\ntemplate",
+      "vi": "Mẫu html\ncục bộ"
+    },
+    {
+      "zh": "redis 分布式缓存",
+      "en": "redis distributed cache",
+      "vi": "Bộ nhớ đệm phân tán\nredis"
+    },
+    {
+      "zh": "缓存服务",
+      "en": "Cache service",
+      "vi": "Dịch vụ\nbộ nhớ đệm"
+    },
+    {
+      "zh": "MQ",
+      "en": "MQ",
+      "vi": "MQ"
+    },
+    {
+      "zh": "商品服务信息",
+      "en": "Product service\ninfo",
+      "vi": "Thông tin dịch vụ\nsản phẩm"
+    },
+    {
+      "zh": "店铺服务信息",
+      "en": "Shop service\ninfo",
+      "vi": "Thông tin dịch vụ\ncửa hàng"
+    },
+    {
+      "zh": "广告服务信息",
+      "en": "Ad service\ninfo",
+      "vi": "Thông tin dịch vụ\nquảng cáo"
+    }
+  ]
+}

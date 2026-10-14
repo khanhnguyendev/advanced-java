@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "5277bcfd8ef258ea9a04db107ee703f08c163c525d2d48046654b003c6dc2103",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "thread": "Luồng gọi",
+    "create": "Tạo Command",
+    "invoke": "Gọi phương thức\nthực thi Command",
+    "d_rc": "Đã bật\nRequest Cache?",
+    "d_hit": "Có trúng Cache?",
+    "d_open": "Circuit breaker\nđang open?",
+    "d_full": "Thread pool/\nsemaphore\nđã đầy?",
+    "run": "Thực thi Command\nphương thức run()",
+    "d_err": "Thực thi lỗi\nhoặc timeout?",
+    "fallback": "Fallback\n(suy giảm\ndịch vụ)",
+    "e_fb": "Trả về kết quả suy giảm",
+    "e_cache": "Trả về kết quả\ntừ bộ nhớ đệm",
+    "e_ok": "Thực thi\nthành công,\ntrả về kết quả",
+    "stat1": "Gửi cho\ncircuit breaker\nđể thống kê",
+    "stat2": "Gửi cho\ncircuit breaker\nđể thống kê",
+    "stat3": "Gửi cho\ncircuit breaker\nđể thống kê",
+    "t1": "T",
+    "f1": "F",
+    "f2": "F",
+    "t3": "T",
+    "f3": "F",
+    "t4": "T",
+    "f4": "F",
+    "t5": "T",
+    "_title": "Quy trình thực thi của Hystrix",
+    "_desc": "Lưu đồ cách Hystrix thực thi một command: tạo Command, kiểm tra request cache, kiểm tra circuit breaker và thread pool, rồi thực thi hoặc suy giảm dịch vụ."
+  }
+}

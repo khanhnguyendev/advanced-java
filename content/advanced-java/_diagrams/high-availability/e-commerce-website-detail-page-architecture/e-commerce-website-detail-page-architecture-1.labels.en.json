@@ -1,0 +1,3 @@
+{"meta":{"locale":"en","status":"machine","from":"959eec7429000b58c9516e896d0475c39cbc896c137024195598990991b9dfa0","source_lang":"zh"},"labels":{
+"browse":"Browse the e-commerce site","ngx":"Nginx","html":"html","page":"Pre-generated static page","mysql":"MySQL\nStores all product info","sys":"Page static-\ngeneration system","tpl":"Static template",
+"_title":"Page static-generation architecture of an e-commerce site","_desc":"The page static-generation system fills product info from MySQL into static templates and pushes the static pages to Nginx, which returns the html when users browse the site."}}

@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "988bed6f97553423ace04edd2fc855a7256b164090b34f505c78ecef2802712f",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "own": "tomcat's own threads",
+    "pooltxt": "Threads in the Hystrix\nthread pool",
+    "sem": "Semaphore",
+    "_title": "Hystrix thread pool and semaphore inside tomcat",
+    "_desc": "Tomcat's own threads either call through threads in the Hystrix thread pool or pass through a semaphore.",
+    "tomcat": "tomcat",
+    "blank": ""
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "high-availability/hystrix-execution-isolation/hystrix-thread-pool-queue",
+  "source": { "upstream": "high-availability/hystrix-execution-isolation/hystrix-thread-pool-queue.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 200, "h": 330 },
+  "nodes": [
+    { "id": "queue", "shape": "round", "x": 45, "y": 105, "w": 110, "h": 52, "label": { "key": "queue" }, "role": "default" },
+    { "id": "pool", "shape": "box", "x": 25, "y": 228, "w": 150, "h": 72, "label": { "key": "pool", "literals": ["10"] }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[100, 40], [100, 105]], "arrow": "end", "style": "solid" },
+    { "points": [[100, 157], [100, 228]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

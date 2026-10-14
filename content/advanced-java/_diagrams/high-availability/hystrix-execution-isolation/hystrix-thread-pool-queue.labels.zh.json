@@ -1,0 +1,9 @@
+{
+  "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": {
+    "queue": "队\n列",
+    "pool": "线程池\n(10个线程)",
+    "_title": "Hystrix 线程池前的等待队列",
+    "_desc": "请求先进入队列，再由容量为 10 个线程的线程池处理。"
+  }
+}

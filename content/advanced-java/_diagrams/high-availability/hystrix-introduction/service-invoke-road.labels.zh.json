@@ -1,0 +1,3 @@
+{ "meta": { "locale": "zh", "status": "source", "source_lang": "zh" },
+  "labels": { "a": "服务A", "b": "服务B", "c": "服务C", "d": "服务D", "e": "服务E", "x": "X",
+    "_title": "服务调用链路", "_desc": "服务A调用服务B，服务B再调用服务C、服务D和服务E，其中到服务C的调用标记为X。" } }

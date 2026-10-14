@@ -1,0 +1,34 @@
+{
+ "labels": [
+  {
+   "zh": "浏览电商网站",
+   "en": "Browse the e-commerce site",
+   "vi": "Duyệt website thương mại điện tử"
+  },
+  {
+   "zh": "预先静态化好的页面",
+   "en": "Pre-generated static page",
+   "vi": "Trang đã được tĩnh hóa sẵn"
+  },
+  {
+   "zh": "MySQL\n存放所有商品信息",
+   "en": "MySQL\nStores all product info",
+   "vi": "MySQL\nLưu toàn bộ thông tin\nsản phẩm"
+  },
+  {
+   "zh": "页面静态化系统",
+   "en": "Page static-\ngeneration system",
+   "vi": "Hệ thống\ntĩnh hóa trang"
+  },
+  {
+   "zh": "静态模板",
+   "en": "Static template",
+   "vi": "Mẫu tĩnh"
+  },
+  {
+   "zh": "html",
+   "en": "html",
+   "vi": "html"
+  }
+ ]
+}

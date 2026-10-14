@@ -1,0 +1,3 @@
+{ "meta": { "locale": "vi", "status": "machine", "source_lang": "zh", "from": "825ad1481333129b9c71dbf10ea464954163d8eaca66d9de60f1469ed835e5f5" },
+  "labels": { "a": "Dịch vụ A", "b": "Dịch vụ B", "c": "Dịch vụ C", "d": "Dịch vụ D", "e": "Dịch vụ E", "x": "X",
+    "_title": "Chuỗi gọi dịch vụ", "_desc": "Dịch vụ A gọi Dịch vụ B, Dịch vụ B gọi tiếp Dịch vụ C, Dịch vụ D và Dịch vụ E; lời gọi tới Dịch vụ C được đánh dấu X." } }

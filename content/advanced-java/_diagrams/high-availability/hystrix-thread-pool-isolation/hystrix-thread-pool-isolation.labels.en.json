@@ -1,0 +1,12 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "39a9aa331d99cd221137dfc088a966858996a4b158905dc0b100abe1f4dd23dd", "source_lang": "zh" },
+  "labels": {
+    "nginx": "Nginx",
+    "redis": "Redis",
+    "cache": "Cache\nservice",
+    "pool": "Thread pool",
+    "product": "Product\nservice",
+    "_title": "Call chain of Hystrix thread pool isolation",
+    "_desc": "Nginx calls the cache service, which calls the product service through a thread pool; Redis sits in the cache tier."
+  }
+}

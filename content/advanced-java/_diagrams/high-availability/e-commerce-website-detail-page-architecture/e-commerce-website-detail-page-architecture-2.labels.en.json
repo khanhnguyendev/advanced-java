@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "22c610141f452c7d5c22aee769fa940bf9e5c8c5561a3760af491a59679b01c8",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "back": "Return",
+    "req": "Request",
+    "ngx": "Nginx",
+    "fetch": "Fetch the latest cached data",
+    "callapi": "Call API to fetch\nthe changed data",
+    "chg": "Change message",
+    "rendered": "After rendering",
+    "localcache": "Local data\ncache",
+    "template": "Local html\ntemplate",
+    "redis": "redis distributed cache",
+    "cachesvc": "Cache service",
+    "mq": "MQ",
+    "product": "Product service\ninfo",
+    "shop": "Shop service\ninfo",
+    "ad": "Ad service\ninfo",
+    "_title": "Cache architecture of an e-commerce detail page",
+    "_desc": "Changes in the product, shop and ad services reach the cache service through MQ, data is written to redis, then Nginx's local cache fetches it and renders it into a local html template before returning."
+  }
+}

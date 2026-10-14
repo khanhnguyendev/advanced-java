@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "cf82625229c0f7e3477a53eb9e042916e5d363c1e29ac69f9663f6df72934f0b",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "call": "Calling thread",
+    "create": "Create command",
+    "invoke": "Call the command's\nexecute method",
+    "fallback": "Fallback\n(degradation)",
+    "cache": "Request Cache\nhas a cached result?",
+    "breaker": "Is the circuit breaker\nopen?",
+    "pool": "Thread pool/semaphore\nfull?",
+    "exec": "Execute command",
+    "err": "Execution error?\nOr timeout?",
+    "t_yes_cache": "Yes",
+    "t_no_cache": "No",
+    "t_yes_breaker": "Yes",
+    "t_no_breaker": "No",
+    "t_yes_pool": "Yes",
+    "t_no_pool": "No",
+    "t_yes_err": "Yes",
+    "t_no_err": "No",
+    "t_return": "Return result",
+    "t_return_fb": "Return fallback result",
+    "t_reject": "reject",
+    "t_full": "Resources full, send\nreject to the circuit breaker for statistics",
+    "t_exc": "Send exception event to the circuit breaker for statistics",
+    "t_ok": "Execution succeeded: return the result and also send it to the circuit breaker for statistics",
+    "_title": "Hystrix command execution flow",
+    "_desc": "A Hystrix command call checks the request cache, the circuit breaker and the thread pool or semaphore in turn, falls back on rejection or error, and reports statistics to the circuit breaker."
+  }
+}

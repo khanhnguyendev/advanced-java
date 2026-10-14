@@ -1,0 +1,25 @@
+{
+  "id": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1",
+  "source": {"upstream": "high-availability/e-commerce-website-detail-page-architecture/e-commerce-website-detail-page-architecture-1.png", "commit": "1a35221"},
+  "license": "derived",
+  "size": {"w": 620, "h": 440},
+  "nodes": [
+    {"id": "browse", "shape": "box", "x": 190, "y": 48, "w": 255, "h": 45, "label": {"key": "browse"}, "role": "default"},
+    {"id": "nginx", "shape": "group", "border": "solid", "x": 230, "y": 137, "w": 195, "h": 55, "label": {"key": "ngx", "literals": ["Nginx"]}, "role": "default"},
+    {"id": "html", "shape": "pill", "x": 355, "y": 143, "w": 62, "h": 28, "label": {"key": "html", "literals": ["html"]}, "role": "default"},
+    {"id": "page", "shape": "box", "x": 214, "y": 245, "w": 220, "h": 45, "label": {"key": "page"}, "role": "default"},
+    {"id": "mysql", "shape": "box", "x": 30, "y": 335, "w": 166, "h": 64, "label": {"key": "mysql", "literals": ["MySQL"]}, "role": "default"},
+    {"id": "system", "shape": "group", "border": "solid", "x": 308, "y": 333, "w": 282, "h": 66, "label": {"key": "sys"}, "role": "default"},
+    {"id": "tpl", "shape": "box", "x": 496, "y": 340, "w": 88, "h": 44, "label": {"key": "tpl"}, "role": "default"}
+  ],
+  "edges": [
+    {"points": [[298,93],[298,137]], "arrow": "end", "style": "solid"},
+    {"points": [[386,143],[386,118],[322,118],[322,93]], "arrow": "end", "style": "solid"},
+    {"points": [[324,245],[324,208],[386,208],[386,171]], "arrow": "end", "style": "solid"},
+    {"points": [[445,333],[445,310],[324,310],[324,290]], "arrow": "end", "style": "solid"},
+    {"points": [[196,367],[308,367]], "arrow": "end", "style": "solid"}
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}
