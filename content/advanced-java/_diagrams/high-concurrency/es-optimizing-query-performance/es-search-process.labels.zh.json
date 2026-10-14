@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "client": "客户端",
+    "blank": "",
+    "t_m1": "机器1",
+    "t_proc": "elasticsearch进程",
+    "shard": "shard",
+    "fs": "filesystem cache",
+    "data1": "data1",
+    "seg": "segment file 磁盘文件",
+    "_title": "ES 搜索过程：shard 读取 filesystem cache，缓存未命中时从磁盘 segment file 加载数据",
+    "_desc": "客户端请求到达机器上的 elasticsearch 进程中的 shard，shard 从 filesystem cache 读取 data1，若缓存没有则从磁盘上的 segment file 加载到缓存后返回给客户端。"
+  }
+}

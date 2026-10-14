@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "03663f11a2776407eb0698816d7aefe4796783eb75f5a12c29d9b2454e53dd55",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "g": "",
+    "title": "Một dịch vụ đơn",
+    "n0": "Node dịch vụ 0",
+    "s0": "seq 0",
+    "i0": "init=0,step=8",
+    "n1": "Node dịch vụ 1",
+    "s1": "seq 1",
+    "i1": "init=1,step=8",
+    "n2": "Node dịch vụ 2",
+    "s2": "seq 2",
+    "i2": "init=2,step=8",
+    "n3": "Node dịch vụ 3",
+    "s3": "seq 3",
+    "i3": "init=3,step=8",
+    "n4": "Node dịch vụ 4",
+    "s4": "seq 4",
+    "i4": "init=4,step=8",
+    "n5": "Node dịch vụ 5",
+    "s5": "seq 5",
+    "i5": "init=5,step=8",
+    "n6": "Node dịch vụ 6",
+    "s6": "seq 6",
+    "i6": "init=6,step=8",
+    "n7": "Node dịch vụ 7",
+    "s7": "seq 7",
+    "i7": "init=7,step=8",
+    "_title": "Tám node dịch vụ trong một dịch vụ, mỗi node có sequence riêng",
+    "_desc": "Node dịch vụ 0 đến 7 ứng với seq 0 đến seq 7, giá trị khởi đầu từ 0 đến 7, bước nhảy đều là 8."
+  }
+}

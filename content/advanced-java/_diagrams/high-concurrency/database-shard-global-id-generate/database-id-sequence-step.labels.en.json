@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "03663f11a2776407eb0698816d7aefe4796783eb75f5a12c29d9b2454e53dd55",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "g": "",
+    "title": "Single service",
+    "n0": "Service node 0",
+    "s0": "seq 0",
+    "i0": "init=0,step=8",
+    "n1": "Service node 1",
+    "s1": "seq 1",
+    "i1": "init=1,step=8",
+    "n2": "Service node 2",
+    "s2": "seq 2",
+    "i2": "init=2,step=8",
+    "n3": "Service node 3",
+    "s3": "seq 3",
+    "i3": "init=3,step=8",
+    "n4": "Service node 4",
+    "s4": "seq 4",
+    "i4": "init=4,step=8",
+    "n5": "Service node 5",
+    "s5": "seq 5",
+    "i5": "init=5,step=8",
+    "n6": "Service node 6",
+    "s6": "seq 6",
+    "i6": "init=6,step=8",
+    "n7": "Service node 7",
+    "s7": "seq 7",
+    "i7": "init=7,step=8",
+    "_title": "Eight service nodes in one service, each with its own sequence",
+    "_desc": "Service nodes 0 to 7 map to seq 0 to seq 7, with initial values 0 to 7 and a step of 8 for every sequence."
+  }
+}

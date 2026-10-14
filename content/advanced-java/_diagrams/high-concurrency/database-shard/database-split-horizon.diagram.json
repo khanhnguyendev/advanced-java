@@ -1,0 +1,23 @@
+{
+  "id": "high-concurrency/database-shard/database-split-horizon",
+  "source": { "upstream": "high-concurrency/database-shard/database-split-horizon.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 480, "h": 310 },
+  "nodes": [
+    { "id": "top", "shape": "box", "x": 135, "y": 40, "w": 220, "h": 64, "label": { "key": "top" }, "role": "default" },
+    { "id": "d1", "shape": "box", "x": 30, "y": 190, "w": 140, "h": 56, "label": { "key": "d1" }, "role": "default" },
+    { "id": "d2", "shape": "box", "x": 175, "y": 190, "w": 140, "h": 56, "label": { "key": "d2" }, "role": "default" },
+    { "id": "d3", "shape": "box", "x": 320, "y": 190, "w": 140, "h": 56, "label": { "key": "d3" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[245, 104], [245, 148], [100, 148], [100, 190]], "arrow": "end", "style": "solid" },
+    { "points": [[245, 148], [245, 190]], "arrow": "end", "style": "solid" },
+    { "points": [[245, 148], [390, 148], [390, 190]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "split", "x": 255, "y": 130, "anchor": "start" },
+    { "key": "goal", "x": 245, "y": 282, "anchor": "middle" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

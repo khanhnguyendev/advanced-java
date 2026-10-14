@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "279486100d4818fcd3cfecfb817eb3e583474a9021a292be61f95ace82479be6",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "client": "Client ES",
+    "m1": "Máy 1",
+    "m2": "Máy 2",
+    "m3": "Máy 3",
+    "p1": "Tiến trình\nES 01",
+    "p2": "Tiến trình\nES 02",
+    "p3": "Tiến trình\nES 03",
+    "a1": "shard 01\nprimary",
+    "a2": "shard 03\nreplica",
+    "b1": "shard 02\nprimary",
+    "b2": "shard 01\nreplica",
+    "c1": "shard 03\nprimary",
+    "c2": "shard 02\nreplica",
+    "e1": "Chọn một node ES",
+    "t_resp": "Khi primary và replica đều\nđã ghi xong, node điều phối\ntrả kết quả phản hồi\ncho client",
+    "t_coord": "Trở thành\nnode điều phối",
+    "t_route": "Định tuyến, chuyển tiếp đến node tương ứng",
+    "t_sync": "Đồng bộ dữ liệu sang replica",
+    "_title": "Luồng ghi ES: node điều phối định tuyến yêu cầu và phản hồi sau khi primary và replica ghi xong",
+    "_desc": "Client ES chọn một node làm node điều phối, node này định tuyến yêu cầu ghi đến node giữ primary shard; primary đồng bộ dữ liệu sang replica rồi node điều phối phản hồi cho client."
+  }
+}

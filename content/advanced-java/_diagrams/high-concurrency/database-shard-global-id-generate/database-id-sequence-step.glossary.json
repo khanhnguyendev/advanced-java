@@ -1,0 +1,129 @@
+{
+  "labels": [
+    {
+      "zh": "单个服务",
+      "en": "Single service",
+      "vi": "Một dịch vụ đơn"
+    },
+    {
+      "zh": "服务节点0",
+      "en": "Service node 0",
+      "vi": "Node dịch vụ 0"
+    },
+    {
+      "zh": "seq 0",
+      "en": "seq 0",
+      "vi": "seq 0"
+    },
+    {
+      "zh": "init=0,step=8",
+      "en": "init=0,step=8",
+      "vi": "init=0,step=8"
+    },
+    {
+      "zh": "服务节点1",
+      "en": "Service node 1",
+      "vi": "Node dịch vụ 1"
+    },
+    {
+      "zh": "seq 1",
+      "en": "seq 1",
+      "vi": "seq 1"
+    },
+    {
+      "zh": "init=1,step=8",
+      "en": "init=1,step=8",
+      "vi": "init=1,step=8"
+    },
+    {
+      "zh": "服务节点2",
+      "en": "Service node 2",
+      "vi": "Node dịch vụ 2"
+    },
+    {
+      "zh": "seq 2",
+      "en": "seq 2",
+      "vi": "seq 2"
+    },
+    {
+      "zh": "init=2,step=8",
+      "en": "init=2,step=8",
+      "vi": "init=2,step=8"
+    },
+    {
+      "zh": "服务节点3",
+      "en": "Service node 3",
+      "vi": "Node dịch vụ 3"
+    },
+    {
+      "zh": "seq 3",
+      "en": "seq 3",
+      "vi": "seq 3"
+    },
+    {
+      "zh": "init=3,step=8",
+      "en": "init=3,step=8",
+      "vi": "init=3,step=8"
+    },
+    {
+      "zh": "服务节点4",
+      "en": "Service node 4",
+      "vi": "Node dịch vụ 4"
+    },
+    {
+      "zh": "seq 4",
+      "en": "seq 4",
+      "vi": "seq 4"
+    },
+    {
+      "zh": "init=4,step=8",
+      "en": "init=4,step=8",
+      "vi": "init=4,step=8"
+    },
+    {
+      "zh": "服务节点5",
+      "en": "Service node 5",
+      "vi": "Node dịch vụ 5"
+    },
+    {
+      "zh": "seq 5",
+      "en": "seq 5",
+      "vi": "seq 5"
+    },
+    {
+      "zh": "init=5,step=8",
+      "en": "init=5,step=8",
+      "vi": "init=5,step=8"
+    },
+    {
+      "zh": "服务节点6",
+      "en": "Service node 6",
+      "vi": "Node dịch vụ 6"
+    },
+    {
+      "zh": "seq 6",
+      "en": "seq 6",
+      "vi": "seq 6"
+    },
+    {
+      "zh": "init=6,step=8",
+      "en": "init=6,step=8",
+      "vi": "init=6,step=8"
+    },
+    {
+      "zh": "服务节点7",
+      "en": "Service node 7",
+      "vi": "Node dịch vụ 7"
+    },
+    {
+      "zh": "seq 7",
+      "en": "seq 7",
+      "vi": "seq 7"
+    },
+    {
+      "zh": "init=7,step=8",
+      "en": "init=7,step=8",
+      "vi": "init=7,step=8"
+    }
+  ]
+}

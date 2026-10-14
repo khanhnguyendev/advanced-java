@@ -1,0 +1,20 @@
+{
+  "id": "high-concurrency/database-shard/database-split-vertically",
+  "source": { "upstream": "high-concurrency/database-shard/database-split-vertically.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 336, "h": 270 },
+  "nodes": [
+    { "id": "top", "shape": "box", "x": 70, "y": 45, "w": 196, "h": 62, "label": { "key": "top", "literals": ["col1", "col2", "col3", "col10"] }, "role": "default" },
+    { "id": "left", "shape": "box", "x": 40, "y": 183, "w": 120, "h": 54, "label": { "key": "left", "literals": ["col1", "col2"] }, "role": "default" },
+    { "id": "right", "shape": "box", "x": 176, "y": 183, "w": 120, "h": 54, "label": { "key": "right", "literals": ["col3", "col10"] }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[168, 107], [168, 148], [100, 148], [100, 183]], "arrow": "end", "style": "solid" },
+    { "points": [[168, 148], [236, 148], [236, 183]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "split", "x": 176, "y": 128, "anchor": "start" }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

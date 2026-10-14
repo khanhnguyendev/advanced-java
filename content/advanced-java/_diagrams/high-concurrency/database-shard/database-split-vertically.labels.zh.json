@@ -1,0 +1,11 @@
+{
+  "meta": { "locale": "zh", "status": "source" },
+  "labels": {
+    "_title": "数据表的垂直拆分",
+    "_desc": "一张有 col1 到 col10 的数据表被垂直拆分成两张数据表，分别保存 col1、col2 和 col3 到 col10。",
+    "top": "数据表\ncol1 col2 col3 ... col10",
+    "left": "数据表\ncol1 col2",
+    "right": "数据表\ncol3... col10",
+    "split": "垂直拆分"
+  }
+}

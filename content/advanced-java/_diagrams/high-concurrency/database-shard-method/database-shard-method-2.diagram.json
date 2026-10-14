@@ -1,0 +1,323 @@
+{
+  "id": "high-concurrency/database-shard-method/database-shard-method-2",
+  "source": {
+    "upstream": "high-concurrency/database-shard-method/database-shard-method-2.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 870,
+    "h": 680
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "shape": "pill",
+      "x": 336,
+      "y": 48,
+      "w": 100,
+      "h": 68,
+      "label": {
+        "key": "user"
+      },
+      "role": "default"
+    },
+    {
+      "id": "sys",
+      "shape": "box",
+      "x": 236,
+      "y": 176,
+      "w": 300,
+      "h": 96,
+      "label": {
+        "key": "sys"
+      },
+      "role": "default"
+    },
+    {
+      "id": "db",
+      "shape": "box",
+      "x": 110,
+      "y": 333,
+      "w": 170,
+      "h": 64,
+      "label": {
+        "key": "db"
+      },
+      "role": "default"
+    },
+    {
+      "id": "mw",
+      "shape": "box",
+      "x": 325,
+      "y": 330,
+      "w": 122,
+      "h": 70,
+      "label": {
+        "key": "mw"
+      },
+      "role": "default"
+    },
+    {
+      "id": "tool",
+      "shape": "box",
+      "x": 90,
+      "y": 510,
+      "w": 240,
+      "h": 71,
+      "label": {
+        "key": "tool"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s00",
+      "shape": "box",
+      "x": 430,
+      "y": 480,
+      "w": 134,
+      "h": 80,
+      "label": {
+        "key": "s00",
+        "literals": [
+          "00"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "s01",
+      "shape": "box",
+      "x": 574,
+      "y": 480,
+      "w": 134,
+      "h": 80,
+      "label": {
+        "key": "s01",
+        "literals": [
+          "01"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "s02",
+      "shape": "box",
+      "x": 714,
+      "y": 480,
+      "w": 134,
+      "h": 80,
+      "label": {
+        "key": "s02",
+        "literals": [
+          "02"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          386,
+          116
+        ],
+        [
+          386,
+          176
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          236,
+          224
+        ],
+        [
+          195,
+          224
+        ],
+        [
+          195,
+          333
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          386,
+          272
+        ],
+        [
+          386,
+          330
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          195,
+          397
+        ],
+        [
+          195,
+          510
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          365,
+          400
+        ],
+        [
+          365,
+          478
+        ],
+        [
+          240,
+          478
+        ],
+        [
+          240,
+          510
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          330,
+          545
+        ],
+        [
+          386,
+          545
+        ],
+        [
+          386,
+          400
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          447,
+          365
+        ],
+        [
+          641,
+          365
+        ],
+        [
+          641,
+          480
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          412,
+          330
+        ],
+        [
+          412,
+          298
+        ],
+        [
+          781,
+          298
+        ],
+        [
+          781,
+          480
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          412,
+          400
+        ],
+        [
+          412,
+          440
+        ],
+        [
+          497,
+          440
+        ],
+        [
+          497,
+          480
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "n1",
+      "x": 244,
+      "y": 193,
+      "anchor": "start"
+    },
+    {
+      "key": "n3",
+      "x": 545,
+      "y": 190,
+      "anchor": "start"
+    },
+    {
+      "key": "note3",
+      "x": 545,
+      "y": 232,
+      "anchor": "start"
+    },
+    {
+      "key": "judge",
+      "x": 205,
+      "y": 424,
+      "anchor": "start"
+    },
+    {
+      "key": "n2",
+      "x": 100,
+      "y": 545,
+      "anchor": "start"
+    },
+    {
+      "key": "note",
+      "x": 93,
+      "y": 630,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "d313931b7431ccad8d31008cbad8d373ad44ec5eba297e30eb43ff3144d1b525",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "index": "index",
+    "type1": "type",
+    "type2": "type",
+    "field1": "field",
+    "field2": "field",
+    "doc1": "document",
+    "doc2": "document",
+    "map1": "mapping",
+    "map2": "mapping",
+    "_title": "Elasticsearch 的 index、type、mapping、document 和 field",
+    "_desc": "一个 index 包含多个 type，每个 type 有自己的 mapping 并存放 document，每个 document 由多个 field 组成。"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "d313931b7431ccad8d31008cbad8d373ad44ec5eba297e30eb43ff3144d1b525",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "index": "index",
+    "type1": "type",
+    "type2": "type",
+    "field1": "field",
+    "field2": "field",
+    "doc1": "document",
+    "doc2": "document",
+    "map1": "mapping",
+    "map2": "mapping",
+    "_title": "index, type, mapping, document và field trong Elasticsearch",
+    "_desc": "Một index chứa nhiều type; mỗi type có một mapping, lưu các document, và mỗi document gồm nhiều field."
+  }
+}

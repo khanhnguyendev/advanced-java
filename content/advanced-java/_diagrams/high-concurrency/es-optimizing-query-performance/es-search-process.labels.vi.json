@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "da3e6ad7b9f1cbdc750680b409723c493d17abdc239073c120e61e7cdfb30668",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "client": "Client",
+    "blank": "",
+    "t_m1": "Máy 1",
+    "t_proc": "Tiến trình elasticsearch",
+    "shard": "shard",
+    "fs": "filesystem cache",
+    "data1": "data1",
+    "seg": "segment file (tệp trên đĩa)",
+    "_title": "Quy trình tìm kiếm ES: shard đọc từ filesystem cache, nạp từ segment file trên đĩa khi chưa có trong cache",
+    "_desc": "Yêu cầu của client đến một shard trong tiến trình elasticsearch trên máy; shard đọc data1 từ filesystem cache, dữ liệu được nạp từ segment file trên đĩa khi chưa có, rồi kết quả trả về cho client."
+  }
+}

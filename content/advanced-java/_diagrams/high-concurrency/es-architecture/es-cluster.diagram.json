@@ -1,0 +1,398 @@
+{
+  "id": "high-concurrency/es-architecture/es-cluster",
+  "source": {
+    "upstream": "high-concurrency/es-architecture/es-cluster.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 960,
+    "h": 540
+  },
+  "nodes": [
+    {
+      "id": "client",
+      "shape": "box",
+      "x": 470,
+      "y": 48,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "client"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m1",
+      "shape": "group",
+      "x": 48,
+      "y": 225,
+      "w": 265,
+      "h": 190,
+      "label": {
+        "key": "m1"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "m2",
+      "shape": "group",
+      "x": 357,
+      "y": 225,
+      "w": 265,
+      "h": 190,
+      "label": {
+        "key": "m2"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "m3",
+      "shape": "group",
+      "x": 666,
+      "y": 225,
+      "w": 265,
+      "h": 190,
+      "label": {
+        "key": "m3"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "p1",
+      "shape": "group",
+      "x": 68,
+      "y": 255,
+      "w": 225,
+      "h": 135,
+      "label": {
+        "key": "p1"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "p2",
+      "shape": "group",
+      "x": 377,
+      "y": 255,
+      "w": 225,
+      "h": 135,
+      "label": {
+        "key": "p2"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "p3",
+      "shape": "group",
+      "x": 686,
+      "y": 255,
+      "w": 225,
+      "h": 135,
+      "label": {
+        "key": "p3"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "a1",
+      "shape": "round",
+      "x": 84,
+      "y": 313,
+      "w": 84,
+      "h": 50,
+      "label": {
+        "key": "a1",
+        "literals": [
+          "shard 01"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "a2",
+      "shape": "round",
+      "x": 191,
+      "y": 313,
+      "w": 84,
+      "h": 50,
+      "label": {
+        "key": "a2",
+        "literals": [
+          "shard 03"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "b1",
+      "shape": "round",
+      "x": 393,
+      "y": 313,
+      "w": 84,
+      "h": 50,
+      "label": {
+        "key": "b1",
+        "literals": [
+          "shard 02"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "b2",
+      "shape": "round",
+      "x": 500,
+      "y": 313,
+      "w": 84,
+      "h": 50,
+      "label": {
+        "key": "b2",
+        "literals": [
+          "shard 01"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c1",
+      "shape": "round",
+      "x": 702,
+      "y": 313,
+      "w": 84,
+      "h": 50,
+      "label": {
+        "key": "c1",
+        "literals": [
+          "shard 03"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "c2",
+      "shape": "round",
+      "x": 809,
+      "y": 313,
+      "w": 84,
+      "h": 50,
+      "label": {
+        "key": "c2",
+        "literals": [
+          "shard 02"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          490,
+          118
+        ],
+        [
+          490,
+          160
+        ],
+        [
+          470,
+          190
+        ],
+        [
+          400,
+          205
+        ],
+        [
+          300,
+          208
+        ],
+        [
+          200,
+          215
+        ],
+        [
+          200,
+          280
+        ],
+        [
+          158,
+          298
+        ],
+        [
+          158,
+          313
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "w",
+        "at": [
+          330,
+          194
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          519,
+          118
+        ],
+        [
+          519,
+          160
+        ],
+        [
+          505,
+          190
+        ],
+        [
+          500,
+          215
+        ],
+        [
+          500,
+          280
+        ],
+        [
+          468,
+          298
+        ],
+        [
+          468,
+          313
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "r1",
+        "at": [
+          532,
+          200
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          545,
+          118
+        ],
+        [
+          548,
+          160
+        ],
+        [
+          570,
+          195
+        ],
+        [
+          620,
+          208
+        ],
+        [
+          700,
+          212
+        ],
+        [
+          800,
+          230
+        ],
+        [
+          845,
+          260
+        ],
+        [
+          853,
+          313
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "r2",
+        "at": [
+          690,
+          196
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          127,
+          363
+        ],
+        [
+          130,
+          410
+        ],
+        [
+          170,
+          445
+        ],
+        [
+          250,
+          470
+        ],
+        [
+          340,
+          479
+        ],
+        [
+          430,
+          470
+        ],
+        [
+          510,
+          440
+        ],
+        [
+          538,
+          400
+        ],
+        [
+          541,
+          363
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "tw",
+      "x": 203,
+      "y": 182,
+      "anchor": "middle"
+    },
+    {
+      "key": "tr",
+      "x": 677,
+      "y": 158,
+      "anchor": "middle"
+    },
+    {
+      "key": "ts",
+      "x": 330,
+      "y": 425,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

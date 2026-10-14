@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "77989e8d7fed4d30bb70b857b09e5e565dcd8369e189349dfe0da08d18eb50b0",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "Dual-write plan for online migration to database sharding",
+    "_desc": "The system writes to both the old database and the database middleware while a temporary background tool migrates old data into the shards, and finally writes only to the middleware.",
+    "user": "User",
+    "sys": "System\nUpdate configuration\nWrite data to database middleware\nand old database at the same time",
+    "db": "Database\n6 million rows",
+    "mw": "Database\nmiddleware",
+    "tool": "Temporary background\ndata migration tool",
+    "s00": "Shard DB 00\n4 tables\n(500K per table)",
+    "s01": "Shard DB 01\n4 tables\n(500K per table)",
+    "s02": "Shard DB 02\n4 tables\n(500K per table)",
+    "n1": "1",
+    "n2": "2",
+    "n3": "3",
+    "note3": "Change the configuration to\nwrite to database middleware only",
+    "judge": "Check whether the\ndata exists in the\nshards and tables",
+    "note": "If absent, write directly;\nif present, compare data timestamps,\nso only newer data overwrites older data"
+  }
+}

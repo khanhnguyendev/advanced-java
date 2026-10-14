@@ -1,0 +1,24 @@
+{
+  "labels": [
+    {
+      "en": "es cluster",
+      "zh": "ES 集群",
+      "vi": "Cụm ES"
+    },
+    {
+      "en": "Node",
+      "zh": "节点",
+      "vi": "Node"
+    },
+    {
+      "en": "shard",
+      "zh": "shard",
+      "vi": "shard"
+    },
+    {
+      "en": "replica",
+      "zh": "replica",
+      "vi": "replica"
+    }
+  ]
+}

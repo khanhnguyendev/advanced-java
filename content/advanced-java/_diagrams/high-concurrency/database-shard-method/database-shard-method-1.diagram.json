@@ -1,0 +1,347 @@
+{
+  "id": "high-concurrency/database-shard-method/database-shard-method-1",
+  "source": {
+    "upstream": "high-concurrency/database-shard-method/database-shard-method-1.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 800,
+    "h": 600
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "shape": "circle",
+      "x": 270,
+      "y": 46,
+      "w": 110,
+      "h": 110,
+      "label": {
+        "key": "user"
+      },
+      "role": "default"
+    },
+    {
+      "id": "sys",
+      "shape": "box",
+      "x": 195,
+      "y": 202,
+      "w": 260,
+      "h": 84,
+      "label": {
+        "key": "sys"
+      },
+      "role": "default"
+    },
+    {
+      "id": "mw",
+      "shape": "box",
+      "x": 255,
+      "y": 348,
+      "w": 140,
+      "h": 70,
+      "label": {
+        "key": "mw"
+      },
+      "role": "default"
+    },
+    {
+      "id": "db",
+      "shape": "box",
+      "x": 40,
+      "y": 351,
+      "w": 180,
+      "h": 64,
+      "label": {
+        "key": "db"
+      },
+      "role": "default"
+    },
+    {
+      "id": "job",
+      "shape": "box",
+      "x": 20,
+      "y": 503,
+      "w": 230,
+      "h": 80,
+      "label": {
+        "key": "job"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s0",
+      "shape": "box",
+      "x": 372,
+      "y": 503,
+      "w": 134,
+      "h": 80,
+      "label": {
+        "key": "s0",
+        "literals": [
+          "00"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "s1",
+      "shape": "box",
+      "x": 515,
+      "y": 503,
+      "w": 134,
+      "h": 80,
+      "label": {
+        "key": "s1",
+        "literals": [
+          "01"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "s2",
+      "shape": "box",
+      "x": 656,
+      "y": 503,
+      "w": 134,
+      "h": 80,
+      "label": {
+        "key": "s2",
+        "literals": [
+          "02"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          302,
+          151
+        ],
+        [
+          302,
+          202
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e1",
+        "at": [
+          310,
+          168
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          348,
+          151
+        ],
+        [
+          348,
+          202
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e6",
+        "at": [
+          340,
+          168
+        ],
+        "anchor": "end"
+      }
+    },
+    {
+      "points": [
+        [
+          325,
+          286
+        ],
+        [
+          325,
+          348
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e5",
+        "at": [
+          333,
+          312
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          365,
+          348
+        ],
+        [
+          365,
+          318
+        ],
+        [
+          723,
+          318
+        ],
+        [
+          723,
+          503
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e4c",
+        "at": [
+          613,
+          306
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          395,
+          383
+        ],
+        [
+          582,
+          383
+        ],
+        [
+          582,
+          503
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e4b",
+        "at": [
+          488,
+          370
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          351,
+          418
+        ],
+        [
+          351,
+          459
+        ],
+        [
+          439,
+          459
+        ],
+        [
+          439,
+          503
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e4a",
+        "at": [
+          394,
+          447
+        ],
+        "anchor": "middle"
+      }
+    },
+    {
+      "points": [
+        [
+          130,
+          415
+        ],
+        [
+          130,
+          503
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          250,
+          539
+        ],
+        [
+          325,
+          539
+        ],
+        [
+          325,
+          418
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e3",
+        "at": [
+          333,
+          520
+        ],
+        "anchor": "start"
+      }
+    }
+  ],
+  "texts": [
+    {
+      "key": "notice",
+      "x": 219,
+      "y": 14,
+      "anchor": "start"
+    },
+    {
+      "key": "l_no",
+      "x": 294,
+      "y": 167,
+      "anchor": "end"
+    },
+    {
+      "key": "l_ok",
+      "x": 356,
+      "y": 167,
+      "anchor": "start"
+    },
+    {
+      "key": "n5",
+      "x": 207,
+      "y": 226,
+      "anchor": "start"
+    },
+    {
+      "key": "n2",
+      "x": 32,
+      "y": 539,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

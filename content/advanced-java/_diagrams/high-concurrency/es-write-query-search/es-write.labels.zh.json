@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "client": "es客户端",
+    "m1": "机器1",
+    "m2": "机器2",
+    "m3": "机器3",
+    "p1": "es进程01",
+    "p2": "es进程02",
+    "p3": "es进程03",
+    "a1": "shard 01\nprimary",
+    "a2": "shard 03\nreplica",
+    "b1": "shard 02\nprimary",
+    "b2": "shard 01\nreplica",
+    "c1": "shard 03\nprimary",
+    "c2": "shard 02\nreplica",
+    "e1": "挑选一个es节点",
+    "t_resp": "primary 和 replica 都写完，协调\n节点将结果响应给客户端",
+    "t_coord": "成为协调节点",
+    "t_route": "路由，转发给对应node",
+    "t_sync": "将数据同步给 replica",
+    "_title": "ES 写数据流程：协调节点路由请求，primary shard 同步到 replica shard 后响应客户端",
+    "_desc": "es客户端挑选一个节点成为协调节点，协调节点把写请求路由到持有 primary shard 的节点，primary shard 将数据同步给 replica，全部写完后由协调节点响应客户端。"
+  }
+}

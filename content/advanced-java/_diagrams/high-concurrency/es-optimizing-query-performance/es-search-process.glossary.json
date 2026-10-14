@@ -1,0 +1,39 @@
+{
+  "labels": [
+    {
+      "zh": "客户端",
+      "en": "Client",
+      "vi": "Client"
+    },
+    {
+      "zh": "机器1",
+      "en": "Machine 1",
+      "vi": "Máy 1"
+    },
+    {
+      "zh": "elasticsearch进程",
+      "en": "elasticsearch process",
+      "vi": "Tiến trình elasticsearch"
+    },
+    {
+      "zh": "segment file 磁盘文件",
+      "en": "segment file (disk file)",
+      "vi": "segment file (tệp trên đĩa)"
+    },
+    {
+      "zh": "shard",
+      "en": "shard",
+      "vi": "shard"
+    },
+    {
+      "zh": "filesystem cache",
+      "en": "filesystem cache",
+      "vi": "filesystem cache"
+    },
+    {
+      "zh": "data1",
+      "en": "data1",
+      "vi": "data1"
+    }
+  ]
+}

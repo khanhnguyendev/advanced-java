@@ -1,0 +1,11 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "2bf45a0305a7fa1a62a6bc419fafc29a39444ead91220cc8168c4ac2c46b2127", "source_lang": "zh" },
+  "labels": {
+    "_title": "Tách dọc một bảng",
+    "_desc": "Một bảng có các cột col1 đến col10 được tách dọc thành hai bảng, chứa col1, col2 và col3 đến col10.",
+    "top": "Bảng\ncol1 col2 col3 ... col10",
+    "left": "Bảng\ncol1 col2",
+    "right": "Bảng\ncol3... col10",
+    "split": "Tách dọc"
+  }
+}

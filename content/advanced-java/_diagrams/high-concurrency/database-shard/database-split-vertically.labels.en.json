@@ -1,0 +1,11 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "2bf45a0305a7fa1a62a6bc419fafc29a39444ead91220cc8168c4ac2c46b2127", "source_lang": "zh" },
+  "labels": {
+    "_title": "Vertical splitting of a table",
+    "_desc": "A table with columns col1 to col10 is split vertically into two tables holding col1, col2 and col3 to col10.",
+    "top": "Table\ncol1 col2 col3 ... col10",
+    "left": "Table\ncol1 col2",
+    "right": "Table\ncol3... col10",
+    "split": "Vertical splitting"
+  }
+}

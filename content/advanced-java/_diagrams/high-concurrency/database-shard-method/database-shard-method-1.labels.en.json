@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "9f0294fc085a00ae34afb1acfbab0ee02d817ea453e8f557e7015fb86853f752"
+  },
+  "labels": {
+    "_title": "Downtime migration steps",
+    "_desc": "Users are blocked during the maintenance window while a temporary background program copies the old database through the database middleware into three shard databases, after which the system updates its configuration and access is allowed again.",
+    "notice": "Notice:\n0:00~6:00, website maintenance, no access",
+    "user": "User",
+    "l_no": "Access not allowed",
+    "e1": "1",
+    "e6": "6",
+    "l_ok": "Access allowed",
+    "sys": "System\nUpdate configuration\nWrite data to the database middleware",
+    "n5": "5",
+    "e5": "5",
+    "mw": "Database\nmiddleware",
+    "db": "Database\n6 million rows",
+    "e4a": "4",
+    "e4b": "4",
+    "e4c": "4",
+    "e3": "3",
+    "n2": "2",
+    "job": "Temporary background program\nDeployed on 3 machines\n20 threads per machine",
+    "s0": "Shard DB 00\n4 tables\n(500K per table)",
+    "s1": "Shard DB 01\n4 tables\n(500K per table)",
+    "s2": "Shard DB 02\n4 tables\n(500K per table)"
+  }
+}

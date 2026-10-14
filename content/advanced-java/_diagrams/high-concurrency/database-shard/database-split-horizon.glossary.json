@@ -1,0 +1,6 @@
+{ "labels": [
+  { "zh": "数据库\n（单表3000w）", "en": "Database\n(30M per table)", "vi": "Cơ sở dữ liệu\n(30 triệu mỗi bảng)" },
+  { "zh": "数据库\n单表1000w", "en": "Database\n10M per table", "vi": "Cơ sở dữ liệu\n10 triệu mỗi bảng" },
+  { "zh": "水平拆分", "en": "Horizontal splitting", "vi": "Tách ngang" },
+  { "zh": "扛高并发、扩容", "en": "Carry high concurrency, scale capacity", "vi": "Chống đỡ tải đồng thời cao, mở rộng dung lượng" }
+] }

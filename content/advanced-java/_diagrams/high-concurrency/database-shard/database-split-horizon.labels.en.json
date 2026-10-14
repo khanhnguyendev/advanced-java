@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "2e7f4c39f18d9bbdb563acee2ce622d2302f2dff7f2d0c961cd4f1a82b2b0eaf", "source_lang": "zh" },
+  "labels": {
+    "_title": "Horizontal splitting of a database",
+    "_desc": "A database with 30 million rows per table is split horizontally into three databases with 10 million rows per table, to carry high concurrency and scale capacity.",
+    "top": "Database\n(30M per table)",
+    "d1": "Database\n10M per table",
+    "d2": "Database\n10M per table",
+    "d3": "Database\n10M per table",
+    "split": "Horizontal splitting",
+    "goal": "Carry high concurrency, scale capacity"
+  }
+}

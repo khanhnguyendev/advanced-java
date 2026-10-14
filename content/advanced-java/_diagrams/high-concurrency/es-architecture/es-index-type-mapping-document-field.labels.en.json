@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "blank": "",
+    "index": "index",
+    "type1": "type",
+    "type2": "type",
+    "field1": "field",
+    "field2": "field",
+    "doc1": "document",
+    "doc2": "document",
+    "map1": "mapping",
+    "map2": "mapping",
+    "_title": "Elasticsearch index, type, mapping, document and field",
+    "_desc": "An index contains types; each type has a mapping, holds documents, and each document is made of fields."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "8de9cbc485be4b1516d9d4b5053593d89d8f596aa1f27052fb4ae98b58734fc5",
+    "source_lang": "en"
+  },
+  "labels": {
+    "title": "Cụm ES",
+    "node": "Node",
+    "shard": "shard",
+    "replica": "replica",
+    "blank": "",
+    "_title": "Cụm ES: bốn node, mỗi node chứa một shard và một replica",
+    "_desc": "Một cụm ES gồm bốn node, mỗi node chứa một shard và một replica."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "title": "es cluster",
+    "node": "Node",
+    "shard": "shard",
+    "replica": "replica",
+    "blank": "",
+    "_title": "es cluster: four nodes, each holding a shard and a replica",
+    "_desc": "An es cluster contains four nodes, and each node holds one shard and one replica."
+  }
+}

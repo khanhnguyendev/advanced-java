@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "g": "",
+    "title": "单个服务",
+    "n0": "服务节点0",
+    "s0": "seq 0",
+    "i0": "init=0,step=8",
+    "n1": "服务节点1",
+    "s1": "seq 1",
+    "i1": "init=1,step=8",
+    "n2": "服务节点2",
+    "s2": "seq 2",
+    "i2": "init=2,step=8",
+    "n3": "服务节点3",
+    "s3": "seq 3",
+    "i3": "init=3,step=8",
+    "n4": "服务节点4",
+    "s4": "seq 4",
+    "i4": "init=4,step=8",
+    "n5": "服务节点5",
+    "s5": "seq 5",
+    "i5": "init=5,step=8",
+    "n6": "服务节点6",
+    "s6": "seq 6",
+    "i6": "init=6,step=8",
+    "n7": "服务节点7",
+    "s7": "seq 7",
+    "i7": "init=7,step=8",
+    "_title": "单个服务内 8 个服务节点各用一个 sequence 生成 ID",
+    "_desc": "一个服务中的 8 个服务节点分别对应 seq 0 至 seq 7，每个 sequence 的起始值为 0 至 7，步长均为 8。"
+  }
+}

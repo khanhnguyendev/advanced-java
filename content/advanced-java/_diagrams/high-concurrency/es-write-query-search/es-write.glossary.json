@@ -1,0 +1,29 @@
+{
+  "labels": [
+    {
+      "zh": "挑选一个es节点",
+      "en": "Pick an ES node",
+      "vi": "Chọn một node ES"
+    },
+    {
+      "zh": "primary 和 replica 都写完，协调\n节点将结果响应给客户端",
+      "en": "Once primary and replica have both\nfinished writing, the coordinating\nnode returns the result\nto the client",
+      "vi": "Khi primary và replica đều\nđã ghi xong, node điều phối\ntrả kết quả phản hồi\ncho client"
+    },
+    {
+      "zh": "成为协调节点",
+      "en": "Becomes the\ncoordinating node",
+      "vi": "Trở thành\nnode điều phối"
+    },
+    {
+      "zh": "路由，转发给对应node",
+      "en": "Route and forward to the corresponding node",
+      "vi": "Định tuyến, chuyển tiếp đến node tương ứng"
+    },
+    {
+      "zh": "将数据同步给 replica",
+      "en": "Sync data to the replica",
+      "vi": "Đồng bộ dữ liệu sang replica"
+    }
+  ]
+}

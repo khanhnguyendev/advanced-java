@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "da3e6ad7b9f1cbdc750680b409723c493d17abdc239073c120e61e7cdfb30668",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "client": "Client",
+    "blank": "",
+    "t_m1": "Machine 1",
+    "t_proc": "elasticsearch process",
+    "shard": "shard",
+    "fs": "filesystem cache",
+    "data1": "data1",
+    "seg": "segment file (disk file)",
+    "_title": "ES search process: a shard reads from the filesystem cache, loading from the on-disk segment file on a miss",
+    "_desc": "A client request reaches a shard in the elasticsearch process on a machine; the shard reads data1 from the filesystem cache, which is loaded from the segment file on disk when missing, and the result returns to the client."
+  }
+}

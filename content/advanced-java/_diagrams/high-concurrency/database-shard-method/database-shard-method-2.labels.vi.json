@@ -1,0 +1,26 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "77989e8d7fed4d30bb70b857b09e5e565dcd8369e189349dfe0da08d18eb50b0",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "_title": "Phương án ghi kép khi di chuyển trực tuyến sang sharding",
+    "_desc": "Hệ thống ghi đồng thời vào cơ sở dữ liệu cũ và middleware, công cụ tạm thời chạy nền chuyển dữ liệu cũ vào các shard, cuối cùng chỉ ghi vào middleware.",
+    "user": "Người dùng",
+    "sys": "Hệ thống\nSửa cấu hình\nGhi đồng thời dữ liệu vào\nmiddleware cơ sở dữ liệu\nvà cơ sở dữ liệu cũ",
+    "db": "Cơ sở dữ liệu\n6 triệu dòng dữ liệu",
+    "mw": "Middleware\ncơ sở dữ liệu",
+    "tool": "Công cụ tạm thời chạy nền\ndi chuyển dữ liệu",
+    "s00": "Shard 00\n4 bảng\n(500K mỗi bảng)",
+    "s01": "Shard 01\n4 bảng\n(500K mỗi bảng)",
+    "s02": "Shard 02\n4 bảng\n(500K mỗi bảng)",
+    "n1": "1",
+    "n2": "2",
+    "n3": "3",
+    "note3": "Sửa cấu hình thành\nchỉ ghi vào middleware cơ sở dữ liệu",
+    "judge": "Kiểm tra dữ liệu\ncó trong các shard\nvà bảng hay không",
+    "note": "Không tồn tại: ghi trực tiếp;\nTồn tại: so sánh dấu thời gian dữ liệu,\nđảm bảo chỉ dữ liệu mới ghi đè dữ liệu cũ"
+  }
+}

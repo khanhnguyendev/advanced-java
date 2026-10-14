@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "2e7f4c39f18d9bbdb563acee2ce622d2302f2dff7f2d0c961cd4f1a82b2b0eaf", "source_lang": "zh" },
+  "labels": {
+    "_title": "Tách ngang một cơ sở dữ liệu",
+    "_desc": "Một cơ sở dữ liệu có 30 triệu dòng mỗi bảng được tách ngang thành ba cơ sở dữ liệu có 10 triệu dòng mỗi bảng, để chống đỡ đồng thời cao và mở rộng dung lượng.",
+    "top": "Cơ sở dữ liệu\n(30 triệu mỗi bảng)",
+    "d1": "Cơ sở dữ liệu\n10 triệu mỗi bảng",
+    "d2": "Cơ sở dữ liệu\n10 triệu mỗi bảng",
+    "d3": "Cơ sở dữ liệu\n10 triệu mỗi bảng",
+    "split": "Tách ngang",
+    "goal": "Chống đỡ tải đồng thời cao, mở rộng dung lượng"
+  }
+}

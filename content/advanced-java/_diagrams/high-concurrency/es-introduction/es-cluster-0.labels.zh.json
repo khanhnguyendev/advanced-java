@@ -1,0 +1,17 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "8de9cbc485be4b1516d9d4b5053593d89d8f596aa1f27052fb4ae98b58734fc5",
+    "source_lang": "en"
+  },
+  "labels": {
+    "title": "ES 集群",
+    "node": "节点",
+    "shard": "shard",
+    "replica": "replica",
+    "blank": "",
+    "_title": "ES 集群：四个节点，每个节点包含 shard 与 replica",
+    "_desc": "一个 ES 集群包含四个节点，每个节点内各有一个 shard 和一个 replica。"
+  }
+}

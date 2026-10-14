@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "b3b180abe86fbe9e7d83660acd10eb4e61e2955935004f5049d33b785d423094",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "client": "Client ES",
+    "m1": "Máy 1",
+    "m2": "Máy 2",
+    "m3": "Máy 3",
+    "p1": "Tiến trình\nES 01",
+    "p2": "Tiến trình\nES 02",
+    "p3": "Tiến trình\nES 03",
+    "a1": "shard 01\nprimary",
+    "a2": "shard 03\nreplica",
+    "b1": "shard 02\nprimary",
+    "b2": "shard 01\nreplica",
+    "c1": "shard 03\nprimary",
+    "c2": "shard 02\nreplica",
+    "w": "Ghi",
+    "r1": "Đọc",
+    "r2": "Đọc",
+    "tw": "Ghi dữ liệu vào\nprimary shard",
+    "tr": "Có thể đọc từ\nreplica/primary shard",
+    "ts": "primary shard đồng bộ dữ liệu\nsang replica shard",
+    "_title": "Cụm ES: phân bố shard trên ba máy cùng luồng đọc, ghi và đồng bộ",
+    "_desc": "Client ES ghi dữ liệu vào primary shard và đọc từ replica hoặc primary shard, primary shard đồng bộ dữ liệu sang replica shard."
+  }
+}

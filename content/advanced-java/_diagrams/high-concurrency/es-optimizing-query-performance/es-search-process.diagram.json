@@ -1,0 +1,298 @@
+{
+  "id": "high-concurrency/es-optimizing-query-performance/es-search-process",
+  "source": {
+    "upstream": "high-concurrency/es-optimizing-query-performance/es-search-process.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 540,
+    "h": 500
+  },
+  "nodes": [
+    {
+      "id": "client",
+      "shape": "circle",
+      "x": 211,
+      "y": 44,
+      "w": 72,
+      "h": 72,
+      "label": {
+        "key": "client"
+      },
+      "role": "default"
+    },
+    {
+      "id": "m1",
+      "shape": "group",
+      "x": 47,
+      "y": 143,
+      "w": 436,
+      "h": 335,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "proc",
+      "shape": "group",
+      "x": 103,
+      "y": 186,
+      "w": 330,
+      "h": 113,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "s1",
+      "shape": "box",
+      "x": 123,
+      "y": 217,
+      "w": 82,
+      "h": 50,
+      "label": {
+        "key": "shard"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s2",
+      "shape": "box",
+      "x": 225,
+      "y": 217,
+      "w": 82,
+      "h": 50,
+      "label": {
+        "key": "shard"
+      },
+      "role": "default"
+    },
+    {
+      "id": "s3",
+      "shape": "box",
+      "x": 327,
+      "y": 217,
+      "w": 82,
+      "h": 50,
+      "label": {
+        "key": "shard"
+      },
+      "role": "default"
+    },
+    {
+      "id": "fs",
+      "shape": "group",
+      "x": 109,
+      "y": 339,
+      "w": 313,
+      "h": 45,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "d1",
+      "shape": "round",
+      "x": 123,
+      "y": 346,
+      "w": 68,
+      "h": 32,
+      "label": {
+        "key": "data1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    },
+    {
+      "id": "seg",
+      "shape": "group",
+      "x": 77,
+      "y": 421,
+      "w": 378,
+      "h": 43,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "d2",
+      "shape": "round",
+      "x": 372,
+      "y": 428,
+      "w": 68,
+      "h": 30,
+      "label": {
+        "key": "data1",
+        "literals": [
+          "data1"
+        ]
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          143,
+          217
+        ],
+        [
+          150,
+          140
+        ],
+        [
+          190,
+          112
+        ],
+        [
+          222,
+          105
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          247,
+          116
+        ],
+        [
+          245,
+          160
+        ],
+        [
+          200,
+          190
+        ],
+        [
+          175,
+          217
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          165,
+          267
+        ],
+        [
+          168,
+          295
+        ],
+        [
+          215,
+          310
+        ],
+        [
+          262,
+          339
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          285,
+          384
+        ],
+        [
+          290,
+          408
+        ],
+        [
+          340,
+          412
+        ],
+        [
+          404,
+          428
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          230,
+          421
+        ],
+        [
+          225,
+          402
+        ],
+        [
+          160,
+          398
+        ],
+        [
+          150,
+          378
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          150,
+          346
+        ],
+        [
+          148,
+          267
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "t_m1",
+      "x": 300,
+      "y": 160,
+      "anchor": "middle"
+    },
+    {
+      "key": "t_proc",
+      "x": 345,
+      "y": 201,
+      "anchor": "middle"
+    },
+    {
+      "key": "fs",
+      "x": 270,
+      "y": 362,
+      "anchor": "middle"
+    },
+    {
+      "key": "seg",
+      "x": 235,
+      "y": 443,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

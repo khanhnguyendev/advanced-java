@@ -1,0 +1,29 @@
+{
+  "labels": [
+    {
+      "en": "index",
+      "zh": "index",
+      "vi": "index"
+    },
+    {
+      "en": "type",
+      "zh": "type",
+      "vi": "type"
+    },
+    {
+      "en": "field",
+      "zh": "field",
+      "vi": "field"
+    },
+    {
+      "en": "document",
+      "zh": "document",
+      "vi": "document"
+    },
+    {
+      "en": "mapping",
+      "zh": "mapping",
+      "vi": "mapping"
+    }
+  ]
+}

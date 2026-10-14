@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "9f0294fc085a00ae34afb1acfbab0ee02d817ea453e8f557e7015fb86853f752"
+  },
+  "labels": {
+    "_title": "Các bước di chuyển có ngừng hệ thống",
+    "_desc": "Người dùng bị chặn truy cập trong thời gian bảo trì, chương trình nền tạm thời chép dữ liệu cơ sở dữ liệu cũ qua middleware vào ba cơ sở dữ liệu shard, sau đó hệ thống sửa cấu hình và cho phép truy cập trở lại.",
+    "notice": "Thông báo:\n0 giờ~6 giờ, bảo trì website, không thể truy cập",
+    "user": "Người dùng",
+    "l_no": "Không cho phép truy cập",
+    "e1": "1",
+    "e6": "6",
+    "l_ok": "Cho phép truy cập",
+    "sys": "Hệ thống\nSửa cấu hình\nGhi dữ liệu vào\nmiddleware cơ sở dữ liệu",
+    "n5": "5",
+    "e5": "5",
+    "mw": "Middleware\ncơ sở dữ liệu",
+    "db": "Cơ sở dữ liệu\n6 triệu dòng dữ liệu",
+    "e4a": "4",
+    "e4b": "4",
+    "e4c": "4",
+    "e3": "3",
+    "n2": "2",
+    "job": "Chương trình nền tạm thời\nTriển khai trên 3 máy\nMỗi máy mở 20 luồng",
+    "s0": "Shard 00\n4 bảng\n(500K mỗi bảng)",
+    "s1": "Shard 01\n4 bảng\n(500K mỗi bảng)",
+    "s2": "Shard 02\n4 bảng\n(500K mỗi bảng)"
+  }
+}

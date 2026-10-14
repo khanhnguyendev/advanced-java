@@ -1,0 +1,225 @@
+{
+  "id": "high-concurrency/es-architecture/es-index-type-mapping-document-field",
+  "source": {
+    "upstream": "high-concurrency/es-architecture/es-index-type-mapping-document-field.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 830,
+    "h": 410
+  },
+  "nodes": [
+    {
+      "id": "index",
+      "shape": "group",
+      "x": 169,
+      "y": 48,
+      "w": 503,
+      "h": 316,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "t1",
+      "shape": "group",
+      "x": 231,
+      "y": 84,
+      "w": 139,
+      "h": 237,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "t2",
+      "shape": "group",
+      "x": 475,
+      "y": 84,
+      "w": 139,
+      "h": 237,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default",
+      "border": "solid"
+    },
+    {
+      "id": "r1",
+      "shape": "box",
+      "x": 231,
+      "y": 145,
+      "w": 139,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    },
+    {
+      "id": "r2",
+      "shape": "box",
+      "x": 475,
+      "y": 145,
+      "w": 139,
+      "h": 24,
+      "label": {
+        "key": "blank"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          172,
+          156
+        ],
+        [
+          231,
+          156
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          667,
+          156
+        ],
+        [
+          614,
+          156
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          257,
+          141
+        ],
+        [
+          257,
+          125
+        ],
+        [
+          262,
+          114
+        ],
+        [
+          275,
+          112
+        ],
+        [
+          295,
+          122
+        ],
+        [
+          318,
+          145
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          501,
+          141
+        ],
+        [
+          501,
+          125
+        ],
+        [
+          506,
+          114
+        ],
+        [
+          519,
+          112
+        ],
+        [
+          539,
+          122
+        ],
+        [
+          562,
+          145
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "index",
+      "x": 420,
+      "y": 68,
+      "anchor": "middle"
+    },
+    {
+      "key": "type1",
+      "x": 300,
+      "y": 72,
+      "anchor": "middle"
+    },
+    {
+      "key": "type2",
+      "x": 544,
+      "y": 72,
+      "anchor": "middle"
+    },
+    {
+      "key": "field1",
+      "x": 322,
+      "y": 118,
+      "anchor": "middle"
+    },
+    {
+      "key": "field2",
+      "x": 566,
+      "y": 118,
+      "anchor": "middle"
+    },
+    {
+      "key": "doc1",
+      "x": 127,
+      "y": 156,
+      "anchor": "middle"
+    },
+    {
+      "key": "doc2",
+      "x": 714,
+      "y": 156,
+      "anchor": "middle"
+    },
+    {
+      "key": "map1",
+      "x": 300,
+      "y": 334,
+      "anchor": "middle"
+    },
+    {
+      "key": "map2",
+      "x": 544,
+      "y": 334,
+      "anchor": "middle"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

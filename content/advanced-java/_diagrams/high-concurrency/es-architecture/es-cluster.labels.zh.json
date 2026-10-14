@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "client": "es客户端",
+    "m1": "机器1",
+    "m2": "机器2",
+    "m3": "机器3",
+    "p1": "es进程01",
+    "p2": "es进程02",
+    "p3": "es进程03",
+    "a1": "shard 01\nprimary",
+    "a2": "shard 03\nreplica",
+    "b1": "shard 02\nprimary",
+    "b2": "shard 01\nreplica",
+    "c1": "shard 03\nprimary",
+    "c2": "shard 02\nreplica",
+    "w": "写",
+    "r1": "读",
+    "r2": "读",
+    "tw": "将数据写入primary shard",
+    "tr": "可以从replica/primary shard 读",
+    "ts": "primary shard 将数据同步到 replica shard上",
+    "_title": "ES 集群：三台机器上的 shard 分布及读写、同步流程",
+    "_desc": "es客户端向 primary shard 写数据、从 replica 或 primary shard 读数据，primary shard 再同步到 replica shard。"
+  }
+}
