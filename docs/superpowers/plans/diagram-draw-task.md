@@ -55,3 +55,11 @@ Only create files for your own diagram in its output directory (`<name>.diagram.
 - `literals` are matched as whole tokens only. Use them for identifiers, code, numbers with units and URLs, not for prose words (`config`, `cluster`, `monitor`, `OA` are not literals).
 - Vietnamese line breaks go between phrases, never inside a compound word or term ("thất bại", "hệ thống", "thông điệp", "cơ sở dữ liệu", "dịch vụ"). 接口 is "API" in vi. Do not copy a parenthetical gloss such as "(service registry)" from the prose glossary into a label.
 - Every glossary entry's text must equal the label text (modulo whitespace); keep zh keys exact.
+
+## Lessons from batch B04 (apply from B06 on)
+- Chinese number abbreviations (万, 亿, `w`) are translated to the target locale's unit ("30M", "30 triệu"); do not leave `3000w` as a literal.
+- Never mark prose words as literals (`node`, `replica`, `shard`, `filesystem`, `cache`); literals are identifiers/code only. Be consistent across sibling diagrams: if a sibling marks `00` (shard number) or `col3` as literal, so do you.
+- vi: do not break a term or phrase across lines ("Người dùng", "(500K mỗi bảng)", "middleware cơ sở dữ liệu"); make the shape wider/taller instead. Capitalise the first letter of every box label (sentence case) in en and vi.
+- Draw every connector upstream has, including short plain lines with no arrowhead between boxes (`"arrow": "none"`).
+- Step numbers upstream draws inside a box stay inside (top-left).
+- 修改配置 = en "Update configuration"; 高并发 in vi = "tải đồng thời cao" (never drop "tải").
