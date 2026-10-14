@@ -1,12 +1,14 @@
 import { useTranslations } from 'next-intl';
 import type { Locale } from '@/lib/content/types';
 import type { ImageCredit } from '@/lib/assets';
+import type { DiagramCredit } from '@/lib/diagrams/credits';
 
 export interface AboutCollection {
   id: string;
   repo: string;
   commit: string;
   images: ImageCredit[];
+  diagrams?: DiagramCredit[];
 }
 
 export function AboutContent({ collections }: { collections: AboutCollection[] }) {
@@ -14,6 +16,8 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
   const a = useTranslations('attribution');
   const names = useTranslations('languages');
   const stop = a('stop');
+  const served = collections.reduce((n, u) => n + u.images.length, 0);
+  const redrawn = collections.reduce((n, u) => n + (u.diagrams?.length ?? 0), 0);
   const name = (l: Locale) => <span lang={l === 'zh' ? 'zh-Hans' : l}>{names(l)}</span>;
   return (
     <main id="main-content" tabIndex={-1} className="reader">
@@ -48,7 +52,7 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
           ))}
         </ul>
         <h2>{t('imageCredits')}</h2>
-        <p>{t('images')}</p>
+        <p>{t('images', { count: served })}</p>
         {collections.map((u) =>
           u.images.length ? (
             <details key={u.id}>
@@ -67,6 +71,38 @@ export function AboutContent({ collections }: { collections: AboutCollection[] }
             </details>
           ) : null,
         )}
+        {redrawn > 0 ? (
+          <>
+            <h2>{t('diagramCredits')}</h2>
+            <p>{t('diagrams', { count: redrawn })}</p>
+            {collections.map((u) =>
+              u.diagrams?.length ? (
+                <details key={u.id}>
+                  <summary>
+                    <span className="mono">{u.id}</span> ({u.diagrams.length})
+                  </summary>
+                  <ul className="image-credits diagram-credits">
+                    {u.diagrams.map((d) => (
+                      <li key={d.id}>
+                        <span className="mono">{d.id}</span>:{' '}
+                        {t.rich('diagramEntry', {
+                          path: d.path,
+                          commit: u.commit,
+                          link: (chunks) => (
+                            <a href={d.href} className="mono">
+                              {chunks}
+                            </a>
+                          ),
+                        })}
+                        {d.license === 'original' ? <> {t('diagramOriginal')}{stop}</> : null}
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : null,
+            )}
+          </>
+        ) : null}
       </article>
     </main>
   );

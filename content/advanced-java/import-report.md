@@ -212,3 +212,16 @@
 - micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-2.png (46746 bytes)
 - micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-3.png (142556 bytes)
 - micro-services/advantages-and-disadvantages-of-microservice/deal-with-complex-things-4.png (102776 bytes)
+
+
+## Redrawn diagrams
+
+81 of the 125 upstream images are replaced in the documents by diagrams redrawn
+for this site (`content/advanced-java/_diagrams/`). Each was redrawn from the
+upstream image at commit 1a35221 (doocs/advanced-java), CC-BY-SA-4.0; original
+authorship is not documented upstream. All 81 diagram files carry
+`license: derived`. They are credited individually on `/about`.
+
+The replaced upstream rasters remain in `_assets` for the diagram review route
+only; they are not copied to the public build (`DIAGRAM_REVIEW=1` copies them).
+The remaining 44 rasters are served as before.

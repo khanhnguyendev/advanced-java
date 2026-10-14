@@ -17,6 +17,9 @@
     "sidebar": "Documents",
     "skip": "Skip to content"
   },
+  "diagram": {
+    "credit": "Redrawn from the upstream image (doocs/advanced-java, CC-BY-SA-4.0)"
+  },
   "doc": {
     "fallbackNotice": "This page is not translated into {requested} yet. Showing the {served} original.",
     "fallbackNoticeTranslated": "This page is not translated into {requested} yet. Showing the {served} translation.",
@@ -59,7 +62,11 @@
     "title": "About and licenses",
     "codeLicense": "The site code is MIT licensed.",
     "contentLicense": "The content (text and translations) is licensed CC-BY-SA-4.0.",
-    "images": "All 125 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.",
+    "images": "{count} images are served, from the upstream repository doocs/advanced-java at commit 1a35221, and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.",
+    "diagramCredits": "Redrawn diagrams",
+    "diagrams": "{count} diagrams were redrawn from upstream images and replace them in the documents.",
+    "diagramEntry": "Redrawn from the upstream image <link>{path}</link> at commit {commit} (doocs/advanced-java), CC-BY-SA-4.0. Original authorship not documented upstream.",
+    "diagramOriginal": "Original drawing",
     "imageCredits": "Image credits"
   }
 }

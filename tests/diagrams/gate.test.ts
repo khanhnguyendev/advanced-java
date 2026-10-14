@@ -141,6 +141,19 @@ describe('checkDiagram', () => {
 });
 
 describe('checkDiagram hardening', () => {
+  it('rejects unknown keys at root, node, label ref, edge and text', () => {
+    const unknown = (mut: (s: any) => void) => {
+      const s = clone(good.scene) as any;
+      mut(s);
+      return checkDiagram(s, good.labels).errors.filter((e) => e.code === 'META_INVALID').map((e) => e.message);
+    };
+    expect(unknown((s) => (s.literals = ['x'])).some((m) => m.includes('"literals"') && m.includes('scene'))).toBe(true);
+    expect(unknown((s) => (s.nodes[0].colour = 'red')).some((m) => m.includes('"colour"') && m.includes('node'))).toBe(true);
+    expect(unknown((s) => (s.nodes[0].label.extra = 1)).some((m) => m.includes('"extra"'))).toBe(true);
+    expect(unknown((s) => s.edges.length && (s.edges[0].weight = 1)).some((m) => m.includes('"weight"')) || good.scene.edges.length === 0).toBe(true);
+    expect(unknown((s) => s.texts.length && (s.texts[0].font = 1)).some((m) => m.includes('"font"')) || good.scene.texts.length === 0).toBe(true);
+  });
+
   const metaMsgs = (scene: DiagramScene, labels: LabelsByLocale) =>
     checkDiagram(scene, labels).errors.filter((e) => e.code === 'META_INVALID').map((e) => e.message);
 

@@ -8,7 +8,7 @@ Multilingual (vi / en / zh) reading site for the doocs/advanced-java corpus.
 - **Content** (`content/` text and translations): CC-BY-SA-4.0, see `content/LICENSE`.
   Original content by Doocs and 中华石杉, upstream: https://github.com/doocs/advanced-java .
   vi and en pages are translated and adapted from the Chinese original; zh pages are reformatted from it.
-  All 125 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream; see `content/ASSETS.md`.
+  All 125 images (81 of them replaced in the documents by redrawn diagrams, 44 served as is) come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream; see `content/ASSETS.md`.
 
 ## Development
 

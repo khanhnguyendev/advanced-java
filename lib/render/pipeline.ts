@@ -12,6 +12,7 @@ import { rehypeHeadingIds } from './heading-ids';
 import { extractHeadings, type HeadingInfo } from './headings';
 import { rehypeRestrictImages } from './images';
 import { rehypeResolveLinks, type LinkContext } from './links';
+import { rehypeDiagrams, remarkDiagrams, type DiagramEntry, type DiagramRenderContext } from './diagrams';
 
 /**
  * The page header renders the title, so the body's title H1 is dropped (code fences are code nodes, untouched).
@@ -45,11 +46,13 @@ export const sanitizeSchema: Options = {
   clobberPrefix: '',
   tagNames: Array.from(
     new Set([...(defaultSchema.tagNames ?? []), 'br', 'sub', 'sup']),
-  ).filter((t) => t !== 'picture' && t !== 'source'),
+  ).concat('figure', 'figcaption').filter((t) => t !== 'picture' && t !== 'source'),
   attributes: {
     ...attributes,
     code: [...(attributes.code ?? []), ['className', /^language-./]],
     img: ['src', 'alt', 'title', 'width', 'height'],
+    // placeholder only; rehypeDiagrams resolves indexes present in the doc's own image nodes
+    figure: [['dataDg', /^\d+$/]],
   },
   // img src protocol policy (only /_content/) is enforced by rehypeRestrictImages, which runs
   // before sanitize; the default http/https src protocols are kept as a second layer.
@@ -68,21 +71,29 @@ export function assertHeadingParity(html: string, expected: number): void {
 
 export async function renderMarkdown(
   md: string,
-  ctx: Omit<LinkContext, 'currentHeadings'> & { currentHeadings?: HeadingInfo[] },
+  ctx: Omit<LinkContext, 'currentHeadings'> & { currentHeadings?: HeadingInfo[] } & Partial<DiagramRenderContext>,
   opts?: { docRef?: string },
 ): Promise<{ html: string; headings: HeadingInfo[] }> {
   try {
     const headings = extractHeadings(md);
+    const entries: DiagramEntry[] = [];
     const file = await unified()
       .use(remarkParse)
       .use(remarkGfm)
       .use(remarkEscapeUnknownHtml)
       .use(remarkStripFirstH1)
+      .use(remarkDiagrams, entries, ctx.diagrams)
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypeResolveLinks, { ...ctx, currentHeadings: headings })
       .use(rehypeRestrictImages)
       .use(rehypeSanitize, sanitizeSchema)
+      .use(rehypeDiagrams, {
+        entries,
+        source: ctx.diagrams,
+        bodyLocale: ctx.bodyLocale ?? ctx.routeLocale,
+        credit: ctx.diagramCredit ?? '',
+      })
       .use(rehypeHeadingIds)
       .use(rehypePrettyCode, { theme: { light: 'github-light', dark: 'github-dark' }, keepBackground: false })
       .use(rehypeStringify)

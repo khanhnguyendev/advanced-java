@@ -106,3 +106,11 @@ export interface GlossaryEntry {
   /** diagram id the entry was first used in (global file only) */
   source?: string;
 }
+
+/** Allowed keys per scene object. The validator rejects anything else, so a new field must be listed here. */
+export const SCENE_KEYS = ['id', 'source', 'license', 'size', 'nodes', 'edges', 'texts', 'title_key', 'desc_key'] as const satisfies readonly (keyof DiagramScene)[];
+export const NODE_KEYS = ['id', 'shape', 'x', 'y', 'w', 'h', 'label', 'role', 'border'] as const satisfies readonly (keyof DiagramNode)[];
+export const LABEL_REF_KEYS = ['key', 'literals'] as const satisfies readonly (keyof LabelRef)[];
+export const EDGE_LABEL_KEYS = ['key', 'literals', 'at', 'anchor'] as const satisfies readonly (keyof EdgeLabel)[];
+export const TEXT_KEYS = ['key', 'x', 'y', 'anchor', 'literals'] as const satisfies readonly (keyof DiagramText)[];
+export const EDGE_KEYS = ['points', 'arrow', 'style', 'label'] as const satisfies readonly (keyof DiagramEdge)[];

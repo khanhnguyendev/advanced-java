@@ -25,6 +25,7 @@ import { buildNav, flatDocs, switcherStatus } from '@/lib/nav';
 import { computeNotices } from '@/lib/notices';
 import { extractHeadings } from '@/lib/render/headings';
 import { fsLinkTargets } from '@/lib/render/links';
+import { fsDiagramSource } from '@/lib/diagrams/source';
 import { renderMarkdown } from '@/lib/render/pipeline';
 import { docAlternates } from '@/lib/seo';
 import { docShape, stepsFor } from '@/lib/steps';
@@ -74,6 +75,7 @@ export default async function DocPage({
   const doc = resolveDoc(root, c, loc, section, slug);
   if (!doc) notFound();
 
+  const td = await getTranslations('diagram');
   const { html, headings } = await renderMarkdown(
     doc.body,
     {
@@ -81,6 +83,9 @@ export default async function DocPage({
       routeLocale: loc,
       currentHeadings: extractHeadings(doc.body),
       ...fsLinkTargets(root),
+      bodyLocale: doc.served,
+      diagrams: fsDiagramSource(root, collection),
+      diagramCredit: td('credit'),
       headingsOf: (cc, ss, sl) =>
         listCollections(root).includes(cc) ? headingsFor(root, loadCollection(root, cc), loc, ss, sl) : null,
     },

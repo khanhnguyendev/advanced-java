@@ -161,7 +161,7 @@ describe('About', () => {
   it('states the image provenance and no longer disclaims relicensing', () => {
     const { container } = render(wrap(<AboutContent collections={collections} />));
     const text = container.textContent!;
-    expect(text).toContain("All 125 images come from the upstream repository doocs/advanced-java at commit 1a35221 and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.");
+    expect(text).toContain("2 images are served, from the upstream repository doocs/advanced-java at commit 1a35221, and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.");
     expect(text).not.toMatch(/relicensed|original terms|third-party/);
   });
 
@@ -170,6 +170,30 @@ describe('About', () => {
     const links = container.querySelectorAll('details a');
     expect(links.length).toBe(2);
     links.forEach((l) => expect(l.getAttribute('href')).toContain(commit));
+  });
+});
+
+describe('About redrawn diagrams', () => {
+  const d = (id: string, license = 'derived') => ({
+    id, upstream: 'a/b/x.png', path: 'docs/a/images/x.png', href: 'https://github.com/doocs/advanced-java/blob/1a35221/docs/a/images/x.png', license,
+  });
+  const base = { id: 'demo', repo: 'https://github.com/doocs/advanced-java', commit: '1a35221', images: [] };
+
+  it('lists a credit per diagram with count and no original line for derived', () => {
+    const { container } = render(wrap(<AboutContent collections={[{ ...base, diagrams: [d('a/b/x'), d('a/b/y')] }]} />));
+    const text = container.textContent!;
+    expect(text).toContain('2 diagrams were redrawn');
+    expect(text).toContain('Redrawn from the upstream image docs/a/images/x.png at commit 1a35221 (doocs/advanced-java), CC-BY-SA-4.0. Original authorship not documented upstream.');
+    expect(text).not.toContain('Original drawing');
+    expect(container.querySelectorAll('.diagram-credits a').length).toBe(2);
+  });
+  it('adds an Original drawing line for license original', () => {
+    const { container } = render(wrap(<AboutContent collections={[{ ...base, diagrams: [d('a/b/x', 'original')] }]} />));
+    expect(container.textContent).toContain('Original drawing');
+  });
+  it('omits the section when there are no diagrams', () => {
+    const { container } = render(wrap(<AboutContent collections={[base]} />));
+    expect(container.textContent).not.toContain(en.about.diagramCredits);
   });
 });
 
@@ -188,6 +212,7 @@ describe('listImageCredits', () => {
     const out = listImageCredits(root, c);
     expect(out.map((o) => o.path)).toEqual(['docs/hc/images/a.png', 'docs/hc/images/b.png']);
     expect(out[0].href).toBe('https://r/blob/abc/docs/hc/images/a.png');
+    expect(listImageCredits(root, c, new Set(['hc/s1/a.png', 'hc/s2/a.png'])).map((o) => o.path)).toEqual(['docs/hc/images/b.png']);
   });
 });
 

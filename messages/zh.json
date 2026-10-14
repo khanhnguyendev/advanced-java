@@ -17,6 +17,9 @@
     "sidebar": "文档",
     "skip": "跳到正文"
   },
+  "diagram": {
+    "credit": "根据上游原图重绘（doocs/advanced-java，CC-BY-SA-4.0）"
+  },
   "doc": {
     "fallbackNotice": "本页尚未翻译为{requested}，当前显示{served}原文。",
     "fallbackNoticeTranslated": "本页尚未翻译为{requested}，当前显示{served}译文。",
@@ -59,7 +62,11 @@
     "title": "关于与许可",
     "codeLicense": "站点代码采用 MIT 许可。",
     "contentLicense": "内容（文本与译文）采用 CC-BY-SA-4.0 许可。",
-    "images": "全部 125 张图片均来自上游仓库 doocs/advanced-java（提交 1a35221），并按该仓库的许可证 CC-BY-SA-4.0 收录。上游未记录这些图片的原始作者。",
+    "images": "共提供 {count} 张图片，均来自上游仓库 doocs/advanced-java（提交 1a35221），并按该仓库的许可证 CC-BY-SA-4.0 收录。上游未记录这些图片的原始作者。",
+    "diagramCredits": "重绘图示",
+    "diagrams": "共 {count} 幅图示由上游图片重绘而成，并在文档中取代原图。",
+    "diagramEntry": "根据上游图片 <link>{path}</link>（提交 {commit}，doocs/advanced-java）重绘，CC-BY-SA-4.0。上游未记录原始作者。",
+    "diagramOriginal": "原创绘制",
     "imageCredits": "图片来源"
   }
 }

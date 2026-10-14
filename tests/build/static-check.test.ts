@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { checkStaticBuild, strictManifestProblems, type StaticCheckInput } from '../../scripts/assert-static-build';
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { replacedRasterProblems, checkStaticBuild, strictManifestProblems, type StaticCheckInput } from '../../scripts/assert-static-build';
 
 const good: StaticCheckInput = {
   prerenderedRoutes: {
@@ -61,5 +64,18 @@ describe('strictManifestProblems', () => {
   });
   it('accepts an absent initialStatus', () => {
     expect(strictManifestProblems(['/en/c/a/x'], { '/en/c/a/x': { initialRevalidateSeconds: false } })).toEqual([]);
+  });
+});
+
+describe('replacedRasterProblems', () => {
+  it('flags an img pointing at a replaced raster and ignores others', () => {
+    const root = mkdtempSync(path.join(os.tmpdir(), 'sb-'));
+    mkdirSync(path.join(root, 'en'), { recursive: true });
+    writeFileSync(path.join(root, 'en/bad.html'), '<p><img src="/_content/c/a/b/d.png" alt=""></p>');
+    writeFileSync(path.join(root, 'en/ok.html'), '<img src="/_content/c/a/b/e.png"><a href="/_content/c/a/b/d.png">x</a>');
+    const out = replacedRasterProblems(root, { c: ['a/b/d.png'] });
+    expect(out).toHaveLength(1);
+    expect(out[0]).toContain('bad.html');
+    expect(replacedRasterProblems(path.join(root, 'missing'), { c: ['a/b/d.png'] })).toEqual([]);
   });
 });

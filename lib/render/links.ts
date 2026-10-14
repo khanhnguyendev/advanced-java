@@ -65,6 +65,9 @@ export function resolveHref(url: string, ctx: LinkContext): string {
     return `/_content/${ctx.collection}/${rel}`;
   }
 
+  // diagram: urls are resolved by remarkDiagrams before this stage; pass through untouched
+  if (url.startsWith('diagram:')) return url;
+
   m = /^#h(\d+)$/.exec(url);
   if (m) {
     const h = ctx.currentHeadings.find((x) => x.index === Number(m![1]));

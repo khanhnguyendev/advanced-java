@@ -17,6 +17,9 @@
     "sidebar": "Tài liệu",
     "skip": "Chuyển đến nội dung"
   },
+  "diagram": {
+    "credit": "Vẽ lại từ hình gốc (doocs/advanced-java, CC-BY-SA-4.0)"
+  },
   "doc": {
     "fallbackNotice": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản gốc {served}.",
     "fallbackNoticeTranslated": "Trang này chưa được dịch sang {requested}. Đang hiển thị bản dịch {served}.",
@@ -59,7 +62,11 @@
     "title": "Giới thiệu và giấy phép",
     "codeLicense": "Mã nguồn của trang theo giấy phép MIT.",
     "contentLicense": "Nội dung (văn bản và bản dịch) theo giấy phép CC-BY-SA-4.0.",
-    "images": "Cả 125 hình ảnh đều đến từ kho thượng nguồn doocs/advanced-java tại commit 1a35221 và được đưa vào theo giấy phép của kho đó, CC-BY-SA-4.0. Quyền tác giả gốc của các hình ảnh không được ghi lại ở thượng nguồn.",
+    "images": "{count} hình ảnh được phục vụ, đến từ kho thượng nguồn doocs/advanced-java tại commit 1a35221 và được đưa vào theo giấy phép của kho đó, CC-BY-SA-4.0. Quyền tác giả gốc của các hình ảnh không được ghi lại ở thượng nguồn.",
+    "diagramCredits": "Sơ đồ vẽ lại",
+    "diagrams": "{count} sơ đồ được vẽ lại từ hình ảnh thượng nguồn và thay thế chúng trong tài liệu.",
+    "diagramEntry": "Vẽ lại từ hình ảnh thượng nguồn <link>{path}</link> tại commit {commit} (doocs/advanced-java), CC-BY-SA-4.0. Quyền tác giả gốc không được ghi lại ở thượng nguồn.",
+    "diagramOriginal": "Bản vẽ gốc",
     "imageCredits": "Ghi công hình ảnh"
   }
 }

@@ -20,7 +20,7 @@ import {
   triangleHitsRect,
 } from './geometry';
 import { entryRef, normLabel } from './glossary-norm';
-import { DIAGRAM_LOCALES } from './types';
+import { DIAGRAM_LOCALES, EDGE_KEYS, EDGE_LABEL_KEYS, LABEL_REF_KEYS, NODE_KEYS, SCENE_KEYS, TEXT_KEYS } from './types';
 import { FONT_SIZE, LINE_HEIGHT, NODE_PAD, stripLiterals, hasHan, wrapText, splitSegments, textWidth, textMaxWidth } from './measure';
 
 export interface GateOptions {
@@ -71,7 +71,13 @@ function validateScene(
   if (scene.title_key !== TITLE_KEY) bad(`title_key must be "${TITLE_KEY}"`);
   if (scene.desc_key !== DESC_KEY) bad(`desc_key must be "${DESC_KEY}"`);
   if (typeof scene.source?.upstream !== 'string') bad('source.upstream is not a string');
-  const keyOk = (r: unknown, p: string) => {
+  const unknownKeys = (o: unknown, allowed: readonly string[], p: string) => {
+    if (!o || typeof o !== 'object' || Array.isArray(o)) return;
+    for (const k of Object.keys(o)) if (!allowed.includes(k)) bad(`${p} has unknown key "${k}"`);
+  };
+  unknownKeys(scene, SCENE_KEYS, 'scene');
+  const keyOk = (r: unknown, p: string, allowed: readonly string[] = LABEL_REF_KEYS) => {
+    unknownKeys(r, allowed, `${p} label`);
     const k = (r as { key?: unknown } | null | undefined)?.key;
     if (typeof k !== 'string' || k === '') bad(`${p} label.key is not a non-empty string`);
     const lits = (r as { literals?: unknown } | null | undefined)?.literals;
@@ -93,6 +99,7 @@ function validateScene(
   for (const n of Array.isArray(scene.nodes) ? scene.nodes : []) {
     const p = `node ${n?.id}`;
     keyOk(n?.label, p);
+    unknownKeys(n, NODE_KEYS, p);
     if (!n || typeof n !== 'object') continue;
     fin(n.x, `${p} x`);
     fin(n.y, `${p} y`);
@@ -108,6 +115,7 @@ function validateScene(
       bad(`${p} is not an object`);
       return;
     }
+    unknownKeys(e, EDGE_KEYS, p);
     if (!Array.isArray(e.points)) bad(`${p} points is not an array`);
     else {
       if (e.points.length < 2) bad(`${p} needs at least 2 points`);
@@ -122,7 +130,7 @@ function validateScene(
     oneOf(e.arrow, ARROWS, `${p} arrow`);
     oneOf(e.style, STYLES, `${p} style`);
     if (e.label) {
-      keyOk(e.label, `${p}`);
+      keyOk(e.label, `${p}`, EDGE_LABEL_KEYS);
       if (!Array.isArray(e.label.at) || e.label.at.length !== 2) bad(`${p} label.at is not a pair`);
       fin(e.label.at?.[0], `${p} label x`);
       fin(e.label.at?.[1], `${p} label y`);
@@ -131,7 +139,7 @@ function validateScene(
   });
   for (const t of Array.isArray(scene.texts) ? scene.texts : []) {
     const p = `text ${t?.key}`;
-    keyOk(t, p);
+    keyOk(t, p, TEXT_KEYS);
     if (!t || typeof t !== 'object') continue;
     fin(t.x, `${p} x`);
     fin(t.y, `${p} y`);

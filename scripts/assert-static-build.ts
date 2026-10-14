@@ -1,7 +1,8 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { contentRoot, listCollections, listDocs, loadCollection } from '../lib/content/collection';
 import { LOCALES } from '../lib/content/types';
+import { replacedRasters } from '../lib/diagrams/credits';
 
 export interface StaticCheckInput {
   prerenderedRoutes: Record<string, { initialRevalidateSeconds?: number | false }>;
@@ -57,6 +58,38 @@ export function strictManifestProblems(expected: string[], routes: Record<string
   return problems;
 }
 
+function walkHtml(dir: string, out: string[]) {
+  for (const name of readdirSync(dir)) {
+    const p = path.join(dir, name);
+    if (statSync(p).isDirectory()) walkHtml(p, out);
+    else if (name.endsWith('.html')) out.push(p);
+  }
+}
+
+/**
+ * Built HTML under `htmlRoot` that embeds an `<img>` whose src points at a replaced raster
+ * (`/_content/<collection>/<upstream>`). `replaced` maps collection id to `_assets` keys.
+ */
+export function replacedRasterProblems(htmlRoot: string, replaced: Record<string, Iterable<string>>): string[] {
+  if (!existsSync(htmlRoot)) return [];
+  const files: string[] = [];
+  walkHtml(htmlRoot, files);
+  const targets: string[] = [];
+  for (const [collection, keys] of Object.entries(replaced)) {
+    for (const k of keys) targets.push(`/_content/${collection}/${k}`);
+  }
+  const problems: string[] = [];
+  for (const f of files) {
+    const html = readFileSync(f, 'utf8');
+    for (const m of html.matchAll(/<img\b[^>]*>/gi)) {
+      const tag = m[0];
+      const hit = targets.find((t) => tag.includes(t) || tag.includes(encodeURI(t)));
+      if (hit) problems.push(`${path.relative(htmlRoot, f)} embeds replaced raster ${hit}`);
+    }
+  }
+  return problems;
+}
+
 function readJson<T>(file: string): T {
   if (!existsSync(file)) throw new Error(`missing build output: ${file}`);
   return JSON.parse(readFileSync(file, 'utf8')) as T;
@@ -85,6 +118,11 @@ if (path.basename(process.argv[1] ?? '') === 'assert-static-build.ts') {
     expectedDocRoutes: expected,
     allowDynamic: ['/[locale]/[...rest]'],
   }));
+  if (process.env.DIAGRAM_REVIEW !== '1') {
+    const replaced: Record<string, Set<string>> = {};
+    for (const id of listCollections(root)) replaced[id] = replacedRasters(root, id);
+    problems.push(...replacedRasterProblems('.next/server/app', replaced));
+  }
   if (problems.length) {
     console.error('static build assertion FAILED:\n- ' + problems.join('\n- '));
     process.exit(1);
