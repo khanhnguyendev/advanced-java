@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "vi", "status": "machine", "from": "6ebacfe58abb281551c2939849c618809849e7ded3aa7482f638d7b818bb190f", "source_lang": "zh" },
+  "labels": {
+    "sys": "Hệ thống",
+    "tm": "Bộ quản lý giao dịch",
+    "db1": "Cơ sở dữ liệu 1",
+    "db2": "Cơ sở dữ liệu 2",
+    "db3": "Cơ sở dữ liệu 3",
+    "t1": "Giai đoạn một: hỏi\nGiai đoạn hai: thực thi",
+    "_title": "Commit hai pha XA",
+    "_desc": "Bộ quản lý giao dịch trong hệ thống điều phối cơ sở dữ liệu 1, 2 và 3 qua hai giai đoạn: trước hết hỏi, sau đó thực thi."
+  }
+}

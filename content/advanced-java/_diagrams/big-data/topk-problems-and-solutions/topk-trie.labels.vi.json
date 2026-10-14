@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "32ef09ed9a7a2d09a4a4b8572b2e3dbdbb34e82a3e90bd887e78618c78165fbd",
+    "source_lang": "en"
+  },
+  "labels": {
+    "n1": "root",
+    "n2": "a",
+    "n3": "c",
+    "n4": "n",
+    "n5": "s",
+    "n6": "t",
+    "n7": "n",
+    "n8": "o",
+    "n9": "d",
+    "n10": "m",
+    "_title": "Ví dụ cây Trie chứa các từ and, as, at, cn, com",
+    "_desc": "Cây Trie có gốc root. Gốc có hai con là a và c; a có các con n, s, t và n nối tiếp tới d; c có các con n, o và o nối tiếp tới m. Các đường đi tạo nên and, as, at, cn, com."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "high-availability/hystrix-request-cache/hystrix-request-cache",
+  "source": { "upstream": "high-availability/hystrix-request-cache/hystrix-request-cache.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 540, "h": 340 },
+  "nodes": [
+    { "id": "ctx", "shape": "group", "x": 20, "y": 30, "w": 190, "h": 295, "label": { "key": "ctx" } },
+    { "id": "r1", "shape": "round", "x": 40, "y": 80, "w": 150, "h": 34, "label": { "key": "r1", "literals": ["productId=1"] } },
+    { "id": "r2", "shape": "round", "x": 40, "y": 135, "w": 150, "h": 34, "label": { "key": "r2", "literals": ["productId=1"] } },
+    { "id": "r3", "shape": "round", "x": 40, "y": 190, "w": 150, "h": 34, "label": { "key": "r3", "literals": ["productId=1"] } },
+    { "id": "r4", "shape": "round", "x": 40, "y": 260, "w": 150, "h": 34, "label": { "key": "r4", "literals": ["productId=2"] } },
+    { "id": "cache", "shape": "circle", "x": 360, "y": 20, "w": 140, "h": 140, "label": { "key": "cache", "literals": ["Hystrix Cache"] } },
+    { "id": "svc", "shape": "box", "x": 360, "y": 225, "w": 150, "h": 80, "label": { "key": "svc" } }
+  ],
+  "edges": [
+    { "points": [[190, 92], [364, 75]], "arrow": "end", "style": "solid", "label": { "key": "e1", "at": [270, 68], "anchor": "middle", "literals": [] } },
+    { "points": [[362, 105], [190, 145]], "arrow": "end", "style": "solid" },
+    { "points": [[369, 125], [190, 198]], "arrow": "end", "style": "solid" },
+    { "points": [[190, 100], [364, 232]], "arrow": "end", "style": "solid", "label": { "key": "e2", "at": [330, 212], "anchor": "end", "literals": [] } },
+    { "points": [[190, 266], [398, 150]], "arrow": "end", "style": "solid" },
+    { "points": [[190, 280], [360, 262]], "arrow": "end", "style": "solid" },
+    { "points": [[430, 225], [430, 162]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "0ff9d827edae964d763217c808ec08e7ab98b943281a24ca0ed72ebcd9c404eb",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "200M\nusers",
+    "cache": "Cache",
+    "sysa": "System A",
+    "sysb": "System B",
+    "dbb": "Database",
+    "sysc": "System C",
+    "dbc": "Database",
+    "mq": "MQ",
+    "async": "Async system",
+    "master": "Database\n(master)",
+    "db2": "Database",
+    "db3": "Database",
+    "slave": "Database\n(replica)",
+    "es1": "Elasticsearch",
+    "es2": "Elasticsearch",
+    "es3": "Elasticsearch",
+    "e_cache": "Takes read load",
+    "e_write": "Writes to master",
+    "e_sync": "Master syncs data to replica",
+    "e_read": "System A reads\ndata from the replica",
+    "split": "System split",
+    "peak": "Peak\nshaving",
+    "rw": "Read/write splitting",
+    "escluster": "ES cluster",
+    "_title": "High-concurrency system architecture",
+    "_desc": "User requests enter System A. System A reads from the cache and is split into System B and System C (C feeds several Elasticsearch nodes). Writes are shaved by the MQ, written to the master by an async system and synced to the replica; reads go to the replica."
+  }
+}

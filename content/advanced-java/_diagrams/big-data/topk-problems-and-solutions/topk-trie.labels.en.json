@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "source",
+    "source_lang": "en"
+  },
+  "labels": {
+    "n1": "root",
+    "n2": "a",
+    "n3": "c",
+    "n4": "n",
+    "n5": "s",
+    "n6": "t",
+    "n7": "n",
+    "n8": "o",
+    "n9": "d",
+    "n10": "m",
+    "_title": "Trie holding words and, as, at, cn, com",
+    "_desc": "A trie with root at the top. The root has children a and c. Node a has children n, s and t; n continues to d. Node c has children n and o; o continues to m. The paths spell and, as, at, cn and com."
+  }
+}

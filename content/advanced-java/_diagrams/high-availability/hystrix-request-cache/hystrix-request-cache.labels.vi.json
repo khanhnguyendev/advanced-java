@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "9d1f2355246ece0841f813cec78666f26bf8fe6042d97bd176d47f3ff15b860c"
+  },
+  "labels": {
+    "ctx": "Một ngữ cảnh yêu cầu",
+    "r1": "productId=1",
+    "r2": "productId=1",
+    "r3": "productId=1",
+    "r4": "productId=2",
+    "cache": "Hystrix Cache",
+    "svc": "Dịch vụ sản phẩm",
+    "e1": "1",
+    "e2": "1",
+    "_title": "Bộ nhớ đệm yêu cầu của Hystrix",
+    "_desc": "Các yêu cầu sản phẩm trong một ngữ cảnh yêu cầu truy cập Hystrix Cache trước, chỉ khi không có trong bộ nhớ đệm mới gọi dịch vụ sản phẩm."
+  }
+}

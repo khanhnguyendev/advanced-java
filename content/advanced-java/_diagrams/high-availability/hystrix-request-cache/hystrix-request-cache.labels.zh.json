@@ -1,0 +1,16 @@
+{
+  "meta": { "locale": "zh", "status": "source" },
+  "labels": {
+    "ctx": "一次请求上下文",
+    "r1": "productId=1",
+    "r2": "productId=1",
+    "r3": "productId=1",
+    "r4": "productId=2",
+    "cache": "Hystrix Cache",
+    "svc": "商品服务",
+    "e1": "1",
+    "e2": "1",
+    "_title": "Hystrix 请求缓存",
+    "_desc": "一次请求上下文中的多个商品请求先访问 Hystrix Cache，未命中时再访问商品服务。"
+  }
+}

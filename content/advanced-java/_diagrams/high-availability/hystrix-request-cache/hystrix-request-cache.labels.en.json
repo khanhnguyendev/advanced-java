@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "locale": "en",
+    "status": "machine",
+    "from": "9d1f2355246ece0841f813cec78666f26bf8fe6042d97bd176d47f3ff15b860c"
+  },
+  "labels": {
+    "ctx": "One request context",
+    "r1": "productId=1",
+    "r2": "productId=1",
+    "r3": "productId=1",
+    "r4": "productId=2",
+    "cache": "Hystrix Cache",
+    "svc": "Product service",
+    "e1": "1",
+    "e2": "1",
+    "_title": "Hystrix request cache",
+    "_desc": "Product requests within one request context first go to the Hystrix Cache, and only on a miss go to the product service."
+  }
+}

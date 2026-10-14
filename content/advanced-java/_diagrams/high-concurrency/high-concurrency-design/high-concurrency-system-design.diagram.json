@@ -1,0 +1,582 @@
+{
+  "id": "high-concurrency/high-concurrency-design/high-concurrency-system-design",
+  "source": {
+    "upstream": "high-concurrency/high-concurrency-design/high-concurrency-system-design.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 920,
+    "h": 690
+  },
+  "nodes": [
+    {
+      "id": "user",
+      "shape": "circle",
+      "x": 234,
+      "y": 27,
+      "w": 104,
+      "h": 104,
+      "label": {
+        "key": "user"
+      },
+      "role": "accent"
+    },
+    {
+      "id": "cache",
+      "shape": "circle",
+      "x": 43,
+      "y": 170,
+      "w": 80,
+      "h": 80,
+      "label": {
+        "key": "cache"
+      },
+      "role": "default"
+    },
+    {
+      "id": "sysa",
+      "shape": "box",
+      "x": 234,
+      "y": 172,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "sysa"
+      },
+      "role": "accent"
+    },
+    {
+      "id": "sysb",
+      "shape": "box",
+      "x": 441,
+      "y": 127,
+      "w": 102,
+      "h": 96,
+      "label": {
+        "key": "sysb"
+      },
+      "role": "default"
+    },
+    {
+      "id": "dbb",
+      "shape": "box",
+      "x": 624,
+      "y": 127,
+      "w": 124,
+      "h": 96,
+      "label": {
+        "key": "dbb"
+      },
+      "role": "default"
+    },
+    {
+      "id": "sysc",
+      "shape": "box",
+      "x": 441,
+      "y": 247,
+      "w": 102,
+      "h": 96,
+      "label": {
+        "key": "sysc"
+      },
+      "role": "default"
+    },
+    {
+      "id": "dbc",
+      "shape": "box",
+      "x": 624,
+      "y": 247,
+      "w": 124,
+      "h": 96,
+      "label": {
+        "key": "dbc"
+      },
+      "role": "default"
+    },
+    {
+      "id": "mq",
+      "shape": "box",
+      "x": 251,
+      "y": 272,
+      "w": 66,
+      "h": 60,
+      "label": {
+        "key": "mq"
+      },
+      "role": "default"
+    },
+    {
+      "id": "async",
+      "shape": "box",
+      "x": 234,
+      "y": 364,
+      "w": 100,
+      "h": 70,
+      "label": {
+        "key": "async"
+      },
+      "role": "default"
+    },
+    {
+      "id": "master",
+      "shape": "box",
+      "x": 67,
+      "y": 473,
+      "w": 124,
+      "h": 70,
+      "label": {
+        "key": "master"
+      },
+      "role": "default"
+    },
+    {
+      "id": "db2",
+      "shape": "box",
+      "x": 222,
+      "y": 473,
+      "w": 124,
+      "h": 70,
+      "label": {
+        "key": "db2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "db3",
+      "shape": "box",
+      "x": 373,
+      "y": 473,
+      "w": 124,
+      "h": 70,
+      "label": {
+        "key": "db3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "slave",
+      "shape": "box",
+      "x": 67,
+      "y": 591,
+      "w": 124,
+      "h": 70,
+      "label": {
+        "key": "slave"
+      },
+      "role": "default"
+    },
+    {
+      "id": "es1",
+      "shape": "pill",
+      "x": 496,
+      "y": 404,
+      "w": 128,
+      "h": 64,
+      "label": {
+        "key": "es1"
+      },
+      "role": "muted"
+    },
+    {
+      "id": "es2",
+      "shape": "pill",
+      "x": 636,
+      "y": 404,
+      "w": 128,
+      "h": 64,
+      "label": {
+        "key": "es2"
+      },
+      "role": "muted"
+    },
+    {
+      "id": "es3",
+      "shape": "pill",
+      "x": 776,
+      "y": 404,
+      "w": 128,
+      "h": 64,
+      "label": {
+        "key": "es3"
+      },
+      "role": "muted"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          286,
+          131
+        ],
+        [
+          286,
+          172
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          334,
+          194
+        ],
+        [
+          398,
+          194
+        ],
+        [
+          398,
+          162
+        ],
+        [
+          441,
+          162
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          334,
+          226
+        ],
+        [
+          398,
+          226
+        ],
+        [
+          398,
+          282
+        ],
+        [
+          441,
+          282
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          543,
+          175
+        ],
+        [
+          624,
+          175
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          543,
+          295
+        ],
+        [
+          624,
+          295
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          123,
+          187
+        ],
+        [
+          234,
+          187
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          234,
+          229
+        ],
+        [
+          177,
+          229
+        ],
+        [
+          177,
+          210
+        ],
+        [
+          123,
+          210
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_cache",
+        "at": [
+          135,
+          249
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          284,
+          242
+        ],
+        [
+          284,
+          272
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          284,
+          332
+        ],
+        [
+          284,
+          364
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          257,
+          434
+        ],
+        [
+          257,
+          458
+        ],
+        [
+          129,
+          458
+        ],
+        [
+          129,
+          473
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_write",
+        "at": [
+          135,
+          445
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          284,
+          434
+        ],
+        [
+          284,
+          473
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          310,
+          434
+        ],
+        [
+          310,
+          458
+        ],
+        [
+          435,
+          458
+        ],
+        [
+          435,
+          473
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          129,
+          543
+        ],
+        [
+          129,
+          591
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_sync",
+        "at": [
+          139,
+          574
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          262,
+          242
+        ],
+        [
+          262,
+          263
+        ],
+        [
+          49,
+          263
+        ],
+        [
+          49,
+          625
+        ],
+        [
+          67,
+          625
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid",
+      "label": {
+        "key": "e_read",
+        "at": [
+          57,
+          345
+        ],
+        "anchor": "start"
+      }
+    },
+    {
+      "points": [
+        [
+          450,
+          343
+        ],
+        [
+          450,
+          358
+        ],
+        [
+          560,
+          358
+        ],
+        [
+          560,
+          404
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          472,
+          343
+        ],
+        [
+          472,
+          358
+        ],
+        [
+          700,
+          358
+        ],
+        [
+          700,
+          404
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    },
+    {
+      "points": [
+        [
+          494,
+          343
+        ],
+        [
+          494,
+          358
+        ],
+        [
+          840,
+          358
+        ],
+        [
+          840,
+          404
+        ]
+      ],
+      "arrow": "end",
+      "style": "solid"
+    }
+  ],
+  "texts": [
+    {
+      "key": "split",
+      "x": 343,
+      "y": 210,
+      "anchor": "start"
+    },
+    {
+      "key": "peak",
+      "x": 322,
+      "y": 300,
+      "anchor": "start"
+    },
+    {
+      "key": "rw",
+      "x": 202,
+      "y": 634,
+      "anchor": "start"
+    },
+    {
+      "key": "escluster",
+      "x": 628,
+      "y": 490,
+      "anchor": "start"
+    }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

@@ -1,0 +1,265 @@
+{
+  "id": "big-data/topk-problems-and-solutions/topk-trie",
+  "source": {
+    "upstream": "big-data/topk-problems-and-solutions/topk-trie.png",
+    "commit": "1a35221"
+  },
+  "license": "derived",
+  "size": {
+    "w": 570,
+    "h": 410
+  },
+  "nodes": [
+    {
+      "id": "n1",
+      "shape": "circle",
+      "x": 255,
+      "y": 18,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n1"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n2",
+      "shape": "circle",
+      "x": 155,
+      "y": 141,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n2"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n3",
+      "shape": "circle",
+      "x": 361,
+      "y": 133,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n3"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n4",
+      "shape": "circle",
+      "x": 58,
+      "y": 238,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n4"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n5",
+      "shape": "circle",
+      "x": 143,
+      "y": 238,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n5"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n6",
+      "shape": "circle",
+      "x": 223,
+      "y": 240,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n6"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n7",
+      "shape": "circle",
+      "x": 332,
+      "y": 244,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n7"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n8",
+      "shape": "circle",
+      "x": 435,
+      "y": 240,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n8"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n9",
+      "shape": "circle",
+      "x": 7,
+      "y": 330,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n9"
+      },
+      "role": "default"
+    },
+    {
+      "id": "n10",
+      "shape": "circle",
+      "x": 491,
+      "y": 316,
+      "w": 70,
+      "h": 70,
+      "label": {
+        "key": "n10"
+      },
+      "role": "default"
+    }
+  ],
+  "edges": [
+    {
+      "points": [
+        [
+          266,
+          82
+        ],
+        [
+          214,
+          147
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          316,
+          81
+        ],
+        [
+          370,
+          140
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          163,
+          203
+        ],
+        [
+          120,
+          246
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          185,
+          214
+        ],
+        [
+          183,
+          235
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          212,
+          207
+        ],
+        [
+          236,
+          244
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          386,
+          205
+        ],
+        [
+          377,
+          242
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          418,
+          199
+        ],
+        [
+          448,
+          244
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          75,
+          306
+        ],
+        [
+          60,
+          332
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    },
+    {
+      "points": [
+        [
+          493,
+          306
+        ],
+        [
+          503,
+          320
+        ]
+      ],
+      "arrow": "none",
+      "style": "accent"
+    }
+  ],
+  "texts": [],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

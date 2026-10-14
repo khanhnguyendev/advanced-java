@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "locale": "vi",
+    "status": "machine",
+    "from": "0ff9d827edae964d763217c808ec08e7ab98b943281a24ca0ed72ebcd9c404eb",
+    "source_lang": "zh"
+  },
+  "labels": {
+    "user": "200 triệu\nngười dùng",
+    "cache": "Bộ nhớ đệm",
+    "sysa": "Hệ thống A",
+    "sysb": "Hệ thống B",
+    "dbb": "Cơ sở dữ liệu",
+    "sysc": "Hệ thống C",
+    "dbc": "Cơ sở dữ liệu",
+    "mq": "MQ",
+    "async": "Hệ thống bất đồng bộ",
+    "master": "Cơ sở dữ liệu\n(master)",
+    "db2": "Cơ sở dữ liệu",
+    "db3": "Cơ sở dữ liệu",
+    "slave": "Cơ sở dữ liệu\n(replica)",
+    "es1": "Elasticsearch",
+    "es2": "Elasticsearch",
+    "es3": "Elasticsearch",
+    "e_cache": "Gánh tải đọc",
+    "e_write": "Ghi vào master",
+    "e_sync": "Master đồng bộ dữ liệu sang replica",
+    "e_read": "Hệ thống A đọc\ndữ liệu từ replica",
+    "split": "Tách hệ thống",
+    "peak": "San phẳng\nđỉnh tải",
+    "rw": "Tách đọc/ghi",
+    "escluster": "Cụm ES",
+    "_title": "Kiến trúc hệ thống tải đồng thời cao",
+    "_desc": "Yêu cầu người dùng vào Hệ thống A. Hệ thống A đọc từ bộ nhớ đệm và được tách thành Hệ thống B và C (C ghi vào nhiều nút Elasticsearch). Thao tác ghi được MQ san phẳng đỉnh tải, hệ thống bất đồng bộ ghi vào master rồi đồng bộ sang replica; thao tác đọc đi qua replica."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "meta": { "locale": "en", "status": "machine", "from": "6ebacfe58abb281551c2939849c618809849e7ded3aa7482f638d7b818bb190f", "source_lang": "zh" },
+  "labels": {
+    "sys": "System",
+    "tm": "Transaction manager",
+    "db1": "Database 1",
+    "db2": "Database 2",
+    "db3": "Database 3",
+    "t1": "Phase 1: ask\nPhase 2: execute",
+    "_title": "XA two-phase commit",
+    "_desc": "The transaction manager in the system coordinates database 1, database 2 and database 3 in two phases: first it asks, then it executes."
+  }
+}

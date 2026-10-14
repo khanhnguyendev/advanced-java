@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "source"
+  },
+  "labels": {
+    "user": "2亿\n用户",
+    "cache": "缓存",
+    "sysa": "系统A",
+    "sysb": "系统B",
+    "dbb": "数据库",
+    "sysc": "系统C",
+    "dbc": "数据库",
+    "mq": "MQ",
+    "async": "异步系统",
+    "master": "数据库\n(主库)",
+    "db2": "数据库",
+    "db3": "数据库",
+    "slave": "数据库\n(从库)",
+    "es1": "elastics earch",
+    "es2": "elastics earch",
+    "es3": "elastics earch",
+    "e_cache": "扛读高并发",
+    "e_write": "数据写入主库",
+    "e_sync": "主库同步数据到从库",
+    "e_read": "系统A从从库中读取数据",
+    "split": "系统拆分",
+    "peak": "削峰",
+    "rw": "读写分离",
+    "escluster": "es集群",
+    "_title": "高并发系统架构图",
+    "_desc": "用户请求进入系统A；系统A读缓存，拆分到系统B和系统C（C写入多个Elasticsearch节点），经MQ削峰后由异步系统写入主库，再同步到从库，读取走从库。"
+  }
+}

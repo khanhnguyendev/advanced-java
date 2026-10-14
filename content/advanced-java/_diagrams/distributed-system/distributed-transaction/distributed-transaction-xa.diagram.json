@@ -1,0 +1,23 @@
+{
+  "id": "distributed-system/distributed-transaction/distributed-transaction-xa",
+  "source": { "upstream": "distributed-system/distributed-transaction/distributed-transaction-XA.png", "commit": "1a35221" },
+  "license": "derived",
+  "size": { "w": 560, "h": 360 },
+  "nodes": [
+    { "id": "sys", "shape": "group", "x": 30, "y": 120, "w": 220, "h": 126, "label": { "key": "sys" }, "role": "default" },
+    { "id": "tm", "shape": "box", "x": 70, "y": 152, "w": 130, "h": 76, "label": { "key": "tm" }, "role": "default" },
+    { "id": "db1", "shape": "box", "x": 401, "y": 60, "w": 140, "h": 70, "label": { "key": "db1" }, "role": "default" },
+    { "id": "db2", "shape": "box", "x": 401, "y": 155, "w": 140, "h": 70, "label": { "key": "db2" }, "role": "default" },
+    { "id": "db3", "shape": "box", "x": 401, "y": 250, "w": 140, "h": 70, "label": { "key": "db3" }, "role": "default" }
+  ],
+  "edges": [
+    { "points": [[200,160],[310,160],[310,95],[401,95]], "arrow": "end", "style": "solid" },
+    { "points": [[200,190],[401,190]], "arrow": "end", "style": "solid" },
+    { "points": [[200,218],[310,218],[310,285],[401,285]], "arrow": "end", "style": "solid" }
+  ],
+  "texts": [
+    { "key": "t1", "x": 100, "y": 60, "anchor": "start", "literals": [] }
+  ],
+  "title_key": "_title",
+  "desc_key": "_desc"
+}

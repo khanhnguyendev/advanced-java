@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "locale": "zh",
+    "status": "machine",
+    "from": "32ef09ed9a7a2d09a4a4b8572b2e3dbdbb34e82a3e90bd887e78618c78165fbd",
+    "source_lang": "en"
+  },
+  "labels": {
+    "n1": "root",
+    "n2": "a",
+    "n3": "c",
+    "n4": "n",
+    "n5": "s",
+    "n6": "t",
+    "n7": "n",
+    "n8": "o",
+    "n9": "d",
+    "n10": "m",
+    "_title": "Trie 树示例：包含 and、as、at、cn、com",
+    "_desc": "以 root 为根的 Trie 树。root 有子节点 a 和 c；a 有子节点 n、s、t，n 下接 d；c 有子节点 n、o，o 下接 m。路径依次拼出 and、as、at、cn、com。"
+  }
+}
