@@ -11,7 +11,7 @@ export const FONT_SIZE = 13;
 export const LINE_HEIGHT = 1.3;
 export const SAFETY = 1.08;
 
-const HAN = /[⺀-⿟　-〿぀-ヿ㐀-䶿一-鿿豈-﫿＀-￯]/u;
+const HAN = /[⺀-⿟　-〿぀-ヿ㐀-䶿一-鿿豈-﫿＀-￯\u{20000}-\u{3134F}]/u;
 
 export function hasHan(s: string): boolean {
   return HAN.test(s);

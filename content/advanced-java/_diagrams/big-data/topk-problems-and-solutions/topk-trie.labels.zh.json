@@ -16,7 +16,7 @@
     "n8": "o",
     "n9": "d",
     "n10": "m",
-    "_title": "Trie 树示例：包含 and、as、at、cn、com",
-    "_desc": "以 root 为根的 Trie 树。root 有子节点 a 和 c；a 有子节点 n、s、t，n 下接 d；c 有子节点 n、o，o 下接 m。路径依次拼出 and、as、at、cn、com。"
+    "_title": "字典树（trie）示例：包含 and、as、at、cn、com",
+    "_desc": "以 root 为根的字典树（trie）。root 有子节点 a 和 c；a 有子节点 n、s、t，n 下接 d；c 有子节点 n、o，o 下接 m。路径依次拼出 and、as、at、cn、com。"
   }
 }

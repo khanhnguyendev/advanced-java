@@ -454,9 +454,9 @@
     },
     {
       "key": "r2",
-      "x": 276,
+      "x": 266,
       "y": 380,
-      "anchor": "start"
+      "anchor": "end"
     },
     {
       "key": "r3",

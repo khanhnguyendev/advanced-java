@@ -1,5 +1,6 @@
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import * as render from '@/lib/diagrams/render';
 import { buildReviewData, CREDIT_LINE } from '@/lib/diagrams/review-data';
 
 const root = path.join(__dirname, '..', 'fixtures', 'diagrams', 'content');
@@ -19,6 +20,23 @@ describe('buildReviewData', () => {
     expect(e.license).toBe('derived');
     for (const loc of ['zh', 'en', 'vi'] as const) expect(e.svgs[loc]).toMatch(/^<svg[\s>]/);
     expect(e.errors).toEqual([]);
+  });
+
+  it('renders per width with distinct ids and reports render exceptions as META_INVALID', () => {
+    const e = a.entries[0]!;
+    const ids = (s: string) => [...s.matchAll(/ id="([^"]+)"/g)].map((m) => m[1]!);
+    for (const loc of ['zh', 'en', 'vi'] as const) {
+      const w = e.svgsByWidth[loc]!;
+      expect(ids(w[720]!).some((i) => ids(w[360]!).includes(i))).toBe(false);
+    }
+    vi.spyOn(render, 'renderDiagram').mockImplementation(() => {
+      throw new Error('boom');
+    });
+    const bad = buildReviewData(root, '2026-10-14');
+    vi.restoreAllMocks();
+    const err = bad.entries[0]!.errors.find((x) => x.code === 'META_INVALID');
+    expect(err?.message).toContain('boom');
+    expect(bad.entries[0]!.svgs.en).toBeNull();
   });
 
   it('is deterministic', () => {

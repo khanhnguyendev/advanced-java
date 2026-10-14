@@ -24,7 +24,7 @@ describe('renderDiagram', () => {
     expect(svg).toContain('width="100%"');
     expect(svg).toContain('>Toy diagram</title>');
     expect(svg).toContain('>A toy diagram with three nodes</desc>');
-    for (const id of ['n1', 'n2', 'n3']) expect(svg).toContain(`<g data-node="${id}">`);
+    for (const id of ['n1', 'n2', 'n3']) expect(svg).toContain(`<g data-node="${id}" data-label="${id}">`);
     expect(svg).toMatch(/<marker id="[0-9a-f]{8}-m-ie"/);
     expect(svg).toContain('stroke-width="1.25"');
     expect(svg).toContain('var(--font-mono, ui-monospace)');
@@ -38,5 +38,29 @@ describe('renderDiagram', () => {
     const other = renderDiagram({ ...d.scene, id: 'demo/toy/other' }, d.labels.en!.labels, 'en');
     expect(other.match(/marker id="([0-9a-f]{8})/)![1]).not.toBe(en.match(/marker id="([0-9a-f]{8})/)![1]);
     expect(readFileSync(d.file, 'utf8')).toContain('"demo/toy/toy"');
+  });
+
+  it('uses different title and marker ids per locale and per instance, deterministic for equal args', () => {
+    const zh = renderDiagram(d.scene, d.labels.zh!.labels, 'zh');
+    const en = renderDiagram(d.scene, d.labels.en!.labels, 'en');
+    const idsOf = (s: string) => [...s.matchAll(/ id="([^"]+)"/g)].map((m) => m[1]!);
+    const zhIds = new Set(idsOf(zh));
+    for (const id of idsOf(en)) expect(zhIds.has(id)).toBe(false);
+    const a = renderDiagram(d.scene, d.labels.en!.labels, 'en', 'en-720');
+    const b = renderDiagram(d.scene, d.labels.en!.labels, 'en', 'en-360');
+    expect(a).not.toBe(b);
+    expect(idsOf(a).some((id) => idsOf(b).includes(id))).toBe(false);
+    expect(renderDiagram(d.scene, d.labels.en!.labels, 'en', 'en-720')).toBe(a);
+  });
+
+  it('is inert for a scene that skipped the gate (attribute injection)', () => {
+    const s = JSON.parse(JSON.stringify(d.scene)) as typeof d.scene;
+    s.texts = [{ key: 't1', x: 10, y: 10, anchor: 'start' }];
+    (s.texts[0] as { anchor: string }).anchor = 'middle" onload="alert(1)';
+    (s.texts[0] as { x: unknown }).x = '1" onclick="alert(2)';
+    (s.nodes[0] as { x: unknown }).x = '0" onmouseover="alert(3)';
+    const svg = renderDiagram(s, d.labels.en!.labels, 'en');
+    expect(svg).not.toMatch(/ on[a-z]+="/);
+    expect(svg).not.toContain('<script');
   });
 });

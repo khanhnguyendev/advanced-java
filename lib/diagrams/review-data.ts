@@ -4,6 +4,9 @@ import { renderDiagram } from './render';
 import type { DiagramLocale, GateError } from './types';
 import { DIAGRAM_LOCALES } from './types';
 
+/** Widths (px) at which each locale is shown on the review page. */
+export const REVIEW_WIDTHS = [720, 360] as const;
+
 export interface ReviewEntry {
   id: string;
   /** first path segment of the id (the section) */
@@ -15,6 +18,8 @@ export interface ReviewEntry {
   imageUrl: string;
   /** inline SVG per locale (output of renderDiagram), null when the locale cannot be rendered */
   svgs: Record<DiagramLocale, string | null>;
+  /** the same per width, each rendered with its own id prefix so ids stay unique on the page */
+  svgsByWidth: Record<DiagramLocale, Record<number, string> | null>;
   errors: GateError[];
 }
 
@@ -32,12 +37,20 @@ export function buildReviewData(root: string, buildDate: string = new Date().toI
   const gate = new Map(runGate(root).map((r) => [r.id, r.errors]));
   const entries: ReviewEntry[] = listDiagrams(root).map((d) => {
     const svgs = {} as Record<DiagramLocale, string | null>;
+    const svgsByWidth = {} as Record<DiagramLocale, Record<number, string> | null>;
+    const renderErrors: GateError[] = [];
     for (const loc of DIAGRAM_LOCALES) {
       const l = d.labels[loc];
+      svgs[loc] = null;
+      svgsByWidth[loc] = null;
+      if (!l) continue;
       try {
-        svgs[loc] = l ? renderDiagram(d.scene, l.labels, loc) : null;
-      } catch {
-        svgs[loc] = null;
+        const byWidth: Record<number, string> = {};
+        for (const w of REVIEW_WIDTHS) byWidth[w] = renderDiagram(d.scene, l.labels, loc, `${loc}-${w}`);
+        svgsByWidth[loc] = byWidth;
+        svgs[loc] = byWidth[REVIEW_WIDTHS[0]] ?? null;
+      } catch (e) {
+        renderErrors.push({ code: 'META_INVALID', message: `render failed: ${(e as Error).message}`, locale: loc });
       }
     }
     return {
@@ -48,7 +61,8 @@ export function buildReviewData(root: string, buildDate: string = new Date().toI
       upstream: d.scene.source.upstream,
       imageUrl: `/_content/${d.collection}/${d.scene.source.upstream}`,
       svgs,
-      errors: gate.get(d.id) ?? [],
+      svgsByWidth,
+      errors: [...(gate.get(d.id) ?? []), ...renderErrors],
     };
   });
   return {

@@ -4,7 +4,7 @@ import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { contentRoot } from '@/lib/content/collection';
-import { buildReviewData, CREDIT_LINE } from '@/lib/diagrams/review-data';
+import { buildReviewData, CREDIT_LINE, REVIEW_WIDTHS } from '@/lib/diagrams/review-data';
 import { DIAGRAM_LOCALES } from '@/lib/diagrams/types';
 
 export const dynamicParams = false;
@@ -86,10 +86,10 @@ export default async function DiagramReview({ params }: { params: Promise<{ loca
               {DIAGRAM_LOCALES.map((loc) => (
                 <div key={loc} data-locale={loc} style={{ marginBottom: '1.5rem' }}>
                   <h3 style={{ margin: '0 0 0.5rem' }}>{loc}</h3>
-                  {e.svgs[loc] === null ? (
-                    <p>No labels for {loc}.</p>
+                  {e.svgsByWidth[loc] === null ? (
+                    <p>No rendering for {loc} (see gate errors above).</p>
                   ) : (
-                    [720, 360].map((w) => (
+                    REVIEW_WIDTHS.map((w) => (
                       <div
                         key={w}
                         data-width={w}
@@ -100,7 +100,7 @@ export default async function DiagramReview({ params }: { params: Promise<{ loca
                           background: 'var(--paper)',
                           border: rule,
                         }}
-                        dangerouslySetInnerHTML={{ __html: e.svgs[loc] as string }}
+                        dangerouslySetInnerHTML={{ __html: e.svgsByWidth[loc]?.[w] ?? '' }}
                       />
                     ))
                   )}

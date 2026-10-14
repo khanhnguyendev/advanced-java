@@ -20,6 +20,11 @@ function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+const num = (v: unknown): number => {
+  const n = Number(v);
+  return Number.isFinite(n) ? n : 0;
+};
+
 function labelText(labels: Record<string, string>, key: string): string {
   return labels[key] ?? '';
 }
@@ -46,7 +51,7 @@ function textBlock(
   return lines
     .map(
       (ln, i) =>
-        `<text x="${x}" y="${round(yFirst + i * lh)}" text-anchor="${anchor}" dominant-baseline="central" ` +
+        `<text x="${num(x)}" y="${round(num(yFirst) + i * lh)}" text-anchor="${esc(String(anchor))}" dominant-baseline="central" ` +
         `font-size="${FONT_SIZE}" fill="${fill}" style="font-family:${esc(UI_FONT)};white-space:pre"${extra}>` +
         `${lineMarkup(ln)}</text>`,
     )
@@ -54,7 +59,7 @@ function textBlock(
 }
 
 function round(n: number): number {
-  return Math.round(n * 100) / 100;
+  return Math.round(num(n) * 100) / 100;
 }
 
 function nodeColors(role: DiagramNode['role']): { stroke: string; fill: string; text: string } {
@@ -63,13 +68,14 @@ function nodeColors(role: DiagramNode['role']): { stroke: string; fill: string; 
   return { stroke: C.ink, fill: C.paper, text: C.ink };
 }
 
-function renderNode(n: DiagramNode, text: string): string {
+function renderNode(n0: DiagramNode, text: string): string {
+  const n = { ...n0, x: num(n0.x), y: num(n0.y), w: num(n0.w), h: num(n0.h) };
   const col = nodeColors(n.role);
   const lits = n.label.literals ?? [];
   if (n.shape === 'group') {
     const lines = wrapText(text, lits, Math.max(n.w - 2 * NODE_PAD, 1));
     return (
-      `<g data-node="${esc(n.id)}">` +
+      `<g data-node="${esc(String(n.id))}" data-label="${esc(String(n.label.key))}">` +
       `<rect x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="2" fill="none" stroke="${C.rule}" ` +
       `stroke-width="${SW}" stroke-dasharray="1.5 4" stroke-linecap="round"/>` +
       textBlock(lines, n.x + NODE_PAD, n.y + NODE_PAD + FONT_SIZE / 2, 'start', C.muted) +
@@ -87,7 +93,7 @@ function renderNode(n: DiagramNode, text: string): string {
   const lines = wrapText(text, lits, Math.max(n.w - 2 * NODE_PAD, 1));
   const lh = FONT_SIZE * LINE_HEIGHT;
   const top = n.y + n.h / 2 - ((lines.length - 1) * lh) / 2;
-  return `<g data-node="${esc(n.id)}">${shape}${textBlock(lines, n.x + n.w / 2, top, 'middle', col.text)}</g>`;
+  return `<g data-node="${esc(String(n.id))}" data-label="${esc(String(n.label.key))}">${shape}${textBlock(lines, n.x + n.w / 2, top, 'middle', col.text)}</g>`;
 }
 
 function markerId(h: string, style: DiagramEdge['style'], end: 'e' | 's'): string {
@@ -96,7 +102,7 @@ function markerId(h: string, style: DiagramEdge['style'], end: 'e' | 's'): strin
 
 function renderEdge(e: DiagramEdge, h: string, labels: Record<string, string>): string {
   const color = e.style === 'accent' ? C.accent : C.ink;
-  const pts = e.points.map((p) => `${p[0]},${p[1]}`).join(' ');
+  const pts = e.points.map((p) => `${num(p[0])},${num(p[1])}`).join(' ');
   const dash = e.style === 'dashed' ? ' stroke-dasharray="5 4"' : '';
   const mEnd = e.arrow === 'end' || e.arrow === 'both' ? ` marker-end="url(#${markerId(h, e.style, 'e')})"` : '';
   const mStart = e.arrow === 'both' ? ` marker-start="url(#${markerId(h, e.style, 's')})"` : '';
@@ -105,7 +111,7 @@ function renderEdge(e: DiagramEdge, h: string, labels: Record<string, string>): 
     ` stroke-linejoin="round" stroke-linecap="round"${mStart}${mEnd}/>`;
   if (e.label) {
     const lines = wrapText(labelText(labels, e.label.key), e.label.literals ?? [], Infinity);
-    out += textBlock(lines, e.label.at[0], e.label.at[1], e.label.anchor, color);
+    out += textBlock(lines, num(e.label.at[0]), num(e.label.at[1]), e.label.anchor, color);
   }
   return out;
 }
@@ -124,14 +130,22 @@ function markers(h: string): string {
   );
 }
 
-/** Pure, deterministic. Returns one `<svg>` string. `locale` is only recorded in `lang`. */
-export function renderDiagram(scene: DiagramScene, labels: Record<string, string>, locale: DiagramLocale): string {
-  const h = createHash('sha256').update(scene.id).digest('hex').slice(0, 8);
+/**
+ * Pure, deterministic. Returns one `<svg>` string. `locale` is recorded in `lang`; scene id, locale and
+ * `instance` are hashed into the id prefix so several renderings can share one page.
+ */
+export function renderDiagram(
+  scene: DiagramScene,
+  labels: Record<string, string>,
+  locale: DiagramLocale,
+  instance = '',
+): string {
+  const h = createHash('sha256').update(`${scene.id}\u0000${locale}\u0000${instance}`).digest('hex').slice(0, 8);
   const t = `${h}-title`;
   const d = `${h}-desc`;
   const parts: string[] = [];
   parts.push(
-    `<svg xmlns="http://www.w3.org/2000/svg" role="img" lang="${locale}" viewBox="0 0 ${scene.size.w} ${scene.size.h}" ` +
+    `<svg xmlns="http://www.w3.org/2000/svg" role="img" lang="${esc(String(locale))}" viewBox="0 0 ${num(scene.size.w)} ${num(scene.size.h)}" ` +
       `width="100%" aria-labelledby="${t} ${d}" stroke-width="${SW}">`,
   );
   parts.push(`<title id="${t}">${esc(labelText(labels, scene.title_key))}</title>`);

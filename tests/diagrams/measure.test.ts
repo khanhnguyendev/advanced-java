@@ -4,6 +4,11 @@ import { FONT_SIZE, hasHan, segWidth, splitSegments, stripLiterals, textWidth, w
 const em = (n: number) => n * FONT_SIZE * 1.08;
 
 describe('measure', () => {
+  it('treats CJK Extension B+ as Han', () => {
+    expect(hasHan('a\u{20000}b')).toBe(true);
+    expect(segWidth({ text: '\u{20000}', mono: false })).toBeCloseTo(em(1));
+  });
+
   it('estimates widths per script with the 8% margin', () => {
     expect(segWidth({ text: '数据', mono: false })).toBeCloseTo(em(2));
     expect(segWidth({ text: 'abc', mono: false })).toBeCloseTo(em(0.56 * 3));

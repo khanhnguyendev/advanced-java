@@ -16,7 +16,7 @@
     "n8": "o",
     "n9": "d",
     "n10": "m",
-    "_title": "Ví dụ cây Trie chứa các từ and, as, at, cn, com",
-    "_desc": "Cây Trie có gốc root. Gốc có hai con là a và c; a có các con n, s, t và n nối tiếp tới d; c có các con n, o và o nối tiếp tới m. Các đường đi tạo nên and, as, at, cn, com."
+    "_title": "Ví dụ cây tiền tố (trie) chứa các từ and, as, at, cn, com",
+    "_desc": "Cây tiền tố (trie) có gốc root. Gốc có hai con là a và c; a có các con n, s, t và n nối tiếp tới d; c có các con n, o và o nối tiếp tới m. Các đường đi tạo nên and, as, at, cn, com."
   }
 }

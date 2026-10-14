@@ -16,25 +16,84 @@ export interface GateOptions {
 const LICENSES = ['derived', 'original'];
 const STATUSES = ['source', 'machine'];
 const PAD = 8;
+const LH = FONT_SIZE * LINE_HEIGHT;
+const HALF = 6.5;
+
+const isBlank = (v: unknown): boolean => typeof v !== 'string' || v.trim() === '';
+
+const SHAPES = ['box', 'round', 'pill', 'circle', 'group'];
+const ROLES = ['default', 'accent', 'muted'];
+const ARROWS = ['end', 'both', 'none'];
+const STYLES = ['solid', 'dashed', 'accent'];
+const ANCHORS = ['start', 'middle', 'end'];
+
+function validateScene(scene: DiagramScene, bad: (msg: string) => void): void {
+  const fin = (v: unknown, name: string, positive = false) => {
+    if (typeof v !== 'number' || !Number.isFinite(v)) bad(`${name} is not a finite number`);
+    else if (positive && v <= 0) bad(`${name} must be > 0`);
+  };
+  const oneOf = (v: unknown, set: string[], name: string, optional = false) => {
+    if (v === undefined && optional) return;
+    if (typeof v !== 'string' || !set.includes(v)) bad(`${name} "${String(v)}" is not one of ${set.join('|')}`);
+  };
+  fin(scene.size?.w, 'size.w', true);
+  fin(scene.size?.h, 'size.h', true);
+  for (const n of scene.nodes ?? []) {
+    const p = `node ${n.id}`;
+    fin(n.x, `${p} x`);
+    fin(n.y, `${p} y`);
+    fin(n.w, `${p} w`, true);
+    fin(n.h, `${p} h`, true);
+    oneOf(n.shape, SHAPES, `${p} shape`);
+    oneOf(n.role, ROLES, `${p} role`, true);
+  }
+  (scene.edges ?? []).forEach((e, i) => {
+    const p = `edge ${i}`;
+    if (!Array.isArray(e.points)) bad(`${p} points is not an array`);
+    else {
+      e.points.forEach((pt, j) => {
+        if (!Array.isArray(pt)) bad(`${p} points[${j}] is not a pair`);
+        else {
+          fin(pt[0], `${p} points[${j}] x`);
+          fin(pt[1], `${p} points[${j}] y`);
+        }
+      });
+    }
+    oneOf(e.arrow, ARROWS, `${p} arrow`);
+    oneOf(e.style, STYLES, `${p} style`);
+    if (e.label) {
+      fin(e.label.at?.[0], `${p} label x`);
+      fin(e.label.at?.[1], `${p} label y`);
+      oneOf(e.label.anchor, ANCHORS, `${p} label anchor`);
+    }
+  });
+  for (const t of scene.texts ?? []) {
+    const p = `text ${t.key}`;
+    fin(t.x, `${p} x`);
+    fin(t.y, `${p} y`);
+    oneOf(t.anchor, ANCHORS, `${p} anchor`);
+  }
+}
 
 interface Ref {
   where: string;
   ref: LabelRef;
   kind: 'node' | 'group' | 'free';
   node?: { w: number; h: number };
-  anchorX?: { x: number; anchor: 'start' | 'middle' | 'end' };
+  circle?: boolean;
+  anchorX?: { x: number; y: number; anchor: 'start' | 'middle' | 'end' };
 }
 
 function collectRefs(scene: DiagramScene): Ref[] {
   const refs: Ref[] = [];
   for (const n of scene.nodes) {
-    refs.push({ where: `node ${n.id}`, ref: n.label, kind: n.shape === 'group' ? 'group' : 'node', node: { w: n.w, h: n.h } });
+    refs.push({ where: `node ${n.id}`, ref: n.label, kind: n.shape === 'group' ? 'group' : 'node', node: { w: n.w, h: n.h }, circle: n.shape === 'circle' });
   }
   scene.edges.forEach((e, i) => {
-    if (e.label) refs.push({ where: `edge ${i}`, ref: e.label, kind: 'free', anchorX: { x: e.label.at[0], anchor: e.label.anchor } });
+    if (e.label) refs.push({ where: `edge ${i}`, ref: e.label, kind: 'free', anchorX: { x: e.label.at[0], y: e.label.at[1], anchor: e.label.anchor } });
   });
   for (const t of scene.texts) {
-    refs.push({ where: `text ${t.key}`, ref: t, kind: 'free', anchorX: { x: t.x, anchor: t.anchor } });
+    refs.push({ where: `text ${t.key}`, ref: t, kind: 'free', anchorX: { x: t.x, y: t.y, anchor: t.anchor } });
   }
   return refs;
 }
@@ -48,6 +107,8 @@ export function checkDiagram(
   const add = (code: GateError['code'], message: string, locale?: DiagramLocale) =>
     errors.push(locale ? { code, message, locale } : { code, message });
   const refs = collectRefs(scene);
+
+  validateScene(scene, (m) => add('META_INVALID', m));
 
   // 8. license / source
   const license = scene.license ?? 'derived';
@@ -72,6 +133,18 @@ export function checkDiagram(
   const refLocale: DiagramLocale =
     labelsByLocale.en?.meta.source_lang === 'en' || labelsByLocale.zh?.meta.source_lang === 'en' ? 'en' : 'zh';
   const ref = labelsByLocale[refLocale];
+  for (const loc of DIAGRAM_LOCALES) {
+    const f = labelsByLocale[loc];
+    if (!f || !STATUSES.includes(f.meta.status)) continue;
+    const want = loc === refLocale ? 'source' : 'machine';
+    if (f.meta.status !== want) {
+      add('META_INVALID', `meta.status "${f.meta.status}" must be "${want}" for ${loc}`, loc);
+    }
+  }
+  const langs = new Set(
+    DIAGRAM_LOCALES.map((l) => labelsByLocale[l]?.meta.source_lang).filter((s): s is string => s !== undefined),
+  );
+  if (langs.size > 1) add('META_INVALID', `meta.source_lang differs across locales (${[...langs].join(', ')})`);
   if (ref) {
     for (const loc of DIAGRAM_LOCALES) {
       if (loc === refLocale) continue;
@@ -88,7 +161,10 @@ export function checkDiagram(
     const f = labelsByLocale[loc];
     if (!f) continue;
     for (const k of used) {
-      if (!(k in f.labels)) add('KEY_MISSING', `key "${k}" missing`, loc);
+      if (!Object.hasOwn(f.labels, k)) add('KEY_MISSING', `key "${k}" missing`, loc);
+      else if (isBlank(f.labels[k]) && ref && Object.hasOwn(ref.labels, k) && !isBlank(ref.labels[k])) {
+        add('KEY_MISSING', `key "${k}" is empty`, loc);
+      }
     }
     for (const k of Object.keys(f.labels)) {
       if (!used.has(k)) add('KEY_ORPHAN', `key "${k}" is not referenced by the scene`, loc);
@@ -110,7 +186,7 @@ export function checkDiagram(
     }
     // 3. literals
     for (const r of refs) {
-      const v = f.labels[r.ref.key];
+      const v = Object.hasOwn(f.labels, r.ref.key) ? f.labels[r.ref.key] : undefined;
       if (v === undefined) continue;
       for (const lit of r.ref.literals ?? []) {
         if (!v.includes(lit)) add('LITERAL_MISSING', `${r.where}: literal "${lit}" missing in key "${r.ref.key}"`, loc);
@@ -118,20 +194,34 @@ export function checkDiagram(
     }
     // 4. overflow
     for (const r of refs) {
-      const v = f.labels[r.ref.key];
+      const v = Object.hasOwn(f.labels, r.ref.key) ? f.labels[r.ref.key] : undefined;
       if (v === undefined) continue;
       const lits = r.ref.literals ?? [];
       if (r.node) {
-        const maxW = r.node.w - 2 * PAD;
+        // circle: the inscribed square is the safe area, so its edge is the margin (no extra padding)
+        const maxW = r.circle ? r.node.w * Math.SQRT1_2 : r.node.w - 2 * PAD;
         const lines = wrapText(v, lits, maxW);
         const widest = Math.max(...lines.map((l) => l.width));
-        if (widest > maxW) add('OVERFLOW', `${r.where}: line width ${widest.toFixed(1)} > ${maxW}`, loc);
-        const hgt = lines.length * FONT_SIZE * LINE_HEIGHT;
-        if (r.kind === 'node' && hgt > r.node.h - 2 * 4) {
-          add('OVERFLOW', `${r.where}: text height ${hgt.toFixed(1)} > ${r.node.h - 8}`, loc);
+        if (widest > maxW) add('OVERFLOW', `${r.where}: line width ${widest.toFixed(1)} > ${maxW.toFixed(1)}`, loc);
+        if (r.kind === 'node') {
+          const hgt = lines.length * LH;
+          const maxH = r.circle ? r.node.h * Math.SQRT1_2 : r.node.h - 2 * 4;
+          if (hgt > maxH) add('OVERFLOW', `${r.where}: text height ${hgt.toFixed(1)} > ${maxH.toFixed(1)}`, loc);
+        } else {
+          // group label: top-left, first line centre at PAD + HALF
+          const bottom = PAD + HALF + (lines.length - 1) * LH + HALF;
+          if (bottom > r.node.h - PAD) {
+            add('OVERFLOW', `${r.where}: label height ${bottom.toFixed(1)} > ${r.node.h - PAD}`, loc);
+          }
         }
       } else if (r.anchorX) {
-        const { x, anchor } = r.anchorX;
+        const { x, y, anchor } = r.anchorX;
+        const n = v.split('\n').length;
+        const top = y - HALF;
+        const bottom = y + (n - 1) * LH + HALF;
+        if (top < 0 || bottom > scene.size.h) {
+          add('OVERFLOW', `${r.where}: text block ${top.toFixed(1)}..${bottom.toFixed(1)} outside height ${scene.size.h}`, loc);
+        }
         const room = anchor === 'start' ? scene.size.w - x : anchor === 'end' ? x : 2 * Math.min(x, scene.size.w - x);
         for (const para of v.split('\n')) {
           const w = textWidth(splitSegments(para, lits));

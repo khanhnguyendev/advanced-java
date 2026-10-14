@@ -134,6 +134,99 @@ describe('checkDiagram', () => {
   });
 });
 
+describe('checkDiagram hardening', () => {
+  const metaMsgs = (scene: DiagramScene, labels: LabelsByLocale) =>
+    checkDiagram(scene, labels).errors.filter((e) => e.code === 'META_INVALID').map((e) => e.message);
+
+  it('rejects empty or whitespace-only translations', () => {
+    const l = clone(good.labels);
+    l.vi!.labels.n2 = '   ';
+    const errs = checkDiagram(good.scene, l).errors;
+    expect(errs.some((e) => e.code === 'KEY_MISSING' && e.locale === 'vi' && e.message.includes('empty'))).toBe(true);
+    const l2 = clone(good.labels);
+    l2.en!.labels.n2 = '';
+    expect(withCode('KEY_MISSING', good.scene, l2)).toBe(true);
+  });
+
+  it('does not treat prototype names as present keys', () => {
+    const s = clone(good.scene);
+    s.nodes[0]!.label.key = 'toString';
+    const l = clone(good.labels);
+    expect(withCode('KEY_MISSING', s, l)).toBe(true);
+  });
+
+  it('flags attribute injection via anchor and via x', () => {
+    const s = clone(good.scene);
+    (s.texts[0] as { anchor: string }).anchor = 'middle" onload="x';
+    expect(metaMsgs(s, good.labels).some((m) => m.includes('anchor'))).toBe(true);
+    const s2 = clone(good.scene);
+    (s2.nodes[0] as { x: unknown }).x = '0" onclick="x';
+    expect(metaMsgs(s2, good.labels).some((m) => m.includes(' x '))).toBe(true);
+    const s3 = clone(good.scene);
+    s3.edges[0]!.points[0] = [Number.NaN, 1];
+    expect(metaMsgs(s3, good.labels).length).toBeGreaterThan(0);
+  });
+
+  it('flags a typo in shape/role/arrow/style and non-positive sizes', () => {
+    const s = clone(good.scene);
+    (s.nodes[0] as { shape: string }).shape = 'boxx';
+    expect(metaMsgs(s, good.labels).some((m) => m.includes('shape'))).toBe(true);
+    const s2 = clone(good.scene);
+    (s2.nodes[0] as { role: string }).role = 'loud';
+    expect(metaMsgs(s2, good.labels).some((m) => m.includes('role'))).toBe(true);
+    const s3 = clone(good.scene);
+    (s3.edges[0] as { arrow: string }).arrow = 'bot';
+    (s3.edges[0] as { style: string }).style = 'dotted';
+    const m3 = metaMsgs(s3, good.labels);
+    expect(m3.some((m) => m.includes('arrow'))).toBe(true);
+    expect(m3.some((m) => m.includes('style'))).toBe(true);
+    const s4 = clone(good.scene);
+    s4.nodes[0]!.w = 0;
+    s4.size.h = -1;
+    const m4 = metaMsgs(s4, good.labels);
+    expect(m4.some((m) => m.includes(' w '))).toBe(true);
+    expect(m4.some((m) => m.includes('size.h'))).toBe(true);
+  });
+
+  it('requires status source on the reference and machine on the others; consistent source_lang', () => {
+    const l = clone(good.labels);
+    l.zh!.meta.status = 'machine';
+    expect(withCode('META_INVALID', good.scene, l)).toBe(true);
+    const l2 = clone(good.labels);
+    l2.vi!.meta.status = 'source';
+    expect(withCode('META_INVALID', good.scene, l2)).toBe(true);
+    const l3 = clone(good.labels);
+    l3.vi!.meta.source_lang = 'en';
+    l3.en!.meta.source_lang = 'zh';
+    expect(metaMsgs(good.scene, l3).some((m) => m.includes('source_lang'))).toBe(true);
+  });
+
+  it('checks the whole multi-line free-text block and group label height', () => {
+    const s = clone(good.scene);
+    s.texts[0]!.y = s.size.h - 8;
+    const l = clone(good.labels);
+    l.en!.labels[s.texts[0]!.key] = 'a\nb\nc';
+    expect(withCode('OVERFLOW', s, l)).toBe(true);
+    const g2 = clone(good.scene);
+    g2.nodes[0]!.shape = 'group';
+    g2.nodes[0]!.h = 20;
+    expect(withCode('OVERFLOW', g2, good.labels)).toBe(true);
+  });
+
+  it('uses the inscribed square for circle text', () => {
+    const s = clone(good.scene);
+    const n = s.nodes[1]!;
+    n.w = 90;
+    n.h = 90;
+    n.shape = 'box';
+    const l = clone(good.labels);
+    l.en!.labels[n.label.key] = 'abcdefghi';
+    expect(withCode('OVERFLOW', s, l)).toBe(false);
+    n.shape = 'circle';
+    expect(withCode('OVERFLOW', s, l)).toBe(true);
+  });
+});
+
 describe('runGate / check:diagrams CLI', () => {
   it('runGate reports zero errors for the good fixture and errors for the bad one', () => {
     const ok = runGate(path.join(fixtures, 'content'));

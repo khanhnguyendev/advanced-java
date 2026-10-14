@@ -78,7 +78,7 @@ Each: view the upstream image, write `.diagram.json`, `labels.zh.json` (exact up
 |---|---|---|
 | B1 | distributed-system/distributed-transaction/distributed-transaction-XA.png | distributed-system/distributed-transaction/distributed-transaction-xa |
 | B2 | high-concurrency/high-concurrency-design/high-concurrency-system-design.png | high-concurrency/high-concurrency-design/high-concurrency-system-design |
-| B3 | distributed-system/distributed-system-request-sequence/distributed-system-request-sequence.png | distributed-system/distributed-system-request-sequence/distributed-system-request-sequence |
+| B3 | distributed-system/distributed-system-request-sequence/distributed-system-request-sequence.png | distributed-system/distributed-system-request-sequence/distributed-system-request-sequence (MQ and queue labels rendered horizontal in taller boxes; upstream is vertical text) |
 | B4 | high-availability/hystrix-request-cache/hystrix-request-cache.png | high-availability/hystrix-request-cache/hystrix-request-cache |
 | B5 | big-data/topk-problems-and-solutions/topk-trie.png | big-data/topk-problems-and-solutions/topk-trie |
 
