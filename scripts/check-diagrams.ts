@@ -1,20 +1,11 @@
-import { existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { contentRoot } from '../lib/content/collection';
-import { checkDiagram } from '../lib/diagrams/gate';
 import { listDiagrams } from '../lib/diagrams/load';
+import { gateLoaded } from '../lib/diagrams/run';
 import type { GateError } from '../lib/diagrams/types';
 
 export function runGate(root: string): { id: string; errors: GateError[] }[] {
-  return listDiagrams(root).map((d) => {
-    const { errors } = checkDiagram(d.scene, d.labels, {
-      assetExists: (up) => {
-        const p = path.join(d.assetsDir, up);
-        return existsSync(p) && statSync(p).isFile();
-      },
-    });
-    return { id: d.id, errors: [...d.loadErrors, ...errors] };
-  });
+  return listDiagrams(root).map((d) => ({ id: d.id, errors: gateLoaded(d) }));
 }
 
 if (path.basename(process.argv[1] ?? '') === 'check-diagrams.ts') {

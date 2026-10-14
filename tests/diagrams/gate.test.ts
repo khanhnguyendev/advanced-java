@@ -6,6 +6,8 @@ import { renderDiagram } from '@/lib/diagrams/render';
 import { textMaxWidth, wrapText } from '@/lib/diagrams/measure';
 import { listDiagrams } from '@/lib/diagrams/load';
 import { runGate } from '@/scripts/check-diagrams';
+import { gateLoaded } from '@/lib/diagrams/run';
+import { buildReviewData } from '@/lib/diagrams/review-data';
 import type { DiagramScene, GateCode, LabelsByLocale } from '@/lib/diagrams/types';
 
 const fixtures = path.join(__dirname, '..', 'fixtures', 'diagrams');
@@ -250,7 +252,8 @@ describe('gate robustness and wrap parity', () => {
     const gateLines = wrapText(text, [], textMaxWidth(n)).map((ln) => ln.segs.map((x) => x.text).join(''));
     expect(textMaxWidth(n)).toBeCloseTo(120 * Math.SQRT1_2);
     expect(drawn).toEqual(gateLines);
-    expect(withCode('OVERFLOW', s, l)).toBe(true);
+    const overflow = checkDiagram(s, l).errors.filter((e) => e.code === 'OVERFLOW');
+    expect(overflow.some((e) => e.message.includes('> 84.9'))).toBe(true);
   });
 
   it('textMaxWidth for non-circles is w - 16', () => {
@@ -319,5 +322,41 @@ describe('runGate / check:diagrams CLI', () => {
     expect(bad.out).toContain('HAN_IN_LATIN');
     const empty = run(path.join(fixtures));
     expect(empty.status).toBe(0);
+  });
+});
+
+describe('broken scene files', () => {
+  const broken = path.join(fixtures, 'content-broken');
+
+  it('listDiagrams does not throw and runGate reports META_INVALID', () => {
+    const list = listDiagrams(broken);
+    expect(list.map((d) => d.id)).toEqual(['a/_diagrams/x/invalid.diagram.json', 'b/_diagrams/x/null.diagram.json']);
+    const res = runGate(broken);
+    expect(res).toHaveLength(2);
+    for (const r of res) expect(r.errors.some((e) => e.code === 'META_INVALID' && e.message.includes('cannot parse'))).toBe(true);
+  });
+
+  it('buildReviewData survives them', () => {
+    const d = buildReviewData(broken, '2026-10-14');
+    expect(d.count).toBe(2);
+    for (const e of d.entries) expect(e.errors.some((x) => x.code === 'META_INVALID')).toBe(true);
+  });
+});
+
+describe('gateLoaded', () => {
+  it('rejects source.upstream escaping _assets', () => {
+    const d = clone(good);
+    d.scene.source.upstream = '../../x';
+    expect(gateLoaded(d).some((e) => e.code === 'SOURCE_MISSING')).toBe(true);
+    expect(gateLoaded(good)).toEqual([]);
+  });
+
+  it('a bad label file does not suppress other locales checks', () => {
+    const d = clone(good);
+    (d.labels.vi!.labels as Record<string, unknown>).n1 = 5;
+    delete d.labels.en!.labels.n2;
+    const errs = gateLoaded(d);
+    expect(errs.some((e) => e.code === 'META_INVALID' && e.locale === 'vi')).toBe(true);
+    expect(errs.some((e) => e.code === 'KEY_MISSING' && e.locale === 'en')).toBe(true);
   });
 });

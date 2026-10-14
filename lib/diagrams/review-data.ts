@@ -1,8 +1,6 @@
-import { existsSync, statSync } from 'node:fs';
-import path from 'node:path';
-import { checkDiagram } from './gate';
 import { listDiagrams } from './load';
 import { renderDiagram } from './render';
+import { gateLoaded } from './run';
 import type { DiagramLocale, GateError } from './types';
 import { DIAGRAM_LOCALES } from './types';
 
@@ -35,20 +33,7 @@ export const CREDIT_LINE =
 
 export function buildReviewData(root: string, buildDate: string = new Date().toISOString().slice(0, 10)): ReviewData {
   const entries: ReviewEntry[] = listDiagrams(root).map((d) => {
-    let gateErrors: GateError[];
-    try {
-      gateErrors = [
-        ...d.loadErrors,
-        ...checkDiagram(d.scene, d.labels, {
-          assetExists: (up) => {
-            const p = path.join(d.assetsDir, up);
-            return existsSync(p) && statSync(p).isFile();
-          },
-        }).errors,
-      ];
-    } catch (e) {
-      gateErrors = [...d.loadErrors, { code: 'META_INVALID', message: `gate failed: ${(e as Error).message}` }];
-    }
+    const gateErrors = gateLoaded(d);
     const svgsByWidth = {} as Record<DiagramLocale, Record<number, string> | null>;
     const renderErrors: GateError[] = [];
     for (const loc of DIAGRAM_LOCALES) {
@@ -63,13 +48,14 @@ export function buildReviewData(root: string, buildDate: string = new Date().toI
         renderErrors.push({ code: 'META_INVALID', message: `render failed: ${(e as Error).message}`, locale: loc });
       }
     }
+    const upstream = d.scene.source?.upstream ?? '';
     return {
       id: d.id,
       className: d.id.split('/')[0] ?? '',
       collection: d.collection,
       license: d.scene.license ?? 'derived',
-      upstream: d.scene.source.upstream,
-      imageUrl: `/_content/${d.collection}/${d.scene.source.upstream}`,
+      upstream,
+      imageUrl: `/_content/${d.collection}/${upstream}`,
       svgsByWidth,
       errors: [...gateErrors, ...renderErrors],
     };

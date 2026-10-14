@@ -26,7 +26,23 @@ function walk(dir: string, out: string[]): void {
 
 export function loadDiagram(file: string, collection: string, root: string): LoadedDiagram {
   const loadErrors: GateError[] = [];
-  const scene = JSON.parse(readFileSync(file, 'utf8')) as DiagramScene;
+  let scene: DiagramScene;
+  try {
+    const parsed: unknown = JSON.parse(readFileSync(file, 'utf8'));
+    if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) throw new Error('not an object');
+    scene = parsed as DiagramScene;
+  } catch {
+    const rel = path.relative(root, file).split(path.sep).join('/');
+    return {
+      id: rel,
+      file,
+      collection,
+      assetsDir: path.join(root, collection, '_assets'),
+      scene: { nodes: [], edges: [], texts: [] } as unknown as DiagramScene,
+      labels: {},
+      loadErrors: [{ code: 'META_INVALID', message: `cannot parse ${rel}` }],
+    };
+  }
   const base = file.slice(0, -'.diagram.json'.length);
   const labels: LabelsByLocale = {};
   for (const loc of DIAGRAM_LOCALES) {

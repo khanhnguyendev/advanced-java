@@ -6,7 +6,7 @@ import type {
   LabelsByLocale,
 } from './types';
 import { DIAGRAM_LOCALES } from './types';
-import { FONT_SIZE, LINE_HEIGHT, stripLiterals, hasHan, wrapText, splitSegments, textWidth, textMaxWidth } from './measure';
+import { FONT_SIZE, LINE_HEIGHT, NODE_PAD, stripLiterals, hasHan, wrapText, splitSegments, textWidth, textMaxWidth } from './measure';
 
 export interface GateOptions {
   /** Whether `source.upstream` exists as a file under the collection's `_assets`. Omit to skip SOURCE_MISSING. */
@@ -15,9 +15,9 @@ export interface GateOptions {
 
 const LICENSES = ['derived', 'original'];
 const STATUSES = ['source', 'machine'];
-const PAD = 8;
+const PAD = NODE_PAD;
 const LH = FONT_SIZE * LINE_HEIGHT;
-const HALF = 6.5;
+const HALF = FONT_SIZE / 2;
 
 const isBlank = (v: unknown): boolean => typeof v !== 'string' || v.trim() === '';
 
@@ -27,7 +27,12 @@ const ARROWS = ['end', 'both', 'none'];
 const STYLES = ['solid', 'dashed', 'accent'];
 const ANCHORS = ['start', 'middle', 'end'];
 
-function validateScene(scene: DiagramScene, labelsByLocale: LabelsByLocale, bad: (msg: string) => void): void {
+function validateScene(
+  scene: DiagramScene,
+  labelsByLocale: LabelsByLocale,
+  bad: (msg: string) => void,
+  badLocale: (loc: DiagramLocale, msg: string) => void,
+): void {
   const fin = (v: unknown, name: string, positive = false) => {
     if (typeof v !== 'number' || !Number.isFinite(v)) bad(`${name} is not a finite number`);
     else if (positive && v <= 0) bad(`${name} must be > 0`);
@@ -56,11 +61,11 @@ function validateScene(scene: DiagramScene, labelsByLocale: LabelsByLocale, bad:
     const f = labelsByLocale[loc];
     if (!f) continue;
     if (typeof f.labels !== 'object' || f.labels === null || Array.isArray(f.labels) || typeof f.meta !== 'object' || f.meta === null) {
-      bad(`${loc} labels file is malformed`);
+      badLocale(loc, `${loc} labels file is malformed`);
       continue;
     }
     for (const [k, v] of Object.entries(f.labels)) {
-      if (typeof v !== 'string') bad(`${loc} label "${k}" is not a string`);
+      if (typeof v !== 'string') badLocale(loc, `${loc} label "${k}" is not a string`);
     }
   }
   for (const n of Array.isArray(scene.nodes) ? scene.nodes : []) {
@@ -139,10 +144,24 @@ export function checkDiagram(
   opts: GateOptions = {},
 ): { errors: GateError[] } {
   const errors: GateError[] = [];
+  const badLocales = new Set<DiagramLocale>();
   const add = (code: GateError['code'], message: string, locale?: DiagramLocale) =>
     errors.push(locale ? { code, message, locale } : { code, message });
-  validateScene(scene, labelsByLocale, (m) => add('META_INVALID', m));
-  if (errors.length > 0) return { errors };
+  validateScene(
+    scene,
+    labelsByLocale,
+    (m) => add('META_INVALID', m),
+    (loc, m) => {
+      badLocales.add(loc);
+      add('META_INVALID', m, loc);
+    },
+  );
+  // scene-structure errors stop everything; a bad label file only drops that locale
+  if (errors.some((e) => !e.locale)) return { errors };
+  if (badLocales.size > 0) {
+    labelsByLocale = { ...labelsByLocale };
+    for (const loc of badLocales) delete labelsByLocale[loc];
+  }
   const refs = collectRefs(scene);
 
   // 8. license / source
@@ -156,7 +175,7 @@ export function checkDiagram(
   for (const loc of DIAGRAM_LOCALES) {
     const f = labelsByLocale[loc];
     if (!f) {
-      add('META_INVALID', `labels file for ${loc} is missing`, loc);
+      if (!badLocales.has(loc)) add('META_INVALID', `labels file for ${loc} is missing`, loc);
       continue;
     }
     if (f.meta.locale !== loc) add('META_INVALID', `meta.locale "${f.meta.locale}" does not match file locale "${loc}"`, loc);

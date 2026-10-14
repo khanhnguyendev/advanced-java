@@ -3,10 +3,13 @@ import { expect, test } from '@playwright/test';
 test.skip(process.env.DIAGRAM_REVIEW !== '1', 'set DIAGRAM_REVIEW=1 (build-time) to run');
 
 const URL = '/en/review/diagrams';
-// Exact floors: 5 diagrams x 3 locales x 2 widths = 30 svgs; the 5 diagrams hold 50 nodes in total, so 50 x 6 = 300
-// node groups. If the diagram set changes, update these two numbers in the same commit.
-const EXPECTED_SVGS = 5 * 3 * 2;
-const EXPECTED_NODE_GROUPS = 300;
+const EXPECTED_DIAGRAMS = 5;
+const LOCALES = 3;
+const WIDTHS = 2;
+// Total nodes across the 5 diagrams. If the diagram set changes, update this in the same commit.
+const NODES_IN_DIAGRAMS = 50;
+const EXPECTED_SVGS = EXPECTED_DIAGRAMS * LOCALES * WIDTHS;
+const EXPECTED_NODE_GROUPS = NODES_IN_DIAGRAMS * LOCALES * WIDTHS;
 
 for (const width of [1280, 360]) {
   for (const scheme of ['light', 'dark'] as const) {
@@ -23,9 +26,11 @@ for (const width of [1280, 360]) {
       expect(svgCount, `found ${svgCount} diagram svgs`).toBe(EXPECTED_SVGS);
       const count = await page.locator('g[data-node]').count();
       expect(count, `found ${count} g[data-node] groups`).toBe(EXPECTED_NODE_GROUPS);
+      const labelled = await page.locator('g[data-node][data-label]').count();
+      expect(labelled, `found ${labelled} labelled node groups`).toBe(count);
       await expect(page.getByText(/No rendering for/)).toHaveCount(0);
       const statuses = await page.getByTestId('gate-status').allTextContents();
-      expect(statuses.length, 'one gate-status per diagram').toBe(EXPECTED_SVGS / 6);
+      expect(statuses.length, 'one gate-status per diagram').toBe(EXPECTED_DIAGRAMS);
       for (const st of statuses) expect(st).toContain('0 errors');
 
       const m = await page.evaluate(() => ({
