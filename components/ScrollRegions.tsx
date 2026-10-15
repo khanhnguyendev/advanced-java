@@ -15,13 +15,15 @@ export function ScrollRegions() {
     const prose = document.querySelector('.prose');
     if (!prose) return;
     const mark = () => {
-      let codeN = 0;
-      let diagramN = 0;
+      // number by position among all blocks of the kind, so labels stay stable while diagrams lazy-load
+      let codeI = 0;
+      let diagramI = 0;
       prose.querySelectorAll<HTMLElement>('pre, .diagram-scroll').forEach((el) => {
+        const isCode = el.tagName === 'PRE';
+        const n = isCode ? (codeI += 1) : (diagramI += 1);
         const scrolls = el.scrollWidth > el.clientWidth + 1;
         if (scrolls) {
-          const isCode = el.tagName === 'PRE';
-          const label = isCode ? `${code} ${(codeN += 1)}` : `${diagram} ${(diagramN += 1)}`;
+          const label = isCode ? `${code} ${n}` : `${diagram} ${n}`;
           if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
           el.setAttribute('role', 'region');
           el.setAttribute('aria-label', label);
@@ -35,7 +37,12 @@ export function ScrollRegions() {
     mark();
     const ro = new ResizeObserver(mark);
     ro.observe(prose);
-    return () => ro.disconnect();
+    // a lazy diagram was filled in (LazyDiagrams): its width is only known now
+    window.addEventListener('diagrams:loaded', mark);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('diagrams:loaded', mark);
+    };
   }, [code, diagram]);
   return null;
 }

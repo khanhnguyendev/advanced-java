@@ -5,6 +5,7 @@ import { extractHeadings } from '@/lib/render/headings';
 import type { LinkContext } from '@/lib/render/links';
 import type { DiagramSource } from '@/lib/render/diagrams';
 import { renderMarkdown } from '@/lib/render/pipeline';
+import { diagramSvgMarkup, diagramSvgUrl } from '@/lib/diagrams/asset-path';
 
 const root = path.resolve(__dirname, '../fixtures/diagrams/content');
 const diagrams = fsDiagramSource(root, 'toy');
@@ -23,17 +24,30 @@ const render = (md: string, bodyLocale: 'en' | 'zh' | 'vi' = 'en') =>
   renderMarkdown(md, { ...base(md), bodyLocale, diagrams, diagramCredit: 'Credit line' });
 
 describe('diagram: images', () => {
-  it('renders an inline svg figure with scroll wrapper, min-width and credit', async () => {
+  it('renders a lazy slot with noscript image, exact slot sizing and credit; no inline svg', async () => {
     const md = `# T\n\n## A\n\n![alt](diagram:${ID})\n\ntext\n`;
     const { html, headings } = await render(md);
-    expect(html).toMatch(/<figure class="diagram" data-diagram="demo\/toy\/toy" style="contain-intrinsic-block-size: auto 264px"><div class="diagram-scroll"><svg[^>]*role="img"/);
-    expect(html).toContain('style="min-width: 392px"');
-    expect(html).toContain('width="100%"');
+    const l = diagrams.load(ID)!;
+    const src = diagramSvgUrl(diagramSvgMarkup(l.scene, l.labels.en!, 'en', 0));
+    expect(src).toMatch(/^\/diagram-svg\/[0-9a-f]{20}\.svg$/);
+    expect(html).toMatch(
+      /<figure class="diagram" data-diagram="demo\/toy\/toy"><div class="diagram-scroll" data-diagram-src="[^"]+" role="img" aria-label="[^"]+" style="aspect-ratio: \d+ \/ \d+; min-height: \d+px">/,
+    );
+    expect(html).toContain(`data-diagram-src="${src}"`);
+    expect(html).toContain(`<noscript><img src="${src}" alt="`);
+    expect(html).not.toContain('<svg');
     expect(html).toContain('<figcaption class="diagram-credit">Credit line</figcaption>');
     expect(html).not.toContain('diagram:');
     expect(html).not.toContain('data-dg');
     expect(html).not.toContain('<p><figure');
     expect(headings).toHaveLength(1);
+  });
+
+  it('the emitted file is the same renderDiagram markup with the min-width floor', () => {
+    const l = diagrams.load(ID)!;
+    const svg = diagramSvgMarkup(l.scene, l.labels.en!, 'en', 0);
+    expect(svg).toMatch(/^<svg style="min-width: 392px" xmlns="http:\/\/www.w3.org\/2000\/svg" role="img"/);
+    expect(svg).toContain('width="100%"');
   });
 
   it('third-party figure: attribution caption with linked title, no derived credit', async () => {
@@ -62,20 +76,28 @@ describe('diagram: images', () => {
 
   it('uses the body locale labels', async () => {
     const md = `![a](diagram:${ID})\n`;
+    const l = diagrams.load(ID)!;
+    const zhSvg = diagramSvgMarkup(l.scene, l.labels.zh!, 'zh', 0);
+    const enSvg = diagramSvgMarkup(l.scene, l.labels.en!, 'en', 0);
+    expect(zhSvg).toContain('lang="zh"');
+    expect(enSvg).toContain('lang="en"');
     const zh = (await render(md, 'zh')).html;
     const en = (await render(md, 'en')).html;
-    expect(zh).toContain('lang="zh"');
-    expect(en).toContain('lang="en"');
+    expect(zh).toContain(diagramSvgUrl(zhSvg));
+    expect(en).toContain(diagramSvgUrl(enSvg));
     expect(zh).not.toBe(en);
     expect(/[一-鿿]/.test(zh)).toBe(true);
     expect(/[一-鿿]/.test(en)).toBe(false);
   });
 
-  it('keeps ids distinct for two diagrams in one doc', async () => {
+  it('keeps ids distinct for two diagrams in one doc (distinct instance, distinct file)', async () => {
     const md = `![a](diagram:${ID})\n\n![b](diagram:${ID})\n`;
     const { html } = await render(md);
-    const ids = Array.from(html.matchAll(/<title id="([^"]+)"/g), (m) => m[1]);
-    expect(ids).toHaveLength(2);
+    const srcs = Array.from(html.matchAll(/data-diagram-src="([^"]+)"/g), (m) => m[1]);
+    expect(srcs).toHaveLength(2);
+    expect(new Set(srcs).size).toBe(2);
+    const l = diagrams.load(ID)!;
+    const ids = [0, 1].map((i) => /<title id="([^"]+)"/.exec(diagramSvgMarkup(l.scene, l.labels.en!, 'en', i))![1]);
     expect(new Set(ids).size).toBe(2);
   });
 
@@ -94,15 +116,15 @@ describe('diagram: images', () => {
   it('strips an authored figure placeholder with no matching image node', async () => {
     const md = '## A\n\n<figure data-dg="0"></figure>\n\n<figure data-dg="7">x</figure>\n';
     const { html } = await render(md);
-    expect(html).not.toContain('<svg');
     expect(html).not.toMatch(/<figure[\s>]/);
+    expect(html).not.toContain('data-diagram-src');
     expect(html).not.toContain('<div class="diagram-scroll"');
   });
 
   it('ignores an authored placeholder index that is not in the doc image list', async () => {
     const md = `<figure data-dg="7"></figure>\n\n![a](diagram:${ID})\n`;
     const { html } = await render(md);
-    expect(html.match(/<svg/g)).toHaveLength(1);
+    expect(html.match(/data-diagram-src=/g)).toHaveLength(1);
     expect(html.match(/<figure/g)).toHaveLength(1);
   });
 

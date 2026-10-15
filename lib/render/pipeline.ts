@@ -1,5 +1,5 @@
 import type { Root } from 'mdast';
-import { unified } from 'unified';
+import { unified, type PluggableList } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
@@ -12,7 +12,7 @@ import { rehypeHeadingIds } from './heading-ids';
 import { extractHeadings, type HeadingInfo } from './headings';
 import { rehypeRestrictImages } from './images';
 import { rehypeResolveLinks, type LinkContext } from './links';
-import { rehypeDiagrams, remarkDiagrams, type DiagramEntry, type DiagramRenderContext } from './diagrams';
+import { rehypeDiagrams, remarkDiagrams, type DiagramEntry, type DiagramRenderContext, type DiagramSource } from './diagrams';
 
 /**
  * The page header renders the title, so the body's title H1 is dropped (code fences are code nodes, untouched).
@@ -25,6 +25,28 @@ function remarkStripFirstH1() {
     const first = tree.children[i];
     if (first && first.type === 'heading' && first.depth === 1) tree.children.splice(i, 1);
   };
+}
+
+/**
+ * The parse + mdast steps shared by the page pipeline and `diagramEntriesOf`, so the diagram indexes
+ * (instance ids `doc:<index>`) assigned at build time and at render time cannot drift.
+ */
+function markdownSteps(entries: DiagramEntry[], source: DiagramSource | undefined): PluggableList {
+  return [
+    remarkParse,
+    remarkGfm,
+    remarkEscapeUnknownHtml,
+    remarkStripFirstH1,
+    [remarkDiagrams, entries, source],
+  ];
+}
+
+/** Diagram entries of a markdown body, in the order (and with the indexes) `renderMarkdown` assigns. */
+export function diagramEntriesOf(md: string, source: DiagramSource | undefined): DiagramEntry[] {
+  const entries: DiagramEntry[] = [];
+  const proc = unified().use(markdownSteps(entries, source));
+  proc.runSync(proc.parse(md));
+  return entries;
 }
 
 const base = defaultSchema.attributes ?? {};
@@ -78,11 +100,7 @@ export async function renderMarkdown(
     const headings = extractHeadings(md);
     const entries: DiagramEntry[] = [];
     const file = await unified()
-      .use(remarkParse)
-      .use(remarkGfm)
-      .use(remarkEscapeUnknownHtml)
-      .use(remarkStripFirstH1)
-      .use(remarkDiagrams, entries, ctx.diagrams)
+      .use(markdownSteps(entries, ctx.diagrams))
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypeResolveLinks, { ...ctx, currentHeadings: headings })

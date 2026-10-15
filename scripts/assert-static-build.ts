@@ -90,6 +90,32 @@ export function replacedRasterProblems(htmlRoot: string, replaced: Record<string
   return problems;
 }
 
+/**
+ * Lazy diagram slots: the `/diagram-svg/[file]` route must be fully static (fallback=false) and every
+ * `data-diagram-src` in built HTML must be one of its prerendered files.
+ */
+export function diagramAssetProblems(
+  htmlRoot: string,
+  routes: Record<string, unknown>,
+  patterns: Record<string, { fallback?: boolean | string | null }>,
+): string[] {
+  const problems: string[] = [];
+  const p = patterns['/diagram-svg/[file]'];
+  if (!p) problems.push('route /diagram-svg/[file] is not statically generated');
+  else if (p.fallback !== false) problems.push(`pattern /diagram-svg/[file] allows on-demand params (fallback=${String(p.fallback)})`);
+  if (!existsSync(htmlRoot)) return problems;
+  const files: string[] = [];
+  walkHtml(htmlRoot, files);
+  const missing = new Set<string>();
+  for (const f of files) {
+    for (const m of readFileSync(f, 'utf8').matchAll(/data-diagram-src="([^"]+)"/g)) {
+      if (!(m[1] in routes)) missing.add(m[1]);
+    }
+  }
+  for (const src of missing) problems.push(`built html references ${src} but it is not prerendered`);
+  return problems;
+}
+
 function readJson<T>(file: string): T {
   if (!existsSync(file)) throw new Error(`missing build output: ${file}`);
   return JSON.parse(readFileSync(file, 'utf8')) as T;
@@ -118,6 +144,7 @@ if (path.basename(process.argv[1] ?? '') === 'assert-static-build.ts') {
     expectedDocRoutes: expected,
     allowDynamic: ['/[locale]/[...rest]'],
   }));
+  problems.push(...diagramAssetProblems('.next/server/app', prerender.routes, prerender.dynamicRoutes));
   if (process.env.DIAGRAM_REVIEW !== '1') {
     const replaced: Record<string, Set<string>> = {};
     for (const id of listCollections(root)) replaced[id] = replacedRasters(root, id);

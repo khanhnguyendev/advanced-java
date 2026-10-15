@@ -79,3 +79,21 @@ describe('replacedRasterProblems', () => {
     expect(replacedRasterProblems(path.join(root, 'missing'), { c: ['a/b/d.png'] })).toEqual([]);
   });
 });
+
+describe('diagramAssetProblems', () => {
+  it('flags a missing or non-static route and unprerendered references', async () => {
+    const { mkdtempSync, mkdirSync, writeFileSync } = await import('node:fs');
+    const { tmpdir } = await import('node:os');
+    const path = await import('node:path');
+    const { diagramAssetProblems } = await import('../../scripts/assert-static-build');
+    const dir = mkdtempSync(path.join(tmpdir(), 'dg-'));
+    mkdirSync(path.join(dir, 'en'));
+    writeFileSync(path.join(dir, 'en', 'a.html'), '<div data-diagram-src="/diagram-svg/ok.svg"></div><div data-diagram-src="/diagram-svg/gone.svg"></div>');
+    const routes = { '/diagram-svg/ok.svg': {} };
+    expect(diagramAssetProblems(dir, routes, { '/diagram-svg/[file]': { fallback: false } })).toEqual([
+      'built html references /diagram-svg/gone.svg but it is not prerendered',
+    ]);
+    expect(diagramAssetProblems(dir, routes, {})[0]).toContain('not statically generated');
+    expect(diagramAssetProblems(dir, routes, { '/diagram-svg/[file]': { fallback: null } })[0]).toContain('fallback=null');
+  });
+});

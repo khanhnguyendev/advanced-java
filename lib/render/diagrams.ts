@@ -1,9 +1,7 @@
 import type { Element, ElementContent, Root as HastRoot } from 'hast';
 import type { Image, Paragraph, Root } from 'mdast';
-import { unified } from 'unified';
-import rehypeParse from 'rehype-parse';
 import { SKIP, visit } from 'unist-util-visit';
-import { renderDiagram } from '../diagrams/render';
+import { diagramSvgMarkup, diagramSvgUrl } from '../diagrams/asset-path';
 import type { DiagramAttribution, DiagramScene } from '../diagrams/types';
 import type { Locale } from '../content/types';
 
@@ -57,14 +55,12 @@ export function remarkDiagrams(entries: DiagramEntry[], source: DiagramSource | 
   };
 }
 
-function parseSvg(svg: string): Element {
-  const root = unified().use(rehypeParse, { fragment: true, space: 'svg' }).parse(svg) as HastRoot;
-  const el = root.children.find((c): c is Element => c.type === 'element' && c.tagName === 'svg');
-  if (!el) throw new Error('diagram render produced no <svg>');
-  return el;
+function label(labels: Record<string, string>, key: string): string {
+  return Object.hasOwn(labels, key) && typeof labels[key] === 'string' ? labels[key]!.trim() : '';
 }
 
-/** hast stage, after sanitize: placeholders in the per-render list become inline SVG figures. */
+/** hast stage, after sanitize: placeholders in the per-render list become figures whose SVG is a lazy
+ * `.diagram-scroll[data-diagram-src]` slot (file emitted once at build time) with a `<noscript>` image fallback. */
 export function rehypeDiagrams(
   opts: { entries: DiagramEntry[]; source: DiagramSource | undefined; bodyLocale: Locale; credit: string; creditThirdParty?: (a: DiagramAttribution) => string },
 ) {
@@ -83,12 +79,27 @@ export function rehypeDiagrams(
       const loaded = opts.source.load(entry.id);
       const labels = loaded?.labels[opts.bodyLocale];
       if (!loaded || !labels) throw notFound(entry.id);
-      const svg = parseSvg(renderDiagram(loaded.scene, labels, opts.bodyLocale, `doc:${entry.index}`));
-      svg.properties = { ...svg.properties, style: `min-width: ${Math.round(0.7 * loaded.scene.size.w)}px` };
+      const svgText = diagramSvgMarkup(loaded.scene, labels, opts.bodyLocale, entry.index);
+      const src = diagramSvgUrl(svgText);
       const { w: sceneW, h: sceneH } = loaded.scene.size;
-      const baseH = Math.round((sceneH * Math.max(672, 0.7 * sceneW)) / sceneW);
+      const name =
+        [label(labels, loaded.scene.title_key), label(labels, loaded.scene.desc_key)].filter(Boolean).join('. ') || entry.alt;
+      // the slot reproduces the svg's box exactly (width:100% with a 0.7w floor, height from the viewBox ratio)
+      const slotStyle = `aspect-ratio: ${sceneW} / ${sceneH}; min-height: ${Math.round(0.7 * sceneH)}px`;
       const children: ElementContent[] = [
-        { type: 'element', tagName: 'div', properties: { className: ['diagram-scroll'] }, children: [svg] },
+        {
+          type: 'element',
+          tagName: 'div',
+          properties: { className: ['diagram-scroll'], dataDiagramSrc: src, role: 'img', ariaLabel: name, style: slotStyle },
+          children: [
+            {
+              type: 'element',
+              tagName: 'noscript',
+              properties: {},
+              children: [{ type: 'element', tagName: 'img', properties: { src, alt: name, loading: 'lazy', decoding: 'async', style: `min-width: ${Math.round(0.7 * sceneW)}px` }, children: [] }],
+            },
+          ],
+        },
       ];
       if (loaded.scene.license === 'third-party') {
         const a = loaded.attribution;
@@ -119,11 +130,10 @@ export function rehypeDiagrams(
           children: [{ type: 'text', value: opts.credit }],
         });
       }
-      const intrinsicH = baseH + (children.length > 1 ? 24 : 0); // credit caption adds a line
       parent.children[i] = {
         type: 'element',
         tagName: 'figure',
-        properties: { className: ['diagram'], dataDiagram: entry.id, style: `contain-intrinsic-block-size: auto ${intrinsicH}px` },
+        properties: { className: ['diagram'], dataDiagram: entry.id },
         children,
       };
       return [SKIP, i + 1];

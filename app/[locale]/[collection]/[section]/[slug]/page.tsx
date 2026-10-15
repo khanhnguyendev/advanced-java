@@ -13,6 +13,7 @@ import { CurrentDocScroll } from '@/components/CurrentDocScroll';
 import { ResumeFlag } from '@/components/ResumeFlag';
 import { SetAside } from '@/components/SetAside';
 import { Sidebar } from '@/components/Sidebar';
+import { LazyDiagrams } from '@/components/LazyDiagrams';
 import { ScrollRegions } from '@/components/ScrollRegions';
 import { Toc } from '@/components/Toc';
 import { TocSpy } from '@/components/TocSpy';
@@ -215,6 +216,7 @@ export default async function DocPage({
       <CurrentDocScroll />
       <TocSpy />
       <ScrollRegions />
+      <LazyDiagrams />
     </div>
   );
 }

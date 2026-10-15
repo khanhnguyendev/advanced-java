@@ -30,6 +30,8 @@ test.describe('docs with redrawn diagrams', () => {
     const d = docs[0];
     await page.setViewportSize({ width: 360, height: 800 });
     await page.goto(`/en/advanced-java/${d.section}/${d.slug}`);
+    // diagrams are lazy: bring the first one near the viewport so it is inlined
+    await page.locator('figure.diagram').first().scrollIntoViewIfNeeded();
     const svg = page.locator('figure.diagram svg').first();
     await expect(svg).toBeVisible();
     const overflow = await page.evaluate(
