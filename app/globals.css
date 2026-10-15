@@ -134,6 +134,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .diagram { margin: 1.5rem 0; }
 .clone-host { display: contents; }
 .diagram-scroll { overflow-x: auto; min-width: 0; max-width: 100%; }
+@media (scripting: enabled) {
+  .diagram-scroll[data-diagram-src]:not([data-state="error"]):not([data-state="loaded"]) { background: color-mix(in srgb, var(--grid) 35%, transparent); border-radius: 2px; }
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+  .diagram-scroll[data-state="loaded"] { animation: diagram-tint-out 160ms ease-out both; }
+  .diagram-scroll[data-state="loaded"] > svg { animation: diagram-in 160ms ease-out; }
+  @keyframes diagram-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes diagram-tint-out { from { background-color: color-mix(in srgb, var(--grid) 35%, transparent); } to { background-color: transparent; } }
+}
 .diagram svg { display: block; max-width: none; height: auto; }
 .diagram-scroll img { display: block; width: 100%; max-width: none; height: auto; }
 .diagram-credit { font: var(--font-ui); font-size: 0.75rem; color: var(--ink-muted); margin-top: 0.25rem; }

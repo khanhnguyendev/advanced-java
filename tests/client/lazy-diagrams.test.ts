@@ -25,10 +25,17 @@ async function load() {
 beforeEach(() => {
   document.body.innerHTML = `<div id="host">${slot(++n)}</div>`;
 });
+const ric = Object.getOwnPropertyDescriptor(window, 'requestIdleCallback');
+const vis = Object.getOwnPropertyDescriptor(document, 'visibilityState');
 afterEach(() => {
   cleanup();
   vi.useRealTimers();
   vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+  if (ric) Object.defineProperty(window, 'requestIdleCallback', ric);
+  else delete (window as { requestIdleCallback?: unknown }).requestIdleCallback;
+  if (vis) Object.defineProperty(document, 'visibilityState', vis);
+  else delete (document as { visibilityState?: unknown }).visibilityState;
   Object.defineProperty(navigator, 'connection', { value: undefined, configurable: true });
 });
 
@@ -70,6 +77,85 @@ describe('loadDiagram', () => {
   });
 });
 
+describe('injection and timeouts', () => {
+  const el0 = () => document.querySelector<HTMLElement>('.diagram-scroll')!;
+
+  it('injects in a hidden tab even though rAF never fires', async () => {
+    const { loadDiagram } = await load();
+    stubFetch({ ok: true, status: 200, body: SVG });
+    vi.stubGlobal('requestAnimationFrame', vi.fn());
+    vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('hidden');
+    const el = el0();
+    await loadDiagram(el);
+    expect(el.dataset.state).toBe('loaded');
+  });
+
+  it('falls back to a 100ms timer when rAF never fires while visible', async () => {
+    vi.useFakeTimers();
+    const { loadDiagram } = await load();
+    stubFetch({ ok: true, status: 200, body: SVG });
+    vi.stubGlobal('requestAnimationFrame', vi.fn());
+    const el = el0();
+    const p = loadDiagram(el);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(el.dataset.state).toBe('loading');
+    await vi.advanceTimersByTimeAsync(100);
+    await p;
+    expect(el.dataset.state).toBe('loaded');
+  });
+
+  it.each(['TimeoutError', 'AbortError'])('falls back to <img> on a %s', async (name) => {
+    const { loadDiagram } = await load();
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      throw new DOMException('timed out', name);
+    }));
+    const el = el0();
+    const events = vi.fn();
+    window.addEventListener('diagrams:loaded', events);
+    await loadDiagram(el);
+    expect(el.dataset.state).toBe('error');
+    expect(el.querySelector('img')).not.toBeNull();
+    for (const a of ['role', 'aria-label', 'aria-busy', 'style']) expect(el.hasAttribute(a)).toBe(false);
+    expect(events).toHaveBeenCalledTimes(1);
+    window.removeEventListener('diagrams:loaded', events);
+  });
+
+  it('printing makes a pending-frame injection happen at once', async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('IntersectionObserver', class { observe() {} unobserve() {} disconnect() {} });
+    vi.stubGlobal('requestAnimationFrame', vi.fn());
+    const { LazyDiagrams: C, loadDiagram } = await load();
+    stubFetch({ ok: true, status: 200, body: SVG });
+    render(createElement(C));
+    const el = el0();
+    const p = loadDiagram(el);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(el.dataset.state).toBe('loading');
+    window.dispatchEvent(new Event('beforeprint'));
+    await p;
+    expect(el.dataset.state).toBe('loaded');
+    // while printing, a new load skips the frame wait entirely
+    document.body.innerHTML = slot(777);
+    const el2 = el0();
+    await loadDiagram(el2);
+    expect(el2.dataset.state).toBe('loaded');
+    window.dispatchEvent(new Event('afterprint'));
+  });
+
+  it('beforeprint injects synchronously after the fetch, with no frame wait', async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('IntersectionObserver', class { observe() {} unobserve() {} disconnect() {} });
+    vi.stubGlobal('requestAnimationFrame', vi.fn());
+    const { LazyDiagrams: C } = await load();
+    stubFetch({ ok: true, status: 200, body: SVG });
+    render(createElement(C));
+    window.dispatchEvent(new Event('beforeprint'));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(el0().dataset.state).toBe('loaded');
+    expect(requestAnimationFrame).not.toHaveBeenCalled();
+  });
+});
+
 describe('background prefill', () => {
   const many = () => {
     document.body.innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => slot(100 + i)).join('');
@@ -95,6 +181,59 @@ describe('background prefill', () => {
     await vi.advanceTimersByTimeAsync(100);
     expect(document.querySelectorAll('.diagram-scroll[data-state="loaded"]')).toHaveLength(9);
     expect(fetchFn).toHaveBeenCalledTimes(9);
+  });
+
+  it('marks empty-src slots as error and finishes', async () => {
+    vi.useFakeTimers();
+    const { LazyDiagrams: C } = await load();
+    many();
+    const empty = document.querySelector<HTMLElement>('.diagram-scroll')!;
+    empty.setAttribute('data-diagram-src', '');
+    stubFetch({ ok: true, status: 200, body: SVG });
+    render(createElement(C));
+    await vi.advanceTimersByTimeAsync(2100);
+    await vi.advanceTimersByTimeAsync(500);
+    expect(empty.dataset.state).toBe('error');
+    for (const a of ['role', 'aria-label', 'style', 'aria-busy']) expect(empty.hasAttribute(a)).toBe(false);
+    expect(document.querySelectorAll('.diagram-scroll[data-state="loaded"]')).toHaveLength(8);
+  });
+
+  it('prefill fetches with priority low and a signal', async () => {
+    vi.useFakeTimers();
+    const { LazyDiagrams: C } = await load();
+    many();
+    const fetchFn = stubFetch({ ok: true, status: 200, body: SVG });
+    render(createElement(C));
+    await vi.advanceTimersByTimeAsync(2100);
+    const init = (fetchFn.mock.calls[0] as unknown as [string, RequestInit])[1];
+    expect(init.priority).toBe('low');
+    expect(init.signal).toBeDefined();
+  });
+
+  it('a direct load has no priority', async () => {
+    const { loadDiagram } = await load();
+    const fetchFn = stubFetch({ ok: true, status: 200, body: SVG });
+    document.body.innerHTML = slot(999);
+    await loadDiagram(document.querySelector<HTMLElement>('.diagram-scroll')!);
+    const init = (fetchFn.mock.calls[0] as unknown as [string, RequestInit])[1];
+    expect(init.priority).toBeUndefined();
+  });
+
+  it('continues past a timed-out slot and loads the rest', async () => {
+    vi.useFakeTimers();
+    const { LazyDiagrams: C } = await load();
+    many();
+    const fn = vi.fn(async (src: string) => {
+      if (src.endsWith('/f101.svg')) throw new DOMException('timed out', 'TimeoutError');
+      return { ok: true, status: 200, text: async () => SVG };
+    });
+    vi.stubGlobal('fetch', fn);
+    render(createElement(C));
+    await vi.advanceTimersByTimeAsync(2100);
+    await vi.advanceTimersByTimeAsync(5000);
+    expect(fn).toHaveBeenCalledTimes(9);
+    expect(document.querySelectorAll('.diagram-scroll[data-state="loaded"]')).toHaveLength(8);
+    expect(document.querySelectorAll('.diagram-scroll[data-state="error"]')).toHaveLength(1);
   });
 
   it('is skipped under saveData', async () => {

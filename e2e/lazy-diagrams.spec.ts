@@ -81,3 +81,62 @@ test('the diagram file is immutable-cacheable', async ({ page }) => {
   expect(res.headers()['content-type']).toContain('image/svg+xml');
   expect(res.headers()['cache-control']).toContain('immutable');
 });
+
+for (const width of [1280, 360]) {
+  test(`scrolling the heavy doc is smooth (layout shift, long tasks) at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 800 });
+    await page.addInitScript(() => {
+      const w = window as unknown as { __cls: number; __long: number[] };
+      w.__cls = 0;
+      w.__long = [];
+      new PerformanceObserver((l) => {
+        for (const e of l.getEntries() as unknown as { hadRecentInput: boolean; value: number }[]) {
+          if (!e.hadRecentInput) w.__cls += e.value;
+        }
+      }).observe({ type: 'layout-shift', buffered: true });
+      new PerformanceObserver((l) => {
+        for (const e of l.getEntries()) w.__long.push(e.duration);
+      }).observe({ type: 'longtask', buffered: true });
+    });
+    await page.goto(DOC);
+    await page.waitForLoadState('networkidle');
+    // exclude page-load layout shifts and long tasks: only scrolling is under test
+    await page.evaluate(() => {
+      const w = window as unknown as { __cls: number; __long: number[] };
+      w.__cls = 0;
+      w.__long = [];
+    });
+    const docHeight = await page.evaluate(() => document.documentElement.scrollHeight);
+    const step = Math.ceil(docHeight / 10);
+    for (let i = 0; i < 10; i++) {
+      // smooth, non-teleporting scroll driven by rAF
+      await page.evaluate(
+        (dy) =>
+          new Promise<void>((resolve) => {
+            let moved = 0;
+            const tick = () => {
+              const d = Math.min(40, dy - moved);
+              window.scrollBy(0, d);
+              moved += d;
+              if (moved >= dy) resolve();
+              else requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          }),
+        step,
+      );
+      await page.waitForTimeout(80);
+    }
+    await page.waitForTimeout(500);
+    const { cls, long } = await page.evaluate(() => {
+      const w = window as unknown as { __cls: number; __long: number[] };
+      return { cls: w.__cls, long: w.__long.filter((d) => d > 100).length };
+    });
+    console.log(`smoothness @${width}: layout-shift=${cls.toFixed(4)} longtasks>100ms=${long}`);
+    test.info().annotations.push({ type: 'metrics', description: `cls=${cls} longtasks>100ms=${long}` });
+    expect(cls).toBeLessThan(0.01);
+    // Long tasks are logged and loosely bounded: counters were reset after load, so page-load tasks
+    // are excluded, and CI timing noise makes a strict zero flaky.
+    expect(long).toBeLessThanOrEqual(2);
+  });
+}
