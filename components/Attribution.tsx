@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import type { SourceCredit } from '@/lib/content/credits';
+import { creditKeys } from '@/lib/credit-text';
 
 export function Attribution({
   kind,
@@ -24,13 +25,7 @@ export function Attribution({
   const t = useTranslations('attribution');
   const stop = t('stop');
   const adapted = credit?.kind === 'adaptation';
-  const translatedServed = served === 'en' || served === 'vi';
-  const derived = credit?.kind === 'derived';
-  const key = derived
-    ? translatedServed ? 'sourceCreditDerivedTranslated' : 'sourceCreditDerived'
-    : adapted
-    ? translatedServed ? 'sourceCreditAdaptedTranslated' : 'sourceCreditAdapted'
-    : translatedServed ? 'sourceCreditTranslated' : 'sourceCredit';
+  const key = credit ? creditKeys(credit, served).source : 'sourceCredit';
   return (
     <footer className="attribution ui">
       {credit ? (
@@ -56,7 +51,7 @@ export function Attribution({
       ) : null}
       <p>
         {credit ? (
-          t(credit.kind === 'derived' ? 'licenseDerived' : 'licenseCredited')
+          t(creditKeys(credit, served).license)
         ) : (
           <>
             <a href="https://creativecommons.org/licenses/by-sa/4.0/">{t('license')}</a>

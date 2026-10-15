@@ -1,5 +1,5 @@
 {
-  "site": { "title": "advanced-java", "tagline": "把 Java 架构讲清楚" },
+  "site": { "title": "advanced-java", "tagline": "把 Java 架构讲清楚", "description": "面向技术面试的 Java 后端与分布式系统架构笔记，提供中文、英文和越南语版本。" },
   "nav": {
     "search": "搜索",
     "resultsCount": "{count} 条结果",
@@ -65,8 +65,13 @@
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },
   "notFound": { "title": "页面不存在", "body": "该页面不存在。", "home": "返回首页" },
+  "seo": {
+    "documentsOn": "{count, plural, other {# 篇文档}}，主题：{topic}。",
+    "docFallback": "{title}（{section}）"
+  },
   "about": {
     "title": "关于与许可",
+    "description": "advanced-java 的许可与署名：站点代码采用 MIT 许可，内容采用 CC-BY-SA-4.0，来自 doocs/advanced-java 仓库。",
     "codeLicense": "站点代码采用 MIT 许可。",
     "contentLicense": "内容（文本与译文）采用 CC-BY-SA-4.0 许可。",
     "images": "共提供 {count} 张图片，均来自上游仓库 doocs/advanced-java（提交 1a35221），并按该仓库的许可证 CC-BY-SA-4.0 收录。上游未记录这些图片的原始作者。",

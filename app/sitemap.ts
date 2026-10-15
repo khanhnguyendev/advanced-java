@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteUrl();
   return sitemapEntries(contentRoot()).map((e) => ({
     url: base + e.path,
+    ...(e.lastModified ? { lastModified: e.lastModified } : {}),
     alternates: { languages: Object.fromEntries(Object.entries(e.alternates).map(([k, v]) => [k, base + v])) },
   }));
 }

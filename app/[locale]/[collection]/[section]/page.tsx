@@ -11,6 +11,11 @@ import { contentRoot, listCollections, loadCollection } from '@/lib/content/coll
 import type { Locale } from '@/lib/content/types';
 import { buildNav } from '@/lib/nav';
 import { indexSwitcher } from '@/lib/switcher';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd } from '@/lib/jsonld';
+import { truncate } from '@/lib/description';
+import { pageMetadata } from '@/lib/page-metadata';
+import { indexAlternates, siteUrl } from '@/lib/seo';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -33,7 +38,19 @@ export async function generateMetadata({
   const root = contentRoot();
   const c = loadCollection(root, collection);
   const sec = buildNav(root, c, locale as Locale).find((s) => s.id === section);
-  return { title: sec?.title ?? section };
+  const seo = await getTranslations({ locale, namespace: 'seo' });
+  const title = sec?.title ?? section;
+  const count = sec ? sec.groups.reduce((m, g) => m + g.docs.length, 0) : 0;
+  const alt = indexAlternates(locale as Locale, `/${collection}/${section}`);
+  return pageMetadata({
+    title,
+    description: truncate(seo('documentsOn', { count, topic: title })),
+    canonical: alt.canonical,
+    languages: alt.languages,
+    locale: locale as Locale,
+    type: 'website',
+    routeLocale: locale as Locale,
+  });
 }
 
 export default async function SectionPage({
@@ -52,8 +69,17 @@ export default async function SectionPage({
   const nav = buildNav(root, c, loc);
   const sec = nav.find((s) => s.id === section);
   if (!sec) notFound();
+  const base = siteUrl();
+  const site = await getTranslations('site');
   return (
     <div className="shell">
+      <JsonLd
+        data={breadcrumbLd([
+          { name: site('title'), url: `${base}/${loc}` },
+          { name: c.id, url: `${base}/${loc}/${collection}` },
+          { name: sec.title, url: base + indexAlternates(loc, `/${collection}/${section}`).canonical },
+        ])}
+      />
       <div className="topbar-slot">
         <TopBar
           locale={loc}

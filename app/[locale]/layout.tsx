@@ -1,3 +1,4 @@
+import type { Viewport } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -11,6 +12,13 @@ export const dynamicParams = false;
 export const revalidate = false;
 
 export const metadata = { metadataBase: new URL(siteUrl()) };
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f4f8fc' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a2540' },
+  ],
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

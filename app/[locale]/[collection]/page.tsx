@@ -10,6 +10,11 @@ import { contentRoot, listCollections, loadCollection } from '@/lib/content/coll
 import type { Locale } from '@/lib/content/types';
 import { buildNav } from '@/lib/nav';
 import { indexSwitcher } from '@/lib/switcher';
+import { JsonLd } from '@/components/JsonLd';
+import { breadcrumbLd } from '@/lib/jsonld';
+import { truncate } from '@/lib/description';
+import { BCP47, pageMetadata } from '@/lib/page-metadata';
+import { indexAlternates, siteUrl } from '@/lib/seo';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -26,7 +31,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, collection } = await params;
   const t = await getTranslations({ locale, namespace: 'nav' });
-  return { title: `${collection} · ${t('collections')}` };
+  const seo = await getTranslations({ locale, namespace: 'seo' });
+  const root = contentRoot();
+  const nav = buildNav(root, loadCollection(root, collection), locale as Locale);
+  const count = nav.reduce((n, s) => n + s.groups.reduce((m, g) => m + g.docs.length, 0), 0);
+  const topic = new Intl.ListFormat(BCP47[locale as Locale], { type: 'unit' }).format(nav.map((s) => s.title));
+  const alt = indexAlternates(locale as Locale, `/${collection}`);
+  return pageMetadata({
+    title: `${collection} · ${t('collections')}`,
+    description: truncate(seo('documentsOn', { count, topic })),
+    canonical: alt.canonical,
+    languages: alt.languages,
+    locale: locale as Locale,
+    type: 'website',
+    routeLocale: locale as Locale,
+  });
 }
 
 export default async function CollectionPage({ params }: { params: Promise<{ locale: string; collection: string }> }) {
@@ -38,8 +57,16 @@ export default async function CollectionPage({ params }: { params: Promise<{ loc
   const c = loadCollection(root, collection);
   const names = await getTranslations('languages');
   const nav = buildNav(root, c, loc);
+  const base = siteUrl();
+  const site = await getTranslations('site');
   return (
     <div className="shell">
+      <JsonLd
+        data={breadcrumbLd([
+          { name: site('title'), url: `${base}/${loc}` },
+          { name: c.id, url: base + indexAlternates(loc, `/${collection}`).canonical },
+        ])}
+      />
       <div className="topbar-slot">
         <TopBar
           locale={loc}

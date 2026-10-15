@@ -20,7 +20,7 @@ import { TopBar } from '@/components/TopBar';
 import { routing } from '@/i18n/routing';
 import { contentRoot, listCollections, listDocs, loadCollection } from '@/lib/content/collection';
 import { creditFor, loadCredits } from '@/lib/content/credits';
-import { resolveDoc, zhHashOf } from '@/lib/content/fallback';
+import { availableLocales, resolveDoc, zhHashOf } from '@/lib/content/fallback';
 import { docTitleOf } from '@/lib/content/title';
 import { headingsFor } from '@/lib/content/headings-index';
 import { LOCALES, type CollectionConfig, type Locale } from '@/lib/content/types';
@@ -29,7 +29,12 @@ import { extractHeadings } from '@/lib/render/headings';
 import { fsLinkTargets } from '@/lib/render/links';
 import { fsDiagramSource } from '@/lib/diagrams/source';
 import { renderMarkdown } from '@/lib/render/pipeline';
-import { docAlternates } from '@/lib/seo';
+import { docAlternates, siteUrl } from '@/lib/seo';
+import { JsonLd } from '@/components/JsonLd';
+import { describeBody } from '@/lib/description';
+import { creditPlainText, type PlainTranslator } from '@/lib/credit-text';
+import { breadcrumbLd, techArticleLd } from '@/lib/jsonld';
+import { BCP47, pageMetadata, SITE_NAME } from '@/lib/page-metadata';
 import { docShape, stepsFor } from '@/lib/steps';
 import { upstreamFileUrl } from '@/lib/upstream';
 
@@ -57,10 +62,20 @@ export async function generateMetadata({
   const c = loadCollection(root, collection);
   const alt = docAlternates(root, c, locale as Locale, section, slug);
   const doc = resolveDoc(root, c, locale as Locale, section, slug);
-  return {
-    title: docTitleOf(root, c, doc?.served, slug).title,
-    alternates: { canonical: alt.canonical, languages: alt.languages },
-  };
+  const title = docTitleOf(root, c, doc?.served, slug).title;
+  const seo = await getTranslations({ locale, namespace: 'seo' });
+  const secTitle = buildNav(root, c, locale as Locale).find((s) => s.id === section)?.title ?? section;
+  const description = (doc && describeBody(doc.body)) || seo('docFallback', { title, section: secTitle });
+  return pageMetadata({
+    title,
+    description,
+    canonical: alt.canonical,
+    languages: alt.languages,
+    locale: doc?.served ?? (c.sourceLocale as Locale),
+    available: availableLocales(root, c, section, slug),
+    type: 'article',
+    routeLocale: locale as Locale,
+  });
 }
 
 export default async function DocPage({
@@ -119,8 +134,37 @@ export default async function DocPage({
     href: `/${l}/${collection}/${section}/${slug}`,
   }));
 
+  const tSite = await getTranslations('site');
+  const tAttr = await getTranslations('attribution');
+  const tSeo = await getTranslations('seo');
+  const base = siteUrl();
+  const secTitle = nav.find((s) => s.id === section)?.title ?? section;
+  const sourceCredit = creditFor(loadCredits(root, collection), section, slug);
+  const canonicalUrl = base + docAlternates(root, c, loc, section, slug).canonical;
+  const articleLd = techArticleLd({
+    headline: title,
+    description: describeBody(doc.body) || tSeo('docFallback', { title, section: secTitle }),
+    inLanguage: BCP47[doc.served],
+    url: canonicalUrl,
+    siteName: SITE_NAME,
+    siteUrl: base,
+    creditText: sourceCredit
+      ? creditPlainText(tAttr as unknown as PlainTranslator, sourceCredit, doc.served)
+      : tAttr('credit'),
+    dateModified: doc.frontmatter?.translatedAt,
+    credit: sourceCredit,
+  });
+  const crumbs = breadcrumbLd([
+    { name: tSite('title'), url: `${base}/${loc}` },
+    { name: c.id, url: `${base}/${loc}/${collection}` },
+    { name: secTitle, url: `${base}/${loc}/${collection}/${section}` },
+    { name: title, url: canonicalUrl },
+  ]);
+
   return (
     <div className="shell">
+      <JsonLd data={articleLd} />
+      <JsonLd data={crumbs} />
       <div className="topbar-slot">
         <TopBar locale={loc} collectionId={c.id} collectionTitle={c.id} homeHref={`/${loc}`} switcher={switcher} hasDock />
       </div>

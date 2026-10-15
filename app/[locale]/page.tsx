@@ -10,6 +10,10 @@ import { contentRoot, listCollections, loadCollection } from '@/lib/content/coll
 import type { Locale } from '@/lib/content/types';
 import { buildNav, flatDocs } from '@/lib/nav';
 import { indexSwitcher } from '@/lib/switcher';
+import { JsonLd } from '@/components/JsonLd';
+import { websiteLd } from '@/lib/jsonld';
+import { BCP47, pageMetadata, SITE_NAME } from '@/lib/page-metadata';
+import { indexAlternates, siteUrl } from '@/lib/seo';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -21,7 +25,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'site' });
-  return { title: t('title') };
+  const alt = indexAlternates(locale as Locale, '');
+  return pageMetadata({
+    title: t('title'),
+    description: t('description'),
+    canonical: alt.canonical,
+    languages: alt.languages,
+    locale: locale as Locale,
+    type: 'website',
+    routeLocale: locale as Locale,
+  });
 }
 
 export default async function ShelfPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -41,6 +54,14 @@ export default async function ShelfPage({ params }: { params: Promise<{ locale: 
   });
   return (
     <div className="grid-field">
+      <JsonLd
+        data={websiteLd({
+          name: SITE_NAME,
+          url: siteUrl() + `/${locale}`,
+          inLanguage: BCP47[loc],
+          description: site('description'),
+        })}
+      />
       <div className="topbar-slot">
         <TopBar
           locale={locale as Locale}

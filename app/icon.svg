@@ -1,5 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect width="32" height="32" fill="#f4f8fc"/>
-  <path d="M8 0v32M16 0v32M24 0v32M0 8h32M0 16h32M0 24h32" stroke="#cfdbea" stroke-width="1"/>
-  <rect x="9" y="9" width="14" height="14" fill="#1f4fd8"/>
+  <style>
+    .tile { fill: #f4f8fc; }
+    .frame { fill: none; stroke: #10151f; stroke-width: 2; }
+    .grid { stroke: #cfdbea; stroke-width: 1; }
+    .cell { fill: #1f4fd8; }
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #0a2540; }
+      .frame { stroke: #e8f1ff; }
+      .grid { stroke: #1d4066; }
+      .cell { fill: #7fb0ff; }
+    }
+  </style>
+  <rect class="tile" width="32" height="32"/>
+  <path class="grid" d="M12 2v28M20 2v28M2 12h28M2 20h28"/>
+  <rect class="cell" x="12" y="12" width="8" height="8"/>
+  <rect class="frame" x="1" y="1" width="30" height="30"/>
 </svg>

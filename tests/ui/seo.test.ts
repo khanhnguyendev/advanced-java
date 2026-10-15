@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { loadCollection } from '@/lib/content/collection';
-import { docAlternates, resetSiteUrlWarning, sitemapEntries, siteUrl } from '@/lib/seo';
+import { docAlternates, indexAlternates, resetSiteUrlWarning, sitemapEntries, siteUrl } from '@/lib/seo';
 
 const root = path.resolve(__dirname, '../fixtures/content');
 const c = loadCollection(root, 'demo');
@@ -112,5 +112,27 @@ describe('siteUrl', () => {
   it('strips trailing slashes', () => {
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://a.example//');
     expect(siteUrl()).toBe('https://a.example');
+  });
+});
+
+describe('indexAlternates', () => {
+  it('canonical is the page itself; all locales plus x-default en', () => {
+    const a = indexAlternates('vi', '/about');
+    expect(a.canonical).toBe('/vi/about');
+    expect(a.languages).toEqual({ en: '/en/about', vi: '/vi/about', 'zh-Hans': '/zh/about', 'x-default': '/en/about' });
+  });
+  it('home has an empty suffix', () => {
+    expect(indexAlternates('zh', '').canonical).toBe('/zh');
+    expect(indexAlternates('zh', '').languages['x-default']).toBe('/en');
+  });
+});
+
+describe('sitemap lastModified', () => {
+  it('uses translatedAt for translated docs and omits it for the source', () => {
+    const e = sitemapEntries(root);
+    const en = e.find((x) => x.path === '/en/demo/alpha/intro')!;
+    const zh = e.find((x) => x.path === '/zh/demo/alpha/intro')!;
+    expect(zh.lastModified).toBeUndefined();
+    expect(en.lastModified).toBe('2026-10-13');
   });
 });

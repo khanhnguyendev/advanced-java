@@ -6,7 +6,7 @@ describe('robots', () => {
   it('allows all and points at the sitemap', () => {
     vi.stubEnv('NEXT_PUBLIC_SITE_URL', 'https://a.example');
     expect(robots()).toEqual({
-      rules: { userAgent: '*', allow: '/' },
+      rules: { userAgent: '*', allow: '/', disallow: '/*/review/' },
       sitemap: 'https://a.example/sitemap.xml',
     });
   });

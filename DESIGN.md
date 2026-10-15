@@ -159,6 +159,10 @@ Square-ish: 2px control radius, 1px borders, no pills. Indicators are text-based
 ### Home index rows
 - Home (single collection): a start/resume action, a normal sans "Sections" heading, then one ruled row per section: ID range (mono), title, and doc count; no translation counts or status. Rows are at least 44px tall.
 
+## Icon and share image
+
+The mark is one quadrille cell: a paper tile, a 2px ink frame, a faint 3x3 grid and a single cobalt "marked cell" in the middle; no letters, so it survives 16px. `app/icon.svg` carries the cyanotype variant under `prefers-color-scheme: dark` (night paper, chalk frame, #7fb0ff cell). Raster files are the light variant on opaque paper: `app/favicon.ico` (PNG-embedded 16/32/48), `app/icon.png` (192), `app/apple-icon.png` (180, no transparency) and `public/icon-512.png` (manifest). Regenerate with `pnpm exec tsx scripts/make-icons.ts` (uses the installed Playwright Chromium; output is byte-stable for a given Playwright Chromium version). The share image is `app/[locale]/opengraph-image.tsx` (1200x630, built once per locale): paper ground, the grid in the two margins only, the mark, the wordmark and the tagline. The built-in image font has no CJK glyphs, so zh shows the Latin line "Java architecture notes". Docs and sections use their locale's image via explicit metadata.
+
 ## Do's and Don'ts
 
 ### Do:

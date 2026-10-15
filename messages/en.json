@@ -1,5 +1,5 @@
 {
-  "site": { "title": "advanced-java", "tagline": "Java architecture, explained" },
+  "site": { "title": "advanced-java", "tagline": "Java architecture, explained", "description": "Java backend and distributed-systems architecture notes for technical interviews, in English, Vietnamese and Chinese." },
   "nav": {
     "search": "Search",
     "resultsCount": "{count, plural, one {# result} other {# results}}",
@@ -65,8 +65,13 @@
   },
   "languages": { "en": "English", "vi": "Tiếng Việt", "zh": "中文" },
   "notFound": { "title": "Page not found", "body": "This page does not exist.", "home": "Back to the shelf" },
+  "seo": {
+    "documentsOn": "{count, plural, one {# document} other {# documents}} on {topic}.",
+    "docFallback": "{title} ({section})"
+  },
   "about": {
     "title": "About and licenses",
+    "description": "Licenses and credits for advanced-java: site code under MIT, content under CC-BY-SA-4.0, from the doocs/advanced-java repository.",
     "codeLicense": "The site code is MIT licensed.",
     "contentLicense": "The content (text and translations) is licensed CC-BY-SA-4.0.",
     "images": "{count} images are served, from the upstream repository doocs/advanced-java at commit 1a35221, and are included under that repository's license, CC-BY-SA-4.0. Their original authorship is not documented upstream.",

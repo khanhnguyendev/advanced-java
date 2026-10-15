@@ -1,6 +1,7 @@
 import { listCollections, listDocs, loadCollection } from './content/collection';
-import { availableLocales, chainFor } from './content/fallback';
+import { availableLocales, chainFor, resolveDoc } from './content/fallback';
 import { LOCALES, type CollectionConfig, type Locale } from './content/types';
+import { validDate } from './jsonld';
 
 export const HREFLANG: Record<Locale, string> = { en: 'en', vi: 'vi', zh: 'zh-Hans' };
 
@@ -23,14 +24,20 @@ export function docAlternates(
   return { canonical: path(served), languages };
 }
 
-export interface SitemapEntry { path: string; alternates: Record<string, string> }
+/** Canonical + hreflang for a locale-agnostic index page (home '', '/about', '/<collection>', '/<collection>/<section>'). */
+export function indexAlternates(locale: Locale, suffix: string): DocAlternates {
+  const languages: Record<string, string> = {};
+  for (const l of LOCALES) languages[HREFLANG[l]] = `/${l}${suffix}`;
+  languages['x-default'] = `/en${suffix}`;
+  return { canonical: `/${locale}${suffix}`, languages };
+}
+
+export interface SitemapEntry { path: string; alternates: Record<string, string>; lastModified?: string }
 
 export function sitemapEntries(root: string): SitemapEntry[] {
   const out: SitemapEntry[] = [];
   const indexEntry = (suffix: string) => {
-    const alternates: Record<string, string> = {};
-    for (const l of LOCALES) alternates[HREFLANG[l]] = `/${l}${suffix}`;
-    alternates['x-default'] = `/en${suffix}`;
+    const { languages: alternates } = indexAlternates('en', suffix);
     for (const l of LOCALES) out.push({ path: `/${l}${suffix}`, alternates });
   };
   indexEntry('');
@@ -45,7 +52,12 @@ export function sitemapEntries(root: string): SitemapEntry[] {
       for (const l of have) alternates[HREFLANG[l]] = `/${l}/${id}/${d.section}/${d.slug}`;
       const def = have.includes('en') ? 'en' : c.sourceLocale;
       alternates['x-default'] = `/${def}/${id}/${d.section}/${d.slug}`;
-      for (const l of have) out.push({ path: `/${l}/${id}/${d.section}/${d.slug}`, alternates });
+      for (const l of have) {
+        const stamp = resolveDoc(root, c, l, d.section, d.slug)?.frontmatter?.translatedAt;
+        const entry: SitemapEntry = { path: `/${l}/${id}/${d.section}/${d.slug}`, alternates };
+        if (validDate(stamp)) entry.lastModified = stamp;
+        out.push(entry);
+      }
     }
   }
   return out;

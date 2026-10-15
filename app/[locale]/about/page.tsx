@@ -10,6 +10,8 @@ import { listDiagramCredits, replacedRasters } from '@/lib/diagrams/credits';
 import { contentRoot, listCollections, loadCollection } from '@/lib/content/collection';
 import type { Locale } from '@/lib/content/types';
 import { indexSwitcher } from '@/lib/switcher';
+import { pageMetadata } from '@/lib/page-metadata';
+import { indexAlternates } from '@/lib/seo';
 
 export const dynamicParams = false;
 export const revalidate = false;
@@ -21,7 +23,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about' });
-  return { title: t('title') };
+  const alt = indexAlternates(locale as Locale, '/about');
+  return pageMetadata({
+    title: t('title'),
+    description: t('description'),
+    canonical: alt.canonical,
+    languages: alt.languages,
+    locale: locale as Locale,
+    type: 'website',
+    routeLocale: locale as Locale,
+  });
 }
 
 export default async function About({ params }: { params: Promise<{ locale: string }> }) {
