@@ -26,7 +26,7 @@ describe('diagram: images', () => {
   it('renders an inline svg figure with scroll wrapper, min-width and credit', async () => {
     const md = `# T\n\n## A\n\n![alt](diagram:${ID})\n\ntext\n`;
     const { html, headings } = await render(md);
-    expect(html).toMatch(/<figure class="diagram" data-diagram="demo\/toy\/toy"><div class="diagram-scroll"><svg[^>]*role="img"/);
+    expect(html).toMatch(/<figure class="diagram" data-diagram="demo\/toy\/toy" style="contain-intrinsic-block-size: auto 264px"><div class="diagram-scroll"><svg[^>]*role="img"/);
     expect(html).toContain('style="min-width: 392px"');
     expect(html).toContain('width="100%"');
     expect(html).toContain('<figcaption class="diagram-credit">Credit line</figcaption>');

@@ -210,13 +210,6 @@ export default async function DocPage({
         next={next && { href: next.href, title: next.title }}
         switcher={switcher}
         current={loc}
-        drawer={<Sidebar nav={nav} currentSlug={slug} />}
-        sheet={
-          <>
-            <Toc headings={headings} />
-            <MarginSteps steps={steps} />
-          </>
-        }
       />
       <AnchorResolver />
       <CurrentDocScroll />

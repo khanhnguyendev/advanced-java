@@ -131,8 +131,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .prose code { font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.92em; overflow-wrap: anywhere; }
 .prose pre code { overflow-wrap: normal; }
 .prose img { max-width: 100%; height: auto; }
-.diagram { margin: 1.5rem 0; }
+.diagram { margin: 1.5rem 0; content-visibility: auto; contain-intrinsic-size: auto 400px; }
+.clone-host { display: contents; }
 .diagram-scroll { overflow-x: auto; }
+/* .diagram paint-contains (content-visibility): keep the focus ring inside the box */
+.diagram-scroll:focus-visible { outline-offset: -2px; }
 .diagram svg { display: block; max-width: none; height: auto; }
 .diagram-credit { font: var(--font-ui); font-size: 0.75rem; color: var(--ink-muted); margin-top: 0.25rem; }
 .prose table { border-collapse: collapse; max-width: 100%; font-variant-numeric: tabular-nums; }

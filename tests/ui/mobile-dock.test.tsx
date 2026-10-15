@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
-import { afterEach, beforeAll, describe, expect, it } from 'vitest';
+import { afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import { MobileDock } from '@/components/MobileDock';
 import { Sidebar } from '@/components/Sidebar';
 import type { NavSection } from '@/lib/nav';
@@ -49,8 +49,6 @@ describe('MobileDock', () => {
           next={{ href: '/en/c/a/n', title: 'N' }}
           switcher={switcher}
           current="en"
-          drawer={<p>drawer</p>}
-          sheet={<p>sheet</p>}
         />,
       ),
     );
@@ -65,7 +63,7 @@ describe('MobileDock', () => {
   });
   it('opens a dialog from the button, closes it and returns focus to the opener', () => {
     render(
-      wrap(<MobileDock switcher={switcher} current="en" drawer={<p>drawer</p>} sheet={<p>sheet</p>} />),
+      wrap(<MobileDock switcher={switcher} current="en" />),
     );
     const menu = screen.getByRole('button', { name: 'Menu' });
     menu.focus();
@@ -74,6 +72,45 @@ describe('MobileDock', () => {
     fireEvent.click(document.querySelector('dialog[open] .sheet-close')!);
     expect(document.querySelectorAll('dialog[open]')).toHaveLength(0);
     expect(document.activeElement).toBe(menu);
+  });
+});
+
+describe('MobileDock clones', () => {
+  let shell: HTMLElement;
+  beforeEach(() => {
+    shell = document.createElement('div');
+    shell.className = 'shell';
+    document.body.appendChild(shell);
+  });
+  afterEach(() => shell.remove());
+  it('fills the menu and contents dialogs from the on-page rails, without ids', () => {
+    shell.innerHTML =
+      '<nav class="rail"><a id="x" href="/en/c/a/a-doc" aria-current="page">Doc a</a></nav>' +
+      '<div class="toc-rail"><nav class="toc"><a href="#h">H</a></nav></div>';
+    render(wrap(<MobileDock switcher={[]} current="en" />));
+    fireEvent.click(screen.getByRole('button', { name: 'Menu' }));
+    const menu = document.querySelector('dialog[open] .rail')!;
+    expect(shell.querySelector('#x')).not.toBeNull(); // cloned, not moved
+    expect(menu.querySelector('#x')).toBeNull();
+    expect(menu.querySelector('a')?.getAttribute('aria-current')).toBe('page');
+    expect(menu.querySelector('[id]')).toBeNull();
+    fireEvent.click(document.querySelector('dialog[open] .sheet-close')!);
+    fireEvent.click(screen.getByRole('button', { name: 'Contents' }));
+    expect(document.querySelector('dialog[open] .toc a')?.getAttribute('href')).toBe('#h');
+  });
+  it('re-clones on every open so a changed aria-current shows in the dialog', () => {
+    shell.innerHTML = '<nav class="rail"><a href="/a" aria-current="page">A</a><a href="/b">B</a></nav>';
+    render(wrap(<MobileDock switcher={[]} current="en" />));
+    const menu = screen.getByRole('button', { name: 'Menu' });
+    fireEvent.click(menu);
+    const links = () => Array.from(document.querySelectorAll('dialog[open] .rail a'));
+    expect(links().map((a) => a.getAttribute('aria-current'))).toEqual(['page', null]);
+    fireEvent.click(document.querySelector('dialog[open] .sheet-close')!);
+    const src = shell.querySelectorAll('a');
+    src[0].removeAttribute('aria-current');
+    src[1].setAttribute('aria-current', 'page');
+    fireEvent.click(menu);
+    expect(links().map((a) => a.getAttribute('aria-current'))).toEqual([null, 'page']);
   });
 });
 

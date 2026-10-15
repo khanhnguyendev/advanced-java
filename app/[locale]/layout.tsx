@@ -1,10 +1,11 @@
 import type { Viewport } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { fontVariables } from '@/app/fonts';
 import { themeScript } from '@/app/theme-script';
 import { routing } from '@/i18n/routing';
+import { CLIENT_NAMESPACES } from '@/i18n/client-namespaces';
 import { siteUrl } from '@/lib/seo';
 import '../globals.css';
 
@@ -35,6 +36,8 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const skip = (await getTranslations('nav'))('skip');
+  const all = (await getMessages()) as Record<string, unknown>;
+  const clientMessages = Object.fromEntries(CLIENT_NAMESPACES.map((ns) => [ns, all[ns]]));
   return (
     <html lang={locale} className={fontVariables} suppressHydrationWarning>
       <head>
@@ -48,7 +51,7 @@ export default async function LocaleLayout({
         <a className="skip-link ui" href="#main-content">
           {skip}
         </a>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={clientMessages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );

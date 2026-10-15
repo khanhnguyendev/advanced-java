@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
+import { CloneOnOpen } from './CloneOnOpen';
 import { LanguageSwitcher, type SwitcherItem } from './LanguageSwitcher';
 import { ModalDialog } from './ModalDialog';
 import { ThemeToggle } from './ThemeToggle';
@@ -9,21 +10,18 @@ import type { Locale } from '@/lib/content/types';
 
 type Which = 'lang' | 'contents' | 'menu' | null;
 
-/** Fixed bottom bar for <=960px doc pages: prev, next, language, contents (bottom sheet), menu (drawer). */
+/** Fixed bottom bar for <=960px doc pages: prev, next, language, contents (bottom sheet), menu (drawer).
+ * The sheet/drawer bodies are cloned from the page's own desktop rails on open (see CloneOnOpen). */
 export function MobileDock({
   prev,
   next,
   switcher,
   current,
-  drawer,
-  sheet,
 }: {
   prev?: { href: string; title: string };
   next?: { href: string; title: string };
   switcher: SwitcherItem[];
   current: Locale;
-  drawer: React.ReactNode;
-  sheet: React.ReactNode;
 }) {
   const t = useTranslations('nav');
   const [which, setWhich] = useState<Which>(null);
@@ -93,7 +91,7 @@ export function MobileDock({
         variant="sheet"
         closeOnLinkTap
       >
-        {sheet}
+        <CloneOnOpen selector=".shell > .toc-rail > *" open={which === 'contents'} />
       </ModalDialog>
       <ModalDialog
         open={which === 'menu'}
@@ -106,7 +104,7 @@ export function MobileDock({
         scrollCurrentIntoView
         footer={<ThemeToggle />}
       >
-        {drawer}
+        <CloneOnOpen selector=".shell > .rail" open={which === 'menu'} />
       </ModalDialog>
     </>
   );

@@ -85,6 +85,8 @@ export function rehypeDiagrams(
       if (!loaded || !labels) throw notFound(entry.id);
       const svg = parseSvg(renderDiagram(loaded.scene, labels, opts.bodyLocale, `doc:${entry.index}`));
       svg.properties = { ...svg.properties, style: `min-width: ${Math.round(0.7 * loaded.scene.size.w)}px` };
+      const { w: sceneW, h: sceneH } = loaded.scene.size;
+      const baseH = Math.round((sceneH * Math.max(672, 0.7 * sceneW)) / sceneW);
       const children: ElementContent[] = [
         { type: 'element', tagName: 'div', properties: { className: ['diagram-scroll'] }, children: [svg] },
       ];
@@ -117,10 +119,11 @@ export function rehypeDiagrams(
           children: [{ type: 'text', value: opts.credit }],
         });
       }
+      const intrinsicH = baseH + (children.length > 1 ? 24 : 0); // credit caption adds a line
       parent.children[i] = {
         type: 'element',
         tagName: 'figure',
-        properties: { className: ['diagram'], dataDiagram: entry.id },
+        properties: { className: ['diagram'], dataDiagram: entry.id, style: `contain-intrinsic-block-size: auto ${intrinsicH}px` },
         children,
       };
       return [SKIP, i + 1];

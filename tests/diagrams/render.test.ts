@@ -98,3 +98,36 @@ describe('renderDiagram', () => {
     expect(svg).not.toContain('data-text-owner="text:t1"');
   });
 });
+
+describe('renderDiagram class names', () => {
+  const valid = /^[A-Za-z_][\w-]*$/;
+  it('emits only valid CSS class tokens and selectors, whatever the hash starts with', () => {
+    const svgs: string[] = [];
+    for (const dd of listDiagrams(root)) {
+      for (const loc of ['zh', 'en', 'vi'] as const) {
+        const labels = dd.labels[loc]?.labels;
+        if (!labels) continue;
+        for (let n = 0; n < 40; n++) svgs.push(renderDiagram(dd.scene, labels, loc, `doc:${n}`));
+      }
+    }
+    expect(svgs.length).toBeGreaterThan(0);
+    const digitHash = svgs.filter((s) => /<marker id="\d/.test(s));
+    expect(digitHash.length).toBeGreaterThan(0); // the case that used to break
+    let classCount = 0;
+    let selCount = 0;
+    for (const svg of svgs) {
+      for (const m of svg.matchAll(/class="([^"]*)"/g)) {
+        for (const tok of m[1]!.split(/\s+/).filter(Boolean)) {
+          classCount++;
+          expect(tok).toMatch(valid);
+        }
+      }
+      for (const m of svg.matchAll(/\.([^{.\s]+)\{/g)) {
+        selCount++;
+        expect(m[1]).toMatch(valid);
+      }
+    }
+    expect(classCount).toBeGreaterThan(0);
+    expect(selCount).toBeGreaterThan(0);
+  });
+});

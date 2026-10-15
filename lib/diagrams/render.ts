@@ -30,17 +30,18 @@ function labelText(labels: Record<string, string>, key: string): string {
   return Object.hasOwn(labels, key) && typeof labels[key] === 'string' ? labels[key] : '';
 }
 
-function lineMarkup(line: Line): string {
+function lineMarkup(line: Line, h: string): string {
   return line.segs
     .map((s) =>
       s.mono
-        ? `<tspan style="font-family:${esc(MONO_FONT)}">${esc(s.text)}</tspan>`
+        ? `<tspan class="${h}m">${esc(s.text)}</tspan>`
         : `<tspan>${esc(s.text)}</tspan>`,
     )
     .join('');
 }
 
 function textBlock(
+  h: string,
   lines: Line[],
   x: number,
   yFirst: number,
@@ -52,9 +53,9 @@ function textBlock(
   return lines
     .map(
       (ln, i) =>
-        `<text x="${num(x)}" y="${round(num(yFirst) + i * lh)}" text-anchor="${esc(String(anchor))}" dominant-baseline="central" ` +
-        `font-size="${FONT_SIZE}" fill="${fill}" style="font-family:${esc(UI_FONT)};white-space:pre"${extra}>` +
-        `${lineMarkup(ln)}</text>`,
+        `<text class="${h}t" x="${round(x)}" y="${round(num(yFirst) + i * lh)}" text-anchor="${esc(String(anchor))}" ` +
+        `fill="${fill}"${extra}>` +
+        `${lineMarkup(ln, h)}</text>`,
     )
     .join('');
 }
@@ -64,8 +65,9 @@ function owner(v: string): string {
   return ` data-text-owner="${esc(v)}"`;
 }
 
+/** emitted coordinates are kept to one decimal: a 0.05px shift is not visible, and it trims every number */
 function round(n: number): number {
-  return Math.round(num(n) * 100) / 100;
+  return Math.round(num(n) * 10) / 10;
 }
 
 function nodeColors(role: DiagramNode['role']): { stroke: string; fill: string; text: string } {
@@ -78,7 +80,7 @@ function dataLabel(n: DiagramNode, text: string): string {
   return text.trim() === '' ? '' : ` data-label="${esc(String(n.label.key))}"`;
 }
 
-function renderNode(n0: DiagramNode, text: string): string {
+function renderNode(n0: DiagramNode, text: string, h: string): string {
   const n = { ...n0, x: num(n0.x), y: num(n0.y), w: num(n0.w), h: num(n0.h) };
   const col = nodeColors(n.role);
   const lits = n.label.literals ?? [];
@@ -86,52 +88,56 @@ function renderNode(n0: DiagramNode, text: string): string {
     const tl = nodeTextLayout(n, text, lits);
     const outline =
       n.border === 'solid'
-        ? `stroke="${C.muted}" stroke-width="${SW}"`
-        : `stroke="${C.rule}" stroke-width="${SW}" stroke-dasharray="1.5 4" stroke-linecap="round"`;
+        ? `stroke="${C.muted}"`
+        : `stroke="${C.rule}" stroke-dasharray="1.5 4" stroke-linecap="round"`;
     return (
       `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>` +
-      `<rect data-group="1" x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="2" fill="none" ${outline}/>` +
-      textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, C.muted, owner(`node:${n.id}`)) +
+      `<rect data-group="1" x="${round(n.x)}" y="${round(n.y)}" width="${round(n.w)}" height="${round(n.h)}" rx="2" fill="none" ${outline}/>` +
+      textBlock(h, tl.lines, tl.x, tl.yFirst, tl.anchor, C.muted, owner(`node:${n.id}`)) +
       `</g>`
     );
   }
   let shape: string;
   if (n.shape === 'circle') {
-    shape = `<ellipse cx="${n.x + n.w / 2}" cy="${n.y + n.h / 2}" rx="${n.w / 2}" ry="${n.h / 2}"`;
+    shape = `<ellipse cx="${round(n.x + n.w / 2)}" cy="${round(n.y + n.h / 2)}" rx="${round(n.w / 2)}" ry="${round(n.h / 2)}"`;
   } else {
-    const rx = n.shape === 'round' ? 10 : n.shape === 'pill' ? n.h / 2 : 2;
-    shape = `<rect x="${n.x}" y="${n.y}" width="${n.w}" height="${n.h}" rx="${rx}"`;
+    const rx = n.shape === 'round' ? 10 : n.shape === 'pill' ? round(n.h / 2) : 2;
+    shape = `<rect x="${round(n.x)}" y="${round(n.y)}" width="${round(n.w)}" height="${round(n.h)}" rx="${rx}"`;
   }
-  shape += ` fill="${col.fill}" stroke="${col.stroke}" stroke-width="${SW}"/>`;
+  shape += ` fill="${col.fill}" stroke="${col.stroke}"/>`;
   const tl = nodeTextLayout(n, text, lits);
-  return `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>${shape}${textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, col.text, owner(`node:${n.id}`))}</g>`;
+  return `<g data-node="${esc(String(n.id))}"${dataLabel(n, text)}>${shape}${textBlock(h, tl.lines, tl.x, tl.yFirst, tl.anchor, col.text, owner(`node:${n.id}`))}</g>`;
 }
 
 function markerId(h: string, style: DiagramEdge['style'], end: 'e' | 's'): string {
   return `${h}-m-${style === 'accent' ? 'a' : 'i'}${end}`;
 }
 
-function renderEdge(e: DiagramEdge, i: number, h: string, labels: Record<string, string>): string {
+function renderEdge(e: DiagramEdge, i: number, h: string, k: string, labels: Record<string, string>): string {
   const color = e.style === 'accent' ? C.accent : C.ink;
-  const pts = e.points.map((p) => `${num(p[0])},${num(p[1])}`).join(' ');
+  const pts = e.points.map((p) => `${round(p[0])},${round(p[1])}`).join(' ');
   const dash = e.style === 'dashed' ? ' stroke-dasharray="5 4"' : '';
   const mEnd = e.arrow === 'end' || e.arrow === 'both' ? ` marker-end="url(#${markerId(h, e.style, 'e')})"` : '';
   const mStart = e.arrow === 'both' ? ` marker-start="url(#${markerId(h, e.style, 's')})"` : '';
   let out =
-    `<polyline data-edge="${i}" points="${pts}" fill="none" stroke="${color}" stroke-width="${SW}"${dash}` +
-    ` stroke-linejoin="round" stroke-linecap="round"${mStart}${mEnd}/>`;
+    `<polyline class="${k}e" data-edge="${i}" points="${pts}" stroke="${color}"${dash}${mStart}${mEnd}/>`;
   if (e.label) {
     const tl = freeTextLayout(labelText(labels, e.label.key), e.label.literals ?? [], num(e.label.at[0]), num(e.label.at[1]), e.label.anchor);
-    out += textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, color, owner(`edge:${i}`));
+    out += textBlock(k, tl.lines, tl.x, tl.yFirst, tl.anchor, color, owner(`edge:${i}`));
   }
   return out;
 }
 
-function markers(h: string): string {
+function markers(h: string, k: string): string {
   const mk = (id: string, color: string) =>
     `<marker id="${id}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" ` +
     `markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9 Z" fill="${color}"/></marker>`;
   return (
+    `<style>` +
+    `.${k}t{font-size:${FONT_SIZE}px;dominant-baseline:central;white-space:pre;font-family:${UI_FONT}}` +
+    `.${k}m{font-family:${MONO_FONT}}` +
+    `.${k}e{fill:none;stroke-linejoin:round;stroke-linecap:round}` +
+    `</style>` +
     `<defs>` +
     mk(`${h}-m-ie`, C.ink) +
     mk(`${h}-m-is`, C.ink) +
@@ -152,6 +158,8 @@ export function renderDiagram(
   instance = '',
 ): string {
   const h = createHash('sha256').update(`${scene.id}\u0000${locale}\u0000${instance}`).digest('hex').slice(0, 8);
+  // class names must not start with a digit (invalid selector): letter-prefixed key; ids may use the bare hash
+  const k = `d${h}`;
   const t = `${h}-title`;
   const d = `${h}-desc`;
   const parts: string[] = [];
@@ -161,14 +169,14 @@ export function renderDiagram(
   );
   parts.push(`<title id="${t}">${esc(labelText(labels, scene.title_key))}</title>`);
   parts.push(`<desc id="${d}">${esc(labelText(labels, scene.desc_key))}</desc>`);
-  parts.push(markers(h));
+  parts.push(markers(h, k));
   // groups first so they sit behind everything
   const ordered = [...scene.nodes.filter((n) => n.shape === 'group'), ...scene.nodes.filter((n) => n.shape !== 'group')];
-  for (const n of ordered) parts.push(renderNode(n, labelText(labels, n.label.key)));
-  scene.edges.forEach((e, i) => parts.push(renderEdge(e, i, h, labels)));
+  for (const n of ordered) parts.push(renderNode(n, labelText(labels, n.label.key), k));
+  scene.edges.forEach((e, i) => parts.push(renderEdge(e, i, h, k, labels)));
   scene.texts.forEach((tx, i) => {
     const tl = freeTextLayout(labelText(labels, tx.key), tx.literals ?? [], num(tx.x), num(tx.y), tx.anchor);
-    parts.push(textBlock(tl.lines, tl.x, tl.yFirst, tl.anchor, C.ink, owner(`text:${i}`)));
+    parts.push(textBlock(k, tl.lines, tl.x, tl.yFirst, tl.anchor, C.ink, owner(`text:${i}`)));
   });
   parts.push('</svg>');
   return parts.join('');
