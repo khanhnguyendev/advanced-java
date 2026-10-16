@@ -116,6 +116,35 @@ export function diagramAssetProblems(
   return problems;
 }
 
+/**
+ * Noto Serif SC is only an async chunk (CjkFont): no built HTML may link a stylesheet that declares an
+ * `@font-face` for it. `/_next/static/...` hrefs resolve under `<nextDir>/static/...`.
+ */
+export function cjkSheetProblems(htmlRoot: string, nextDir: string): string[] {
+  if (!existsSync(htmlRoot)) return [];
+  const files: string[] = [];
+  walkHtml(htmlRoot, files);
+  const sheets = new Set<string>();
+  for (const f of files) {
+    for (const m of readFileSync(f, 'utf8').matchAll(/<link\b[^>]*>/gi)) {
+      const href = /\bhref="([^"]+\.css)(?:\?[^"]*)?"/i.exec(m[0])?.[1];
+      if (href?.startsWith('/_next/')) sheets.add(href.slice('/_next/'.length));
+    }
+  }
+  const problems: string[] = [];
+  if (sheets.size === 0) problems.push(`no linked /_next/ .css stylesheet found in built html under ${htmlRoot}`);
+  for (const rel of sheets) {
+    const file = path.join(nextDir, rel);
+    if (!existsSync(file)) {
+      problems.push(`linked stylesheet ${rel} is missing on disk (${file})`);
+      continue;
+    }
+    const css = readFileSync(file, 'utf8');
+    if (/@font-face\s*\{[^}]*Noto Serif SC/i.test(css)) problems.push(`linked stylesheet ${rel} declares @font-face for Noto Serif SC`);
+  }
+  return problems;
+}
+
 function readJson<T>(file: string): T {
   if (!existsSync(file)) throw new Error(`missing build output: ${file}`);
   return JSON.parse(readFileSync(file, 'utf8')) as T;
@@ -145,6 +174,7 @@ if (path.basename(process.argv[1] ?? '') === 'assert-static-build.ts') {
     allowDynamic: ['/[locale]/[...rest]'],
   }));
   problems.push(...diagramAssetProblems('.next/server/app', prerender.routes, prerender.dynamicRoutes));
+  problems.push(...cjkSheetProblems('.next/server/app', '.next'));
   if (process.env.DIAGRAM_REVIEW !== '1') {
     const replaced: Record<string, Set<string>> = {};
     for (const id of listCollections(root)) replaced[id] = replacedRasters(root, id);

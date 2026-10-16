@@ -2,6 +2,7 @@ import type { Viewport } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import CjkFont from '@/components/CjkFont';
 import { PrefetchLinks } from '@/components/PrefetchLinks';
 import { fontVariables } from '@/app/fonts';
 import { themeScript } from '@/app/theme-script';
@@ -74,6 +75,7 @@ export default async function LocaleLayout({
         </a>
         <NextIntlClientProvider messages={clientMessages}>{children}</NextIntlClientProvider>
         <PrefetchLinks />
+        {locale === 'zh' ? <CjkFont /> : null}
       </body>
     </html>
   );

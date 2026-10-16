@@ -5,19 +5,30 @@ import { resolveHashInDocument } from '@/lib/anchor';
 
 const SLOT = '.diagram-scroll[data-diagram-src]';
 const PENDING = `${SLOT}:not([data-state])`;
+const FETCH_TIMEOUT_MS = 15000;
 const files = new Map<string, Promise<string>>();
 
 function fetchSvg(src: string, low: boolean): Promise<string> {
   let p = files.get(src);
   if (!p) {
-    const init = {
-      ...(typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function' ? { signal: AbortSignal.timeout(15000) } : {}),
-      ...(low ? { priority: 'low' } : {}),
-    } as RequestInit;
-    p = fetch(src, init).then((r) => {
-      if (!r.ok) throw new Error(`diagram ${src}: ${r.status}`);
-      return r.text();
-    });
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let signal: AbortSignal | undefined;
+    if (typeof AbortSignal !== 'undefined' && typeof AbortSignal.timeout === 'function') signal = AbortSignal.timeout(FETCH_TIMEOUT_MS);
+    else if (typeof AbortController === 'function') {
+      // AbortSignal.timeout is missing (older Safari/webviews): same 15s budget by hand
+      const ctl = new AbortController();
+      timer = setTimeout(() => ctl.abort(), FETCH_TIMEOUT_MS);
+      signal = ctl.signal;
+    }
+    const init = { ...(signal ? { signal } : {}), ...(low ? { priority: 'low' } : {}) } as RequestInit;
+    p = fetch(src, init)
+      .then((r) => {
+        if (!r.ok) throw new Error(`diagram ${src}: ${r.status}`);
+        return r.text();
+      })
+      .finally(() => {
+        if (timer !== undefined) clearTimeout(timer);
+      });
     p.catch(() => files.delete(src));
     files.set(src, p);
   }
@@ -27,6 +38,13 @@ function fetchSvg(src: string, low: boolean): Promise<string> {
 /** True between beforeprint (or print media matching) and afterprint: injections run at once. */
 let printing = false;
 const waiting = new Set<() => void>();
+/** Cancels for frame callbacks and idle gaps still pending; run on unmount. */
+const cancellers = new Set<() => void>();
+
+/** Drops every pending frame callback and idle gap (their awaiting loads resume without injecting). */
+function cancelPending(): void {
+  for (const c of Array.from(cancellers)) c();
+}
 
 /** Runs every injection still waiting for a frame (print must not wait on rAF). */
 function flushFrames(): void {
@@ -34,22 +52,35 @@ function flushFrames(): void {
 }
 
 /** Runs fn on the next frame, but never hangs: hidden tabs and missing rAF run it now, else a 100ms timer backs it up. */
-function nextFrame(fn: () => void): void {
+function nextFrame(fn: () => void, onCancel: () => void = () => {}): void {
   if (printing || typeof requestAnimationFrame !== 'function' || document.visibilityState === 'hidden') {
     fn();
     return;
   }
   let done = false;
-  const run = () => {
-    if (!done) {
-      done = true;
-      waiting.delete(run);
-      fn();
-    }
+  let raf: number | undefined;
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const settle = () => {
+    done = true;
+    waiting.delete(run);
+    cancellers.delete(cancel);
+    if (timer !== undefined) clearTimeout(timer);
+    if (raf !== undefined && typeof cancelAnimationFrame === 'function') cancelAnimationFrame(raf);
   };
+  function run() {
+    if (done) return;
+    settle();
+    fn();
+  }
+  function cancel() {
+    if (done) return;
+    settle();
+    onCancel();
+  }
   waiting.add(run);
-  requestAnimationFrame(run);
-  setTimeout(run, 100);
+  cancellers.add(cancel);
+  raf = requestAnimationFrame(run);
+  timer = setTimeout(run, 100);
 }
 
 const CLEANUP = ['aria-busy', 'role', 'aria-label', 'style'];
@@ -75,13 +106,28 @@ export async function loadDiagram(el: HTMLElement, low = false, immediate = fals
       el.dataset.state = 'loaded';
     };
     if (immediate) inject();
-    else
-      await new Promise<void>((resolve) =>
-        nextFrame(() => {
-          inject();
-          resolve();
-        }),
+    else {
+      const injected = await new Promise<boolean>((resolve, reject) =>
+        nextFrame(
+          () => {
+            // a throw here must reject (-> <img> fallback), not leave the awaiting batch pending forever
+            try {
+              inject();
+              resolve(true);
+            } catch (e) {
+              reject(e);
+            }
+          },
+          () => resolve(false),
+        ),
       );
+      if (!injected) {
+        // cancelled by unmount: leave the slot pending for a remount
+        delete el.dataset.state;
+        el.removeAttribute('aria-busy');
+        return;
+      }
+    }
   } catch {
     const img = document.createElement('img');
     img.src = src;
@@ -105,8 +151,19 @@ interface Conn {
 
 function idleGap(): Promise<void> {
   return new Promise((resolve) => {
-    if (typeof window.requestIdleCallback === 'function') window.requestIdleCallback(() => resolve(), { timeout: 1000 });
-    else setTimeout(resolve, 50);
+    let id: number | ReturnType<typeof setTimeout>;
+    const done = () => {
+      cancellers.delete(cancel);
+      resolve();
+    };
+    const useIdle = typeof window.requestIdleCallback === 'function';
+    const cancel = () => {
+      if (useIdle && typeof window.cancelIdleCallback === 'function') window.cancelIdleCallback(id as number);
+      else clearTimeout(id as ReturnType<typeof setTimeout>);
+      done();
+    };
+    cancellers.add(cancel);
+    id = useIdle ? window.requestIdleCallback(done, { timeout: 1000 }) : setTimeout(done, 50);
   });
 }
 
@@ -215,6 +272,7 @@ export function LazyDiagrams() {
     return () => {
       stopped = true;
       printing = false;
+      cancelPending();
       window.removeEventListener('load', onLoad);
       window.removeEventListener('afterprint', onAfterPrint);
       if (idleId !== undefined && typeof window.cancelIdleCallback === 'function') window.cancelIdleCallback(idleId);

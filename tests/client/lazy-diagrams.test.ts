@@ -156,6 +156,117 @@ describe('injection and timeouts', () => {
   });
 });
 
+describe('hardening', () => {
+  const el0 = () => document.querySelector<HTMLElement>('.diagram-scroll')!;
+
+  it('falls back to <img> when the svg injection throws inside the frame callback', async () => {
+    const { loadDiagram } = await load();
+    stubFetch({ ok: true, status: 200, body: SVG });
+    vi.stubGlobal('requestAnimationFrame', (cb: FrameRequestCallback) => setTimeout(() => cb(0), 0));
+    const el = el0();
+    const real = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML')!;
+    Object.defineProperty(el, 'innerHTML', {
+      configurable: true,
+      set() {
+        throw new Error('boom');
+      },
+      get: () => real.get!.call(el),
+    });
+    await loadDiagram(el);
+    expect(el.dataset.state).toBe('error');
+    expect(el.querySelector('img')).not.toBeNull();
+  });
+
+  it('cancels pending frame callbacks on unmount and leaves the slot pending', async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('IntersectionObserver', class { observe() {} unobserve() {} disconnect() {} });
+    const raf = vi.fn(() => 7);
+    const caf = vi.fn();
+    vi.stubGlobal('requestAnimationFrame', raf);
+    vi.stubGlobal('cancelAnimationFrame', caf);
+    const { LazyDiagrams: C, loadDiagram } = await load();
+    stubFetch({ ok: true, status: 200, body: SVG });
+    const r = render(createElement(C));
+    const el = el0();
+    const p = loadDiagram(el);
+    await vi.advanceTimersByTimeAsync(0);
+    expect(el.dataset.state).toBe('loading');
+    r.unmount();
+    await p;
+    expect(caf).toHaveBeenCalledWith(7);
+    await vi.advanceTimersByTimeAsync(500);
+    expect(el.querySelector('svg')).toBeNull();
+    expect(el.dataset.state).toBeUndefined();
+  });
+
+  it('cancels a pending idle gap on unmount', async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal('IntersectionObserver', class { observe() {} unobserve() {} disconnect() {} });
+    document.body.innerHTML = slot(201) + slot(202);
+    const rs = Object.getOwnPropertyDescriptor(document, 'readyState');
+    const cic = Object.getOwnPropertyDescriptor(window, 'cancelIdleCallback');
+    try {
+      Object.defineProperty(document, 'readyState', { value: 'complete', configurable: true });
+      const cancelIdle = vi.fn();
+      let next = 100;
+      let first = true;
+      const idle = vi.fn((cb: () => void) => {
+        if (first) {
+          first = false;
+          cb();
+          return 1;
+        }
+        return next++;
+      });
+      Object.defineProperty(window, 'requestIdleCallback', { value: idle, configurable: true });
+      Object.defineProperty(window, 'cancelIdleCallback', { value: cancelIdle, configurable: true });
+      const { LazyDiagrams: C } = await load();
+      const f = stubFetch({ ok: true, status: 200, body: SVG });
+      const r = render(createElement(C));
+      await vi.advanceTimersByTimeAsync(200);
+      // prefill loaded both slots and is parked in idleGap, whose requestIdleCallback returned 100
+      expect(f).toHaveBeenCalledTimes(2);
+      expect(idle).toHaveBeenCalledTimes(2);
+      expect(idle.mock.results[1].value).toBe(100);
+      r.unmount();
+      expect(cancelIdle).toHaveBeenCalledWith(100);
+      await vi.advanceTimersByTimeAsync(500);
+      expect(f).toHaveBeenCalledTimes(2);
+    } finally {
+      if (rs) Object.defineProperty(document, 'readyState', rs);
+      else delete (document as { readyState?: unknown }).readyState;
+      if (cic) Object.defineProperty(window, 'cancelIdleCallback', cic);
+      else delete (window as { cancelIdleCallback?: unknown }).cancelIdleCallback;
+    }
+  });
+
+  it('uses an AbortController + 15s timer when AbortSignal.timeout is unavailable', async () => {
+    vi.useFakeTimers();
+    const orig = AbortSignal.timeout;
+    // @ts-expect-error simulate an older engine
+    delete AbortSignal.timeout;
+    try {
+      const { loadDiagram } = await load();
+      let signal: AbortSignal | undefined;
+      vi.stubGlobal('fetch', vi.fn((_u: string, init: RequestInit) => {
+        signal = init.signal ?? undefined;
+        return new Promise((_res, rej) => signal?.addEventListener('abort', () => rej(new DOMException('aborted', 'AbortError'))));
+      }));
+      const el = el0();
+      const p = loadDiagram(el);
+      await vi.advanceTimersByTimeAsync(14999);
+      expect(signal).toBeDefined();
+      expect(signal!.aborted).toBe(false);
+      await vi.advanceTimersByTimeAsync(2);
+      await p;
+      expect(signal!.aborted).toBe(true);
+      expect(el.dataset.state).toBe('error');
+    } finally {
+      AbortSignal.timeout = orig;
+    }
+  });
+});
+
 describe('background prefill', () => {
   const many = () => {
     document.body.innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => slot(100 + i)).join('');

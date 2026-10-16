@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { replacedRasterProblems, checkStaticBuild, strictManifestProblems, type StaticCheckInput } from '../../scripts/assert-static-build';
+import { cjkSheetProblems, replacedRasterProblems, checkStaticBuild, strictManifestProblems, type StaticCheckInput } from '../../scripts/assert-static-build';
 
 const good: StaticCheckInput = {
   prerenderedRoutes: {
@@ -95,5 +95,38 @@ describe('diagramAssetProblems', () => {
     ]);
     expect(diagramAssetProblems(dir, routes, {})[0]).toContain('not statically generated');
     expect(diagramAssetProblems(dir, routes, { '/diagram-svg/[file]': { fallback: null } })[0]).toContain('fallback=null');
+  });
+});
+
+describe('cjkSheetProblems', () => {
+  const setup = (css: string) => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'cjk-'));
+    mkdirSync(path.join(dir, 'server/app'), { recursive: true });
+    mkdirSync(path.join(dir, 'static/css'), { recursive: true });
+    writeFileSync(path.join(dir, 'static/css/a.css'), css);
+    writeFileSync(
+      path.join(dir, 'server/app/en.html'),
+      '<html><head><link rel="stylesheet" href="/_next/static/css/a.css?dpl=1"/></head></html>',
+    );
+    return dir;
+  };
+  it('passes when no linked sheet declares Noto Serif SC', () => {
+    const dir = setup("@font-face{font-family:'Source Serif 4';src:url(x.woff2)}");
+    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir)).toEqual([]);
+  });
+  it('fails when a linked sheet declares @font-face for Noto Serif SC', () => {
+    const dir = setup("@font-face{font-family:'Noto Serif SC';src:url(x.woff2)}");
+    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir).join('\n')).toMatch(/Noto Serif SC/);
+  });
+  it('fails when no linked stylesheet is found in the built html', () => {
+    const dir = mkdtempSync(path.join(os.tmpdir(), 'cjk-'));
+    mkdirSync(path.join(dir, 'server/app'), { recursive: true });
+    writeFileSync(path.join(dir, 'server/app/en.html'), '<html><head></head></html>');
+    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir).join('\n')).toMatch(/no linked/);
+  });
+  it('fails when a linked stylesheet is missing on disk', () => {
+    const dir = setup('a{}');
+    rmSync(path.join(dir, 'static/css/a.css'));
+    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir).join('\n')).toMatch(/missing on disk/);
   });
 });

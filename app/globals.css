@@ -123,7 +123,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .doc-col > .prose { max-width: none; margin-inline: 0; }
 .prose { max-width: var(--measure); margin-inline: auto; min-width: 0; overflow-wrap: break-word; }
 .doc-header h1 { font-size: clamp(1.6rem, 6vw, 2.25rem); line-height: 1.25; margin: 0.25rem 0 0.75rem; text-wrap: balance; overflow-wrap: anywhere; }
-.doc-header h1:lang(zh), .prose:lang(zh) { font-family: var(--font-cjk), 'Noto Serif SC', 'Songti SC', serif; }
+.doc-header h1:lang(zh), .prose:lang(zh) { font-family: var(--font-cjk, 'Noto Serif SC'), 'Songti SC', serif; }
 .prose:lang(zh) { line-height: 1.9; max-width: 38em; }
 .prose h2, .prose h3, .prose h4 { scroll-margin-top: calc(var(--topbar-h) + 1rem); }
 .prose a { color: var(--accent); text-decoration-color: var(--accent); }
@@ -138,8 +138,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   .diagram-scroll[data-diagram-src]:not([data-state="error"]):not([data-state="loaded"]) { background: color-mix(in srgb, var(--grid) 35%, transparent); border-radius: 2px; }
 }
 @media screen and (prefers-reduced-motion: no-preference) {
-  .diagram-scroll[data-state="loaded"] { animation: diagram-tint-out 160ms ease-out both; }
   .diagram-scroll[data-state="loaded"] > svg { animation: diagram-in 160ms ease-out; }
+  /* the tint only exists under (scripting: enabled); without it there is nothing to fade out, so no flash */
+  @media (scripting: enabled) {
+    .diagram-scroll[data-state="loaded"] { animation: diagram-tint-out 160ms ease-out both; }
+  }
   @keyframes diagram-in { from { opacity: 0; } to { opacity: 1; } }
   @keyframes diagram-tint-out { from { background-color: color-mix(in srgb, var(--grid) 35%, transparent); } to { background-color: transparent; } }
 }

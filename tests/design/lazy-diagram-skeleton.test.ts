@@ -40,4 +40,15 @@ describe('diagram loading skeleton', () => {
   it('has no reduced-motion override fighting the tint', () => {
     expect(css).not.toMatch(/prefers-reduced-motion: reduce\) {[^}]*diagram-scroll/);
   });
+
+  it('runs the tint fade-out only where the tint exists (scripting: enabled)', () => {
+    const inner = blockAt(motion);
+    const nested = inner.indexOf('@media (scripting: enabled)');
+    expect(nested).toBeGreaterThan(-1);
+    const guarded = blockAt(motion + css.slice(motion).indexOf('@media (scripting: enabled)'));
+    expect(guarded).toContain('diagram-tint-out');
+    // no unguarded use of the tint animation outside that nested block
+    const outside = inner.replace(guarded, '');
+    expect(outside.match(/animation:\s*diagram-tint-out/g)).toBeNull();
+  });
 });

@@ -23,6 +23,8 @@ import { contentRoot, listCollections, listDocs, loadCollection } from '@/lib/co
 import { creditFor, loadCredits } from '@/lib/content/credits';
 import { availableLocales, resolveDoc, zhHashOf } from '@/lib/content/fallback';
 import { docTitleOf } from '@/lib/content/title';
+import CjkFont from '@/components/CjkFont';
+import { needsCjkFont } from '@/lib/cjk';
 import { headingsFor } from '@/lib/content/headings-index';
 import { LOCALES, type CollectionConfig, type Locale } from '@/lib/content/types';
 import { buildNav, flatDocs } from '@/lib/nav';
@@ -164,6 +166,8 @@ export default async function DocPage({
 
   return (
     <div className="shell">
+      {/* the zh layout mounts CjkFont; en/vi pages that fall back to zh content need it here */}
+      {needsCjkFont(loc, contentLang, titleLang) ? <CjkFont /> : null}
       <JsonLd data={articleLd} />
       <JsonLd data={crumbs} />
       <div className="topbar-slot">
