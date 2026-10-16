@@ -118,15 +118,31 @@ describe('cjkSheetProblems', () => {
     const dir = setup("@font-face{font-family:'Noto Serif SC';src:url(x.woff2)}");
     expect(cjkSheetProblems(path.join(dir, 'server/app'), dir).join('\n')).toMatch(/Noto Serif SC/);
   });
-  it('fails when no linked stylesheet is found in the built html', () => {
+  it('returns no problem when no linked stylesheet is found', () => {
     const dir = mkdtempSync(path.join(os.tmpdir(), 'cjk-'));
     mkdirSync(path.join(dir, 'server/app'), { recursive: true });
     writeFileSync(path.join(dir, 'server/app/en.html'), '<html><head></head></html>');
-    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir).join('\n')).toMatch(/no linked/);
+    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir)).toEqual([]);
   });
-  it('fails when a linked stylesheet is missing on disk', () => {
+  it('skips a linked stylesheet that is missing on disk', () => {
     const dir = setup('a{}');
     rmSync(path.join(dir, 'static/css/a.css'));
-    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir).join('\n')).toMatch(/missing on disk/);
+    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir)).toEqual([]);
+  });
+  it('resolves an absolute-URL href', () => {
+    const dir = setup("@font-face{font-family:'Noto Serif SC';src:url(x.woff2)}");
+    writeFileSync(
+      path.join(dir, 'server/app/en.html'),
+      '<html><head><link rel="stylesheet" href="https://x.vercel.app/_next/static/css/a.css?dpl=1"/></head></html>',
+    );
+    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir).join('\n')).toMatch(/Noto Serif SC/);
+  });
+  it('resolves a static/immutable path via the fallback', () => {
+    const dir = setup("@font-face{font-family:'Noto Serif SC';src:url(x.woff2)}");
+    writeFileSync(
+      path.join(dir, 'server/app/en.html'),
+      '<html><head><link rel="stylesheet" href="/_next/static/immutable/css/a.css"/></head></html>',
+    );
+    expect(cjkSheetProblems(path.join(dir, 'server/app'), dir).join('\n')).toMatch(/Noto Serif SC/);
   });
 });
